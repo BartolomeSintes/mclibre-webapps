@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="222.48505"
+   height="223.70329"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="estrella_4.svg"
+   inkscape:export-filename="D:\Downloads\estrella_2.png"
+   inkscape:export-xdpi="24.836803"
+   inkscape:export-ydpi="24.836803">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient5239">
+      <stop
+         style="stop-color:#7f2aff;stop-opacity:1;"
+         offset="0"
+         id="stop5241" />
+      <stop
+         style="stop-color:#7f2aff;stop-opacity:0;"
+         offset="1"
+         id="stop5243" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5211">
+      <stop
+         style="stop-color:#0000ff;stop-opacity:1"
+         offset="0"
+         id="stop5213" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop5215" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3763">
+      <stop
+         style="stop-color:#d40000;stop-opacity:1;"
+         offset="0"
+         id="stop3765" />
+      <stop
+         style="stop-color:#d40000;stop-opacity:0;"
+         offset="1"
+         id="stop3767" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3763"
+       id="linearGradient3769"
+       x1="-20.806839"
+       y1="534.66772"
+       x2="379.95172"
+       y2="534.66772"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5211"
+       id="linearGradient5217"
+       x1="355.88773"
+       y1="895.54877"
+       x2="451.42859"
+       y2="529.83447"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5211"
+       id="linearGradient5225"
+       gradientUnits="userSpaceOnUse"
+       x1="355.88773"
+       y1="895.54877"
+       x2="451.42859"
+       y2="529.83447" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3763"
+       id="radialGradient5265"
+       cx="108.57143"
+       cy="139.36517"
+       fx="108.57143"
+       fy="139.36517"
+       r="173.01395"
+       gradientTransform="matrix(1,0,0,0.95703852,0,5.9873343)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.5857143"
+     inkscape:cx="111.23813"
+     inkscape:cy="111.85793"
+     inkscape:document-units="px"
+     inkscape:current-layer="a5219"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="962"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="5"
+     fit-margin-left="5"
+     fit-margin-right="5"
+     fit-margin-bottom="5" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-29.260222,-318.14869)">
+    <a
+       id="a5219">
+      <path
+         sodipodi:type="star"
+         style="opacity:0.98999999;fill:url(#radialGradient5265);fill-opacity:1;stroke:#000000;stroke-width:8.57781506;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="path5229"
+         sodipodi:sides="10"
+         sodipodi:cx="108.57143"
+         sodipodi:cy="139.36517"
+         sodipodi:r1="169.74803"
+         sodipodi:r2="103.91883"
+         sodipodi:arg1="0.61165642"
+         sodipodi:arg2="0.54283079"
+         inkscape:flatsided="false"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="M 247.5438,236.83863 197.55191,193.04568 163.70898,299.90876 149.00554,235.09503 58.813487,301.65671 85.014708,240.57883 -27.076162,241.4148 30.021746,207.40245 -61.153043,142.1934 5.0320917,148.23814 -30.400945,41.891719 19.590945,85.684662 53.433875,-21.178418 68.137317,43.635313 158.32937,-22.92636 132.12815,38.151516 244.21901,37.315548 187.12111,71.327896 278.2959,136.53694 212.11076,130.4922 z"
+         transform="matrix(0.57549217,0.09288983,-0.0928813,0.57540934,90.960768,339.71686)"
+         inkscape:transform-center-x="2.8735808"
+         inkscape:transform-center-y="-14.336279"
+         inkscape:export-filename="D:\Downloads\estrella_2.png"
+         inkscape:export-xdpi="25.789698"
+         inkscape:export-ydpi="25.789698" />
+    </a>
+  </g>
+</svg>
