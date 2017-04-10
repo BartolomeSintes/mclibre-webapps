@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Elgg. Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../../../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Exámenes - Elgg 2.3.1</h1>
+
+    <nav>
+      <p>
+        <a href="../../../index.html"><img src="../../../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../../../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>Examen Elgg</h2>
+
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1. Instalar</a></li>
+          <li><a href="#ejercicio-2">2. Configuración del sitio</a></li>
+          <li><a href="#ejercicio-3">3. Crear elementos</a></li>
+          <li><a href="#ejercicio-4">4. Página de entrada</a></li>
+          <li><a href="#ejercicio-5">5. Idiomas</a></li>
+          <li><a href="#ejercicio-6">6. Modificar el estilo</a></li>
+          <li><a href="#ejercicio-7">7. Crear nuevo estilo</a></li>
+          <li><a href="#ejercicio-8">8. Alias</a></li>
+          <li><a href="#ejercicio-9">9. Copia de seguridad</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p>En este ejercicio hay que acabar entregando una carpeta con el <strong>nombre del alumno</strong> y que contenga:</p>
+    <ul>
+      <li>las capturas de pantalla (que se llamen nombre_alumno_XXY.png donde X sea el número de ejercicio e Y el número de captura del ejercicio).</li>
+      <li>el fichero <strong>estilo.txt</strong> del ejercicio 6.</li>
+      <li>el fichero <strong>alias.txt</strong> del ejercicio 8.</li>
+      <li>la copia de seguridad de los datos de la aplicación del ejercicio 9.</li>
+      <li>la carpeta de la aplicación (comprimida en un zip) del ejercicio 9.</li>
+    </ul>
+
+    <p><img src="../../../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /> En los enunciados de los ejercicios se muestran capturas parciales como ayuda, pero las capturas que se entreguen en el examen deben ser capturas de <strong>toda la pantalla</strong>.</p>
+
+    <p><img src="../../../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /> No cree el alias antes de instalar la aplicación.</p>
+
+    <section id="ejercicio-1">
+      <h2>1. Instalar (1 punto)</h2>
+
+      <ul>
+        <li>Elgg es una plataforma de creación de redes sociales
+          <p>Aplicación: <a href="http://www.mclibre.org/descargar/webapps/1617/elgg-2.3.1.zip">Elgg 1.7.9 (14/02/17)</a>. Página web: <a href="https://elgg.org/">Elgg</a></p>
+        </li>
+        <li>Descomprima <strong>Elgg</strong> (llame a la carpeta <strong>/elgg</strong>).</li>
+        <li>Entre en phpMyAdmin como usuario <strong>root</strong> y cree un usuario de MySQL con nombre <strong>iaw_elgg_1</strong>, contraseña <strong>iaw_elgg_1</strong> y base de datos <strong>iaw_elgg_1</strong>.</li>
+        <li>Abra en el navegador <strong>/elgg</strong> e instale Elgg creando el usuario administrador con nombre de usuario <strong>admin</strong> y contraseña <strong>adminadmin</strong> (y escriba su nombre real como nombre a mostrar)</li>
+        <li>Modifique el archivo necesario para eliminar el aviso de instalación
+          <p><strong>Ayuda</strong>: Este problema aparecía también en la instalación de Drupal.</p>
+          <p class="captura"><img alt="Elgg" src="elgg_1_1.png" width="991" height="190" /></p></li>
+        <li>Haga una captura una vez resuelto el problema</li>
+        <li>Configuración del sitio:
+          <ul>
+            <li>Site Name: <span class="resaltado">Comunidad WebApps</span></li>
+            <li>Data directory: <span class="resaltado">data</span></li>
+            <li>Default site acces: <span class="resaltado">Public</span></li>
+          </ul>
+        </li>
+        <li>Haga una captura nada más terminar la instalación:
+          <p class="captura"><img alt="Elgg" src="elgg_1_3.png" width="991" height="170" /></p>
+      </ul>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>2. Configuración del sitio (1 punto)</h2>
+
+      <ul>
+        <li>Cambie el idioma del sitio al español e impida la entrada al sitio y el registro a usuarios no registrados:</li>
+        <li>Haga una captura con el resultado:
+          <p class="captura"><img alt="Elgg" src="elgg_2_1.png" width="991" height="350" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>3. Crear elementos (1,5 puntos)</h2>
+
+      <ul>
+        <li>Cree una página:
+          <p class="captura"><img alt="Elgg" src="elgg_3_1.png" width="991" height="120" /></p>
+        </li>
+        <li>Cree dos usuarios no administradores, con contraseña igual a su nombre de usuario:
+          <p class="captura"><img alt="Elgg" src="elgg_3_2.png" width="740" height="180" /></p>
+          <p>Imágenes de usuarios:
+            <img alt="Usuario" src="usuario_admin_128.png" width="128" height="128" />
+            <img alt="Usuario" src="usuario_drupal_128.png" width="112" height="128" />
+            <img alt="Usuario" src="usuario_wordpress_128.png" width="128" height="128" />
+          </p>
+        </li>
+        <li>Cree un grupo de expertos e incluya al Sr Drupal y a la Sra WordPress en él:
+          <p class="captura"><img alt="Elgg" src="elgg_3_3.png" width="545" height="238" /></p>
+          <p>Imagen del grupo: <img alt="Grupo" src="grupo_expertos.png" width="128" height="128" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>4. Modificar la página de entrada (1,25 puntos)</h2>
+
+      <ul>
+        <li>Incluya las páginas Acerca de, Términos y Privacidad en la página principal:
+          <p class="captura"><img alt="Elgg" src="elgg_4_1.png" width="991" height="340" /></p>
+        </li>
+        <li>Haga dos capturas:
+          <ul>
+            <li>de la página en la que ha añadido estas páginas</li>
+            <li>del resultado</li>
+          </ul>
+        </li>
+        <li>Escriba contenido en la página Acerca de:
+          <p class="captura"><img alt="Elgg" src="elgg_4_2.png" width="991" height="180" /></p>
+        </li>
+        <li>Haga dos capturas:
+          <ul>
+            <li>de la página en la que ha editado esta página</li>
+            <li>del resultado</li>
+          </ul>
+        </li>
+        <li>Edite el fichero php necesario para eliminar las páginas Términos y Privacidad de la página principal:
+          <p class="captura"><img alt="Elgg" src="elgg_4_3.png" width="991" height="340" /></p>
+        </li>
+        <li>Haga una captura del resultado</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>5. Idiomas (1,25 puntos)</h2>
+
+      <ul>
+        <li>Mejore la traducción al español:
+          <p class="captura"><img alt="Elgg" src="elgg_5_1.png" width="991" height="120" /></p>
+        </li>
+        <li>Haga dos capturas:
+          <ul>
+            <li>del fichero en el que ha mejorado la traducción</li>
+            <li>del resultado</li>
+          </ul>
+        </li>
+        <li>Mejore la traducción al español:
+          <p class="captura"><img alt="Elgg" src="elgg_5_2.png" width="991" height="160" /></p>
+        </li>
+        <li>Haga dos capturas:
+          <ul>
+            <li>del fichero en el que ha mejorado la traducción</li>
+            <li>del resultado</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-6">
+      <h2>6. Modificar el estilo (1,25 puntos)</h2>
+
+      <ul>
+        <li>Modifique el estilo predeterminado de Elgg
+          <p class="captura">
+            <img alt="Elgg" src="elgg_6_1.png" width="991" height="680" />
+            <img alt="Elgg" src="elgg_6_2.png" width="991" height="680" />
+          </p>
+        </li>
+        <li><strong>Notas</strong>:
+          <ul>
+            <li>El color utilizado es el green</li>
+            <li>Las reglas se pueden escribir al final de la hoja de estilo</li>
+            <li>Es necesario Limpiar la caché para comprobar los cambios</li>
+            <li>No edite ficheros temporales (en /cache)</li>
+          </ul>
+        </li>
+        <li>Haga una captura mostrando el resultado.</li>
+        <li>Cree un fichero <strong>estilo.txt</strong> con las reglas añadidas.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-7">
+      <h2>7. Crear nuevo estilo (1,25 puntos)</h2>
+
+      <ul>
+        <li>Cree un nuevo tema con su nombre.</li>
+        <li>El tema se mostrará al final de la lista:
+          <p class="captura"><img alt="Elgg" src="elgg_7_1.png" width="723" height="160" /></p>
+          <p><strong>Nota</strong>: Los mensajes de error que se muestran en esta página le ayudarán a saber los ficheros que debe modificar.</p>
+        </li>
+        <li>Haga una captura.</li>
+        <li>Active el tema con su nombre y desactive el tema por defecto:
+          <p class="captura"><img alt="Elgg" src="elgg_7_2.png" width="723" height="160" /></p>
+          <p><strong>Nota</strong>: Si el navegador no muestra nada, detenga y actualice la página para ver el motivo del error.</p>
+        </li>
+        <li>Haga una captura.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-8">
+      <h2>8. Alias (1 punto)</h2>
+
+      <ul>
+        <li>Cree un alias para poder acceder a Elgg mediante la dirección <strong>http://localhost/elgg</strong>.</li>
+        <li>Escriba un fichero <strong>alias.txt</strong> con el alias que ha creado.</li>
+        <li>Entre como usuario administrador.</li>
+        <li>Haga el cambio necesario para que se mantenga la dirección <strong>http://localhost/elgg</strong>.</li>
+        <li>Haga una captura mostrando que funciona el alias.</li>
+        <li>Describa brevemente en el fichero <strong>alias.txt</strong> cómo lo ha conseguido.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-9">
+      <h2>9. Copia de seguridad (0,5 puntos)</h2>
+      <ul>
+        <li>Como usuario <strong>iaw_elgg_1</strong> haga una copia de seguridad de la base de datos <strong>iaw_elgg_1</strong>.</li>
+        <li>Comprima la carpeta de la aplicación completa.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 28 de febrero de 2017</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

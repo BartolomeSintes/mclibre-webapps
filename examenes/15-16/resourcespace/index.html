@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>ResourceSpace. Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../../../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Exámenes - ResourceSpace</h1>
+
+    <nav>
+      <p>
+        <a href="../../../index.html"><img src="../../../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../../../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>Examen ResourceSpace</h2>
+
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1. Instalar</a></li>
+          <li><a href="#ejercicio-2">2. Nombre, logo y favicon</a></li>
+          <li><a href="#ejercicio-3">3. Crear dos usuarios más</a></li>
+          <li><a href="#ejercicio-4">4. Subir medios</a></li>
+          <li><a href="#ejercicio-5">5. Traducción al español</a></li>
+          <li><a href="#ejercicio-6">6. Fondo de aplicación</a></li>
+          <li><a href="#ejercicio-7">7. Compartir un recurso</a></li>
+          <li><a href="#ejercicio-8">8. Cambiar aspecto visual</a></li>
+          <li><a href="#ejercicio-9">9. Alias</a></li>
+          <li><a href="#ejercicio-10">10. Copia de seguridad</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p>En este ejercicio hay que acabar entregando una carpeta con el <strong>nombre del alumno</strong> y que contenga:</p>
+    <ul>
+      <li>las capturas de pantalla (que se llamen nombre_alumno_XXY.png donde X sea el número de ejercicio e Y el número de captura del ejercicio).</li>
+      <li>el fichero <strong>favicon.txt </strong>del ejercicio 2.</li>
+      <li>copias de las hojas de estilo modificadas en el ejercicio 8.</li>
+      <li>el fichero <strong>alias.txt</strong> del ejercicio 9.</li>
+      <li>la copia de seguridad de los datos de la aplicación del ejercicio 10.</li>
+      <li>la carpeta de la aplicación (comprimida en un zip).</li>
+    </ul>
+
+    <p><img src="../../../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Las capturas deben ser capturas de <strong>toda</strong> la pantalla.</p>
+
+    <p><img src="../../../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Se recomienda hacer estos ejercicios con <strong>Google Chrome</strong>, ya que <strong>Firefox</strong> parece tener problemas con el guardado automático de la aplicación.</p>
+
+    <section id="ejercicio-1">
+      <h2>1. Instalar</h2>
+
+      <ul>
+        <li>ResourceSpace es una aplicación web para guardar y compartir medios digitales.
+          <p>Aplicación: <a href="http://www.mclibre.org/descargar/webapps/1516/ResourceSpace_7_6_7683.zip">ResourceSpace 7.6.7683 (15/02/16)</a>. Página web: <a href="http://www.resourcespace.com/">ResourceSpace</a></p>
+        </li>
+        <li>Imagemagick es un programa de conversión y edición de imágenes de mapa de bits.<br />
+
+          <p>Aplicación: <a href="http://www.mclibre.org/descargar/webapps/1516/ImageMagick-6.9.3-4-Q16-x64-static.exe">Imagemagick 6.9.3.4 (12/02/16)</a>. Página web: <a href="http://www.imagemagick.org/script/index.php">ImageMagick</a></p>
+        </li>
+        <li>FFmpeg es un programa de grabación, conversión y emisión de audio y vídeo.
+          <p>Aplicación: <a href="http://www.mclibre.org/descargar/webapps/1516/ffmpeg-20160216-git-2e8ad2d-win64-static.7z">FFmpeg 2016.02.17</a>. Página web: <a href="https://www.ffmpeg.org/">FFmpeg</a></p>
+        </li>
+        <li>Instale <strong>ImageMagick</strong> en <strong>C:\imagemagick</strong></li>
+        <li>Descomprima <strong>FFmpeg</strong> en <strong>C:\ffmpeg</strong></li>
+        <li>Descomprima <strong>ResourceSpace</strong> (llame a la carpeta <strong>/resourcespace</strong>).</li>
+        <li>Entre en phpMyAdmin como usuario <strong>root</strong> y cree un usuario de MySQL con nombre <strong>iaw_rs_1</strong>, contraseña <strong>iaw_rs_1</strong> y base de datos <strong>iaw_rs_1</strong>.</li>
+        <li>Abra en el navegador <strong>/resourcespace</strong> e inicie la instalación.</li>
+        <li>Resuelva las advertencias iniciales y haga una captura de <strong>toda</strong> la pantalla en la que se vea que se han resuelto las advertencias iniciales:
+          <p class="captura"><img alt="ResourceSpace" src="rs_1_1.png" width="991" height="200" /></p>
+        </li>
+        <li>Instale ResourceSpace creando el usuario administrador <strong>admin</strong> y contraseña <strong>admin00</strong>. Indique el camino a los <strong>ejecutables</strong> de ImageMagick y FFmpeg. Haga una captura de <strong>toda</strong> la pantalla una vez instalado:
+          <p class="captura"><img alt="ResourceSpace" src="rs_1_2.png" width="1008" height="190" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>2. Nombre, logo y favicon del sitio</h2>
+
+      <ul>
+        <li>Cambie el nombre del sitio (<strong>WebApps Gallery</strong>) y el logotipo <img alt="Logotipo del sitio WebApps Gallery" src="webapps_gallery_logo.png" width="272" height="60" />usando el interfaz de la aplicación.</li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla en la que se modifiquen estos valores y del resultado:
+          <p class="captura"><img alt="ResourceSpace" src="rs_2_1.png" width="400" height="150" /></p>
+        </li>
+        <li>Cambie el favicon del sitio <img alt="favicon del sitio WebApps Gallery" src="webapps_favicon.png" width="16" height="13" />.</li>
+        <li>Escriba un fichero <strong>favicon.txt</strong> explicando cómo lo ha hecho.</li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla:
+          <p class="captura"><img alt="ResourceSpace" src="rs_2_2.png" width="400" height="150" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>3. Crear dos usuarios más</h2>
+
+      <ul>
+        <li>Cree un nuevo usuario del tipo General Users:
+          <ul>
+            <li>usuario <strong>wordpress</strong> con contraseña <strong>wordpress0</strong></li>
+          </ul>
+        </li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla de registro del usuario:
+          <p class="captura"><img alt="ResourceSpace" src="rs_3_1.png" width="680" height="250" /></p>
+        </li>
+      </ul>
+      <ul>
+        <li>Haga que las contraseñas de los usuarios puedan tener 6 caracteres y no contener números.</li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla en la que se modifiquen estos requisitos</li>
+        <li>Cree un nuevo usuario del tipo General Users:
+          <ul>
+            <li>usuario <strong>drupal</strong> con contraseña <strong>drupal</strong></li>
+          </ul>
+        </li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla de registro del usuario:
+          <p class="captura"><img alt="ResourceSpace" src="rs_3_2.png" width="680" height="250" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>4. Subir medios</h2>
+
+      <ul>
+        <li>Como usuario <strong>wordppress</strong>, cree la colección <strong>Temas recientes</strong> y suba las imágenes <a href="wp_2016.jpg">Tema WP 2016</a>, <a href="wp_2015.jpg">Tema WP 2015</a> y <a href="wp_2014.jpg">Tema WP 2014</a> </li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando la colección y las imágenes:
+          <p class="captura"><img alt="ResourceSpace" src="rs_4_1.png" width="550" height="270" /></p>
+        </li>
+        <li>Como usuario <strong>drupal</strong>, cree la colección <strong>Vídeos Drupal</strong> y suba el vídeo <a href="drupal_cambio_orientacion_menu.mp4">Cambiar de sitio el menú</a>.
+        </li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando la colección y el vídeo:
+          <p class="captura"><img alt="ResourceSpace" src="rs_4_2.png" width="540" height="270" /></p>
+        </li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla como usuario <strong>admin</strong>, mostrando cómo revisa y/o aprueba los materiales pendientes.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>5. Traducción al español</h2>
+
+      <ul>
+        <li>Complete la traducción del cuadro de búsqueda.
+          <ul>
+            <li>Search using descriptions, keywords and resource numbers ==&gt; Busque en las descripciones, términos clave y números de recurso</li>
+            <li>Photo ==&gt; Fotografía</li>
+            <li>Document ==&gt; Documento</li>
+          </ul>
+          <p><img src="../../../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Las traducciones se hacen en dos sitios distintos, pero en ambos casos en el navegador (sin necesidad de editar ficheros).</p>
+        </li>
+        <li>Haga <strong>dos</strong> capturas de <strong>toda</strong> la pantalla de las páginas en que modifica la traducción.</li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando el cuadro de búsqueda completamente traducido:
+          <p class="captura"><img alt="ResourceSpace" src="rs_5_1.png" width="270" height="365" /></p>
+        </li>
+        <li>Cambie la traducción del mensaje de bienvenida:
+          <ul>
+            <li>Bienvenida/o a Imágenes y Palabras, una herramienta que te permitirá buscar fotografías, vídeos y testimonios entre sus más de xxx materiales. ==&gt; Bienvenido a WebApps Gallery</li>
+          </ul>
+        </li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla de la página en que modifica la traducción.</li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando el mensaje de bienvenida:
+          <p class="captura"><img alt="ResourceSpace" src="rs_5_2.jpg" width="600" height="190" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-6">
+      <h2>6. Fondo de aplicación</h2>
+
+      <ul>
+        <li>Cambie la imagen de fondo utilizando esta <a href="webapps_gallery_fondo_amsterdam.jpg">imagen de Amsterdam</a>.</li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla de la página en que establece el fondo de la aplicación.</li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando la imagen de fondo:
+          <p class="captura"><img alt="ResourceSpace" src="rs_6_1.jpg" width="619" height="350" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-7">
+      <h2>7. Compartir un recurso</h2>
+
+      <ul>
+        <li>Como usuario <strong>drupal</strong>, comparta el vídeo creando un enlace de acceso público.</li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla en la que se genera el enlace.</li>
+        <li>Abra el enlace en otro navegador y haga una captura de <strong>toda</strong> la pantalla:
+          <p class="captura"><img alt="ResourceSpace" src="rs_7_1.png" width="630" height="420" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-8">
+      <h2>8. Cambiar aspecto visual</h2>
+
+      <ul>
+        <li>Cambie el aspecto visual de los cinco elementos marcados en la imagen, modificando las hojas de estilo correspondientes:
+          <p class="captura"><img alt="ResourceSpace" src="rs_9_1.jpg" width="550" height="428" /></p>
+        </li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando estos elementos.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-9">
+      <h2>9. Alias</h2>
+
+      <ul>
+        <li>Cree un alias para poder acceder a ResourceSpace mediante la dirección <strong>http://localhost/resourcespace</strong>.</li>
+        <li>Escriba un fichero <strong>alias.txt</strong> con el alias que ha creado.</li>
+        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando que funciona el alias.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-10">
+      <h2>10. Copia de seguridad</h2>
+      <ul>
+        <li>Como usuario <strong>iaw_rs_1</strong> haga una copia de seguridad de la base de datos.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 21 de febrero de 2016</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>
