@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejercicios (1). Docker. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Docker. Ejercicios (1)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <a href="webapps_docker.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        Docker (1)
+      </h2>
+
+      <h3>Enunciados</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - Instalar Docker</a></li>
+          <li><a href="#ejercicio-2">2 - Instalar OpenCart</a></li>
+          <li><a href="#ejercicio-3">3 - Probar comandos</a></li>
+          <li><a href="#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
+          <li><a href="#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
+        </ul>
+      </div>
+
+      <h3><a href="webapps_docker_1_soluciones.html">Soluciones</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_docker_1_soluciones.html#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
+          <li><a href="webapps_docker_1_soluciones.html#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p>Esta lección es una introducción a la instalación de aplicaciones mediante <strong>Docker</strong>, utilizando las imágenes proporcionadas por Bitnami. Como es la primera vez que trato en clase el uso de Docker, esta lección tiene un carácter "experimental". Los dos primeros ejercicios están planteados como actividades guiadas, por lo que no se ofrece una página de soluciones. Se pueden consultar las <a href="webapps_bitnami_3_soluciones.html">soluciones de los demás ejercicios de Docker (1)</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <section id="ejercicio-1">
+      <h2>Docker (1) 1 - Instalar Docker</h2>
+
+      <p>Estas instrucciones se han extraido de la página <a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">Install Docker on Ubuntu</a></p>
+
+      <p>En este ejercicio instalaremos Docker en una máquina virtual de Ubuntu 16.04 LTS Server ejecutada en VirtualBox.</p>
+
+      <h3>Prepare la máquina virtual</h3>
+
+      <ol>
+        <li>Descargue la imagen iso de la versión más reciente de Ubuntu 16.04 LTS Server de 64 bits.
+          <p>Actualmente (enero de 2017), la última versión disponible de Ubuntu LTS Server es Ubuntu 16.04.1 (21/07/16). <a href="http://releases.ubuntu.com/16.04/">página de descarga</a></p>
+        </li>
+        <li>Cree una máquina virtual en VirtualBox e instale Ubuntu 16.04 LTS Server.
+          <p>Para los ejercicios de esta página un disco duro virtual de 8 GB es suficiente, pero para poder instalar más aplicaciones de páginas de ejercicios posteriores se necesitará un disco mayor, por ejemplo de 16 GB.</p>
+          <p>Compruebe que en la configuración de red de la máquina virtual está conectado a Adaptador puente. Si está conectado a otro tipo de adaptador (probablemente NAT), apague la máquina virtual, cambie a Adaptador puente y reinicie la máquina virtual.</p>
+        </li>
+        <li>Actualice Ubuntu 16.04 LTS Server:
+          <div class="codshell">
+            <pre>sudo apt update
+sudo apt upgrade</pre>
+          </div>
+        </li>
+      </ol>
+
+      <h3>Actualice los repositorios de APT</h3>
+
+      <p>Arranque la máquina virtual y ejecute los comandos siguientes en un terminal:</p>
+
+      <ol>
+        <li>Instale los certificados para trabajar con https:
+          <div class="codshell">
+            <pre>sudo apt update
+sudo apt install apt-transport-https ca-certificates</pre>
+          </div>
+        </li>
+        <li>Añada la nueva clave GPG (escriba todo en una sola línea, sin las contrabarras \):
+          <div class="codshell">
+            <pre>sudo apt-key adv \
+--keyserver hkp://ha.pool.sks-keyservers.net:80 \
+--recv-keys 58118E89F3A912897C070ADBF76221572C52609D</pre>
+          </div>
+        </li>
+        <li>Añada el repositorio correspondiente a su versión de Ubuntu (en el ejemplo se usa xenial, es decir, Ubuntu 16.04):
+          <div class="codshell">
+            <pre>echo deb https://apt.dockerproject.org/repo ubuntu-xenial main | sudo tee /etc/apt/sources.list.d/docker.list</pre>
+          </div>
+        </li>
+        <li>Actualice APT:
+          <div class="codshell">
+            <pre>sudo apt update</pre>
+          </div>
+        </li>
+        <li>Compruebe que APT se conecta con el repositorio adecuado:
+          <div class="codshell">
+            <pre>apt policy docker-engine</pre>
+          </div>
+          <p>En la pantalla debe mostrarse el repositorio de la versión de Ubuntu indicada (en el ejemplo se usa xenial, es decir, Ubuntu 16.04):</p>
+          <div class="codshell">
+            <pre>
+docker-engine:
+    Installed: 1.12.6-0~ubuntu-xenial
+    Candidate: 1.12.6-0~ubuntu-xenial
+    Version table:
+   *** 1.12.6-0~ubuntu-xenial 500
+          500 https://apt.dockerproject.org/repo/ ubuntu-xenial/main amd64 Packages
+          100 /var/lib/dpkg/status
+    ...
+</pre>
+          </div>
+        </li>
+        <li>Actualice APT:
+          <div class="codshell">
+            <pre>sudo apt update</pre>
+          </div>
+        </li>
+      </ol>
+
+      <h3>Instale los paquetes del kernel necesarios</h3>
+
+      <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
+
+      <ol>
+        <li>Actualice el administrador de paquetes:
+          <div class="codshell">
+            <pre>sudo apt update</pre>
+          </div>
+        </li>
+        <li>Instale los paquetes recomendados
+          <div class="codshell">
+            <pre>sudo apt install linux-image-extra-$(uname -r) linux-image-extra-virtual</pre>
+          </div>
+        </li>
+      </ol>
+
+      <h3>Instale Docker</h3>
+
+      <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
+
+      <ol>
+        <li>Actualice el administrador de paquetes:
+          <div class="codshell">
+            <pre>sudo apt update</pre>
+          </div>
+        </li>
+        <li>Instale Docker
+          <div class="codshell">
+            <pre>sudo apt install docker-engine</pre>
+          </div>
+        </li>
+        <li>Arranque el servicio docker
+          <div class="codshell">
+            <pre>sudo service docker start</pre>
+          </div>
+        </li>
+        <li>Compruebe que docker está instalado correctamente ejecutando la imagen hello-world:
+          <div class="codshell">
+            <pre>sudo docker run hello-world</pre>
+          </div>
+          <p>En la pantalla debe mostrarse el repositorio de la versión de Ubuntu indicada (en el ejemplo se usa xenial, es decir, Ubuntu 16.04):</p>
+          <div class="codshell">
+            <pre>
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+...
+</pre>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>Docker (1) 2 - Instalar OpenCart</h2>
+
+      <p>Estas instrucciones se han extraido de la página <a href="https://github.com/bitnami/bitnami-docker-opencart">Bitnami Docker OpenCart</a></p>
+
+      <p>En este ejercicio instalaremos OpenCart en un contenedor Docker.</p>
+
+      <ol>
+        <li>Averigüe la dirección ip de la máquina virtual.</li>
+        <li>Cree una nueva red para la aplicación y la base de datos:
+          <div class="codshell">
+            <pre>sudo docker network create opencart_network</pre>
+          </div>
+        </li>
+        <li>Cree un contenedor para la base de datos MariaDB en la nueva red:
+          <div class="codshell">
+            <pre>sudo docker run -d --name mariadb --net=opencart_network bitnami/mariadb</pre>
+          </div>
+        </li>
+        <li>Cree un contenedor para OpenCart (sustituya AAA.BBB.CCC.DDD por la dirección ip de la máquina virtual):
+          <div class="codshell">
+            <pre>sudo docker run -d -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 80:80 --name opencart --net=opencart_network bitnami/opencart</pre>
+          </div>
+        </li>
+        <li>Compruebe que puede acceder a OpenCart en el navegador escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD</strong>, donde AAA.BBB.CCC.DDD es la dirección ip de la máquina virtual:
+          <p class="captura"><img src="../img/bitnami/3_2_e_1_opencart.jpg" alt="Tienda OpenCart" title="Tienda OpenCart" width="495" height="275" /></p>
+        </li>
+        <li>Compruebe que puede acceder a OpenCart en el navegador escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD/admin</strong>, donde AAA.BBB.CCC.DDD es la dirección ip de la máquina virtual. El usuario administrador de OpenCart es <strong>user</strong> con contraseña <strong>bitnami1</strong>:
+          <p class="captura"><img src="../img/bitnami/3_2_e_2_opencart.png" alt="Administración de OpenCart" title="Administración de OpenCart" width="495" height="275" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>Docker (1) 3 - Probar los comandos de Docker</h2>
+
+      <p>En este ejercicio se trabaja con el OpenCart instalado en el ejercicio anterior.</p>
+
+      <p>Puede consultar la <a href="https://github.com/wsargent/docker-cheat-sheet">Docker Cheat Sheet</a> para obtener información sobre los comandos básicos de Docker.</p>
+
+      <h3>Detener y poner en marcha</h3>
+      <ol>
+        <li>Modifique la tienda OpenCart eliminando alguna categoría del menú principal.</li>
+        <li>Detenga y reinice el contenedor y compruebe que la tienda conserva los cambios. Los comandos que se deben utilizar son:
+          <p>Para ver los contenedores existentes (en marcha o detenidos):</p>
+          <div class="codshell">
+            <pre>sudo docker ps -a</pre>
+          </div>
+          <p>Para detener un contenedor:</p>
+          <div class="codshell">
+            <pre>sudo docker stop CONTENEDOR</pre>
+          </div>
+          <p>Para poner en marcha un contenedor detenido:</p>
+          <div class="codshell">
+            <pre>sudo docker start CONTENEDOR</pre>
+          </div>
+        </li>
+        <li>Detenga y borre el contenedor. Cree un nuevo contendor y compruebe que los cambios se han perdido. Los comandos que se deben utilizar son:
+          <p>Para borrar un contenedor (debe estar detenido primero):</p>
+          <div class="codshell">
+            <pre>sudo docker rm CONTENEDOR</pre>
+          </div>
+          <p><strong>Nota</strong>: La base de datos no se ha borrado, así que se podría cambiar el usuario y contraseña de la tienda para usar la antigua base de datos y recuperar la tienda antigua.</p>
+        </li>
+      </ol>
+
+      <h3>Cambio de IP</h3>
+
+      <p>Si cambiara la IP de la máquina virtual, OpenCart dejaría de funciona correctamente porque en los archivos de configuración de OpenCart se guarda la URL de OpenCart. En clase esto ocurre de vez en cuando, ya que el router de aula está continuamente asignando direcciones. En casa puede ocurrir más raramente.</p>
+
+      <ol>
+        <li>Apague y reinicie la máquina virtual.
+          <ul>
+            <li>Si cambia la IP de la máquina virtual, compruebe que la tienda OpenCart ya no se ve correctamente</li>
+            <li>Si <strong>no</strong> cambia la IP de la máquina virtual, haga el ejercicio sin cambiar la IP, pero así sabrá cómo hacerlo si algún día cambia la IP.</li>
+          </ul>
+        </li>
+        <li>Corrija los archivos de configuración de OpenCart con la nueva IP.
+          <p>La forma más fácil es copiar los archivos de configuración de la imagen al servidor, modificarlos y volverlos a copiar a la imagen</p>
+          <div class="codshell">
+            <pre>sudo docker cp CONTENEDOR:ORIGEN DESTINO</pre>
+          </div>
+
+          <p>Para averiguar el directorio del sistema de ficheros del contenedor en el que se encuentra opencart, puede abrir una sesión en la imagen y buscarlo:</p>
+          <div class="codshell">
+            <pre>sudo docker exec -it CONTENEDOR /bin/bash</pre>
+          </div>
+          <details>
+            <summary><strong>Ayuda</strong></summary>
+            <p>Los ficheros de configuración están en /bitnami/opencart/config.php y /bitnami/opencart/admin/config.php. Los ficheros se pueden copiar en cualquier carpeta fuera del contenedor. Por ejemplo,</p>
+            <div class="codshell">
+              <pre>sudo docker cp opencart:/bitnami/opencart/config.php /tmp/config.php</pre>
+            </div>
+          </details>
+        </li>
+        <li>Compruebe que la tienda OpenCart vuelve a verse correctamente.</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>Docker (1) 4 - Instalar phpMyAdmin</h2>
+
+      <p>En este ejercicio se pide instalar phpMyAdmin en un contenedor Docker.</p>
+
+      <ol>
+        <li>Visite el repositorio de phpMyAdmin de Bitnami en GitHub.</li>
+        <li>En la página principal se indica la orden para crear un contenedor de phpMyAdmin, pero con persistencia. En vez de eso, escriba una orden similar a la del ejercicio 2 que ejecutaba una imagen de OpenCart. Deberá utilizar la IP de la máquina virtual y otro puerto.</li>
+        <li>Compruebe que puede ver la página inicial de conexión de phpMyAdmin en el navegador escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD:PUERTO</strong>, donde AAA.BBB.CCC.DDD es la dirección ip de la máquina virtual y PUERTO es el puerto elegido.</li>
+        <li>Averigüe la contraseña del usuario de OpenCart y entre con phpMyAdmin para ver la base de datos</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>Docker (1) 5 - Instalar dos aplicaciones (OPTATIVO)</h2>
+
+      <p>En este ejercicio se pide instalar phpMyAdmin y OpenCart en el mismo servidor, como en el ejercicio anterior, pero con el objetivo de hacerlo accesibles mediante las URLs <strong>http://AAA.BBB.CCC.DDD/phpmyadmin</strong> y <strong>http://AAA.BBB.CCC.DDD/opencart</strong>. Eso se puede hacer creando contenedores a los que se acceda por puertos distintos al 80 y creando un contenedor que actue de proxy inverso en el puerto 80 y reenvie la peticiones a cada contenedor.</p>
+
+      <ol>
+        <li>Cree un contenedor de phpMyAdmin que escuche en un puerto distinto del puerto 80.</li>
+        <li>Compruebe que puede acceder a phpMyAdmin desde el host.</li>
+        <li>Cree un contenedor de OpenCart que escuche en un puerto distinto del puerto 80 y distinto del puerto de phpMyAdmin.</li>
+        <li>Compruebe que puede acceder a OpenCart desde el host.</li>
+        <li>Cree un contenedor del proxy inverso nginx (<a href="https://github.com/bitnami/bitnami-docker-nginx">imagen de nginx de Bitnami</a>) y configúrelo para funcionar como proxy inverso de manera que /phpmyadmin y /opencart redirijan a los puertos de cada aplicación.
+          <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Este apartado no he llegado a hacerlo, se supone que es posible hacerlo</p>
+          <p>Referencias:</p>
+          <ul>
+            <li><a href="http://stackoverflow.com/questions/36393734/mulitple-docker-containers-on-port-80-with-same-domain">Consulta en stackoverflow</a></li>
+            <li>Otra <a href="https://github.com/jwilder/nginx-proxy">imagen de nginx especializada para proxys inversos</a></li>
+            <li><a href="https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-and-use-nginx-as-a-proxy">How To Containerize and Use Nginx as a Proxy </a></li>
+          </ul>
+        </li>
+        <li>Compruebe que puede acceder a ambas aplicaciones desde el host con las URLs /phpmyadmin y /opencart.</li>
+      </ol>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 31 de enero de 2017</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

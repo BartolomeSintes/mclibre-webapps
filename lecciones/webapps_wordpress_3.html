@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejercicios (3). WordPress. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>WordPress. Ejercicios (3)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <a href="webapps_wordpress_2.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        WordPress (3)
+        <a href="webapps_wordpress_4.html"><img src="../varios/iconos/icono_flecha_derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
+
+      <h3>Enunciados</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - Widgets</a></li>
+          <li><a href="#ejercicio-2">2 - Insertar contenido externo</a></li>
+          <li><a href="#ejercicio-3">3 - Filtrar comentarios</a></li>
+          <li><a href="#ejercicio-4">4 - Galerías de fotos</a></li>
+          <li><a href="#ejercicio-5">5 - Calendarios</a></li>
+          <li><a href="#ejercicio-6">6 - Otros plug-ins</a></li>
+        </ul>
+      </div>
+
+      <h3><a href="webapps_wordpress_3_soluciones.html">Soluciones</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_wordpress_3_soluciones.html#ejercicio-1">1 - Widgets</a></li>
+          <li><a href="webapps_wordpress_3_soluciones.html#ejercicio-2">2 - Insertar contenido externo</a></li>
+          <li><a href="webapps_wordpress_3_soluciones.html#ejercicio-3">3 - Filtrar comentarios</a></li>
+          <li><a href="webapps_wordpress_3_soluciones.html#ejercicio-4">4 - Galerías de fotos</a></li>
+          <li><a href="webapps_wordpress_3_soluciones.html#ejercicio-5">5 - Calendarios</a></li>
+          <li><a href="webapps_wordpress_3_soluciones.html#ejercicio-6">6 - Otros plug-ins</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>WordPress</strong>. Se pueden consultar las <a href="webapps_wordpress_3_soluciones.html">soluciones de estos ejercicios de WordPress</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <p>El objetivo de esta página de ejercicios es practicar el uso de widgets y plugins en WordPress.</p>
+
+    <p>Los plugins permiten ampliar la funcionalidad de WordPress como blog o incluso transformar WordPress en otro tipo de página web (CMS, tienda, etc.).</p>
+
+    <p>El directorio de plugins de WordPress se puede visitar en <a href="https://es.wordpress.org/plugins/">https://es.wordpress.org/plugins/</a>. En febrero de 2017 se puede visitar también la página <a href="https://es.wordpress.org/plugins-wp/">https://es.wordpress.org/plugins-wp/</a>, una nueva versión del directorio de plugins. </p>
+
+    <p>Los plugins se instalan y desinstalan en WordPress desde el menú Plugins.</p>
+
+    <p>Los plugins propuestos en esta página estaban disponibles para WordPress 4.7 en el momento de redactar estos ejercicios (enero de 2017). Es posible que en futuro esos plugins no estén disponibles para versiones posteriores de WordPress, o incluso hayan dejado de estar disponibles para cualquier versión. En ese caso, se pueden utilizar otros plugins de los disponibles en ese momento.</p>
+
+    <section id="ejercicio-1">
+      <h2>WordPress (3) 1 - Widgets</h2>
+
+      <p>Los widgets son los elementos que se pueden incluir en las barras laterales y en la parte inferior. En el tema Twenty Seventeen hay un área principal de widgets y dos secundarias, como había en el tema Twenty Sixteen.</p>
+
+      <p>De forma predeterminada, están activados los widgets Buscar, Entradas recientes, Comentarios recientes, Archivos, Categoría y Meta.</p>
+
+      <p class="captura"><img alt="WordPress. Widgets" src="../img/wordpress/3_1_e_1_widgets.png" width="495" height="600" /></p>
+
+      <ol>
+        <li>Distribuya los widgets predeterminados de otra manera, por ejemplo en la parte inferior.
+          <p class="captura"><img alt="WordPress. Widgets" src="../img/wordpress/3_1_e_2_widgets.png" width="495" height="550" /></p>
+        </li>
+        <li>Devuelva los widgets a la barra lateral, elimine el widget de Comentarios recientes y cambie el título de los widgets de Entradas recientes y Archivos.
+          <p class="captura"><img alt="WordPress. Widgets" src="../img/wordpress/3_1_e_3_widgets.png" width="991" height="460" /></p>
+        </li>
+        <li>Active los widgets Calendario y Nube de etiquetas y compruebe su funcionamiento.
+          <p class="captura"><img alt="WordPress. Widgets" src="../img/wordpress/3_1_e_4_widgets.png" width="991" height="350" /></p>
+        </li>
+        <li>Active el widget RSS. La fuente será <a href="https://wordpress.org/news/">https://wordpress.org/news/</a> y mostrará los dos últimos feeds con su fecha.
+          <p class="captura"><img alt="WordPress. Widgets" src="../img/wordpress/3_1_e_5_widgets.png" width="410" height="350" /></p>
+        </li>
+        <li>Widget Texto
+          <p>Active el widget Texto. Configúrelo para que contenga algún lema apropiado al tema o espíritu del blog y algún enlace a páginas importantes.</p>
+          <p class="captura"><img alt="WordPress. Widgets" src="../img/wordpress/3_1_e_6_widgets.png" width="410" height="90" /></p>
+          <p>Fuente: <a href="https://es.wikiquote.org/wiki/Proverbios_en_lat%C3%ADn">Proverbios latinos</a></p>
+        </li>
+        <li>Widget "Image widget"
+          <p>Instale y active el plugin "Image Widget".</p>
+          <p class="captura"><img alt="WordPress. Widgets" src="../img/wordpress/3_1_e_7_widgets.png" width="570" height="276" /></p>
+          <p>Configúrelo para insertar una imagen que enlace a algún sitio.</p>
+          <p class="captura"><img alt="WordPress. Widgets" src="../img/wordpress/3_1_e_8_widgets.png" width="300" height="190" /></p>
+          <p class="captura"></p>
+        </li>
+        <li>Widget Meta.
+          <p>Configure el widget Meta y modifique su código fuente (haga antes una copia de seguridad del archivo original) para dejar el widget con sólo dos opciones (que se convierten en tres al entrar como usuario registrado):</p>
+          <p class="captura">
+            <img alt="WordPress. Widgets" src="../img/wordpress/3_1_e_9_widgets.png" width="370" height="180" />
+            <img alt="WordPress. Widgets" src="../img/wordpress/3_1_e_10_widgets.png" width="370" height="180" />
+          </p>
+          <details>
+            <summary><strong>Ayuda</strong></summary>
+            <ul>
+              <li>El código fuente PHP de los widgets en general se encuentra en el fichero <strong>\wordpress\wp-includes\default-widgets.php</strong>, que contiene referencias a los ficheros correspondientes a cada uno de los widgets.</li>
+            </ul>
+          </details>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>WordPress (3) 2 - Insertar contenido externo</h2>
+
+      <p>WordPress permite insertar en sus páginas contenido alojado en otros servicios, directamente o mediante plugins.</p>
+      <ol>
+        <li>En el caso de unos cuantos servicios muy populares (Youtube, Scribbd, Issuu, Flickr, TED, etc. en la página <a href="https://codex.wordpress.org/Embeds">https://codex.wordpress.org/Embeds</a> hay una lista completa), basta con copiar la dirección del recurso y WordPress lo muestra automáticamente.
+          <p>Cree algunas entradas con elementos insertados. Por ejemplo:</p>
+          <ul>
+            <li>Vídeos de <a href="https://www.youtube.com/?hl=es&amp;gl=ES">YouTube</a>: <a href="https://www.youtube.com/watch?v=LtOGa5M8AuU">10 años con
+              Firefox</a>
+              <p class="captura"><img alt="WordPress. Insertar contenido externo" src="../img/wordpress/wp_3_embed_1.png" width="368" height="250" /></p>
+            </li>
+            <li>Vídeos de <a href="http://www.ted.com/">TED</a>: <a href="http://www.ted.com/talks/lawrence_lessig_we_the_people_and_the_republic_we_must_reclaim">Conferencia de Lawrence Lessig</a>
+              <p class="captura"><img alt="WordPress. Insertar contenido externo" src="../img/wordpress/wp_3_embed_2.png" width="368" height="250" /></p>
+            </li>
+            <li>Revistas de <a href="https://issuu.com/">Issuu</a>: <a href="https://issuu.com/arielm.corgatelli/docs/tuxinfo70">TuxInfo nº 70</a>
+              <p class="captura"><img alt="WordPress. Insertar contenido externo" src="../img/wordpress/wp_3_embed_3.png" width="377" height="250" /></p>
+              <p><strong>Nota</strong>: A veces algunos enlaces no se insertan correctamente, no sé por qué. Por ejemplo, el enlace a <a href="https://issuu.com/arielm.corgatelli/docs/tuxinfo71">TuxInfo nº 71</a> un día se podía insertar y otro día no.</p>
+            </li>
+            <li>Fotos de <a href="https://www.flickr.com/">Flickr</a>: <a
+                                                                          href="https://www.flickr.com/photos/floridamemory/8053385969/in/photolist-4jyhpF-4juMUn-e2qgoS-6DkSLA-dgDH5e-8JpNNR-cE7Hho-aFa7P2-4jCf7C-6B8JK8-7vxaEL-dncc1u-7XoBvL-7XoVZ9-6dDWrf-bUBrnh-7q3UXZ-5QyVPN-8nRdGd-8nRdRQ-bSBuRV-pySDSu-bLnX5T-bDHcF9-dcjBDN-of24CE-oewVnV-ouEPAM-dcjBn7-8m6i6t-cymG3q-7ZkQNy-7Yguct-7YgDdz-owgeWU-oueg5W-owkDyf-8m62hP-oy3Wap-eVh5ya-ounup5-7WSJVg-7YgBbX-bzVtc8-8m636e-7Znmk6-7X5ojH-btaHgF-7XiYVH-7YjMf3">Amanecer en Florida, de Dale McDonald</a>
+              <p><strong>Nota</strong>: Flickr tiene un apartado de fotos con licencias CC: <a href="https://www.flickr.com/commons">https://www.flickr.com/commons</a></p>
+              <p class="captura"><img alt="WordPress. Insertar contenido externo" src="../img/wordpress/wp_3_embed_4.png" width="368" height="250" /></p>
+            </li>
+            <li>Mensajes de <a href="https://twitter.com">Twitter</a>
+              <p class="incompleto">Captura por incluir</p>
+            </li>
+            <li>Presentaciones de <a href="https://speakerdeck.com/">Speaker Deck</a>
+              <p class="incompleto">Captura por incluir</p>
+            </li>
+          </ul>
+        </li>
+        <li>Para esos tipos de contenidos también existen plugins específicos que permiten personalizar el contenido insertado.<br />
+
+          <ul>
+            <li>YouTube
+              <p>Pruebe estos tres plugins creando entradas con vídeos insertados y compare su funcionalidad :</p>
+              <ul>
+                <li><p>YouTube embed plugin: <a href="https://es.wordpress.org/plugins/youtube-embed-plus/">https://es.wordpress.org/plugins/youtube-embed-plus/</a></p>
+                  <p><strong>Nota</strong>: Este plugin tiene funcionalidades gratuitas y otras de pago.</p>
+                  <p class="captura"><img alt="WordPress. Plugin YouTube" src="../img/wordpress/3_2_e_21_youtube.png" width="570" height="295" /></p>
+                  <p>Configure YouTube embed plugin para que, por ejemplo, no se vea el título de los vídeos, que la franja de controles se vea en gris, que oculte los controles cuando se está reproduciendo el vídeo (en la captura se ven los controles porque el ratón estaba sobre el vídeo) y que el tamaño se ajuste mejor al contenido.</p>
+                  <p class="captura"><img alt="WordPress. Plugin YouTube embed plugin" src="../img/wordpress/wp_3_embed_211.png" width="550" height="550" /> <img alt="WordPress. Plugin YouTube embed plugin" src="../img/wordpress/wp_3_embed_212.png" width="550" height="550" /></p>
+                </li>
+                <li>YouTube Embed for WordPress: <a href="https://es.wordpress.org/plugins/youtube-embed/">https://es.wordpress.org/plugins/youtube-embed/</a>
+                  <p class="captura"><img alt="WordPress. Plugin YouTube Embed" src="../img/wordpress/3_2_e_22_youtube.png" width="570" height="275" /></p>
+                </li>
+                <li>YouTube Advanced by Embed Plus: <a href="https://es.wordpress.org/plugins/embedplus-for-wordpress/">https://es.wordpress.org/plugins/embedplus-for-wordpress/</a>
+                  <p><strong>Nota</strong>: Actualmente (enero de 2016) este plugin no está probado con WordPress 4.4. Compruebe si funciona o no.</p>
+                  <p class="captura"><img alt="WordPress. Plugin YouTube Avanced Embed" src="../img/wordpress/3_2_e_23_youtube.png" width="570"
+                                          height="295" /></p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Para otros tipos de contenido, hace falta instalar plugins específicos:
+          <ul>
+            <li>PDF
+              <p>Pruebe estos plugins creando entradas con pdfs insertados y compare su funcionalidad. Los pdf a insertar pueden ser alguna de las revistas de la <a href="http://www.mclibre.org/consultar/documentacion/index.html">biblioteca de revistas de mclibre</a>.</p>
+              <ul>
+                <li>PDF Embedder: <a href="https://es.wordpress.org/plugins/pdf-embedder/">https://es.wordpress.org/plugins/pdf-embedder/</a>
+                  <p class="captura"><img alt="WordPress. Plugin PDF Enbedder" src="../img/wordpress/3_2_e_31_pdf.png" width="570" height="275" /></p>
+                </li>
+                <li>WordPress PDF Light Viewer Plugin: <a href="https://es.wordpress.org/plugins/pdf-light-viewer/">https://es.wordpress.org/plugins/pdf-light-viewer/</a>
+                  <p class="captura"><img alt="WordPress. Plugin PDF Light Viewer" src="../img/wordpress/3_2_e_32_pdf.png" width="570" height="300" /></p>
+                </li>
+              </ul>
+            </li>
+            <li>Google Maps
+              <p>Pruebe estos plugins creando entradas con mapas de Google Maps insertados y compare su funcionalidad.</p>
+              <ul>
+                <li>Google Maps Widget: <a href="https://es.wordpress.org/plugins/google-maps-widget/">https://es.wordpress.org/plugins/google-maps-widget/</a>
+                  <p class="captura"><img alt="WordPress. Plugin Google Maps Builder" src="../img/wordpress/3_2_e_41_google_maps.png" width="570" height="290" /></p>
+                </li>
+                <li>Google Maps Easy: <a href="https://es.wordpress.org/plugins/google-maps-easy/">https://es.wordpress.org/plugins/google-maps-easy/</a>
+                  <p class="captura"><img alt="WordPress. Plugin Google Maps Easy" src="../img/wordpress/3_2_e_42_google_maps.png" width="570" height="290" /></p>
+                </li>
+                <li>WP Google Map Plugin: <a href="https://wordpress.org/plugins/wp-google-map-plugin/">https://wordpress.org/plugins/wp-google-map-plugin/</a> (versión gratuita de plug-in comercial)
+                  <p class="captura"><img alt="WordPress. Plugin WP Google Map Plugin" src="../img/wordpress/3_2_e_43_google_maps.png" width="570" height="290" /></p>
+                </li>
+                <li>WP Google Maps: <a href="https://es.wordpress.org/plugins/wp-google-maps/">https://es.wordpress.org/plugins/wp-google-maps/</a> (versión gratuita de plug-in comercial, sólo permite crear un mapa)
+                  <p class="captura"><img alt="WordPress. Plugin WP Google Maps" src="../img/wordpress/3_2_e_44_google_maps.png" width="570" height="290" /></p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>WordPress (3) 3 - Filtrar comentarios</h2>
+      <ol>
+        <li>WordPress incluye una opción de configuración de los comentarios llamada "Lista negra de comentarios".
+          <p>Añada en la lista negra algunos términos que en ningún caso queremos ver en los comentarios. Compruebe que funciona y que los comentarios que contienen esos términos no son publicados.</p>
+        </li>
+        <li>El plugin Disable Comments permite deshabilitar los comentarios globalmente o por tipo de elemento.
+          <ul>
+            <li>Disable Comments: <a href="https://es.wordpress.org/plugins/disable-comments/">https://es.wordpress.org/plugins/disable-comments/</a>
+              <p class="captura"><img alt="WordPress. Plugin Disable Comments" src="../img/wordpress/3_3_e_1_comentarios.png" width="570" height="290" /></p>
+            </li>
+          </ul>
+        </li>
+        <li>El plugin WP-SpanShield elimina spam en comentarios, formularios, trackbacks y registros.
+          <ul>
+            <li>WP-SpanShield: <a href="https://es.wordpress.org/plugins/wp-spamshield/">https://es.wordpress.org/plugins/wp-spamshield/</a>
+              <p class="captura"><img alt="WordPress. Plugin WP SpamShield" src="../img/wordpress/3_3_e_2_comentarios.png" width="570" height="290" /></p>
+            </li>
+          </ul>
+        </li>
+        <li>El plugin Text Obfuscator sustituye palabras o frases en los comentarios.
+          <ul>
+            <li>Text Obfuscator: <a href="https://es.wordpress.org/plugins/text-obfuscator/">https://es.wordpress.org/plugins/text-obfuscator/</a>
+              <p class="captura"><img alt="WordPress. Plugin Text Obfuscator" src="../img/wordpress/3_3_e_3_comentarios.png" width="570" height="260" /></p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>WordPress (3) 4 - Galerías de fotos</h2>
+      <ul>
+        <li>Pruebe algún plugin para crear galerías de fotos, como NextGen Gallery, Simple Photo Gallery o Photo Gallery.
+          <ul>
+            <li>NextGen Gallery: <a href="https://es.wordpress.org/plugins/nextgen-gallery/">https://es.wordpress.org/plugins/nextgen-gallery/</a>
+              <p class="captura"><img alt="WordPress. Plugin NextGEN Gallery" src="../img/wordpress/3_4_e_1_galeria.png" width="570" height="290" /></p>
+            </li>
+            <li>Photo Gallery: <a href="https://es.wordpress.org/plugins/photo-gallery/">https://es.wordpress.org/plugins/photo-gallery/</a>
+              <p class="captura"><img alt="WordPress. Plugin Photo Gallery" src="../img/wordpress/3_4_e_2_galeria.png" width="570" height="290" /></p>
+            </li>
+            <li>Simple Photo Gallery: <a href="https://es.wordpress.org/plugins/simple-photo-gallery/">https://es.wordpress.org/plugins/simple-photo-gallery/</a>
+              <p class="captura"><img alt="WordPress. Plugin Simple Photo Gallery" src="../img/wordpress/3_4_e_3_galeria.png" width="570" height="250" /></p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>WordPress (3) 5 - Calendarios</h2>
+      <ul>
+        <li>Pruebe algún plugin para crear calendarios, como .
+          <ul>
+            <li>All-in-one Event Calendar: <a href="https://es.wordpress.org/plugins/all-in-one-event-calendar/">https://es.wordpress.org/plugins/all-in-one-event-calendar/</a>
+              <p class="captura"><img alt="WordPress. Plugin All-in-One Event Calendar" src="../img/wordpress/3_5_e_1_calendario.png" width="570" height="290" /></p>
+            </li>
+            <li>Simple Calendar: <a href="https://es.wordpress.org/plugins/google-calendar-events/">https://es.wordpress.org/plugins/google-calendar-events/</a>
+              <p class="captura"><img alt="WordPress. Plugin Simple Calendar" src="../img/wordpress/3_5_e_2_calendario.png" width="570" height="280" /></p>
+            </li>
+            <li>Tockify Events Calendar: <a href="https://es.wordpress.org/plugins/tockify-events-calendar/">https://es.wordpress.org/plugins/tockify-events-calendar/</a>
+              <p class="captura"><img alt="WordPress. Plugin Tockify Events Calendar" src="../img/wordpress/3_5_e_3_calendario.png" width="570" height="260" /></p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-6">
+      <h2>WordPress (3) 6 - (Ampliación) Otros plug-ins</h2>
+
+      <p>Plugins para investigar:</p>
+      <ul>
+        <li>Category Posts Widget: <a href="https://wordpress.org/plugins/category-posts/">https://wordpress.org/plugins/category-posts/</a></li>
+        <li>Simple Lightbox: <a href="https://wordpress.org/plugins/simple-lightbox/">https://wordpress.org/plugins/simple-lightbox/</a></li>
+        <li>Simple Social Icons: <a href="https://wordpress.org/plugins/simple-social-icons/">https://wordpress.org/plugins/simple-social-icons/</a></li>
+        <li>Broken Link Checker: <a href="https://wordpress.org/plugins/broken-link-checker/">https://wordpress.org/plugins/broken-link-checker/</a></li>
+        <li>Slider: <a href="https://wordpress.org/plugins/slider-image/">https://wordpress.org/plugins/slider-image/</a></li>
+        <li>Print Friendly and PDF Button: <a href="https://wordpress.org/plugins/printfriendly/">https://wordpress.org/plugins/printfriendly/</a></li>
+        <li>Poll: <a href="https://wordpress.org/plugins/polls-widget/">https://wordpress.org/plugins/polls-widget/</a></li>
+        <li>WooCommerce: <a href="https://wordpress.org/plugins/woocommerce/">https://wordpress.org/plugins/woocommerce/</a></li>
+        <li>Contact Widgets: <a href="https://wordpress.org/plugins/contact-widgets/">https://wordpress.org/plugins/contact-widgets/</a></li>
+        <li>Carousel Slider: <a href="https://wordpress.org/plugins/carousel-slider/">https://wordpress.org/plugins/carousel-slider/</a></li>
+      </ul>
+
+      <p>Instale algún plug-in gratuito relacionado con estos temas:</p>
+      <ul>
+        <li>Desde 2002, la Directiva europea 2002/58/EC (modificada en 2009 por la Directiva 2009/136/EC) requiere la autorización del usuario para el uso de <i>cookies</i> en los sitios web. Este plugin ayuda al cumplimiento de esta directiva.
+          <ul>
+            <li>Asesor de Cookies para normativa española: <a href="https://es.wordpress.org/plugins/asesor-cookies-para-la-ley-en-espana/">https://es.wordpress.org/plugins/asesor-cookies-para-la-ley-en-espana/</a>
+              <p class="captura"><img alt="WordPress. Plugin Asesor de cookies" src="../img/wordpress/3_6_e_asesor_cookies.png" width="581" height="310" /></p>
+            </li>
+          </ul>
+        </li>
+        <li>Por motivos de seguridad, WordPress no permite la subida de imágenes SVG (como se comenta en el <a href="https://core.trac.wordpress.org/ticket/24251">ticket de WordPress 24251</a>, el problema es que al poder incluir JavaScript pueden ser una vía de ataque al servidor).
+          <ul>
+            <li>Safe SVG: <a href="https://es.wordpress.org/plugins/safe-svg/">https://es.wordpress.org/plugins/safe-svg/</a>
+              <p class="captura"><a href="https://es.wordpress.org/plugins/safe-svg/"><img alt="WordPress. Plugin Safe SVG" src="../img/wordpress/3_6_e_safe_svg.png" width="480" height="281" /></a></p>
+            </li>
+            <li>SVG Support: <a href="https://es.wordpress.org/plugins/svg-support/">https://es.wordpress.org/plugins/svg-support/</a></li>
+          </ul>
+        </li>
+        <li>Incluir iconos en los menús.
+          <ul>
+            <li>Menu Icons: <a href="https://es.wordpress.org/plugins/menu-icons/">https://es.wordpress.org/plugins/menu-icons/</a></li>
+          </ul>
+        <li>Cambie la URL del sitio (el plugin cambia todas las referencias a la URL en la base de datos)<br />
+          <ul>
+            <li>Better Search and Replace: <a href="https://es.wordpress.org/plugins/better-search-replace/">https://es.wordpress.org/plugins/better-search-replace/</a>
+              <p class="captura"><img alt="WordPress. Plugin Better Search and Replace" src="../img/wordpress/3_6_e_1_varios.png" width="570" height="260" /></p>
+            </li>
+          </ul>
+        </li>
+        <li>Permita que los usuarios puedan elegir su avatar.
+          <ul>
+            <li>Avatar Manager: <a href="https://es.wordpress.org/plugins/avatar-manager/">https://es.wordpress.org/plugins/avatar-manager/</a>
+              <p class="captura"><img alt="WordPress. Plugin Avatar Manager" src="../img/wordpress/3_6_e_2_varios.png" width="570" height="250" /></p>
+            </li>
+            <li>Como imágenes para los usuarios, se pueden utilizar las imágenes de la <a href="../otros/imagenes.html">página de imágenes para usuarios</a></li>
+          </ul>
+        </li>
+        <li>Nubes de etiquetas:
+          <ul>
+            <li>Simple Tags: <a href="https://es.wordpress.org/plugins/simple-tags/">https://es.wordpress.org/plugins/simple-tags/</a>
+              <p class="captura"><img alt="WordPress. Plugin Simple Tags" src="../img/wordpress/3_6_e_3_varios.png" width="570" height="310" /></p>
+            </li>
+          </ul>
+        </li>
+        <li>Redes sociales
+          <ul>
+            <li>Social Media Feather: <a href="https://es.wordpress.org/plugins/social-media-feather/">https://es.wordpress.org/plugins/social-media-feather/</a>
+              <p class="captura"><img alt="WordPress. Plugin Social Media Feather" src="../img/wordpress/3_6_e_4_varios.png" width="570" height="340" /></p>
+            </li>
+          </ul>
+        </li>
+        <li>JetPack (<a href="https://jetpack.com/">https://jetpack.com/</a>)es un plugin ofrecido por Automattic y que engloba varios plugins que en algún momento fueron de pago.
+          <ul>
+            <li>Jetpack by Wordpress.com: <a href="https://es.wordpress.org/plugins/jetpack/">https://es.wordpress.org/plugins/jetpack/</a>
+              <p class="captura"><img alt="WordPress. Plugin JetPack" src="../img/wordpress/3_6_e_5_varios.png" width="570" height="270" /></p>
+            </li>
+          </ul>
+        </li>
+        <li>BudyPress (<a href="https://buddypress.org/">https://buddypress.org/</a>) es un plugin para crear redes sociales.<br />
+          <ul>
+            <li>BusyPress: <a href="https://es.wordpress.org/plugins/buddypress/">https://es.wordpress.org/plugins/buddypress/</a>
+              <p class="captura"><img alt="WordPress. Plugin BudyPress" src="../img/wordpress/3_6_e_6_varios.png" width="570" height="310" /></p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-7">
+      <h2>Restos</h2>
+      <ul>
+        <li>Por añadir en esta lección:
+          <ul>
+            <li>Copia de seguridad: plugin UpdraftPlus (<a href="https://es.wordpress.org/plugins/updraftplus/">https://es.wordpress.org/plugins/updraftplus/</a>)</li>
+          </ul>
+          <ul>
+            <li>Listas de plugins para mirar:
+              <ul>
+                <li><a href="http://www.wpbeginner.com/category/plugins/">http://www.wpbeginner.com/category/plugins/</a></li>
+                <li><a href="http://ignaciosantiago.com/mejores-plugins-wordpress/">http://ignaciosantiago.com/mejores-plugins-wordpress/</a> (enero 2013)</li>
+                <li><a href="https://www.lifestylealcuadrado.com/plugins-wordpress-esenciales/">https://www.lifestylealcuadrado.com/plugins-wordpress-esenciales/</a> (noviembre 2013)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Para añadir en la lección siguiente:
+          <ul>
+            <li>Multisite: <a href="https://premium.wpmudev.org/blog/ultimate-guide-multisite/">https://premium.wpmudev.org/blog/ultimate-guide-multisite/</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 11 de febrero de 2017</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

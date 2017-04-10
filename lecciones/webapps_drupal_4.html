@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejercicios (4). Drupal. Almacenamiento. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Drupal. Ejercicios (4)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <a href="webapps_drupal_3.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        Drupal (4)
+      </h2>
+
+      <h3>Enunciados</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - Internacionalización</a></li>
+          <li><a href="#ejercicio-2">2 - Bloques</a></li>
+          <li><a href="#ejercicio-3">3 - Temas</a></li>
+          <li><a href="#ejercicio-4">4 - Módulos</a></li>
+        </ul>
+      </div>
+
+      <h3><a href="webapps_drupal_4_soluciones.html">Soluciones</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_drupal_4_soluciones.html#ejercicio-1">1 - Internacionalización</a></li>
+          <li><a href="webapps_drupal_4_soluciones.html#ejercicio-2">2 - Bloques</a></li>
+          <li><a href="webapps_drupal_4_soluciones.html#ejercicio-3">3 - Temas</a></li>
+          <li><a href="webapps_drupal_4_soluciones.html#ejercicio-4">4 - Módulos</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Esta lección está pendiente de actualizar para Drupal 8.</p>
+
+    <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>Drupal</strong>. Se pueden consultar las <a href="webapps_drupal_4_soluciones.html">soluciones de estos ejercicios de Drupal</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <section id="ejercicio-1">
+      <h2>Drupal (4) 1 - Internacionalización</h2>
+
+      <p>Traduzca el sitio web creado en la página 3 de ejercicios de manera que esté disponible en dos idiomas (español e inglés, por ejemplo).</p>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar</p>
+
+      <h3>Traducción del sitio</h3>
+      <ol>
+        <li>Agregue el idioma inglés
+          <p class="captura"><img alt="Drupal. Añadir idioma" src="../img/drupal/4_1_e_1_internacionalizacion.png" width="991" height="160" /></p>
+        </li>
+        <li>Active los módulos de idioma Configuration Translation y Content Translation.
+          <p class="captura"><img alt="Drupal. Activar módulos Multi idioma" src="../img/drupal/4_1_e_2_internacionalizacion.png" width="991" height="250" /></p>
+        </li>
+        <li>Active la traducción del contenido (artículos y páginas básicas).
+          <p class="captura"><img alt="Drupal. Activar la traducción del contenido" src="../img/drupal/4_1_e_3_internacionalizacion.png" width="991" height="345" /></p>
+        </li>
+        <li>Traduzca el contenido de su sitio web.</li>
+      </ol>
+
+      <h3>Detección del idioma por idioma seleccionado</h3>
+
+      <ol>
+        <li>Compruebe que en la dirección <strong>/drupal/en</strong> se ve el sitio en inglés y en <strong>/drupal</strong> se ve en español</li>
+      </ol>
+
+      <h3>Detección del idioma basado en el idioma del navegador</h3>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Comprobar si funciona o no</p>
+      <ol>
+        <li>Active la detección del idioma basado en el navegador.</li>
+        <li>Configure en el navegador el idioma inglés como primer idioma </li>
+        <li>Compruebe que en la dirección <strong>/drupal</strong> se ve el sitio en inglés</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>Drupal (4) 2 - Bloques</h2>
+
+      <ol>
+        <li>Modificar los bloques de contenido para obtener este aspecto:</li>
+      </ol>
+
+      <p class="captura"><img alt="Drupal. Bloques" src="../img/drupal/4_2_e_1_bloques.png" width="1008" height="657" /></p>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>Drupal (4) 3 - Temas</h2>
+
+      <p>En este ejercicio se trata de descargar e instalar un tema de Drupal.</p>
+      <ul>
+        <li>Tema Basic: <a href="https://www.drupal.org/project/basic">https://www.drupal.org/project/basic</a></li>
+        <li>Tema Mayo: <a href="https://www.drupal.org/project/mayo">https://www.drupal.org/project/mayo</a></li>
+        <li>Tema Danland: <a href="https://www.drupal.org/project/danland">https://www.drupal.org/project/danland</a></li>
+        <li>Tema Adminimal: <a href="https://www.drupal.org/project/adminimal_theme">https://www.drupal.org/project/adminimal_theme</a></li>
+      </ul>
+
+      <p>Referencias:</p>
+      <ul>
+        <li>Temas de Drupal: <a href="https://www.drupal.org/project/project_theme">https://www.drupal.org/project/project_theme</a></li>
+        <li><a href="https://www.drupal.org/project/project_theme?f[0]=im_vid_44%3A13028&amp;f[1]=im_vid_46%3A9988&amp;f[2]=drupal_core%3A7234&amp;f[3]=sm_field_project_type%3Afull&amp;text=&amp;solrsort=iss_project_release_usage+desc&amp;op=Search">Temas disponibles para Drupal 8</a></li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>Drupal (4) 4 - Módulos</h2>
+
+      <p>Drupal puede ampliar su funcionalidad mediante módulos. Actualmente (febrero de 2016) no hay muchos módulos disponibles para Drupal 8, ya que Drupal 8 es reciente (se publicó en noviembre de 2015).</p>
+
+      <h3>Módulo Ban</h3>
+
+      <p>Este módulo permite banear usuarios por su IP. Este módulo está incluido en Drupal 8, aunque no activado de forma predeterminada.</p>
+      <ol>
+        <li>Active el módulo Ban y configúrelo para banear una dirección IP desde la que pueda visitar su sitio (un compañero de clase o una máquina virtual).</li>
+        <li>Compruebe que desde esa IP no se puede visitar el sitio.</li>
+      </ol>
+
+      <hr class="corta" />
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Pendiente de comprobar qué modulos funcionan en Drupal 8</p>
+      <ul>
+        <li>Status of the Top 100 Contributed Modules for Drupal 8: <a href="http://www.bluespark.com/status-top-100-contributed-modules-drupal-8">http://www.bluespark.com/status-top-100-contributed-modules-drupal-8</a></li>
+      </ul>
+      <ul>
+        <li>Módulos con versión para Drupal 8:
+          <ul>
+            <li>Módulo <a href="https://www.drupal.org/project/taxonomy_menu">Taxonomy Menu</a></li>
+            <li>Módulo: <a href="https://www.drupal.org/project/admin_toolbar">Admin Toolbar</a></li>
+          </ul>
+        </li>
+        <li>Módulos con versión para Drupal 8 en desarrollo:
+          <ul>
+            <li>Módulo <a href="https://www.drupal.org/project/imagemagick">ImageMagick</a>. Para poder incluir imágenes SVG</li>
+            <li>Módulo <a href="https://www.drupal.org/project/backup_db">Backup Database</a>. Documentación de Drupal: Backing up a site. <a href="https://www.drupal.org/node/22281">https://www.drupal.org/node/22281</a></li>
+            <li>Módulo <a href="https://www.drupal.org/project/jssor">Jssor Slider</a></li>
+            <li>Módulo <a href="https://www.drupal.org/project/blog">Blog</a>. Drupal 7 incluía un <a href="https://www.drupal.org/documentation/modules/blog">módulo de blogs</a> que ha sido eliminado en Drupal 8. Este módulo ofrecerá la funcionalidad anterior.</li>
+            <li>Módulo <a href="https://www.drupal.org/project/linkit">Linkit</a>. Tutorial: <a href="https://www.daymuse.com/blogs/drupal-broken-internal-link-path-module-tutorial">Stop Broken Internal Links</a></li>
+            <li>Módulo <a href="https://www.drupal.org/project/nice_menus">Nice Menus</a>.</li>
+            <li>Módulo <a href="https://www.drupal.org/project/calendar">Calendar</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 12 de febrero de 2016</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

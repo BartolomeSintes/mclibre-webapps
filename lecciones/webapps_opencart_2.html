@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejercicios (2). OpenCart. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>OpenCart. Ejercicios (2)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <a href="webapps_opencart_1.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        OpenCart (2)
+        <a href="webapps_opencart_3.html"><img src="../varios/iconos/icono_flecha_derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
+
+      <h3>Enunciados</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - Configurar tienda</a></li>
+          <li><a href="#ejercicio-2">2 - Categorías de productos</a></li>
+          <li><a href="#ejercicio-3">3 - Añadir productos</a></li>
+          <li><a href="#ejercicio-4">4 - Banner central</a></li>
+        </ul>
+      </div>
+
+      <h3><a href="webapps_opencart_2_soluciones.html">Soluciones</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_opencart_2_soluciones.html#ejercicio-1">1 - Configurar tienda</a></li>
+          <li><a href="webapps_opencart_2_soluciones.html#ejercicio-2">2 - Categorías de productos</a></li>
+          <li><a href="webapps_opencart_2_soluciones.html#ejercicio-3">3 - Añadir productos</a></li>
+          <li><a href="webapps_opencart_2_soluciones.html#ejercicio-4">4 - Banner central</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p>El objetivo de estos ejercicios es poner en marcha un pequeña tienda ficticia con <strong>OpenCart</strong>. La tienda que se pretende crear es una tienda de informática que ofrece cursos, diseño y alojamiento de aplicaciones web a sus clientes.</p>
+
+    <p>Los ejercicios se deben realizar de forma sucesiva, puesto que están encadenados.</p>
+
+    <p>Se pueden consultar las <a href="webapps_opencart_2_soluciones.html">soluciones de estos ejercicios de OpenCart</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <p>Antes de realizar estos ejercicios es necesario haber realizado antes los <a href="webapps_opencart_1.html">ejercicios (1) de OpenCart</a> en los que se pone en marcha OpenCart.</p>
+
+    <section id="ejercicio-1">
+      <h2>OpenCart (2) 1 - Configurar la tienda predeterminada</h2>
+      <ol>
+        <li><strong>Nombre, icono y configuración de la tienda</strong>
+          <ul>
+            <li>Modifique el nombre, icono y configuración de la tienda predeterminada <strong>Your store</strong> para obtener el siguiente resultado:
+              <p class="captura"><img alt="OpenCart. Configuración de la tienda 3" src="../img/opencart/2_1_s_3_configuracion.png" width="710" height="265" /></p>
+            </li>
+            <li>Puede utilizar los siguientes valores:
+              <ul>
+                <li>General:
+                  <p>Título Meta: <span class="resaltado">Tienda de WebApps</span></p>
+                </li>
+                <li>Tienda:
+                  <p>Nombre de la tienda: <span class="resaltado">Tienda WebApps</span></p>
+                  <p>Gerente de la tienda: <span class="resaltado">[Su nombre]</span></p>
+                  <p>Dirección: <span class="resaltado">Avda del Ciberespacio, s.n.</span></p>
+                  <p>Email: <span class="resaltado">admin@example.com</span></p>
+                  <p>Teléfono: <span class="resaltado">123456789</span></p>
+                  <p>Imagen: Por ejemplo: <img alt="OpenCart. Ejemplo de logotipo para la tienda" src="../img/opencart/logo_apuntes_064.png" width="79" height="64" /></p>
+                </li>
+                <li>Local:
+                  <p>País: <span class="resaltado">Spain</span></p>
+                  <p>Ciudad / Provincia: <span class="resaltado">Valencia</span></p>
+                  <p>Idioma: <span class="resaltado">Español</span></p>
+                  <p>Idioma de Administración: <span class="resaltado">Español</span></p>
+                  <p>Moneda: <span class="resaltado">Euro</span></p>
+                  <p>Tipo de Medida: <span class="resaltado">Centimeter</span></p>
+                  <p>Tipo de Peso: <span class="resaltado">Kilogram</span></p>
+                </li>
+                <li>Imagen:
+                  <p>Logotipo de tienda: Por ejemplo: <img alt="OpenCart. Ejemplo de logotipo para la tienda" src="../img/opencart/webapps_tienda_logo_268x50.png" width="268" height="50" /></p>
+                  <p>Icono: Por ejemplo: <img src="../img/iconos/favicon/favicon_webapps_48.png" alt="favicon webapps 48x48" title="favicon webapps 48x48" width="48" height="48" /></p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Moneda</strong>
+          <ul>
+            <li>OpenCart ofrece la posibilidad de cambiar la moneda en la que se muestran los precios:
+              <p class="captura"><img alt="OpenCart. Monedas" src="../img/opencart/2_1_e_11_moneda.png" width="991" height="145" /></p>
+            </li>
+            <li>Deshabilite todas las monedas menos el Euro, de manera que ya no se muestre el selector de moneda:
+              <p class="captura"><img alt="OpenCart. Monedas" src="../img/opencart/2_1_e_15_moneda.png" width="991" height="140" /></p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>OpenCart (2) 2 - Crear categorías de productos</h2>
+
+      <p>Modifique las categorías de productos para obtener el siguiente resultado:</p>
+
+      <p class="captura"><img alt="OpenCart. Categorías" src="../img/opencart/2_2_e_1_categorias.png" width="991" height="425" /></p>
+
+      <p class="captura"><img alt="OpenCart. Categorías" src="../img/opencart/2_2_e_2_categorias.png" width="1008" height="270" /></p>
+
+      <p>Para ello,</p>
+      <ul>
+        <li>Elimine todas las categorías de productos existentes</li>
+        <li>Cree tres nuevas categorías:
+          <ul>
+            <li>General
+              <p>Nombre de Categoría: <span class="resaltado">Diseño</span> / <span class="resaltado">Alojamiento</span> / <span class="resaltado">Cursos</span></p>
+              <p>Descripción: <span class="resaltado">Diseño de Aplicaciones Web</span> / <span class="resaltado">Alojamiento de Aplicaciones Web</span> / <span class="resaltado">Cursos sobre Aplicaciones Web</span></p>
+              <p>Título de Claves Meta: <span class="resaltado">Diseño WebApps</span> / <span class="resaltado">Alojamiento WebApps</span> / <span class="resaltado">Cursos WebApps</span></p>
+            </li>
+            <li>Datos
+              <p>Imagen: Por ejemplo: <img alt="Categorías. Diseño" src="../img/opencart/categorias_diseno_080.png" width="54" height="80" /> <img alt="Categorías. Alojamiento" src="../img/opencart/categorias_alojamiento_080.png" width="94" height="80" /> <img alt="Categorías. Cursos" src="../img/opencart/categorias_cursos_080.png" width="79" height="80" /></p>
+              <p>Top: <span class="resaltado">marcar la casilla</span></p>
+            </li>
+          </ul>
+        </li>
+        <li>Ordene las categorías de manera que se muestren en el menú principal en el orden deseado.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>OpenCart (2) 3 - Añadir productos a la tienda</h2>
+
+      <p>En este ejercicio se trata de añadir productos a las categorías creadas en la actividad anterior. Previamente, se debe definir el tipo de impuesto IVA general, del 21%, que se aplicará a todos los productos.</p>
+
+      <hr class="corta" />
+
+      <ol>
+        <li><strong>Crear una nueva Zona Geográfica</strong>
+          <p class="captura"><img alt="OpenCart. Zonas geográficas" src="../img/opencart/2_3_e_1_zonas_geograficas.png" width="991" height="160" /></p>
+          <p>Cree una nueva geográfica con los siguientes datos:</p>
+          <ul>
+            <li>
+              <p>Nombre geo zona: <span class="resaltado">España (Península y Baleares)</span></p>
+              <p>Descripción: <span class="resaltado">España (Península y Baleares)</span></p>
+              <p>País: <span class="resaltado">Spain</span></p>
+              <p>Zona: <span class="resaltado">Todas las zonas</span></p>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Cree una nueva Tasa de Impuestos</strong>
+          <p class="captura"><img alt="OpenCart. Tasa de Impuestos" src="../img/opencart/2_3_e_2_tasa_impuestos.png" width="991" height="240" /></p>
+          <p>Cree una nueva Tasa de Impuestos con los siguientes datos:</p>
+          <ul>
+            <li>
+              <p>Nombre de Impuesto: <span class="resaltado">IVA general</span></p>
+              <p>Valoración de Impuesto: <span class="resaltado">21</span></p>
+              <p>Tipo: <span class="resaltado">Porcentaje</span></p>
+              <p>Grupo de clientes: <span class="resaltado">Default</span></p>
+              <p>Zona Geográfica: <span class="resaltado">España (Península y Baleares)</span></p>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Crear un nuevo Tipo de Impuesto</strong>
+          <p class="captura"><img alt="OpenCart. Tipo de Impuesto" src="../img/opencart/2_3_e_3_tipo_impuesto.png" width="991" height="220" /></p>
+          <p>Cree un nuevo Tipo de Impuesto con los siguientes datos:</p>
+          <ul>
+            <li>
+              <p>Nombre del Tipo de Impuesto: <span class="resaltado">IVA general</span></p>
+              <p>Descripción: <span class="resaltado">IVA general (España)</span></p>
+              <p>Porcentaje del impuesto: <span class="resaltado">IVA general</span></p>
+              <p>Basado en: <span class="resaltado">Dirección de Envío</span></p>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Crear un nuevo producto</strong>
+          <p class="captura"><img alt="OpenCart. Productos" src="../img/opencart/2_3_s_35_productos.png" width="991" height="780" /></p>
+          <p>Cree un nuevo Producto con los siguientes datos:</p>
+          <ul>
+            <li>General
+              <p>Nombre del producto: <span class="resaltado">Curso en su empresa</span></p>
+              <p>Descripción: <span class="resaltado">Un monitor dará un curso en su empresa de la aplicación web que usted elija.</span></p>
+              <p>Título de Etiqueta Meta: <span class="resaltado">Curso en su empresa</span></p>
+            </li>
+            <li>Datos
+              <p>Imagen: Por ejemplo: <img alt="Tienda WebApps. Curso en empresa" src="../img/opencart/webapps_tienda_cursos_grupo.png" width="200" height="149" /></p>
+              <p>Modelo: <span class="resaltado">Curso aplicaciones web en su empresa</span></p>
+              <p>Precio: <span class="resaltado">100</span></p>
+              <p>Tipo impuesto: <span class="resaltado">IVA general</span></p>
+              <p>Restar del inventario: <span class="resaltado">No</span></p>
+            </li>
+            <li>Enlaces
+              <p>Categorías: <span class="resaltado">Cursos</span></p>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Crear tres productos más</strong>
+          <p class="captura"><img alt="OpenCart. Productos" src="../img/opencart/2_3_e_4_productos.png" width="991" height="320" /></p>
+          <p>Cree tres nuevos productos con los siguientes datos:</p>
+          <ul>
+            <li>General
+              <p>Nombre del producto: <span class="resaltado">Alojamiento web Drupal</span> / <span class="resaltado">Curso a distancia</span> / <span class="resaltado">Plantilla para WordPress</span></p>
+              <p>Descripción: <span class="resaltado">Alojamos su web Drupal en nuestro Centro de Datos</span> / <span class="resaltado">Complete cómodamente desde su casa o trabajo un curso de su aplicación web favorita</span> / <span class="resaltado">Diseñamos la plantilla de WordPress que su web necesita para marcar la diferencia</span></p>
+              <p>Título de Etiqueta Meta: <span class="resaltado">alojamiento Drupal</span> / <span class="resaltado">Curso distancia</span> / <span class="resaltado">diseño Wordpress</span></p>
+            </li>
+            <li>Datos
+              <p>Imagen: Por ejemplo:
+                <img alt="Tienda WebApps. Alojamiento Drupal" src="../img/opencart/webapps_tienda_alojamiento_drupal.png" width="200" height="259" />
+                <img alt="Tienda WebApps. Cursos a distancia" src="../img/opencart/webapps_tienda_cursos_distancia.png" width="200" height="190" />
+                <img alt="Tienda WebApps. Diseño WordPress" src="../img/opencart/webapps_tienda_diseno_wordpress.png" width="200" height="229" />
+              </p>
+              <p>Modelo: <span class="resaltado">Alojamiento web Drupal</span> / <span class="resaltado">Curso aplicaciones web a distancia</span> / <span class="resaltado">Plantilla para WordPress</span></p>
+              <p>Precio: <span class="resaltado">150</span> / <span class="resaltado">200</span> / <span class="resaltado">400</span></p>
+              <p>Tipo impuesto: <span class="resaltado">IVA general</span></p>
+              <p>Restar del inventario: <span class="resaltado">No</span></p>
+            </li>
+            <li>Enlaces
+              <p>Categorías: <span class="resaltado">Alojamiento</span> / <span class="resaltado">Cursos</span> / <span class="resaltado">Diseño</span></p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>OpenCart (2) 4 - Modificar el banner central de la página</h2>
+
+      <p>En este ejercicio se trata de modificar el banner central de la página para que enlace a un par de productos.</p>
+      <ol>
+        <li><strong>Crear un nuevo banner</strong>
+          <p class="captura"><img alt="OpenCart. Banners" src="../img/opencart/2_4_e_1_banner.png" width="1008" height="270" /></p>
+          <ul>
+            <li>Cree un nuevo Banner con los siguientes datos:
+              <ul>
+                <li>
+                  <p>Nombre banner: <span class="resaltado">WebApps 1</span></p>
+                  <p>Título: <span class="resaltado">Cursos de Aplicaciones Web</span> / <span class="resaltado">Diseño de sitios WordPress</span></p>
+                  <p>Enlace: <span class="resaltado">index.php?route=product/product&amp;path=63&amp;product_id=51</span> (cambie los valores para que enlace al producto Curso a distancia) / <span class="resaltado">index.php?route=product/product&amp;path=63&amp;product_id=52</span> (cambie los valores para que enlace al producto Plantillas de WordPress)</p>
+                  <p>Imagen (haga clic en las imágenes siguientes para descargarlas a tamaño 1140x380):<br />
+                    <a href="../img/opencart/webapps_tienda_banner_1.png"><img alt="OpenCart. Banner WebApps 1" src="../img/opencart/webapps_tienda_banner_1_mini.png" width="570" height="190" /></a>
+                    <a href="../img/opencart/webapps_tienda_banner_2.jpg"><img alt="OpenCart. Banner WebApps 1" src="../img/opencart/webapps_tienda_banner_2_mini.jpg" width="570" height="190" /></a>
+                  </p>
+                </li>
+              </ul>
+            </li>
+            <li>Si al guardar el Banner se muestra un error similar a este:
+
+              <div class="codhtml">
+                <p><b>Notice</b>: Undefined index: sort_order in <b>opencart_1\admin\model\design\banner.php</b> on line <b>12</b><b>Notice</b>: Undefined index: sort_order in <b>opencart_1\admin\model\design\banner.php</b> on line <b>12</b><b>Warning</b>: Cannot modify header information - headers already sent by (output started at opencart_1\admin\index.php:80) in <b>opencart_1\system\library\response.php</b> on line <b>12</b></p>
+              </div>
+              <p>retroceda a la Lista de Banners y complete los datos escribiendo el orden de las imágenes en el banner.</p>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Mostrar el nuevo banner</strong>
+          <ul>
+            <li>Active el banner creado en el apartado anterior:
+              <p class="captura"><img alt="OpenCart. Banners" src="../img/opencart/2_4_s_14_banner.jpg" width="991" height="550" /></p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 21 de diciembre de 2015</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

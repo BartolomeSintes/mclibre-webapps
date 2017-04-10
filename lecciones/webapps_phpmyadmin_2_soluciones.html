@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Soluciones (2). phpMyAdmin. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../varios/highlight-htmlcss.css" />
+    <script type="text/javascript" src="../varios/highlight.pack.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body>
+    <h1>phpMyAdmin. Soluciones (2)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <a href="webapps_phpmyadmin_1.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        phpMyAdmin (2)
+        <a href="webapps_phpmyadmin_3.html"><img src="../varios/iconos/icono_flecha_derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
+
+      <h3><a href="webapps_phpmyadmin_2.html">Enunciados</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_phpmyadmin_2.html#intro">Introducción</a></li>
+          <li><a href="webapps_phpmyadmin_2.html#ejercicio-1">1 - usuario 1 con BD única</a></li>
+          <li><a href="webapps_phpmyadmin_2.html#ejercicio-2">2 - aplicación usuario 1</a></li>
+          <li><a href="webapps_phpmyadmin_2.html#ejercicio-3">3 - usuario 2 con varias BD</a></li>
+          <li><a href="webapps_phpmyadmin_2.html#ejercicio-4">4 - aplicaciones usuario 2</a></li>
+          <li><a href="webapps_phpmyadmin_2.html#ejercicio-5">5 - usuario 3 con BD única</a></li>
+          <li><a href="webapps_phpmyadmin_2.html#ejercicio-6">6 - aplicaciones usuario 3</a></li>
+        </ul>
+      </div>
+
+      <h3>Soluciones</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - usuario 1 con BD única</a></li>
+          <li><a href="#ejercicio-2">2 - aplicación usuario 1</a></li>
+          <li><a href="#ejercicio-3">3 - usuario 2 con varias BD</a></li>
+          <li><a href="#ejercicio-4">4 - aplicaciones usuario 2</a></li>
+          <li><a href="#ejercicio-5">5 - usuario 3 con BD única</a></li>
+          <li><a href="#ejercicio-6">6 - aplicaciones usuario 3</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p>En esta lección se proponen soluciones detalladas de los <a href="webapps_phpmyadmin_2.html">ejercicios (2) de phpMyAdmin</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+    <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Estas soluciones están pendientes de actualizar a los ejercicios propuestos en el curso 2015/16.</p>
+
+    <section id="ejercicio-1">
+      <h2>phpMyAdmin (2) 1 - Crear un usuario iaw_agenda_1 con una base de datos única</h2>
+      <ol>
+        <li>Crear un nuevo usuario de MySQL
+          <ul>
+            <li>En la página principal, haga clic en el enlace <strong>Usuarios</strong>:
+              <p class=" captura"><img alt="phpMyAdmin. Usuarios" src="../img/phpmyadmin/2_1_s_1_crear_usuario.png" width="1009" height="200" title="XAMPP. Página principal" /></p>
+            </li>
+            <li>Para crear un nuevo usuario, haga clic en el enlace <strong>Agregar usuario</strong>:
+              <p class=" captura"><img alt="phpMyAdmin. Usuarios" src="../img/phpmyadmin/2_1_s_2_crear_usuario.png" width="1009" height="480" title="XAMPP. Usuarios" /></p>
+            </li>
+            <li>En la pantalla Agregar usuario, agregue un nuevo usuario con la siguiente configuración
+              <ul>
+                <li>nombre de usuario: <strong>iaw_agenda_1</strong> </li>
+                <li>servidor: <strong>localhost</strong> </li>
+                <li>contraseña: <strong>iaw_agenda_1</strong> </li>
+                <li>base de datos para el usuario: base de datos con el mismo nombre (<strong>iaw_agenda_1</strong>)</li>
+                <li>sin privilegios globales</li>
+                <li>sin límite de recursos</li>
+              </ul>
+              <p class=" captura"><img alt="phpMyAdmin. Usuarios" src="../img/phpmyadmin/2_1_s_3_crear_usuario.png" width="1009" height="585" title="XAMPP. Usuarios" /></p>
+            </li>
+            <li>Se mostrará el mensaje de creación de usuario y en la lista de bases de datos lateral se mostrará la base de datos <strong>iaw_agenda_1</strong>.
+              <p class=" captura"><img alt="phpMyAdmin. Usuarios" src="../img/phpmyadmin/2_1_s_4_crear_usuario.png" width="1009" height="200" title="XAMPP. Usuarios" /></p>
+            </li>
+          </ul>
+        </li>
+        <li>Al entrar como usuario <strong>iaw_agenda_1</strong>, en el lateral izquierdo se puede ver la base de datos <strong>iaw_agenda_1</strong>.
+          <p class=" captura"><img alt="phpMyAdmin. Usuarios" src="../img/phpmyadmin/2_1_s_5_crear_usuario.png" width="1009" height="200" title="XAMPP. Usuarios" /></p>
+        </li>
+        <li>Haga clic en la opción <strong>Bases de datos</strong> y compruebe que no tiene privilegios para crear bases de datos
+          <p class=" captura"><img alt="phpMyAdmin. Usuarios" src="../img/phpmyadmin/2_1_s_6_crear_usuario.png" width="1009" height="200" title="XAMPP. Usuarios" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>phpMyAdmin (2) 2 - Instalar una aplicación como usuario iaw_agenda_1</h2>
+      <ul>
+        <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1617/agenda_161212.zip">Agenda (12/12/16)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases_datos/bases_de_datos_2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
+        <li>Descomprima el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre la carpeta como <strong>agenda_1</strong>.</li>
+        <li>Modifique los archivos de configuración <strong>biblioteca.php</strong> y <strong>biblioteca_mysql.php</strong> para que la aplicación utilice la cuenta del usuario <strong>iaw_agenda_1</strong>:
+
+          <div class="codphp">
+            <pre><code class="language-php">/* biblioteca.php aplicación agenda_1 */
+
+$dbMotor = <span class="resaltado">MYSQL</span>;                                  // Base de datos empleada</code></pre>
+          </div>
+
+          <div class="codphp">
+            <pre><code class="language-php">/* biblioteca_mysql.php aplicación agenda_1 */
+
+define("MYSQL_HOST", "mysql:host=localhost"); // Nombre de host MYSQL
+define("MYSQL_USUARIO", "<span class="resaltado">iaw_agenda_1</span>");      // Nombre de usuario de MySQL
+define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_1</span>");     // Contraseña de usuario de MySQL
+$dbDb    = "<span class="resaltado">iaw_agenda_1</span>";                    // Nombre de la base de datos
+$dbTabla = $dbDb . ".tabla";                  // Nombre de la tabla</code></pre>
+          </div>
+        </li>
+        <li>Ejecute la aplicación en el navegador y compruebe que la aplicación funciona creando varios registros.</li>
+        <li>Compruebe en phpMyAdmin el contenido de la tabla.
+          <p class=" captura"><img alt="XAMPP. Base de datos iaw_agenda1" src="../img/phpmyadmin/2_2_s_1_agenda.png" width="990" height="260" title="XAMPP. Base de datos iaw_agenda1" /></p>
+          <p class=" captura"><img alt="XAMPP. Base de datos iaw_agenda1" src="../img/phpmyadmin/2_2_s_2_agenda.png" width="990" height="240" title="XAMPP. Base de datos iaw_agenda1" /></p>
+          <p class=" captura"><img alt="XAMPP. Base de datos iaw_agenda1" src="../img/phpmyadmin/2_2_s_3_agenda.png" width="990" height="420" title="XAMPP. Base de datos iaw_agenda1" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>phpMyAdmin (2) 3 - Crear un usuario iaw_agenda_2 que pueda administrar varias bases de datos</h2>
+
+      <p>En este ejercicio, la configuración del usuario a crear es la siguiente:</p>
+      <ul>
+        <li>nombre de usuario: <strong>iaw_agenda_2</strong> </li>
+        <li>servidor: <strong>localhost</strong> </li>
+        <li>contraseña: <strong>iaw_agenda_2</strong> </li>
+        <li>base de datos para el usuario: Otorgar todos los privilegios al nombre que contiene comodín (username\_%)</li>
+        <li>sin privilegios globales</li>
+        <li>sin límite de recursos</li>
+      </ul>
+      <ol>
+        <li>Crear un nuevo usuario de MySQL
+          <ul>
+            <li>En la página principal, haga clic en el enlace <strong>Usuarios</strong>:
+              <p class=" captura"><img alt="phpMyAdmin. Usuarios" src="../img/phpmyadmin/2_3_s_1_crear_usuario.png" width="1009" height="200" title="XAMPP. Página principal" /></p>
+            </li>
+            <li>Para crear un nuevo usuario, haga clic en el enlace <strong>Agregar usuario</strong>:
+              <p class=" captura"><img alt="phpMyAdmin. Usuarios" src="../img/phpmyadmin/2_3_s_2_crear_usuario.png" width="1009" height="505" title="XAMPP. Usuarios" /></p>
+            </li>
+            <li>En la pantalla Agregar usuario, agregue un nuevo usuario con la siguiente configuración
+              <ul>
+                <li>nombre de usuario: <strong>iaw_agenda_2</strong> </li>
+                <li>servidor: <strong>localhost</strong> </li>
+                <li>contraseña: <strong>iaw_agenda_2</strong></li>
+                <li>base de datos para el usuario: Otorgar todos los privilegios al nombre que contiene comodín (username\_%)</li>
+                <li>sin privilegios globales</li>
+                <li>sin límite de recursos</li>
+              </ul>
+              <p class=" captura"><img alt="phpMyAdmin. Usuarios" src="../img/phpmyadmin/2_3_s_3_crear_usuario.png" width="1009" height="585" title="XAMPP. Usuarios" /></p>
+            </li>
+            <li>Se mostrará el mensaje de creación de usuario, pero en la lista de bases de datos lateral no se mostrará ninguna base de datos cuyo nombre empiece por <strong>iaw_agenda_2_</strong>.
+              <p class=" captura"><img alt="phpMyAdmin. Usuarios" src="../img/phpmyadmin/2_3_s_4_crear_usuario.png" width="1009" height="200" title="XAMPP. Usuarios" /></p>
+            </li>
+          </ul>
+        </li>
+        <li>Una vez creado el usuario, salga de phpMyAdmin y entre como usuario <strong>iaw_agenda_2</strong>. Compruebe que no se ha creado ninguna base de datos cuyo nombre empiece por <strong>iaw_agenda_2_</strong>.
+          <p class=" captura"><img alt="phpMyAdmin. Usuarios" src="../img/phpmyadmin/2_3_e_2_crear_usuario.png" width="1009" height="190" title="XAMPP. Página principal" /></p>
+        </li>
+        <li class="incompleto">POR COMPLETAR</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>phpMyAdmin (2) 4 - Instalar dos aplicaciones como usuario iaw_agenda_2</h2>
+      <ul>
+        <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1617/agenda_161212.zip">Agenda (12/12/16)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases_datos/bases_de_datos_2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
+        <li>Descomprimir dos veces el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombrar las carpetas como <strong>agenda_2a</strong> y <strong>agenda_2b</strong>.</li>
+        <li>Modificar los archivos de configuración <strong>biblioteca.php</strong> y <strong>biblioteca_mysql.php</strong> para que la aplicación utilice la cuenta del usuario <strong>iaw_agenda_2</strong>:
+
+          <div class="codphp">
+            <pre><code class="language-php">/* biblioteca.php aplicación agenda_1 */
+
+$dbMotor = <span class="resaltado">MYSQL</span>;                                  // Base de datos empleada</code></pre>
+          </div>
+
+          <div class="codphp">
+            <pre><code class="language-php">/* biblioteca_mysql.php aplicación agenda_1 */
+
+define("MYSQL_HOST", "mysql:host=localhost"); // Nombre de host MYSQL
+define("MYSQL_USUARIO", "<span class="resaltado">iaw_agenda_2</span>");      // Nombre de usuario de MySQL
+define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_2</span>");     // Contraseña de usuario de MySQL
+
+$dbDb    = "<span class="resaltado">iaw_agenda_2_agenda_2a</span>";          // Nombre de la base de datos
+$dbTabla = $dbDb . ".tabla";                  // Nombre de la tabla</code></pre>
+          </div>
+
+          <div class="codphp">
+            <pre><code class="language-php">/* biblioteca.php aplicación agenda_2 */
+
+$dbMotor = <span class="resaltado">MYSQL</span>;                                  // Base de datos empleada</code></pre>
+          </div>
+
+          <div class="codphp">
+            <pre><code class="language-php">/* biblioteca_mysql.php aplicación agenda_2 */
+
+define("MYSQL_HOST", "mysql:host=localhost"); // Nombre de host MYSQL
+define("MYSQL_USUARIO", "<span class="resaltado">iaw_agenda_2</span>");      // Nombre de usuario de MySQL
+define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_2</span>");     // Contraseña de usuario de MySQL
+
+$dbDb    = "<span class="resaltado">iaw_agenda_2_agenda_2b</span>";          // Nombre de la base de datos
+$dbTabla = $dbDb . ".tabla";                  // Nombre de la tabla</code></pre>
+          </div>
+        </li>
+        <li>Ejecutar las aplicaciones en el navegador y comprobar que funcionan creando varios registros y comprobando que los datos no se mezclan.</li>
+        <li>Comprobar en phpMyAdmin los contenidos de la tabla.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>phpMyAdmin (2) 5 - Crear un usuario iaw_agenda_3 con una base de datos única</h2>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por escribir</p>
+    </section>
+
+    <section id="ejercicio-6">
+      <h2>phpMyAdmin (2) 6 - Instalar dos aplicaciones como usuario iaw_agenda_3</h2>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por escribir</p>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 9 de diciembre de 2015</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

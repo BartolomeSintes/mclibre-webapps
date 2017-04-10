@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Varios. Bitnami. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Bitnami. Varios</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <a href="webapps_bitnami_3.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        Bitnami (varios)
+      </h2>
+
+      <div class="toc">
+        <ul>
+          <li><a href="#ubuntu">Ubuntu</a>
+            <ul>
+              <li><a href="#averiguar-version">Averiguar versión Ubuntu</a></li>
+              <li><a href="#apagar">Apagar máquina</a></li>
+              <li><a href="#averiguar-ip">Averiguar IP máquina</a></li>
+              <li><a href="#configuracion-teclado">Configuración teclado</a></li>
+              <li><a href="#comprobar-aplicacion-instalada">Aplicación instalada</a></li>
+              <li><a href="#instalar-aplicacion">Instalar aplicación</a></li>
+              <li><a href="#comprobar-servicio">Comprobar servicio</a></li>
+              <li><a href="#arrancar-servicio">Arrancar servicio</a></li>
+              <li><a href="#espacio-ocupado">Espacio libre y ocupado</a></li>
+              <li><a href="#buscar">Buscar</a></li>
+              <li><a href="#editor-vi">Editor vi</a></li>
+            </ul>
+          </li>
+          <li><a href="#ubuntu">Bitnami</a>
+            <ul>
+              <li><a href="#servidor-apache">Servidor Apache</a></li>
+              <li><a href="#webapps">Directorio webapps</a></li>
+            </ul>
+          </li>
+          <li><a href="#virtualbox">VirtualBox</a>
+            <ul>
+              <li><a href="#adaptador">Adaptador de red</a></li>
+              <li><a href="#copiar-pegar">Copiar y pegar</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="ubuntu">
+      <h2>Comandos de Ubuntu</h2>
+
+      <ul>
+        <li><a href="https://tldr.ostera.io/">tldr</a>: ejemplos de comandos (hay que saber el nombre del comando y escribir linux/<em>comando</em>). Se puede también instalar como aplicación o descargar en <a href="http://tldr-pages.github.io/assets/tldr-book.pdf">formato pdf</a>, como explican en la <a href="http://tldr-pages.github.io/">web del proyecto</a></li>
+      </ul>
+
+      <section id="averiguar-version">
+        <h3>Averiguar la versión de Ubuntu</h3>
+
+        <p>Para averiguar la versión de Ubuntu de la máquina, escribir el comando:</p>
+
+        <div class="codshell">
+          <pre>lsb_releases -a</pre>
+        </div>
+      </section>
+
+      <section id="apagar">
+        <h3>Apagar la máquina</h3>
+
+        <p>Para apagar una máquina, escribir el comando:</p>
+
+        <div class="codshell">
+          <pre>sudo shutdown -h now</pre>
+        </div>
+      </section>
+
+      <section id="averiguar-ip">
+        <h3>Averiguar la IP de la máquina</h3>
+
+        <p>Para averiguar la IP de la máquina, escribir el comando:</p>
+
+        <div class="codshell">
+          <pre>ifconfig</pre>
+        </div>
+
+        <p>También se puede escribir un comando más moderno:</p>
+
+        <div class="codshell">
+          <pre>ip addr</pre>
+        </div>
+      </section>
+
+      <section id="paginar-salida">
+        <h3>Paginar la salida de un comando</h3>
+
+        <p>Cuando la salida por pantalla de un comando es muy larga, no se puede ver completa. Para ello, se puede utilizar el visor less (o more):</p>
+
+        <div class="codshell">
+          <pre><em>comando</em> | less</pre>
+        </div>
+
+        <p>En less, algunos comandos son: q (salir), f (forward = avanzar una página), b (backwards = retroceder una página), /texto (buscar texto), n (buscar siguiente), N (buscar anterior).</p>
+      </section>
+
+      <section id="configuracion-teclado">
+        <h3>Cambiar la configuración del teclado</h3>
+
+        <p>Las máquinas virtuales de Bitnami tienen configurado el teclado de Estados Unidos. Se puede cambiar la configuración del teclado a otros idiomas mediante la orden:</p>
+
+        <div class="codshell">
+          <pre>sudo dpkg-reconfigure keyboard-configuration</pre>
+        </div>
+
+        <p>En un teclado de España, las opciones a seleccionar suelen ser las siguientes:</p>
+
+        <ul>
+          <li>Keyboard model: Generic 105-key (Intl) PC</li>
+          <li>Country of origin: Spanish</li>
+          <li>Keyboard layout: Spanish</li>
+          <li>Key to function as AltGr: The default for the keyboard layout</li>
+          <li>Compose key: No compose key</li>
+        </ul>
+
+        <h3>Caracteres en el teclado de Estados Unidos</h3>
+
+        <p>Esta es la disposición de los caracteres en un teclado de Estados Unidos de América.</p>
+
+        <p class="captura"><img alt="Teclado PC Estados Unidos" src="../img/bitnami/bn_us_keyboard.png" width="600" height="200" /></p>
+
+        <table class="conborde centrado">
+          <tbody>
+            <tr>
+              <th>Posición en el teclado inglés</th>
+              <th>Resultado en el teclado español</th>
+            </tr>
+            <tr>
+              <td>Ñ</td>
+              <td>:</td>
+            </tr>
+            <tr>
+              <td>Ç</td>
+              <td>|</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>/</td>
+            </tr>
+            <tr>
+              <td>'</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>(</td>
+              <td>*</td>
+            </tr>
+            <tr>
+              <td>¿</td>
+              <td>+</td>
+            </tr>
+            <tr>
+              <td>·</td>
+              <td>#</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="comprobar-aplicacion-instalada">
+        <h3>Comprobar si una aplicación está instalada</h3>
+
+        <div class="codshell">
+          <pre>dpkg -l | grep <em>aplicacion</em></pre>
+        </div>
+      </section>
+
+      <section id="instalar-aplicacion">
+        <h3>Instalar una aplicación</h3>
+
+        <div class="codshell">
+          <pre>sudo apt-get install <em>aplicacion</em></pre>
+        </div>
+      </section>
+
+      <section id="comprobar-servicio">
+        <h3>Comprobar si un servicio está en marcha</h3>
+
+        <p>Por ejemplo, el servicio de SSH (<em>sshd</em>):</p>
+
+        <div class="codshell">
+          <pre>ps aux | grep sshd</pre>
+        </div>
+      </section>
+
+      <section id="arrancar-servicio">
+        <h3>Arrancar un servicio</h3>
+
+        <p>Por ejemplo, el servicio de SSH:</p>
+
+        <div class="codshell">
+          <pre>sudo start ssh</pre>
+        </div>
+
+        <p>Antes de iniciar los servicios, es necesarios configurarlos correctamente.</p>
+      </section>
+
+      <section id="espacio-disco">
+        <h3>Espacio de disco ocupado y libre</h3>
+
+        <p>Para ver el espacio de disco ocupado y libre:</p>
+
+        <div class="codshell">
+          <pre>du -hs <em>/path</em></pre>
+        </div>
+
+        <div class="codshell">
+          <pre>du -h --max-depth=<em>n</em> <em>/path</em></pre>
+        </div>
+      </section>
+
+      <section id="buscar">
+        <h3>Buscar un archivio</h3>
+
+        <div class="codshell">
+          <pre>find <em>/path</em> -name <em>archivo</em></pre>
+        </div>
+
+        <p>Para mostrar sólo las líneas que contienen una palabra:</p>
+        <div class="codshell">
+          <pre>find <em>/path</em> -name <em>archivo</em> | grep <em>palabra</em></pre>
+        </div>
+
+        <p>Para mostrar sólo las líneas que <strong>no</strong> contienen una palabra:</p>
+        <div class="codshell">
+          <pre>find <em>/path</em> -name <em>archivo</em> | grep -v <em>palabra</em></pre>
+        </div>
+      </section>
+
+      <section id="editor-vi">
+        <h3>Editor vi</h3>
+
+        <p>Referencia: <a href="http://tldp.org/LDP/intro-linux/html/sect_06_02.html">http://tldp.org/LDP/intro-linux/html/sect_06_02.html</a></p>
+
+        <p>Para editar un archivo con vi:</p>
+
+        <div class="codshell">
+          <pre>vi nombre_de_archivo</pre>
+        </div>
+
+        <p>El editor vi abre el archivo en modo Comando.</p>
+        <ul>
+          <li>Cambiar de modo
+
+            <table class="conborde">
+              <tbody>
+                <tr>
+                  <th>Comando</th>
+                  <th>Función</th>
+                </tr>
+                <tr>
+                  <td>i</td>
+                  <td>Pasar a modo Edición</td>
+                </tr>
+                <tr>
+                  <td>a</td>
+                  <td>Pasar a modo Edición (avanzando una posición el curso)</td>
+                </tr>
+                <tr>
+                  <td>o</td>
+                  <td>Añadir una línea en blanco y pasar a modo Edición</td>
+                </tr>
+                <tr>
+                  <td>Esc</td>
+                  <td>Volver a modo Comando</td>
+                </tr>
+                <tr>
+                  <td>v / V</td>
+                  <td>Señalar el principio del fragmento a copiar (seleccionando por caracteres / líneas)</td>
+                </tr>
+                <tr>
+                  <td>d / y</td>
+                  <td>Señalar el final del framento a cortar / copiar</td>
+                </tr>
+                <tr>
+                  <td>p</td>
+                  <td>Señalar el lugar donse pega el fragmento cortado o copiado</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Órdenes en modo Comando
+            <table class="conborde">
+              <tbody>
+                <tr>
+                  <th>Comando</th>
+                  <th>Función</th>
+                </tr>
+                <tr>
+                  <td>:q</td>
+                  <td>Salir</td>
+                </tr>
+                <tr>
+                  <td>:q!</td>
+                  <td>Forzar salir (sin guardar)</td>
+                </tr>
+                <tr>
+                  <td>:w</td>
+                  <td>Guardar</td>
+                </tr>
+                <tr>
+                  <td>/<em>xyz</em></td>
+                  <td>Buscar <em>xyz</em></td>
+                </tr>
+                <tr>
+                  <td><em>n</em> dd</td>
+                  <td>Borrar n líneas</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="bitnami">
+      <h2>Comandos de Bitnami</h2>
+
+      <section id="servidor-apache">
+        <h3>Servidor Apache</h3>
+
+        <p>Directorio de Apache</p>
+
+        <div class="codshell">
+          <pre>cd /opt/bitnami/apache2/</pre>
+        </div>
+
+        <p>Reiniciar Apache</p>
+
+        <div class="codshell">
+          <pre>sudo /opt/bitnami/ctlscript.sh restart apache</pre>
+        </div>
+      </section>
+
+      <section id="webapps">
+        <h3>Directorio de las aplicaciones web (por ejemplo, owncloud):</h3>
+
+        <div class="codshell">
+          <pre>cd /opt/bitnami/apps/owncloud</pre>
+        </div>
+      </section>
+    </section>
+
+    <section id="virtualbox">
+      <h2>VirtualBox</h2>
+
+      <section id="adaptador">
+        <h3>Adaptador de red</h3>
+
+        <p>Para que la máquina virtual reciba una IP en la misma subred que el ordenador anfitrión, por ejemplo <strong>IP 192.168.XXX.YYY</strong>, en VirtualBox la configuración del adaptador debe ser Conectado a "Adaptador puente".</p>
+
+        <p class="captura"><img alt="Bitnami. VirtualBox" src="../img/bitnami/bn_2_adaptador.png" width="695" height="250" /></p>
+      </section>
+
+      <section id="copiar-pegar">
+        <h3>Copiar y pegar</h3>
+
+        <p>Que yo sepa, <strong>no se puede</strong> copiar y pegar entre el ordenador anfitirión y una máquina virtual Ubuntu de Bitnami en modo terminal.</p>
+
+        <p>Si se necesita copiar y pegar, la solución sería conectar mediante SSH con PuTTY (como en el ejercicio <a href="webapps_bitnami_2.html#ejercicio-2">Bitnami (2) 2</a>. Para pegar en el terminal de PuTTY, hay que teclear <kbd>Shift + Insert</kbd>.</p>
+
+        <p>Si la máquina virtual tiene un entorno gráfico, entonces sí que se puede copiar y pegar, instalando primero las VortualBox Guest Additions y activando el menú de VirtualBox Dispositivos > Arrastrar y soltar.</p>
+
+        <p>Documentación de Bitnami: <a href="https://docs.bitnami.com/virtual-machine/faq/#how-to-install-virtualbox-guest-additions-on-bitnami-virtual-machines">Instalar VirtualBox Guest Additions</a></p>
+      </section>
+    </section>
+
+    <section id="Apache">
+      <h2>Apache</h2>
+
+      <section id="apache-virtualhost">
+        <h3>Servidor virtual</h3>
+
+        <p>Para tener disponible una aplicación web o un sitio web en un puerto determinado hay que editar los archivos siguientes:</p>
+
+        <div class="codtxt">
+          <pre># apache/conf/httpd.conf
+
+    Listen PUERTO</pre>
+        </div>
+
+        <div class="codtxt">
+          <pre># apache/conf/extra/httpd-vhosts.conf
+
+    #Nota: Donde pone localhost podría ser una IP o un dominio o subdominio
+
+    &lt;VirtualHost localhost:PUERTO>
+    ServerAdmin EMAIL
+    DocumentRoot "RUTA A PAGINAS"
+    ServerName localhost:PUERTO
+    ErrorLog "logs/ERROR.LOG"
+    CustomLog "logs/ACCESS.LOG" combined
+&lt;/VirtualHost></pre>
+        </div>
+      </section>
+
+      <section id="apache-reverse-proxy">
+        <h3>Proxy inverso</h3>
+
+        <p>Un proxy inverso permite enviar las peticiones a un puerto a otras direcciones (de la misma máquina o de otras). En el archivo de configuración hay que cargar los módulos necesarios.</p>
+
+        <p>En el ejemplo siguiente, la máquina tiene dos hosts virtuales en dos puertos y el proxy envia las peticiones http://localhost/ruta a un host u otro dependiendo de la ruta.</p>
+
+        <div class="codtxt">
+          <pre># apache/conf/httpd.conf
+
+#Descomentar los módulos proxy necesarios
+
+LoadModule proxy_module modules/mod_proxy.so
+#LoadModule proxy_ajp_module modules/mod_proxy_ajp.so
+#LoadModule proxy_balancer_module modules/mod_proxy_balancer.so
+#LoadModule proxy_connect_module modules/mod_proxy_connect.so
+#LoadModule proxy_express_module modules/mod_proxy_express.so
+#LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so
+#LoadModule proxy_ftp_module modules/mod_proxy_ftp.so
+#LoadModule proxy_html_module modules/mod_proxy_html.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+#LoadModule proxy_http2_module modules/mod_proxy_http2.so
+#LoadModule proxy_scgi_module modules/mod_proxy_scgi.so
+#LoadModule proxy_wstunnel_module modules/mod_proxy_wstunnel.so
+
+# ...
+
+</pre>
+        </div>
+
+        <div class="codtxt">
+          <pre># apache/conf/httpd.conf
+
+# Virtual hosts
+Include conf/extra/httpd-vhosts.conf
+
+NameVirtualHost *:80
+
+&lt;VirtualHost *:80>
+# Las directivas comentadas es porque yo no las he necesitado
+# pero he leído que pueden ser necesarias en algunos casos
+#    ProxyPreserveHost On
+
+#    ProxyRequests Off
+#    ProxyVia Off
+
+#    ServerName localhost
+
+#    &lt;Proxy *>
+#         Require all granted
+#    &lt;/Proxy>
+
+    # Servers to proxy the connection, or;
+    # List of application servers:
+    # Usage:
+    # ProxyPass / http://[IP Addr.]:[port]/
+    # ProxyPassReverse / http://[IP Addr.]:[port]/
+    # NOTA: Donde pone localhost podría ser una IP o un dominio o subdominio
+    # NOTA: Donde pone /XXX1 podría ser sólo /
+    ProxyPass /XXX1 http://localhost:PUERTO1
+    ProxyPassReverse /XXX1 http://localhost:PUERTO1
+    ProxyPass /XXX2 http://localhost:PUERTO2
+    ProxyPassReverse /XXX2 http://localhost:PUERTO2
+
+&lt;/VirtualHost>
+</pre>
+        </div>
+
+      </section>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 30 de enero de 2017</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

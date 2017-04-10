@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejercicios (1). Drupal. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Drupal. Ejercicios (1)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <a href="webapps_drupal.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        Drupal (1)
+        <a href="webapps_drupal_2.html"><img src="../varios/iconos/icono_flecha_derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
+
+      <h3>Enunciados</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - Descargar</a></li>
+          <li><a href="#ejercicio-2">2 - Instalar</a></li>
+          <li><a href="#ejercicio-3">3 - Copia de seguridad</a></li>
+          <li><a href="#ejercicio-4">4 - Actualizar manualmente</a></li>
+          <li><a href="#ejercicio-5">5 - Actualizar traducción</a></li>
+          <li><a href="#ejercicio-6">6 - Acceder desde otros</a></li>
+          <li><a href="#ejercicio-7">7 - Instalar desde copia</a></li>
+        </ul>
+      </div>
+
+      <h3><a href="webapps_drupal_1_soluciones.html">Soluciones</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_drupal_1_soluciones.html#ejercicio-1">1 - Descargar</a></li>
+          <li><a href="webapps_drupal_1_soluciones.html#ejercicio-2">2 - Instalar</a></li>
+          <li><a href="webapps_drupal_1_soluciones.html#ejercicio-3">3 - Copia de seguridad</a></li>
+          <li><a href="webapps_drupal_1_soluciones.html#ejercicio-4">4 - Actualizar manualmente</a></li>
+          <li><a href="webapps_drupal_1_soluciones.html#ejercicio-5">5 - Actualizar traducción</a></li>
+          <li><a href="webapps_drupal_1_soluciones.html#ejercicio-6">6 - Acceder desde otros</a></li>
+          <li><a href="webapps_drupal_1_soluciones.html#ejercicio-7">7 - Instalar desde copia</a></li>
+          <li><a href="webapps_drupal_1_soluciones.html#enlaces-incorrectos">Enlaces incorrectos</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>Drupal</strong>. Se pueden consultar las <a href="webapps_drupal_1_soluciones.html">soluciones de estos ejercicios de Drupal</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />No he terminado de actualizar estos ejercicios a la versión Drupal 8.2.</p>
+
+    <section id="ejercicio-1">
+      <h2>Drupal (1) 1 - Descargar</h2>
+
+      <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Como un ejercicio posterior consiste en la actualización de Drupal, en este ejercicio no se debe descargar la <strong>última</strong> versión de Drupal.</p>
+
+      <ol>
+        <li>Visite la página web del proyecto Drupal.</li>
+        <li>Descargue la versión <strong>Drupal 8.2.0</strong> (en inglés), publicada el 5 de octubre de 2016. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.
+          <p>Si la versión <strong>Drupal 8.2.0</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/descarga_aplicaciones.html">Descarga de aplicaciones</a>.</p>
+        </li>
+        <li>Descomprima Drupal en una carpeta <strong>drupal</strong> (sin número de versión), en la ruta adecuada para poder ejecutarlo en el servidor local.</li>
+        <li>No instale Drupal todavía.</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>Drupal (1) 2 - Instalar</h2>
+
+      <p>En este ejercicio se instalará Drupal en español, utilizando como base de datos MySQL/MariaDB.</p>
+
+      <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />La instalación de Drupal en Windows presenta algunos problemas. Si dispone de tiempo, intente resolverlos sin consultar la ayuda proporcionada en cada apartado o la página de soluciones.</p>
+
+      <hr class="corta" />
+
+      <h3>Ajustes previos</h3>
+
+      <p>De estos tres ajustes el primero es necesario, el segundo puede serlo y el tercero simplemente debe comprobarse.</p>
+      <ol>
+        <li>Extensión mod_rewrite de Apache
+          <p>Para que los enlaces internos de Drupal apunten a las direcciones correctas, active la directiva <strong>RewriteBase</strong> en <strong>.htaccess</strong> de Drupal, dándole el valor adecuado (lea los comentarios de esta directiva en el propio fichero para saber qué escribir).</p>
+        </li>
+        <li>Tiempo de ejecución de los scripts
+          <p>En versiones anteriores de Drupal, la instalación solía abortarse porque algún paso de la instalación tardaba bastante en realizarse:</p>
+          <p class="captura"><img alt="Drupal. Tiempo de ejecución superado" src="../img/drupal/1_2_e_1_max_execution_time.png" width="925" height="100" title="phpMyAdmin. Creación de usuario para Drupal" /></p>
+          <p>Drupal 8.2 no parece tener ese problema, pero por precaución se podría aumentar el tiempo de espera máximo de ejecución de un script de PHP aumentando el valor de la directiva <strong>max_execution_time</strong> por ejemplo a 60 minutos (3600 segundos) (recuerde reiniciar el servidor tras el cambio). Una vez realizada la instalación y actualización, devuelva la directiva a su valor original (por ejemplo, 30 segundos).</p>
+        </li>
+        <li>Extensión fileinfo
+          <p>Drupal utiliza la extensión <strong>fileinfo</strong> para detectar el tipo MIME de los archivos. Esta extensión ya se encuentra activada en XAMPP 7.0, pero compruebe que es así.</p>
+        </li>
+      </ol>
+
+      <hr class="corta" />
+
+      <h3>Instalar</h3>
+
+      <ol>
+        <li>Cree con phpMyAdmin un usuario de MySQL/MariaDB con nombre <strong>iaw_drupal_1</strong>, contraseña <strong>iaw_drupal_1</strong> y base de datos <strong>iaw_drupal_1</strong>.</li>
+        <li>Instalación
+          <p>Abra Drupal. Drupal iniciará el asistente de instalación, que va preguntando las opciones de configuración deseadas. A continuación se comentan algunas opciones a elegir:</p>
+          <ol>
+            <li>Choose language
+              <p>Elija el idioma español.</p>
+            </li>
+
+            <li>Verificar requisitos: Configurar cURL
+              <p>Al elegir instalar Drupal en un idioma distinto del inglés (por ejemplo, en español), el instalador de Drupal no consigue conectarse con el servidor de traducciones.</p>
+              <p class="captura"><img alt="Drupal. cURL" src="../img/drupal/1_2_e_2_curl.png" width="400" height="150" title="phpMyAdmin. Creación de usuario para Drupal" /></p>
+              <details>
+                <summary><strong>Ayuda</strong></summary>
+                <p>Para resolver este problema, en Windows se debe descargar un certificado para cURL (<strong>cacert.pem</strong>), por ejemplo desde <a href="https://curl.haxx.se/docs/caextract.html">https://curl.haxx.se/docs/caextract.html</a>, y copiarlo en C:\Windows.</p>
+                <p>Además, PHP debe saber la ubicación del certificado:</p>
+                <div class="codphp">
+                  <pre>[curl]
+curl.cainfo = "C:\Windows\cacert.pem"</pre>
+                </div>
+              </details>
+            </li>
+
+            <li>Seleccionar un perfil de instalación
+              <p>Elija el perfil Estándar.</p>
+            </li>
+            <li>Verificar requisitos: Extensión OPCache
+              <p>El instalador de Drupal recomienda activar <a href="http://php.net/manual/en/book.opcache.php">OPCache</a> en PHP.</p>
+              <p class="captura"><img alt="Drupal. OPcache" src="../img/drupal/1_2_e_3_opcache.png" width="400" height="160" title="phpMyAdmin. Creación de usuario para Drupal" /></p>
+              <details>
+                <summary><strong>Ayuda</strong></summary>
+                <p>Para activar y configurar OPCache en PHP, puede aplicar la solución propuesta en <a href="https://www.drupal.org/node/2623566">este foro de Drupal</a>.</p>
+              </details>
+            </li>
+            <li>Configurar base de datos
+              <p>Introduzca los datos del usuario de MySQL.</p>
+            </li>
+            <li>Instalar perfil</li>
+            <li>Configurar traducciones
+              <p>Puede que se muestren avisos sobre errores en las traducciones.</p>
+              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_e_13_instalacion.png" width="760" height="390" /></p>
+            </li>
+            <li>Configurar sitio
+              <p>Nombre del sitio web: <span class="resaltado">Mi Drupal</span></p>
+              <p>Correo electrónico del sitio: <span class="resaltado">midrupal@example.com</span></p>
+              <p>Nombre de usuario: <span class="resaltado">admin</span></p>
+              <p>Contraseña: <span class="resaltado">admin</span></p>
+              <p>Dirección de correo electrónico: <span class="resaltado">admin@example.com</span></p>
+              <p>País predefinido: <span class="resaltado">España</span></p>
+              <p>Zona horaria predefinida: <span class="resaltado">Europe/Madrid</span></p>
+              <p>Comprobar actualizaciones automáticamente: <span class="resaltado">Marcar</span></p>
+              <p>Recibir notificaciones por correo electrónico: <span class="resaltado">Desmarcar</span></p>
+            </li>
+            <li>Fin de la instalación
+              <p>Cuando termine la instalación se mostrará la página de Drupal con el menú de administración en la parte superior:</p>
+              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_e_14_instalacion.png" width="991" height="610" /></p>
+            </li>
+          </ol>
+        </li>
+        <li>Comprobación de la instalación
+          <ul>
+            <li>Cierre la sesión y compruebe que se puede ver ver la página inicial de Drupal:
+              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_e_15_instalacion.png" width="991" height="350" /></p>
+            </li>
+            <li>Compruebe que puede Iniciar sesión como administrador y salir de ella correctamente
+
+              <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Si no puede entrar porque los enlaces no son correctos, corrija la directiva <strong>RewriteBase</strong> en el fichero <strong>.htaccess</strong> de Drupal (probablemente esa es la causa del error) y a continuación, abra la página <strong>drupal/user</strong>, entre como administrador, abra la página de Configuración del sitio y guarde la configuración sin modificar nada.</p>
+            </li>
+          </ul>
+        </li>
+        <li>Ajustes post-instalación
+          <ul>
+            <li>Como administrador, entre la página de Configuración y abra el informe de estado, en el que podrá ver el siguiente aviso:
+              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_e_21_instalacion.png" width="991" height="115" /></p>
+            </li>
+            <li>Visite la página enlazada en el aviso anterior para saber en qué consiste este problema y cómo corregirlo.</li>
+            <li>Una vez corregido, compruebe que el problema ha desaparecido:
+              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_e_22_instalacion.png" width="991" height="95" /></p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>Drupal (1) 3 - Hacer una copia de seguridad manual completa</h2>
+
+      <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Realice la copia de seguridad de la base de datos como usuario <strong>iaw_drupal_1</strong>, no como <strong>root</strong> de MySQL.</p>
+
+      <p>En este ejercicio se hará una copia de seguridad de Drupal.</p>
+      <ol>
+        <li>Realice una copia de seguridad manual completa de la instalación (en los nombres de archivo propuestos AA es el año, MM el mes, DD el día y NN el número de copia del día):
+          <ul>
+            <li>Comprima los archivos de la carpeta drupal en un archivo comprimido (por ejemplo, drupal_backup_archivos_AAMMDDNN.zip).</li>
+            <li>Como usuario iaw_drupal_1, exporte todas las tablas de la base de datos iaw_drupal_1 a un fichero sql (por ejemplo, drupal_backup_db_AAMMDDNN.sql).</li>
+            <li>Escriba un archivo que explique qué se ha comprimido (por ejemplo, drupal_backup_leeme_AAMMDDNN.txt).</li>
+            <li>Comprima todo lo anterior en un único zip (por ejemplo, drupal_backup_AAMMDDNN.zip).</li>
+          </ul>
+        </li>
+        <li>Una vez realizada la copia, borre los archivos del disco y borre todas las tablas de la base de datos</li>
+        <li>Restaure la copia de seguridad.</li>
+        <li>Compruebe que Drupal funciona correctamente.</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>Drupal (1) 4 - Actualizar manualmente</h2>
+
+      <p>En este ejercicio se actualizará Drupal a una versión posterior a la que se instaló inicialmente</p>
+
+      <p>Si se ha instalado la versión Drupal 8.0.1, la siguiente versión disponible actualmente (enero de 2016) es la versión 8.0.2 publicada el 6 de enero de 2016.</p>
+
+      <p>Referencias:</p>
+
+      <h3>Enterarse de la existencia de actualizaciones</h3>
+
+      <ul>
+        <li>Entre en Drupal como usuario <strong>admin</strong>.
+          <p>En Drupal 7, si había una <strong>actualización de seguridad</strong> disponible, Drupal mostraba un aviso en cualquier página. No sé si Drupal 8 mostrará este aviso cuando haya actualizaciones de seguridad disponibles.</p>
+          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_e_1_actualizacion_D7.png" width="1000" height="290" /></p>
+          <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Actualizar este apartado cuando Drupal 8 publique una actualización de seguridad.</p>
+        </li>
+        <li>Busque en el menú de administración de Drupal la página que muestra los elementos pendientes de actualización.
+          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_e_2_actualizacion.png" width="960" height="250" /></p>
+        </li>
+      </ul>
+
+      <hr class="corta" />
+
+      <h3>Realizar la actualización</h3>
+      <ul>
+        <li>Para evitar que otros usuarios intenten modificar páginas mientras se realiza la actualización, antes de iniciar la actualización se aconseja pasar Drupal a Modo de Mantenimiento. Busque en el menú de administración de Drupal la página para hacerlo.</li>
+        <li>Al pasar a modo de mantenimiento, Drupal muestra a los usuarios una pantalla fija.
+          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_e_3_actualizacion.png" width="820" height="180" /></p>
+          <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />En Drupal 8, el aviso de sitio en mantenimiento no parece mostrarse en todas las páginas, como sí hacía en Drupal 7. No sé si se debe a OPcaché.</p>
+          <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Si hay que volver a entrar como administrador y no se puede hacer clic en <strong>Iniciar sesión</strong>, se puede hacer escribiendo la dirección <strong>drupal/user</strong>.</p>
+        </li>
+        <li>Siempre que se hace una actualización, se recomienda hacer previamente una copia de seguridad completa de Drupal (archivos y base de datos), aunque como en el ejercicio anterior ya se ha realizado una copia de seguridad completa, en este ejercicio no es necesario volverla a realizar.</li>
+        <li>Descargue la nueva versión y lea el archivo UPGRADE.txt, apartado MINOR VERSION UPDATES, que contiene las instrucciones específicas de actualización (pueden cambiar de una versión a otra).</li>
+        <li>Lleve a cabo los pasos necesarios indicado sen el archivo UPGRADE.txt.</li>
+        <li>Si todo va bien, Drupal mostrará la página final:
+          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_e_4_actualizacion.png" width="780" height="380" /></p>
+        </li>
+        <li>Desactive el modo de mantenimiento.</li>
+        <li>Compruebe que en la página correspondiente se indica que Drupal está actualizado.
+          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_e_5_actualizacion.png" width="1008" height="180" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>Drupal (1) 5 - Actualizar la traducción al español manualmente</h2>
+
+      <ol>
+        <li>Compruebe si hay actualizaciones de las traducciones pendientes y,en su caso, actualice la traducción de Drupal.</li>
+      </ol>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />En Drupal 8 no he podido ver cómo se hacen las actualizaciones de la traducción porque hasta ahora me dice siempre que están actualizadas. Cuando lo haga, pondré aquí las capturas correspondientes.</p>
+    </section>
+
+    <section id="ejercicio-6">
+      <h2>Drupal (1) 6 - Acceder desde otros ordenadores</h2>
+
+      <h3>Acceso con alias y dirección ip desde el propio ordenador</h3>
+
+      <ol>
+        <li>Cree un alias para poder abrir Drupal mediante la dirección <strong>http://localhost/drupal/</strong>. Compruebe que puede abrir Drupal mediante esa dirección y entrar como administrador.
+          <p class="captura"><img alt="Drupal. Acceder desde otros ordenadores" src="../img/drupal/1_6_e_1_alias.png" width="600" height="410" /></p>
+          <p><strong></strong><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Será necesario modificar la directiva <strong>RewriteBase</strong> del archivo <strong>.htaccess</strong> de Drupal incluyendo la nueva ruta.</p>
+          <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Si no se muestra el logo de Drupal o los enlaces no son correctos y no le permiten <strong>Iniciar sesión</strong>, abra la página <strong>/drupal/user</strong>, entre como administrador, abra la página de Configuración del sitio y guarde la configuración sin modificar nada.</p>
+        </li>
+        <li>Averigüe la IP de su ordenador (AAA.BBB.CCC.DDD).</li>
+        <li>Compruebe que puede entrar como usuario o administrador mediante la dirección <strong>http://AAA.BBB.CCC.DDD/drupal/</strong>
+          <p class="captura"><img alt="Drupal. Acceder desde otros ordenadores" src="../img/drupal/1_6_e_2_alias.png" width="600" height="390" /></p>
+          <p><strong></strong><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Será necesario añadir la IP en la configuración de servidores de confianza.</p>
+        </li>
+      </ol>
+
+      <h3>Acceso con alias y dirección ip desde otro ordenador perteneciente a la misma red o desde una máquina virtual en el mismo ordenador</h3>
+
+      <ol>
+        <li>Compruebe que puede entrar correctamente en Drupal como usuario o administrador mediante la dirección <strong>http://AAA.BBB.CCC.DDD/drupal/</strong>.</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-7">
+      <h2>Drupal (1) 7 - Instalar otra copia de Drupal aprovechando la copia de seguridad</h2>
+      <ol>
+        <li>Cree con phpMyAdmin un usuario de MySQL con nombre <strong>iaw_drupal_2</strong>, contraseña <strong>iaw_drupal_2</strong> y base de datos <strong>iaw_drupal_2</strong>.</li>
+        <li>Descomprima la copia de seguridad de los archivos realizada en el ejercicio Drupal (1) 3 en una carpeta <strong>drupal_2</strong>.</li>
+        <li>Restaure la copia de seguridad de la base de datos realizada en el ejercicio Drupal (1) 3 en la base de datos <strong>iaw_drupal_2</strong>.</li>
+        <li>Modifique los archivos de configuración de Drupal2 de manera que se pueda utilizar de forma independiente de la primera instalación realizada (como mínimo, <strong>.htacess</strong> y <strong>default.settings.php</strong>).</li>
+        <li>Compruebe que puede entrar como usuario o administrador mediante la dirección <strong>/drupal_2</strong>.
+          <p class="captura"><img alt="Drupal. Copia de Drupal" src="../img/drupal/1_7_e_1_segunda.png" width="600" height="410" /></p>
+          <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Si al intentar entrar en el segundo Drupal, algunos enlaces no son correctos y redirigen al primer Drupal, abra la página <strong>/drupal/user</strong>, entre como administrador, abra la página de Configuración del sitio y guarde la configuración sin modificar nada.</p>
+        </li>
+      </ol>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Tendría que aclarar si habría que cambiar $settings['hash_salt'] en settings.php.</p>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 12 de febrero de 2017</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

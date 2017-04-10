@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejercicios (4). WordPress. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../varios/highlight-htmlcss.css" />
+    <script type="text/javascript" src="../varios/highlight.pack.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body>
+    <h1>WordPress. Ejercicios (4)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <a href="webapps_wordpress_3.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        WordPress (4)
+      </h2>
+
+      <h3>Enunciados</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - Imagen destacada</a></li>
+          <li><a href="#ejercicio-2">2 - Personalizar tema 2017</a></li>
+          <li><a href="#ejercicio-3">3 - Modificar traducción</a></li>
+          <li><a href="#ejercicio-4">4 - Crear un tema hijo</a></li>
+          <li><a href="#ejercicio-5">5 - Modificar CSS tema hijo</a></li>
+          <li><a href="#ejercicio-6">6 - Modificar plantilla</a></li>
+          <li><a href="#ejercicio-7">7 - Google Fonts (css)</a></li>
+          <li><a href="#ejercicio-8">8 - Google Fonts (plugin)</a></li>
+          <li><a href="#ejercicio-9">9 - Otros temas</a></li>
+        </ul>
+      </div>
+
+      <h3><a href="webapps_wordpress_4_soluciones.html">Soluciones</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_wordpress_4_soluciones.html#ejercicio-1">1 - Imagen destacada</a></li>
+          <li><a href="webapps_wordpress_4_soluciones.html#ejercicio-2">2 - Personalizar tema 2017</a></li>
+          <li><a href="webapps_wordpress_4_soluciones.html#ejercicio-3">3 - Modificar traducción</a></li>
+          <li><a href="webapps_wordpress_4_soluciones.html#ejercicio-4">4 - Crear un tema hijo</a></li>
+          <li><a href="webapps_wordpress_4_soluciones.html#ejercicio-5">5 - Modificar CSS tema hijo</a></li>
+          <li><a href="webapps_wordpress_4_soluciones.html#ejercicio-6">6 - Modificar plantilla</a></li>
+          <li><a href="webapps_wordpress_4_soluciones.html#ejercicio-7">7 - Google Fonts (css)</a></li>
+          <li><a href="webapps_wordpress_4_soluciones.html#ejercicio-8">8 - Google Fonts (plugin)</a></li>
+          <li><a href="webapps_wordpress_4_soluciones.html#ejercicio-9">9 - Otros temas</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />No he terminado de actualizar estos ejercicios a la versión WordPress 4.7.</p>
+
+    <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>WordPress</strong>. Se pueden consultar las <a href="webapps_wordpress_4_soluciones.html">soluciones de estos ejercicios de WordPress</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <p>El objetivo de esta página de ejercicios es practicar el uso de temas en WordPress. Los temas permiten modificar completamente el aspecto visual de WordPress. El directorio de temas de WordPress se puede visitar en <a href="https://es.wordpress.org/themes/">https://es.wordpress.org/themes/</a>. Los temas se instalan y desinstalan en WordPress desde el menú Apariencia.</p>
+
+    <p>Los ejercicios de esta lección tratan varios aspectos relacionados:</p>
+
+    <ul>
+      <li>Las imágenes destacadas, que son imágenes que se pueden asociar a las páginas y entradas y que los temas pueden utilziar de distintas maneras.</li>
+      <li>Las opciones de personalización del tema predeterminado de WordPress 4.7, llamado Twenty Seventeen.</li>
+      <li>La modificación del tema Twenty Seventeen editando los ficheros del tema.</li>
+      <li>La creación de temas hijos, es decir, temas derivados de temas ya existentes.</li>
+      <li>La instalación de otros temas.</li>
+    </ul>
+
+    <section id="ejercicio-1">
+      <h2>WordPress (4) 1 - Imagen destacada</h2>
+
+      <p>Asocie una imagen a una de las entradas, que se mostrará en la parte superior:</p>
+
+      <p class="captura"><img alt="WordPress. Imagen destacada" src="../img/wordpress/4_1_e_1_destacado.jpg" width="600" height="544" title="WordPress. Imagen destacado" /></p>
+
+      <p>El tamaño más conveniente de la imagen destacada depende del tema que aplique WordPress. Yo diría que para el tema Twenty Seventeen conviene que el ancho sea de 1000px.</p>
+
+      <p>La imagen del ejemplo es <a href="../img/otros/venecia_2_recortada.jpg">Venecia (Basílica de San Marcos)</a>. En los ejercicios siguientes se han utilizado otras imágenes de Venecia:</p>
+
+      <p class="captura">
+        <a href="../img/otros/venecia_1.jpg"><img src="../img/otros/venecia_1.jpg" alt="Escuela Grande de San Marcos" title="Escuela Grande de San Marcos" width="250"></a>
+        <a href="../img/otros/venecia_2.jpg"><img src="../img/otros/venecia_2.jpg" alt="Basílica de San Marcos" title="Basílica de San Marcos" width="250"></a>
+        <a href="../img/otros/venecia_3.jpg"><img src="../img/otros/venecia_3.jpg" alt="San Francesco della Vigna" title="San Francesco della Vigna" width="250"></a>
+        <a href="../img/otros/venecia_4.jpg"><img src="../img/otros/venecia_4.jpg" alt="Palacio de San Marcos" title="Palacio de San Marcos" width="250"></a>
+        <a href="../img/otros/venecia_5.jpg"><img src="../img/otros/venecia_5.jpg" alt="Tetrarcas" title="Tetrarcas" width="250"></a>
+        <a href="../img/otros/venecia_6.jpg"><img src="../img/otros/venecia_6.jpg" alt="Casa en Venecia" title="Casa en Venecia" width="250"></a>
+        <a href="../img/otros/venecia_7.jpg"><img src="../img/otros/venecia_7.jpg" alt="Riva degli Schiavoni" title="Riva degli Schiavoni" width="250"></a>
+      </p>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>WordPress (4) 2 - Personalizar el tema Twenty Seventeen</h2>
+
+      <p>En este ejercicio se personalizará el tema predeterminado Twenty Seventeen.</p>
+      <ol>
+        <li><strong>Icono del sitio</strong>
+          <p>Añada un icono al sitio web.</p>
+          <p class="captura"><img src="../img/wordpress/4_2_e_1_icono.png" alt="WordPress. Icono del sitio" width="350" height="120" /></p>
+          <p><img src="../varios/iconos/icono_duda.svg" alt="Duda" title="Duda" width="55" height="48" /> WordPress recomienda que la imagen del icono del sitio sea una imagen cuadrada de 512px de lado. Ignoro por qué pide una imagen tan grande. En el ejemplo se ha gastado esta imagen: <a href="../img/iconos/favicon/favicon_webapps_512.png"><img src="../img/iconos/favicon/favicon_webapps_512.png" alt="favicon webapps 512x512" title="favicon webapps 512x512" width="64" height="64" /></a></p>
+        </li>
+        <li><strong>Cabecera multimedia</strong>
+          <p>Cambie la imagen de la cabecera del blog.</p>
+          <p>Establezca un vídeo de cabecera en el blog (por ejemplo, un vídeo disponible en Youtube).</p>
+        </li>
+        <li><strong>Portada estática</strong>
+          <p>Referencia: <a href="https://www.40defiebre.com/nueva-dimension-web-parallax/">¿Qué es el parallax?</a></p>
+          <p>Modifique el aspecto de la web configurando una portada estática para obtener un resultado similar a este:</p>
+          <p class="captura"><iframe width="669" height="450" src="https://www.youtube.com/embed/RX5eRZIlkII"></iframe></p>
+          <p>Para ello:</p>
+          <ul>
+            <li>Abra la opción Portada estática del menú Personalizar.</li>
+            <li>Elija como Página frontal una página estática.</li>
+            <li>Elija como Portada una de las páginas del blog (la página elegida será la primera que se mostrará en la web).</li>
+            <li>Elija como Página de entradas una nueva página llamada Entradas (no hace falta escribir nada en ella).</li>
+            <li>Abra la opción "Opciones del tema" que se añade al menú Personalizar al elegir página estática.
+              <p><img src="../varios/iconos/icono_duda.svg" alt="Duda" title="Duda" width="55" height="48" /> A veces, aunque se haya elegido página estática como página frontal, el apartado "Opciones del tema" deja de mostrarse en el menú Personalizar, o no permite elegir el contenido de las secciones. Parece que saliendo y volviendo a entrar como usuario administrador, el problema desaparece.</p></li>
+            <li>Elija como Contenido de las secciones de la página principal otras páginas del blog. Elija entre ellas la página Entradas.</li>
+            <li>En cada una de las páginas, asigne una imagen destacada, que se utilizará como imagen de fondo.</li>
+          </ul>
+        </li>
+        <li><strong>CSS adicional</strong>
+
+          <p>Una de las novedades del tema Twenty Seventeen es que permite el usuario modificar el propio tema con CSS. En versiones anteriores, era necesario o bien editar el tema (algo desaconsejado porque una actualización del tema puede destruir el trabajo realizado) o crear un tema hijo (como se propone en esta misma lección en un ejercicio posterior). Esta nueva herramienta viene muy bien para hacer pequeñas modificaciones de estilo, pero para grandes cambios sigue siendo más aconsejable crear temas hijos.</p>
+
+          <p>Como las sentencias CSS se añaden a la hoja de estilo del tema, hay que tener en cuenta tanto la estructura del documento como de la hoja de estilo. La manera más sencilla de averiguar los selectores a utilizar es utilizar el inspector de Firefox (o de Chrome o de IE).</p>
+
+          <p>El Inspector de Firefox se abre mediante el menú <span class="ff-menu">Herramientas &gt; Desarrollador web</span> o mediante la tecla <kbd>F12</kbd>. En la lección <a href="http://www.mclibre.org/consultar/htmlcss/otros/firefox_desarrollador_web.html">Herramientas de Desarrollador Web</a> de los <a href="http://www.mclibre.org/consultar/htmlcss/index.html">apuntes de HTML / CSS</a> se comentan estas herramientas.</p>
+
+          <p>A continuación se comenta cómo se utilizaría el Inspector de Firefox para modificar el título del blog.</p>
+
+          <p class="captura"><a href="../img/wordpress/4_2_e_21_inspector.png"><img src="../img/wordpress/4_2_e_21_inspector_mini.png" alt="Firefox. Inspector" width="600" height="400" /></a></p>
+
+          <p>Como muestra la imagen anterior (haga clic en ella para verla con más detalle) el proceso es el siguiente:</p>
+          <ol>
+            <li>Haga clic en el selector de elementos.</li>
+            <li>Haga clic en el elemento que quiere modificar.</li>
+            <li>En la parte inferior izquierda se muestran las etiquetas (y en su caso, sus clases e ids) que afectan al elemento seleccionado
+
+              <div class="codhtml">
+                <pre><code class="language-html">&lt;body class=&quot;home blog hfeed has-header-image has-sidebar colors-light&quot;&gt;
+  &lt;div id=&quot;page&quot; class=&quot;site&quot;&gt;
+    &lt;a class=&quot;skip-link screen-reader-text&quot; href=&quot;#content&quot;&gt;Ir al contenido&lt;/a&gt;
+    &lt;header id=&quot;masthead&quot; class=&quot;site-header&quot; role=&quot;banner&quot;&gt;
+      &lt;div class=&quot;custom-header&quot;&gt;
+        &lt;div class=&quot;custom-header-media&quot;&gt;
+          &lt;div id=&quot;wp-custom-header&quot; class=&quot;wp-custom-header&quot;&gt;
+            &lt;img src=&quot;http://192.168.1.4/wordpress/wp-content/themes/twentyseventeen/assets/images/header.jpg&quot;
+              width=&quot;2000&quot; height=&quot;1200&quot; alt=&quot;WebApps Blog&quot; /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;site-branding&quot;&gt;
+          &lt;div class=&quot;wrap&quot;&gt;
+            &lt;div class=&quot;site-branding-text&quot;&gt;
+              <span class="codigo-resaltado">&lt;h1 class=&quot;site-title&quot;&gt;&lt;a href=&quot;http://192.168.1.4/wordpress/&quot; rel=&quot;home&quot;&gt;WebApps Blog&lt;/a&gt;&lt;/h1&gt;</span>
+...</code></pre>
+              </div>
+            </li>
+            <li>En la parte inferior derecha, en la pestaña "Computada", se muestran todas las reglas de las hojas de estilo que afectan al elemento seleccionado. Todas se muestran tachadas menos la más específica, que es la que se aplica. En este caso la regla es <span class="css-sele">body.has-header-image .site-title a</span>.</li>
+            <li>
+              <p>En el apartado "CSS adicional" si sólo se tiene en cuenta la estructura html del documento, las reglas pueden no dar ningún resultado. Por ejemplo, si se añade la regla:</p>
+
+              <div class="codcss">
+                <pre><code class="language-css">/*
+Puedes añadir tu propio CSS aquí.
+
+Haz clic en el icono de ayuda de arriba para averiguar más.
+*/
+h1 {
+  color: red;
+}</code>  </pre>
+              </div>
+
+              <p>... el título no cambiaría de color. Pero si utilizamos el mismo selector que se muestra en la pestaña "Computada" del Inspector</p>
+
+              <div class="codcss">
+                <pre><code class="language-css">/*
+Puedes añadir tu propio CSS aquí.
+
+Haz clic en el icono de ayuda de arriba para averiguar más.
+*/
+body.has-header-image .site-title a {
+  color: red;
+}</code>  </pre>
+              </div>
+
+              <p>... entonces sí que cambia el color del título.</p>
+
+              <hr class="corta" />
+
+              <p>Modifique el color de los elementos principales. Por ejemplo:</p>
+              <p class="captura">
+                <img src="../img/wordpress/4_2_e_11_css_adicional.png" alt="WordPress. CSS adicional" width="600" height="397" />
+                <img src="../img/wordpress/4_2_e_12_css_adicional.png" alt="WordPress. CSS adicional" width="600" height="397" />
+              </p>
+              <p class="captura">
+                <img src="../img/wordpress/4_2_e_13_css_adicional.png" alt="WordPress. CSS adicional" width="475" height="320" />
+              </p>
+            </li>
+
+          </ol>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>WordPress (4) 3 - Modificar la traducción de WordPress</h2>
+
+      <p>En este ejercicio se modificará la traducción de WordPress al español.</p>
+
+      <p>WordPress utiliza <a href="https://en.wikipedia.org/wiki/Gettext">GNU gettext</a> para gestionar las traducciones. En GNU gettext hay tres tipos de archivos:</p>
+      <ul>
+        <li>.pot: Los autores de los programas crean archivos .pot, que son las plantillas de la traducción que contienen los textos en el idioma original.</li>
+        <li>.po: Los traductores crean archivos archivos .po, uno por cada idioma, que contienen los textos en el idioma original y los textos traducidos.</li>
+        <li>.mo: Es una versión compilada de los archivos .mo. Se generan a partir de los archivos .po.</li>
+      </ul>
+
+      <p>Los archivos .pot o .po son archivos de texto que se pueden editar con cualquier editor de texto plano, pero existen editores específicos como <a href="http://www.mclibre.org/consultar/php/otros/in_otros_instalacion.html#editor-po">poedit</a>. Sin embargo los archivos .mo son archivos compilados y para crearlos se necesitan las utilidades GNU gettext o programas específicos como poedit.</p>
+
+      <ol>
+        <li><strong>Modificar el texto del aviso"Página no encontrada".</strong>
+          <ul>
+            <li>Cuando se pide una página que no existe, WordPress muestra los siguientes mensajes:
+              <p class="captura"><img alt="WordPress. Mensaje de página no encontrada" src="../img/wordpress/4_3_e_1_traduccion.png" width="950" height="130" title="WordPress. Mensaje de página no encontrada" /></p>
+            </li>
+            <li>Esos mensajes se encuentran en el archivo de la traducción del tema empleado.</li>
+            <li>Instale <a href="http://www.mclibre.org/consultar/php/otros/in_otros_instalacion.html#Editor">poedit</a> y modifique el archivo de traducción <strong>es_ES.po</strong> (ambos mensajes). Al guardar el archivo .po, poedit genera automáticamente el archivo .mo.</li>
+            <li>Compruebe que se muestran los nuevos mensajes:
+              <p class="captura"><img alt="WordPress. Mensaje de página no encontrada" src="../img/wordpress/4_3_e_2_traduccion.png" width="950" height="150" title="WordPress. Mensaje de página no encontrada" /></p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>WordPress (4) 4 - Crear un tema hijo</h2>
+
+      <p>Los temas de WordPress pueden modificarse directamente, pero es mejor no modificar los temas directamente, ya que si los temas se actualizan, los cambios que hayamos realizado se perderán. Por ello se recomienda crear <strong>temas hijo</strong> (en inglés, child themes), de manera que las modificaciones realizadas queden a salvo en las actualizaciones.</p>
+
+      <ol>
+        <li>Cree un tema hijo del tema Twenty Seventeen de acuerdo con las instrucciones de la documentación oficial de WordPress: <a href="https://codex.wordpress.org/Child_Themes">Child themes</a>. Compruebe que el nuevo tema se muestra en WordPress:
+          <p class="captura"><img alt="WordPress. Tema hijo" src="../img/wordpress/4_4_e_1_tema_hijo.png" width="991" height="425" /></p>
+        </li>
+        <li>Añada en el directorio del tema un archivo screenshot.png o screenshot.jpg (600px x 450px o mejor, 1200 x 900px) (<a href="../elementos/wordpress/tema_hijo/screenshot.jpg">ejemplo</a>). Compruebe que la imagen se muestra en WordPress:
+          <p class="captura"><img alt="WordPress. Tema hijo" src="../img/wordpress/4_4_e_2_tema_hijo.png" width="991" height="425" /></p>
+        </li>
+        <li>Active el tema hijo.
+          <p class="captura"><img alt="WordPress. Tema hijo" src="../img/wordpress/4_4_e_3_tema_hijo.png" width="991" height="470" /></p>
+        </li>
+        <li>Añada en la hoja de estilo del tema hijo (no en el apartado CSS adicional, sino en la propia hoja de estilo mediante la opción Editor de WordPress) la regla obtenida en el ejercicio anterior para cambiar el color del título:
+
+          <div class="codcss">
+            <pre><code class="language-css">body.has-header-image .site-title a {
+  color: yellow;
+}    </code></pre>
+          </div>
+        </li>
+        <li>Compruebe que el color del título ha cambiado:
+          <p class="captura"><img alt="WordPress. Tema hijo" src="../img/wordpress/4_4_e_4_tema_hijo.jpg" width="991" height="250" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>WordPress (4) 5 - Modificar la hoja de estilo del tema hijo</h2>
+
+      <p>Las reglas CSS que se escriban en el archivo style.css del tema hijo se añaden a las del tema orginal.</p>
+
+      <hr class="corta" />
+
+      <ol>
+        <li>Cambiar el estilo de cuatro elementos del interfaz, como en la imagen siguiente:
+          <p class="captura"><img alt="WordPress. Tema hijo" src="../img/wordpress/4_5_e_1_modificar_css.png" width="991" height="673" /></p>
+        </li>
+        <li>Cambie el estilo del elemento del interfaz, como en la imagen siguiente:
+          <p class="captura"><img alt="WordPress. Tema hijo" src="../img/wordpress/4_5_e_2_modificar_css.png" width="991" height="673" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-6">
+      <h2>WordPress (4) 6 - Modificar una plantilla de página del tema hijo</h2>
+
+      <p>Para modificar una plantilla de página en el tema hijo, hay que copiar la página del tema original, copiarla en la carpeta del tema hijo y modificarla.</p>
+      <ol>
+        <li>Cambiar el contenido de la página 404 que se muestra cuando se solicita contenido no existente:
+          <p class="captura"><img alt="WordPress. Página 404 modificada" src="../img/wordpress/4_6_e_1_404.png" width="991" height="385" title="WordPress. Página 404 modificada" /></p>
+          <p><strong>Nota</strong>: Para saber qué código html hay que incluir en la plantilla de la página 404, se puede incluir una imagen y cambiar el color de texto en una entrada cualquiera y ver el código fuente generado.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-7">
+      <h2>WordPress (4) 7 - Google Fonts (css)</h2>
+
+      <p>Las páginas web pueden utilizar todo tipo de fuentes utilizando el mecanismo de las fuentes web (véase, por ejemplo, la lección <a href="http://www.mclibre.org/consultar/htmlcss/css/css_fuentes_web.html">lección de Fuentes web de los apuntes de HTML/CSS</a>).</p>
+
+      <p>Google ofrece un servicio de alojamiento de fuentes web llamado <a href="https://fonts.google.com/">Google Fonts</a>, cuyo suyo evita a nuestro servidor el tráfico necesario para descargar las fuentes en los clientes. Las fuentes de Google Fonts se pueden utilizar directamente, sin necesidad de instalar ningún plugin, modificando la hoja de estilo del tema utilizado.</p>
+
+      <p>Para ello, se debe:</p>
+      <ul>
+        <li>Obtener en <a href="https://fonts.google.com/">Google Fonts</a> la regla arroba a insertar en la hoja de estilo, como se explica en la <a href="http://www.mclibre.org/consultar/htmlcss/css/css_fuentes_web.html">lección de Fuentes web de los apuntes de HTML/CSS</a>.</li>
+        <li>Añadir en la hoja de estilo del tema la regla-arroba y utilizar el nombre de la fuente en la etiqueta deseada:
+
+          <div class="codcss">
+            <pre><code class="language-css">@import url(http://fonts.googleapis.com/css?family=Orbitron);
+
+div.navigation-top {
+  font-family: Orbitron;
+  font-size: 125%;
+}</code>    </pre>
+          </div>
+        </li>
+        <li>Con el ejemplo anterior, el resultado sería el siguiente:
+          <p class="captura"><img alt="WordPress. Google Fonts" src="../img/wordpress/4_7_e_1_google_fonts.png" width="991" height="370" /></p>
+        </li>
+      </ul>
+
+      <hr class="corta" />
+
+      <ol>
+        <li>Personalizar el tema de manera que se utilicen las fuentes Montserrat Alternates y Over the Rainbow de Google Fonts en los títulos del sitio y de las entradas, respectivamente (tanto cuando se está viendo la página principal del blog como cuando se ha hecho clic en una entrada):
+          <p class="captura"><img alt="WordPress. Google Fonts" src="../img/wordpress/4_7_e_2_google_fonts.png" width="991" height="673" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <hr />
+
+    <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />A partir de aquí, los ejercicios no están actualizados a la versión WordPress 4.7.</p>
+
+    <section id="ejercicio-8">
+      <h2>WordPress (4) 8 - Google Fonts (plugin) (optativo)</h2>
+
+      <p>El plugin Easy Google Fonts permite integrar las fuentes de Google Fonts en WordPress.</p>
+
+      <p class="centrado"><img alt="WordPress. Plugin Easy Google Fonts" src="../img/wordpress/wp_4_google_fonts_11.png" width="475" height="160" /></p>
+      <ol>
+        <li>Instalar el plugin Easy Google Fonts, que añade dos apartados en el panel de administración de WordPress:
+          <ul>
+            <li>un apartado Tipography en la página de personalización del tema</li>
+            <li>un apartado Google Fonts en la sección de ajustes</li>
+          </ul>
+        </li>
+        <li>Modificar la hoja de estilo del tema de manera que se utilicen las mismas fuentes elegidas al realizar el ejercicio anterior.
+          <p class="captura"><img alt="WordPress. Google Fonts" src="../img/wordpress/4_7_e_2_google_fonts.png" width="991" height="673" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-9">
+      <h2>WordPress (4) 9 - Otros temas</h2>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por escribir.</p>
+      <ul>
+        <li>Pruebe temas para blogs de fotografías: <a href="https://es.wordpress.org/themes/onetone/">onetone</a> - <a href="https://es.wordpress.org/themes/accesspress-parallax/">Access Press Parallax</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 11 de febrero de 2017</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

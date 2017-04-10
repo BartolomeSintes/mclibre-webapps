@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Soluciones (2). Bitnami. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Bitnami. Soluciones (2). Máquina virtual de infraestructura y módulos sobre Ubuntu</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <a href="webapps_bitnami_1.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        Bitnami (2)
+        <a href="webapps_bitnami_3.html"><img src="../varios/iconos/icono_flecha_derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
+
+      <h3><a href="webapps_bitnami_2.html">Enunciados</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_bitnami_2.html#ejercicio-1">1 - VM de infraestructura</a></li>
+          <li><a href="webapps_bitnami_2.html#ejercicio-2">2 - phpMyAdmin</a></li>
+          <li><a href="webapps_bitnami_2.html#ejercicio-3">3 - OpenCart</a></li>
+        </ul>
+      </div>
+
+      <h3>Soluciones</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - VM de infraestructura</a></li>
+          <li><a href="#ejercicio-2">2 - phpMyAdmin</a></li>
+          <li><a href="#ejercicio-3">3 - OpenCart</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p>En esta lección se proponen soluciones detalladas de los <a href="webapps_bitnami_2.html">ejercicios de Bitnami (2)</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <section id="ejercicio-1">
+      <h2>Bitnami (2) 1 - VM de infraestructura</h2>
+
+      <ul>
+        <li><strong>Descargue la máquina virtual</strong>
+          <p>La página de la máquina virtual de infraestructura LAMP de Bitnami es <a href="https://bitnami.com/stack/lamp">https://bitnami.com/stack/lamp</a>:</p>
+          <p class="captura"><img src="../img/bitnami/2_1_s_1_vm_lamp.png" alt="Página de LAMP en Bitnami" title="Página de LAMP en Bitnami" width="495" height="360" /></p>
+          <p>La página de máquinas virtuales LAMP de Bitnami es <a href="https://bitnami.com/stack/lamp/virtual-machine">https://bitnami.com/stack/lamp/virtual-machine</a>:</p>
+          <p class="captura"><img src="../img/bitnami/2_1_s_2_vm_lamp.png" alt="Página de máquinas virtuales LAMP en Bitnami" title="Página de máquinas virtuales LAMP en Bitnami" width="504" height="170" /></p>
+          <p>Para importar en VirtualBox la máquina virtual, haga doble clic en el fichero .OVA. Puede modificar el nombre de la máquina, la cantidad de memoria RAM o la ubicación de la imagen de disco virtual antes de hacer clic en el botón Importar.</p>
+          <p class="captura"><img src="../img/bitnami/2_1_s_11_vm_lamp.png" alt="Importar máquina virtual en VirtualBox" title="Importar máquina virtual en VirtualBox" width="762" height="600" /></p>
+          <p>La importación tardará unos minutos:</p>
+          <p class="captura"><img src="../img/bitnami/2_1_s_12_vm_lamp.png" alt="Importar máquina virtual en VirtualBox" title="Importar máquina virtual en VirtualBox" width="628" height="140" /></p>
+          <p>Al terminar la importación, la nueva máquina virtual se mostrará en VirtualBox.</p>
+          <p class="captura"><img src="../img/bitnami/2_1_s_13_vm_lamp.png" alt="Importar máquina virtual en VirtualBox" title="Importar máquina virtual en VirtualBox" width="807" height="300" /></p>
+        </li>
+        <li><strong>Acceda al servidor</strong>
+          <p>La dirección IP de la máquina virtual se muestra en la pantalla inicial de la máquina virtual:</p>
+          <p class="captura"><img src="../img/bitnami/2_1_s_21_vm_lamp.png" alt="Máquina virtual en marcha" title="Máquina virtual en marcha" width="736" height="480" /></p>
+          <p>Para acceder al servidor escriba la IP que se muestra en la pantalla. En la captura de ejemplo sería <strong>http:/192.168.1.14/</strong></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>Bitnami (2) 2 - phpMyAdmin</h2>
+
+      <ul>
+        <li><strong>Entrar en la máquina virtual</strong>
+          <p>El nombre del usuario administrador y su contraseña se muestran en la pantalla inicial de la máquina virtual:</p>
+
+          <p class="captura"><img src="../img/bitnami/2_2_s_1_lampp.png" alt="Máquina virtual en marcha" title="Máquina virtual en marcha" width="736" height="480" /></p>
+        </li>
+        <li><strong>Reconfigurar teclado</strong><strong></strong>
+          <p>La máquina virtual de infrestructura viene configurada de forma predeterminada con un teclado inglés. Para cambiar la configuración del teclado al teclado español, se debe utilizar el comando dpkg-reconfigure:</p>
+
+          <div class="codshell">
+            <pre>sudo dpkg-reconfigure keyboard-configuration</pre>
+          </div>
+        </li>
+        <li><strong>Habilitar SSH en la máquina virtual</strong>
+          <p>El servidor SSH está deshabilitado de forma predeterminada. Para habilitarlo:</p>
+
+          <div class="codshell">
+            <pre>sudo mv /etc/init/ssh.conf.back /etc/init/ssh.conf
+sudo start ssh</pre>
+          </div>
+        </li>
+        <li><strong>Instalar PuTTY</strong>
+          <p>La página web de PuTTY es <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">http://www.chiark.greenend.org.uk/~sgtatham/putty/</a>.</p>
+
+          <p>En <a href="http://www.cdlibre.org/">cdlibre.org</a> hay una sección dedicada a <a href="http://www.cdlibre.org/consultar/catalogo/Internet_Otros.html">Otras herramientas de Internet</a>, con información detallada sobre la última versión publicada para Windows.</p>
+        </li>
+        <li><strong>Conectar el ordenador anfitrión con la máquina virtual con Putty con túnel SSH </strong>
+
+          <p class="captura"><img src="../img/bitnami/2_2_s_11_putty.png" alt="Configurar PuTTY" title="Configurar PuTTY" width="456" height="438" /></p>
+
+          <p class="captura"><img src="../img/bitnami/2_2_s_12_putty.png" alt="Configurar PuTTY" title="Configurar PuTTY" width="456" height="438" /></p>
+
+          <p>Al abrir la conexión, aceptar la clave del servidor:</p>
+
+          <p class="captura"><img src="../img/bitnami/2_2_s_13_putty.png" alt="Configurar PuTTY" title="Configurar PuTTY" width="435" height="294" /></p>
+
+          <p>Abra la sesión SSH y compruebe que puede conectarse como usuario <strong>bitnami</strong>:</p>
+
+          <p class="captura"><img src="../img/bitnami/2_2_s_14_putty.png" alt="Configurar PuTTY" title="Configurar PuTTY" width="675" height="424" /></p>
+        </li>
+        <li><strong>Abrir phpMyAdmin</strong>
+          <p>Abra phpMyAdmin en la máquina virtual a través de la sesión SSH escribiendo en el navegador del ordenador anfitrión la dirección <strong>http://127.0.01:8888/phpmyadmin/</strong>. El usuario administrador predeterminado de la base de datos es <strong>root</strong> con contraseña <strong>bitnami</strong>.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>Bitnami (2) 3 - OpenCart</h2>
+
+      <ul>
+        <li><strong>Descargar y ejecutar el instalador de módulo</strong>
+          <p>Para descargar e instalar un módulo, primero hay que ver la dirección del instalador del módulo en la página web de bitnami <a href="https://bitnami.com/stack/lamp/modules">https://bitnami.com/stack/lamp/modules</a></p>
+          <p class="captura"><img src="../img/bitnami/2_3_s_1_opencart.png" alt="Módulo OpenCart para Ubuntu en Bitnami" title="Módulo OpenCart para Ubuntu en Bitnami" width="1022" height="290" /></p>
+          <p>A continuación se puede utilizar el comando wget (hay que moverse antes a la carpeta en que queramos realizar la descarga):</p>
+
+          <div class="codshell">
+            <pre>cd /tmp
+wget https://bitnami.com/redirect/to/130228/bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run</pre>
+          </div>
+          <p>Y por último cambiar los permisos del archivo y ejecutarlo:</p>
+
+          <div class="codshell">
+            <pre>chmod +x ./bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run
+sudo ./bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run</pre>
+          </div>
+        </li>
+        <li><strong>Instalar la aplicación</strong>
+          <p>El directorio donde se instalan los servidores es <strong>/opt/bitnami</strong>.</p>
+          <p>La contraseña predeterminada de MySQL es <strong>bitnami</strong></p>
+          <p>La contraseña predeterminada del usuario de la aplicación es <strong>bitnami</strong></p>
+        </li>
+        <li><strong>Apagar la máquina virtual</strong>
+          <p>Para apagar la máquina virtual, se puede utilizar el comando poweroff:</p>
+          <div class="codshell">
+            <pre>bitnami@linux:~$ sudo poweroff</pre>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 25 de enero de 2017</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Drupal (4). Almacenamiento. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Drupal. Soluciones (4)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <a href="webapps_drupal_3.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        Drupal (4)
+      </h2>
+
+      <h3><a href="webapps_drupal_4.html">Enunciados</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_drupal_4.html#ejercicio-1">1 - Internacionalización</a></li>
+          <li><a href="webapps_drupal_4.html#ejercicio-2">2 - Bloques</a></li>
+          <li><a href="webapps_drupal_4.html#ejercicio-3">3 - Temas</a></li>
+          <li><a href="webapps_drupal_4.html#ejercicio-4">4 - Módulos</a></li>
+        </ul>
+      </div>
+
+      <h3>Soluciones</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - Internacionalización</a></li>
+          <li><a href="#ejercicio-2">2 - Bloques</a></li>
+          <li><a href="#ejercicio-3">3 - Temas</a></li>
+          <li><a href="#ejercicio-4">4 - Módulos</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Estas soluciones están pendientes de actualizar para Drupal 8.</p>
+
+    <p>En esta lección se proponen soluciones detalladas de los <a href="webapps_drupal_4.html">ejercicios (4) de Drupal</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <section id="ejercicio-1">
+      <h2>Drupal (4) 1 - Internacionalización</h2>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar</p>
+
+      <h3>Traducción del sitio</h3>
+      <ol>
+        <li>Agregue el idioma inglés
+          <p>Como administrador, abra la página <strong>Configuración &gt; Idiomas</strong>:</p>
+          <p class="captura"><img alt="Drupal. Añadir idioma" src="../img/drupal/4_1_s_1_internacionalizacion.png" width="991" height="260" /></p>
+          <p>En la página de Idioma, haga clic en <strong>Agregar idiomas</strong>:</p>
+          <p class="captura"><img alt="Drupal. Añadir idioma" src="../img/drupal/4_1_s_2_internacionalizacion.png" width="991" height="470" /></p>
+          <p>En la lista de idioma seleccione el idioma <strong>Inglés</strong> y haga clic en <strong>Agregar idioma</strong>:</p>
+          <p class="captura"><img alt="Drupal. Añadir idioma" src="../img/drupal/4_1_s_3_internacionalizacion.png" width="1008" height="270" /></p>
+          <p>Tras unos segundos, el idioma se mostrará en la lista de idiomas:</p>
+          <p class="captura"><img alt="Drupal. Añadir idioma" src="../img/drupal/4_1_s_4_internacionalizacion.png" width="991" height="160" /></p>
+        </li>
+        <li>Active los módulos de idioma Configuration Translation y Content Translation.
+          <p>Como administrador, abra la página <strong>Administrar &gt; Extender</strong>, marque la casilla de los módulos <strong>Configuration Translation</strong> y <strong>Content Translation</strong> y haga clic en <strong>Instalar</strong>:</p>
+          <p class="captura"><img alt="Drupal. Activar módulos Multi idioma" src="../img/drupal/4_1_s_11_internacionalizacion.png" width="991" height="450" /></p>
+          <p>Tras unos segundos, los módulos se mostrarán instalados:</p>
+          <p class="captura"><img alt="Drupal. Activar módulos Multi idioma" src="../img/drupal/4_1_s_12_internacionalizacion.png" width="991" height="250" /></p>
+        </li>
+        <li>Active la traducción del contenido (artículos y páginas básicas)
+          <p>En Configuración &gt; Idioma de contenido y traducción, active la opción del idioma personalizado para Contenido, active la traducción para Artículos y páginas básicas y guarde la configuración.</p>
+          <p>Como administrador, abra la página <strong>Configuración &gt; Idioma de contenido y traducción</strong>:</p>
+          <p class="captura"><img alt="Drupal. Activar traducción del contenido" src="../img/drupal/4_1_s_21_internacionalizacion.png" width="991" height="220" /></p>
+          <p>Marque la casilla del tipo de contenido a traducir. En el ejemplo se ha marcado únicamente <strong>Contenido</strong> pero para una traducción completa de un sitio web sería necesario marcar también casillas.</p>
+          <p class="captura"><img alt="Drupal. Activar traducción del contenido" src="../img/drupal/4_1_s_22_internacionalizacion.png" width="991" height="400" /></p>
+          <p>Se mostrarán los distintos tipos de contenido y sus elementos. Marque <strong>Artículo</strong> y <strong>Página básica</strong>, manteniendo marcados sus elementos (que no se muestran en la captura) y haga clic en <strong>Guardar configuración</strong>.</p>
+          <p class="captura"><img alt="Drupal. Activar traducción del contenido" src="../img/drupal/4_1_s_23_internacionalizacion.png" width="991" height="316" /></p>
+        </li>
+        <li>Traduzca el contenido de su página web.
+          <p>En Contenido, seleccione uno de los artículos y elija la pestaña Translate. Agregue la traducción al inglés y publíquela.</p>
+        </li>
+      </ol>
+
+      <h3>Detección del idioma por idioma seleccionado</h3>
+
+      <ol>
+        <li>Compruebe que en la dirección <strong>/drupal/en</strong> se ve el sitio en inglés y en <strong>/drupal</strong> se ve en español</li>
+      </ol>
+
+      <h3>Detección del idioma basado en el idioma del navegador</h3>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Comprobar si funciona o no. Ver <a href="https://www.drupal.org/node/2189267">bug 2189267</a></p>
+      <ol>
+        <li>En Configuración &gt; Idiomas &gt; Detección y &gt; selección , active el método de detección por el Navegador.</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>Drupal (4) 2 - Bloques</h2>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por escribir</p>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>Drupal (4) 3 - Temas</h2>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por escribir</p>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>Drupal (4) 3 - Módulos</h2>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por escribir</p>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 11 de febrero de 2016</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

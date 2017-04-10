@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Consideraciones sobre los ejercicios. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Consideraciones sobre los ejercicios</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>Sobre los ejercicios</h2>
+      <div class="toc">
+        <ul>
+          <li><a href="#intro">Introducción</a></li>
+          <li><a href="#webapps-bd">Aplicaciones y BD</a></li>
+          <li><a href="#usuarios">Tipos de usuarios</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="intro">
+      <h2>Introducción</h2>
+
+      <p>Cada una de las aplicaciones web que se tratan en este curso son aplicaciones grandes, con muchas opciones y posibilidades.</p>
+
+      <p>El objetivo de este curso no es trabajar en profundidad ninguna aplicación en concreto, sino practicar la instalación de diferentes aplicaciones y explorar y entender su forma de funcionamiento, con el objetivo de que el alumno adquiera la destreza de instalar y administrar otras aplicaciones por su cuenta.</p>
+
+      <p>Para cada aplicación se proponen algunas actividades básicas, aunque naturalmente se aconseja al alumno que profundice cuanto le sea posible en las aplicaciones que encuentre más interesantes.</p>
+
+      <p>Se recomienda al alumno que primero intente realizar las actividades por sí mismo. En muchos casos se necesita información adicional, que puede encontrarse buscando en Internet. Si no se consigue realizar alguna actividad o no se encuentra fácilmente una respuesta en Internet, se pueden consultar las páginas de soluciones que contienen en muchos casos indicaciones paso a paso, ilustradas con capturas.</p>
+
+      <p>Probablemente, en las primeras aplicaciones el alumno necesitará consultar las soluciones pero, a medida que vaya familiarizándose con las diferentes aplicaciones, le resultará más fácil resolver las actividades sin recurrir a las soluciones. El tiempo empleado explorando las posibilidades de las aplicaciones, buscando y probando la forma de hacer las cosas, estará siempre bien empleado.</p>
+
+      <p><strong>Nota</strong>:</p>
+      <ul>
+        <li>En el curso 2011/12, en que comencé a elaborar estos apuntes, los apuntes estaban organizados como tutoriales en los que ejercicios y soluciones estaban juntos.</li>
+        <li>En el curso 2012/13 separé ejercicios y soluciones en páginas distintas.</li>
+        <li>En el curso 2013/14 empecé a redactar los ejercicios de manera que el objetivo fuera crear sitios ficticios dedicados a las aplicaciones web.</li>
+        <li>En el curso 2014/15 continué el trabajo del año anterior. Dejé de dar dos aplicaciones (phpBB y MediaWiki) para poder ampliar el tiempo dedicado a WordPress y Drupal. Amplié la parte dedicada a la instalación de aplicaciones con Bitnami.</li>
+        <li>En el curso 2015/16 continué el trabajo del año pasado en la redacción de los ejercicios. Actualizar los apuntes a las nuevas versiones publicadas desde el curso pasado me ocupó la mayor parte del tiempo, especialmente las dedicadas a Drupal (debido a la publicación de Drupal 8).</li>
+      </ul>
+    </section>
+
+    <section id="webapps-bd">
+      <h2>Aplicaciones web y bases de datos</h2>
+
+      <p>Todas las aplicaciones que se verán en este curso guardan la información en una base de datos. Todas pueden trabajar con MySQL (o MariaDB), por lo que trabajaremos siempre con la base de datos MySQL/MariaDB que instala XAMPP, como se comenta en la lección <a href="configuracion.html">Configuración general</a>.</p>
+
+      <hr class="corta" />
+
+      <p>Para poder acceder a la base de datos, las aplicaciones necesitan utilizar un usuario de la base de datos y conocer su contraseña. Por motivos de seguridad, el usuario de la base de datos empleado por las aplicaciones no debe ser el usuario <strong>root</strong> de la base de datos. En estos apuntes se propone que cada aplicación utilice un usuario distinto, aunque un usuario podría perfectamente administrar varias aplicaciones.</p>
+
+      <p class="captura">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+             width="600" viewBox="250 -20 600 520" style="background-color: white; border: black solid 2px" font-family="sans-serif" font-size="18">
+          <defs>
+            <marker id="markerArrow" markerWidth="12" markerHeight="12" refX="0" refY="6" orient="auto">
+              <path d="M0,4 L0,8 L6,6" style="fill: blue;" />
+            </marker>
+          </defs>
+
+          <ellipse cx="350" cy="300" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="280" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <ellipse cx="350" cy="260" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="240" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <ellipse cx="350" cy="230" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="210" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <line x1="300" y1="200" x2="300" y2="300" stroke-width="2" stroke="black" />
+          <line x1="400" y1="200" x2="400" y2="300" stroke-width="2" stroke="black" />
+          <ellipse cx="350" cy="200" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <text x="350" y="260" text-anchor="middle">MySQL</text>
+
+          <text x="700" y="5" text-anchor="middle" fill="blue">Aplicación web</text>
+          <rect x="600" y="20"  width="200" height="110" fill="#eee" stroke="black" stroke-width="1" />
+          <path d="M 605 30 l 2 0 l 2.5 -7 l 20 0 l 2.5 7 l 163 0 l 0 95  l -190 0 z"  fill="white" stroke="black" stroke-width="1" />
+          <text x="700" y="85" text-anchor="middle" font-size="30">WordPress</text>
+          <path d="M 590 40 C 500 40, 430 165, 420 180" stroke="blue" stroke-width="3" fill="transparent" style="marker-end: url(#markerArrow)" />
+          <text x="490" y="75" text-anchor="middle" fill="blue" transform="rotate(-40 490 75)">usuario iaw_wp</text>
+
+          <text x="700" y="185" text-anchor="middle" fill="blue">Aplicación web</text>
+          <rect x="600" y="200"  width="200" height="110" fill="#eee" stroke="black" stroke-width="1" />
+          <path d="M 605 210 l 2 0 l 2.5 -7 l 20 0 l 2.5 7 l 163 0 l 0 95  l -190 0 z"  fill="white" stroke="black" stroke-width="1" />
+          <text x="700" y="265" text-anchor="middle" font-size="30">OpenCart</text>
+          <path d="M 590 220 C 500 220, 455 240, 425 250" stroke="blue" stroke-width="3" fill="transparent" style="marker-end: url(#markerArrow)" />
+          <text x="500" y="220" text-anchor="middle" fill="blue" transform="rotate(-10 500 220)">usuario iaw_oc</text>
+
+          <text x="700" y="365" text-anchor="middle" fill="blue">Aplicación web</text>
+          <rect x="600" y="380"  width="200" height="110" fill="#eee" stroke="black" stroke-width="1" />
+          <path d="M 605 390 l 2 0 l 2.5 -7 l 20 0 l 2.5 7 l 163 0 l 0 95  l -190 0 z"  fill="white" stroke="black" stroke-width="1" />
+          <text x="700" y="445" text-anchor="middle" font-size="30">Drupal</text>
+          <path d="M 590 400 C 500 380, 450 340, 420 320" stroke="blue" stroke-width="3" fill="transparent" style="marker-end: url(#markerArrow)" />
+          <text x="490" y="390" text-anchor="middle" fill="blue" transform="rotate(30 490 390)">usuario iaw_dr</text>
+        </svg>
+      </p>
+
+      <hr class="corta" />
+
+      <p>Para crear los usuarios de la base de datos que utilizará cada aplicación, utilizaremos phpMyAdmin, una aplicación web que permite administrar gráficamente MySQL/MariaDB. Para poder realizar las tareas de administración, phpMyAdmin se conectará a la base de datos utilizando el usuario <strong>root</strong> de la base de datos.</p>
+
+      <p class="captura">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+             width="600" viewBox="250 150 600 180" style="background-color: white; border: black solid 2px" font-family="sans-serif" font-size="18">
+          <defs>
+            <marker id="markerArrow" markerWidth="12" markerHeight="12" refX="0" refY="6" orient="auto">
+              <path d="M0,4 L0,8 L6,6" style="fill: blue;" />
+            </marker>
+          </defs>
+
+          <ellipse cx="350" cy="300" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="280" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <ellipse cx="350" cy="260" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="240" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <ellipse cx="350" cy="230" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="210" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <line x1="300" y1="200" x2="300" y2="300" stroke-width="2" stroke="black" />
+          <line x1="400" y1="200" x2="400" y2="300" stroke-width="2" stroke="black" />
+          <ellipse cx="350" cy="200" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <text x="350" y="260" text-anchor="middle">MySQL</text>
+
+          <text x="700" y="185" text-anchor="middle" fill="blue">Aplicación web</text>
+          <rect x="600" y="200"  width="200" height="110" fill="#eee" stroke="black" stroke-width="1" />
+          <path d="M 605 210 l 2 0 l 2.5 -7 l 20 0 l 2.5 7 l 163 0 l 0 95  l -190 0 z"  fill="white" stroke="black" stroke-width="1" />
+          <text x="700" y="265" text-anchor="middle" font-size="30">phpMyAdmin</text>
+          <path d="M 590 220 C 500 220, 455 240, 425 250" stroke="blue" stroke-width="3" fill="transparent" style="marker-end: url(#markerArrow)" />
+          <text x="500" y="220" text-anchor="middle" fill="blue" transform="rotate(-10 500 220)">usuario root</text>
+        </svg>
+      </p>
+
+      <hr class="corta" />
+
+      <p>Para practicar el uso de phpMyAdmin, la primera aplicación que se trabaja en este curso es precisamente phpMyAdmin. Pero hay que tener en cuenta que:</p>
+      <ul>
+        <li>Por un lado, XAMPP incluye una versión de phpMyAdmin, que podemos utilizar sin necesidad de instalarla y que está ya configurada para conectarse como <strong>root</strong> a la base de datos</li>
+        <li>Por otro lado, descargaremos e instalaremos una versión más reciente de phpMyAdmin, con la que podremos conectarnos como <strong>root</strong> o como cualquiera de los usuarios que vayamos creando.</li>
+      </ul>
+
+      <p class="captura">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+             width="600" viewBox="250 -20 600 350" style="background-color: white; border: black solid 2px" font-family="sans-serif" font-size="18">
+          <defs>
+            <marker id="markerArrow" markerWidth="12" markerHeight="12" refX="0" refY="6" orient="auto">
+              <path d="M0,4 L0,8 L6,6" style="fill: blue;" />
+            </marker>
+          </defs>
+
+          <ellipse cx="350" cy="200" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="180" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <ellipse cx="350" cy="160" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="140" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <ellipse cx="350" cy="130" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="110" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <line x1="300" y1="100" x2="300" y2="200" stroke-width="2" stroke="black" />
+          <line x1="400" y1="100" x2="400" y2="200" stroke-width="2" stroke="black" />
+          <ellipse cx="350" cy="100" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <text x="350" y="160" text-anchor="middle">MySQL</text>
+
+          <text x="700" y="5" text-anchor="middle" fill="blue">Aplicación web</text>
+          <rect x="600" y="20"  width="200" height="110" fill="#eee" stroke="black" stroke-width="1" />
+          <path d="M 605 30 l 2 0 l 2.5 -7 l 20 0 l 2.5 7 l 163 0 l 0 95  l -190 0 z"  fill="white" stroke="black" stroke-width="1" />
+          <text x="700" y="65" text-anchor="middle" font-size="30">phpMyAdmin</text>
+          <text x="700" y="105" text-anchor="middle" font-size="30">XAMPP</text>
+          <path d="M 590 40 C 500 40, 430 65, 420 80" stroke="blue" stroke-width="3" fill="transparent" style="marker-end: url(#markerArrow)" />
+          <text x="490" y="45" text-anchor="middle" fill="blue" transform="rotate(-10 490 45)">usuario root</text>
+
+          <text x="700" y="185" text-anchor="middle" fill="blue">Aplicación web</text>
+          <rect x="600" y="200"  width="200" height="110" fill="#eee" stroke="black" stroke-width="1" />
+          <path d="M 605 210 l 2 0 l 2.5 -7 l 20 0 l 2.5 7 l 163 0 l 0 95  l -190 0 z"  fill="white" stroke="black" stroke-width="1" />
+          <text x="700" y="265" text-anchor="middle" font-size="30">phpMyAdmin</text>
+          <path d="M 590 220 C 500 240, 455 240, 425 210" stroke="blue" stroke-width="3" fill="transparent" style="marker-end: url(#markerArrow)" />
+          <text x="490" y="255" text-anchor="middle" fill="blue">usuarios root, iaw_wp, etc.</text>
+        </svg>
+      </p>
+
+      <hr class="corta" />
+
+      <p>Cuando trabajemos con el resto de aplicaciones, el proceso será siempre similar:</p>
+
+      <ul>
+        <li>como usuario <strong>root</strong> de la base de datos, primero crearemos con phpMyAdmin el usuario de la aplicación.
+          <p>Este paso lo podríamos hacer tanto con el phpMyAdmin de XAMPP como el phpMyAdmin instalado por nosotros, pero en este curso usaremos preferentemente el nuestro.</p></li>
+        <li>como usuario de la aplicación, instalaremos la aplicación</li>
+        <li>como usuario de la aplicación, utilizaremos en algunos casos phpMyAdmin para algunas tareas (como copias de seguridad, restauraciones, etc.).
+          <p>Este paso lo haremos con nuestro phpMyAdmin ya que utilizaremos los usuarios de cada aplicación, aunque también podría utilizarse el phpMyAdmin de XAMPP con usuario <strong>root</strong>.</p>
+        </li>
+      </ul>
+
+      <p class="captura">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+             width="600" viewBox="250 -20 600 520" style="background-color: white; border: black solid 2px" font-family="sans-serif" font-size="18">
+          <defs>
+            <marker id="markerArrow" markerWidth="12" markerHeight="12" refX="0" refY="6" orient="auto">
+              <path d="M0,4 L0,8 L6,6" style="fill: blue;" />
+            </marker>
+          </defs>
+
+          <ellipse cx="350" cy="300" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="280" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <ellipse cx="350" cy="260" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="240" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <ellipse cx="350" cy="230" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <rect x="300" y="210" width="100" height="20" fill="white" stroke="none" stroke-width="2" />
+          <line x1="300" y1="200" x2="300" y2="300" stroke-width="2" stroke="black" />
+          <line x1="400" y1="200" x2="400" y2="300" stroke-width="2" stroke="black" />
+          <ellipse cx="350" cy="200" rx="50" ry="10" stroke="black" stroke-width="2" fill="none" />
+          <text x="350" y="260" text-anchor="middle">MySQL</text>
+
+          <text x="700" y="5" text-anchor="middle" fill="blue">Aplicación web</text>
+          <rect x="600" y="20"  width="200" height="110" fill="#eee" stroke="black" stroke-width="1" />
+          <path d="M 605 30 l 2 0 l 2.5 -7 l 20 0 l 2.5 7 l 163 0 l 0 95  l -190 0 z"  fill="white" stroke="black" stroke-width="1" />
+          <text x="700" y="85" text-anchor="middle" font-size="30">phpMyAdmin</text>
+          <path d="M 590 40 C 500 40, 430 165, 420 180" stroke="blue" stroke-width="3" fill="transparent" style="marker-end: url(#markerArrow)" />
+          <text x="490" y="75" text-anchor="middle" fill="blue" transform="rotate(-40 490 75)">usuario root</text>
+
+          <text x="700" y="185" text-anchor="middle" fill="blue">Aplicación web</text>
+          <rect x="600" y="200"  width="200" height="110" fill="#eee" stroke="black" stroke-width="1" />
+          <path d="M 605 210 l 2 0 l 2.5 -7 l 20 0 l 2.5 7 l 163 0 l 0 95  l -190 0 z"  fill="white" stroke="black" stroke-width="1" />
+          <text x="700" y="265" text-anchor="middle" font-size="30">WordPress</text>
+          <path d="M 590 220 C 500 220, 455 240, 425 250" stroke="blue" stroke-width="3" fill="transparent" style="marker-end: url(#markerArrow)" />
+          <text x="500" y="220" text-anchor="middle" fill="blue" transform="rotate(-10 500 220)">usuario iaw_wp</text>
+
+          <text x="700" y="365" text-anchor="middle" fill="blue">Aplicación web</text>
+          <rect x="600" y="380"  width="200" height="110" fill="#eee" stroke="black" stroke-width="1" />
+          <path d="M 605 390 l 2 0 l 2.5 -7 l 20 0 l 2.5 7 l 163 0 l 0 95  l -190 0 z"  fill="white" stroke="black" stroke-width="1" />
+          <text x="700" y="445" text-anchor="middle" font-size="30">phpMyAdmin</text>
+          <path d="M 590 400 C 500 380, 450 340, 420 320" stroke="blue" stroke-width="3" fill="transparent" style="marker-end: url(#markerArrow)" />
+          <text x="490" y="390" text-anchor="middle" fill="blue" transform="rotate(30 490 390)">usuario iaw_wp</text>
+        </svg>
+      </p>
+    </section>
+
+    <section id="usuarios">
+      <h2>Tipos de usuarios</h2>
+
+      <p>Al trabajar con aplicaciones web, intervienen diferentes tipos de usuarios:</p>
+      <ul>
+        <li>el administrador del servidor, que se encarga de que el servidor web y el sistema gestor de bases de datos funcionen correctamente.
+          <p>En estos apuntes, ese usuario es único y se le da el nombre de <strong>root</strong></p>
+          <p>Como usuario <strong>root</strong> como mínimo tendremos que crear los usuarios de las aplicaciones.</p>
+        </li>
+        <li>el usuario de la base de datos, con el que la aplicación se conecta a la base de datos.
+          <p>En estos apuntes, crearemos un usuario distinto para cada aplicación y el nombre dependerá de la aplicación: <strong>iaw_wordpress</strong>, <strong>iaw_opencart</strong>, etc. En caso de hacer varias instalaciones de una aplicación, se crearán distintos usuarios: <strong>iaw_opencart_1</strong>, <strong>iaw_opencart_2</strong>, etc.</p>
+          <p>En algunas aplicaciones, como usuario <strong>iaw_<em>aplicacion</em></strong> no tendremos que realizar ninguna tarea, ya que es la propia aplicación la que gestiona al usuario, pero en otras, lo utilizaremos para conectarnos con la base de datos y realizar tareas de administración de la base de datos (copias de seguridad, etc.).</p>
+        </li>
+        <li>el administrador de cada aplicación, que se encarga de personalizar y administrar cada aplicación.
+          <p>En estos apuntes, a los administradores se les da normalmente el nombre de <strong>admin</strong>.</p>
+          <p>Como administradores de la aplicación instalaremos la aplicación y la administraremos mediante la propia aplicación.</p>
+        </li>
+        <li>los usuarios registrados de cada aplicación, que pueden crear contenido en cada aplicación. Normalmente, existen diferentes tipos de usuarios que pueden realizar más o menos tareas.
+          <p>En estos apuntes, estos usuarios se les da un nombre formado por la categoría a la que pertenecen y un número (<strong>editor_1</strong>, <strong>cliente_1</strong>, etc.). Estos nombres dependen de la aplicación de que se trate pues cada aplicación define unas categoráis distintas.</p>
+          <p>Como usuarios registrados de la aplicación podremos llevar a cabo las tareas que nos permita la categoría de usuario (crear contenido, modificar contenido, etc.).</p>
+        </li>
+      </ul>
+
+      <p>Al realizar los ejercicios, tenemos que ir jugando cada uno de estos papeles. Algunas tareas pueden realizarse con más de un usuario, pero normalmente cada tarea la tiene que realizar un usuario en concreto. Tenemos que ser conscientes de qué usuario somos en cada momento e ir cambiando de usuario en caso necesario. Para no tener que estar cerrando sesiones e identificándonos continuamente, una solución es utilizar navegadores distintos para cada tarea. Por ejemplo, tener abierta en Firefox una sesión de administrador de la aplicación, tener abierta en Chrome una sesión de usuario registrado y usar Internet Explorer para navegar la aplicación como usuario no registrado.</p>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 16 de diciembre de 2016</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>
