@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>phpMyAdmin (1). Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../../../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Exámenes - phpMyAdmin</h1>
+
+    <nav>
+      <p>
+        <a href="../../../index.html"><img src="../../../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../../../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>Examen phpMyAdmin</h2>
+
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1. La aplicación Registro</a></li>
+          <li><a href="#ejercicio-2">2. Creación base de datos</a></li>
+          <li><a href="#ejercicio-3">3. Copia de seguridad</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="ejercicio-1">
+      <h2>1. La aplicación Registro</h2>
+
+      <ul>
+        <li>Aplicación: <a href="registro_120207.zip">Registro</a></li>
+        <li>Descomprimir el archivo comprimido registro.zip en la carpeta <strong>registro</strong>. La aplicación se abre en el navegador con la dirección <strong>registro/index.php</strong>. Cuando esté configurada la base de datos, el programa hará lo siguiente:
+          <ul>
+            <li>El programa pide un nombre de usuario y una contraseña:
+              <ul>
+                <li>Si el usuario no está registrado, le dice que no está registrado.</li>
+                <li>Si el usuario está registrado y la contraseña no es correcta, le dice que la contraseña no es correcta.</li>
+                <li>Si el usuario y la contraseña es correcta, le deja entrar en la aplicación.
+                  <ul>
+                    <li>Si el usuario que ha entrado es el usuario <strong>root</strong>, puede ver la lista de usuarios o desconectarse.</li>
+                    <li>Si el usuario que ha entrado es otro usuario, sólo puede desconectarse.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>2. Creación de la base de datos</h2>
+
+      <ul>
+        <li>Entrar en phpMyAdmin como usuario <strong>root</strong> y crear un usuario de MySQL con nombre <strong>iwb_registro_1</strong>, contraseña <strong>iwb_registro_1</strong> y base de datos <strong>iwb_registro_1</strong>.</li>
+        <li>Entrar en phpMyAdmin como usuario <strong>iwb_registro_1</strong> y crear en la base de datos <strong>iwb_registro_1</strong> la tabla <strong>usuarios</strong> con los siguientes campos:
+          <ul>
+            <li>id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT</li>
+            <li>usuario VARCHAR(20)</li>
+            <li>password VARCHAR(20),</li>
+            <li>PRIMARY KEY(id)</li>
+          </ul>
+        </li>
+        <li>Hacer una captura de pantalla donde se vea la estructura de la tabla y guardarla como <strong>phpmyadmin_1.png</strong>:
+          <p class="captura"><img alt="phpMyAdmin. Crear tabla" src="phpmyadmin_1.png" width="638" height="156" /></p>
+        </li>
+        <li>Insertar dos registros en la tabla <strong>usuarios</strong>:
+          <ul>
+            <li>usuario: <span class="resaltado">root</span>. password: <span class="resaltado">root</span>.</li>
+            <li>usuario: <span class="resaltado">pepe</span>. password: <span class="resaltado">pepe</span>.</li>
+          </ul>
+        </li>
+        <li>Entrar en la aplicación registro como usuario <strong>root</strong> y mostrar la lista de usuarios. Hacer una captura de la pantalla y guardarla como <strong>phpmyadmin_2.png</strong>:
+          <p class="captura"><img alt="phpMyAdmin. Lista de usuarios 1" src="phpmyadmin_2.png" width="250" height="140" /></p>
+        </li>
+        <li>Entrar en phpMyAdmin y cambiar la contraseña del usuario <strong>root</strong> a <span class="resaltado">admin</span>.</li>
+        <li>Entrar en la aplicación registro como usuario <strong>root</strong> y mostrar la lista de usuarios. Hacer una captura de la pantalla y guardarla como <strong>phpmyadmin_3.png</strong>:
+          <p class="captura"><img alt="phpMyAdmin. Lista de usuarios 1" src="phpmyadmin_3.png" width="250" height="140" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>3. Crear una copia de seguridad</h2>
+
+      <ul>
+        <li>Entrar en phpMyAdmin como usuario <strong>iwb_registro_1</strong>, elegir la base de datos <strong>iwb_registro_1</strong> y exportar la tabla con el método rápido al fichero <strong>iwb_registro_1.sql</strong>.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 6 de febrero de 2012</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

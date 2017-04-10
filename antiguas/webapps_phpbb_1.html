@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejercicios (1). phpBB 3.0.12. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>phpBB 3.0.12. Ejercicios (1)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <img src="../varios/iconos/icono_vacio.svg" alt="" width="15" height="15" />
+        phpBB 3.0 (1)
+        <a href="webapps_phpbb_2.html"><img src="../varios/iconos/icono_flecha_derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
+
+      <h3>Enunciados</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - Descargar</a></li>
+          <li><a href="#ejercicio-2">2 - Traducción al español</a></li>
+          <li><a href="#ejercicio-3">3 - Instalar</a></li>
+          <li><a href="#ejercicio-4">4 - Entrar</a></li>
+          <li><a href="#ejercicio-5">5 - Crear nuevo usuario</a></li>
+          <li><a href="#ejercicio-6">6 - Modificar permisos</a></li>
+          <li><a href="#ejercicio-7">7 - Copia de seguridad</a></li>
+          <li><a href="#ejercicio-8">8 - Modificar el estilo</a></li>
+        </ul>
+      </div>
+
+      <h3><a href="webapps_phpbb_1_soluciones.html">Soluciones</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_phpbb_1_soluciones.html#ejercicio-1">1 - Descargar</a></li>
+          <li><a href="webapps_phpbb_1_soluciones.html#ejercicio-2">2 - Traducción al español</a></li>
+          <li><a href="webapps_phpbb_1_soluciones.html#ejercicio-3">3 - Instalar</a></li>
+          <li><a href="webapps_phpbb_1_soluciones.html#ejercicio-4">4 - Entrar</a></li>
+          <li><a href="webapps_phpbb_1_soluciones.html#ejercicio-5">5 - Crear nuevo usuario</a></li>
+          <li><a href="webapps_phpbb_1_soluciones.html#ejercicio-6">6 - Modificar permisos</a></li>
+          <li><a href="webapps_phpbb_1_soluciones.html#ejercicio-7">7 - Copia de seguridad</a></li>
+          <li><a href="webapps_phpbb_1_soluciones.html#ejercicio-8">8 - Modificar el estilo</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="aviso-antiguo">
+      <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de phpBB. No están actualizados a versiones más actuales porque desde el curso 2014/15 no estoy trabajando en clase phpBB ya que estoy dedicando más tiempo a otras aplicaciones. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+    </div>
+
+    <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>phpBB</strong>. Se pueden consultar las <a href="webapps_phpbb_1_soluciones.html">soluciones de estos ejercicios de phpBB</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <section id="phpbb">
+      <h2>Foros: phpBB</h2>
+
+      <p>Los foros son aplicaciones que permiten organizar discusiones entre muchos usuarios, que permanecen registradas para su consulta posterior. Existen muchos programas de foros. Uno de los más utilizados es <strong>phpBB</strong>, cuya primera versión se publicó en diciembre de 2000.</p>
+
+      <p>phpBB es software libre que se distribuye bajo la licencia GPL 2.0.</p>
+
+      <p>El aspecto y opciones del foro dependen del usuario empleado. Para realizar los ejercicios planteados en esta página, se pueden emplear simultáneamente varios navegadores, entrando en uno de ellos como administrador, en otro como usuario registrado y en otro como usuario no registrado.</p>
+
+      <p>En phpBB, las discusiones se organizan jerárquicamente:</p>
+      <dl>
+        <dt>Categoría (Category)</dt>
+        <dd>Es un tipo de foro especial que agrupa varios foros relacionados por algún criterio.</dd>
+        <dt>Foro (Forum)</dt>
+        <dd>Un foro es el elemento que agrupa las discusiones relacionadas por algún criterio.</dd>
+        <dt>Tema (Topic)</dt>
+        <dd>Un tema es una discusión que agrupa las intervenciones de los usuarios.</dd>
+        <dt>Respuesta (Reply)</dt>
+        <dd>Una respuesta es una intervención de un usuario.</dd>
+      </dl>
+    </section>
+
+    <section id="ejercicio-1">
+      <h2>phpBB (1) 1 - Descargar phpBB</h2>
+
+      <p>En este ejercicio se trata de descargar y descomprimir phpBB en el servidor local.</p>
+
+      <hr class="corta" />
+
+      <ol>
+        <li>Visite la página web del proyecto phpBB.</li>
+        <li>Descargue la versión <strong>phpBB 3.0.12 en inglés</strong>, publicada el 28 de septiembre de 2013. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.<br />
+
+          <p>Si la versión <strong>phpBB 3.0.12 en inglés</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/ejercicios_antiguos.html">Descarga de aplicaciones antiguas</a>.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>phpBB (1) 2 - Descargar la traducción al español de phpBB</h2>
+
+      <p>En este ejercicio se trata de descargar y descomprimir la traducción al español.</p>
+      <hr class="corta" />
+      <ol>
+        <li>Descargue la traducción al español de phpBB, versión español de España, tratamiento formal (de "usted").
+          <p>Descargue la versión <strong>Español (usted) 1.0.6</strong>, publicada el 15 de octubre de 2013. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.</p>
+          <p>Si la versión <strong>Español (usted) 1.0.6</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/ejercicios_antiguos.html">Descarga de aplicaciones antiguas</a>.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>phpBB (1) 3 - Instalar phpBB</h2>
+
+      <p>En este ejercicio se trata de instalar phpBB.</p>
+      <hr class="corta" />
+      <ol>
+        <li>Cree con phpMyAdmin un usuario de MySQL con nombre <strong>iaw_phpbb_1</strong>, contraseña <strong>iaw_phpbb_1</strong> y base de datos <strong>iaw_phpbb_1</strong>.</li>
+        <li>Descomprima phpbb en la carpeta adecuada para poder ejecutarlo en el servidor local.</li>
+        <li>Descomprima el archivo de traducción y copie las carpetas a su lugar correspondiente.</li>
+        <li>Instale phpBB mediante su asistente de instalación. Estas son las opciones a elegir distintas de las predeterminadas.
+          <ul>
+            <li>Configuración de la base de datos
+              <p>Nombre del servidor de la base de datos: <span class="resaltado">localhost</span></p>
+              <p>Nombre de base de datos: <span class="resaltado">iaw_phpbb_1</span></p>
+              <p>Usuario de base de datos: <span class="resaltado">iaw_phpbb_1</span></p>
+              <p>Clave de base de datos: <span class="resaltado">iaw_phpbb_1</span></p>
+            </li>
+            <li>Detalles del administrador
+              <p>Nombre de administrador: <span class="resaltado">admin</span></p>
+              <p>Contraseña de administrador: <span class="resaltado">adminadmin</span></p>
+              <p>Email de contacto: Aunque no se tenga instalado un servidor SMTP, se puede escribir una dirección de correo válida</p>
+            </li>
+          </ul>
+        </li>
+        <li>Al terminar la instalación, antes de abrir nuevamente phpBB, es <strong>imprescindible</strong> borrar, mover o cambiar el nombre del directorio <strong>/install</strong>. Si no se hace, se obtendrá la siguiente pantalla:
+          <p class="captura"><img alt="phpBB. Error al no borrar carpeta install" src="img/phpbb_3_0/phpbb_instalacion_11.png" width="800" height="390" title="phpBB. Error al no borrar carpeta install" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>phpBB (1) 4 - Entrar en phpBB</h2>
+
+      <p>En este ejercicio se trata de comprobar que phpBB funciona y se puede abrir una sesión como usuario administrador.</p>
+
+      <hr class="corta" />
+
+      <ol>
+        <li>Abra la página principal de phpBB. El aspecto tiene que ser similar a éste:
+          <p class="captura"><img alt="phpBB. Página inicial. Usuario no registrado" src="img/phpbb_3_0/phpbb_inicio_sin_registrar_a.png" width="800" height="716" /></p>
+        </li>
+        <li>Compruebe que puede entrar como usuario <strong>admin</strong> y contraseña <strong>adminadmin</strong>. Compruebe que puede entrar en los tres paneles de administración:
+          <ul>
+            <li>Panel de Control del Usuario</li>
+            <li>Panel de Control de Moderador</li>
+            <li>Panel de Administración </li>
+          </ul>
+        </li>
+        <li>Cierre la sesión como administrador y vuelva a la página de inicio.</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>phpBB (1) 5 - Crear un nuevo usuario</h2>
+
+      <p>En este ejercicio se trata de crear un nuevo usuario <strong>usuario_1</strong> y comprobar que ese usuario puede crear un tema e intervenir en él, aunque el usuario adminstrador debe aprobar sus intervenciones. Se aconseja abrir cada usuario en un navegador distinto.</p>
+
+      <hr class="corta" />
+
+      <ul>
+        <li>Registre un nuevo usuario con nombre <strong>usuario_1</strong> y contraseña <strong>usuario_1</strong> (es necesario rellenar un captcha).</li>
+        <li>Entre en phpBB como usuario <strong>usuario_1</strong> y cree un nuevo tema en el Foro de Prueba 1. La creación del nuevo tema queda a la espera de la aprobación del administrador.</li>
+        <li>Entre en phpBB como administrador y apruebe el nuevo tema.</li>
+        <li>Como <strong>usuario_1</strong>, añada una respuesta en el tema. La respuesta del nuevo tema queda a la espera de la aprobación del administrador.</li>
+        <li>Como administrador, apruebe la respuesta.</li>
+        <li>Compruebe como usuario sin registrar que se pueden ver las aportaciones aprobadas.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-6">
+      <h2>phpBB (1) 6 - Modificar los permisos del usuario</h2>
+
+      <p>En este ejercicio se trata de modificar los permisos del usuario <strong>usuario_1</strong> para que sus intervenciones no necesiten aprobación para ser publicadas.</p>
+
+      <p>phpBB permite definir permisos al usuario tanto de carácter global como limitados a determinados foros.</p>
+
+      <p><strong><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Nota</strong>: Compruebe que el usuario no tiene intervenciones pendientes antes de modificar sus permisos o no podrá realizar el ejercicio.</p>
+
+      <hr class="corta" />
+
+      <ul>
+        <li>Entre en phpBB como administrador y de al <strong>usuario_1</strong> el Rol "Acceso al foro estándar", que le permite, entre otras cosas, participar sin necesidad de moderación.</li>
+        <li>Entre en phpBB como usuario <strong>usuario_1</strong> y compruebe que no necesita la aprobación del administrador para crear nuevos temas o participar en ellos.</li>
+        <li>Compruebe como usuario sin registrar que se pueden ver las aportaciones aprobadas por el usuario <strong>usuario_1</strong>.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-7">
+      <h2>phpBB (1) 7 - Copia de seguridad</h2>
+
+      <p>En este ejercicio se trata de realizar una copia de seguridad de phpBB, borrar completamente la instalación y restaurar la copia de seguridad.</p>
+      <ul>
+        <li>Haga una copia de seguridad completa desde el propio phpBB. La copia de seguridad se guarda en una carpeta en phpBB3.</li>
+        <li>Guarde el archivo de la copia de seguridad en una carpeta diferente a la de phpBB.</li>
+        <li>Borre completamente phpBB:
+          <ul>
+            <li>borre la carpeta /phpBB3</li>
+            <li>elimine con phpMyAdmin el usuario de MySQL y su base de datos</li>
+          </ul>
+        </li>
+        <li>Reinstale phpBB y su traducción al español (creando primero de nuevo el usuario de MySQL).</li>
+        <li>Restaure la copia de seguridad desde el propio phpBB.</li>
+        <li>Compruebe que se ha recuperado el contenido de los foros y compruebe que puede entrar como <strong>usuario_1</strong>.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-8">
+      <h2>phpBB (1) 8 - Modificar el estilo</h2>
+
+      <p>En este ejercicio se trata de instalar un estilo diferente al predeterminado.</p>
+
+      <hr class="corta" />
+
+      <ul>
+        <li>Abra la página web de phpBB en Internet y visite la página de demostración de estilos. Vea algunos estilos incluidos en esa demostración.</li>
+        <li>Abra el repositorio de estilos de phpBB en Internet y descargue alguno de los estilos (que se haya visto en la página de demostración o no).</li>
+        <li>Descomprima el estilo descargado en la carpeta adecuada.</li>
+        <li>Entre en phpBB como administrador <strong>admin</strong> e instale el estilo descargado como estilo predeterminado.</li>
+        <li>Compruebe como usuario sin registrar (por ejemplo) que se aplica el nuevo estilo. La captura siguiente corresponde al estilo <strong>MG Autumn</strong>.
+          <p class="captura"><img alt="phpBB. Estilos. Comprobación" src="img/phpbb_3_0/phpbb_estilos_3.png" width="1024" height="529" /></p>
+        </li>
+        <li>Entre de nuevo en phpBB como administrador <strong>admin</strong> y restaure el estilo predeterminado prosilver.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 3 de diciembre de 2013</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

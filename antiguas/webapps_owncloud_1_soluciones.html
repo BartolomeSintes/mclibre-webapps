@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Soluciones (1). ownCloud. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>ownCloud. Soluciones (1)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <img src="../varios/iconos/icono_vacio.svg" alt="" width="15" height="15" />
+        ownCloud (1)
+        <a href="webapps_owncloud_2.html"><img src="../varios/iconos/icono_flecha_derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
+
+      <h3><a href="webapps_owncloud_1.html">Enunciados</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_owncloud_1.html#ejercicio-1">1 - Descargar</a></li>
+          <li><a href="webapps_owncloud_1.html#ejercicio-2">2 - Instalar</a></li>
+          <li><a href="webapps_owncloud_1.html#ejercicio-3">3 - Configuración básica</a></li>
+          <li><a href="webapps_owncloud_1.html#ejercicio-4">4 - Acceder mediante https</a></li>
+          <li><a href="webapps_owncloud_1.html#ejercicio-5">5 - Habilitar HTTP STS</a></li>
+          <li><a href="webapps_owncloud_1.html#ejercicio-6">6 - Acceder Filezilla/WinSCP</a></li>
+        </ul>
+      </div>
+
+      <h3>Soluciones</h3>
+      <div class="toc">
+          <ul>
+          <li><a href="#ejercicio-1">1 - Descargar</a></li>
+          <li><a href="#ejercicio-2">2 - Instalar</a></li>
+          <li><a href="#ejercicio-3">3 - Configuración básica</a></li>
+          <li><a href="#ejercicio-4">4 - Acceder mediante https</a></li>
+          <li><a href="#ejercicio-5">5 - Habilitar HTTP STS</a></li>
+          <li><a href="#ejercicio-6">6 - Acceder Filezilla/WinSCP</a></li>
+          </ul>
+      </div>
+    </nav>
+
+    <div class="aviso-antiguo">
+      <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de ownCloud. No están actualizados a versiones más actuales porque desde el curso 2016/17 no estoy trabajando en clase ownCloud, sino <a href="../lecciones/webapps_nextcloud.html">Nextcloud</a>. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+    </div>
+
+    <p>En esta lección se proponen soluciones detalladas de los <a href="webapps_owncloud_1.html">ejercicios (1) de ownCloud</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <section id="ejercicio-1">
+      <h2>ownCloud (1) 1 - Descargar</h2>
+      <ol>
+        <li>La página web de ownCloud es <a href="https://owncloud.org/">https://owncloud.org/</a>.</li>
+        <li>ownCloud es software libre que se distribuye bajo la licencia AGPL 3.0.
+          <p>En la web de ownCloud se ofrece únicamente la versión para Linux, una para Linux (en formato tar.gz) ya que desde la versión 8.1 ownCloud no publica versiones para Windows (según los autores, debido a limitaciones de PHP en Windows).</p>
+          <p>En estos apuntes se propone utilizar la máquina virtual preparada por Bitnami que incluye ownCloud 8.2.1. Se puede descargar de la web de Bitnami: <a href="https://bitnami.com/stack/owncloud">Página de Bitanmi dedicada a ownCloud</a> - <a href="https://bitnami.com/stack/owncloud/virtual-machine">Página de Bitnami con las máquinas virtuales con ownCloud</a></p>
+          <p>Si la máquina virtual de la versión <strong>ownCloud 8.2.1</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/descarga_aplicaciones.html">Descarga de aplicaciones</a>. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>ownCloud (1) 2 - Instalar</h2>
+
+      <p>En este ejercicio se trata de instalar ownCloud.</p>
+      <ul>
+        <li>Descomprima el archivo comprimido descargado en una carpeta:
+          <p class="captura"><img alt="ownCloud. VirtualBox" src="img/owncloud_8_2/1_2_s_1_virtualbox.png" width="645" height="433" title="ownCloud. Instalación" /></p>
+        </li>
+        <li>Cree una máquina virtual en VirtualBox:
+          <p class="captura"><img alt="ownCloud. VirtualBox" src="img/owncloud_8_2/1_2_s_2_virtualbox.png" width="786" height="588" title="ownCloud. Instalación" /></p>
+        </li>
+        <li>En el asistente de creación, haga clic en el botón "Modo experto":
+          <p class="captura"><img alt="ownCloud. VirtualBox" src="img/owncloud_8_2/1_2_s_3_virtualbox.png" width="472" height="411" title="ownCloud. Instalación" /></p>
+        </li>
+        <li>Complete la configuración la máquina virtual:
+          <p class="captura"><img alt="ownCloud. VirtualBox" src="img/owncloud_8_2/1_2_s_4_virtualbox.png" width="539" height="496" title="ownCloud. Instalación" /></p>
+          <ul>
+            <li>Tipo: <span class="resaltado">Linux</span></li>
+            <li>Versión: <span class="resaltado">Ubuntu (64-bit)</span></li>
+            <li>Tamaño de memoria: <span class="resaltado">al menos 1 GB</span></li>
+            <li>Disco duro: <span class="resaltado">Usar un archivo de disco duro virtual existente: bitnami-owncloud-8.2.1-0-ubuntu-14.04.vmdk</span></li>
+          </ul>
+        </li>
+        <li>Una vez creada la máquina, haga clic en Configurar:
+          <p class="captura"><img alt="ownCloud. VirtualBox" src="img/owncloud_8_2/1_2_s_5_virtualbox.png" width="786" height="588" title="ownCloud. Instalación" /></p>
+        </li>
+        <li>En la pestaña <strong>Red &gt; Adaptador 1</strong>, cambie el adaptador de red a "Adaptador puente" y haga clic en Aceptar:
+          <p class="captura"><img alt="ownCloud. VirtualBox" src="img/owncloud_8_2/1_2_s_6_virtualbox.png" width="706" height="434" title="ownCloud. Instalación" /></p>
+        </li>
+        <li>Ponga en marcha la máquina virtual. En ella se indica la dirección IP asignada y los datos del usuario administrador tanto del sistema operativo como de la aplicación:
+          <p class="captura"><img alt="ownCloud. VirtualBox" src="img/owncloud_8_2/1_2_s_7_virtualbox.png" width="738" height="482" title="ownCloud. Instalación" /></p>
+        </li>
+        <li>Abra <strong>http:/192.168.XXX.YYY</strong> en el navegador y compruebe que se abre la página inicial de ownCloud.
+          <p class="captura"><img alt="ownCloud. Instalación" src="img/owncloud_8_2/1_2_e_2_instalacion.png" width="350" height="300" title="ownCloud. Instalación" /></p>
+        </li>
+        <li>Escriba el nombre de usuario y la contraseña que se indican en la página de inicio de la máquina virtual (nombre de usuario: user / contraseña: bitnami):
+          <p class="captura"><img alt="ownCloud. Entrar" src="img/owncloud_8_2/1_2_s_11_entrar.png" width="400" height="350" title="ownCloud. Instalación" /></p>
+        </li>
+        <li>Para salir de ownCloud, haga clic en el menú del usuario en la esquina superior derecha y elija la opción Log out:
+          <p class="captura"><img alt="ownCloud. Salir" src="img/owncloud_8_2/1_2_s_12_salir.png" width="1008" height="382" title="ownCloud. Instalación" /></p>
+          <p class="captura"><img alt="ownCloud. Salir" src="img/owncloud_8_2/1_2_s_13_salir.png" width="1009" height="350" title="ownCloud. Instalación" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>ownCloud (1) 3 - Configuración básica</h2>
+
+      <h3>Cambio de idioma</h3>
+      <ul>
+        <li>Entre en ownCloud como administrador. Haga clic en el nombre del usuario (arriba a la derecha) y seleccione la opción Personal:
+          <p class="captura"><img alt="ownCloud. Configuración idioma" src="img/owncloud_8_2/1_3_s_1_idioma.png" width="1010" height="300" title="ownCloud. Configuración básica 1" /></p>
+        </li>
+        <li>En el apartado Language, seleccione el idioma deseado:
+          <p class="captura"><img alt="ownCloud. Configuración idioma" src="img/owncloud_8_2/1_3_s_2_idioma.png" width="1008" height="220" title="ownCloud. Configuración básica 1" /></p>
+        </li>
+        <li>Al elegir un idioma, automáticamente se aplicará el nuevo idioma:
+          <p class="captura"><img alt="ownCloud. Configuración idioma" src="img/owncloud_8_2/1_3_s_3_idioma.png" width="1008" height="220" title="ownCloud. Configuración básica 1" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>ownCloud (1) 4 - Acceder mediante https</h2>
+      <ul>
+        <li>Entre en la máquina virtual de ownCloud
+          <p class="captura"><img alt="ownCloud. Configuración https" src="img/owncloud_8_2/1_4_s_1_https.png" width="734" height="413" title="ownCloud. Configuración básica 1" /></p>
+        </li>
+        <li>Vaya al directorio de configuración de Apache:
+          <div class="codshell">
+            <pre>cd /opt/bitnami/apache2/conf</pre>
+          </div>
+        </li>
+        <li>Edite el archivo de configuración de Apache:
+          <div class="codshell">
+            <pre>vi httpd.conf</pre>
+          </div>
+        </li>
+        <li>Añada la directiva VirtualHost
+          <p class="captura"><img alt="ownCloud. Configuración https" src="img/owncloud_8_2/1_4_s_2_https.png" width="730" height="400" title="ownCloud. Configuración básica 1" /></p>
+        </li>
+        <li>Reinicie Apache
+          <div class="codshell">
+            <pre>sudo /opt/bitnami/ctlscript.sh restart apache</pre>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>ownCloud (1) 5 - Habilitar HTTP Strict Transport Security</h2>
+      <ul>
+        <li>Como en el ejercicio anterior, entre en la máquina virtual de ownCloud,
+          vaya al directorio de configuración de Apache y edite el archivo de
+          configuración de Apache:</li>
+        <li>Añada la directiva VirtualHost
+          <p class="captura"><img alt="ownCloud. Configuración https" src="img/owncloud_8_2/1_5_s_1_sts.png" width="740" height="400" title="ownCloud. Configuración básica 1" /></p>
+        </li>
+        <li>Reinicie Apache
+          <div class="codshell">
+            <pre>sudo /opt/bitnami/ctlscript.sh restart apache</pre>
+          </div>
+        </li>
+        <li>Modifique la directiva DocumentRoot
+          <p class="captura"><img alt="ownCloud. Configuración https" src="img/owncloud_8_2/1_5_s_2_sts.png" width="740" height="400" title="ownCloud. Configuración básica 1" /></p>
+        </li>
+        <li>Reinicie Apache
+          <div class="codshell">
+            <pre>sudo /opt/bitnami/ctlscript.sh restart apache</pre>
+          </div>
+        </li>
+      </ul>
+
+      <p>Referencias:</p>
+      <ul>
+        <li>http://robsnotebook.com/xampp-ssl-encrypt-passwords</li>
+        <li>http://www.digitallycreated.net/Blog/38/using-makecert-to-create-certificates-for-development</li>
+        <li>SSL: <a href="https://wiki.bitnami.com/Components/Apache#How_to_enable_HTTPS_support_with_SSL_certificates">https://wiki.bitnami.com/Components/Apache#How_to_enable_HTTPS_support_with_SSL_certificates</a></li>
+        <li>Bitnami Virtual Appliances Quick Start Guide: <a href="https://wiki.bitnami.com/Virtual_Appliances_Quick_Start_Guide">https://wiki.bitnami.com/Virtual_Appliances_Quick_Start_Guide</a></li>
+        <li>ownCloud Hardening and Security Guidance: <a href="https://doc.owncloud.org/server/8.2/admin_manual/configuration_server/harden_server.html">https://doc.owncloud.org/server/8.2/admin_manual/configuration_server/harden_server.html</a></li>
+        <li>Mozilla SSL configuration generator: <a href="https://mozilla.github.io/server-side-tls/ssl-config-generator/">https://mozilla.github.io/server-side-tls/ssl-config-generator/</a></li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-6">
+      <h2>ownCloud (1) 6 - Acceder mediante Filezilla o WinSCP</h2>
+
+      <h3>Acceso por FTP</h3>
+      <ol>
+        <li>Configure VSFTP para permitir conexiones FTP. Para ello,<br />
+          <ul>
+            <li>Edite el archivo /etc/vsftpd.conf, modificando en las últimas líneas
+              del fichero la directiva listen_address:
+              <div class="codshell">
+                <pre>listen_address=0.0.0.0</pre>
+              </div>
+              <p class="captura"><img alt="ownCloud. Configuración VSFTP" src="img/owncloud_8_2/1_6_s_1_ftp.png" width="740" height="400" title="ownCloud. Configuración básica 1" /></p>
+            </li>
+            <li>Modifique la contraseña del usuario <strong>bitnamiftp</strong>
+              <div class="codshell">
+                <pre>sudo passwd bitnamiftp</pre>
+              </div>
+            </li>
+            <li>Abra el puerto 21
+              <div class="codshell">
+                <pre>sudo ufw allow 21</pre>
+              </div>
+            </li>
+            <li>Reinicie el servicio VSTFP
+              <div class="codshell">
+                <pre>sudo service vsftpd restart</pre>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>Instale Filezilla o WinSCP y conéctese a la máquina virtual con los datos siguientes:
+          <ul>
+            <li>File protocol: <span class="resaltado">FTP</span></li>
+            <li>Encrypction: <span class="resaltado">No encryption</span></li>
+            <li>Host name: <span class="resaltado">192.168.XXX.YYY</span></li>
+            <li>Port number: <span class="resaltado">21</span></li>
+            <li>UserName: <span class="resaltado">bitnamiftp</span></li>
+          </ul>
+        </li>
+      </ol>
+
+      <hr class="corta" />
+
+      <h3>Acceso por SFTP</h3>
+
+      <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por escribir.</p>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 8 de enero de 2016</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

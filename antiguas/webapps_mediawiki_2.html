@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ejercicios (2). MediaWiki 1.22.0. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>MediaWiki 1.22.0. Ejercicios (2)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <a href="webapps_mediawiki_marcado.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        MediaWiki 1.22 (2)
+      </h2>
+
+      <h3>Enunciados</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - Cambiar el logotipo</a></li>
+          <li><a href="#ejercicio-2">2 - Wikis privados</a></li>
+          <li><a href="#ejercicio-3">3 - Editar tablas</a></li>
+          <li><a href="#ejercicio-4">4 - Subir archivos SVG</a></li>
+          <li><a href="#ejercicio-5">5 - Subir otros archivos</a></li>
+          <li><a href="#ejercicio-6">6 - Crear una galería</a></li>
+          <li><a href="#ejercicio-7">7 - Tablas colapsables</a></li>
+          <li><a href="#ejercicio-8">8 - Extensión Vector</a></li>
+          <li><a href="#ejercicio-11">11 - Copia de seguridad</a></li>
+          <li><a href="#ejercicio-12">12 - Otras extensiones</a></li>
+          <li><a href="#ejercicio-13">13 - Avisos en instalación</a></li>
+          <li><a href="#ejercicio-14">14 - EasyTimeLine</a></li>
+        </ul>
+      </div>
+
+      <h3><a href="webapps_mediawiki_2_soluciones.html">Soluciones</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-1">1 - Cambiar el logotipo</a></li>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-2">2 - Wikis privados</a></li>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-3">3 - Editar tablas</a></li>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-4">4 - Subir archivos SVG</a></li>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-5">5 - Subir otros archivos</a></li>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-6">6 - Crear una galería</a></li>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-7">7 - Tablas colapsables</a></li>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-8">8 - Extensión Vector</a></li>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-11">11 - Copia de seguridad</a></li>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-12">12 - Otras extensiones</a></li>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-13">13 - Avisos en instalación</a></li>
+          <li><a href="webapps_mediawiki_2_soluciones.html#ejercicio-14">14 - EasyTimeLine</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="aviso-antiguo">
+      <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de MediaWiki. No están actualizados a versiones más actuales porque desde el curso 2014/15 no estoy trabajando en clase MediaWiki ya que estoy dedicando más tiempo a otras aplicaciones. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+    </div>
+
+    <p>En esta lección se proponen ejercicios para profundizar el uso de <strong>MediaWiki</strong>. Se pueden consultar las <a href="webapps_mediawiki_2_soluciones.html">soluciones de estos ejercicios de MediaWiki</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <section id="ejercicio-1">
+      <h2>MediaWiki (2) 1 - Cambiar el logotipo</h2>
+
+      <p>MediaWiki muestra un logotipo en la parte superior izquierda de todas las páginas que puede personalizarse:</p>
+
+      <p class="captura"><img alt="MediaWiki. Logotipo" src="img/mediawiki_1_22/mediawiki_logo.png" width="400" height="200" title="MediaWiki. Logotipo" /></p>
+      <ol>
+        <li>Crear con Inkscape un logotipo para la wiki y guardarlo en varios tamaños. Por ejemplo, el logotipo de este curso <img alt="Logotipo Curso WebApps" src="../img/otros/curso_webapps_075.png" width="75" height="75" title="Logotipo WebApps" /> en formato PNG a diferentes tamaños en píxeles: <a href="../img/otros/curso_webapps_075.png">75x75</a>, <a href="../img/otros/curso_webapps_100.png">100x100</a>, <a href="../img/otros/curso_webapps_135.png">135x135</a>, <a href="../img/otros/curso_webapps_160.png">160x160</a>, <a href="../img/otros/curso_webapps_200.png">200x200</a>.</li>
+        <li>Cambiar el logotipo de la wiki a varias imágenes (probar diferentes formatos y tamaños).</li>
+      </ol>
+
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>MediaWiki (2) 2 - Wikis privados</h2>
+
+      <p>Se puede restringir el uso de una wiki a usuarios registrados.</p>
+      <ol>
+        <li>Convertir la wiki pública en una wiki privada modificando el archivo de configuración <strong>LocalSettings.php</strong> de MediaWiki.</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>MediaWiki (2) 3 - Editar tablas</h2>
+
+      <p>MediaWiki permite incluir tablas en los documentos, tanto tablas html como el marcado de MediaWiki (resumido en la <a href="webapps_mediawiki_marcado.html">lección de Marcado de MediaWiki</a>).</p>
+      <ol>
+        <li>Crear una página con tablas. Por ejemplo, las de la siguiente captura:
+          <p class="captura"><img alt="MediaWiki. Tablas de ejemplo" src="img/mediawiki_1_22/mediawiki_ejemplo_tablas.png" width="300" height="350" title="MediaWiki. Tablas de ejemplo" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>MediaWiki (2) 4 - Subir archivos SVG</h2>
+      <ol>
+        <li>Modificar el archivo <strong>LocalSettings.php</strong> para poder subir archivos SVG.</li>
+        <li>Instalar algún convertidor para convertir las imágenes SVG a PNG. Probar dos opciones disponibles:
+          <ul>
+            <li>Inkscape (más fácil en Windows)</li>
+            <li>ImageMagick</li>
+          </ul>
+          <p><strong>Nota</strong>: En la documentación de MediaWiki se nombran también los convertidores Batik y libsvg.</p>
+        </li>
+        <li>Crear con Inkscape cuatro imágenes, dos con rellenos degradados y otras dos sin degradados, similares a éstas:
+          <a href="../img/otros/estrella_1.svg"><img alt="Imagen sin degradado" src="../img/otros/estrella_1.png" width="79" height="75" title="Imagen sin degradado" /></a>
+          <a href="../img/otros/estrella_2.svg"><img alt="Imagen con degradado" src="../img/otros/estrella_2.png" width="77" height="75" title="Imagen con degradado" /></a>
+          <a href="../img/otros/estrella_3.svg"><img alt="Imagen sin degradado" src="../img/otros/estrella_3.png" width="74" height="75" title="Imagen sin degradado" /></a>
+          <a href="../img/otros/estrella_4.svg"><img alt="Imagen con degradado" src="../img/otros/estrella_4.png" width="75" height="75" title="Imagen con degradado" /></a>
+        </li>
+        <li>Subir dos imágenes imágenes SVG a MediaWiki, usando como convertidor ImageMagick, probando los dos convertidores. Crear páginas en MediWiki e insertar imágenes SVG en ellas (utilizando las marcas especiales que se comentan en la página <a href="webapps_mediawiki_marcado.html">Marcado de MediaWiki</a>).</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>MediaWiki (2) 5 - Subir otros tipos de archivos</h2>
+
+      <ol>
+        <li>Modificar el archivo <strong>LocalSettings.php</strong> para poder subir archivos PDF o ZIP.</li>
+        <li>Subir un PDF y un archivo comprimido ZIP.</li>
+        <li>Escribir una página con enlaces a esos archivos.</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-6">
+      <h2>MediaWiki (2) 6 - Crear una galería</h2>
+
+      <ol>
+        <li>Subir varias imágenes y crear una galería con esas imágenes:
+          <p class="captura"><img alt="MediaWiki. Ejemplo de Galería" src="img/mediawiki_1_22/mediawiki_galeria_animales.jpg" width="650" height="425" title=" MediaWiki. Ejemplo de Galería" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-7">
+      <h2>MediaWiki (2) 7 - Tablas colapsables</h2>
+
+      <p>Si una tabla es muy grande, se puede "colapsar" (reducir al mínimo) de manera que el usuario pueda mostrarla u ocultarla.</p>
+      <ol>
+        <li>Cree una tabla colapsable como la del ejemplo siguiente:
+          <p class="captura">
+            <img alt="Mediawiki. Tabla colapsada oculta" src="img/mediawiki_1_22/mediawiki_tabla_colapsable_1.png" width="500" height="200" title="Mediawiki. Tabla colapsada oculta" />
+            <img alt="Mediawiki. Tabla colapsada visible" src="img/mediawiki_1_22/mediawiki_tabla_colapsable_2.png" width="500" height="280" title="Mediawiki. Tabla colapsada visible" />
+          </p>
+          <ul>
+            <li>Puede consultar la información en <a href="https://en.wikipedia.org/wiki/Help:Collapsing">https://en.wikipedia.org/wiki/Help:Collapsing</a>. Deberá también copiar el apartado correspondiente de la página <a href="https://en.wikipedia.org/wiki/MediaWiki:Common.js">https://en.wikipedia.org/wiki/MediaWiki:Common.js</a> en la página <strong>MediaWiki:Common.js</strong> de su instalación.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-8">
+      <h2>MediaWiki (2) 8 - Extensión Vector</h2>
+
+      <p>El <em>skin</em> predeterminado de MediaWiki se llama <a href="https://www.mediawiki.org/wiki/Skin:Vector">Vector</a>. Este skin dispone de una extensión llamada también Vector que amplía sus posibilidades.</p>
+      <ol>
+        <li>Comprobar que la <a href="https://www.mediawiki.org/wiki/Extension:Vector">extensión Vector</a> está ya incluida en MediaWiki, pero no activada.</li>
+        <li>Probar una de las opciones de la extensión Vector: la opción <strong>EditWarning</strong>. Esta opción hace que MediaWiki avise cuando se cierre o abandone una página sin haber guardado previamente los cambios. Para ello:
+          <ul>
+            <li>Sin activar la extensión Vector, comprobar que el usuario no puede elegir entre sus preferencias "Advertirme cuando abandone una página editada con cambios sin grabar".</li>
+            <li>Abrir una página cualquiera de la wiki, editarla, hacer algunos cambios y, sin guardarlos, leer la página. Comprobar que no aparece ningún aviso y que los cambios no se han guardado.</li>
+            <li>Activar la extensión Vector.</li>
+            <li>En las preferencias de usuario, marcar la opción "Advertirme cuando abandone una página editada con cambios sin grabar".</li>
+            <li>Abrir una página cualquiera de la wiki, editarla, hacer algunos cambios y, sin guardarlos, leer la página o cerrar la pestaña. Comprobar que se muestra un aviso que pide confirmación.</li>
+            <li>Configurar Vector de manera que la opción "Advertirme cuando abandone una página editada con cambios sin grabar" esté activada de forma predeterminada.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-11">
+      <h2>MediaWiki (2) Ampliación 1 - Copia de seguridad</h2>
+      <ol>
+        <li>Realizar una copia de seguridad de la wiki y restaurarla.
+          <ul>
+            <li>Puede consultar la información en <a href="https://www.mediawiki.org/wiki/Manual:Backing_up_a_wiki">https://www.mediawiki.org/wiki/Manual:Backing_up_a_wiki</a> y <a href="https://www.mediawiki.org/wiki/Manual:Restoring_a_wiki_from_backup">https://www.mediawiki.org/wiki/Manual:Restoring_a_wiki_from_backup</a></li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-12">
+      <h2>MediaWiki (2) Ampliación 2 - Otras extensiones</h2>
+      <ol>
+        <li>Instale la extensión <strong>MultiUpload</strong> para permitir la subida de varios archivos a la vez
+          <ul>
+            <li>Puede consultar la información en <a href="https://www.mediawiki.org/wiki/Extension:MultiUpload">https://www.mediawiki.org/wiki/Extension:MultiUpload</a></li>
+          </ul>
+        </li>
+        <li>Instale la extensión <strong>OpenID</strong> para facilitar el ingreso de los usuarios en la wiki.
+          <ul>
+            <li>Puede consultar la información en <a href="https://www.mediawiki.org/wiki/Extension:OpenID">https://www.mediawiki.org/wiki/Extension:OpenID</a></li>
+          </ul>
+        </li>
+        <li>Instale la extensión <strong>ImageMap</strong> para crear mapas de imágenes.
+          <ul>
+            <li>Puede consultar la información en <a href="https://www.mediawiki.org/wiki/Extension:ImageMap">https://www.mediawiki.org/wiki/Extension:ImageMap</a></li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-13">
+      <h2>MediaWiki (2) Ampliación 3 - Avisos en instalación</h2>
+
+      <ol>
+        <li>Realice una nueva instalación de MediaWiki corrigiendo los avisos que se muestran durante la instalación:
+          <p class="captura"><img alt="MediaWiki. Avisos de instalación" src="img/mediawiki_1_22/mediawiki_instalacion_avisos_01.png" width="750" height="530" title="MediaWiki. Avisos de instalación" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-14">
+      <h2>MediaWiki (2) Ampliación 4 - Líneas de tiempo (EasyTimeLine)</h2>
+
+      <p>La extensión <a href="https://www.mediawiki.org/wiki/Extension:EasyTimeline">EasyTimeline</a> permite crear gráficas de líneas de tiempo como esta:</p>
+
+      <p class="centrado"><img alt="MediaWiki. Extensión Timeline. Ejemplo" src="img/mediawiki_1_22/mediawiki_timeline_ejemplo_pinkfloyd.png" width="700" height="270" /></p>
+      <ol>
+        <li>Instalar la extensión EasyTimeline siguiendo las instrucciones de la <a href="https://www.mediawiki.org/wiki/Extension:EasyTimeline/installation">página de instalación de EasyTimeline</a>.
+          <p><strong>Nota</strong>: Yo no he conseguido hacerlo funcionar del todo (sí que he conseguido generar las imágenes, pero por el momento no he conseguido que aparezcan en la Wiki).</p>
+        </li>
+        <li>Comprobar que funciona con este gráfico de ejemplo:
+
+          <div class="codphp">
+            <pre>&lt;timeline&gt;
+ImageSize  = width:160 height:550
+PlotArea   = width: 25 height:530 left:50 bottom:10
+AlignBars  = justify
+
+DateFormat = yyyy
+Period     = from:1919 till:1991
+TimeAxis   = orientation:vertical
+ScaleMajor = unit:year increment:5 start:1920
+
+# there is no automatic collision detection,
+# so shift texts up or down manually to avoid overlap
+
+Define $dx = 25 # shift text to right side of bar
+
+PlotData=
+  bar:Leaders color:red width:25 mark:(line,white) align:left fontsize:S
+
+  from:start till:1922 shift:($dx,15)   text:Vladimir~Ilyich~[[Lenin]]
+  from:1922  till:1953 shift:($dx,5)    text:[[Stalin|Josef~Stalin]]
+  from:1953  till:1964 shift:($dx,5)    text:Nikita~[[Khrushchev]]
+  from:1964  till:1982 shift:($dx,5)    text:Leonid~[[Brezhnev]]
+  from:1982  till:1984 shift:($dx,-12)  text:Yuri~[[Andropov]]
+  from:1984  till:1985 shift:($dx,4)    text:Konstantin~[[Chernenko]] fontsize:XS
+  from:1985  till:end  shift:($dx,10)   text:Mikhail~[[Gorbachev]]
+&lt;/timeline&gt;</pre>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 9 de enero de 2014</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

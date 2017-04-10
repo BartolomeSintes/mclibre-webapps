@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Soluciones (1). phpBB 3.0.12. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>phpBB 3.0.12. Soluciones (1)</h1>
+
+    <nav>
+      <p>
+        <a href="../index.html"><img src="../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>
+        <img src="../varios/iconos/icono_vacio.svg" alt="" width="15" height="15" />
+        phpBB 3.0 (1)
+        <a href="webapps_phpbb_2.html"><img src="../varios/iconos/icono_flecha_derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
+
+      <h3><a href="webapps_phpbb_1.html">Enunciados</a></h3>
+      <div class="toc">
+        <ul>
+          <li><a href="webapps_phpbb_1.html#ejercicio-1">1 - Descargar</a></li>
+          <li><a href="webapps_phpbb_1.html#ejercicio-2">2 - Traducción al español</a></li>
+          <li><a href="webapps_phpbb_1.html#ejercicio-3">3 - Instalar</a></li>
+          <li><a href="webapps_phpbb_1.html#ejercicio-4">4 - Entrar</a></li>
+          <li><a href="webapps_phpbb_1.html#ejercicio-5">5 - Crear nuevo usuario</a></li>
+          <li><a href="webapps_phpbb_1.html#ejercicio-6">6 - Modificar permisos</a></li>
+          <li><a href="webapps_phpbb_1.html#ejercicio-7">7 - Copia de seguridad</a></li>
+          <li><a href="webapps_phpbb_1.html#ejercicio-8">8 - Modificar el estilo</a></li>
+        </ul>
+      </div>
+
+      <h3>Soluciones</h3>
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1 - Descargar</a></li>
+          <li><a href="#ejercicio-2">2 - Traducción al español</a></li>
+          <li><a href="#ejercicio-3">3 - Instalar</a></li>
+          <li><a href="#ejercicio-4">4 - Entrar</a></li>
+          <li><a href="#ejercicio-5">5 - Crear nuevo usuario</a></li>
+          <li><a href="#ejercicio-6">6 - Modificar permisos</a></li>
+          <li><a href="#ejercicio-7">7 - Copia de seguridad</a></li>
+          <li><a href="#ejercicio-8">8 - Modificar el estilo</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="aviso-antiguo">
+      <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de phpBB. No están actualizados a versiones más actuales porque desde el curso 2014/15 no estoy trabajando en clase phpBB ya que estoy dedicando más tiempo a otras aplicaciones. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+    </div>
+
+    <p>En esta lección se proponen soluciones detalladas de los <a href="webapps_phpbb_1.html">ejercicios de phpBB (1)</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+    <section id="ejercicio-1">
+      <h2>phpBB (1) 1 - Descargar phpBB</h2>
+
+      <ol>
+        <li>La página web de phpBB es <a href="https://www.phpbb.com/">https://www.phpbb.com/</a>.</li>
+        <li>La página web de descarga de phpBB es <a href="https://www.phpbb.com/downloads/">https://www.phpbb.com/downloads/</a>.
+          <p>phpBB se distribuye en forma de archivo comprimido zip.</p>
+          <p>La versión <strong>phpBB 3.0.12 en inglés</strong>, publicada el 28 de septiembre de 2013 y utilizada para elaborar estos ejercicios, se puede descargar de la web de phpBB: <a href="https://www.phpbb.com/files/release/phpBB-3.0.12.zip">phpBB 3.0.12 en inglés (28/09/13)</a>.</p>
+          <p>Si la versión <strong>phpBB 3.0.12 en inglés</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/ejercicios_antiguos.html">Descarga de aplicaciones antiguas</a>. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.</p>
+        </li>
+        <li>Una vez descargado phpBB, simplemente se debe descomprimir en una carpeta accesible desde el servidor local.
+          <p>En estos ejercicios, de acuerdo con las <a href="../otros/configuracion.html">recomendaciones de configuración general</a> de estos apuntes, se supondrá que:</p>
+          <ul>
+            <li>phpBB se encuentra en la carpeta <strong><strong>:</strong></strong>
+              <p><strong><strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; aplicaciones &gt; phpbb</strong></strong></p>
+            </li>
+            <li>al ejecutar desde Eclipse el fichero <strong>index.php</strong> de phpBB, se abrirá en el navegador la dirección
+              <p><strong>http://localhost/nombre-de-alumno/iaw/aplicaciones/phpbb/index.php</strong></p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-2">
+    <h2>phpBB (1) 2 - Descargar la traducción al español de phpBB</h2>
+
+      <p>Referencias</p>
+      <ul>
+        <li>Cómo instalar idiomas: <a href="https://www.phpbb.com/support/docs/en/3.0/kb/article/how-to-install-a-language-pack/">https://www.phpbb.com/support/docs/en/3.0/kb/article/how-to-install-a-language-pack/</a></li>
+      </ul>
+
+      <hr class="corta" />
+
+      <ol>
+        <li>El paquete original de phpBB está en inglés. Para que phpBB esté en español, es necesario descargar un archivo de traducción adicional. Actualmente (diciembre de 2013) existen cuatro versiones disponibles:
+          <ul>
+            <li><a href="https://www.phpbb.com/customise/db/translation/spanish_casual_honorifics/">español de España (trato familiar = uso de "tú")</a></li>
+            <li><a href="https://www.phpbb.com/customise/db/translation/spanish_formal_honorifics/">español de España (trato formal = uso de "usted")</a></li>
+            <li><a href="https://www.phpbb.com/customise/db/translation/argentinian_spanish_formal_honorifics/">español de Argentina (trato familiar = uso de "vos")</a></li>
+            <li><a href="https://www.phpbb.com/customise/db/translation/mexican_spanish_casual_honorifics/">español de México (trato familiar = uso de "tú")</a></li>
+          </ul>
+          <p>En estas soluciones se ha utilizado la versión español de España (trato formal).</p>
+          <p>La versión <strong>Español (usted) 1.0.6</strong>, publicada el 15 de octubre de 2013, se puede descargar de la web de phpBB: <a href="https://www.phpbb.com/customise/db/download/92601">traducción al español (formal) de phpBB 3.0.12 versión 1.0.6 (15/10/13)</a>.</p>
+          <p>Si la versión <strong>Español (usted) 1.0.6</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/ejercicios_antiguos.html">Descarga de aplicaciones antiguas</a>.</p>
+        </li>
+        <li>Al descomprimir el archivo descargado, se obtienen dos carpetas <strong>/language</strong> y <strong>/style</strong>, que se tienen que copiar en las carpetas <strong>/language</strong> y <strong>/style</strong> respectivamente.</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>phpBB (1) 3 - Instalar phpBB</h2>
+
+      <p>Referencias:</p>
+      <ul>
+        <li>Instrucciones detalladas de instalación de phpBB (versión 3, en inglés): <a href="https://www.phpbb.com/support/documents.php?mode=install&amp;version=3">https://www.phpbb.com/support/documents.php?mode=install&amp;version=3</a></li>
+      </ul>
+
+      <hr class="corta" />
+
+      <ol>
+        <li>Cree con phpMyAdmin un usuario de MySQL con nombre <strong>iaw_phpbb_1</strong>, contraseña <strong>iaw_phpbb_1</strong> y base de datos <strong>iaw_phpbb_1</strong>.
+          <p class="captura"><img alt="phpBB. Creación de usuario en phpMyAdmin" src="img/phpbb_3_0/phpbb_phpmyadmin_1.png" width="810" height="610" /></p>
+        </li>
+        <li>Abra <strong>/index.php</strong> en el navegador. phpBB detecta que existe el directorio <strong>/install</strong> y que es necesario utilizar el asistente de instalación, que se inicia automáticamente:
+          <p class="captura"><img alt="phpBB. Instalación. Inicio" src="img/phpbb_3_0/phpbb_instalacion_1.png" width="776" height="535" /></p>
+          <p>Al hacer clic en la pestaña <strong>Install</strong>, el asistente de instalación va preguntando las opciones de configuración deseadas. A continuación se comentan las opciones a elegir distintas de las predeterminadas.</p>
+          <ul>
+            <li>Configuración de la base de datos
+              <p>Nombre del servidor de la base de datos: <span class="resaltado">localhost</span></p>
+              <p>Nombre de base de datos: <span class="resaltado">iaw_phpbb_1</span></p>
+              <p>Usuario de base de datos: <span class="resaltado">iaw_phpbb_1</span></p>
+              <p>Clave de base de datos: <span class="resaltado">iaw_phpbb_1</span></p>
+            </li>
+            <li>Detalles del administrador
+              <p>Nombre de administrador: <span class="resaltado">admin</span></p>
+              <p>Contraseña de administrador: <span class="resaltado">adminadmin</span></p>
+              <p>Email de contacto: Aunque no se tenga instalado un servidor SMTP, se puede escribir una dirección de correo válida</p>
+            </li>
+          </ul>
+          <p>Si todo ha ido bien, se mostrará la página final del asistente de instalación:</p>
+          <p class="captura"><img alt="phpBB. Instalación. Final" src="img/phpbb_3_0/phpbb_instalacion_10.png" width="776" height="566" /></p>
+        </li>
+        <li>Al terminar la instalación puede cerrar la ventana del navegador pero, antes de abrir nuevamente phpBB, es <strong>imprescindible</strong> borrar, mover o cambiar el nombre del directorio <strong>/install</strong> (mejor borrarlo).</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>phpBB (1) 4 - Entrar en phpBB</h2>
+
+      <ol>
+        <li>Si no existe el directorio <strong>/install</strong>, al abrir <strong>/index.php</strong> en el navegador se mostrará la página principal de phpBB (en inglés):
+          <p class="captura"><img alt="phpBB. Página inicial. Usuario no registrado" src="img/phpbb_3_0/phpbb_inicio_sin_registrar.png" width="800" height="716" /></p>
+        </li>
+        <li>Al hacer clic en "Login" phpBB solicitará los datos de usuario. Entre como usuario <strong>admin</strong> y contraseña <strong>adminadmin</strong>. Se mostrará la página principal del foro para el usuario administrador. El administrador puede entrar en el Panel de Control de Administración haciendo clic en el enlace situado en la parte inferior de la página (phpBB vuelve a solicitar los datos del usuario).
+          <p class="captura"><img alt="phpBB. Aspecto del foro recién instalado para usuarios no registrados" src="img/phpbb_3_0/phpbb_inicio_admin.png" width="776" height="569" /></p>
+          <p>El Panel de Control de Administración muestra en diferentes pestañas todas las opciones de configuración de phpBB:</p>
+          <p class="captura"><a href="img/phpbb_3_0/phpbb_general_admin_1_g.png"><img alt="phpBB. Panel de Control de Administración" src="img/phpbb_3_0/phpbb_general_admin_1.png" width="776" height="367" /></a></p>
+        </li>
+        <li>Para cerrar la sesión en phpBB como usuario registrado, hay que hacer clic en Logout. Para salir únicamente del Panel de Control de Administración sin cerrar la sesión de usuario, hay que hacer clic en "ACP Logout".
+          <p class="captura"><img alt="phpBB. Panel de Control de Administración" src="img/phpbb_3_0/phpbb_general_admin_2.png" width="776" height="367" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>phpBB (1) 5 - Crear un nuevo usuario</h2>
+
+      <ol>
+        <li>Registre un nuevo usuario, desde la página inicial, haciendo clic en Registrarse, con nombre <strong>usuario_1</strong> y contraseña <strong>usuario_1</strong> (es necesario rellenar un captcha).
+          <p class="captura"><img alt="phpBB. Nuevo usuario. Registro de usuario" src="img/phpbb_3_0/phpbb_registro_1.png" width="776" height="450" /></p>
+        </li>
+        <li>Entre en phpBB como usuario <strong>usuario_1</strong> y cree un nuevo tema. La creación del nuevo tema queda a la espera de la aprobación del administrador.
+          <p class="captura"><img alt="phpBB. Nuevo usuario. Nuevo tema." src="img/phpbb_3_0/phpbb_registro_2.png" width="776" height="410" /></p>
+        </li>
+        <li>Entre en phpBB como administrador <strong>admin</strong> y en el Panel de control del moderador &gt; Principal se puede aprobar el nuevo tema.
+          <p class="captura"><img alt="phpBB. Nuevo usuario. Aprobación de tema" src="img/phpbb_3_0/phpbb_registro_3.png" width="776" height="550" /></p>
+        </li>
+        <li>Como <strong>usuario_1</strong>, añada una respuesta en el tema. La respuesta del nuevo tema queda a la espera de la aprobación del administrador.</li>
+        <li>Como administrador <strong>admin</strong>, entre y apruebe la respuesta.</li>
+        <li>Compruebe como usuario sin registrar que se pueden ver las aportaciones aprobadas.
+          <p class="captura"><img alt="phpBB. Nuevo usuario. Ver tema" src="img/phpbb_3_0/phpbb_registro_6.png" width="776" height="540" /></p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-6">
+      <h2>phpBB (1) 6 - Modificar los permisos del usuario</h2>
+
+      <p><strong><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Nota</strong>: Compruebe que el usuario no tiene intervenciones pendientes antes de modificar sus permisos o no podrá realizar el ejercicio.</p>
+
+      <hr class="corta" />
+
+      <ol>
+        <li>Entre en phpBB como administrador <strong>admin</strong> y en el Panel de control del administrador elija la pestaña Usuarios y Grupos &gt; Permisos de foro de los usuarios. Busque el usuario <strong>usuario_1</strong>, marque Todos los foros y haga clic en Enviar. En Configurar permisos en los apartados Categoría y Foro, asigne al usuario el Rol "Acceso al foro estándar", que le permita, entre otras cosas, participar sin necesidad de moderación.
+          <p class="captura"><img alt="phpBB. Permisos de foro de los usuarios" src="img/phpbb_3_0/phpbb_permisos_1.png" width="776" height="440" /></p>
+          <p class="captura"><img alt="phpBB. Permisos de foro de los usuarios" src="img/phpbb_3_0/phpbb_permisos_2.png" width="776" height="760" /></p>
+        </li>
+        <li>Entre en phpBB como usuario <strong>usuario_1</strong> y compruebe que no necesita la aprobación del administrador para crear nuevos temas o participar en ellos.</li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-7">
+      <h2>phpBB (1) 7 - Copia de seguridad</h2>
+
+      <ol>
+        <li>Hacer la copia de seguridad
+          <ul>
+            <li>La copia de seguridad es un archivo comprimido que contiene únicamente la información guardada en la base de datos, pero no los archivos de la carpeta donde esté instalado phpBB.
+              <p>Entre en phpBB como administrador <strong>admin</strong> y en el Panel de control del administrador elija la pestaña Mantenimiento &gt; Copia de seguridad.</p>
+              <p>En el apartado Seleccionar tablas, seleccione todo. Si en Acción se elige Guardar archivo localmente, la copia de seguridad se guardará en <strong>/store</strong>, mientras que si se elige Descargar, la copia de seguridad se guardará en la carpeta de descargas del navegador.</p>
+              <p class="captura"><img alt="phpBB. Copia de seguridad" src="img/phpbb_3_0/phpbb_backup_1.png" width="776" height="658" /></p>
+            </li>
+            <li>Guarde el archivo de la copia de seguridad en una carpeta diferente a la de phpBB.</li>
+          </ul>
+        </li>
+        <li>Borrar completamente phpBB
+          <ul>
+            <li>Borre la carpeta de phpBB. (Si no se tratara de un ejercicio, en vez de borrar la carpeta haríamos una copia comprimida de esta carpeta para no tener que reinstalar de nuevo phpBB).</li>
+            <li>Borre con phpMyAdmin el usuario de MySQL con nombre <strong>iaw_phpbb_1</strong> y sus bases de datos. Compruebe que no existe la base de datos <strong>iaw_phpbb_1</strong>.</li>
+          </ul>
+        </li>
+        <li>Restaurar la copia de seguridad
+          <ul>
+            <li>Instale desde el principio phpBB y la traducción al español.</li>
+            <li>Copie el archivo de la copia de seguridad en la carpeta <strong>/store</strong>.</li>
+            <li>Entre como administrador <strong>admin</strong> y en el Panel de control del administrador elija la pestaña Mantenimiento &gt; Restaurar. Elija la copia de seguridad que desee restaurar y haga clic en Comenzar restauración.
+              <p class="captura"><img alt="phpBB. Restaurar copia de seguridad" src="img/phpbb_3_0/phpbb_backup_2.png" width="776" height="547" /></p>
+            </li>
+            <li><strong><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Nota</strong>: Al restaurar una copia de seguridad, en algunos ordenadores el proceso no se completa satisfactoriamente y se muestra una página en blanco. Cuando se abre de nuevo phpBB, los foros no funcionan correctamente. En ese caso, la forma de resolver el problema es entrar en phpMyAdmin e importar la copia de seguridad.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-8">
+      <h2>phpBB (1) 8 - Modificar el estilo</h2>
+
+      <ol>
+        <li>Descargue uno de los estilos.</li>
+        <li>Descomprima el estilo descargado en la carpeta <strong>/styles</strong></li>
+        <li>Entre en phpBB como administrador <strong>admin</strong> y en el Panel de control del administrador, elija la pestaña Estilos e instale el estilo descargado.
+          <p class="captura"><img alt="phpBB. Estilos. Instalación" src="img/phpbb_3_0/phpbb_estilos_1.png" width="1024" height="619" /></p>
+        </li>
+        <li>Al instalar el estilo, indique que lo quiere como estilo predeterminado.
+          <p class="captura"><img alt="phpBB. Estilos. Comprobación" src="img/phpbb_3_0/phpbb_estilos_2.png" width="1024" height="619" /></p>
+        </li>
+        <li>Compruebe como usuario sin registrar (por ejemplo) que se aplica el nuevo estilo. La captura siguiente corresponde al estilo <strong>MG Autumn</strong>.
+          <p class="captura"><img alt="phpBB. Estilos. Comprobación" src="img/phpbb_3_0/phpbb_estilos_3.png" width="1024" height="529" /></p>
+        </li>
+        <li>Entre de nuevo en phpBB como administrador <strong>admin</strong> y restaure el estilo predeterminado prosilver (desactivando el estilo instalado o borrándolo).</li>
+      </ol>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 10 de diciembre de 2013</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>
