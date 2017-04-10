@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>phpMyAdmin. Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../../../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Exámenes - phpMyAdmin</h1>
+
+    <nav>
+      <p>
+        <a href="../../../index.html"><img src="../../../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../../../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>Examen phpMyAdmin</h2>
+
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1. Descargar la aplicación</a></li>
+          <li><a href="#ejercicio-2">2. Crear 1 BD y dos tablas</a></li>
+          <li><a href="#ejercicio-3">3. Utilizar Agenda 1</a></li>
+          <li><a href="#ejercicio-4">4. Utilizar Agenda 2</a></li>
+          <li><a href="#ejercicio-5">5. Copia de seguridad</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <p>En este ejercicio hay que acabar entregando:</p>
+    <ul>
+      <li>las capturas de pantalla</li>
+      <li>las copias de seguridad de los datos de las dos aplicaciones</li>
+      <li>las carpetas de las dos aplicaciones</li>
+    </ul>
+
+    <section id="ejercicio-1">
+      <h2>1. Descargar la aplicación</h2>
+
+      <ul>
+        <li>Aplicación: <a href="agenda_140212.zip">Agenda</a></li>
+        <li>Descomprimir dos veces el archivo comprimido <strong>agenda_140212.zip</strong>, en las carpetas <strong>agenda_1</strong> y <strong>agenda_2</strong>. Cada aplicación se abrirá en el navegador con la dirección <strong>agenda_1/index.php</strong> y <strong>agenda_2/index.php</strong>.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>2. Crear una base de datos y dos tablas</h2>
+
+      <ul>
+        <li>Entrar en phpMyAdmin como usuario <strong>root</strong> y crear un usuario de MySQL con nombre <strong>iwb_agenda</strong>, contraseña <strong>iwb_agenda</strong> y base de datos <strong>iwb_agenda</strong>.</li>
+        <li>Entrar en phpMyAdmin como usuario <strong>iwb_agenda</strong> y crear en la base de datos <strong>iwb_agenda</strong> la tabla <strong>tabla_1</strong> con los siguientes campos:
+          <ul>
+            <li>id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT</li>
+            <li>nombre VARCHAR(40)</li>
+            <li>apellidos VARCHAR(60)</li>
+            <li>telefono VARCHAR(10)</li>
+            <li>correo VARCHAR(50)</li>
+            <li>PRIMARY KEY(id)</li>
+          </ul>
+        </li>
+        <li>Hacer una captura de <strong>toda</strong> la pantalla donde se vea la estructura de la tabla:
+          <p class="captura"><img alt="phpMyAdmin 1" src="phpmyadmin_1.png" width="631" height="173" /></p>
+        </li>
+        <li>Con phpMyAdmin hacer una copia de la <strong>tabla_1</strong> que se llame <strong>tabla_2</strong>.</li>
+        <li>Hacer una captura de <strong>toda</strong> la pantalla donde se vea cómo se ha hecho la copia.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>3. Utilizar la aplicación Agenda 1</h2>
+
+      <ul>
+        <li>Configurar la aplicación <strong>agenda_1</strong> para que esta utilice la primera tabla creada en el ejercicio anterior.</li>
+        <li>Abrir la aplicación Agenda 1</li>
+        <li>Crear un registro como el de la captura siguiente:
+          <p class="captura"><img alt="phpMyAdmin 2" src="phpmyadmin_2.png" width="1008" height="220" /></p>
+        </li>
+        <li>Hacer una captura de <strong>toda</strong> la pantalla del listado de registros.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>4. Utilizar la aplicación Agenda 2</h2>
+
+      <ul>
+        <li>Configurar la aplicación <strong>agenda_2</strong> para que esta utilice la segunda tabla creada en el ejercicio anterior.</li>
+        <li>Abrir la aplicación Agenda 2</li>
+        <li>Crear un registro como el de la captura siguiente:
+          <p class="captura"><img alt="phpMyAdmin 3" src="phpmyadmin_3.png" width="1008" height="220" /></p>
+        </li>
+        <li>Hacer una captura de <strong>toda</strong> la pantalla del listado de registros.</li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>5. Crear una copia de seguridad</h2>
+
+      <ul>
+        <li>Entrar en phpMyAdmin como usuario <strong>iwb_agenda</strong>, elegir la base de datos <strong>iwb_agenda</strong> y exportar las tablas con el método rápido al fichero <strong>iwb_agenda.sql</strong>.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 12 de febrero de 2014</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Aplicaciones web. Módulo IWB. Pruebas libres CFGS ASIR 2013</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
+    <link rel="icon" href="../../../varios/favicon.ico" />
+  </head>
+
+  <body>
+    <h1>Pruebas libres CFGS ASIR 2013<br />
+      Módulo Implantación de Aplicaciones Web</h1>
+
+    <nav>
+      <p>
+        <a href="../../../index.html"><img src="../../../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../../../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      </p>
+
+      <h2>Libres CMS Made Simple</h2>
+
+      <div class="toc">
+        <ul>
+          <li><a href="#ejercicio-1">1. Aplicación</a></li>
+          <li><a href="#ejercicio-2">2. Instalar</a></li>
+          <li><a href="#ejercicio-3">3. Entrar como administrador</a></li>
+          <li><a href="#ejercicio-4">4. Crear páginas y menús</a></li>
+          <li><a href="#ejercicio-5">5. Crear noticias</a></li>
+          <li><a href="#ejercicio-6">6. Usuario editor</a></li>
+          <li><a href="#ejercicio-7">7. Copia de seguridad</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <h2>Ejercicio 2 - Aplicaciones web (5 puntos)</h2>
+
+    <p>En este ejercicio hay que entregar:</p>
+    <ul>
+      <li>las 10 capturas de pantalla</li>
+      <li>la copia de seguridad de los datos de la aplicación</li>
+      <li>la carpeta de la aplicación (comprimida en un zip)</li>
+    </ul>
+
+    <p>Las capturas deben ser capturas de <strong>toda</strong> la pantalla en formato <strong>png</strong> en las que se vea la URL de la página y no quepa duda de que se ha realizado en el ordenador del alumno.</p>
+
+    <section id="ejercicio-1">
+      <h2>2.1. Aplicación (0 puntos)</h2>
+
+      <ul>
+        <li>Aplicación: <a href="http://www.mclibre.org/descargar/webapps/cmsmadesimple_1-11-7_full.tar.gz">CMS Made Simple 1.11.7 (25/05/13)</a>. CMS Made Simple es un gestor de contenidos.</li>
+        <li>Descomprimir CMSMS en la carpeta cmsms. La aplicación se abrirá en el navegador con la dirección <strong>cmsms/index.php.</strong></li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-2">
+      <h2>2.2. Instalar CMS Made Simple (1 punto)</h2>
+
+      <ul>
+        <li>Entrar en phpMyAdmin como usuario <strong>root</strong> y crear un usuario de MySQL con nombre <strong>iwb_cmsms_1</strong>, contraseña <strong>iwb_cmsms_1</strong> y base de datos <strong>iwb_cmsms_1</strong>.</li>
+        <li>Abrir en el navegador la dirección <strong>cmsms/index.php</strong>.</li>
+        <li>Modificar php.ini para que en la comprobación de la configuración de la instalación no aparezcan errores. Hacer una captura de la pantalla y guardarla como <strong>cmsms_01.png</strong>:
+          <p class="captura"><img alt="CMS Made Simple" src="cmsms_01.png" width="620" height="566" /></p>
+        </li>
+        <li>En la pantalla de información de cuenta del administrador:
+          <ul>
+            <li>Username: <span class="resaltado">admin</span></li>
+            <li>E-mail Address: <span class="resaltado">admin@example.com</span></li>
+            <li>Salt Admin Passwords: <span class="resaltado">desmarcar</span></li>
+            <li>Password: <span class="resaltado">admin</span></li>
+            <li>E-Mail Account Information: <span class="resaltado">desmarcar</span></li>
+          </ul>
+        </li>
+        <li>En el resto de pantallas:
+          <ul>
+            <li>Nombre del sitio: <span class="resaltado">WebApps</span></li>
+          </ul>
+        </li>
+        <li>Una vez creado el sitio, elegir el idioma español. Hacer una captura de la pantalla y guardarla como <strong>cmsms_02.png</strong>:
+          <p class="captura"><img alt="CMS Made Simple" src="cmsms_02.png" width="770" height="290" /></p>
+        </li>
+        <li>Hacer una captura de la pantalla de inicio y guardarla como <strong>cmsms_03.png</strong>:
+          <p class="captura"><img alt="CMS Made Simple" src="cmsms_03.png" width="700" height="350" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-3">
+      <h2>2.3. Entrar como administrador (0,5 puntos)</h2>
+
+      <ul>
+        <li>Cerrar el navegador, abrirlo de nuevo y entrar en la pantalla de entrada del administrador. Hacer una captura de la pantalla de inicio y guardarla como <strong>cmsms_04.png</strong>:
+          <p class="captura"><img alt="CMS Made Simple" src="cmsms_04.png" width="400" height="310" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-4">
+      <h2>2.4. Crear páginas y menús (1 punto)</h2>
+
+      <ul>
+        <li>Modificar las páginas para obtener el siguiente resultado. Hacer una captura de la pantalla de inicio y guardarla como <strong>cmsms_05.png</strong>:
+          <p>Sólo hace falta cambiar el título contenido de la primera página, el título de la segunda y tercera, ocultar la cuarta y crear una quinta.</p>
+          <p class="captura"><img alt="CMS Made Simple" src="cmsms_05.png" width="992" height="300" /></p>
+        </li>
+        <li>Crear dos subpáginas Página 1 y Página 2 dentro de la página Prueba. Hacer una captura de la pantalla de inicio y guardarla como <strong>cmsms_06.png</strong>:
+          <p class="captura"><img alt="CMS Made Simple" src="cmsms_06.png" width="992" height="300" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-5">
+      <h2>2.5. Crear noticias (1 punto)</h2>
+
+      <ul>
+        <li>Ocultar la noticia predeterminada y crear la noticia siguiente. Hacer una captura de la pantalla de inicio y guardarla como <strong>cmsms_07.png</strong>:
+          <p class="captura"><img alt="CMS Made Simple" src="cmsms_07.png" width="992" height="330" /></p>
+        </li>
+        <li>Modificar la plantilla predeterminada para que muestre el título Noticias en vez de News. Hacer una captura de la pantalla de inicio y guardarla como <strong>cmsms_08.png</strong>:
+          <p class="captura"><img alt="CMS Made Simple" src="cmsms_08.png" width="992" height="300" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-6">
+      <h2>2.6. Usuario editor (1 punto)</h2>
+
+      <ul>
+        <li>Crear un usuario <span class="resaltado">editor1</span> con contraseña <span class="resaltado">editor1</span>, que pertenezca al grupo de usuarios Editor:</li>
+        <li>Entrar como usuario <span class="resaltado">editor1</span>. Hacer una captura de la página de inicio y guardarla como <strong>cmsms_08.png</strong>:
+          <p class="captura"><img alt="CMS Made Simple" src="cmsms_09.png" width="600" height="200" /></p>
+        </li>
+        <li>Crear una noticia como usuario editor1. Hacer una captura de la página de inicio y guardarla como <strong>cmsms_09.png</strong>:
+          <p class="captura"><img alt="CMS Made Simple" src="cmsms_10.png" width="992" height="463" /></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="ejercicio-7">
+      <h2>2.7. Copia de seguridad (0,5 puntos)</h2>
+
+      <ul>
+        <li>Entrar en phpMyAdmin como usuario <strong>iwb_cmsms_1</strong>, elegir la base de datos <strong>iwb_cmsms_1</strong> y exportar la tabla con el método rápido al fichero <strong>iwb_cmsms_1.sql</strong>.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="ultmod">Última modificación de esta página: 26 de junio de 2013</p>
+
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
+        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+    </footer>
+  </body>
+</html>
