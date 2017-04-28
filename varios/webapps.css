@@ -6,7 +6,7 @@
 /*                                          */
 /* CSS curso: Aplicaciones Web              */
 /*                                          */
-/* 25 de abril de 2017                      */
+/* 27 de abril de 2017                      */
 /*                                          */
 
 /* CSS común */
@@ -20,6 +20,40 @@ html {
   background-color: white;
   font-family: sans-serif;
   text-align: justify;
+}
+
+section {
+  clear: both;
+  border-top: solid 2px black;
+  margin-top: 1em;
+  padding-top: 0;
+}
+
+section section {
+  border-top: solid 1px black;
+}
+
+footer {
+  margin-top: 2em;
+}
+
+h1 {
+  margin-left: 75px;
+  font-size: 200%;
+  text-align: center;
+}
+
+h2 {
+  font-size: 120%;
+}
+
+h3 {
+  font-size: 110%;
+}
+
+h4 {
+  font-size: 105%;
+  font-weight: bold;
 }
 
 div.codphp  {
@@ -95,64 +129,9 @@ h2 {
   text-align: right;
 }
 
-.php-con { font-family: monospace; font-weight: bold; } /* Constante                    */
-.php-del { font-family: monospace; font-weight: bold; } /* Delimitador de fragmento php */
-.php-dir { font-family: monospace; font-weight: bold; }
-.php-fun { font-family: monospace; }                    /* Función                      */
-.php-res { font-family: monospace; font-weight: bold; } /* Palabra reservada            */
-.php-var { font-family: monospace; font-weight: bold; } /* variable                     */
-
 .soft-menu {
   background-color: #D4D0C8;
   font-family: serif;
-}
-
-/* Los colores son los de Brackets */
-.css-sele         { color: #446FBD; }
-.css-prop         { color: #8757AD; }
-.css-feature      { color: #8757AD; }
-.css-valor        { color: #E88501; }
-.css-numero       { color: #8E8600; }
-.css-unidad       { color: #8E8600; }
-.css-pseudo       { color: #535353; }
-.css-arroba       { color: #8757AD; }
-.css-funcion      { color: #4700FF; }
-
-/* Los colores son los de Brackets */
-.html-eti        { color: #446FBD; }
-.html-atri       { color: #6D8600; }
-.html-atri-valor { color: #E88501; }
-
-div.diario {
-  margin: 20px 50px 3px;
-  padding-left: 20px;
-}
-
-div.diario p.fecha {
-  margin-top: 0;
-  margin-left: -20px;
-  padding: 5px;
-  font-weight: bolder;
-}
-
-div.gr1 {
-  border: #C9C9FF 3px solid;
-  background-color: #E7E7FF;
-}
-
-div.gr1 p.fecha {
-  background-color: #C9C9FF;
-  color: #FFFFFF;
-}
-
-div.gr2 {
-  border: #B0E293 3px solid;
-  background-color: #CEFFCE;
-}
-
-div.gr2 p.fecha {
-  background-color: #B0E293;
-  color: #FFFFFF;
 }
 
 table.bordetbody {
@@ -285,79 +264,8 @@ div.aviso-antiguo {
   background-color: #FFBABA;
 }
 
-/* Lo que viene a continuación es para el índice de la portada */
-
-div.portada {
-  display: inline-flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-}
-
-div.portada section {
-  border: green 4px solid;
-  border-radius: 10px;
-  margin: 10px;
-  width: 320px;
-}
-
-div.portada section h2 {
-  margin: 0;
-  padding-left: 5px;
-  background-color: green;
-  color: white;
-}
-
-div.portada p {
-  margin-top: 1em;
-  margin-left: 2em;
-}
-
-div.portada img {
-  float: right;
-  margin: 0 10px 10px 5px;
-}
-
-div.portada ul {
-  padding-top: 1em;
-}
-
-div.portada ol {
-  margin-top: 1em;
-  padding-left: 2em;
-}
-
-div.portada li {
-  clear: none;
-  margin-bottom: 0em;
-}
 
 /* Lo que viene a continuación son los restos de la CSS de Amaya */
-
-h1 {
-  font-size: 200%;
-  text-align: center;
-  margin-left: 85px;
-  font-weight: bold;
-}
-
-h1#indice {
-  margin-left: 150px;
-  min-height: 60px;
-}
-
-h2 {
-  font-size: 120%;
-}
-
-h3 {
-  font-size: 105%;
-}
-
-h4 {
-  font-size: 100%;
-  font-weight: normal;
-  text-decoration: underline;
-}
 
 p {
   margin:5px 0;
@@ -456,34 +364,15 @@ li {
   margin-bottom: 0.5em;
 }
 
-/* Elementos HTML 5 */
-section {
-  position: relative;
-  clear: both;
-}
-
-section {
-  border-top: solid 2px black;
-  margin-top: 1em;
-  padding-top: 0;
-}
-
-section section {
-  border-top: solid 1px black;
-}
-
-footer {
-  margin-top: 2em;
-}
-
-/* Menu  */
-
 /* Pantallas pequeñas */
-
 @media screen and (max-width: 768px) {
   html {
     margin-left: 1em;
     margin-right: 1em;
+  }
+
+  h1#indice {
+    margin-left: 140px;
   }
 
   h1 {
@@ -606,10 +495,6 @@ footer {
     margin-top: 0;
   }
 
-  div#menu {
-    display: none;
-  }
-
   nav {
     display: none;
   }
@@ -630,3 +515,77 @@ footer {
     page-break-inside:avoid;
   }
 }
+
+/* CSS específico Webapps */
+
+/* Portada */
+div.portada {
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+div.portada section {
+  border: green 4px solid;
+  border-radius: 10px;
+  margin: 10px;
+  width: 320px;
+}
+
+div.portada section h2 {
+  margin: 0;
+  padding-left: 5px;
+  background-color: green;
+  color: white;
+}
+
+div.portada p {
+  margin-top: 1em;
+  margin-left: 2em;
+}
+
+div.portada img {
+  float: right;
+  margin: 0 10px 10px 5px;
+}
+
+div.portada ul {
+  padding-top: 1em;
+}
+
+div.portada ol {
+  margin-top: 1em;
+  padding-left: 2em;
+}
+
+div.portada li {
+  clear: none;
+  margin-bottom: 0em;
+}
+
+/* Clases para fragmentos de código en texto */
+
+/* Estilo para HTML imitando a Brackets */
+.html-eti        { color: #446FBD; }
+.html-atri       { color: #6D8600; }
+.html-atri-valor { color: #E88501; }
+
+/* Estilo para CSS imitando a Brackets */
+.css-sele         { color: #446FBD; }
+.css-prop         { color: #8757AD; }
+.css-feature      { color: #8757AD; }
+.css-valor        { color: #E88501; }
+.css-numero       { color: #8E8600; }
+.css-unidad       { color: #8E8600; }
+.css-pseudo       { color: #535353; }
+.css-arroba       { color: #8757AD; }
+.css-funcion      { color: #4700FF; }
+
+/* Estilo para PHP imitando a Eclipse PDT */
+.php-con { font-weight: bold; } /* Constante                    */
+.php-del { font-weight: bold; } /* Delimitador de fragmento php */
+.php-dir { font-weight: bold; } /* Directiva de php.ini         */
+.php-fun { font-weight: bold; } /* Función                      */
+.php-ope { font-weight: bold; } /* Operador                     */
+.php-res { font-weight: bold; } /* Palabra reservada            */
+.php-var { font-weight: bold; } /* Variable                     */
