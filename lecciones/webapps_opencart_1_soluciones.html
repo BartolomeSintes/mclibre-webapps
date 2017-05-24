@@ -17,14 +17,14 @@
         <a href="#"><img src="../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
       </p>
 
-      <h2>
-        <a href="webapps_opencart.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-        OpenCart (1)
-        <a href="webapps_opencart_2.html"><img src="../varios/iconos/icono_flecha_derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-      </h2>
-
-      <h3><a href="webapps_opencart_1.html">Enunciados</a></h3>
       <div class="toc">
+        <h2>
+          <a href="webapps_opencart.html"><img src="../varios/iconos/icono_flecha_izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+          OpenCart (1)
+          <a href="webapps_opencart_2.html"><img src="../varios/iconos/icono_flecha_derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+        </h2>
+
+        <h3><a href="webapps_opencart_1.html">Enunciados</a></h3>
         <ul>
           <li><a href="webapps_opencart_1.html#ejercicio-1">1 - Descargar</a></li>
           <li><a href="webapps_opencart_1.html#ejercicio-2">2 - Instalar</a></li>
@@ -34,19 +34,17 @@
           <li><a href="webapps_opencart_1.html#ejercicio-6">6 - Acceder desde otros</a></li>
           <li><a href="webapps_opencart_1.html#ejercicio-7">7 - Actualizar</a></li>
         </ul>
-      </div>
 
-      <h3>Soluciones</h3>
-      <div class="toc">
-          <ul>
-            <li><a href="#ejercicio-1">1 - Descargar</a></li>
-            <li><a href="#ejercicio-2">2 - Instalar</a></li>
-            <li><a href="#ejercicio-3">3 - Entrar</a></li>
-            <li><a href="#ejercicio-4">4 - Traducir al español</a></li>
-            <li><a href="#ejercicio-5">5 - Copias de seguridad</a></li>
-            <li><a href="#ejercicio-6">6 - Acceder desde otros</a></li>
-            <li><a href="#ejercicio-7">7 - Actualizar</a></li>
-          </ul>
+        <h3>Soluciones</h3>
+        <ul>
+          <li><a href="#ejercicio-1">1 - Descargar</a></li>
+          <li><a href="#ejercicio-2">2 - Instalar</a></li>
+          <li><a href="#ejercicio-3">3 - Entrar</a></li>
+          <li><a href="#ejercicio-4">4 - Traducir al español</a></li>
+          <li><a href="#ejercicio-5">5 - Copias de seguridad</a></li>
+          <li><a href="#ejercicio-6">6 - Acceder desde otros</a></li>
+          <li><a href="#ejercicio-7">7 - Actualizar</a></li>
+        </ul>
       </div>
     </nav>
 
@@ -266,8 +264,8 @@ extension=php_mysql.dll
 
       <p>Edite los dos archivos de configuración config.php y admin/config.php y modififque las directivas HTTP_SERVER, HTTP_CATALOG, HTTPS_SERVER y HTTPS_CATALOG. Para poder recuperar en un futuro fácilmente el acceso mediante localhost y sin alias, se recomienda comentar las líneas existentes y añadir los nuevos valores en otras líneas.</p>
 
-              <div class="codphp">
-                <pre>/* config.php */
+      <div class="codphp">
+        <pre>/* config.php */
 // HTTP
 // define('HTTP_SERVER', 'http://localhost/iaw/aplicaciones/opencart_1/');
 define('HTTP_SERVER', 'http://AAA.BBB.CCC.DDD/opencart/');
@@ -277,10 +275,10 @@ define('HTTP_SERVER', 'http://AAA.BBB.CCC.DDD/opencart/');
 define('HTTPS_SERVER', 'http://AAA.BBB.CCC.DDD/opencart/');
 
  ...</pre>
-              </div>
+      </div>
 
-              <div class="codphp">
-                <pre>/* admin/config.php */
+      <div class="codphp">
+        <pre>/* admin/config.php */
 // HTTP
 // define('HTTP_SERVER', 'http://localhost/iaw/aplicaciones/opencart_1/admin/');
 // define('HTTP_CATALOG', 'http://localhost/iaw/aplicaciones/opencart_1/');
@@ -294,7 +292,7 @@ define('HTTPS_SERVER', 'http://AAA.BBB.CCC.DDD/opencart/admin/');
 define('HTTPS_CATALOG', 'http://AAA.BBB.CCC.DDD/opencart/');
 
  ...</pre>
-              </div>
+      </div>
 
     </section>
 
