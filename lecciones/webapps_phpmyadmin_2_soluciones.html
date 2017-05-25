@@ -94,22 +94,22 @@
       <ul>
         <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1617/agenda_161212.zip">Agenda (12/12/16)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases_datos/bases_de_datos_2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
         <li>Descomprima el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre la carpeta como <strong>agenda_1</strong>.</li>
-        <li>Modifique los archivos de configuración <strong>biblioteca.php</strong> y <strong>biblioteca_mysql.php</strong> para que la aplicación utilice la cuenta del usuario <strong>iaw_agenda_1</strong>:
+        <li>Modifique el archivo de configuración <strong>config.php</strong> de manera que la aplicación utilice la cuenta del usuario <strong>iaw_agenda_1</strong>:
 
           <div class="codphp">
-            <pre><code class="language-php">/* biblioteca.php aplicación agenda_1 */
+            <pre><code class="language-php">/* config.php aplicación agenda_1 */
 
-$dbMotor = <span class="resaltado">MYSQL</span>;                                  // Base de datos empleada</code></pre>
-          </div>
+// Base de datos utilizada por el programa: MYSQL o SQLITE
 
-          <div class="codphp">
-            <pre><code class="language-php">/* biblioteca_mysql.php aplicación agenda_1 */
+$dbMotor = <span class="resaltado">MYSQL</span>;     // Valores posibles: MYSQL o SQLITE
 
-define("MYSQL_HOST", "mysql:host=localhost"); // Nombre de host MYSQL
-define("MYSQL_USUARIO", "<span class="resaltado">iaw_agenda_1</span>");      // Nombre de usuario de MySQL
-define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_1</span>");     // Contraseña de usuario de MySQL
-$dbDb    = "<span class="resaltado">iaw_agenda_1</span>";                    // Nombre de la base de datos
-$dbTabla = $dbDb . ".tabla";                  // Nombre de la tabla</code></pre>
+// Configuración para MYSQL
+
+define("MYSQL_HOST",     "mysql:host=localhost");   // Nombre de host
+define("MYSQL_USUARIO",  "<span class="resaltado">iaw_agenda_1</span>");           // Nombre de usuario
+define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_1</span>");           // Contraseña de usuario
+define("MYSQL_DATABASE", "<span class="resaltado">iaw_agenda_1</span>");           // Nombre de la base de datos
+define("MYSQL_TABLA",    "tabla");                  // Nombre de la tabla</code></pre>
           </div>
         </li>
         <li>Ejecute la aplicación en el navegador y compruebe que la aplicación funciona creando varios registros.</li>
@@ -169,45 +169,43 @@ $dbTabla = $dbDb . ".tabla";                  // Nombre de la tabla</code></pre>
       <h2>phpMyAdmin (2) 4 - Instalar dos aplicaciones como usuario iaw_agenda_2</h2>
       <ul>
         <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1617/agenda_161212.zip">Agenda (12/12/16)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases_datos/bases_de_datos_2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
-        <li>Descomprimir dos veces el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombrar las carpetas como <strong>agenda_2a</strong> y <strong>agenda_2b</strong>.</li>
-        <li>Modificar los archivos de configuración <strong>biblioteca.php</strong> y <strong>biblioteca_mysql.php</strong> para que la aplicación utilice la cuenta del usuario <strong>iaw_agenda_2</strong>:
+        <li>Descomprima dos veces el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombrar las carpetas como <strong>agenda_2a</strong> y <strong>agenda_2b</strong>.</li>
+        <li>Modifique los dos archivos de configuración <strong>config.php</strong> de manera que las dos aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_2</strong>:
 
           <div class="codphp">
-            <pre><code class="language-php">/* biblioteca.php aplicación agenda_1 */
+            <pre><code class="language-php">/* config.php aplicación agenda_2a */
 
-$dbMotor = <span class="resaltado">MYSQL</span>;                                  // Base de datos empleada</code></pre>
+// Base de datos utilizada por el programa: MYSQL o SQLITE
+
+$dbMotor = <span class="resaltado">MYSQL</span>;     // Valores posibles: MYSQL o SQLITE
+
+// Configuración para MYSQL
+
+define("MYSQL_HOST",     "mysql:host=localhost");    // Nombre de host
+define("MYSQL_USUARIO",  "<span class="resaltado">iaw_agenda_2</span>");            // Nombre de usuario
+define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_2</span>");            // Contraseña de usuario
+define("MYSQL_DATABASE", "<span class="resaltado">iaw_agenda_2_agenda_2a</span>");  // Nombre de la base de datos
+define("MYSQL_TABLA",    "tabla");                   // Nombre de la tabla</code></pre>
           </div>
 
           <div class="codphp">
-            <pre><code class="language-php">/* biblioteca_mysql.php aplicación agenda_1 */
+            <pre><code class="language-php">/* config.php aplicación agenda_2b */
 
-define("MYSQL_HOST", "mysql:host=localhost"); // Nombre de host MYSQL
-define("MYSQL_USUARIO", "<span class="resaltado">iaw_agenda_2</span>");      // Nombre de usuario de MySQL
-define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_2</span>");     // Contraseña de usuario de MySQL
+// Base de datos utilizada por el programa: MYSQL o SQLITE
 
-$dbDb    = "<span class="resaltado">iaw_agenda_2_agenda_2a</span>";          // Nombre de la base de datos
-$dbTabla = $dbDb . ".tabla";                  // Nombre de la tabla</code></pre>
-          </div>
+$dbMotor = <span class="resaltado">MYSQL</span>;     // Valores posibles: MYSQL o SQLITE
 
-          <div class="codphp">
-            <pre><code class="language-php">/* biblioteca.php aplicación agenda_2 */
+// Configuración para MYSQL
 
-$dbMotor = <span class="resaltado">MYSQL</span>;                                  // Base de datos empleada</code></pre>
-          </div>
-
-          <div class="codphp">
-            <pre><code class="language-php">/* biblioteca_mysql.php aplicación agenda_2 */
-
-define("MYSQL_HOST", "mysql:host=localhost"); // Nombre de host MYSQL
-define("MYSQL_USUARIO", "<span class="resaltado">iaw_agenda_2</span>");      // Nombre de usuario de MySQL
-define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_2</span>");     // Contraseña de usuario de MySQL
-
-$dbDb    = "<span class="resaltado">iaw_agenda_2_agenda_2b</span>";          // Nombre de la base de datos
-$dbTabla = $dbDb . ".tabla";                  // Nombre de la tabla</code></pre>
+define("MYSQL_HOST",     "mysql:host=localhost");    // Nombre de host
+define("MYSQL_USUARIO",  "<span class="resaltado">iaw_agenda_2</span>");            // Nombre de usuario
+define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_2</span>");            // Contraseña de usuario
+define("MYSQL_DATABASE", "<span class="resaltado">iaw_agenda_2_agenda_2b</span>");  // Nombre de la base de datos
+define("MYSQL_TABLA",    "tabla");                   // Nombre de la tabla</code></pre>
           </div>
         </li>
-        <li>Ejecutar las aplicaciones en el navegador y comprobar que funcionan creando varios registros y comprobando que los datos no se mezclan.</li>
-        <li>Comprobar en phpMyAdmin los contenidos de la tabla.</li>
+        <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros y comprobando que los datos no se mezclan.</li>
+        <li>Compruebe en phpMyAdmin los contenidos de las tablas.</li>
       </ul>
     </section>
 
@@ -224,7 +222,7 @@ $dbTabla = $dbDb . ".tabla";                  // Nombre de la tabla</code></pre>
     </section>
 
     <footer>
-      <p class="ultmod">Última modificación de esta página: 9 de diciembre de 2015</p>
+      <p class="ultmod">Última modificación de esta página: 25 de mayo de 2017</p>
 
       <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a><br />
         Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
