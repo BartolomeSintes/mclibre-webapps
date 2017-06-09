@@ -6,14 +6,14 @@
 /*                                          */
 /* CSS curso: Aplicaciones Web              */
 /*                                          */
-/* 24 de mayo de 2017                       */
+/* 27 de mayo de 2017                       */
 /*                                          */
 
 /* CSS común */
 
 @font-face {
   font-family: "Inconsolata";
-  src: url("fonts/inconsolata.woff2");
+  src: url("fonts/inconsolata.woff");
 }
 
 html {
