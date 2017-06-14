@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="Color" />
     <link rel="icon" href="../varios/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../varios/highlight-htmlcss.css" />
+    <script type="text/javascript" src="../varios/highlight.pack.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
   </head>
 
   <body>
@@ -69,10 +72,11 @@
         <li>Cambiar el pie de página del sitio, creando por ejemplo el bloque <strong>Información de copyright del sitio</strong> con información sobre el tipo de licencia del contenido del sitio.
           <p>En el caso de las licencias Creative Commons, se recomienda utilizar el <a href="https://creativecommons.org/choose/">selector de licencias de Creative Commons</a>. El ejemplo siguiente corresponde a la licencia CC-BY-SA 4.0 internacional:</p>
 
-          <div class="codphp">
-            <p>&lt;p style="text-align: center"&gt;&lt;a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES" rel="license"&gt;&lt;img alt="Licencia de Creative Commons" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /&gt;&lt;/a&gt;&lt;br /&gt;</p>
-            <p>Este obra está bajo una &lt;a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES" rel="license"&gt;licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional&lt;/a&gt;.&lt;/p&gt;</p>
-          </div>
+          <div class="codigo">
+            <pre>
+<code class="language-html">&lt;p style="text-align: center"&gt;&lt;a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES" rel="license"&gt;&lt;img alt="Licencia de Creative Commons" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /&gt;&lt;/a&gt;&lt;br /&gt;
+Este obra está bajo una &lt;a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES" rel="license"&gt;licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional&lt;/a&gt;.&lt;/p&gt;</code>
+</pre>          </div>
           <p>El pie de página debe contener únicamente el enlace de Contacto y el nuevo bloque:</p>
           <p class="captura"><img alt="Drupal. Favicon" src="../img/drupal/3_1_e_4_sitio.png" width="991" height="130" /></p>
         </li>

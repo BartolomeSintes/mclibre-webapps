@@ -69,8 +69,8 @@
         <li>Manual MediaWiki: <a href="https://www.mediawiki.org/wiki/Manual:FAQ#How_do_I_change_the_logo.3F">https://www.mediawiki.org/wiki/Manual:FAQ#How_do_I_change_the_logo.3F</a>
           <p>Para cambiar el logotipo, hay que modificar en el archivo de configuración <strong>LocalSettings.php</strong> de MediaWiki:</p>
 
-          <div class="codphp">
-            <pre>$wgLogo = "$wgStylePath/common/images/wiki.png";</pre>
+          <div class="codigo">
+            <pre><code class="language-php">$wgLogo = "$wgStylePath/common/images/wiki.png";</code></pre>
           </div>
           <p>Para evitar que una actualización posterior de MediaWiki sustituya nuestro logo, es mejor usar un fichero con otro nombre y guardarlo en otra carpeta dentro de $wgStylePath.</p>
           <p>Cada <em>skin</em> usa un tamaño distinto para los logos (el <em>skin</em> Vector usa 160x160píxeles, pero bastantes <em>skins</em> usan 135x135 píxeles). Si se usan tamaños superiores, Vector recorta las imágenes y otros <em>skins</em> las muestran completas.</p>
@@ -89,10 +89,12 @@
           </ul>
           <p>Para convertir la wiki pública en una wiki privada se puede añadir, entre otros, los siguientes valores en el archivo de configuración <strong>LocalSettings.php</strong> de MediaWiki:</p>
 
-          <div class="codphp">
-            <pre>$wgGroupPermissions['*']['createaccount'] = false;
+          <div class="codigo">
+            <pre>
+<code class="language-php">$wgGroupPermissions['*']['createaccount'] = false;
 $wgGroupPermissions['*']['edit'] = false;
-$wgGroupPermissions['*']['read'] = false;</pre>
+$wgGroupPermissions['*']['read'] = false;</code>
+</pre>
           </div>
         </li>
       </ol>
@@ -105,8 +107,9 @@ $wgGroupPermissions['*']['read'] = false;</pre>
           <p>Manual Wikipedia: <a href="https://en.wikipedia.org/wiki/Help:Tables">https://en.wikipedia.org/wiki/Help:Tables</a></p>
           <p>El código para generar las tablas del ejemplo es el siguiente:</p>
 
-          <div class="codphp">
-            <pre>{|  class="wikitable"
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">{|  class="wikitable"
 |-
 ! Planeta
 ! Diámetro
@@ -154,7 +157,7 @@ $wgGroupPermissions['*']['read'] = false;</pre>
 | G
 | H
 | I
-|}</pre>
+|}</code></pre>
           </div>
         </li>
       </ol>
@@ -165,9 +168,11 @@ $wgGroupPermissions['*']['read'] = false;</pre>
       <ol>
         <li>Para poder subir archivos SVG, hay que añadir en el archivo de configuración <strong>LocalSettings.php</strong> de MediaWiki:
 
-          <div class="codphp">
-            <pre>$wgFileExtensions[] = 'svg';
-$wgAllowTitlesInSVG = true;</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-php">$wgFileExtensions[] = 'svg';
+$wgAllowTitlesInSVG = true;</code>
+</pre>
           </div>
         </li>
         <li>Las imágenes SVG no se incluyen directamente en las páginas, sino que se convierten automáticamente a PNG. Para ello es necesario configurar algún convertidor de SVG a PNG:
@@ -178,11 +183,13 @@ $wgAllowTitlesInSVG = true;</pre>
               <p>La última versión de Inkscape se puede descargar de <a href="http://www.cdlibre.org/consultar/catalogo/Graficos_Editores-graficos.html">http://www.cdlibre.org/consultar/catalogo/Graficos_Editores-graficos.html</a></p>
               <p>En el archivo de configuración <strong>LocalSettings.php</strong> de MediaWiki hay que añadir:</p>
 
-              <div class="codphp">
-                <pre>$wgSVGConverter = 'Inkscape';
+              <div class="codigo">
+                <pre>
+<code class="language-php">$wgSVGConverter = 'Inkscape';
 $wgSVGConverters = array(
     'Inkscape' =&gt; '"<span class="resaltado">ruta_de_Inkscape</span>\inkscape.exe" -z -w $width -f $input -e $output',
-);</pre>
+);</code>
+</pre>
               </div>
             </li>
             <li>ImageMagick
@@ -191,19 +198,23 @@ $wgSVGConverters = array(
               <p>Para Windows, se puede descargar la versión portable de <a href="http://www.imagemagick.org/script/index.php">http://www.imagemagick.org/script/index.php</a> o de <a href="https://sourceforge.net/projects/imagemagick/files/">https://sourceforge.net/projects/imagemagick/files/</a>. El fichero para Windows se llama ImageMagick-X.Y.Z-N-Q16-x86-windows.zip, y actualmente (enero de 2013) la última versión disponible es la versión 6.8.1-9 del 6 de enero de 2013). Este fichero se debe descomprimir en la carpeta de mediawiki.</p>
               <p>En el archivo de configuración <strong>LocalSettings.php</strong> de MediaWiki hay que añadir:</p>
 
-              <div class="codphp">
-                <pre>$wgAllowTitlesInSVG = true;
+              <div class="codigo">
+                <pre>
+<code class="language-php">$wgAllowTitlesInSVG = true;
 $wgSVGConverter = 'ImageMagick';
 $wgUseImageMagick = true;
 $wgSVGConverters = array(
     'ImageMagick' =&gt; '"<span class="resaltado">ruta_de_ImageMagick</span>/convert.exe" -background white -geometry $width $input $output',
-  );</pre>
+  );</code>
+</pre>
               </div>
               <p>En el archivo de configuración <strong>LocalSettings.php</strong> de MediaWiki hay un par de líneas comentadas sobre Imagemagick que <strong>no</strong> es necesario modificar:</p>
 
-              <div class="codphp">
-                <pre>#$wgUseImageMagick = true;
-#$wgImageMagickConvertCommand = "/usr/bin/convert";</pre>
+              <div class="codigo">
+                <pre>
+<code class="language-php">#$wgUseImageMagick = true;
+#$wgImageMagickConvertCommand = "/usr/bin/convert";</code>
+</pre>
               </div>
             </li>
             <li>Batik
@@ -228,16 +239,18 @@ $wgSVGConverters = array(
       <ol>
         <li>En el archivo de configuración <strong>LocalSettings.php</strong> de MediaWiki hay que añadir una línea por cada formato de archivo:
 
-          <div class="codphp">
-            <pre>$wgFileExtensions[] = 'svg';
-$wgFileExtensions[] = 'pdf';</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-php">$wgFileExtensions[] = 'svg';
+$wgFileExtensions[] = 'pdf';</code>
+</pre>
           </div>
         </li>
         <li>Manual MediaWiki: <a href="https://www.mediawiki.org/wiki/Help:Links#Internal_links">https://www.mediawiki.org/wiki/Help:Links#Internal_links</a>
           <p>Para enlazar los archivos subidos:</p>
 
-          <div class="codphp">
-            <pre>[[media:nombre de archivo | texto ]</pre>
+          <div class="codigo">
+            <pre><code class="language-php">[[media:nombre de archivo | texto ]</code></pre>
           </div>
         </li>
       </ol>
@@ -250,12 +263,14 @@ $wgFileExtensions[] = 'pdf';</pre>
         <li>Manual Mediawiki: <a href="https://www.mediawiki.org/wiki/Help:Images#Rendering_a_gallery_of_images">https://www.mediawiki.org/wiki/Help:Images#Rendering_a_gallery_of_images</a>
           <p>Para crear una galería de imágenes:</p>
 
-          <div class="codphp">
-            <pre>&lt;gallery&gt;
+          <div class="codigo">
+            <pre>
+<code class="language-php">&lt;gallery&gt;
 nombre del archivo de imagen | leyenda
 nombre del archivo de imagen | leyenda
 nombre del archivo de imagen | leyenda
-&lt;/gallery&gt;</pre>
+&lt;/gallery&gt;</code>
+</pre>
           </div>
         </li>
       </ol>
@@ -268,8 +283,9 @@ nombre del archivo de imagen | leyenda
         <li>El código del ejemplo sería el siguiente:
           <ul>
             <li>En la página
-              <div class="codphp">
-                <pre>Esto es un ejemplo de tabla colapsable:
+              <div class="codigo">
+                <pre>
+<code class="language-php">Esto es un ejemplo de tabla colapsable:
 {| class="wikitable collapsible collapsed"
 |-
 ! colspan="4" | Esta tabla se puede mostrar u ocultar
@@ -281,7 +297,7 @@ nombre del archivo de imagen | leyenda
 |- align="center"
 ! B
 | B1 || B2 || B3
-|}
+|}</code>
         </pre>
               </div>
             </li>
@@ -289,8 +305,9 @@ nombre del archivo de imagen | leyenda
           <ul>
             <li>En la página <strong>http:// ... /index.php?title=MediaWiki:Common.js</strong>
 
-              <div class="codphp">
-                <pre>/**
+              <div class="codigo">
+                <pre>
+<code class="language-php">/**
  * Collapsible tables *********************************************************
  *
  * Description: Allows tables to be collapsed, showing only the header. See
@@ -386,7 +403,8 @@ function createCollapseButtons() {
     }
 }
 
-mw.hook( 'wikipage.content' ).add( createCollapseButtons )</pre>
+mw.hook( 'wikipage.content' ).add( createCollapseButtons )</code>
+</pre>
               </div>
             </li>
           </ul>
@@ -405,14 +423,14 @@ mw.hook( 'wikipage.content' ).add( createCollapseButtons )</pre>
           <ul>
             <li>Con la extensión Vector sin activar, comprobar que en la página <strong>Especial:Preferencias</strong> (<strong>Special:Preferences</strong>), en la pestaña Edición, apartado Opciones avanzadas, <strong>no</strong> aparece la opción "Advertirme cuando abandone una página editada con cambios sin grabar".</li>
             <li>Para activar Vector, añadir en el archivo de configuración <strong>LocalSettings.php</strong> de MediaWiki:
-              <div class="codphp">
-                <pre>require_once( "$IP/extensions/Vector/Vector.php" );</pre>
+              <div class="codigo">
+                <pre><code class="language-php">require_once( "$IP/extensions/Vector/Vector.php" );</code></pre>
               </div>
             </li>
             <li>Una vez activada, en la página <strong>Especial:Versión</strong> (<strong>Special:Version</strong>) debe aparecer la extensión vector y en la página <strong>Especial:Preferencias</strong> (<strong>Special:Preferences</strong>) debe aparecer la opción "Advertirme cuando abandone una página editada con cambios sin grabar".</li>
             <li>Para que la opción "Advertirme cuando abandone una página editada con cambios sin grabar" aparezca de forma predeterminada, añadir en el archivo de configuración <strong>LocalSettings.php</strong> de MediaWiki:
-              <div class="codphp">
-                <pre>$wgDefaultUserOptions['useeditwarning'] = 1;</pre>
+              <div class="codigo">
+                <pre><code class="language-php">$wgDefaultUserOptions['useeditwarning'] = 1;</code></pre>
               </div>
             </li>
           </ul>

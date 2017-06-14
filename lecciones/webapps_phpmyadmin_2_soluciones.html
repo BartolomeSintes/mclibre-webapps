@@ -96,8 +96,9 @@
         <li>Descomprima el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre la carpeta como <strong>agenda_1</strong>.</li>
         <li>Modifique el archivo de configuración <strong>config.php</strong> de manera que la aplicación utilice la cuenta del usuario <strong>iaw_agenda_1</strong>:
 
-          <div class="codphp">
-            <pre><code class="language-php">/* config.php aplicación agenda_1 */
+          <div class="codigo">
+            <pre>
+<code class="language-php">/* config.php aplicación agenda_1 */
 
 // Base de datos utilizada por el programa: MYSQL o SQLITE
 
@@ -109,7 +110,8 @@ define("MYSQL_HOST",     "mysql:host=localhost");   // Nombre de host
 define("MYSQL_USUARIO",  "<span class="resaltado">iaw_agenda_1</span>");           // Nombre de usuario
 define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_1</span>");           // Contraseña de usuario
 define("MYSQL_DATABASE", "<span class="resaltado">iaw_agenda_1</span>");           // Nombre de la base de datos
-define("MYSQL_TABLA",    "tabla");                  // Nombre de la tabla</code></pre>
+define("MYSQL_TABLA",    "tabla");                  // Nombre de la tabla</code>
+</pre>
           </div>
         </li>
         <li>Ejecute la aplicación en el navegador y compruebe que la aplicación funciona creando varios registros.</li>
@@ -172,8 +174,9 @@ define("MYSQL_TABLA",    "tabla");                  // Nombre de la tabla</code>
         <li>Descomprima dos veces el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombrar las carpetas como <strong>agenda_2a</strong> y <strong>agenda_2b</strong>.</li>
         <li>Modifique los dos archivos de configuración <strong>config.php</strong> de manera que las dos aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_2</strong>:
 
-          <div class="codphp">
-            <pre><code class="language-php">/* config.php aplicación agenda_2a */
+          <div class="codigo">
+            <pre>
+<code class="language-php">/* config.php aplicación agenda_2a */
 
 // Base de datos utilizada por el programa: MYSQL o SQLITE
 
@@ -185,11 +188,13 @@ define("MYSQL_HOST",     "mysql:host=localhost");    // Nombre de host
 define("MYSQL_USUARIO",  "<span class="resaltado">iaw_agenda_2</span>");            // Nombre de usuario
 define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_2</span>");            // Contraseña de usuario
 define("MYSQL_DATABASE", "<span class="resaltado">iaw_agenda_2_agenda_2a</span>");  // Nombre de la base de datos
-define("MYSQL_TABLA",    "tabla");                   // Nombre de la tabla</code></pre>
+define("MYSQL_TABLA",    "tabla");                   // Nombre de la tabla</code>
+</pre>
           </div>
 
-          <div class="codphp">
-            <pre><code class="language-php">/* config.php aplicación agenda_2b */
+          <div class="codigo">
+            <pre>
+<code class="language-php">/* config.php aplicación agenda_2b */
 
 // Base de datos utilizada por el programa: MYSQL o SQLITE
 
@@ -201,7 +206,8 @@ define("MYSQL_HOST",     "mysql:host=localhost");    // Nombre de host
 define("MYSQL_USUARIO",  "<span class="resaltado">iaw_agenda_2</span>");            // Nombre de usuario
 define("MYSQL_PASSWORD", "<span class="resaltado">iaw_agenda_2</span>");            // Contraseña de usuario
 define("MYSQL_DATABASE", "<span class="resaltado">iaw_agenda_2_agenda_2b</span>");  // Nombre de la base de datos
-define("MYSQL_TABLA",    "tabla");                   // Nombre de la tabla</code></pre>
+define("MYSQL_TABLA",    "tabla");                   // Nombre de la tabla</code>
+</pre>
           </div>
         </li>
         <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros y comprobando que los datos no se mezclan.</li>

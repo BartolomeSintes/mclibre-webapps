@@ -143,8 +143,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
           </div>
         </li>
         <li>Cree el archivo <strong>functions.php</strong> con el siguiente contenido
-          <div class="codphp">
-            <pre><code class="language-php">&lt;?php
+          <div class="codigo">
+            <pre>
+<code class="language-php">&lt;?php
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) exit;
 
@@ -158,8 +159,8 @@ if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
 endif;
 add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 
-// END ENQUEUE PARENT ACTION
-</code></pre>
+// END ENQUEUE PARENT ACTION</code>
+</pre>
           </div>
           <p><strong>Nota</strong>: El ejemplo anterior de <strong>functions.php</strong> es el que genera el plugin Child Theme Configurator.</p>
         </li>

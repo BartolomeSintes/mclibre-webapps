@@ -82,9 +82,11 @@
         <li>Como usuario <strong>iaw_agenda_2</strong>, compruebe que no puede borrar sus bases de datos.</li>
         <li>Con la configuración inicial, los usuarios no pueden borrar bases de datos, pero añadiendo la línea
 
-          <div class="codphp">
-            <pre>/* config.inc.php */
-$cfg['AllowUserDropDatabase'] = true;</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-php">/* config.inc.php */
+$cfg['AllowUserDropDatabase'] = true;</code>
+</pre>
           </div>
           <p>en el archivo config.inc.php, el usuario podrá borrar bases de datos.</p>
         </li>

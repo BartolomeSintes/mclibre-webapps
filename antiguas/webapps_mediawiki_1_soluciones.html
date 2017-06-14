@@ -183,14 +183,13 @@
         <li>Para poder subir archivos es necesario modificar los archivos de configuración:
           <ul>
             <li>archivo de configuración <strong>php.ini</strong> de Apache:
-              <div class="codphp">
-                <pre>file_uploads = On</pre>
+              <div class="codigo">
+                <pre><code class="language-configuracion">file_uploads = On</code></pre>
               </div>
             </li>
             <li>archivo de configuración <strong>LocalSettings.php</strong> de MediaWiki:
-
-              <div class="codphp">
-                <pre>$wgEnableUploads  = true;</pre>
+              <div class="codigo">
+                <pre><code class="language-configuracion">$wgEnableUploads  = true;</code></pre>
               </div>
             </li>
           </ul>
@@ -213,8 +212,9 @@
           <ul>
             <li>La barra lateral de la imagen de ejemplo se podría obtener escribiendo en <strong>http:// ... /index.php?title=MediaWiki:Sidebar</strong>:
 
-              <div class="codphp">
-                <pre>* navigation
+              <div class="codigo">
+                <pre>
+<code class="language-php">* navigation
 ** mainpage|mainpage-description
 ** recentchanges-url|recentchanges
 ** randompage-url|randompage
@@ -224,7 +224,8 @@
 ** Página 3|Tres
 * SEARCH
 * TOOLBOX
-* LANGUAGES</pre>
+* LANGUAGES</code>
+</pre>
               </div>
             </li>
           </ul>
@@ -236,8 +237,8 @@
       <h2>MediaWiki (1) 10 - Acceder desde otros ordenadores</h2>
       <ol>
         <li>La variable a modificar en LocalSettings.php es $wgServer:
-          <div class="codphp">
-            <pre>$wgServer = "http://localhost";</pre>
+          <div class="codigo">
+            <pre><code class="language-php">$wgServer = "http://localhost";</code></pre>
           </div>
         </li>
       </ol>

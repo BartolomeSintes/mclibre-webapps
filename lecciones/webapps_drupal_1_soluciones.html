@@ -132,9 +132,11 @@ max_execution_time = <span class="resaltado">3600</span></pre>
               <p>Descargue un certificado para curl (<strong>cacert.pem</strong>) por ejemplo desde <a href="https://curl.haxx.se/docs/caextract.html">https://curl.haxx.se/docs/caextract.html</a> y cópielo en C:\Windows.</p>
               <p>En el archivo <strong>php.ini</strong>, indique la ubicación del certificado y reinicie el servidor.</p>
 
-              <div class="codphp">
-                <pre>; Barto. Incluyo un certificado CACert para Drupal.
-curl.cainfo = "C:\Windows\cacert.pem"</pre>
+              <div class="codigo">
+                <pre>
+<code class="language-configuracion">; Barto. Incluyo un certificado CACert para Drupal.
+curl.cainfo = "C:\Windows\cacert.pem"</code>
+</pre>
               </div>
             </li>
 
@@ -149,8 +151,9 @@ curl.cainfo = "C:\Windows\cacert.pem"</pre>
               <ul>
                 <li>Para activar y configurar OPCache en XAMPP, puede aplicar la solución propuesta en <a href="https://www.drupal.org/node/2623566">este foro de Drupal</a>.
 
-                  <div class="codphp">
-                    <pre>; Barto. Activo la extensión OPCache para Drupal.
+                  <div class="codigo">
+                    <pre>
+<code class="language-configuracion">; Barto. Activo la extensión OPCache para Drupal.
 zend_extension=php_opcache.dll
 
 [opcache]
@@ -159,14 +162,15 @@ opcache.enable_cli=0
 opcache.memory_consumption=64
 opcache.interned_strings_buffer=4
 opcache.max_wasted_percentage=5
-opcache.use_cwd=1
+opcache.use_cwd=1</code>
 </pre>
                   </div>
                 </li>
                 <li>En el capítulo sobre <a href="http://php.net/manual/en/opcache.installation.php">instalación de OPCache</a> del manual de PHP se propone una configuración distinta:
 
-                  <div class="codphp">
-                    <pre>; Barto. Activo la extensión OPCache para Drupal.
+                  <div class="codigo">
+                    <pre>
+<code class="language-configuracion">; Barto. Activo la extensión OPCache para Drupal.
 zend_extension=php_opcache.dll
 
 [opcache]
@@ -175,7 +179,8 @@ opcache.interned_strings_buffer=8
 opcache.max_accelerated_files=4000
 opcache.revalidate_freq=60
 opcache.fast_shutdown=1
-opcache.enable_cli=1</pre>
+opcache.enable_cli=1</code>
+</pre>
                   </div>
                 </li>
               </ul>
@@ -226,11 +231,13 @@ opcache.enable_cli=1</pre>
         </li>
         <li>En el apartado <strong>Trusted host configuration</strong> del archivo <strong>sites/default/settings.php</strong> incluya su servidor local como servidor de confianza
 
-          <div class="codphp">
-            <pre># Barto. Añado localhost como servidor de confianza
+          <div class="codigo">
+            <pre>
+<code class="language-php"># Barto. Añado localhost como servidor de confianza
  $settings['trusted_host_patterns'] = array(
   <span class="resaltado">'^localhost$'</span>,
-); </pre>
+);</code>
+</pre>
           </div>
         </li>
         <li>Actualizando la página web, se puede comprobar que el problema ha desaparecido
@@ -353,18 +360,22 @@ opcache.enable_cli=1</pre>
         </li>
         <li>En el archivo <strong>.htaccess</strong> del directorio de Drupal, modifique la directiva <strong>RewriteBase</strong>:
 
-          <div class="codphp">
-            <pre># Barto. Indico la dirección de Drupal.
-RewriteBase <span class="resaltado">/drupal</span></pre>
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion"># Barto. Indico la dirección de Drupal.
+RewriteBase <span class="resaltado">/drupal</span></code>
+</pre>
           </div>
         </li>
         <li>En el apartado <strong>Trusted host configuration</strong> del archivo <strong>sites/default/settings.php</strong> incluya su IP como servidor de confianza:
 
-          <div class="codphp">
-            <pre># Barto. Añado IP localhost como servidor de confianza
+          <div class="codigo">
+            <pre>
+<code class="language-php"># Barto. Añado IP localhost como servidor de confianza
  $settings['trusted_host_patterns'] = array(
   '^localhost$', <span class="resaltado">'^192.168.XXX.YYY$'</span>,
-); </pre>
+);</code>
+</pre>
           </div>
         </li>
         <li>Compruebe que puede entrar en Drupal mediante las direcciones <strong>https://localhost/drupal/</strong> y <strong>https://AAA.BBB.CCC.DDD/drupal/</strong>:
@@ -382,14 +393,16 @@ RewriteBase <span class="resaltado">/drupal</span></pre>
       <ul>
         <li>En el archivo <strong>/sites/default/settings.php</strong> de Drupal, modifique la matriz $databases:
 
-          <div class="codphp">
-            <pre>$databases['default']['default'] = array (
+          <div class="codigo">
+            <pre>
+<code class="language-php">$databases['default']['default'] = array (
   'database' =&gt; '<span class="resaltado">iaw_drupal_2</span>',
   'username' =&gt; '<span class="resaltado">iaw_drupal_2</span>',
   'password' =&gt; '<span class="resaltado">iaw_drupal_2</span>',
   'prefix' =&gt; '',
   'host' =&gt; 'localhost',
- ...</pre>
+ ...</code>
+ </pre>
           </div>
         </li>
       </ul>

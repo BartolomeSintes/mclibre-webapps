@@ -92,8 +92,9 @@
                 <pre>sudo vi /tmp/config.php</pre>
               </div>
               <p>Incluya el puerto PUERTO1 en las direcciones de base:</p>
-              <div class="codphp">
-                <pre>/* config.php */
+              <div class="codigo">
+                <pre>
+<code class="language-php">/* config.php */
 // HTTP
 define('HTTP_SERVER', 'http://AAA.BBB.CCC.DDD<span class="resaltado">:PUERTO2</span>/');
 define('HTTP_ADMIN', 'http://AAA.BBB.CCC.DDD<span class="resaltado">:PUERTO2</span>/admin/');
@@ -101,7 +102,8 @@ define('HTTP_ADMIN', 'http://AAA.BBB.CCC.DDD<span class="resaltado">:PUERTO2</sp
 // HTTPS
 define('HTTPS_SERVER', 'http://AAA.BBB.CCC.DDD<span class="resaltado">:PUERTO2</span>/');
 
- ...</pre>
+ ...</code>
+ </pre>
               </div>
             </li>
             <li>Repita la operación con el otro archivo de configuración.</li>

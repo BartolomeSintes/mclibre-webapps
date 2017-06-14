@@ -1,15 +1,17 @@
-/* HIGHLIGHT.JS
-   BartolomÃ© Sintes Marco
-   http://www.mclibre.org
+@charset "utf-8";
 
-   Hoja de estilo para highlight.js
-
-   3 de octubre de 2014
-*/
+/* HIGHLIGHT.JS                             */
+/* Bartolome Sintes Marco                   */
+/* http://www.mclibre.org                   */
+/*                                          */
+/* Hoja de estilo para highlight.js         */
+/*                                          */
+/* 14 de junio de 2017                      */
+/*                                          */
 
 /* Estilo para HTML imitando a Brackets */
 
-code.language-html { font-weight: bold; font-size: 120%; line-height: 120%;}
+code.language-html { }
 
 pre code.language-html .hljs-tag       { color: #446FBD; } /* any tag from "<" till ">"              */
 pre code.language-html .hljs-attribute { color: #6D8600; } /* tag's attribute with or without value  */
@@ -21,7 +23,7 @@ pre code.language-html .hljs-cdata     { color: #E88501; } /* CDATA section     
 
 /* Estilo para CSS imitando a Brackets */
 
-code.language-css { font-weight: bold; font-size: 120%; }
+code.language-css { }
 
 pre code.language-css .hljs-tag           { color: #446FBD; }          /* tag in selectors                   */
 pre code.language-css .hljs-id            { color: #446FBD; }          /* #some_name in selectors            */
@@ -38,4 +40,3 @@ pre code.language-css .hljs-string        { color: #E88501; }          /* string
 pre code.language-css .hljs-hexcolor      { color: #E88501; }          /* hex color (#FFFFFF) within a value */
 pre code.language-css .hljs-function      { color: rgb( 42,  0,255); } /* CSS function within a value        */
 pre code.language-css .hljs-important     { color: rgb( 63,127,127); } /* "!important" symbol                */
-

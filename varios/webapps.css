@@ -6,10 +6,10 @@
 /*                                          */
 /* CSS curso: Aplicaciones Web              */
 /*                                          */
-/* 27 de mayo de 2017                       */
+/* 14 de junio de 2017                      */
 /*                                          */
 
-/* CSS común */
+/* CSS comun */
 
 @font-face {
   font-family: "Inconsolata";
@@ -56,11 +56,33 @@ h4 {
   font-weight: bold;
 }
 
-div.codphp  {
-  border: black 2px solid;
-  margin: 0 20px 10px;
-  padding: 0 10px;
-  background-color: #F3F3F3;
+h2, h3, h4 {
+  clear: both;
+}
+
+pre, pre code {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "Inconsolata", monospace;  /* Chrome user agent style sheet */
+  line-height: 120%;
+}
+
+div.codigo, div.resultado, div.resultado-object {
+  clear: both;
+  border: 2px black solid;
+  margin: 5px 10px;
+  padding: 0;
+  background-color: white;
+  color: black;
+}
+
+div.codigo {
+  padding: 0 5px;
+  font-family: "Inconsolata", monospace;
+}
+
+div.resultado-object object {
+  width: 100%;
 }
 
 .resaltado {
@@ -72,13 +94,6 @@ div.codphp  {
   margin: 0 1px;
   padding: 0 1px;
   outline: red 2px solid;
-}
-
-div.codhtml {
-  border: black 2px solid;
-  margin: 0 20px 10px;
-  padding: 0 10px;
-  background-color: #F3F3F3;
 }
 
 div.html {
@@ -176,33 +191,8 @@ table.ejemplo {
   text-align: left;
 }
 
-table.ejemplo3 td {
-  width: 10%;
-  border: black 2px solid;
-  padding: 0 5px;
-  vertical-align: top;
-} /* No lo entiendo, pero si pongo width: 33% lo hace pequeño */
-
 table.sinborde td {
   border: none;
-}
-
-td.codphp, td.codhtml {
-  border: black 2px solid;
-  padding: 0 5px;
-  background-color: #E0E0E0;
-}
-
-td.resul-html {
-  border: black 2px solid;
-  padding: 0 5px;
-  background-color: #FFFFE0;
-}
-
-td.resul-php {
-  border: black 2px solid;
-  padding: 0 5px;
-  background-color: #FFFFFF;
 }
 
 td.conf {
@@ -557,6 +547,11 @@ div.portada ol {
 div.portada li {
   clear: none;
   margin-bottom: 0em;
+}
+
+/* Ejemplos de archivos de configuracion */
+
+code.language-configuracion {
 }
 
 /* Clases para fragmentos de código en texto */

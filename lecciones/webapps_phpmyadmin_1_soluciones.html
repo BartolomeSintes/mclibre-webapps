@@ -141,9 +141,11 @@
       <h2>phpMyAdmin (1) 6 - Entrar en MySQL como root sin contraseña</h2>
       <ol>
         <li>Con la configuración inicial, los usuarios no pueden conectarse a MySQL como root sin contraseña, pero cambiando a true la variable siguiente ya se puede hacer:
-          <div class="codphp">
-            <pre><code class="language-php">/* config.inc.php */
-$cfg['Servers'][$i]['AllowNoPassword'] = <span class="resaltado">true</span>;</code></pre>
+          <div class="codigo">
+            <pre>
+<code class="language-php">/* config.inc.php */
+$cfg['Servers'][$i]['AllowNoPassword'] = <span class="resaltado">true</span>;</code>
+</pre>
           </div>
         </li>
       </ol>

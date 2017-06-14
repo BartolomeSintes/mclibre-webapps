@@ -90,15 +90,18 @@
             <li>Cambie el título del widget en "Apariencia > Widgets".</li>
             <li>Para eliminar dos elementos del widget, debe editar el archivo con cualquier editor de texto plano (Notepad++, etc.)</li>
             <li>En el archivo <strong>default-widgets.php</strong> se puede ver en qué fichero está configurado el plugin Meta
-              <div class="codphp">
-                <pre><code class="language-php">/** WP_Widget_Meta class */
+              <div class="codigo">
+                <pre>
+<code class="language-php">/** WP_Widget_Meta class */
 require_once( ABSPATH . WPINC . '/<span class="resaltado">widgets/class-wp-widget-meta.php</span>' );
-</code></pre>
+</code>
+</pre>
               </div>
             </li>
             <li>En ese archivo <strong>class-wp-widget-meta.php</strong>, el fragmento de código que genera los elementos de la lista es el siguiente:
-              <div class="codphp">
-                <pre><code class="language-php">&lt;ul&gt;
+              <div class="codigo">
+                <pre>
+<code class="language-php">&lt;ul&gt;
 <span class="resaltado">&lt;?php wp_register(); ?&gt;
 &lt;li&gt;&lt;?php wp_loginout(); ?&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;&lt;?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?&gt;&quot;&gt;&lt;?php _e('Entries &lt;abbr title=&quot;Really Simple Syndication&quot;&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
@@ -119,16 +122,19 @@ echo apply_filters( 'widget_meta_poweredby', sprintf( '&lt;li&gt;&lt;a href=&quo
 
 wp_meta();
 ?&gt;</span>
-&lt;/ul&gt;</code></pre>
+&lt;/ul&gt;</code>
+</pre>
               </div>
             </li>
             <li>Elimine los dos últimos elementos
-              <div class="codphp">
-                <pre><code class="language-php">&lt;ul&gt;
+              <div class="codigo">
+                <pre>
+<code class="language-php">&lt;ul&gt;
 &lt;?php wp_register(); ?&gt;
 &lt;li&gt;&lt;?php wp_loginout(); ?&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;&lt;?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?&gt;&quot;&gt;&lt;?php _e('Entries &lt;abbr title=&quot;Really Simple Syndication&quot;&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+&lt;/ul&gt;</code>
+</pre>
               </div>
               <p><strong>Nota</strong>: Cuando el usuario no está registrado, el código &lt;?php wp_loginout(); ?&gt; no genera ningún texto.</p>
             </li>

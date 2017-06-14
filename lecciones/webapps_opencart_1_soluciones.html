@@ -113,15 +113,17 @@
               <p class="captura"><img alt="OpenCart. Instalación. Pre-Installation" src="../img/opencart/1_2_s_4_instalacion.png" width="991" height="340" /></p>
               <p>Las extensiones se activan en el archivo <strong>php.ini</strong> del servidor (no el archivo <strong>php.ini</strong> que hay en la carpeta de OpenCart):</p>
 
-              <div class="codphp">
-                <pre>/* php.ini */
+              <div class="codigo">
+                <pre>
+<code class="language-configuracion">/* php.ini */
  ...
 extension=php_curl.dll
  ...
 extension=php_gd2.dll
  ...
 extension=php_mysql.dll
- ...</pre>
+ ...</code>
+ </pre>
               </div>
               <p>Una vez reiniciado Apache, al actualizar la página se podrá ver si todo está correcto:</p>
               <p class="captura"><img alt="OpenCart. Instalación. Pre-Installation" src="../img/opencart/1_2_s_5_instalacion.png" width="991" height="340" /></p>
@@ -264,8 +266,9 @@ extension=php_mysql.dll
 
       <p>Edite los dos archivos de configuración config.php y admin/config.php y modififque las directivas HTTP_SERVER, HTTP_CATALOG, HTTPS_SERVER y HTTPS_CATALOG. Para poder recuperar en un futuro fácilmente el acceso mediante localhost y sin alias, se recomienda comentar las líneas existentes y añadir los nuevos valores en otras líneas.</p>
 
-      <div class="codphp">
-        <pre>/* config.php */
+      <div class="codigo">
+        <pre>
+<code class="language-php">/* config.php */
 // HTTP
 // define('HTTP_SERVER', 'http://localhost/iaw/aplicaciones/opencart_1/');
 define('HTTP_SERVER', 'http://AAA.BBB.CCC.DDD/opencart/');
@@ -274,11 +277,13 @@ define('HTTP_SERVER', 'http://AAA.BBB.CCC.DDD/opencart/');
 // define('HTTPS_SERVER', 'http://localhost/iaw/aplicaciones/opencart_1/');
 define('HTTPS_SERVER', 'http://AAA.BBB.CCC.DDD/opencart/');
 
- ...</pre>
+ ...</code>
+ </pre>
       </div>
 
-      <div class="codphp">
-        <pre>/* admin/config.php */
+      <div class="codigo">
+        <pre>
+<code class="language-php">/* admin/config.php */
 // HTTP
 // define('HTTP_SERVER', 'http://localhost/iaw/aplicaciones/opencart_1/admin/');
 // define('HTTP_CATALOG', 'http://localhost/iaw/aplicaciones/opencart_1/');
@@ -291,7 +296,8 @@ define('HTTP_CATALOG', 'http://AAA.BBB.CCC.DDD/opencart/');
 define('HTTPS_SERVER', 'http://AAA.BBB.CCC.DDD/opencart/admin/');
 define('HTTPS_CATALOG', 'http://AAA.BBB.CCC.DDD/opencart/');
 
- ...</pre>
+ ...</code>
+ </pre>
       </div>
 
     </section>
