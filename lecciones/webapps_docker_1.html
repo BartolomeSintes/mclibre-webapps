@@ -60,9 +60,11 @@
           <p>Compruebe que en la configuración de red de la máquina virtual está conectado a Adaptador puente. Si está conectado a otro tipo de adaptador (probablemente NAT), apague la máquina virtual, cambie a Adaptador puente y reinicie la máquina virtual.</p>
         </li>
         <li>Actualice Ubuntu 16.04 LTS Server:
-          <div class="codshell">
-            <pre>sudo apt update
-sudo apt upgrade</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo apt update
+sudo apt upgrade</code>
+</pre>
           </div>
         </li>
       </ol>
@@ -73,49 +75,53 @@ sudo apt upgrade</pre>
 
       <ol>
         <li>Instale los certificados para trabajar con https:
-          <div class="codshell">
-            <pre>sudo apt update
-sudo apt install apt-transport-https ca-certificates</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo apt update
+sudo apt install apt-transport-https ca-certificates</code>
+</pre>
           </div>
         </li>
         <li>Añada la nueva clave GPG (escriba todo en una sola línea, sin las contrabarras \):
-          <div class="codshell">
-            <pre>sudo apt-key adv \
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo apt-key adv \
 --keyserver hkp://ha.pool.sks-keyservers.net:80 \
---recv-keys 58118E89F3A912897C070ADBF76221572C52609D</pre>
+--recv-keys 58118E89F3A912897C070ADBF76221572C52609D</code>
+</pre>
           </div>
         </li>
         <li>Añada el repositorio correspondiente a su versión de Ubuntu (en el ejemplo se usa xenial, es decir, Ubuntu 16.04):
-          <div class="codshell">
-            <pre>echo deb https://apt.dockerproject.org/repo ubuntu-xenial main | sudo tee /etc/apt/sources.list.d/docker.list</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">echo deb https://apt.dockerproject.org/repo ubuntu-xenial main | sudo tee /etc/apt/sources.list.d/docker.list</code></pre>
           </div>
         </li>
         <li>Actualice APT:
-          <div class="codshell">
-            <pre>sudo apt update</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo apt update</code></pre>
           </div>
         </li>
         <li>Compruebe que APT se conecta con el repositorio adecuado:
-          <div class="codshell">
-            <pre>apt policy docker-engine</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">apt policy docker-engine</code></pre>
           </div>
           <p>En la pantalla debe mostrarse el repositorio de la versión de Ubuntu indicada (en el ejemplo se usa xenial, es decir, Ubuntu 16.04):</p>
-          <div class="codshell">
+          <div class="codigo">
             <pre>
-docker-engine:
+<code class="language-shell">docker-engine:
     Installed: 1.12.6-0~ubuntu-xenial
     Candidate: 1.12.6-0~ubuntu-xenial
     Version table:
    *** 1.12.6-0~ubuntu-xenial 500
           500 https://apt.dockerproject.org/repo/ ubuntu-xenial/main amd64 Packages
           100 /var/lib/dpkg/status
-    ...
+    ...</code>
 </pre>
           </div>
         </li>
         <li>Actualice APT:
-          <div class="codshell">
-            <pre>sudo apt update</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo apt update</code></pre>
           </div>
         </li>
       </ol>
@@ -126,13 +132,13 @@ docker-engine:
 
       <ol>
         <li>Actualice el administrador de paquetes:
-          <div class="codshell">
-            <pre>sudo apt update</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo apt update</code></pre>
           </div>
         </li>
         <li>Instale los paquetes recomendados
-          <div class="codshell">
-            <pre>sudo apt install linux-image-extra-$(uname -r) linux-image-extra-virtual</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo apt install linux-image-extra-$(uname -r) linux-image-extra-virtual</code></pre>
           </div>
         </li>
       </ol>
@@ -143,30 +149,30 @@ docker-engine:
 
       <ol>
         <li>Actualice el administrador de paquetes:
-          <div class="codshell">
-            <pre>sudo apt update</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo apt update</code></pre>
           </div>
         </li>
         <li>Instale Docker
-          <div class="codshell">
-            <pre>sudo apt install docker-engine</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo apt install docker-engine</code></pre>
           </div>
         </li>
         <li>Arranque el servicio docker
-          <div class="codshell">
-            <pre>sudo service docker start</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo service docker start</code></pre>
           </div>
         </li>
         <li>Compruebe que docker está instalado correctamente ejecutando la imagen hello-world:
-          <div class="codshell">
-            <pre>sudo docker run hello-world</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker run hello-world</code></pre>
           </div>
           <p>En la pantalla debe mostrarse el repositorio de la versión de Ubuntu indicada (en el ejemplo se usa xenial, es decir, Ubuntu 16.04):</p>
-          <div class="codshell">
+          <div class="codigo">
             <pre>
-Hello from Docker!
+<code class="language-shell">Hello from Docker!
 This message shows that your installation appears to be working correctly.
-...
+...</code>
 </pre>
           </div>
         </li>
@@ -183,18 +189,18 @@ This message shows that your installation appears to be working correctly.
       <ol>
         <li>Averigüe la dirección ip de la máquina virtual.</li>
         <li>Cree una nueva red para la aplicación y la base de datos:
-          <div class="codshell">
-            <pre>sudo docker network create opencart_network</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker network create opencart_network</code></pre>
           </div>
         </li>
         <li>Cree un contenedor para la base de datos MariaDB en la nueva red:
-          <div class="codshell">
-            <pre>sudo docker run -d --name mariadb --net=opencart_network bitnami/mariadb</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker run -d --name mariadb --net=opencart_network bitnami/mariadb</code></pre>
           </div>
         </li>
         <li>Cree un contenedor para OpenCart (sustituya AAA.BBB.CCC.DDD por la dirección ip de la máquina virtual):
-          <div class="codshell">
-            <pre>sudo docker run -d -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 80:80 --name opencart --net=opencart_network bitnami/opencart</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker run -d -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 80:80 --name opencart --net=opencart_network bitnami/opencart</code></pre>
           </div>
         </li>
         <li>Compruebe que puede acceder a OpenCart en el navegador escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD</strong>, donde AAA.BBB.CCC.DDD es la dirección ip de la máquina virtual:
@@ -218,22 +224,22 @@ This message shows that your installation appears to be working correctly.
         <li>Modifique la tienda OpenCart eliminando alguna categoría del menú principal.</li>
         <li>Detenga y reinice el contenedor y compruebe que la tienda conserva los cambios. Los comandos que se deben utilizar son:
           <p>Para ver los contenedores existentes (en marcha o detenidos):</p>
-          <div class="codshell">
-            <pre>sudo docker ps -a</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker ps -a</code></pre>
           </div>
           <p>Para detener un contenedor:</p>
-          <div class="codshell">
-            <pre>sudo docker stop CONTENEDOR</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker stop CONTENEDOR</code></pre>
           </div>
           <p>Para poner en marcha un contenedor detenido:</p>
-          <div class="codshell">
-            <pre>sudo docker start CONTENEDOR</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker start CONTENEDOR</code></pre>
           </div>
         </li>
         <li>Detenga y borre el contenedor. Cree un nuevo contendor y compruebe que los cambios se han perdido. Los comandos que se deben utilizar son:
           <p>Para borrar un contenedor (debe estar detenido primero):</p>
-          <div class="codshell">
-            <pre>sudo docker rm CONTENEDOR</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker rm CONTENEDOR</code></pre>
           </div>
           <p><strong>Nota</strong>: La base de datos no se ha borrado, así que se podría cambiar el usuario y contraseña de la tienda para usar la antigua base de datos y recuperar la tienda antigua.</p>
         </li>
@@ -252,19 +258,19 @@ This message shows that your installation appears to be working correctly.
         </li>
         <li>Corrija los archivos de configuración de OpenCart con la nueva IP.
           <p>La forma más fácil es copiar los archivos de configuración de la imagen al servidor, modificarlos y volverlos a copiar a la imagen</p>
-          <div class="codshell">
-            <pre>sudo docker cp CONTENEDOR:ORIGEN DESTINO</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker cp CONTENEDOR:ORIGEN DESTINO</code></pre>
           </div>
 
           <p>Para averiguar el directorio del sistema de ficheros del contenedor en el que se encuentra opencart, puede abrir una sesión en la imagen y buscarlo:</p>
-          <div class="codshell">
-            <pre>sudo docker exec -it CONTENEDOR /bin/bash</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
           </div>
           <details>
             <summary><strong>Ayuda</strong></summary>
             <p>Los ficheros de configuración están en /bitnami/opencart/config.php y /bitnami/opencart/admin/config.php. Los ficheros se pueden copiar en cualquier carpeta fuera del contenedor. Por ejemplo,</p>
-            <div class="codshell">
-              <pre>sudo docker cp opencart:/bitnami/opencart/config.php /tmp/config.php</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker cp opencart:/bitnami/opencart/config.php /tmp/config.php</code></pre>
             </div>
           </details>
         </li>

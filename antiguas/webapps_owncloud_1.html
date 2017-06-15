@@ -113,21 +113,25 @@
           <ul>
             <li>Añada la directiva SSLRequireSSL en la directiva del directorio raíz. De esta forma sólo se atenderán las peticiones https.
 
-              <div class="codshell">
-                <pre>&lt;Directory /&gt;
+              <div class="codigo">
+                <pre>
+<code class="language-configuracion">&lt;Directory /&gt;
     AllowOverride none
     Require all denied
-    <span class="resaltado">SSLRequireSSL</span>
-&lt;/Directory&gt;<br /></pre>
+    <span class="codigo-modificacion">SSLRequireSSL</span>
+&lt;/Directory&gt;</code>
+</pre>
               </div>
             </li>
             <li>Añada una directiva VirtualHost que redirija las peticiones http a https.
 
-              <div class="codshell">
-                <pre>&lt;VirtualHost 192.168.XX.YY:80&gt;
+              <div class="codigo">
+                <pre>
+<code class="language-configuracion">&lt;VirtualHost 192.168.XX.YY:80&gt;
   Servername 192.168.XX.YY
   Redirect permanent / https:192.168.XX.YY/
-&lt;/VirtualHost&gt;</pre>
+&lt;/VirtualHost&gt;</code>
+</pre>
               </div>
             </li>
           </ul>
@@ -160,8 +164,9 @@
         <li>Configure el servidor Apache para forzar el uso de HTTP Strict Transport Security
           <p>Para ello, puede añadir una directiva VirtualHost en el archivo de configuración de Apache httpd.conf y reiniciar el servidor:</p>
 
-          <div class="codshell">
-            <pre>&lt;VirtualHost 192.168.XX.YY:443&gt;
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">&lt;VirtualHost 192.168.XX.YY:443&gt;
   ServerName 192.168.XX.YY
 
   SSLEngine on
@@ -171,7 +176,8 @@
   &lt;IfModule mod_headers.c&gt;
     Header always set Strict-Transport-Security "max-age=15768000; includeSubDomains; preload"
   &lt;/IfModule&gt;
-&lt;/VirtualHost&gt;</pre>
+&lt;/VirtualHost&gt;</code>
+</pre>
           </div>
         </li>
         <li>Por motivos que deconozco, al actualizar el panel de administración se deja de ver ownCloud y se muestra otra página web del servidor.
@@ -179,10 +185,12 @@
         </li>
         <li>Puede resolver este problema cambiando la directiva Document Root en el archivo de configuración de Apache httpd.conf y reiniciando el servidor:
 
-          <div class="codshell">
-            <pre>DocumentRoot "/opt/bitnami/apps/owncloud/htdocs"
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">DocumentRoot "/opt/bitnami/apps/owncloud/htdocs"
 &lt;Directory  "/opt/bitnami/apps/owncloud/htdocs"&gt;
- ...</pre>
+ ...</code>
+ </pre>
           </div>
         </li>
         <li>En el panel de administración, compruebe que ya no se muestra ningún aviso de seguridad:

@@ -85,7 +85,7 @@
             <li>Cree una red.</li>
             <li>Cree un contenedor de MariaDB.</li>
             <li>Cree un contenedor de phpMyAdmin que escuche en un puerto distino del puerto 80.</li>
-            <li>Cree en MariaDB con phpMyAdmin un usuario <span class="resaltado">nextcloud</span>, que pueda acceder desde cualquier ordenador, con contraseña <span class="resaltado">nextcloud</span> y base de datos única.</li>
+            <li>Cree en MariaDB con phpMyAdmin un usuario <span class="codigo-modificacion">nextcloud</span>, que pueda acceder desde cualquier ordenador, con contraseña <span class="codigo-modificacion">nextcloud</span> y base de datos única.</li>
             <li>Consultar cuál es la dirección IP privada 172.BBB.CCC.DDD del contenedor de MariaDB.</li>
           </ul>
         </li>
@@ -106,10 +106,10 @@
       <ol>
         <li>Complete la instalación de NextCloud:
           <ul>
-            <li>Nombre de usuario: <span class="resaltado">admin</span></li>
-            <li>Contraseña: <span class="resaltado">admin</span></li>
+            <li>Nombre de usuario: <span class="codigo-modificacion">admin</span></li>
+            <li>Contraseña: <span class="codigo-modificacion">admin</span></li>
             <li>Almacenamiento: directorio predeterminado</li>
-            <li>Base de datos: <span class="resaltado">SQLite / MariaDB</span></li>
+            <li>Base de datos: <span class="codigo-modificacion">SQLite / MariaDB</span></li>
           </ul>
           <p><strong>Notas</strong>: La contraseña sugerida se considera muy débil y no debería utilizarse en un entorno real.</p>
         </li>
@@ -155,11 +155,13 @@
           <p class="incompleto"><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Antes de modificar un archivo de configuración se recomienda siempre hacer una copia del archivo original.</p>
           <ul>
             <li>Añada una directiva VirtualHost que redirija las peticiones http a https.
-              <div class="codtxt">
-                <pre>&lt;VirtualHost *:80&gt;
-  Servername 192.168.<span class="resaltado">XXX.YYY</span>
-  Redirect permanent / https://192.168.<span class="resaltado">XXX.YYY</span>/
-&lt;/VirtualHost&gt;</pre>
+              <div class="codigo">
+                <pre>
+<code class="language-configuracion">&lt;VirtualHost *:80>
+  Servername 192.168.<span class="codigo-modificacion">XXX.YYY</span>
+  Redirect permanent / https://192.168.<span class="codigo-modificacion">XXX.YYY</span>/
+&lt;/VirtualHost></code>
+</pre>
               </div>
               <p><strong>Nota</strong>: Creo que el valor de Servername no es importante, pero debe haber Servername.</p>
             </li>

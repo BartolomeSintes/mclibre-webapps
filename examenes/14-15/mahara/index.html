@@ -54,14 +54,15 @@
         <li>Descomprima Mahara (la carpeta <strong>htdocs</strong> debe ser la carpeta <strong>/mahara</strong>).</li>
         <li>Entre en phpMyAdmin como usuario <strong>root</strong> y cree un usuario de MySQL con nombre <strong>iaw_mahara_1</strong>, contraseña <strong>iaw_mahara_1</strong> y base de datos <strong>iaw_mahara_1</strong>.</li>
         <li>Ejecute en phpMyAdmin la orden:
-          <div class="codshell">
-            <pre>ALTER DATABASE iaw_mahara_1 CHARACTER SET utf8 COLLATE utf8_unicode_ci;</pre>
+          <div class="codigo">
+            <pre><code class="language-sql">ALTER DATABASE iaw_mahara_1 CHARACTER SET utf8 COLLATE utf8_unicode_ci;</code></pre>
           </div>
         </li>
         <li>Cree la carpeta <strong>/maharadata</strong>.</li>
         <li>Haga una copia del fichero <strong>config-dist.php</strong> que se llame <strong>config.php</strong>. Defina en ese fichero la configuración:
-          <div class="codshell">
-            <pre>$cfg-&gt;dbtype   = '...';
+          <div class="codigo">
+            <pre>
+<code class="language-php">$cfg-&gt;dbtype   = '...';
 $cfg-&gt;dbhost   = 'localhost';
 $cfg-&gt;dbport   = null;
 $cfg-&gt;dbname   = '...';
@@ -70,7 +71,8 @@ $cfg-&gt;dbpass   = '...';
 
 $cfg-&gt;wwwroot = 'http://localhost/ ... /mahara/';
 
-$cfg-&gt;dataroot = 'C:\ ... \maharadata';</pre>
+$cfg-&gt;dataroot = 'C:\ ... \maharadata';</code>
+</pre>
           </div>
         </li>
         <li>Abra en el navegador <strong>/mahara</strong> y compruebe que se puede iniciar la instalación (haga una captura de <strong>toda</strong> la pantalla):
@@ -127,13 +129,12 @@ $cfg-&gt;dataroot = 'C:\ ... \maharadata';</pre>
 
       <ul>
         <li>Modifique las páginas de inicio con el texto (de manera que se enlace la página de contacto):
-          <div class="codshell">
-            <pre>Bienvenido
+          <div class="resultado">
+            <p>Bienvenido</p>
 
-El Instituto WebApps es una institución educativa con vocación global y dirigida a la
-difusión de las aplicaciones web, proporcionando materiales educativos.
+            <p>El Instituto WebApps es una institución educativa con vocación global y dirigida a ladifusión de las aplicaciones web, proporcionando materiales educativos.</p>
 
-Si lo desea, puede <strong>ponerse en contacto con el administrador</strong>.</pre>
+            <p>Si lo desea, puede <strong>ponerse en contacto con el administrador</strong>.</p>
           </div>
         </li>
         <li>Haga capturas de <strong>toda</strong> la pantalla:

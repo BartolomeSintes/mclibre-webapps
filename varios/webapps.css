@@ -6,7 +6,7 @@
 /*                                          */
 /* CSS curso: Aplicaciones Web              */
 /*                                          */
-/* 14 de junio de 2017                      */
+/* 15 de junio de 2017                      */
 /*                                          */
 
 /* CSS comun */
@@ -67,6 +67,218 @@ pre, pre code {
   line-height: 120%;
 }
 
+hr {
+  clear: both;
+}
+
+hr.corta {
+  clear: both;
+  width: 50%;
+}
+
+p {
+  margin: 5px 0;
+}
+
+p.aviso {
+  border-left: 2px red solid;
+  margin: 10px;
+  padding: 10px;
+  color:red;
+}
+
+p.ultmod {
+  clear: both;
+  border-top: black 2px solid;
+  margin-top: 1px;
+  padding-top: 2px;
+  text-align: left;
+}
+
+p.licencia {
+  text-align: left;
+}
+
+p.separador {
+  height: 10px;
+}
+
+p.inline-con-borde {
+  display: inline-block;
+  border: black 1px solid;
+  margin: 5px;
+  padding: 5px;
+}
+
+.mcl-centrado {
+  text-align: center;
+}
+
+a img {
+  border: none;
+}
+
+img.derecha {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+img.izquierda {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+img.vmedio {
+  vertical-align: middle;
+}
+
+.soft-atajo-teclado {
+  font-family: monospace;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.soft-menu {
+  background-color: #D4D0C8;
+  font-family: serif;
+}
+
+.incompleto {
+  background-color: #FFFFFF;
+  color: red;
+}
+
+.captura {
+  text-align: center;
+}
+
+.captura img, .captura svg, .captura iframe {
+  border: black 2px dotted;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.codigo-resaltado {
+  margin: 0 1px;
+  padding: 0 1px;
+  outline: red 2px solid;
+}
+
+.codigo-resaltado-caja {
+  display: inline-block;
+  outline: red 2px solid;
+}
+
+.codigo-modificacion {
+  color: red;
+  font-weight: bold;
+}
+
+.numero-circulo {
+  float: left;
+  margin-left: -60px;
+  margin-top: 10px;
+  font-size: 300%;
+  line-height: 1px;
+}
+
+math {
+  font-family: sans-serif;
+  font-size: 105%;
+}
+
+kbd {
+  font-family: monospace;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+div.filaflex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  clear: both;
+  margin: 5px 0px;
+}
+
+div.filaflex.cabecera {
+  margin-bottom: -5px;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+div.filaflex.nogrow div:not([class="icono"]) {
+  width: auto;
+  flex-grow: 0;
+}
+
+div.filaflex.nogrow h2, div.filaflex.nogrow h3 {
+  margin: 0;
+}
+
+div.filaflex div:not([class="icono"]) {
+  width: 100px;
+  flex-grow: 1;
+}
+
+div.filaflex div.nogrow {
+  width: auto;
+  flex-grow: 0;
+}
+
+div.filaflex div.columnaflex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+}
+
+div.filaflex div.columnaflex div {
+  width: auto;
+}
+
+div.filaflex div.icono-navegadores {
+  flex-grow: 0;
+  width: 50px;
+  margin-top: 8px;
+}
+
+div.filaflex div.icono-navegadores-vacio {
+  flex-grow: 0;
+  width: 50px;
+  margin-top: 8px;
+}
+
+div.filaflex div.icono-ok {
+  flex-grow: 0;
+  width: 40px;
+  margin-top: 8px;
+}
+
+div.filaflex div.icono-xhtml-ok {
+  flex-grow: 0;
+  width: 120px;
+  margin-top: 8px;
+}
+
+div.filaflex div.icono-enlace {
+  flex-grow: 0;
+  width: 40px;
+  /* no tiene margin-top porque uso la clase en div.cabecera */
+}
+
+div.filaflex pre {
+  margin: 5px 0;
+  white-space: pre-wrap;
+}
+
 div.codigo, div.resultado, div.resultado-object {
   clear: both;
   border: 2px black solid;
@@ -85,168 +297,6 @@ div.resultado-object object {
   width: 100%;
 }
 
-.resaltado {
-  color: red;
-  font-weight: bold;
-}
-
-.codigo-resaltado {
-  margin: 0 1px;
-  padding: 0 1px;
-  outline: red 2px solid;
-}
-
-div.html {
-  border: black 2px solid;
-  margin: 0 20px 10px;
-  padding: 10px 10px;
-  background-color: white;
-}
-
-div.codcss {
-  border: black 2px solid;
-  margin: 0 20px 10px;
-  padding: 0 10px;
-  background-color: #F3F3F3;
-}
-
-div.codshell {
-  border: black 2px solid;
-  margin: 0 20px 10px;
-  padding: 0 10px;
-  background-color: #F3F3F3;
-  color: black;
-}
-
-div.codtxt {
-  border: black 2px solid;
-  margin: 0 20px 10px;
-  padding: 0 10px;
-  background-color: #F3F3F3;
-  color: black;
-}
-
-div.codtxt pre, div.codshell pre {
-  font-family: "Inconsolata", monospace;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.clear {
-  clear: both;
-}
-
-h2 {
-  clear: both;
-}
-
-.derecha {
-  text-align: right;
-}
-
-.soft-menu {
-  background-color: #D4D0C8;
-  font-family: serif;
-}
-
-table.bordetbody {
-  border-collapse: collapse;
-}
-
-table.bordetbody tbody {
-  border-bottom: 5px black solid;
-}
-
-table.conborde, table.conborde td, table.conborde th {
-  border: black 1px solid;
-}
-
-table.franjas thead tr, table.franjas tbody tr:nth-child(even) {
-  background-color: #eee;
-  color: black;
-}
-
-address {
-  clear: both;
-  border-top: black solid 1px;
-  margin-top: 10px;
-  padding-top: 5px;
-}
-
-p.ultmod {
-  clear: both;
-  border-top: black 2px solid;
-  margin-top: 1px;
-  padding-top: 2px;
-  text-align: left;
-}
-
-p.licencia {
-  text-align: left;
-}
-
-table.ejemplo {
-  width: 100%;
-  border-spacing: 5px;
-  text-align: left;
-}
-
-table.sinborde td {
-  border: none;
-}
-
-td.conf {
-  background-color: #FFFFE0;
-  font-family: monospace;
-}
-
-td.expl {
-  background-color: #FFFFFF;
-}
-
-.incompleto {
-  background-color: #FFFFFF;
-  color: red;
-}
-
-object.ejercicio {
-  width: 90%;
-  height: 400px;
-  border: 2px solid black;
-}
-
-object.ejemplo {
-  width: 90%;
-  border: 2px solid black;
-}
-
-p.ejercicio {
-  text-align: center;
-}
-
-p.enlace-ejercicio {
-  margin-right: 5%;
-  font-size: 80%;
-  text-align: right;
-}
-
-.derecha {
-  float: right;
-  margin-left: 20px;
-}
-
-.izquierda {
-  float: left;
-  margin-right: 20px;
-}
-
-/* Lo que viene a continuación es específico de los apuntes de aplicaciones web */
-
-td.sinbordevert {
-  border-left: none;
-  border-right: none;
-}
-
 div.aviso-antiguo {
   border: red 3px solid;
   margin: 0 50px;
@@ -254,67 +304,66 @@ div.aviso-antiguo {
   background-color: #FFBABA;
 }
 
-
-/* Lo que viene a continuación son los restos de la CSS de Amaya */
-
-p {
-  margin:5px 0;
+table.mcl-listado {
+  border-collapse: collapse;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-p.aviso {
-  border-left: 2px red solid;
-  margin: 10px;
-  padding: 10px;
-  color:red;
+table.mcl-listado tr {
+  border-bottom: black 1px solid;
 }
 
-p.centrado {
-  text-align: center;
+table.mcl-listado tr.titulo {
+  border: none;
 }
 
-table.centrado {
+table.mcl-listado tr.titulo td {
+  padding-top: 20px;
+  font-weight: bolder;
+}
+
+table.mcl-listado tr.cabecera td {
+  border: none;
+  font-weight: bolder;
+}
+
+table.mcl-franjas thead tr, table.mcl-franjas tbody tr:nth-child(even) {
+  background-color: #eee;
+  color: black;
+}
+
+table.mcl-centrado {
   margin-left: auto;
   margin-right: auto;
+  text-align: left;
 }
 
-td.centrado, th.centrado {
+td.mcl-centrado, th.mcl-centrado, tbody.mcl-centrado {
   text-align: center;
 }
 
-p.derecha {
-  text-align: right;
+table.tabla-con-borde {
+  border: #B2B2B2 1px solid;
 }
 
-pre.fuente {
-  background-color: #E0E0E0;
-  color: black;
-  border: #7D7D7D 2px solid;
-  margin: 0 10px;
-  padding: 3px 5px;
+table.tabla-con-borde td, table.tabla-con-borde th {
+  border: black 1px solid;
 }
 
-hr {
-  clear: both;
-  width: 100%;
-}
-
-hr.corta {
-  clear: both;
-  width: 50%;
+th {
   text-align: center;
 }
 
-table.indice td {
-  vertical-align: top;
+ol, ul {
+  margin-top: 3px;
+  margin-bottom: 6px;
+  padding-left: 1.5em;
 }
 
-col.centrado {
-  padding: 0 10px;
-  text-align: center;
-}
-
-ul {
-  margin-top: 0;
+ul ul {
+  padding-left: 1em;
 }
 
 li {
@@ -328,37 +377,66 @@ img#vpp {
   border:none;
 }
 
-img.d {
-  float: right;
-  margin-left: 10px;
-  margin-bottom: 5px;
-}
-
-img.i {
-  float: left;
-  margin-right: 10px;
-  margin-bottom: 5px;
-}
-
-.captura img, .captura iframe {
-  border: black 2px dotted;
-  padding: 5px;
-  vertical-align: middle;
-}
-
-.captura {
-  text-align: center;
-}
-
 li {
   margin-bottom: 0.5em;
 }
 
-/* Pantallas pequeñas */
+/* Para ejemplos de ejecucion de codigo */
+
+div.mcl-diapo {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+  height: 20em;
+  border: black 2px dotted;
+  margin-bottom: 10px;
+  line-height: 110%;
+}
+
+div.mcl-diapo > div {
+  position: relative;
+  width: 99%;
+  height: 98%;
+  padding: 5px;
+}
+
+div.mcl-diapo p.control {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* Enlaces a normas */
+
+h2.con-aside, h3.con-aside, h4-con-aside {
+  float: left;
+}
+
+.enlace-norma {
+  float: right;
+  margin-left: 10px;
+}
+
+.enlace-norma > p {
+  float: left;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.enlace-norma a {
+  text-decoration: none;
+}
+
+.enlace-norma + p {
+  clear: left;
+}
+
+/* Pantallas estrechas */
+
 @media screen and (max-width: 768px) {
   html {
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 40px;
+    margin-right: 5px;
   }
 
   h1#indice {
@@ -393,23 +471,47 @@ li {
     display: none;
   }
 
-  table.ejemplo td, table.indice td {
-    display: block;
-    width: 100%;
-    margin-bottom: 5px;
-  }
-
   pre {
     text-align: left;
     white-space: pre-wrap;
   }
+
+  div.filaflex {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  div.filaflex.cabecera {
+    display: none;
+  }
+
+  div.filaflex div:not([class="icono"]) {
+    width: auto;
+  }
+
+  div.filaflex div.icono-navegadores-vacio {
+    display: none;
+  }
+
+  div.mcl-diapo {
+    height: auto !important;
+  }
+
+  div.mcl-diapo p.control {
+    display: none;
+  }
+
+  p.oculta-small {
+    display: none;
+  }
 }
 
-/* Pantallas grandes */
+/* Pantallas anchas */
+
 @media screen and (min-width: 768px) {
   html {
     margin-left: 12em;
-    margin-right: 4em;
+    margin-right: 1em;
   }
 
   nav {
@@ -493,10 +595,6 @@ li {
     white-space: pre-wrap !important;
   }
 
-  p.volver-principio {
-    display: none;
-  }
-
   tr {
     page-break-inside:avoid;
   }
@@ -549,9 +647,15 @@ div.portada li {
   margin-bottom: 0em;
 }
 
-/* Ejemplos de archivos de configuracion */
+/* Lenguajes pendientes de incluir en highlight.js */
 
 code.language-configuracion {
+}
+
+code.language-shell {
+}
+
+code.language-sql {
 }
 
 /* Clases para fragmentos de código en texto */

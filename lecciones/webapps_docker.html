@@ -59,7 +59,7 @@
 
       <p>A partir de marzo de 2017, Docker quiere publicar una nueva versión cada mes y ha cambiado su numeración al formato AA.MM (año y mes). Estas versiones se mantendrán solamente durante un mes, aunque habrá una versión trimestral que se mantendrá durante cuatro meses (la primera ha sido Docker 17.03).</p>
 
-      <p class="centrado">
+      <p class="mcl-centrado">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="900" viewBox="-50 -60 900 100">
           <line x1="35" y1="0" x2="850" y2="0" stroke-width="3" stroke="hsl(195, 80%, 40%)" />
           <text x="-30" y="4" text-anchor="start" style="font-size: 100%">Docker</text>
@@ -174,24 +174,26 @@
       <ul>
         <li><a href="https://github.com/wsargent/docker-cheat-sheet">Docker Cheat Sheet</a></li>
         <li>Una vez instalado Docker, todo se gestiona mediante comandos, que en Ubuntu se deben ejecutar como administrador:
-          <div class="codshell">
-            <pre>sudo docker ...</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker ...</code></pre>
           </div>
         </li>
         <li>Para ver los comandos disponibles (en general y en particular):
-          <div class="codshell">
-            <pre>sudo docker</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker</code></pre>
           </div>
 
-          <div class="codshell">
-            <pre>sudo docker image
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo docker image
 sudo docker network
-...</pre>
+...</code>
+</pre>
           </div>
         </li>
         <li>Para ver las opciones de cada comando:
-          <div class="codshell">
-            <pre>sudo docker cp --help</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker cp --help</code></pre>
           </div>
         </li>
       </ul>
@@ -203,26 +205,26 @@ sudo docker network
 
         <ul>
           <li>Para gestionar las imágenes, se utiliza el comando:
-            <div class="codshell">
-              <pre>sudo docker image ...</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker image ...</code></pre>
             </div>
           </li>
           <li>Para descargar una imagen:
-            <div class="codshell">
-              <pre>sudo docker image pull REPOSITORIO</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker image pull REPOSITORIO</code></pre>
             </div>
-            <div class="codshell">
-              <pre>sudo docker pull REPOSITORIO</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker pull REPOSITORIO</code></pre>
             </div>
           </li>
           <li>Para ver las imágenes ya descargadas:
-            <div class="codshell">
-              <pre>sudo docker image ls</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker image ls</code></pre>
             </div>
           </li>
           <li>Para borrar una imagen (se deben borrar previamente los contenedores basados en esa imagen):
-            <div class="codshell">
-              <pre>sudo docker image rm IMAGEN</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker image rm IMAGEN</code></pre>
             </div>
           </li>
         </ul>
@@ -234,72 +236,74 @@ sudo docker network
         <p>En los comandos siguientes CONTENEDOR es el nombre del contenedor, que podemos elegir al crearlo, y RED es el nombre de una red ya existente.</p>
         <ul>
           <li>Para crear un contenedor:
-            <div class="codshell">
-              <pre>sudo docker run --name CONTENEDOR REPOSITORIO</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker run --name CONTENEDOR REPOSITORIO</code></pre>
             </div>
             <p>Al crear el contenedor se pueden añadir diversas opciones:</p>
             <ul>
               <li>Para poner en marcha el contenedor nada más crearlo:
-                <div class="codshell">
-                  <pre>sudo docker run --name CONTENEDOR <strong>-d</strong> REPOSITORIO</pre>
+                <div class="codigo">
+                  <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-d</strong> REPOSITORIO</code></pre>
                 </div>
               </li>
               <li>Para incluir el contenedor en una red privada virtual (y que se pueda comunicar con el resto de contenedores incluidos en esa red):
-                <div class="codshell">
-                  <pre>sudo docker run --name CONTENEDOR <strong>--net=RED REPOSITORIO</strong></pre>
+                <div class="codigo">
+                  <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>--net=RED REPOSITORIO</strong></code></pre>
                 </div>
               </li>
               <li>Para que el contenedor atienda a un puerto determinado, aunque internamente atienda un puerto distinto:
-                <div class="codshell">
-                  <pre>sudo docker run --name CONTENEDOR <strong>-p PUERTO_EXTERNO:PUERTO_INTERNO</strong> REPOSITORIO</pre>
+                <div class="codigo">
+                  <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-p PUERTO_EXTERNO:PUERTO_INTERNO</strong> REPOSITORIO</code></pre>
                 </div>
               </li>
               <li>Para establecer variables de configuración del contenedor:
-                <div class="codshell">
-                  <pre>sudo docker run --name CONTENEDOR <strong>-e VARIABLE=VALOR</strong> REPOSITORIO</pre>
+                <div class="codigo">
+                  <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-e VARIABLE=VALOR</strong> REPOSITORIO</code></pre>
                 </div>
               </li>
             </ul>
           </li>
           <li>Para ver los contenedores en funcionamiento:
-            <div class="codshell">
-              <pre>sudo docker ps</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker ps</code></pre>
             </div>
           </li>
           <li>Para ver los contenedores en funcionamiento o detenidos:
-            <div class="codshell">
-              <pre>sudo docker ps -a</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker ps -a</code></pre>
             </div>
           </li>
           <li>Para detener un contenedor:
-            <div class="codshell">
-              <pre>sudo docker stop CONTENEDOR</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker stop CONTENEDOR</code></pre>
             </div>
           </li>
           <li>Para borrar un contenedor:
-            <div class="codshell">
-              <pre>sudo docker rm CONTENEDOR</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker rm CONTENEDOR</code></pre>
             </div>
           </li>
           <li>Para poner en marcha un contenedor detenido:
-            <div class="codshell">
-              <pre>sudo docker start CONTENEDOR</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker start CONTENEDOR</code></pre>
             </div>
           </li>
           <li>Para entrar en la shell del contenedor:
-            <div class="codshell">
-              <pre>sudo docker exec -it CONTENEDOR /bin/bash</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
             </div>
           </li>
           <li>Para salir de la shell del contenedor:
-            <div class="codshell">
-              <pre>exit</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">exit</code></pre>
             </div>
           </li>
           <li>Para copiar (o mover) archivos entre el contenedor y el sistema anfitrión o viceversa:
-            <div class="codshell">
-              <pre>sudo docker CP CONTENEDOR:ORIGEN DESTINO</pre>
-              <pre>sudo docker CP ORIGEN CONTENEDOR:DESTINO</pre>
+            <div class="codigo">
+              <pre>
+<code class="language-shell">sudo docker CP CONTENEDOR:ORIGEN DESTINO
+sudo docker CP ORIGEN CONTENEDOR:DESTINO</code>
+</pre>
             </div>
           </li>
         </ul>
@@ -312,28 +316,28 @@ sudo docker network
 
         <ul>
           <li>Para gestionar las redes, se utiliza el comando:
-            <div class="codshell">
-              <pre>sudo docker network ...</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker network ...</code></pre>
             </div>
           </li>
           <li>Para crear una red:
-            <div class="codshell">
-              <pre>sudo docker network create RED</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker network create RED</code></pre>
             </div>
           </li>
           <li>Para ver las redes existentes:
-            <div class="codshell">
-              <pre>sudo docker network ls</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker network ls</code></pre>
             </div>
           </li>
           <li>Para ver información detallada de una red (entre ella, los contenedores incluidos y sus IP privadas):
-            <div class="codshell">
-              <pre>sudo docker network inspect RED</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker network inspect RED</code></pre>
             </div>
           </li>
           <li>Para borrar una red:
-            <div class="codshell">
-              <pre>sudo docker network rm RED</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker network rm RED</code></pre>
             </div>
           </li>
         </ul>
@@ -344,13 +348,13 @@ sudo docker network
 
         <ul>
           <li>Para ver el espacio ocupado por las imágenes, los contenedores y los volúmenes:
-            <div class="codshell">
-              <pre>sudo docker system df</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker system df</code></pre>
             </div>
           </li>
           <li>Para eliminar los elementos que no se utilizan (incluso contenedores detenidos):
-            <div class="codshell">
-              <pre>sudo docker system prune</pre>
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker system prune</code></pre>
             </div>
           </li>
         </ul>

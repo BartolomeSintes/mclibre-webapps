@@ -72,9 +72,12 @@ post_max_size = 10M</code>
           </div>
           <p>en <strong>.htaccess</strong>:</p>
 
-          <div class="codshell">
-            <pre>php_value upload_max_filesize 10M
-php_value post_max_size 10M</pre>
+
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">php_value upload_max_filesize 10M
+php_value post_max_size 10M</code>
+</pre>
           </div>
         </li>
         <li>Permitir crear tablas en HTML Básico.
@@ -127,10 +130,10 @@ php_value post_max_size 10M</pre>
               <p class="captura"><img alt="Drupal. Usuarios" src="../img/drupal/drupal_usuarios_2.png" width="1000" height="340" /></p>
               <p>En el caso del usuario <strong>minieditor_1</strong>, le podemos poner:</p>
               <ul>
-                <li>Nombre de usuario: <span class="resaltado">minieditor_1</span></li>
-                <li>Dirección de correo electrónico: <span class="resaltado">minieditor_1@example.com</span></li>
-                <li>Contraseña: <span class="resaltado">minieditor_1</span></li>
-                <li>Roles: <span class="resaltado">minieditor</span></li>
+                <li>Nombre de usuario: <span class="codigo-modificacion">minieditor_1</span></li>
+                <li>Dirección de correo electrónico: <span class="codigo-modificacion">minieditor_1@example.com</span></li>
+                <li>Contraseña: <span class="codigo-modificacion">minieditor_1</span></li>
+                <li>Roles: <span class="codigo-modificacion">minieditor</span></li>
               </ul>
             </li>
             <li>Si no hay errores, Drupal indicará que se ha creado el usuario:
@@ -176,8 +179,8 @@ php_value post_max_size 10M</pre>
             </li>
             <li>Rellene el formulario de creación del Formato de texto:
               <ul>
-                <li>Nombre: <span class="resaltado">HTML_para_minieditor</span></li>
-                <li>Roles: Marcar la casilla de <span class="resaltado">minieditor</span></li>
+                <li>Nombre: <span class="codigo-modificacion">HTML_para_minieditor</span></li>
+                <li>Roles: Marcar la casilla de <span class="codigo-modificacion">minieditor</span></li>
               </ul>
               <p class="captura"><img alt="Drupal. Nuevo Formato de entrada" src="../img/drupal/drupal_ckeditor_minieditor_03.png" width="1008" height="420" title="Drupal. Nuevo Formato de entrada" /></p>
             </li>
@@ -201,13 +204,13 @@ php_value post_max_size 10M</pre>
               <ul>
                 <li>Basic Setup:
                   <ul>
-                    <li>Nombre: <span class="resaltado">CKEditor_para_minieditor</span></li>
-                    <li>Formatos de texto: Marcar la casilla de <span class="resaltado">HTML_para_minieditor</span> </li>
+                    <li>Nombre: <span class="codigo-modificacion">CKEditor_para_minieditor</span></li>
+                    <li>Formatos de texto: Marcar la casilla de <span class="codigo-modificacion">HTML_para_minieditor</span> </li>
                   </ul>
                 </li>
                 <li>Editor appearance:
                   <ul>
-                    <li>Barra de herramientas: <span class="resaltado">Básico</span></li>
+                    <li>Barra de herramientas: <span class="codigo-modificacion">Básico</span></li>
                   </ul>
                   <p class="captura"><img alt="Drupal. Nuevo perfil de CKEditor" src="../img/drupal/drupal_ckeditor_minieditor_13.png" width="1008" height="550" title="Drupal. Nuevo perfil de CKEditor" /></p>
                   <p class="captura"><img alt="Drupal. Nuevo perfil de CKEditor" src="../img/drupal/drupal_ckeditor_minieditor_14.png" width="1008" height="170" title="Drupal. Nuevo perfil de CKEditor" /></p>
@@ -292,16 +295,10 @@ php_value post_max_size 10M</pre>
         <li>Comprobar creando un artículo (con el formato de texto <strong>Full HTML</strong>) que al insertar una imagen el cuadro de diálogo incluye el botón "Ver Servidor":
           <p class="captura"><img alt="Drupal. IMCE" src="../img/drupal/drupal_imce_5.png" width="991" height="125" /></p>
 
-          <table class="centrado">
-            <tbody>
-              <tr>
-                <td><p class="captura"><img alt="Drupal. IMCE" src="../img/drupal/drupal_imce_5a.png" width="465" height="490" /></p>
-                </td>
-                <td><p class="captura"><img alt="Drupal. IMCE" src="../img/drupal/drupal_imce_5b.png" width="465" height="490" /></p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <p class="captura">
+            <img alt="Drupal. IMCE" src="../img/drupal/drupal_imce_5a.png" width="465" height="490" />
+            <img alt="Drupal. IMCE" src="../img/drupal/drupal_imce_5b.png" width="465" height="490" />
+          </p>
         </li>
       </ul>
     </section>

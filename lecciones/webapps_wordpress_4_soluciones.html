@@ -79,9 +79,9 @@
         </li>
 
         <li>
-          <div class="codcss">
-            <pre><code class="language-css">
-html, div.custom-header, div.site-content-contain, footer{
+          <div class="codigo">
+            <pre>
+<code class="language-css">html, div.custom-header, div.site-content-contain, footer{
  background-color: hsl(360, 75%, 70%);
 }
 
@@ -100,8 +100,8 @@ div.navigation-top ul#top-menu ul.sub-menu li.menu-item a {
 
 div#content {
  background-color: hsl(360, 75%, 90%);
-}
-</code></pre>
+}</code>
+</pre>
           </div>
         </li>
 
@@ -125,21 +125,23 @@ div#content {
         <li>Plugin Child Theme Configurator: <a href="https://wordpress.org/plugins/child-theme-configurator/">https://wordpress.org/plugins/child-theme-configurator/</a></li>
       </ul>
       <ol>
-        <li>Cree la carpeta <strong><span class="resaltado">twentyseventeen</span>-child</strong> y cree en ella los dos archivos siguientes:</li>
+        <li>Cree la carpeta <strong><span class="codigo-modificacion">twentyseventeen</span>-child</strong> y cree en ella los dos archivos siguientes:</li>
         <li>Cree el archivo <strong>style.css</strong> con el siguiente contenido. Aunque sean líneas comentadas, el contenido de estas líneas es importante. La línea más importante es la de Template, ya que en ella se dice cuál es el tema padre de este tema hijo, escribiendo el nombre de la carpeta que lo contiene. El resto debería contener información real.
-          <div class="codcss">
-            <pre>/*
-Theme Name: <span class="resaltado">Twenty Seventeen Child</span>
-Theme URI: <span class="resaltado">https://wordpress.org/themes/twentyseventeen/</span>
+          <div class="codigo">
+            <pre>
+<code class="language-css">/*
+Theme Name: <span class="codigo-modificacion">Twenty Seventeen Child</span>
+Theme URI: <span class="codigo-modificacion">https://wordpress.org/themes/twentyseventeen/</span>
 Template: twentyseventeen
-Author: <span class="resaltado">TU NOMBRE</span>
-Author URI: <span class="resaltado">TU PÁGINA WEB</span>
-Description: <span class="resaltado">Tema hijo de Twenty Seventeen</span>
-Version: <span class="resaltado">1.0</span>
-Updated: <span class="resaltado">2017-02-06</span>
+Author: <span class="codigo-modificacion">TU NOMBRE</span>
+Author URI: <span class="codigo-modificacion">TU PÁGINA WEB</span>
+Description: <span class="codigo-modificacion">Tema hijo de Twenty Seventeen</span>
+Version: <span class="codigo-modificacion">1.0</span>
+Updated: <span class="codigo-modificacion">2017-02-06</span>
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-*/</pre>
+*/</code>
+</pre>
           </div>
         </li>
         <li>Cree el archivo <strong>functions.php</strong> con el siguiente contenido
@@ -173,8 +175,9 @@ add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
       <ol>
         <li>Cuatro elementos de la interfaz
           <p>Para obtener el resultado propuesto, la hoja de estilo podría ser la siguiente:</p>
-          <div class="codcss">
-            <pre><code class="language-css">body.has-header-image .site-description {
+          <div class="codigo">
+            <pre>
+<code class="language-css">body.has-header-image .site-description {
   color: yellow;
 }
 
@@ -191,14 +194,16 @@ article.post {
 h2.entry-title {
   font-weight: bold;
   text-shadow: 5px 5px lightgrey;
-}</code></pre>
+}</code>
+</pre>
           </div>
         </li>
         <li>Widgets con borde y título con color de fondo en verde
           <p>Para obtener el resultado propuesto, la hoja de estilo podría ser la siguiente:</p>
 
-          <div class="codcss">
-            <pre><code class="language-css">section.widget {
+          <div class="codigo">
+            <pre>
+<code class="language-css">section.widget {
   border: green 3px solid;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -217,7 +222,8 @@ h2.widget-title {
   background-color: green;
   color: white;
   font-size: 1rem;
-}</code></pre>
+}</code>
+</pre>
           </div>
         </li>
       </ol>
@@ -231,15 +237,17 @@ h2.widget-title {
 
         <li>El código a incluir podría ser el siguiente (la url de la imagen debería cambiarse por la de la imagen subida):
 
-          <div class="codcss">
-            <pre><code class="language-css">&lt;div class="page-content"&gt;
-  <span class="resaltado">&lt;p style="text-align: center"&gt;
-    &lt;img class="alignnone size-full wp-image-102" src="http://192.168.1.4/wordpress/wp-content/uploads/2016/09/oops_200.png"
+          <div class="codigo">
+            <pre>
+<code class="language-css">&lt;div class="page-content"&gt;
+  <span class="codigo-resaltado-caja">&lt;p style="text-align: center"&gt;
+    &lt;img class="alignnone size-full wp-image-102" src="<span class="codigo-modificacion">http://192.168.1.4/wordpress/wp-content/uploads/2016/09/oops_200.png</span>"
     alt="" width="225" height="200" /&gt;
   &lt;/p&gt;</span>
-  &lt;p <span class="resaltado">style="color: red"</span>&gt;&lt;?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentyseventeen' ); ?&gt;&lt;/p&gt;
+  &lt;p <span class="codigo-resaltado">style="color: red"</span>&gt;&lt;?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentyseventeen' ); ?&gt;&lt;/p&gt;
   &lt;?php get_search_form(); ?&gt;
-&lt;/div&gt;&lt;!-- .page-content --&gt;</code></pre>
+&lt;/div&gt;&lt;!-- .page-content --&gt;</code>
+</pre>
           </div>
         </li>
       </ul>
@@ -251,7 +259,7 @@ h2.widget-title {
       <ul>
         <li>Para obtener el resultado propuesto, la hoja de estilo podría ser la siguiente:
 
-          <div class="codcss">
+          <div class="codigo">
             <pre>
 <code class="language-css">/* =Theme customization starts here
 -------------------------------------------------------------- */

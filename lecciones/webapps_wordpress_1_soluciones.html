@@ -188,18 +188,20 @@
       <ol>
         <li>Incluya en httpd.conf el alias correspondiente:
 
-          <div class="codtxt">
-            <pre>&lt;IfModule alias_module&gt;
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">&lt;IfModule alias_module&gt;
  ...
-<strong>    # 2017-01-30. Barto. Alias para WordPress </strong>
-    <strong>Alias /wordpress "<span class="resaltado">ruta</span>"
-    &lt;Directory "<span class="resaltado">ruta</span>"&gt;
+<strong>    # 2017-01-30. Barto. Alias para WordPress
+    Alias /wordpress "<span class="codigo-modificacion">ruta</span>"
+    &lt;Directory "<span class="codigo-modificacion">ruta</span>"&gt;
       Options Indexes FollowSymLinks Includes ExecCGI
       AllowOverride All
       Require all granted
     &lt;/Directory&gt;</strong><br />...
     ScriptAlias /cgi-bin/ "C:/xampp/cgi-bin/"
-&lt;/IfModule&gt;</pre>
+&lt;/IfModule&gt;</code>
+</pre>
           </div>
         </li>
         <li>Para abrir el formulario de entrada, abra la dirección <strong>http:// ... /wp-login.php</strong>.</li>

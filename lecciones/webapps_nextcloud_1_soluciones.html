@@ -55,31 +55,31 @@
       <ol>
         <li>Las instrucciones se encuentran en el repositorio <a href="https://github.com/greyltc/docker-nextcloud">https://github.com/greyltc/docker-nextcloud</a>.</li>
         <li>Si va a utilizar SQLite, ejecute el comando:
-          <div class="codshell">
-            <pre>sudo docker run -d --name nc -p 80:80 -p 443:443 greyltc/nextcloud</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker run -d --name nc -p 80:80 -p 443:443 greyltc/nextcloud</code></pre>
           </div>
         </li>
         <li>Si va a utilizar MariaDB, ejecute los comandos siguientes:
           <ul>
             <li>Cree una red:
-              <div class="codshell">
-                <pre>sudo docker network create nc_network</pre>
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker network create nc_network</code></pre>
               </div>
             </li>
             <li>Cree el contenedor de MariaDB:
-              <div class="codshell">
-                <pre>sudo docker run -d --name mariadb --net=nc_network bitnami/mariadb</pre>
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker run -d --name mariadb --net=nc_network bitnami/mariadb</code></pre>
               </div>
             </li>
             <li>Cree el contenedor de phpMyAdmin:
-              <div class="codshell">
-                <pre>sudo docker run -d --name phpmyadmin -p 8802:80 --net=nc_network bitnami/phpmyadmin</pre>
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker run -d --name phpmyadmin -p 8802:80 --net=nc_network bitnami/phpmyadmin</code></pre>
               </div>
             </li>
             <li>Abra en el navegador del host la página http://AAA.BBB.CCC.DDD:8802 (usuario root sin contraseña) y con phpMyAdmin cree un usuario nextcloud, que pueda acceder desde cualquier servidor, con contraseña nextcloud y base de datos única.</li>
             <li>Cree el contenedor de Nextcloud:
-              <div class="codshell">
-                <pre>sudo docker run -d --name nc -p 80:80 -p 443:443 --net=nc_network greyltc/nextcloud</pre>
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker run -d --name nc -p 80:80 -p 443:443 --net=nc_network greyltc/nextcloud</code></pre>
               </div>
             </li>
           </ul>
@@ -94,10 +94,10 @@
 
       <ul>
         <li>Consulte la dirección IP privada del servidor de bases de datos:
-          <div class="codshell">
-            <pre>sudo docker network inspect nc_network</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker network inspect nc_network</code></pre>
           </div>
-          <p>La dirección debe ser del tipo <span class="resaltado">172.XXX.YYY.ZZZ</span></p>
+          <p>La dirección debe ser del tipo <span class="codigo-modificacion">172.XXX.YYY.ZZZ</span></p>
         </li>
         <li>Configure el acceso de Nextcloud a la base de datos:
           <p class="captura"><img src="../img/nextcloud/1_2_s_1_completar.png" alt="Nextcloud. Conexión con MariaDB" width="400" height="680" title="Nextcloud. Conexión con MariaDB" /></p>
@@ -119,8 +119,8 @@
           <p class="captura"><img src="../img/nextcloud/1_3_s_2_actualizar.png" alt="Nextcloud. Actualizar" width="700" height="300" title="Nextcloud. Actualizar" /></p>
         </li>
         <li>Antes de hacer clic en el botón "Abrir el actualizador", ejecute el script que cambia los permisos:
-          <div class="codshell">
-            <pre>sudo docker exec -it nc sh -c 'set-nc-perms upgrade'</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker exec -it nc sh -c 'set-nc-perms upgrade'</code></pre>
           </div>
         </li>
         <li>Haga clic en el botón "Abrir el actualizador":</li>
@@ -131,8 +131,8 @@
           <p class="captura"><img src="../img/nextcloud/1_3_s_4_actualizar.png" alt="Nextcloud. Actualizar" width="700" height="300" title="Nextcloud. Actualizar" /></p>
         </li>
         <li>Ejecute el script que restaura los permisos:
-          <div class="codshell">
-            <pre>sudo docker exec -it nc sh -c 'set-nc-perms runtime'</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker exec -it nc sh -c 'set-nc-perms runtime'</code></pre>
           </div>
         </li>
       </ul>
@@ -143,54 +143,60 @@
 
       <ul>
         <li>Entre en la shell del contenedor de Nextcloud:
-          <div class="codshell">
-            <pre>sudo docker exec -it CONTENEDOR /bin/bash</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
           </div>
         </li>
         <li>Busque el directorio en el que se encuentra el fichero <strong>nextcloud.conf</strong>:
-          <div class="codshell">
-            <pre>find / -name nextcloud.conf</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">find / -name nextcloud.conf</code></pre>
           </div>
         </li>
         <li>Salga de la shell del contenedor de Nextcloud:
-          <div class="codshell">
-            <pre>exit</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">exit</code></pre>
           </div>
         </li>
         <li>Haga una copia de seguridad del fichero <strong>nextcloud.conf</strong> original:
-          <div class="codshell">
-            <pre>sudo docker cp CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf /tmp/nextcloud.conf.original
-sudo docker cp /tmp/nextcloud.conf.original CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf.original</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo docker cp CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf /tmp/nextcloud.conf.original
+sudo docker cp /tmp/nextcloud.conf.original CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf.original</code>
+</pre>
           </div>
         </li>
         <li>Copie el fichero <strong>nextcloud.conf</strong> del contenedor a la máquina virtual
-          <div class="codshell">
-            <pre>sudo docker cp CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf /tmp/nextcloud.conf</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker cp CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf /tmp/nextcloud.conf</code></pre>
           </div>
         </li>
         <li>Edite el fichero de configuración:
-          <div class="codshell">
-            <pre>sudo vi /tmp/nextcloud.conf</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo vi /tmp/nextcloud.conf</code></pre>
           </div>
         </li>
         <li>Añada una directiva VirtualHost que redirija las peticiones http a https.
-          <div class="codtxt">
-            <pre>&lt;VirtualHost *:80&gt;
-  Servername 192.168.<span class="resaltado">XXX.YYY</span>
-  Redirect permanent / https://192.168.<span class="resaltado">XXX.YYY</span>/
-&lt;/VirtualHost&gt;</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">&lt;VirtualHost *:80>
+  Servername 192.168.<span class="codigo-modificacion">XXX.YYY</span>
+  Redirect permanent / https://192.168.<span class="codigo-modificacion">XXX.YYY</span>/
+&lt;/VirtualHost></code>
+</pre>
           </div>
           <p><strong>Nota</strong>: Creo que el valor de Servername no es importante, pero debe haber Servername.</p>
         </li>
         <li>Copie el fichero <strong>nextcloud.conf</strong> de la máquina virtual al contenedor:
-          <div class="codshell">
-            <pre>sudo docker cp /tmp/nextcloud.conf CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker cp /tmp/nextcloud.conf CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf</code></pre>
           </div>
         </li>
         <li>Reinicie el contenedor
-          <div class="codshell">
-            <pre>sudo docker stop CONTENEDOR
-sudo docker start CONTENEDOR</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo docker stop CONTENEDOR
+sudo docker start CONTENEDOR</code>
+</pre>
           </div>
         </li>
       </ul>
@@ -200,14 +206,16 @@ sudo docker start CONTENEDOR</pre>
       <h2>Nextcloud (1) 5 - Crear alias</h2>
       <ul>
         <li>Como en el ejercicio anterior, añada el alias en el fichero <strong>nextcloud.conf</strong>:
-          <div class="codshell">
-            <pre>Alias /nc /usr/share/webapps/nextcloud/</pre>
+          <div class="codigo">
+            <pre><code class="language-configuracion">Alias /nc /usr/share/webapps/nextcloud/</code></pre>
           </div>
         </li>
         <li>Reinicie el contenedor
-          <div class="codshell">
-            <pre>sudo docker stop CONTENEDOR
-sudo docker start CONTENEDOR</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo docker stop CONTENEDOR
+sudo docker start CONTENEDOR</code>
+</pre>
           </div>
         </li>
       </ul>
@@ -218,45 +226,46 @@ sudo docker start CONTENEDOR</pre>
 
       <ul>
         <li>Entre en la shell del contenedor de Nextcloud:
-          <div class="codshell">
-            <pre>sudo docker exec -it CONTENEDOR /bin/bash</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
           </div>
         </li>
         <li>Busque el directorio en el que se encuentra el fichero <strong>config.php</strong> de Nextcloud:
-          <div class="codshell">
-            <pre>find / -name config.php</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">find / -name config.php</code></pre>
           </div>
         </li>
         <li>Salga de la shell del contenedor de Nextcloud:
-          <div class="codshell">
-            <pre>exit</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">exit</code></pre>
           </div>
         </li>
         <li>Copie el fichero <strong>config.php</strong> del contenedor a la máquina virtual
-          <div class="codshell">
-            <pre>sudo docker cp CONTENEDOR:/usr/share/webapps/nextcloud/condfig/config.php /tmp/config.php</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker cp CONTENEDOR:/usr/share/webapps/nextcloud/condfig/config.php /tmp/config.php</code></pre>
           </div>
         </li>
         <li>Edite el fichero de configuración:
-          <div class="codshell">
-            <pre>sudo vi /tmp/config.php</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo vi /tmp/config.php</code></pre>
           </div>
         </li>
         <li>Cambie la IP.
-          <div class="codtxt">
-            <pre>...
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">...
   array (
-    0 => '192.168.<span class="resaltado">XXX.YYY</span>'.
+    0 => '192.168.<span class="codigo-modificacion">XXX.YYY</span>'.
   ),
 ...
-  'overwirte.cli.url' => 'https://192.168.<span class="resaltado">XXX.YYY</span>'/nextcloud',
-...
+  'overwirte.cli.url' => 'https://192.168.<span class="codigo-modificacion">XXX.YYY</span>'/nextcloud',
+...</code>
 </pre>
           </div>
         </li>
         <li>Copie el fichero <strong>config.php</strong> de la máquina virtual al contenedor:
-          <div class="codshell">
-            <pre>sudo docker cp /tmp/config.php CONTENEDOR:/usr/share/webapps/nextcloud/condfig/config.php</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker cp /tmp/config.php CONTENEDOR:/usr/share/webapps/nextcloud/condfig/config.php</code></pre>
           </div>
         </li>
       </ul>

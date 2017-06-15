@@ -78,16 +78,18 @@
         <li><strong>Reconfigurar teclado</strong><strong></strong>
           <p>La máquina virtual de infrestructura viene configurada de forma predeterminada con un teclado inglés. Para cambiar la configuración del teclado al teclado español, se debe utilizar el comando dpkg-reconfigure:</p>
 
-          <div class="codshell">
-            <pre>sudo dpkg-reconfigure keyboard-configuration</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo dpkg-reconfigure keyboard-configuration</code></pre>
           </div>
         </li>
         <li><strong>Habilitar SSH en la máquina virtual</strong>
           <p>El servidor SSH está deshabilitado de forma predeterminada. Para habilitarlo:</p>
 
-          <div class="codshell">
-            <pre>sudo mv /etc/init/ssh.conf.back /etc/init/ssh.conf
-sudo start ssh</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo mv /etc/init/ssh.conf.back /etc/init/ssh.conf
+sudo start ssh</code>
+</pre>
           </div>
         </li>
         <li><strong>Instalar PuTTY</strong>
@@ -124,15 +126,19 @@ sudo start ssh</pre>
           <p class="captura"><img src="../img/bitnami/2_3_s_1_opencart.png" alt="Módulo OpenCart para Ubuntu en Bitnami" title="Módulo OpenCart para Ubuntu en Bitnami" width="1022" height="290" /></p>
           <p>A continuación se puede utilizar el comando wget (hay que moverse antes a la carpeta en que queramos realizar la descarga):</p>
 
-          <div class="codshell">
-            <pre>cd /tmp
-wget https://bitnami.com/redirect/to/130228/bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-shell">cd /tmp
+wget https://bitnami.com/redirect/to/130228/bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run</code>
+</pre>
           </div>
           <p>Y por último cambiar los permisos del archivo y ejecutarlo:</p>
 
-          <div class="codshell">
-            <pre>chmod +x ./bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run
-sudo ./bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-shell">chmod +x ./bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run
+sudo ./bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run</code>
+</pre>
           </div>
         </li>
         <li><strong>Instalar la aplicación</strong>
@@ -142,8 +148,8 @@ sudo ./bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run</pre>
         </li>
         <li><strong>Apagar la máquina virtual</strong>
           <p>Para apagar la máquina virtual, se puede utilizar el comando poweroff:</p>
-          <div class="codshell">
-            <pre>bitnami@linux:~$ sudo poweroff</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">bitnami@linux:~$ sudo poweroff</code></pre>
           </div>
         </li>
       </ul>

@@ -187,7 +187,7 @@ $wgAllowTitlesInSVG = true;</code>
                 <pre>
 <code class="language-php">$wgSVGConverter = 'Inkscape';
 $wgSVGConverters = array(
-    'Inkscape' =&gt; '"<span class="resaltado">ruta_de_Inkscape</span>\inkscape.exe" -z -w $width -f $input -e $output',
+    'Inkscape' =&gt; '"<span class="codigo-modificacion">ruta_de_Inkscape</span>\inkscape.exe" -z -w $width -f $input -e $output',
 );</code>
 </pre>
               </div>
@@ -204,7 +204,7 @@ $wgSVGConverters = array(
 $wgSVGConverter = 'ImageMagick';
 $wgUseImageMagick = true;
 $wgSVGConverters = array(
-    'ImageMagick' =&gt; '"<span class="resaltado">ruta_de_ImageMagick</span>/convert.exe" -background white -geometry $width $input $output',
+    'ImageMagick' =&gt; '"<span class="codigo-modificacion">ruta_de_ImageMagick</span>/convert.exe" -background white -geometry $width $input $output',
   );</code>
 </pre>
               </div>
@@ -465,10 +465,10 @@ mw.hook( 'wikipage.content' ).add( createCollapseButtons )</code>
     <section id="ejercicio-15">
       <h2>MediaWiki (2) XX - Otros</h2>
 
-      <table class="conborde">
+      <table class="tabla-con-borde">
         <tbody>
           <tr>
-            <th colspan="2" class="sinbordevert">Texto</th>
+            <th colspan="2">Texto</th>
           </tr>
           <tr>
             <th>Resultado</th>

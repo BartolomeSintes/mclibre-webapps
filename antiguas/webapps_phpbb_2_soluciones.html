@@ -63,7 +63,9 @@
       <h2>phpBB (2) A1 - Acceder desde otros ordenadores</h2>
       <ul>
         <li>Incluir en httpd.conf el alias correspondiente:
-          <pre class="fuente">&lt;IfModule alias_module&gt;
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">&lt;IfModule alias_module&gt;
 
 <strong>    # 2013-01-30. Alias para acceder al foro sin necesidad de poner la ruta completa:</strong>
     <strong>Alias /phpbb "ruta"
@@ -74,7 +76,9 @@
     &lt;/Directory&gt;</strong>
 
     ScriptAlias /cgi-bin/ "C:/xampp/cgi-bin/"
-&lt;/IfModule&gt;</pre>
+&lt;/IfModule&gt;</code>
+</pre>
+          </div>
         </li>
       </ul>
     </section>
@@ -149,7 +153,7 @@
     <section id="ejercicio-21">
       <h2>phpBB (2) B1 - Foro completo</h2>
 
-      <p class="resaltado">Por completar</p>
+      <p class="incompleto">Por completar</p>
     </section>
 
     <section id="ejercicio-22">
@@ -174,10 +178,14 @@
       <ol>
         <li>El logotipo inicial del foro se llama site_logo.gif y se encuentra en la carpeta <strong>/styles/<em>tema</em>/imageset</strong>, donde <strong><em>tema</em></strong> es el tema utilizado (prosilver o cualquier otro). Copie la imagen que quiera utilizar como logo en esa carpeta.</li>
         <li>El archivo <strong>/styles/<em>tema</em>/imageset/imageset.cfg</strong> es el archivo de configuración de imágenes donde se indican qué imágenes se utilizan. Cambie la línea img_site_logo indicando el nombre y tamaño en píxeles de la imagen.
-          <pre class="fuente"># Images
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion"># Images
 # img_site_logo = site_logo.gif*52*139
 # Barto 03/12/13 He cambiado el logo
-img_site_logo = webapps_logo.png*73*91</pre>
+img_site_logo = webapps_logo.png*73*91</code>
+</pre>
+          </div>
         </li>
         <li>En el Panel de Administración, actualice la galería de imágenes:
           <p class="captura"><img alt="phpBB. Cambiar logo 1" src="img/phpbb_3_0/phpbb_webapps_cambio_logo_1.png" width="1024" height="410" title="phpBB. Cambiar logo 1" /></p>
@@ -200,8 +208,11 @@ img_site_logo = webapps_logo.png*73*91</pre>
       </ul>
       <ol>
         <li>La plantilla de la cabecera de las páginas es el archivo <strong>overall_header.html</strong> del estilo utilizado, por ejemplo de prosilver. Edite la plantilla <strong>overall_header.html </strong>para incluir la referencia al favicon en el elemento &lt;head&gt;, por ejemplo justo antes de cerra el elemento:
-          <pre class="fuente"><span class="resaltado">&lt;link rel="shortcut icon" href="http://ruta/absoluta/al/foro/favicon.ico" /&gt;</span>
-&lt;/head&gt;</pre>
+          <div class="codigo">
+            <pre>
+<code class="language-html"><span class="codigo-modificacion">&lt;link rel="shortcut icon" href="http://ruta/absoluta/al/foro/favicon.ico" /&gt;</span>
+&lt;/head&gt;</code></pre>
+          </div>
           <p><strong>Nota</strong>: Si Zend Eclipse PDT no puede editar esa página, utilice otro editor de texto plano (Notepad++, psPad, etc).</p>
         </li>
         <li>Copie el archivo favicon en la carpeta raíz del foro.</li>
@@ -220,19 +231,19 @@ img_site_logo = webapps_logo.png*73*91</pre>
     <section id="ejercicio-25">
       <h2>phpBB (2) B5 - Creación de foros</h2>
 
-      <p class="resaltado">Por completar</p>
+      <p class="incompleto">Por completar</p>
     </section>
 
     <section id="ejercicio-26">
       <h2>phpBB (2) B6 - Creación de usuarios</h2>
 
-      <p class="resaltado">Por completar</p>
+      <p class="incompleto">Por completar</p>
     </section>
 
     <section id="ejercicio-31">
       <h2>phpBB (2) C - Migración a MyBB</h2>
 
-      <p class="resaltado">Por completar</p>
+      <p class="incompleto">Por completar</p>
     </section>
 
     <footer>

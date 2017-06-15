@@ -165,28 +165,32 @@
             <li>
               <p>En el apartado "CSS adicional" si sólo se tiene en cuenta la estructura html del documento, las reglas pueden no dar ningún resultado. Por ejemplo, si se añade la regla:</p>
 
-              <div class="codcss">
-                <pre><code class="language-css">/*
+              <div class="codigo">
+                <pre>
+<code class="language-css">/*
 Puedes añadir tu propio CSS aquí.
 
 Haz clic en el icono de ayuda de arriba para averiguar más.
 */
 h1 {
   color: red;
-}</code>  </pre>
+}</code>
+</pre>
               </div>
 
               <p>... el título no cambiaría de color. Pero si utilizamos el mismo selector que se muestra en la pestaña "Computada" del Inspector</p>
 
-              <div class="codcss">
-                <pre><code class="language-css">/*
+              <div class="codigo">
+                <pre>
+<code class="language-css">/*
 Puedes añadir tu propio CSS aquí.
 
 Haz clic en el icono de ayuda de arriba para averiguar más.
 */
 body.has-header-image .site-title a {
   color: red;
-}</code>  </pre>
+}</code>
+</pre>
               </div>
 
               <p>... entonces sí que cambia el color del título.</p>
@@ -255,7 +259,7 @@ body.has-header-image .site-title a {
         </li>
         <li>Añada en la hoja de estilo del tema hijo (no en el apartado CSS adicional, sino en la propia hoja de estilo mediante la opción Editor de WordPress) la regla obtenida en el ejercicio anterior para cambiar el color del título:
 
-          <div class="codcss">
+          <div class="codigo">
             <pre>
 <code class="language-css">body.has-header-image .site-title a {
   color: yellow;
@@ -310,13 +314,15 @@ body.has-header-image .site-title a {
         <li>Obtener en <a href="https://fonts.google.com/">Google Fonts</a> la regla arroba a insertar en la hoja de estilo, como se explica en la <a href="http://www.mclibre.org/consultar/htmlcss/css/css_fuentes_web.html">lección de Fuentes web de los apuntes de HTML/CSS</a>.</li>
         <li>Añadir en la hoja de estilo del tema la regla-arroba y utilizar el nombre de la fuente en la etiqueta deseada:
 
-          <div class="codcss">
-            <pre><code class="language-css">@import url(http://fonts.googleapis.com/css?family=Orbitron);
+          <div class="codigo">
+            <pre>
+<code class="language-css">@import url(http://fonts.googleapis.com/css?family=Orbitron);
 
 div.navigation-top {
   font-family: Orbitron;
   font-size: 125%;
-}</code>    </pre>
+}</code>
+</pre>
           </div>
         </li>
         <li>Con el ejemplo anterior, el resultado sería el siguiente:
@@ -342,7 +348,7 @@ div.navigation-top {
 
       <p>El plugin Easy Google Fonts permite integrar las fuentes de Google Fonts en WordPress.</p>
 
-      <p class="centrado"><img alt="WordPress. Plugin Easy Google Fonts" src="../img/wordpress/wp_4_google_fonts_11.png" width="475" height="160" /></p>
+      <p class="mcl-centrado"><img alt="WordPress. Plugin Easy Google Fonts" src="../img/wordpress/wp_4_google_fonts_11.png" width="475" height="160" /></p>
       <ol>
         <li>Instalar el plugin Easy Google Fonts, que añade dos apartados en el panel de administración de WordPress:
           <ul>

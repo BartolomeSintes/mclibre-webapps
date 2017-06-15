@@ -9,7 +9,7 @@
 
 /* Estilo para PHP imitando a Zend Eclipse PDT */
 
-code.language-php { font-weight: bold; font-size: 110%; }
+code.language-php { }
 
 pre code.language-php .comment      { color: rgb( 85,127, 95) } /* comment                              */
 pre code.language-php .keyword      { color: rgb(127,  0, 85) } /* keyword                              */
@@ -21,7 +21,7 @@ pre code.language-php .variable     { }                         /* variable star
 
 /* Estilo para HTML imitando a Zend Eclipse PDT */
 
-code.language-html { font-weight: bold; font-size: 110%; }
+code.language-html { }
 
 pre code.language-html .tag       { color: rgb( 63,127,127) } /* any tag from "<" till ">"              */
 pre code.language-html .attribute { color: rgb(127,  0,127) } /* tag's attribute with or without value  */
@@ -33,7 +33,7 @@ pre code.language-html .cdata     { color: rgb(  0,128,128) } /* CDATA section  
 
 /* Estilo para CSS imitando a Zend Eclipse PDT */
 
-code.language-css { font-weight: bold; font-size: 110%; }
+code.language-css { }
 
 pre code.language-css .tag           { color: rgb( 63,127,127) } /* tag in selectors                    */
 pre code.language-css .id            { color: rgb( 63,127,127) } /* #some_name in selectors             */

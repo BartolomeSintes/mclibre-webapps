@@ -94,24 +94,28 @@
       <ol>
         <li>Extensión mod_rewrite de Apache
           <p>En el archivo <strong>.htaccess</strong> del directorio de Drupal, active la directiva <strong>RewriteBase</strong> con la dirección de su instalación. Por ejemplo:</p>
-          <div class="codtxt">
-            <pre># Barto. Indico la dirección de Drupal.
-RewriteBase <span class="resaltado">/webapps/drupal</span></pre>
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion"># Barto. Indico la dirección de Drupal.
+RewriteBase <span class="codigo-modificacion">/webapps/drupal</span></code>
+</pre>
           </div>
         </li>
 
         <li>Tiempo de ejecución de los scripts
           <p>En el archivo <strong>php.ini</strong> del servidor aumente la directiva <strong>max_execution_time</strong>, por ejemplo a 60 minutos (3600 segundos), y reinicie el servidor:</p>
-          <div class="codtxt">
-            <pre>; Barto. Aumento tiempo de ejecución para la instalación de Drupal.
-max_execution_time = <span class="resaltado">3600</span></pre>
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">; Barto. Aumento tiempo de ejecución para la instalación de Drupal.
+max_execution_time = <span class="codigo-modificacion">3600</span></code>
+</pre>
           </div>
         </li>
 
         <li>Extensión fileinfo
           <p>El archivo <strong>php.ini</strong> debe tener descomentada la línea siguiente:</p>
-          <div class="codtxt">
-            <pre>extension=php_fileinfo.dll</pre>
+          <div class="codigo">
+            <pre><code class="language-configuracion">extension=php_fileinfo.dll</code></pre>
           </div>
         </li>
       </ol>
@@ -186,9 +190,9 @@ opcache.enable_cli=1</code>
               </ul>
             </li>
             <li>Configurar base de datos
-              <p>Nombre de la base de datos: <span class="resaltado">iaw_drupal_1</span></p>
-              <p>Nombre de usuario de la base de datos: <span class="resaltado">iaw_drupal_1</span></p>
-              <p>Contraseña de la base de datos: <span class="resaltado">iaw_drupal_1</span></p>
+              <p>Nombre de la base de datos: <span class="codigo-modificacion">iaw_drupal_1</span></p>
+              <p>Nombre de usuario de la base de datos: <span class="codigo-modificacion">iaw_drupal_1</span></p>
+              <p>Contraseña de la base de datos: <span class="codigo-modificacion">iaw_drupal_1</span></p>
             </li>
             <li>Instalar perfil</li>
             <li>Configurar traducciones
@@ -196,15 +200,15 @@ opcache.enable_cli=1</code>
               <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_13_instalacion.png" width="760" height="390" /></p>
             </li>
             <li>Configurar sitio
-              <p>Nombre del sitio web: <span class="resaltado">Mi Drupal</span></p>
-              <p>Correo electrónico del sitio: <span class="resaltado">midrupal@example.com</span></p>
-              <p>Nombre de usuario: <span class="resaltado">admin</span></p>
-              <p>Contraseña: <span class="resaltado">admin</span></p>
-              <p>Dirección de correo electrónico: <span class="resaltado">admin@example.com</span></p>
-              <p>País predefinido: <span class="resaltado">España</span></p>
-              <p>Zona horaria predefinida: <span class="resaltado">Europe/Madrid</span></p>
-              <p>Comprobar actualizaciones automáticamente: <span class="resaltado">Marcar</span></p>
-              <p>Recibir notificaciones por correo electrónico: <span class="resaltado">Desmarcar</span></p>
+              <p>Nombre del sitio web: <span class="codigo-modificacion">Mi Drupal</span></p>
+              <p>Correo electrónico del sitio: <span class="codigo-modificacion">midrupal@example.com</span></p>
+              <p>Nombre de usuario: <span class="codigo-modificacion">admin</span></p>
+              <p>Contraseña: <span class="codigo-modificacion">admin</span></p>
+              <p>Dirección de correo electrónico: <span class="codigo-modificacion">admin@example.com</span></p>
+              <p>País predefinido: <span class="codigo-modificacion">España</span></p>
+              <p>Zona horaria predefinida: <span class="codigo-modificacion">Europe/Madrid</span></p>
+              <p>Comprobar actualizaciones automáticamente: <span class="codigo-modificacion">Marcar</span></p>
+              <p>Recibir notificaciones por correo electrónico: <span class="codigo-modificacion">Desmarcar</span></p>
             </li>
             <li>Fin de la instalación
               <p>Cuando termine la instalación se mostrará la página de Drupal con el menú de administración en la parte superior:</p>
@@ -235,7 +239,7 @@ opcache.enable_cli=1</code>
             <pre>
 <code class="language-php"># Barto. Añado localhost como servidor de confianza
  $settings['trusted_host_patterns'] = array(
-  <span class="resaltado">'^localhost$'</span>,
+  <span class="codigo-resaltado">'^localhost$'</span>,
 );</code>
 </pre>
           </div>
@@ -346,24 +350,28 @@ opcache.enable_cli=1</code>
       <h2>Drupal (1) 6 - Acceder desde otros ordenadores</h2>
       <ul>
         <li>Incluya en httpd.conf el alias correspondiente:
-          <pre class="fuente">&lt;IfModule alias_module&gt;
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">&lt;IfModule alias_module&gt;
  ...
 <strong>    # 2016-02-01. Alias para acceder a Drupal sin necesidad de poner la ruta completa:</strong>
-    <strong>Alias /drupal "<span class="resaltado">ruta</span>"
-    &lt;Directory "<span class="resaltado">ruta</span>"&gt;
+    <strong>Alias /drupal "<span class="codigo-modificacion">ruta</span>"
+    &lt;Directory "<span class="codigo-modificacion">ruta</span>"&gt;
       Options Indexes FollowSymLinks Includes ExecCGI
       AllowOverride All
       Require all granted
     &lt;/Directory&gt;</strong><br />...
     ScriptAlias /cgi-bin/ "C:/xampp/cgi-bin/"
-&lt;/IfModule&gt;</pre>
+&lt;/IfModule&gt;</code>
+</pre>
+          </div>
         </li>
         <li>En el archivo <strong>.htaccess</strong> del directorio de Drupal, modifique la directiva <strong>RewriteBase</strong>:
 
           <div class="codigo">
             <pre>
 <code class="language-configuracion"># Barto. Indico la dirección de Drupal.
-RewriteBase <span class="resaltado">/drupal</span></code>
+RewriteBase <span class="codigo-modificacion">/drupal</span></code>
 </pre>
           </div>
         </li>
@@ -373,7 +381,7 @@ RewriteBase <span class="resaltado">/drupal</span></code>
             <pre>
 <code class="language-php"># Barto. Añado IP localhost como servidor de confianza
  $settings['trusted_host_patterns'] = array(
-  '^localhost$', <span class="resaltado">'^192.168.XXX.YYY$'</span>,
+  '^localhost$', <span class="codigo-modificacion">'^192.168.XXX.YYY$'</span>,
 );</code>
 </pre>
           </div>
@@ -396,9 +404,9 @@ RewriteBase <span class="resaltado">/drupal</span></code>
           <div class="codigo">
             <pre>
 <code class="language-php">$databases['default']['default'] = array (
-  'database' =&gt; '<span class="resaltado">iaw_drupal_2</span>',
-  'username' =&gt; '<span class="resaltado">iaw_drupal_2</span>',
-  'password' =&gt; '<span class="resaltado">iaw_drupal_2</span>',
+  'database' =&gt; '<span class="codigo-modificacion">iaw_drupal_2</span>',
+  'username' =&gt; '<span class="codigo-modificacion">iaw_drupal_2</span>',
+  'password' =&gt; '<span class="codigo-modificacion">iaw_drupal_2</span>',
   'prefix' =&gt; '',
   'host' =&gt; 'localhost',
  ...</code>

@@ -81,10 +81,10 @@
         <li>Complete la configuración la máquina virtual:
           <p class="captura"><img alt="ownCloud. VirtualBox" src="img/owncloud_8_2/1_2_s_4_virtualbox.png" width="539" height="496" title="ownCloud. Instalación" /></p>
           <ul>
-            <li>Tipo: <span class="resaltado">Linux</span></li>
-            <li>Versión: <span class="resaltado">Ubuntu (64-bit)</span></li>
-            <li>Tamaño de memoria: <span class="resaltado">al menos 1 GB</span></li>
-            <li>Disco duro: <span class="resaltado">Usar un archivo de disco duro virtual existente: bitnami-owncloud-8.2.1-0-ubuntu-14.04.vmdk</span></li>
+            <li>Tipo: <span class="codigo-modificacion">Linux</span></li>
+            <li>Versión: <span class="codigo-modificacion">Ubuntu (64-bit)</span></li>
+            <li>Tamaño de memoria: <span class="codigo-modificacion">al menos 1 GB</span></li>
+            <li>Disco duro: <span class="codigo-modificacion">Usar un archivo de disco duro virtual existente: bitnami-owncloud-8.2.1-0-ubuntu-14.04.vmdk</span></li>
           </ul>
         </li>
         <li>Una vez creada la máquina, haga clic en Configurar:
@@ -133,21 +133,21 @@
           <p class="captura"><img alt="ownCloud. Configuración https" src="img/owncloud_8_2/1_4_s_1_https.png" width="734" height="413" title="ownCloud. Configuración básica 1" /></p>
         </li>
         <li>Vaya al directorio de configuración de Apache:
-          <div class="codshell">
-            <pre>cd /opt/bitnami/apache2/conf</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">cd /opt/bitnami/apache2/conf</code></pre>
           </div>
         </li>
         <li>Edite el archivo de configuración de Apache:
-          <div class="codshell">
-            <pre>vi httpd.conf</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">vi httpd.conf</code></pre>
           </div>
         </li>
         <li>Añada la directiva VirtualHost
           <p class="captura"><img alt="ownCloud. Configuración https" src="img/owncloud_8_2/1_4_s_2_https.png" width="730" height="400" title="ownCloud. Configuración básica 1" /></p>
         </li>
         <li>Reinicie Apache
-          <div class="codshell">
-            <pre>sudo /opt/bitnami/ctlscript.sh restart apache</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo /opt/bitnami/ctlscript.sh restart apache</code></pre>
           </div>
         </li>
       </ul>
@@ -163,16 +163,16 @@
           <p class="captura"><img alt="ownCloud. Configuración https" src="img/owncloud_8_2/1_5_s_1_sts.png" width="740" height="400" title="ownCloud. Configuración básica 1" /></p>
         </li>
         <li>Reinicie Apache
-          <div class="codshell">
-            <pre>sudo /opt/bitnami/ctlscript.sh restart apache</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo /opt/bitnami/ctlscript.sh restart apache</code></pre>
           </div>
         </li>
         <li>Modifique la directiva DocumentRoot
           <p class="captura"><img alt="ownCloud. Configuración https" src="img/owncloud_8_2/1_5_s_2_sts.png" width="740" height="400" title="ownCloud. Configuración básica 1" /></p>
         </li>
         <li>Reinicie Apache
-          <div class="codshell">
-            <pre>sudo /opt/bitnami/ctlscript.sh restart apache</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo /opt/bitnami/ctlscript.sh restart apache</code></pre>
           </div>
         </li>
       </ul>
@@ -197,35 +197,35 @@
           <ul>
             <li>Edite el archivo /etc/vsftpd.conf, modificando en las últimas líneas
               del fichero la directiva listen_address:
-              <div class="codshell">
-                <pre>listen_address=0.0.0.0</pre>
+              <div class="codigo">
+                <pre><code class="language-configuacion">listen_address=0.0.0.0</code></pre>
               </div>
               <p class="captura"><img alt="ownCloud. Configuración VSFTP" src="img/owncloud_8_2/1_6_s_1_ftp.png" width="740" height="400" title="ownCloud. Configuración básica 1" /></p>
             </li>
             <li>Modifique la contraseña del usuario <strong>bitnamiftp</strong>
-              <div class="codshell">
-                <pre>sudo passwd bitnamiftp</pre>
+              <div class="codigo">
+                <pre><code class="language-shell">sudo passwd bitnamiftp</code></pre>
               </div>
             </li>
             <li>Abra el puerto 21
-              <div class="codshell">
-                <pre>sudo ufw allow 21</pre>
+              <div class="codigo">
+                <pre><code class="language-shell">sudo ufw allow 21</code></pre>
               </div>
             </li>
             <li>Reinicie el servicio VSTFP
-              <div class="codshell">
-                <pre>sudo service vsftpd restart</pre>
+              <div class="codigo">
+                <pre><code class="language-shell">sudo service vsftpd restart</code></pre>
               </div>
             </li>
           </ul>
         </li>
         <li>Instale Filezilla o WinSCP y conéctese a la máquina virtual con los datos siguientes:
           <ul>
-            <li>File protocol: <span class="resaltado">FTP</span></li>
-            <li>Encrypction: <span class="resaltado">No encryption</span></li>
-            <li>Host name: <span class="resaltado">192.168.XXX.YYY</span></li>
-            <li>Port number: <span class="resaltado">21</span></li>
-            <li>UserName: <span class="resaltado">bitnamiftp</span></li>
+            <li>File protocol: <span class="codigo-modificacion">FTP</span></li>
+            <li>Encrypction: <span class="codigo-modificacion">No encryption</span></li>
+            <li>Host name: <span class="codigo-modificacion">192.168.XXX.YYY</span></li>
+            <li>Port number: <span class="codigo-modificacion">21</span></li>
+            <li>UserName: <span class="codigo-modificacion">bitnamiftp</span></li>
           </ul>
         </li>
       </ol>

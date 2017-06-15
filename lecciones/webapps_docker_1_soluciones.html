@@ -52,8 +52,8 @@
       <ol>
         <li>La imagen Docker de phpMyAdmin de Bitnami se encuentra en <a href="https://github.com/bitnami/bitnami-docker-phpmyadmin">https://github.com/bitnami/bitnami-docker-phpmyadmin</a>.</li>
         <li>Para crear un contenedor phpMyAdmin:
-          <div class="codshell">
-            <pre>sudo docker run -d -p 8802:80 --name phpmyadmin --net=opencart_network bitnami/phpmyadmin</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker run -d -p 8802:80 --name phpmyadmin --net=opencart_network bitnami/phpmyadmin</code></pre>
           </div>
         </li>
         <li>Este phpMyAdmin se abriría escribiendo en el navegador del host <strong>http://AAAA.BBB.CCC.DDD:8802</strong></li>
@@ -68,39 +68,39 @@
       <ol>
         <li>Primero habría que detener y borrar los contenedores anteriores.</li>
         <li><strong>Contenedor de phpMyAdmin</strong>
-          <div class="codshell">
-            <pre>sudo docker run -d -p 8802:80 --name phpmyadmin --net=opencart_network bitnami/phpmyadmin</pre>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker run -d -p 8802:80 --name phpmyadmin --net=opencart_network bitnami/phpmyadmin</code></pre>
           </div>
         </li>
         <li><strong>Contenedor de OpenCart</strong>
           <ul>
             <li>Cree la imagen de OpenCart
-              <div class="codshell">
-                <pre>sudo docker run -d -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 8801:80 --name opencart --net=opencart_network bitnami/opencart</pre>
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker run -d -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 8801:80 --name opencart --net=opencart_network bitnami/opencart</code></pre>
               </div>
             </li>
             <li>A continuación es necesario modificar los archivos de configuración de OpenCart para que los enlaces de la aplicación contengan el puerto.
               <p><strong>Nota</strong>: He tenido que modificar los archivos de configuración a mano porque si incluía el puerto al crear la imagen de OpenCart el fichero de configuración no se creaba correctamente.</p>
             </li>
             <li>Copie el archivo de configuración de la imagen para poderlo modificar:
-              <div class="codshell">
-                <pre>sudo docker cp opencart:/bitnami/opencart/config.php /tmp/config.php</pre>
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker cp opencart:/bitnami/opencart/config.php /tmp/config.php</code></pre>
               </div>
             </li>
             <li>Edite el archivo de configuración:
-              <div class="codshell">
-                <pre>sudo vi /tmp/config.php</pre>
+              <div class="codigo">
+                <pre><code class="language-shell">sudo vi /tmp/config.php</code></pre>
               </div>
               <p>Incluya el puerto PUERTO1 en las direcciones de base:</p>
               <div class="codigo">
                 <pre>
 <code class="language-php">/* config.php */
 // HTTP
-define('HTTP_SERVER', 'http://AAA.BBB.CCC.DDD<span class="resaltado">:PUERTO2</span>/');
-define('HTTP_ADMIN', 'http://AAA.BBB.CCC.DDD<span class="resaltado">:PUERTO2</span>/admin/');
+define('HTTP_SERVER', 'http://AAA.BBB.CCC.DDD<span class="codigo-modificacion">:PUERTO2</span>/');
+define('HTTP_ADMIN', 'http://AAA.BBB.CCC.DDD<span class="codigo-modificacion">:PUERTO2</span>/admin/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://AAA.BBB.CCC.DDD<span class="resaltado">:PUERTO2</span>/');
+define('HTTPS_SERVER', 'http://AAA.BBB.CCC.DDD<span class="codigo-modificacion">:PUERTO2</span>/');
 
  ...</code>
  </pre>
