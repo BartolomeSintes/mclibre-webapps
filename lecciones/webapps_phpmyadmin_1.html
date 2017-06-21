@@ -38,12 +38,12 @@
         <h3><a href="webapps_phpmyadmin_1_soluciones.html">Soluciones</a></h3>
         <ul>
           <li><a href="webapps_phpmyadmin_1_soluciones.html#ejercicio-1">1 - phpMyAdmin de XAMPP</a></li>
-          <li><a href="webapps_phpmyadmin_1_soluciones.html##ejercicio-2">2 - Descargar</a></li>
-          <li><a href="webapps_phpmyadmin_1_soluciones.html##ejercicio-3">3 - Instalar</a></li>
-          <li><a href="webapps_phpmyadmin_1_soluciones.html##ejercicio-4">4 - Abrir la página de inicio</a></li>
-          <li><a href="webapps_phpmyadmin_1_soluciones.html##ejercicio-5">5 - Alias</a></li>
-          <li><a href="webapps_phpmyadmin_1_soluciones.html##ejercicio-6">6 - root sin contraseña</a></li>
-          <li><a href="webapps_phpmyadmin_1_soluciones.html##ejercicio-7">7 - Establecer contraseña</a></li>
+          <li><a href="webapps_phpmyadmin_1_soluciones.html#ejercicio-2">2 - Descargar</a></li>
+          <li><a href="webapps_phpmyadmin_1_soluciones.html#ejercicio-3">3 - Instalar</a></li>
+          <li><a href="webapps_phpmyadmin_1_soluciones.html#ejercicio-4">4 - Abrir la página de inicio</a></li>
+          <li><a href="webapps_phpmyadmin_1_soluciones.html#ejercicio-5">5 - Alias</a></li>
+          <li><a href="webapps_phpmyadmin_1_soluciones.html#ejercicio-6">6 - root sin contraseña</a></li>
+          <li><a href="webapps_phpmyadmin_1_soluciones.html#ejercicio-7">7 - Establecer contraseña</a></li>
         </ul>
       </div>
     </nav>
@@ -56,7 +56,8 @@
       <p>XAMPP incluye una versión de phpMyAdmin que se encuentra en la carpeta /xampp/phpMyAdmin. Para ponerla en marcha, se puede:</p>
       <ul>
         <li>abrir el panel de administración web (htpp://localhost) y hacer clic en phpMyAdmin:
-          <p class="captura"><img alt="phpMyAdmin. XAMPP" src="../img/phpmyadmin/1_1_e_1_xampp.png" width="991" height="200" /></p>
+          <p class="captura">
+            <img src="../img/phpmyadmin/1_1_e_1_xampp.png" alt="phpMyAdmin. XAMPP" width="991" height="200" /></p>
         </li>
         <li>abrir directamente la dirección <strong>http://localhost/phpmyadmin/</strong>.</li>
       </ul>
@@ -65,20 +66,28 @@
 
       <ol>
         <li>Abra el phpMyAdmin de XAMPP para comprobar que se conecta a MySQL/MariaDB como usuario <strong>root</strong>.
-          <p class="captura"><img alt="phpMyAdmin. XAMPP" src="../img/phpmyadmin/1_1_e_2_xampp.png" width="1024" height="360" /></p>
+          <p class="captura">
+            <img src="../img/phpmyadmin/1_1_e_2_xampp.png" alt="phpMyAdmin. XAMPP" width="1024" height="360" />
+          </p>
         </li>
         <li>Modifique mediante phpMyAdmin la contraseña del usuario <strong>root</strong> en MySQL/MariaDB y establezca como contraseña <strong>root</strong>.
           <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />En un sistema real, una contraseña tan simple se consideraría un grave fallo de seguridad del sistema, pero en estos apuntes se utilizan como contraseñas los nombres de los usuarios.</p>
-          <p class="captura"><img alt="phpMyAdmin. XAMPP" src="../img/phpmyadmin/1_1_e_3_xampp.png" width="991" height="125" /></p>
+          <p class="captura">
+            <img src="../img/phpmyadmin/1_1_e_3_xampp.png" alt="phpMyAdmin. XAMPP" width="991" height="125" />
+          </p>
         </li>
         <li>Compruebe que ya no puede conectarse a MySQL/MariaDB mediante el phpMyAdmin de XAMPP:
-          <p class="captura"><img alt="phpMyAdmin. XAMPP" src="../img/phpmyadmin/1_1_e_4_xampp.png" width="800" height="300" /></p>
+          <p class="captura">
+            <img src="../img/phpmyadmin/1_1_e_4_xampp.png" alt="phpMyAdmin. XAMPP" width="800" height="300" />
+          </p>
         </li>
         <li>Para poder conectarse como usuario <strong>root</strong> con contraseña <strong>root</strong>, modifique la variable de configuración correspondiente en el archivo de configuración de phpMyAdmin <strong>config.inc.php</strong> que se encuentra en la carpeta del phpMyAdmin de XAMPP.
           <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Antes de modificar cualquier archivo de configuración, haga una copia de seguridad del archivo de configuración. Y al modificar un archivo de configuración, documente siempre los cambios realizados.</p>
         </li>
         <li>Compruebe que puede conectarse de nuevo a MySQL/MariaDB:
-          <p class="captura"><img alt="phpMyAdmin. XAMPP" src="../img/phpmyadmin/1_1_e_2_xampp.png" width="1024" height="360" /></p>
+          <p class="captura">
+            <img src="../img/phpmyadmin/1_1_e_2_xampp.png" alt="phpMyAdmin. XAMPP" width="1024" height="360" />
+          </p>
         </li>
         <li>Modifique la contraseña del usuario <strong>root</strong> en MySQL/MariaDB y en el archivo de configuración de phpMyAdmin, dejándolo de nuevo sin contraseña, y compruebe que puede conectarse.</li>
       </ol>
@@ -107,7 +116,9 @@
       <h2>phpMyAdmin (1) 4 - Abrir la página de inicio</h2>
       <ol>
         <li>Abra desde Eclipse la página principal de phpMyAdmin y compruebe que se muestra la pantalla de identificación de usuario (no escriba todavía el nombre de usuario y contraseña):
-          <p class=" captura"><img alt="phpMyAdmin. Página de inicio" src="../img/phpmyadmin/1_2_es_inicio_sesion.png" width="440" height="525" title="phpMyAdmin. Página de inicio" /></p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/1_2_es_inicio_sesion.png" alt="phpMyAdmin. Página de inicio" title="phpMyAdmin. Página de inicio" width="440" height="525" />
+          </p>
         </li>
       </ol>
     </section>
@@ -117,7 +128,9 @@
       <ol>
         <li>Cree un alias para poder entrar en phpMyAdmin mediante la dirección <strong>http://localhost/phpmyadmin2/</strong>.</li>
         <li>Compruebe que phpMyAdmin se muestra correctamente en la dirección <strong>http://localhost/phpmyadmin2/</strong>:
-          <p class="captura"><img alt="phpMyAdmin. Alias" src="../img/phpmyadmin/1_4_e_1_alias.png" width="550" height="250" /></p>
+          <p class="captura">
+            <img src="../img/phpmyadmin/1_4_e_1_alias.png" alt="phpMyAdmin. Alias" width="550" height="250" />
+          </p>
         </li>
       </ol>
 
@@ -130,12 +143,16 @@
       <p>Al instalar XAMPP, el usuario <strong>root</strong> de MySQL/MariaDB no tiene contraseña. En este ejercicio se supone que no se ha modificado todavía esa configuración inicial.</p>
       <ol>
         <li>Compruebe que en su configuración inicial phpMyAdmin no permite entrar como usuario <strong>root</strong> sin contraseña y muestra un mensaje de error:
-          <p class=" captura"><img alt="phpMyAdmin. Página de inicio. Error de usuario sin contraseña" src="../img/phpmyadmin/1_3_es_1_inicio_sesion.png" width="440" height="350" title="phpMyAdmin. Página de inicio. Error de usuario sin contraseña" /></p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/1_3_es_1_inicio_sesion.png" alt="phpMyAdmin. Página de inicio. Error de usuario sin contraseña" title="phpMyAdmin. Página de inicio. Error de usuario sin contraseña" width="440" height="350" />
+          </p>
         </li>
         <li>Para poder entrar como usuario <strong>root</strong> sin contraseña debe modificarse el archivo de configuración de phpMyAdmin. Ese archivo es el archivo <strong>config.inc.php</strong>. Incialmente ese archivo no existe, pero hay un archivo <strong>config.sample.inc.php</strong> que se puede copiar, renombrar como <strong>config.inc.php</strong> y editar.</li>
         <li>Busque en el archivo de configuración config.inc.php la variable que establece si se admite o no una contraseña en blanco para <strong>root</strong>.</li>
         <li>Cambie el valor lógico (<span class="php-con">true</span> o <span class="php-con">false</span>) de esa variable y compruebe que ya puede entrar en phpMyAdmin como usuario <strong>root</strong> de MySQL/MariaDB sin contraseña.
-          <p class="captura"><img alt="phpMyAdmin. Pantalla general" src="../img/phpmyadmin/1_3_e_4_general.png" width="1024" height="360" /></p>
+          <p class="captura">
+            <img src="../img/phpmyadmin/1_3_e_4_general.png" alt="phpMyAdmin. Pantalla general" width="1024" height="360" />
+          </p>
         </li>
       </ol>
     </section>

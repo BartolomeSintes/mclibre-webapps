@@ -62,7 +62,9 @@
         <li>El tema aplicado a phpMyAdmin se modifica en la página principal (apartado <strong>Configuraciones de apariencia &gt; Tema &gt; Estilo</strong>).
           <ul>
             <li>La lista desplegable Tema muestra los temas disponibles. Al elegir uno de ellos, se aplicará inmediatamente:
-              <p class=" captura"><img alt="XAMPP. Página principal" src="../img/phpmyadmin/3_1_s_1_temas.png" width="1009" height="490" title="XAMPP. Página principal" /></p>
+              <p class=" captura">
+                <img src="../img/phpmyadmin/3_1_s_1_temas.png" alt="XAMPP. Página principal" title="XAMPP. Página principal" width="1009" height="490" />
+              </p>
             </li>
           </ul>
         </li>
@@ -72,7 +74,9 @@
             pregunta en StackOverflow (http://stackoverflow.com/questions/27145138/does-the-phpmyadmin-themes-page-work-properly), ya que parecía que el soporte de phpMyAdmin se hace en StackOverflow, pero me la cerraron En abril de 2015 ya parece funcionar.</p>
         </li>
         <li>Para ver el nuevo tema en la lista desplegable, actualice la página principal de phpMyAdmin.
-          <p class=" captura"><img alt="XAMPP. Página principal" src="../img/phpmyadmin/3_1_s_2_temas.png" width="1009" height="490" title="XAMPP. Página principal" /></p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/3_1_s_2_temas.png" alt="XAMPP. Página principal" title="XAMPP. Página principal" width="1009" height="490" />
+          </p>
         </li>
       </ol>
     </section>
@@ -91,7 +95,8 @@ $cfg['AllowUserDropDatabase'] = true;</code>
 </pre>
           </div>
           <p>en el archivo config.inc.php, la opción "Bases de datos" permite borrar bases de datos:</p>
-          <p class=" captura"><img alt="XAMPP. Configuración" src="../img/phpmyadmin/1_8_s_1_config_1.png" width="990" height="420" title="XAMPP. Configuración" /></p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/1_8_s_1_config_1.png" alt="XAMPP. Configuración" title="XAMPP. Configuración" width="990" height="420" /></p>
         </li>
         <li>Al eliminar la línea (o comentarla):
 
@@ -102,7 +107,9 @@ $cfg['AllowUserDropDatabase'] = true;</code>
 </pre>
           </div>
           <p>en el archivo config.inc.php, la opción "Bases de datos" ya no permite borrar bases de datos:</p>
-          <p class=" captura"><img alt="XAMPP. Configuración" src="../img/phpmyadmin/1_8_s_2_config_2.png" width="990" height="381" title="XAMPP. Configuración" /></p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/1_8_s_2_config_2.png" alt="XAMPP. Configuración" title="XAMPP. Configuración" width="990" height="381" />
+          </p>
         </li>
       </ol>
     </section>
@@ -114,19 +121,33 @@ $cfg['AllowUserDropDatabase'] = true;</code>
       <ul>
         <li>Entrar en phpMyAdmin como el usuario <strong>iaw_agenda_2</strong>.</li>
         <li>Elegir la opción "Exportar", elegir el método de exportación personalizado para poder marcar la casilla "Agregar sentencia CREATE DATABASE / USE", elegir únicamente las dos bases de datos de las aplicaciones y hacer clic en "Continuar":
-          <p class=" captura"><img alt="XAMPP. Copia de seguridad" src="../img/phpmyadmin/1_9_e_1_backup.png" width="990" height="400" title="XAMPP. Copia de seguridad" /></p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/1_9_e_1_backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="400" />
+          </p>
         </li>
         <li>phpMyAdmin generará la copia de seguridad en forma de archivo .sql que el navegador permitirá abrir o descargar
-          <p class=" captura"><img alt="XAMPP. Copia de seguridad" src="../img/phpmyadmin/1_9_e_2_backup.png" width="990" height="360" title="XAMPP. Copia de seguridad" /></p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/1_9_e_2_backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="360" />
+          </p>
         </li>
         <li>A continuación, borrar las bases de datos:
-          <p class=" captura"><img alt="XAMPP. Copia de seguridad" src="../img/phpmyadmin/1_9_e_3_backup.png" width="990" height="450" title="XAMPP. Copia de seguridad" /></p>
-          <p class=" captura"><img alt="XAMPP. Copia de seguridad" src="../img/phpmyadmin/1_9_e_4_backup.png" width="990" height="240" title="XAMPP. Copia de seguridad" /></p>
-          <p class=" captura"><img alt="XAMPP. Copia de seguridad" src="../img/phpmyadmin/1_9_e_5_backup.png" width="990" height="180" title="XAMPP. Copia de seguridad" /></p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/1_9_e_3_backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="450" />
+          </p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/1_9_e_4_backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="240" />
+          </p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/1_9_e_5_backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="180" />
+          </p>
         </li>
         <li>Restaurar las bases de datos importando la copia de seguridad:
-          <p class=" captura"><img alt="XAMPP. Copia de seguridad" src="../img/phpmyadmin/1_9_e_6_backup.png" width="990" height="300" title="XAMPP. Copia de seguridad" /></p>
-          <p class=" captura"><img alt="XAMPP. Copia de seguridad" src="../img/phpmyadmin/1_9_e_7_backup.png" width="990" height="275" title="XAMPP. Copia de seguridad" /></p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/1_9_e_6_backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="300" />
+          </p>
+          <p class=" captura">
+            <img src="../img/phpmyadmin/1_9_e_7_backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="275" />
+          </p>
         </li>
       </ul>
     </section>
