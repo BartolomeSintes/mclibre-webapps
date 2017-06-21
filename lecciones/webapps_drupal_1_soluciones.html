@@ -123,13 +123,17 @@ max_execution_time = <span class="codigo-modificacion">3600</span></code>
       <h3>Instalar</h3>
       <ol>
         <li>Cree con phpMyAdmin un usuario de MySQL con nombre <strong>iaw_drupal_1</strong>, contraseña <strong>iaw_drupal_1</strong> y base de datos <strong>iaw_drupal_1</strong>.
-          <p class="captura"><img alt="phpMyAdmin. Creación de usuario para Drupal" src="../img/drupal/1_2_s_1_phpmyadmin.png" width="650" height="560" title="phpMyAdmin. Creación de usuario para Drupal" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_s_1_phpmyadmin.png" alt="phpMyAdmin. Creación de usuario para Drupal" title="phpMyAdmin. Creación de usuario para Drupal" width="650" height="560" />
+          </p>
         </li>
         <li>Abra Drupal en el navegador. Drupal iniciará el asistente de instalación, que va preguntando las opciones de configuración deseadas.
           <ol>
             <li>Choose language
               <p>Elija el idioma español.</p>
-              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_11_instalacion.png" width="770" height="370" /></p>
+              <p class="captura">
+                <img src="../img/drupal/1_2_s_11_instalacion.png" alt="Drupal. Instalación" width="770" height="370" />
+              </p>
             </li>
 
             <li>Configurar cURL
@@ -146,8 +150,9 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
 
             <li>Seleccionar un perfil de instalación:
               <p>Elija el perfil Estándar.</p>
-              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_12_instalacion.png" width="770" height="435" /></p>
-              <p class="captura"></p>
+              <p class="captura">
+                <img src="../img/drupal/1_2_s_12_instalacion.png" alt="Drupal. Instalación" width="770" height="435" />
+              </p>
             </li>
 
             <li>Verificar requisitos: Extensión OPCaché
@@ -197,7 +202,9 @@ opcache.enable_cli=1</code>
             <li>Instalar perfil</li>
             <li>Configurar traducciones
               <p>Puede que se muestren avisos sobre errores en las traducciones.</p>
-              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_13_instalacion.png" width="760" height="390" /></p>
+              <p class="captura">
+                <img src="../img/drupal/1_2_s_13_instalacion.png" alt="Drupal. Instalación" width="760" height="390" />
+              </p>
             </li>
             <li>Configurar sitio
               <p>Nombre del sitio web: <span class="codigo-modificacion">Mi Drupal</span></p>
@@ -212,7 +219,9 @@ opcache.enable_cli=1</code>
             </li>
             <li>Fin de la instalación
               <p>Cuando termine la instalación se mostrará la página de Drupal con el menú de administración en la parte superior:</p>
-              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_14_instalacion.png" width="991" height="610" /></p>
+              <p class="captura">
+                <img src="../img/drupal/1_2_s_14_instalacion.png" alt="Drupal. Instalación" width="991" height="610" />
+              </p>
             </li>
           </ol>
         </li>
@@ -221,17 +230,23 @@ opcache.enable_cli=1</code>
       <h3>Comprobación de la instalación</h3>
       <ol>
         <li>Haciendo clic en <strong>Cerrar sesión</strong>, se mostrará la página inicial de Drupal:
-          <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_16_instalacion.png" width="991" height="350" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_s_16_instalacion.png" alt="Drupal. Instalación" width="991" height="350" />
+          </p>
         </li>
       </ol>
 
       <h3>Ajustes post-instalación</h3>
       <ul>
         <li>Entre como administrador y abra la página <strong>Administrar &gt; Configuración</strong>. Si se muestra un aviso de detección de errores, haga clic en el enlace al informe de estado:
-          <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_31_instalacion.png" width="991" height="370" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_s_31_instalacion.png" alt="Drupal. Instalación" width="991" height="370" />
+          </p>
         </li>
         <li>En el informe de estado se mostrará el aviso relativo a la configuración de servidores de confianza:
-          <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_32_instalacion.png" width="991" height="115" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_s_32_instalacion.png" alt="Drupal. Instalación" width="991" height="115" />
+          </p>
         </li>
         <li>En el apartado <strong>Trusted host configuration</strong> del archivo <strong>sites/default/settings.php</strong> incluya su servidor local como servidor de confianza
 
@@ -245,7 +260,9 @@ opcache.enable_cli=1</code>
           </div>
         </li>
         <li>Actualizando la página web, se puede comprobar que el problema ha desaparecido
-          <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_33_instalacion.png" width="991" height="95" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_s_33_instalacion.png" alt="Drupal. Instalación" width="991" height="95" />
+          </p>
         </li>
       </ul>
     </section>
@@ -275,18 +292,28 @@ opcache.enable_cli=1</code>
         <li>Entre en Drupal como usuario <strong>admin</strong>. <br />
 
           <p>En Drupal 7, si había una <strong>actualización de seguridad</strong> disponible, Drupal mostraba un aviso en cualquier página. No sé si Drupal 8 mostrará este aviso cuando haya actualizaciones de seguridad disponibles.</p>
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_1_actualizacion_D7.png" width="1000" height="290" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_1_actualizacion_D7.png" alt="Drupal. Actualizar" width="1000" height="290" />
+          </p>
           <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Actualizar este apartado cuando Drupal 8 publique una actualización de seguridad.</p>
         </li>
         <li>Independientemente de los avisos automáticos, en los menús <strong>Informes &gt; Informe de estado</strong> o en <strong>Informes &gt; Actualizaciones disponibles</strong> se muestran los elementos pendientes de actualización.
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_2_actualizacion.png" width="991" height="300" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_2_actualizacion.png" alt="Drupal. Actualizar" width="991" height="300" />
+          </p>
         </li>
         <li>Los mensajes no son idénticos en cada informe, pero sí muy similares:
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_3_actualizacion.png" width="991" height="125" /></p>
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_4_actualizacion.png" width="960" height="250" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_3_actualizacion.png" alt="Drupal. Actualizar" width="991" height="125" />
+          </p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_4_actualizacion.png" alt="Drupal. Actualizar" width="960" height="250" />
+          </p>
         </li>
         <li>Drupal nunca ha tenido actualizaciones automáticas, el proceso ha tenido que hacerse siempre manualmente, aunque el mensaje que se muestra actualmente (enero de 2016) parece indicar que la situación podría cambiar en el futuro.
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_5_actualizacion.png" width="1008" height="440" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_5_actualizacion.png" alt="Drupal. Actualizar" width="1008" height="440" />
+          </p>
         </li>
       </ul>
 
@@ -295,13 +322,19 @@ opcache.enable_cli=1</code>
       <h3>Realizar la actualización</h3>
       <ul>
         <li>Para evitar que otros usuarios intenten modificar páginas mientras se realiza la actualización, antes de iniciar la actualización se aconseja pasar Drupal a Modo de Mantenimiento, con el menú <strong>Configuración &gt; Desarrollo &gt; Modo de mantenimiento</strong>.
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_6_actualizacion.png" width="991" height="490" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_6_actualizacion.png" alt="Drupal. Actualizar" width="991" height="490" />
+          </p>
         </li>
         <li>Marque la casilla Pasar el sitio a modo de mantenimiento y guarde la configuración.
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_7_actualizacion.png" width="1008" height="540" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_7_actualizacion.png" alt="Drupal. Actualizar" width="1008" height="540" />
+          </p>
         </li>
         <li>Al marcar la casilla "Pasar el sitio a modo de mantenimiento" y Guardar la configuración, Drupal muestra a los usuarios una pantalla fija
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_8_actualizacion.png" width="820" height="180" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_8_actualizacion.png" alt="Drupal. Actualizar" width="820" height="180" />
+          </p>
           <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />En Drupal 8, el aviso de sitio en mantenimiento no parece mostrarse en todas las páginas, como sí hacía en Drupal 7. No sé si se debe a OPcaché.</p>
           <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Si hay que volver a entrar como administrador y no se puede hacer clic en <strong>Iniciar sesión</strong>, se puede hacer escribiendo la dirección <strong>drupal/user</strong>.</p>
         </li>
@@ -318,22 +351,34 @@ opcache.enable_cli=1</code>
           </ul>
         </li>
         <li>Ejecute como administrador el archivo <strong>drupal/update.php</strong>.
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_11_actualizacion.png" width="991" height="727" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_11_actualizacion.png" alt="Drupal. Actualizar" width="991" height="727" />
+          </p>
         </li>
         <li>Si la actualización no requiere actualizar la base de datos de Drupal, se mostrará el mensaje correspondiente:
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_12_actualizacion.png" width="780" height="380" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_12_actualizacion.png" alt="Drupal. Actualizar" width="780" height="380" />
+          </p>
         </li>
         <li>Si la actualización requiere actualizar la base de datos de Drupal, se ejecutará la actualización y se mostrará el mensaje correspondiente. En la captura siguiente han ocurrido algunos errores que se deben revisar en el registro de errores:
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_13_actualizacion.png" width="780" height="410" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_13_actualizacion.png" width="780" height="410" />
+          </p>
         </li>
         <li>Si se ha pasado Drupal al modo de mantenimiento, se nos avisará de que debemos desactivarlo:
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_14_actualizacion.png" width="991" height="350" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_14_actualizacion.png" alt="Drupal. Actualizar" width="991" height="350" />
+          </p>
         </li>
         <li>Haga clic en el enlace <strong>Ir online</strong>, que lleva al menú <strong>Configuración &gt; Desarrollo &gt; Modo de mantenimiento</strong>, desmarque la casilla correspondiente y guarde la configuración:
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_15_actualizacion.png" width="1008" height="550" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_15_actualizacion.png" alt="Drupal. Actualizar" width="1008" height="550" />
+          </p>
         </li>
         <li>En el menú <strong>Informes &gt; Actualizaciones disponibles</strong> se muestran los elementos actualizados:
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_s_16_actualizacion.png" width="1008" height="180" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_s_16_actualizacion.png" alt="Drupal. Actualizar" width="1008" height="180" />
+          </p>
         </li>
       </ul>
     </section>
@@ -343,7 +388,9 @@ opcache.enable_cli=1</code>
 
       <p class="incompleto"><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />En Drupal 8 no he podido ver cómo se hacen las actualizaciones de la traducción porque hasta ahora me dice siempre que están actualizadas (aunque el mensaje tiene una errata).</p>
 
-      <p class="captura"><img alt="Drupal. Actualizar traducciones" src="../img/drupal/1_5_s_1_actualizacion.png" width="1008" height="340" /></p>
+      <p class="captura">
+        <img src="../img/drupal/1_5_s_1_actualizacion.png" alt="Drupal. Actualizar traducciones" width="1008" height="340" />
+      </p>
     </section>
 
     <section id="ejercicio-6">
@@ -387,7 +434,9 @@ RewriteBase <span class="codigo-modificacion">/drupal</span></code>
           </div>
         </li>
         <li>Compruebe que puede entrar en Drupal mediante las direcciones <strong>https://localhost/drupal/</strong> y <strong>https://AAA.BBB.CCC.DDD/drupal/</strong>:
-          <p class="captura"><img alt="Drupal. Acceder desde otros ordenadores" src="../img/drupal/1_6_s_1_alias.png" width="600" height="210" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_6_s_1_alias.png" alt="Drupal. Acceder desde otros ordenadores" width="600" height="210" />
+          </p>
           <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Si no se muestra el logo de Drupal o los enlaces no son correctos y no le permiten <strong>Iniciar sesión</strong>, siga los pasos indicados en el apartado <a href="#enlaces-incorrectos">Problema: Enlaces incorrectos</a> de esta misma página.</p>
         </li>
       </ul>
@@ -424,22 +473,34 @@ RewriteBase <span class="codigo-modificacion">/drupal</span></code>
           <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Parece que este problema se debe a OPCaché y la solución que se propone aquí "reinicia" OPCaché y así se resuelve el problema.</p>
         </li>
         <li>Escriba la dirección <strong>drupal/user</strong> y entre como administrador:
-          <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_21_instalacion.png" width="991" height="560" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_s_21_instalacion.png" alt="Drupal. Instalación" width="991" height="560" />
+          </p>
         </li>
         <li>Abra el menú <strong>Administrar</strong> (o escriba la dirección <strong>drupal/admin/config</strong>):
-          <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_22_instalacion.png" width="991" height="440" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_s_22_instalacion.png" alt="Drupal. Instalación" width="991" height="440" />
+          </p>
         </li>
         <li>Elija la opción <strong>Configuración &gt; Información del sitio</strong> (o escriba la dirección <strong>drupal/admin/config/system/site-information</strong>):
-          <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_23_instalacion.png" width="991" height="470" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_s_23_instalacion.png" alt="Drupal. Instalación" width="991" height="470" />
+          </p>
         </li>
         <li>Sin modificar ninguna opción, guarde la configuración:
-          <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_24_instalacion.png" width="991" height="300" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_s_24_instalacion.png" alt="Drupal. Instalación" width="991" height="300" />
+          </p>
         </li>
         <li>Para salir, haga clic en <strong>admin</strong>...
-          <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_25_instalacion.png" width="991" height="320" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_s_25_instalacion.png" alt="Drupal. Instalación" width="991" height="320" />
+          </p>
         </li>
         <li>... y a continuación en <strong>Cerrar sesión</strong>:
-          <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_s_26_instalacion.png" width="991" height="250" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_s_26_instalacion.png" alt="Drupal. Instalación" width="991" height="250" />
+          </p>
         </li>
         <li>Los enlaces deberán funcionar correctamente a partir de entonces.</li>
       </ul>

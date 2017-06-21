@@ -86,7 +86,9 @@
         </li>
         <li>Tiempo de ejecución de los scripts
           <p>En versiones anteriores de Drupal, la instalación solía abortarse porque algún paso de la instalación tardaba bastante en realizarse:</p>
-          <p class="captura"><img alt="Drupal. Tiempo de ejecución superado" src="../img/drupal/1_2_e_1_max_execution_time.png" width="925" height="100" title="phpMyAdmin. Creación de usuario para Drupal" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_2_e_1_max_execution_time.png" alt="Drupal. Tiempo de ejecución superado" title="phpMyAdmin. Creación de usuario para Drupal" width="925" height="100" />
+          </p>
           <p>Drupal 8.2 no parece tener ese problema, pero por precaución se podría aumentar el tiempo de espera máximo de ejecución de un script de PHP aumentando el valor de la directiva <strong>max_execution_time</strong> por ejemplo a 60 minutos (3600 segundos) (recuerde reiniciar el servidor tras el cambio). Una vez realizada la instalación y actualización, devuelva la directiva a su valor original (por ejemplo, 30 segundos).</p>
         </li>
         <li>Extensión fileinfo
@@ -109,7 +111,9 @@
 
             <li>Verificar requisitos: Configurar cURL
               <p>Al elegir instalar Drupal en un idioma distinto del inglés (por ejemplo, en español), el instalador de Drupal no consigue conectarse con el servidor de traducciones.</p>
-              <p class="captura"><img alt="Drupal. cURL" src="../img/drupal/1_2_e_2_curl.png" width="400" height="150" title="phpMyAdmin. Creación de usuario para Drupal" /></p>
+              <p class="captura">
+                <img src="../img/drupal/1_2_e_2_curl.png" alt="Drupal. cURL" title="phpMyAdmin. Creación de usuario para Drupal" width="400" height="150" />
+              </p>
               <details>
                 <summary><strong>Ayuda</strong></summary>
                 <p>Para resolver este problema, en Windows se debe descargar un certificado para cURL (<strong>cacert.pem</strong>), por ejemplo desde <a href="https://curl.haxx.se/docs/caextract.html">https://curl.haxx.se/docs/caextract.html</a>, y copiarlo en C:\Windows.</p>
@@ -128,7 +132,9 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
             </li>
             <li>Verificar requisitos: Extensión OPCache
               <p>El instalador de Drupal recomienda activar <a href="http://php.net/manual/en/book.opcache.php">OPCache</a> en PHP.</p>
-              <p class="captura"><img alt="Drupal. OPcache" src="../img/drupal/1_2_e_3_opcache.png" width="400" height="160" title="phpMyAdmin. Creación de usuario para Drupal" /></p>
+              <p class="captura">
+                <img src="../img/drupal/1_2_e_3_opcache.png" alt="Drupal. OPcache" title="phpMyAdmin. Creación de usuario para Drupal" width="400" height="160" />
+              </p>
               <details>
                 <summary><strong>Ayuda</strong></summary>
                 <p>Para activar y configurar OPCache en PHP, puede aplicar la solución propuesta en <a href="https://www.drupal.org/node/2623566">este foro de Drupal</a>.</p>
@@ -140,7 +146,9 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
             <li>Instalar perfil</li>
             <li>Configurar traducciones
               <p>Puede que se muestren avisos sobre errores en las traducciones.</p>
-              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_e_13_instalacion.png" width="760" height="390" /></p>
+              <p class="captura">
+                <img src="../img/drupal/1_2_e_13_instalacion.png" alt="Drupal. Instalación" width="760" height="390" />
+              </p>
             </li>
             <li>Configurar sitio
               <p>Nombre del sitio web: <span class="codigo-modificacion">Mi Drupal</span></p>
@@ -155,14 +163,18 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
             </li>
             <li>Fin de la instalación
               <p>Cuando termine la instalación se mostrará la página de Drupal con el menú de administración en la parte superior:</p>
-              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_e_14_instalacion.png" width="991" height="610" /></p>
+              <p class="captura">
+                <img src="../img/drupal/1_2_e_14_instalacion.png" alt="Drupal. Instalación" width="991" height="610" />
+              </p>
             </li>
           </ol>
         </li>
         <li>Comprobación de la instalación
           <ul>
             <li>Cierre la sesión y compruebe que se puede ver ver la página inicial de Drupal:
-              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_e_15_instalacion.png" width="991" height="350" /></p>
+              <p class="captura">
+                <img src="../img/drupal/1_2_e_15_instalacion.png" alt="Drupal. Instalación" width="991" height="350" />
+              </p>
             </li>
             <li>Compruebe que puede Iniciar sesión como administrador y salir de ella correctamente
 
@@ -173,11 +185,15 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
         <li>Ajustes post-instalación
           <ul>
             <li>Como administrador, entre la página de Configuración y abra el informe de estado, en el que podrá ver el siguiente aviso:
-              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_e_21_instalacion.png" width="991" height="115" /></p>
+              <p class="captura">
+                <img src="../img/drupal/1_2_e_21_instalacion.png" alt="Drupal. Instalación" width="991" height="115" />
+              </p>
             </li>
             <li>Visite la página enlazada en el aviso anterior para saber en qué consiste este problema y cómo corregirlo.</li>
             <li>Una vez corregido, compruebe que el problema ha desaparecido:
-              <p class="captura"><img alt="Drupal. Instalación" src="../img/drupal/1_2_e_22_instalacion.png" width="991" height="95" /></p>
+              <p class="captura">
+                <img src="../img/drupal/1_2_e_22_instalacion.png" alt="Drupal. Instalación" width="991" height="95" />
+              </p>
             </li>
           </ul>
         </li>
@@ -219,11 +235,15 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
       <ul>
         <li>Entre en Drupal como usuario <strong>admin</strong>.
           <p>En Drupal 7, si había una <strong>actualización de seguridad</strong> disponible, Drupal mostraba un aviso en cualquier página. No sé si Drupal 8 mostrará este aviso cuando haya actualizaciones de seguridad disponibles.</p>
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_e_1_actualizacion_D7.png" width="1000" height="290" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_e_1_actualizacion_D7.png" alt="Drupal. Actualizar" width="1000" height="290" />
+          </p>
           <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Actualizar este apartado cuando Drupal 8 publique una actualización de seguridad.</p>
         </li>
         <li>Busque en el menú de administración de Drupal la página que muestra los elementos pendientes de actualización.
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_e_2_actualizacion.png" width="960" height="250" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_e_2_actualizacion.png" alt="Drupal. Actualizar" width="960" height="250" />
+          </p>
         </li>
       </ul>
 
@@ -233,7 +253,9 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
       <ul>
         <li>Para evitar que otros usuarios intenten modificar páginas mientras se realiza la actualización, antes de iniciar la actualización se aconseja pasar Drupal a Modo de Mantenimiento. Busque en el menú de administración de Drupal la página para hacerlo.</li>
         <li>Al pasar a modo de mantenimiento, Drupal muestra a los usuarios una pantalla fija.
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_e_3_actualizacion.png" width="820" height="180" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_e_3_actualizacion.png" alt="Drupal. Actualizar" width="820" height="180" />
+          </p>
           <p class="incompleto"><img src="../varios/iconos/icono_en_construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />En Drupal 8, el aviso de sitio en mantenimiento no parece mostrarse en todas las páginas, como sí hacía en Drupal 7. No sé si se debe a OPcaché.</p>
           <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Si hay que volver a entrar como administrador y no se puede hacer clic en <strong>Iniciar sesión</strong>, se puede hacer escribiendo la dirección <strong>drupal/user</strong>.</p>
         </li>
@@ -241,11 +263,15 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
         <li>Descargue la nueva versión y lea el archivo UPGRADE.txt, apartado MINOR VERSION UPDATES, que contiene las instrucciones específicas de actualización (pueden cambiar de una versión a otra).</li>
         <li>Lleve a cabo los pasos necesarios indicado sen el archivo UPGRADE.txt.</li>
         <li>Si todo va bien, Drupal mostrará la página final:
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_e_4_actualizacion.png" width="780" height="380" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_e_4_actualizacion.png" alt="Drupal. Actualizar" width="780" height="380" />
+          </p>
         </li>
         <li>Desactive el modo de mantenimiento.</li>
         <li>Compruebe que en la página correspondiente se indica que Drupal está actualizado.
-          <p class="captura"><img alt="Drupal. Actualizar" src="../img/drupal/1_4_e_5_actualizacion.png" width="1008" height="180" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_4_e_5_actualizacion.png" alt="Drupal. Actualizar" width="1008" height="180" />
+          </p>
         </li>
       </ul>
     </section>
@@ -267,14 +293,18 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
 
       <ol>
         <li>Cree un alias para poder abrir Drupal mediante la dirección <strong>http://localhost/drupal/</strong>. Compruebe que puede abrir Drupal mediante esa dirección y entrar como administrador.
-          <p class="captura"><img alt="Drupal. Acceder desde otros ordenadores" src="../img/drupal/1_6_e_1_alias.png" width="600" height="410" /></p>
-          <p><strong></strong><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Será necesario modificar la directiva <strong>RewriteBase</strong> del archivo <strong>.htaccess</strong> de Drupal incluyendo la nueva ruta.</p>
+          <p class="captura">
+            <img src="../img/drupal/1_6_e_1_alias.png" alt="Drupal. Acceder desde otros ordenadores" width="600" height="410" />
+          </p>
+          <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Será necesario modificar la directiva <strong>RewriteBase</strong> del archivo <strong>.htaccess</strong> de Drupal incluyendo la nueva ruta.</p>
           <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Si no se muestra el logo de Drupal o los enlaces no son correctos y no le permiten <strong>Iniciar sesión</strong>, abra la página <strong>/drupal/user</strong>, entre como administrador, abra la página de Configuración del sitio y guarde la configuración sin modificar nada.</p>
         </li>
         <li>Averigüe la IP de su ordenador (AAA.BBB.CCC.DDD).</li>
         <li>Compruebe que puede entrar como usuario o administrador mediante la dirección <strong>http://AAA.BBB.CCC.DDD/drupal/</strong>
-          <p class="captura"><img alt="Drupal. Acceder desde otros ordenadores" src="../img/drupal/1_6_e_2_alias.png" width="600" height="390" /></p>
-          <p><strong></strong><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Será necesario añadir la IP en la configuración de servidores de confianza.</p>
+          <p class="captura">
+            <img src="../img/drupal/1_6_e_2_alias.png" alt="Drupal. Acceder desde otros ordenadores" width="600" height="390" />
+          </p>
+          <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Será necesario añadir la IP en la configuración de servidores de confianza.</p>
         </li>
       </ol>
 
@@ -293,7 +323,9 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
         <li>Restaure la copia de seguridad de la base de datos realizada en el ejercicio Drupal (1) 3 en la base de datos <strong>iaw_drupal_2</strong>.</li>
         <li>Modifique los archivos de configuración de Drupal2 de manera que se pueda utilizar de forma independiente de la primera instalación realizada (como mínimo, <strong>.htacess</strong> y <strong>default.settings.php</strong>).</li>
         <li>Compruebe que puede entrar como usuario o administrador mediante la dirección <strong>/drupal_2</strong>.
-          <p class="captura"><img alt="Drupal. Copia de Drupal" src="../img/drupal/1_7_e_1_segunda.png" width="600" height="410" /></p>
+          <p class="captura">
+            <img src="../img/drupal/1_7_e_1_segunda.png" alt="Drupal. Copia de Drupal" width="600" height="410" />
+          </p>
           <p><img src="../varios/iconos/icono_warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Si al intentar entrar en el segundo Drupal, algunos enlaces no son correctos y redirigen al primer Drupal, abra la página <strong>/drupal/user</strong>, entre como administrador, abra la página de Configuración del sitio y guarde la configuración sin modificar nada.</p>
         </li>
       </ol>

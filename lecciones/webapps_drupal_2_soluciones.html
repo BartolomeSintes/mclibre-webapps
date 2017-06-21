@@ -92,16 +92,24 @@ php_value post_max_size 10M</code>
         <li>Crear los roles editor y minieditor
           <ul>
             <li>Como usuario <strong>admin</strong> y abrir el menú <strong>Usuarios &gt; Permisos</strong>. En esa pantalla se pueden ver los permisos asignados a los roles existentes. Inicialmente, Drupal crea tres roles básicos: Usuario anónimo, Usuario autenticado y Administrador.
-              <p class="captura"><img alt="Drupal. Roles" src="../img/drupal/drupal_roles_1.png" width="1008" height="475" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_roles_1.png" alt="Drupal. Roles" width="1008" height="475" />
+              </p>
             </li>
             <li>Para crear un nuevo Rol, hay que hacer clic en Roles, escribir el nombre del nuevo rol y hacer clic en Añadir rol:
-              <p class="captura"><img alt="Drupal. Roles" src="../img/drupal/drupal_roles_2.png" width="1008" height="595" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_roles_2.png" alt="Drupal. Roles" width="1008" height="595" />
+              </p>
             </li>
             <li>Inmediatamente, se mostrará el nuevo rol en la lista de roles:
-              <p class="captura"><img alt="Drupal. Roles" src="../img/drupal/drupal_roles_3.png" width="1008" height="240" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_roles_3.png" alt="Drupal. Roles" width="1008" height="240" />
+              </p>
             </li>
             <li>Haciendo clic en "editar permisos" se pueden asignar los permisos al rol (algunos permisos pueden representar riesgos de seguridad, se comenta en cada opción):
-              <p class="captura"><img alt="Drupal. Roles" src="../img/drupal/drupal_roles_4.png" width="1000" height="455" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_roles_4.png" alt="Drupal. Roles" width="1000" height="455" />
+              </p>
               <p>En el caso del rol <strong>minieditor</strong>, le podemos poner:</p>
               <ul>
                 <li>bloque Comment: todos los permisos menos Administrar comentarios</li>
@@ -124,10 +132,14 @@ php_value post_max_size 10M</code>
         <li>Crear los usuarios <strong>minieditor_1</strong> y <strong>editor_1 </strong>
           <ul>
             <li>Como usuario <strong>admin</strong>, abrir el menú <strong>Personas &gt; Lista</strong> y hacer clic en Agregar usuario.
-              <p class="captura"><img alt="Drupal. Usuarios" src="../img/drupal/drupal_usuarios_1.png" width="1008" height="240" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_usuarios_1.png" alt="Drupal. Usuarios" width="1008" height="240" />
+              </p>
             </li>
             <li>Se abrirá un formulario con la información del nuevo usuario:
-              <p class="captura"><img alt="Drupal. Usuarios" src="../img/drupal/drupal_usuarios_2.png" width="1000" height="340" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_usuarios_2.png" alt="Drupal. Usuarios" width="1000" height="340" />
+              </p>
               <p>En el caso del usuario <strong>minieditor_1</strong>, le podemos poner:</p>
               <ul>
                 <li>Nombre de usuario: <span class="codigo-modificacion">minieditor_1</span></li>
@@ -137,7 +149,9 @@ php_value post_max_size 10M</code>
               </ul>
             </li>
             <li>Si no hay errores, Drupal indicará que se ha creado el usuario:
-              <p class="captura"><img alt="Drupal. Usuarios" src="../img/drupal/drupal_usuarios_3.png" width="1000" height="60" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_usuarios_3.png" alt="Drupal. Usuarios" width="1000" height="60" />
+              </p>
             </li>
             <li>De la misma forma, crear el usuario <strong>editor_1</strong> con rol <strong>editor</strong>.</li>
           </ul>
@@ -146,13 +160,19 @@ php_value post_max_size 10M</code>
           <p>Los usuarios pueden modificar su información de usuario, por ejemplo, para incluir una imagen de usuario.</p>
           <ul>
             <li>Entrar en Drupal como usuario <strong>minieditor_1</strong> y hacer clic en Mi cuenta. Se mostrará la ficha del usuario:
-              <p class="captura"><img alt="Drupal. usuarios" src="../img/drupal/drupal_usuarios_4.png" width="1008" height="335" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_usuarios_4.png" alt="Drupal. usuarios" width="1008" height="335" />
+              </p>
             </li>
-            <li>Al hacer clic en Editar se pueden modificar los datos, por ejemplo, incluir una imagen de usuario: <img alt="Cabeza nº 2" src="../img/iconos/cabezas/cabeza_02_128.png" width="116" height="128" />
-              <p class="captura"><img alt="Drupal. Usuarios" src="../img/drupal/drupal_usuarios_5.png" width="710" height="160" /></p>
+            <li>Al hacer clic en Editar se pueden modificar los datos, por ejemplo, incluir una imagen de usuario: <img src="../img/iconos/cabezas/cabeza_02_128.png" alt="Cabeza nº 2" width="116" height="128" />
+              <p class="captura">
+                <img src="../img/drupal/drupal_usuarios_5.png" alt="Drupal. Usuarios" width="710" height="160" />
+              </p>
             </li>
             <li>Una vez subida la imagen, esta se muestra en la ficha del usuario ...
-              <p class="captura"><img alt="Drupal. Usuarios" src="../img/drupal/drupal_usuarios_6.png" width="700" height="320" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_usuarios_6.png" alt="Drupal. Usuarios" width="700" height="320" />
+              </p>
             </li>
           </ul>
         </li>
@@ -172,33 +192,47 @@ php_value post_max_size 10M</code>
         <li>Creación del formato de texto
           <ul>
             <li>Como usuario administrador, elija el menú <strong>Configuración &gt; Formatos de texto</strong>
-              <p class="captura"><img alt="Drupal. Nuevo Formato de entrada" src="../img/drupal/drupal_ckeditor_minieditor_01.png" width="1008" height="635" title="Drupal. Nuevo Formato de entrada" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_01.png" alt="Drupal. Nuevo Formato de entrada" title="Drupal. Nuevo Formato de entrada" width="1008" height="635" />
+              </p>
             </li>
             <li>Haga clic en "Añadir formato de texto"
-              <p class="captura"><img alt="Drupal. Nuevo Formato de entrada" src="../img/drupal/drupal_ckeditor_minieditor_02.png" width="1008" height="510" title="Drupal. Nuevo Formato de entrada" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_02.png" alt="Drupal. Nuevo Formato de entrada" title="Drupal. Nuevo Formato de entrada" width="1008" height="510" />
+              </p>
             </li>
             <li>Rellene el formulario de creación del Formato de texto:
               <ul>
                 <li>Nombre: <span class="codigo-modificacion">HTML_para_minieditor</span></li>
                 <li>Roles: Marcar la casilla de <span class="codigo-modificacion">minieditor</span></li>
               </ul>
-              <p class="captura"><img alt="Drupal. Nuevo Formato de entrada" src="../img/drupal/drupal_ckeditor_minieditor_03.png" width="1008" height="420" title="Drupal. Nuevo Formato de entrada" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_03.png" alt="Drupal. Nuevo Formato de entrada" title="Drupal. Nuevo Formato de entrada" width="1008" height="420" />
+              </p>
             </li>
             <li>Al hacer clic en "Guardar la configuración", si no ha habido ningún problema se mostrará un mensaje confirmando la creación del Formato:
-              <p class="captura"><img alt="Drupal. Nuevo Formato de entrada" src="../img/drupal/drupal_ckeditor_minieditor_04.png" width="1008" height="70" title="Drupal. Nuevo Formato de entrada" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_04.png" alt="Drupal. Nuevo Formato de entrada" title="Drupal. Nuevo Formato de entrada" width="1008" height="70" />
+              </p>
             </li>
             <li>En la página <strong>Configuración &gt; Formatos de texto</strong> se mostrará el nuevo Formato de texto:
-              <p class="captura"><img alt="Drupal. Nuevo Formato de entrada" src="../img/drupal/drupal_ckeditor_minieditor_05.png" width="1008" height="545" title="Drupal. Nuevo Formato de entrada" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_05.png" alt="Drupal. Nuevo Formato de entrada" title="Drupal. Nuevo Formato de entrada" width="1008" height="545" />
+              </p>
             </li>
           </ul>
         </li>
         <li>Creación del perfil de CKEditor
           <ul>
             <li>Como administrador, elija el menú <strong>Configuración &gt; CKEditor</strong>
-              <p class="captura"><img alt="Drupal. Nuevo perfil de CKEditor" src="../img/drupal/drupal_ckeditor_minieditor_11.png" width="1008" height="635" title="Drupal. Nuevo perfil de CKEditor" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_11.png" alt="Drupal. Nuevo perfil de CKEditor" title="Drupal. Nuevo perfil de CKEditor" width="1008" height="635" />
+              </p>
             </li>
             <li>Haga clic en "Create a new profile":
-              <p class="captura"><img alt="Drupal. Nuevo perfil de CKEditor" src="../img/drupal/drupal_ckeditor_minieditor_12.png" width="1008" height="600" title="Drupal. Nuevo perfil de CKEditor" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_12.png" alt="Drupal. Nuevo perfil de CKEditor" title="Drupal. Nuevo perfil de CKEditor" width="1008" height="600" />
+              </p>
             </li>
             <li>Rellene el formulario de creación del Perfil:
               <ul>
@@ -212,45 +246,67 @@ php_value post_max_size 10M</code>
                   <ul>
                     <li>Barra de herramientas: <span class="codigo-modificacion">Básico</span></li>
                   </ul>
-                  <p class="captura"><img alt="Drupal. Nuevo perfil de CKEditor" src="../img/drupal/drupal_ckeditor_minieditor_13.png" width="1008" height="550" title="Drupal. Nuevo perfil de CKEditor" /></p>
-                  <p class="captura"><img alt="Drupal. Nuevo perfil de CKEditor" src="../img/drupal/drupal_ckeditor_minieditor_14.png" width="1008" height="170" title="Drupal. Nuevo perfil de CKEditor" /></p>
+                  <p class="captura">
+                    <img src="../img/drupal/drupal_ckeditor_minieditor_13.png" alt="Drupal. Nuevo perfil de CKEditor" title="Drupal. Nuevo perfil de CKEditor" width="1008" height="550" />
+                  </p>
+                  <p class="captura">
+                    <img src="../img/drupal/drupal_ckeditor_minieditor_14.png" alt="Drupal. Nuevo perfil de CKEditor" title="Drupal. Nuevo perfil de CKEditor" width="1008" height="170" />
+                  </p>
                 </li>
               </ul>
             </li>
             <li>Al hacer clic en "Guardar", si no ha habido ningún problema se mostrará un mensaje confirmando la creación del Perfil:
-              <p class="captura"><img alt="Drupal. Nuevo perfil de CKEditor" src="../img/drupal/drupal_ckeditor_minieditor_15.png" width="1008" height="70" title="Drupal. Nuevo perfil de CKEditor" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_15.png" alt="Drupal. Nuevo perfil de CKEditor" title="Drupal. Nuevo perfil de CKEditor" width="1008" height="70" />
+              </p>
             </li>
             <li>En la página <strong>Configuración &gt; CKEditor</strong> se mostrará el nuevo Perfil:
-              <p class="captura"><img alt="Drupal. Nuevo perfil de CKEditor" src="../img/drupal/drupal_ckeditor_minieditor_16.png" width="1008" height="600" title="Drupal. Nuevo perfil de CKEditor" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_16.png" alt="Drupal. Nuevo perfil de CKEditor" title="Drupal. Nuevo perfil de CKEditor" width="1008" height="600" />
+              </p>
             </li>
           </ul>
         </li>
         <li>Desactivación de los Formatos Full HTML y Filtered HTML para rol minieditor
           <ul>
             <li>En <strong>Configuración &gt; Formatos de texto</strong> se puede ver que los Formatos Full HTML y Filtered HTML están activados para el rol minieditor:
-              <p class="captura"><img alt="Drupal. Desactivar Formatos de texto" src="../img/drupal/drupal_ckeditor_minieditor_31.png" width="1008" height="550" title="Drupal. Desactivar Formatos de texto" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_31.png" alt="Drupal. Desactivar Formatos de texto" title="Drupal. Desactivar Formatos de texto" width="1008" height="550" />
+              </p>
             </li>
             <li>Haciendo clic en el enlace "configurar" correspondiente, se puede editar el Formato de texto Full HTML y desmarcar la casilla minieditor:
-              <p class="captura"><img alt="Drupal. Desactivar Formatos de texto" src="../img/drupal/drupal_ckeditor_minieditor_32.png" width="1008" height="540" title="Drupal. Desactivar Formatos de texto" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_32.png" alt="Drupal. Desactivar Formatos de texto" title="Drupal. Desactivar Formatos de texto" width="1008" height="540" />
+              </p>
             </li>
             <li>Haciendo clic en el enlace "configurar" correspondiente, se puede editar el Formato de texto Filtered HTML y desmarcar las casillas minieditor y usuario autenticado:
-              <p class="captura"><img alt="Drupal. Desactivar Formatos de texto" src="../img/drupal/drupal_ckeditor_minieditor_33.png" width="1008" height="540" title="Drupal. Desactivar Formatos de texto" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_33.png" alt="Drupal. Desactivar Formatos de texto" title="Drupal. Desactivar Formatos de texto" width="1008" height="540" />
+              </p>
             </li>
             <li>Una vez guardada la configuración, se puede comprobar que el rol minieditor ya no tiene acceso a los Formatos de texto Full HTML y Filtered HTML:
-              <p class="captura"><img alt="Drupal. Desactivar Formatos de texto" src="../img/drupal/drupal_ckeditor_minieditor_34.png" width="1008" height="550" title="Drupal. Desactivar Formatos de texto" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_34.png" alt="Drupal. Desactivar Formatos de texto" title="Drupal. Desactivar Formatos de texto" width="1008" height="550" />
+              </p>
             </li>
             <li>La desactivación de los Formatos de texto se podría haber realizado en <strong>Usuarios &gt; Permisos</strong>:
-              <p class="captura"><img alt="Drupal. Desactivar Formatos de texto" src="../img/drupal/drupal_ckeditor_minieditor_35.png" width="1008" height="630" title="Drupal. Desactivar Formatos de texto" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_35.png" alt="Drupal. Desactivar Formatos de texto" title="Drupal. Desactivar Formatos de texto" width="1008" height="630" />
+              </p>
             </li>
           </ul>
         </li>
         <li>Comprobación
           <ul>
             <li>Como usuario minieditor_1, al crear nuevo contenido, compruebe que se puede elegir el formato de texto HTML_para_minieditor y que la barra de herramientas de CKEditor es la barra básica:
-              <p class="captura"><img alt="Drupal. Comprobación" src="../img/drupal/drupal_ckeditor_minieditor_21.png" width="991" height="625" title="Drupal. Comprobación" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_21.png" alt="Drupal. Comprobación" title="Drupal. Comprobación" width="991" height="625" />
+              </p>
             </li>
             <li>Además, no se deben poder elegir los formatos de texto Full HTML ni Filtered HTML:
-              <p class="captura"><img alt="Drupal. Comprobación" src="../img/drupal/drupal_ckeditor_minieditor_22.png" width="991" height="110" title="Drupal. Comprobación" /></p>
+              <p class="captura">
+                <img src="../img/drupal/drupal_ckeditor_minieditor_22.png" alt="Drupal. Comprobación" title="Drupal. Comprobación" width="991" height="110" />
+              </p>
             </li>
           </ul>
         </li>
