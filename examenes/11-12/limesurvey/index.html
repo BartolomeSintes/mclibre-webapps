@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
@@ -13,9 +13,9 @@
 
     <nav>
       <p>
-        <a href="../../../index.html"><img src="../../../varios/iconos/icono_webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../../../varios/iconos/icono_arrow_circle_up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-        <a href="../../examenes.html"><img src="../../../varios/iconos/icono_school.svg" alt="Exámenes" title="Exámenes" width="36" height="36" /></a>
+        <a href="../../../index.html"><img src="../../../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+        <a href="#"><img src="../../../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+        <a href="../../examenes.html"><img src="../../../varios/iconos/icono-school.svg" alt="Exámenes" title="Exámenes" width="36" height="36" /></a>
       </p>
 
       <div class="toc">
@@ -40,20 +40,20 @@
         <p><strong>Nota</strong>: Las capturas solicitadas serán capturas del <strong>escritorio completo,</strong> en las que se vean tanto el navegador con la información solicitada, como algunos iconos del escritorio.</p>
       </li>
       <li>la carpeta <strong>limesurvey</strong> comprimida.</li>
-      <li>la copia de seguridad de la base de datos <strong>iwb_limesurvey_1.sql</strong>.</li>
+      <li>la copia de seguridad de la base de datos <strong>iwb_limesurvey-1.sql</strong>.</li>
     </ul>
 
     <section id="ejercicio-1">
       <h2>1. Instalación</h2>
 
       <ul>
-        <li>Entre en phpMyAdmin como usuario <strong>root</strong> y cree un usuario de MySQL con nombre <strong>iwb_limesurvey_1</strong>, contraseña <strong>iwb_limesurvey_1</strong> y base de datos <strong>iwb_limesurvey_1</strong>.</li>
+        <li>Entre en phpMyAdmin como usuario <strong>root</strong> y cree un usuario de MySQL con nombre <strong>iwb_limesurvey-1</strong>, contraseña <strong>iwb_limesurvey-1</strong> y base de datos <strong>iwb_limesurvey-1</strong>.</li>
         <li>Descomprima el archivo comprimido <strong>limesurvey_XXXX.zip</strong>.</li>
         <li>Edite el archivo <strong>config.php</strong>:
           <ul>
-            <li>$databasename: <span class="codigo-modificacion">iwb_limesurvey_1</span></li>
-            <li>$databaseuser: <span class="codigo-modificacion">iwb_limesurvey_1</span></li>
-            <li>$databasepass: <span class="codigo-modificacion">iwb_limesurvey_1</span></li>
+            <li>$databasename: <span class="codigo-modificacion">iwb_limesurvey-1</span></li>
+            <li>$databaseuser: <span class="codigo-modificacion">iwb_limesurvey-1</span></li>
+            <li>$databasepass: <span class="codigo-modificacion">iwb_limesurvey-1</span></li>
             <li>$rooturl: <span class="codigo-modificacion">http://{$_SERVER['HTTP_HOST']}/ ... /limesurvey</span></li>
             <li>$rootdir: <span class="codigo-modificacion">C:/ ... /limesurvey</span> (se deben utilizar barras, no contrabarras)</li>
             <li>$defaultuser: <span class="codigo-modificacion">admin</span></li>
@@ -61,15 +61,15 @@
           </ul>
         </li>
         <li>Abra <strong>limesurvey/index.php</strong> en el navegador. Se inicia el proceso de instalación.</li>
-        <li>Haga una captura de pantalla donde se vea el formulario de entrada y guardela como <strong>limesurvey_1a.png</strong>:
+        <li>Haga una captura de pantalla donde se vea el formulario de entrada y guardela como <strong>limesurvey-1a.png</strong>:
           <p class="captura">
-            <img src="limesurvey_1a.png" alt="LimeSurvey" width="520" height="230" />
+            <img src="limesurvey-1a.png" alt="LimeSurvey" width="520" height="230" />
           </p>
         </li>
         <li>Renombre el directorio <strong>limesurvey/admin/install</strong> y abra la dirección <strong>limesurvey/admin/</strong> en el navegador.</li>
-        <li>Haga una captura de pantalla donde se vea el formulario de entrada y guardela como <strong>limesurvey_1b.png</strong>:
+        <li>Haga una captura de pantalla donde se vea el formulario de entrada y guardela como <strong>limesurvey-1b.png</strong>:
           <p class="captura">
-            <img src="limesurvey_1b.png" alt="Lime Survey" width="520" height="250" />
+            <img src="limesurvey-1b.png" alt="Lime Survey" width="520" height="250" />
           </p>
         </li>
       </ul>
@@ -82,9 +82,9 @@
         <li>Entre en LimeSurvey como usuario <strong>admin</strong>.</li>
         <li>Cambie al idioma español como idioma predeterminado</li>
         <li>Ponga su nombre como nombre de administrador</li>
-        <li>Abra en otro navegador la dirección <strong>limesurvey/</strong> y haga una captura de pantalla en la que se vea el formulario de entrada y guardela como <strong>limesurvey_2.png</strong>:
+        <li>Abra en otro navegador la dirección <strong>limesurvey/</strong> y haga una captura de pantalla en la que se vea el formulario de entrada y guardela como <strong>limesurvey-2.png</strong>:
           <p class="captura">
-            <img src="limesurvey_2.png" alt="LimeSurvey" width="800" height="300" />
+            <img src="limesurvey-2.png" alt="LimeSurvey" width="800" height="300" />
           </p>
         </li>
       </ul>
@@ -122,9 +122,9 @@
           </ul>
         </li>
         <li>Publique la encuesta </li>
-        <li>Abra en otro navegador la dirección <strong>limesurvey/</strong> y haga una captura de pantalla en la que se vea el formulario de entrada y guardela como <strong>limesurvey_3.png</strong>:
+        <li>Abra en otro navegador la dirección <strong>limesurvey/</strong> y haga una captura de pantalla en la que se vea el formulario de entrada y guardela como <strong>limesurvey-3.png</strong>:
           <p class="captura">
-            <img src="limesurvey_3.png" alt="LimeSurvey" width="800" height="300" />
+            <img src="limesurvey-3.png" alt="LimeSurvey" width="800" height="300" />
           </p>
         </li>
       </ul>
@@ -135,13 +135,13 @@
 
       <ul>
         <li>Conteste la encuesta tres veces, contestando una respuesta dos veces y otra una sola vez.</li>
-        <li>Entre en LimeSurvey como usuario <strong>admin</strong>, muestre la información disponible. Haga una captura de pantalla en la que se vea la información disponible de la encuesta y guardela como <strong>limesurvey_4a.png</strong>:
+        <li>Entre en LimeSurvey como usuario <strong>admin</strong>, muestre la información disponible. Haga una captura de pantalla en la que se vea la información disponible de la encuesta y guardela como <strong>limesurvey-4a.png</strong>:
           <p class="captura">
-            <img src="limesurvey_4a.png" alt="LimeSurvey" width="1000" height="270" />
+            <img src="limesurvey-4a.png" alt="LimeSurvey" width="1000" height="270" />
           </p>
-          <p>Muestre la información en forma de gráfico. Haga una captura de pantalla en la que se vea el gráfico y guardela como <strong>limesurvey_4b.png</strong>:</p>
+          <p>Muestre la información en forma de gráfico. Haga una captura de pantalla en la que se vea el gráfico y guardela como <strong>limesurvey-4b.png</strong>:</p>
           <p class="captura">
-            <img src="limesurvey_4b.png" alt="LimeSurvey" width="800" height="630" />
+            <img src="limesurvey-4b.png" alt="LimeSurvey" width="800" height="630" />
           </p>
         </li>
       </ul>
@@ -158,20 +158,20 @@
           <p>Password: <span class="codigo-modificacion">creador_1</span></p>
           <p>con permiso para crear encuestas.</p>
         </li>
-        <li>Haga una captura de pantalla en la que se vea la información de usuario y guardela como <strong>limesurvey_5.png</strong>:
+        <li>Haga una captura de pantalla en la que se vea la información de usuario y guardela como <strong>limesurvey-5.png</strong>:
           <p class="captura">
-            <img src="limesurvey_5.png" alt="LimeSurvey" width="850" height="140" />
+            <img src="limesurvey-5.png" alt="LimeSurvey" width="850" height="140" />
           </p>
         </li>
         <li>Crear un grupo de usuarios <strong>Creadores</strong> / Creadores de encuestas y añada al usuario <strong>creador_1</strong>.</li>
-        <li>Haga una captura de pantalla en la que se vea la información del grupo y guardela como <strong>limesurvey_6.png</strong>:
+        <li>Haga una captura de pantalla en la que se vea la información del grupo y guardela como <strong>limesurvey-6.png</strong>:
           <p class="captura">
-            <img src="limesurvey_6.png" alt="LimeSurvey" width="940" height="175" />
+            <img src="limesurvey-6.png" alt="LimeSurvey" width="940" height="175" />
           </p>
         </li>
-        <li>Abra en otro navegador la dirección <strong>limesurvey/admin</strong> y entre como <strong>creador_1</strong>. Haga una captura de pantalla en la que se vea que ha entrado como ese usuario y guardela como <strong>limesurvey_7.png</strong>:
+        <li>Abra en otro navegador la dirección <strong>limesurvey/admin</strong> y entre como <strong>creador_1</strong>. Haga una captura de pantalla en la que se vea que ha entrado como ese usuario y guardela como <strong>limesurvey-7.png</strong>:
           <p class="captura">
-            <img src="limesurvey_7.png" alt="LimeSurvey" width="910" height="220" />
+            <img src="limesurvey-7.png" alt="LimeSurvey" width="910" height="220" />
           </p>
         </li>
       </ul>
@@ -181,14 +181,14 @@
       <h2>6. Crear una copia de seguridad</h2>
 
       <ul>
-        <li>Entre en phpMyAdmin como usuario <strong>iwb_limesurvey_1</strong>, elija la base de datos <strong>iwb_limesurvey_1</strong> y exporte las tablas con el método rápido al fichero <strong>iwb_limesurvey_1.sql</strong>.</li>
+        <li>Entre en phpMyAdmin como usuario <strong>iwb_limesurvey-1</strong>, elija la base de datos <strong>iwb_limesurvey-1</strong> y exporte las tablas con el método rápido al fichero <strong>iwb_limesurvey-1.sql</strong>.</li>
       </ul>
     </section>
 
     <footer>
       <p class="ultmod">Última modificación de esta página: 23 de febrero de 2012</p>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../../../varios/iconos/icono_cc_by_sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../../../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
         Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
         que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
     </footer>

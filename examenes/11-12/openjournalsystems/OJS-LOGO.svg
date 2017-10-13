@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="OJS_LOGO.svg">
+   sodipodi:docname="OJS-LOGO.svg">
   <defs
      id="defs4">
     <inkscape:path-effect
@@ -231,7 +231,7 @@
        id="path4037"
        d="M 280.35455,343.30004 168.55006,311.168 c 0,0 -11.2744,-4.50977 -12.77765,-8.26789 -1.50326,-3.75814 0.75163,-32.31996 3.75813,-40.58785 3.00651,-8.2679 22.5488,-30.06507 27.81019,-31.56832 5.26139,-1.50325 72.9078,42.84272 84.18216,54.86875 11.27442,12.02603 21.04555,32.13204 23.30048,39.64831"
        style="color:#000000;fill:#fff1f1;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -240,7 +240,7 @@
        id="path4035"
        d="m 344.23621,305.65406 c 0,0 3.57022,-32.31995 2.06694,-39.08458 -1.50324,-6.76465 -24.05201,-76.66593 -28.56181,-78.16918 -4.50975,-1.50326 -30.81668,10.52277 -35.32643,15.03253 -4.5098,4.50976 -25.55532,39.83621 -25.55532,43.59435 0,3.75813 61.44545,56.372 64.45197,63.13664"
        style="fill:#fff1f1;fill-opacity:1;stroke:none"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -248,7 +248,7 @@
        d="m 320.69014,188.27785 c -6.62262,0.0991 -30.02048,10.93147 -34.24832,15.15937 -4.50985,4.50976 -25.55068,39.82917 -25.55068,43.58731 0,3.75813 61.44549,56.372 64.45201,63.13664 l 1.98949,-0.3946 c -0.22382,-0.3903 -0.47395,-0.79021 -0.95363,-1.38112 -0.61521,-0.75786 -1.43299,-1.68264 -2.41698,-2.72934 -1.96786,-2.0934 -4.60308,-4.70706 -7.69477,-7.67834 -6.18329,-5.94254 -14.14698,-13.26856 -22.01559,-20.50297 -7.86862,-7.2344 -15.64911,-14.3772 -21.45662,-19.94394 -2.90371,-2.78337 -5.31816,-5.17624 -7.00419,-6.98778 -0.84304,-0.90577 -1.50581,-1.67553 -1.95661,-2.26897 -0.45079,-0.59345 -0.69056,-1.0147 -0.69056,-1.24958 0,-0.46977 0.33647,-1.4278 0.92075,-2.76223 0.58427,-1.33443 1.42809,-3.04291 2.44988,-4.99832 2.04347,-3.91081 4.81506,-8.81282 7.72761,-13.74537 2.9126,-4.93255 5.95899,-9.88859 8.56622,-13.89335 1.30361,-2.00238 2.49505,-3.77428 3.50214,-5.17918 1.00703,-1.4049 1.83675,-2.44513 2.40045,-3.00886 0.56376,-0.56372 1.45456,-1.2484 2.61428,-2.0059 1.15971,-0.7575 2.57434,-1.5972 4.15976,-2.46627 3.17093,-1.73814 7.03242,-3.61955 10.88454,-5.31072 1.92604,-0.84558 3.84797,-1.64066 5.68883,-2.35118 1.8409,-0.71052 3.59373,-1.33179 5.1792,-1.82504 1.58547,-0.49326 3.00004,-0.8585 4.15976,-1.05228 0.13569,-0.0227 0.23324,-0.0149 0.36177,-0.0329 -0.28017,-0.091 -0.63384,-0.1216 -1.06874,-0.1151 z"
        id="path4270"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -257,7 +257,7 @@
        id="path4064"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cssccccssc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -268,7 +268,7 @@
        inkscape:path-effect="#path-effect3837"
        inkscape:original-d="M 280.35455,343.30004 168.55006,311.168 c 0,0 -11.2744,-4.50977 -12.77765,-8.26789 -1.50326,-3.75814 0.75163,-32.31996 3.75813,-40.58785 3.00651,-8.2679 22.5488,-30.06507 27.81019,-31.56832 5.26139,-1.50325 72.9078,42.84272 84.18216,54.86875 11.27442,12.02603 21.04555,32.13204 23.30048,39.64831"
        sodipodi:nodetypes="ccssssc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -279,7 +279,7 @@
        inkscape:path-effect="#path-effect3901"
        inkscape:original-d="m 344.23621,305.65406 c 0,0 3.57022,-32.31995 2.06694,-39.08458 -1.50324,-6.76465 -24.05201,-76.66593 -28.56181,-78.16918 -4.50975,-1.50326 -30.81668,10.52277 -35.32643,15.03253 -4.5098,4.50976 -25.55532,39.83621 -25.55532,43.59435 0,3.75813 61.44545,56.372 64.45197,63.13664"
        sodipodi:nodetypes="cssssc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -288,7 +288,7 @@
        id="path3986"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cssccsssssssssssssscscccssscccccscscscc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -297,7 +297,7 @@
        id="path3975"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccscscscccccssscccscssssssssssssssccscc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -306,7 +306,7 @@
        id="path4005"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="scccccssssssssssssssccccscssccsscccss"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -317,7 +317,7 @@
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.36829707;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        inkscape:path-effect="#path-effect3817"
        inkscape:original-d="m 308.69002,309.49362 c 47.57209,-16.21776 99.5618,13.54055 104.33425,53.5186 5.71602,47.88192 -31.35429,85.95411 -73.52047,89.19767 -34.79786,2.67677 -89.73823,-32.97611 -86.4947,-71.89873 3.24354,-38.92261 35.13846,-66.4928 55.68092,-70.81754 z"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -326,7 +326,7 @@
        id="path3973"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="sssss"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -334,7 +334,7 @@
        d="m 383.44533,314.92461 c -1.76956,0.0326 -3.60374,0.12552 -5.52446,0.27951 -6.76898,0.54267 -18.87496,9.01702 -26.83307,20.19057 1.07927,-1.28216 2.13496,-2.5925 3.28837,-3.76518 1.78781,-1.81781 3.64966,-3.50224 5.50798,-4.99832 1.85833,-1.49607 3.70986,-2.81011 5.50799,-3.91316 1.79819,-1.10305 3.53902,-1.99197 5.14632,-2.63069 0.80368,-0.31936 1.57042,-0.56641 2.30186,-0.75632 0.73144,-0.18991 1.42878,-0.32662 2.07167,-0.37817 1.92077,-0.15399 3.77136,-0.23046 5.54087,-0.26306 1.76956,-0.0326 3.45684,-0.0184 5.08056,0.0658 1.62371,0.0841 3.18619,0.23132 4.66948,0.42749 1.48329,0.19617 2.89376,0.45277 4.24199,0.75632 1.34823,0.30356 2.62885,0.64601 3.84739,1.05228 1.21854,0.40627 2.37504,0.87679 3.4692,1.38112 1.09421,0.50432 2.11581,1.04647 3.09106,1.64418 0.97531,0.59771 1.90058,1.23726 2.76223,1.92369 0.86171,0.68644 1.6635,1.41627 2.41698,2.18677 0.75348,0.77049 1.45388,1.5835 2.10455,2.43339 0.65068,0.84989 1.25537,1.73897 1.80861,2.66358 0.55323,0.92461 1.05148,1.88265 1.51264,2.87732 0.46116,0.99467 0.89155,2.03099 1.26605,3.09106 0.37445,1.06007 0.69335,2.15113 0.98651,3.27193 0.58623,2.24159 1.02208,4.59703 1.31535,7.05355 0.17557,1.47108 0.23597,2.93532 0.1973,4.37352 -0.0389,1.4382 -0.17441,2.86017 -0.41107,4.25844 -0.23666,1.39826 -0.56818,2.77561 -0.98651,4.1269 -0.41833,1.35129 -0.92901,2.66521 -1.51265,3.96248 -0.58365,1.29727 -1.24032,2.5783 -1.97302,3.81451 -0.64468,1.0877 -1.35633,2.13797 -2.10456,3.17327 6.83633,-7.63917 11.02493,-17.19122 9.79934,-27.45786 -2.19937,-18.42387 -12.04563,-31.33397 -38.58896,-30.84488 z"
        id="path4145"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -345,7 +345,7 @@
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.52613872px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        inkscape:path-effect="#path-effect3801"
        inkscape:original-d="m 378.84551,317.10858 c 30.73208,-2.46383 42.56409,9.31356 44.91009,28.96568 2.80985,23.53743 -22.85362,43.31564 -43.58138,44.91008 -17.10566,1.31583 -36.67213,-17.27311 -35.07772,-36.4064 1.59446,-19.13329 23.46252,-36.64468 33.74901,-37.46936 z"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -353,7 +353,7 @@
        d="m 391.60106,467.25177 -5.58055,-20.72773 -4.25183,-12.75553 -13.8185,-18.07033 14.34996,-1.59444 6.90925,18.60181 8.50372,14.61571 3.72032,5.84628 2.39167,7.97221"
        id="path4220"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -362,7 +362,7 @@
        id="path4239"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -371,7 +371,7 @@
        id="path4263"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccccc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -380,7 +380,7 @@
        id="path3887"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cscsc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -389,7 +389,7 @@
        id="path3889"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cssc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -398,7 +398,7 @@
        id="path3891"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cssc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -407,7 +407,7 @@
        id="path3893"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cssc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -416,7 +416,7 @@
        id="path3895"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cssc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -425,7 +425,7 @@
        id="path3897"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cssc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -434,7 +434,7 @@
        id="path3835"
        d="m 321.17987,325.08078 c 23.38512,-7.9722 48.94179,6.65616 51.28784,26.30828 2.80984,23.53743 -15.41292,42.25268 -36.14068,43.84712 -17.10566,1.31583 -44.11289,-16.21015 -42.51843,-35.34344 1.59447,-19.13329 17.27314,-32.68604 27.37127,-34.81196 z"
        style="fill:#d9dee6;fill-opacity:1;stroke:none"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -442,7 +442,7 @@
        d="m 332.1397,322.87071 c -4.37011,0.0216 -8.8345,0.70842 -13.21923,2.20321 -6.81702,1.43516 -16.07985,8.16587 -21.93341,18.21755 0.68461,-0.89634 1.3254,-1.86007 2.0552,-2.68002 1.34534,-1.5114 2.75292,-2.87622 4.1927,-4.11046 1.43978,-1.23424 2.91612,-2.33768 4.37353,-3.27192 1.4574,-0.93425 2.90949,-1.70689 4.30776,-2.3183 1.39826,-0.61141 2.73308,-1.04961 3.99539,-1.31535 1.46156,-0.49826 2.93406,-0.90715 4.40641,-1.23314 1.47229,-0.32598 2.95211,-0.57759 4.42283,-0.73988 1.47071,-0.16229 2.93327,-0.23945 4.38999,-0.24663 1.45667,-0.007 2.91034,0.058 4.34065,0.1973 1.43025,0.13935 2.83404,0.3475 4.22552,0.62479 1.39148,0.27729 2.77018,0.62919 4.11046,1.03584 1.34029,0.40665 2.6529,0.87012 3.92957,1.39756 1.27673,0.52743 2.51521,1.11963 3.71591,1.75927 1.20065,0.63964 2.35689,1.32842 3.4692,2.07167 1.11231,0.74325 2.17816,1.52934 3.18972,2.36763 1.01155,0.83828 1.97896,1.7224 2.87734,2.64713 0.89833,0.92474 1.72632,1.89116 2.49916,2.89377 0.7728,1.0026 1.48613,2.05205 2.12097,3.12394 0.63484,1.0719 1.19255,2.17222 1.67707,3.30481 0.48452,1.1326 0.89491,2.30095 1.2167,3.48567 0.32178,1.18472 0.56039,2.38895 0.70702,3.6172 0.17557,1.47109 0.26365,2.92668 0.27949,4.35709 0.0158,1.43041 -0.0458,2.82538 -0.18089,4.20911 -0.1349,1.38373 -0.34815,2.74653 -0.62474,4.07758 -0.27664,1.33104 -0.61016,2.6408 -1.01944,3.91315 -0.40923,1.27236 -0.88108,2.5082 -1.41395,3.71586 -0.50309,1.14006 -1.07169,2.24404 -1.67712,3.32125 5.7649,-7.57787 8.93331,-17.32755 7.64548,-28.11554 -1.90615,-15.96735 -19.14224,-28.60352 -38.07929,-28.51014 z"
        id="path4109"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -453,7 +453,7 @@
        sodipodi:nodetypes="csssc"
        inkscape:path-effect="#path-effect3809"
        inkscape:original-d="m 321.44567,326.67522 c 23.38513,-7.9722 48.94179,6.65616 51.28784,26.30828 2.80985,23.53743 -15.41291,42.25268 -36.14067,43.84712 -17.10567,1.31583 -44.11289,-16.21014 -42.51843,-35.34344 1.59446,-19.13329 17.27313,-32.68603 27.37126,-34.81196 z"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -462,7 +462,7 @@
        id="path3885"
        d="m 399.66866,328.76393 c -5.39645,0 -7.8874,6.62488 -7.8874,12.02133 0,5.39646 2.11513,10.34661 7.51158,10.34661 5.39644,0 10.51809,-5.51387 10.51809,-10.91033 0,-5.39645 -4.74583,-11.45761 -10.14227,-11.45761 z"
        style="color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.69999999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -471,7 +471,7 @@
        id="path3880"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="sssss"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -482,7 +482,7 @@
        inkscape:path-effect="#path-effect4212"
        inkscape:original-d="m 392.9304,468.71538 c 0,0 -6.05633,-26.70555 -13.7489,-37.97995 -7.69262,-11.2744 -13.78483,-19.54229 -13.78483,-19.54229"
        sodipodi:nodetypes="csc"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -492,7 +492,7 @@
        inkscape:connector-curvature="0"
        inkscape:path-effect="#path-effect4173"
        inkscape:original-d="m 379.04097,408.93826 c 0,0 8.40843,21.79717 12.57303,28.56181 4.1646,6.76464 15.27012,24.80368 15.27012,24.80368"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -501,7 +501,7 @@
        id="path4311"
        d="m 355.59781,352.56021 c -1.77067,0 -2.7485,3.70691 -2.7485,5.47757 0,1.77067 1.18718,3.57986 2.95785,3.57986 1.77072,0 3.45115,-1.80919 3.45115,-3.57986 0,-1.77066 -1.88989,-5.47757 -3.6605,-5.47757 z"
        style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.69999999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -510,7 +510,7 @@
        id="path4313"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="sssss"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -519,7 +519,7 @@
        id="path4317"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="sssss"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -528,7 +528,7 @@
        id="path4320"
        d="m 310.6372,410.18906 c -1.6858,0 -3.49387,1.22124 -3.10906,2.68885 0.45785,1.74616 1.36428,2.7479 3.05003,2.7479 1.6858,0 3.05955,-1.23067 3.05955,-2.7479 0,-1.51722 -1.31472,-2.68885 -3.00052,-2.68885 z"
        style="color:#000000;fill:#5a9761;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.57841611;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <path
@@ -537,7 +537,7 @@
        id="path4339"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="sssss"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176" />
     <text
@@ -548,7 +548,7 @@
        id="text3029"
        sodipodi:linespacing="125%"
        transform="scale(0.89403201,1.1185282)"
-       inkscape:export-filename="D:\Downloads\ojs_logo.png"
+       inkscape:export-filename="D:\Downloads\ojs-logo.png"
        inkscape:export-xdpi="22.55176"
        inkscape:export-ydpi="22.55176"><tspan
          sodipodi:role="line"
