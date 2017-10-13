@@ -93,7 +93,7 @@
         <li>Cree el contenedor de Nextcloud siguiendo las instrucciones de esa página. En caso de ir a utilizar MariaDB como base de datos, incluya el contenedor en la red en la que esté MariaDB.</li>
         <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada en NextCloud, escribiendo la dirección <strong>https://AAA.BBB.CCC.DDD/nextcloud</strong> en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
           <p class="captura">
-            <img src="../img/nextcloud/1_1_e_1_instalacion.jpg" alt="Nextcloud. Instalación" title="Nextcloud. Instalación" width="400" height="280" />
+            <img src="../img/nextcloud/1-1-e-1-instalaciones.jpg" alt="Nextcloud. Instalación" title="Nextcloud. Instalación" width="400" height="280" />
           </p>
           <p><strong>Nota:</strong> Si se muestra un aviso de seguridad por no disponer el servidor de un certificado de seguridad válido, será necesario indicar al navegador que se confíe en la identificación del sitio.</p>
         </li>
@@ -117,17 +117,17 @@
         </li>
         <li>Se mostrará el interfaz de Nextcloud con un aviso de bienvenida
           <p class="captura">
-            <img src="../img/nextcloud/1_2_e_1_instalacion.png" alt="Nextcloud. Bienvenida" title="Nextcloud. Bienvenida" width="712" height="396" />
+            <img src="../img/nextcloud/1-2-e-1-instalaciones.png" alt="Nextcloud. Bienvenida" title="Nextcloud. Bienvenida" width="712" height="396" />
           </p>
         </li>
         <li>Salga de Nextcloud y compruebe que puede volver a entrar como administrador.
           <p class="captura">
-            <img src="../img/nextcloud/1_2_e_2_instalacion.jpg" alt="Nextcloud. Entrar" title="Nextcloud. Entrar" width="400" height="350" />
+            <img src="../img/nextcloud/1-2-e-2-instalaciones.jpg" alt="Nextcloud. Entrar" title="Nextcloud. Entrar" width="400" height="350" />
           </p>
         </li>
         <li>Si ha instalado Nextcloud de manera que utilice MariaDB como base de datos, compruebe con phpMyAdmin que se han creado las tablas correspondientes. Si no se hubiera creado ninguna tabla es que Nextcloud está utilizando SQLite.
           <p class="captura">
-            <img src="../img/nextcloud/1_2_e_3_instalacion.png" alt="Nextcloud. Entrar" title="Nextcloud. Tablas en MariaDB" width="800" height="320" />
+            <img src="../img/nextcloud/1-2-e-3-instalaciones.png" alt="Nextcloud. Entrar" title="Nextcloud. Tablas en MariaDB" width="800" height="320" />
           </p>
         </li>
       </ol>
@@ -143,10 +143,10 @@
       <ol>
         <li>Como administrador, compruebe en Nextcloud si hay una actualización disponible (puede tardar un rato en mostrar la disponibilidad d euna nueva versión.
           <p class="captura">
-            <img src="../img/nextcloud/1_3_e_1_actualizar.png" alt="Nextcloud. Versión actual" title="Nextcloud. Versión actual" width="700" height="300" />
+            <img src="../img/nextcloud/1-3-e-1-actualizar.png" alt="Nextcloud. Versión actual" title="Nextcloud. Versión actual" width="700" height="300" />
           </p>
           <p class="captura">
-            <img src="../img/nextcloud/1_3_e_2_actualizar.png" alt="Nextcloud. Versión actual" title="Nextcloud. Versión actual" width="700" height="300" /></p>
+            <img src="../img/nextcloud/1-3-e-2-actualizar.png" alt="Nextcloud. Versión actual" title="Nextcloud. Versión actual" width="700" height="300" /></p>
         </li>
         <li>Consulte las instrucciones en el repositorio de Grey Christoforo, para saber el script que se debe ejecutar antes y después de realizar la actualización</li>
       </ol>
@@ -160,7 +160,7 @@
       <ol>
         <li>Intente entrar en Nextcloud como administrador mediante una conexión <strong>no</strong> cifrada <strong>http://192.168.XXX.YYY/...</strong> y compruebe que se muestra el aviso siguiente:
           <p class="captura">
-            <img src="../img/nextcloud/1_4_e_1_http.png" alt="Nextcloud. Conexión no segura" title="Nextcloud. Coneción HTTP" width="1008" height="139" />
+            <img src="../img/nextcloud/1-4-e-1-http.png" alt="Nextcloud. Conexión no segura" title="Nextcloud. Coneción HTTP" width="1008" height="139" />
           </p>
         </li>
         <li>Configure el servidor Apache del contenedor para forzar el acceso mediante https.

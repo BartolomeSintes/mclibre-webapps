@@ -55,9 +55,9 @@
         <li>Importe la máquina virtual de infraestructura LAMP de Bitnami en VirtualBox.</li>
         <li>Arranque la máquina virtual.</li>
         <li>Compruebe en el navegador del ordenador anfitrión que puede ver la web del servidor, escribiendo la dirección http://AAA.BBB.CCC.DDD en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
-          <p class="captura"><img src="../img/bitnami/2_1_e_1_vm_lamp.png" alt="Servidor web en la máquina virtual" title="Servidor web en la máquina virtual" width="495" height="250" /></p></li>
+          <p class="captura"><img src="../img/bitnami/2-1-e-1-vm-lamp.png" alt="Servidor web en la máquina virtual" title="Servidor web en la máquina virtual" width="495" height="250" /></p></li>
         <li>Compruebe en el navegador del ordenador anfitrión que no hay aplicaciones instaladas.
-          <p class="captura"><img src="../img/bitnami/2_1_e_2_vm_lamp.png" alt="Aplicaciones instaladas en la máquina virtual" title="Aplicaciones instaladas en la máquina virtual" width="495" height="250" /></p></li>
+          <p class="captura"><img src="../img/bitnami/2-1-e-2-vm-lamp.png" alt="Aplicaciones instaladas en la máquina virtual" title="Aplicaciones instaladas en la máquina virtual" width="495" height="250" /></p></li>
       </ol>
     </section>
 
@@ -76,20 +76,20 @@
 
       <ol>
         <li>Compruebe que no puede acceder la aplicación phpMyAdmin instalada en la máquina virtual:
-          <p class="captura"><img src="../img/bitnami/2_2_e_1_phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" title="Acceso prohibido a phpMyAdmin" width="650" height="140" /></p>
+          <p class="captura"><img src="../img/bitnami/2-2-e-1-phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" title="Acceso prohibido a phpMyAdmin" width="650" height="140" /></p>
         </li>
         <li>En la página inicial de la web de la máquina virtual se encuentra un enlace a la documentación de Bitnami sobre phpMyAdmin::
           <p class="captura">
-            <img src="../img/bitnami/2_2_e_3_phpmyadmin.png" alt="Enlace a documentación phpMyAdmin" title="Enlace a documentación phpMyAdmin" width="495" height="250" />
-            <img src="../img/bitnami/2_2_e_4_phpmyadmin.png" alt="Documentación de Bitnami" title="Documentación de Bitnami" width="495" height="275" />
+            <img src="../img/bitnami/2-2-e-3-phpmyadmin.png" alt="Enlace a documentación phpMyAdmin" title="Enlace a documentación phpMyAdmin" width="495" height="250" />
+            <img src="../img/bitnami/2-2-e-4-phpmyadmin.png" alt="Documentación de Bitnami" title="Documentación de Bitnami" width="495" height="275" />
           </p>
         </li>
         <li>En esa documentación se explica qué por motivos de seguridad sólo se permite conectarse a phpMyAdmin con direcciones locales (127.0.0.1) y que desde otros equipos debe hacerse a través de un túnel SSH (127.0.0.1:8888). Compruebe que sin abrir el túnel tampoco puede realizar la conexión desde el ordenador anfitrión:
-          <p class="captura"><img src="../img/bitnami/2_2_e_2_phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" title="Acceso prohibido a phpMyAdmin" width="800" height="300" /></p>
+          <p class="captura"><img src="../img/bitnami/2-2-e-2-phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" title="Acceso prohibido a phpMyAdmin" width="800" height="300" /></p>
         </li>
         <li>Configure la máquina virtual y el ordenador anfitrión siguiendo las instrucciones de la documentación de Bitnami, de manera que pueda acceder al phpMyAdmin que está instalado en la máquina virtual a través de un túnel SSH:
 
-          <p class="captura"><img src="../img/bitnami/2_2_e_5_phpmyadmin.png" alt="login de phpMyAdmin" title="login de phpMyAdmin" width="615" height="370" /></p>
+          <p class="captura"><img src="../img/bitnami/2-2-e-5-phpmyadmin.png" alt="login de phpMyAdmin" title="login de phpMyAdmin" width="615" height="370" /></p>
 
           <p>Si tiene problemas para seguir las instrucciones de la documentación de Bitnami, los pasos siguientes resumen esas instrucciones. En caso necesario, puede consultar la lección <a href="bitnami-varios.html">Bitnami Varios</a> o las <a href="bitnami-2-soluciones.html#ejercicio-2">soluciones Bitnami (2)</a> que explican cómo realizar esos pasos.</p>
 
@@ -122,7 +122,7 @@
 
           <p>Ahora debería poder conectar a phpMyAdmin desde el ordenador anfitrión:</p>
 
-          <p class="captura"><img src="../img/bitnami/2_2_e_5_phpmyadmin.png" alt="login de phpMyAdmin" title="login de phpMyAdmin" width="615" height="370" /></p>
+          <p class="captura"><img src="../img/bitnami/2-2-e-5-phpmyadmin.png" alt="login de phpMyAdmin" title="login de phpMyAdmin" width="615" height="370" /></p>
         </li>
       </ol>
     </section>
@@ -150,16 +150,16 @@
           </ul>
         </li>
         <li>Compruebe en el navegador del ordenador anfitrión que OpenCart aparece en la lista de aplicaciones instaladas
-          <p class="captura"><img src="../img/bitnami/2_3_e_1_opencart.png" alt="OpenCart en la lista de aplicaciones de la máquina virtual" title="OpenCart en la lista de aplicaciones de la máquina virtual" width="767" height="330" /></p>
+          <p class="captura"><img src="../img/bitnami/2-3-e-1-opencart.png" alt="OpenCart en la lista de aplicaciones de la máquina virtual" title="OpenCart en la lista de aplicaciones de la máquina virtual" width="767" height="330" /></p>
         </li>
         <li>Compruebe que la tienda de ejemplo funciona correctamente.
           <ul>
             <li>Compruebe en el navegador del ordenador anfitrión que puede ver la tienda de ejemplo de OpenCart, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD/opencart</strong> en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
-              <p class="captura"><img src="../img/bitnami/1_2_e_1_vm_opencart.png" alt="Tienda OpenCart en la máquina virtual" title="Tienda OpenCart en la máquina virtual" width="495" height="273" /></p></li>
+              <p class="captura"><img src="../img/bitnami/1-2-e-1-vm-opencart.png" alt="Tienda OpenCart en la máquina virtual" title="Tienda OpenCart en la máquina virtual" width="495" height="273" /></p></li>
             <li>Compruebe en el navegador del ordenador anfitrión que puede acceder como administrador de la tienda OpenCart escribiendo la dirección adecuada.
               <p class="captura">
-                <img src="../img/bitnami/1_2_e_2_vm_opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="504" height="273" />
-                <img src="../img/bitnami/1_2_e_3_vm_opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="495" height="273" />
+                <img src="../img/bitnami/1-2-e-2-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="504" height="273" />
+                <img src="../img/bitnami/1-2-e-3-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="495" height="273" />
               </p>
               <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /><strong>Nota</strong>: El navegador mostrará un aviso sobre el certificado de seguridad del sitio web</p>
             </li>
