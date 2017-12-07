@@ -169,10 +169,10 @@
           <li>Añada una directiva VirtualHost que redirija las peticiones http a https.
             <div class="codigo">
               <pre>
-<code class="language-configuracion">&lt;VirtualHost *:80>
+<code class="language-configuracion">&lt;VirtualHost *:80&gt;
   Servername 192.168.<span class="codigo-modificacion">XXX.YYY</span>
   Redirect permanent / https://192.168.<span class="codigo-modificacion">XXX.YYY</span>/
-&lt;/VirtualHost></code>
+&lt;/VirtualHost&gt;</code>
 </pre>
             </div>
             <p><strong>Nota</strong>: Creo que el valor de Servername no es importante, pero debe haber Servername.</p>

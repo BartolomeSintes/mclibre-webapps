@@ -177,10 +177,10 @@ sudo docker cp /tmp/nextcloud.conf.original CONTENEDOR:/etc/httpd/conf/extra/nex
       <li>Añada una directiva VirtualHost que redirija las peticiones http a https.
         <div class="codigo">
           <pre>
-<code class="language-configuracion">&lt;VirtualHost *:80>
+<code class="language-configuracion">&lt;VirtualHost *:80&gt;
   Servername 192.168.<span class="codigo-modificacion">XXX.YYY</span>
   Redirect permanent / https://192.168.<span class="codigo-modificacion">XXX.YYY</span>/
-&lt;/VirtualHost></code>
+&lt;/VirtualHost&gt;</code>
 </pre>
         </div>
         <p><strong>Nota</strong>: Creo que el valor de Servername no es importante, pero debe haber Servername.</p>
@@ -254,10 +254,10 @@ sudo docker start CONTENEDOR</code>
           <pre>
 <code class="language-configuracion">...
   array (
-    0 => '192.168.<span class="codigo-modificacion">XXX.YYY</span>'.
+    0 =&gt; '192.168.<span class="codigo-modificacion">XXX.YYY</span>'.
   ),
 ...
-  'overwirte.cli.url' => 'https://192.168.<span class="codigo-modificacion">XXX.YYY</span>'/nextcloud',
+  'overwirte.cli.url' =&gt; 'https://192.168.<span class="codigo-modificacion">XXX.YYY</span>'/nextcloud',
 ...</code>
 </pre>
         </div>
