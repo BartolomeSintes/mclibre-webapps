@@ -1,298 +1,297 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Ejercicios (2). WordPress. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Ejercicios (2). WordPress. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>WordPress. Ejercicios (2)</h1>
+<body>
+  <h1>WordPress. Ejercicios (2)</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="wordpress-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          WordPress (2)
-          <a href="wordpress-3.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="wordpress-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> WordPress (2)
+        <a href="wordpress-3.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
 
-        <h3>Enunciados</h3>
+      <h3>Enunciados</h3>
+      <ul>
+        <li><a href="#ejercicio-1">1 - Primeros pasos</a></li>
+        <li><a href="#ejercicio-2">2 - Páginas</a></li>
+        <li><a href="#ejercicio-3">3 - Menús</a></li>
+        <li><a href="#ejercicio-4">4 - Entradas</a></li>
+        <li><a href="#ejercicio-5">5 - Comentarios</a></li>
+        <li><a href="#ejercicio-6">6 - Medios</a></li>
+        <li><a href="#ejercicio-7">7 - Usuarios</a></li>
+        <li><a href="#ejercicio-8">8 - Etiquetas y categorías</a></li>
+      </ul>
+
+      <h3><a href="wordpress-2-soluciones.html">Soluciones</a></h3>
+      <ul>
+        <li><a href="wordpress-2-soluciones.html#ejercicio-1">1 - Primeros pasos</a></li>
+        <li><a href="wordpress-2-soluciones.html#ejercicio-2">2 - Páginas</a></li>
+        <li><a href="wordpress-2-soluciones.html#ejercicio-3">3 - Menús</a></li>
+        <li><a href="wordpress-2-soluciones.html#ejercicio-4">4 - Entradas</a></li>
+        <li><a href="wordpress-2-soluciones.html#ejercicio-5">5 - Comentarios</a></li>
+        <li><a href="wordpress-2-soluciones.html#ejercicio-6">6 - Medios</a></li>
+        <li><a href="wordpress-2-soluciones.html#ejercicio-7">7 - Usuarios</a></li>
+        <li><a href="wordpress-2-soluciones.html#ejercicio-8">8 - Etiquetas y categorías</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>WordPress</strong>. Se pueden consultar las <a href="wordpress-2-soluciones.html">soluciones de estos ejercicios de WordPress</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+  <section id="ejercicio-1">
+    <h2>WordPress (2) 1 - Primeros pasos</h2>
+
+    <p>Los elementos básicos de un blog de WordPress son:</p>
+    <ul>
+      <li>Entradas
+        <p>Las entradas son los bloques de contenido que forman el blog y que llevan asociados una fecha de creación. Las entradas se organizan de forma cronológica inversa. La página principal contiene las últimas entradas y, a medida que se van publicando nuevas entradas, las entradas antiguas se pasan a páginas secundarias</p>
+      </li>
+      <li>Páginas
+        <p>Las páginas son bloques de contenido que no llevan asociados una fecha de creación y que suelen estar siempre accesibles desde la página principal mediante un menú. Suelen contener información general (objetivos del blog, descripción del autor, etc.).</p>
+      </li>
+      <li>Comentarios
+        <p>Los comentarios son bloques de contenido que se vinculan a una entrada o página determinada y pueden ser creados por otros usuarios.</p>
+      </li>
+      <li>Medios
+        <p>Los medios son elementos gráficos o multimedia que pueden incluirse en las entradas o páginas.</p>
+      </li>
+    </ul>
+
+    <p>Al instalar WordPress, el blog contiene ya algunos elementos predeterminados. En este ejercicio se trata de modificar algunos de estos elementos (en algunos casos se pueden modificar desde varios sitios), sin crear ninguno más:</p>
+
+    <ul>
+      <li>Ajustes básicos
         <ul>
-          <li><a href="#ejercicio-1">1 - Primeros pasos</a></li>
-          <li><a href="#ejercicio-2">2 - Páginas</a></li>
-          <li><a href="#ejercicio-3">3 - Menús</a></li>
-          <li><a href="#ejercicio-4">4 - Entradas</a></li>
-          <li><a href="#ejercicio-5">5 - Comentarios</a></li>
-          <li><a href="#ejercicio-6">6 - Medios</a></li>
-          <li><a href="#ejercicio-7">7 - Usuarios</a></li>
-          <li><a href="#ejercicio-8">8 - Etiquetas y categorías</a></li>
+          <li>Título del sitio: "WebApps blog de NOMBRE-ALUMNO"</li>
+          <li>Descripción corta: "Blog dedicado a las aplicaciones web".</li>
+          <li>Zona horaria: En el caso de la península ibérica, la zona horaria es UTC+1.</li>
+          <li>Formato de fecha: 13/01/2015</li>
+          <li>Formato de hora: 09:52</li>
         </ul>
-
-        <h3><a href="wordpress-2-soluciones.html">Soluciones</a></h3>
+        <p class="captura"><img src="../img/wordpress/2-1-e-1-ajustes.jpg" alt="WordPress. Ajustes básicos" width="991" height="450" /></p>
+      </li>
+      <li>Entradas
+        <p>El blog predeterminado contiene una entrada que se titula "¡Hola mundo!".</p>
         <ul>
-          <li><a href="wordpress-2-soluciones.html#ejercicio-1">1 - Primeros pasos</a></li>
-          <li><a href="wordpress-2-soluciones.html#ejercicio-2">2 - Páginas</a></li>
-          <li><a href="wordpress-2-soluciones.html#ejercicio-3">3 - Menús</a></li>
-          <li><a href="wordpress-2-soluciones.html#ejercicio-4">4 - Entradas</a></li>
-          <li><a href="wordpress-2-soluciones.html#ejercicio-5">5 - Comentarios</a></li>
-          <li><a href="wordpress-2-soluciones.html#ejercicio-6">6 - Medios</a></li>
-          <li><a href="wordpress-2-soluciones.html#ejercicio-7">7 - Usuarios</a></li>
-          <li><a href="wordpress-2-soluciones.html#ejercicio-8">8 - Etiquetas y categorías</a></li>
+          <li>Primera entrada
+            <p>Modifique el título y contenido de la primera entrada. Por ejemplo,</p>
+            <p>Nace WebApps blog</p>
+            <p>Hoy nace WebApps blog, el blog dedicado a las aplicaciones web.</p>
+            <p>Modifique la fecha de la entrada. Por ejemplo, al 12 de septiembre de 2016.</p>
+            <p class="captura"><img src="../img/wordpress/2-1-e-2-entrada.jpg" alt="WordPress. Entrada" width="991" height="430" /></p>
+          </li>
+          <li>Comentario a la primera entrada
+            <p>Modifique el contenido del comentario. Por ejemplo,</p>
+            <p>Enhorabuena!</p>
+            <p>Ojalá que este blog tenga una larga vida. Es fácil empezar un blog, pero no es nada fácil continuar en la brecha.</p>
+            <p>Modifique la fecha del comentario. Por ejemplo, al 13 de septiembre de 2016.</p>
+            <p class="captura"><img src="../img/wordpress/2-1-e-3-comentario.png" alt="WordPress. Comentario" width="991" height="450" /></p>
+          </li>
         </ul>
-      </div>
-    </nav>
+      </li>
+      <li>Páginas
+        <p>El blog predeterminado contiene una página que se titula "Página de ejemplo".</p>
+        <ul>
+          <li>Modifique el título y contenido de la página de ejemplo. Por ejemplo:
+            <p>Acerca de </p>
+            <p>WebApps es un blog dedicado a las aplicaciones web en general.</p>
+            <p>Modifique la fecha de la página de ejemplo. Por ejemplo, al 12 de septiembre de 2016.</p>
+            <p>Modifique el enlace permanente a <strong>http://.../wordpress/acerca-de</strong>.</p>
+            <p class="captura"><img src="../img/wordpress/2-1-e-4-pagina.jpg" alt="WordPress. Página" width="1008" height="320" /></p>
+          </li>
+          <li>Compruebe que no puede ver la página de ejemplo escribiendo la dirección <strong>http://.../wordpress/pagina-ejemplo</strong>, pero sí puede verla escribiendo la dirección <strong>http://.../wordpress/acerca-de</strong>.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
 
-    <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>WordPress</strong>. Se pueden consultar las <a href="wordpress-2-soluciones.html">soluciones de estos ejercicios de WordPress</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+  <section id="ejercicio-2">
+    <h2>WordPress (2) 2 - Páginas</h2>
 
-    <section id="ejercicio-1">
-      <h2>WordPress (2) 1 - Primeros pasos</h2>
+    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /> Tenga en cuenta que las páginas no se muestran automáticamente en la web, pero sí que puede acceder a ellas escribiendo su dirección, por ejemplo, <strong>http://.../wordpress/contacto</strong>. Además, de forma predeterminada, no se pueden crear comentarios en las páginas (aunque se puede configurar una página para que admita comentarios).</p>
 
-      <p>Los elementos básicos de un blog de WordPress son:</p>
-      <ul>
-        <li>Entradas
-          <p>Las entradas son los bloques de contenido que forman el blog y que llevan asociados una fecha de creación. Las entradas se organizan de forma cronológica inversa. La página principal contiene las últimas entradas y, a medida que se van publicando nuevas entradas, las entradas antiguas se pasan a páginas secundarias</p>
-        </li>
-        <li>Páginas
-          <p>Las páginas son bloques de contenido que no llevan asociados una fecha de creación y que suelen estar siempre accesibles desde la página principal mediante un menú. Suelen contener información general (objetivos del blog, descripción del autor, etc.).</p>
-        </li>
-        <li>Comentarios
-          <p>Los comentarios son bloques de contenido que se vinculan a una entrada o página determinada y pueden ser creados por otros usuarios.</p>
-        </li>
-        <li>Medios
-          <p>Los medios son elementos gráficos o multimedia que pueden incluirse en las entradas o páginas.</p>
-        </li>
-      </ul>
+    <ul>
+      <li>Cree varias páginas (compruebe que, de forma predeterminada, no se pueden crear comentarios en las páginas):
+        <ul>
+          <li><strong>Blogs recomendados</strong>, con enlaces a otros blogs de temática relacionada.
+            <ul>
+              <li>readwrite: <a href="https://readwrite.com/">https://readwrite.com/</a></li>
+              <li>CopyBlogger: <a href="https://www.copyblogger.com/blog/">https://www.copyblogger.com/blog/</a></li>
+              <li>Blogging Basics 101: <a href="https://www.bloggingbasics101.com/">https://www.bloggingbasics101.com/</a></li>
+              <li>Social Media Examiner: <a href="https://www.socialmediaexaminer.com/">https://www.socialmediaexaminer.com/</a></li>
+              <li>The Moz Blog: <a href="https://moz.com/blog">https://moz.com/blog</a></li>
+              <li>ProBlogger: <a href="https://problogger.com/">https://problogger.com/</a></li>
+              <li>Avinash Kaushik: <a href="https://www.kaushik.net/avinash/">https://www.kaushik.net/avinash/</a></li>
+            </ul>
+          </li>
+          <li><strong>Sitios recomendados</strong> (no blogs), con enlaces a sitios de temática relacionada.
+            <ul>
+              <li>apuntes de clase: <a href="http://www.mclibre.org/consultar/webapps/">http://www.mclibre.org/consultar/webapps/</a></li>
+              <li>cdlibre.org: <a href="http://www.cdlibre.org/">http://www.cdlibre.org/</a></li>
+              <li>OpenSource CMS: <a href="http://www.opensourcecms.com/">http://www.opensourcecms.com/</a></li>
+              <li>Bitnami Stacks: <a href="https://bitnami.com/">https://bitnami.com/</a></li>
+            </ul>
+          </li>
+          <li><strong>Contacto</strong>, con información de contacto (correo, redes sociales, etc).</li>
+          <li><strong>Acerca de</strong>, con una descripción del contenido del blog.</li>
+        </ul>
+        <p class="captura"><img src="../img/wordpress/2-2-e-1-paginas.png" alt="WordPress. Páginas" width="1008" height="510" /></p>
+      </li>
+      <li>Compruebe que las páginas no se muestran por ahora en la web, pero sí que puede acceder a ellas escribiendo su dirección, por ejemplo, <strong>http://.../wordpress/contacto</strong>.</li>
+    </ul>
+  </section>
 
-      <p>Al instalar WordPress, el blog contiene ya algunos elementos predeterminados. En este ejercicio se trata de modificar algunos de estos elementos (en algunos casos se pueden modificar desde varios sitios), sin crear ninguno más:</p>
+  <section id="ejercicio-3">
+    <h2>WordPress (2) 3 - Menús</h2>
+    <ul>
+      <li>Cree un nuevo menú primario llamado <strong>Menú 1</strong>, que incluya únicamente un enlace a la página inicial:
+        <p class="captura"><img src="../img/wordpress/2-3-e-1-menu.jpg" alt="WordPress. Menú" width="991" height="500" /></p>
+      </li>
+      <li>Amplie el menú <strong>Menú 1</strong>:
+        <ul>
+          <li><strong>Inicio</strong>.</li>
+          <li><strong>Enlaces</strong>
+            <ul>
+              <li><strong>Blogs</strong></li>
+              <li><strong>Sitios</strong></li>
+            </ul>
+          </li>
+          <li><strong>Ayuda</strong>
+            <ul>
+              <li><strong>Contacto</strong></li>
+              <li><strong>Acerca de</strong></li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Notas</strong>:</p>
+        <ul>
+          <li>Para añadir las opciones Enlaces y Ayuda, que no enlazan a ninguna página, puede añadir dos enlaces al menú.</li>
+          <li>Para guardar un enlace hay que escribir algo en el campo URL, pero luego se puede borrar el campo URL para que no se comporte como enlace.</li>
+        </ul>
+        <p class="captura"><img src="../img/wordpress/2-3-e-2-menu.jpg" alt="WordPress. Menú" width="991" height="450" /></p>
+      </li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>Ajustes básicos
-          <ul>
-            <li>Título del sitio: "WebApps blog de NOMBRE-ALUMNO"</li>
-            <li>Descripción corta: "Blog dedicado a las aplicaciones web".</li>
-            <li>Zona horaria: En el caso de la península ibérica, la zona horaria es UTC+1.</li>
-            <li>Formato de fecha: 13/01/2015</li>
-            <li>Formato de hora: 09:52</li>
-          </ul>
-          <p class="captura"><img src="../img/wordpress/2-1-e-1-ajustes.jpg" alt="WordPress. Ajustes básicos" width="991" height="450" /></p>
-        </li>
-        <li>Entradas
-          <p>El blog predeterminado contiene una entrada que se titula "¡Hola mundo!".</p>
-          <ul>
-            <li>Primera entrada
-              <p>Modifique el título y contenido de la primera entrada. Por ejemplo,</p>
-              <p>Nace WebApps blog</p>
-              <p>Hoy nace WebApps blog, el blog dedicado a las aplicaciones web.</p>
-              <p>Modifique la fecha de la entrada. Por ejemplo, al 12 de septiembre de 2016.</p>
-              <p class="captura"><img src="../img/wordpress/2-1-e-2-entrada.jpg" alt="WordPress. Entrada" width="991" height="430" /></p>
-            </li>
-            <li>Comentario a la primera entrada
-              <p>Modifique el contenido del comentario. Por ejemplo,</p>
-              <p>Enhorabuena!</p>
-              <p>Ojalá que este blog tenga una larga vida. Es fácil empezar un blog, pero no es nada fácil continuar en la brecha.</p>
-              <p>Modifique la fecha del comentario. Por ejemplo, al 13 de septiembre de 2016.</p>
-              <p class="captura"><img src="../img/wordpress/2-1-e-3-comentario.png" alt="WordPress. Comentario" width="991" height="450" /></p>
-            </li>
-          </ul>
-        </li>
-        <li>Páginas
-          <p>El blog predeterminado contiene una página que se titula "Página de ejemplo".</p>
-          <ul>
-            <li>Modifique el título y contenido de la página de ejemplo. Por ejemplo:
-              <p>Acerca de </p>
-              <p>WebApps es un blog dedicado a las aplicaciones web en general.</p>
-              <p>Modifique la fecha de la página de ejemplo. Por ejemplo, al 12 de septiembre de 2016.</p>
-              <p>Modifique el enlace permanente a <strong>http://.../wordpress/acerca-de</strong>.</p>
-              <p class="captura"><img src="../img/wordpress/2-1-e-4-pagina.jpg" alt="WordPress. Página" width="1008" height="320" /></p>
-            </li>
-            <li>Compruebe que no puede ver la página de ejemplo escribiendo la dirección <strong>http://.../wordpress/pagina-ejemplo</strong>, pero sí puede verla escribiendo la dirección <strong>http://.../wordpress/acerca-de</strong>.</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+  <section id="ejercicio-4">
+    <h2>WordPress (2) 4 - Entradas</h2>
 
-    <section id="ejercicio-2">
-      <h2>WordPress (2) 2 - Páginas</h2>
+    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /> Tenga en cuenta que las entradas se muestran automáticamente en la web. Además, de forma predeterminada, se pueden crear comentarios en las páginas (aunque se puede configurar una página para que no admita comentarios).</p>
 
-      <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /> Tenga en cuenta que las páginas no se muestran automáticamente en la web, pero sí que puede acceder a ellas escribiendo su dirección, por ejemplo, <strong>http://.../wordpress/contacto</strong>. Además, de forma predeterminada, no se pueden crear comentarios en las páginas (aunque se puede configurar una página para que admita comentarios).</p>
+    <ul>
+      <li>Cree siete entradas en el blog. Como el blog está dedicado a las aplicaciones web, las entradas pueden tratar temas como: la publicación de nuevas versiones de aplicaciones web, breves tutoriales sobre aplicaciones web, etc.
+        <ul>
+          <li>Nueva versión: Drupal 8.2
+            <p>El 5 de octubre de 2016 se ha publicado Drupal 8.2.</p>
+          </li>
+          <li>Tutorial: Documentación oficial de Drupal<br />
+            <p>En <a href="https://www.drupal.org/documentation/">https://www.drupal.org/documentation/</a> se encuentra la documentación oficial de Drupal.</p>
+          </li>
+          <li>Nueva versión: WordPress 4.7<br />
+            <p>El 6 de diciembre de 2016 se ha publicado WordPress 4.7.</p>
+          </li>
+          <li>Tutorial: Documentación oficial de WordPress<br />
+            <p>En <a href="https://codex.wordpress.org/">https://codex.wordpress.org/</a> se encuentra la documentación oficial de WordPress.</p>
+          </li>
+          <li>Nueva versión: Nextcloud 11
+            <p>El 13 de diciembre de 2016 se ha publicado Nextcloud 11.</p>
+          </li>
+          <li>Nueva versión: phpBB 3.2
+            <p>El 7 de enero de 2017 se ha publicado phpBB 3.2.</p>
+          </li>
+          <li>Nueva versión: LibreOffice 5.3
+            <p>El 1 de febrero de 2017 se ha publicado LibreOffice 5.3.</p>
+          </li>
+        </ul>
+        <p class="captura"><img src="../img/wordpress/2-4-e-1-entradas.png" alt="WordPress. Entradas" width="991" height="570" /></p>
+      </li>
+      <li>Cambie la fecha de publicación de las novedades para que coincidan con el día de publicación de cada nueva versión.</li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>Cree varias páginas (compruebe que, de forma predeterminada, no se pueden crear comentarios en las páginas):
-          <ul>
-            <li><strong>Blogs recomendados</strong>, con enlaces a otros blogs de temática relacionada.
-              <ul>
-                <li>readwrite: <a href="https://readwrite.com/">https://readwrite.com/</a></li>
-                <li>CopyBlogger: <a href="https://www.copyblogger.com/blog/">https://www.copyblogger.com/blog/</a></li>
-                <li>Blogging Basics 101: <a href="https://www.bloggingbasics101.com/">https://www.bloggingbasics101.com/</a></li>
-                <li>Social Media Examiner: <a href="https://www.socialmediaexaminer.com/">https://www.socialmediaexaminer.com/</a></li>
-                <li>The Moz Blog: <a href="https://moz.com/blog">https://moz.com/blog</a></li>
-                <li>ProBlogger: <a href="https://problogger.com/">https://problogger.com/</a></li>
-                <li>Avinash Kaushik: <a href="https://www.kaushik.net/avinash/">https://www.kaushik.net/avinash/</a></li>
-              </ul>
-            </li>
-            <li><strong>Sitios recomendados</strong> (no blogs), con enlaces a sitios de temática relacionada.
-              <ul>
-                <li>apuntes de clase: <a href="http://www.mclibre.org/consultar/webapps/">http://www.mclibre.org/consultar/webapps/</a></li>
-                <li>cdlibre.org: <a href="http://www.cdlibre.org/">http://www.cdlibre.org/</a></li>
-                <li>OpenSource CMS: <a href="http://www.opensourcecms.com/">http://www.opensourcecms.com/</a></li>
-                <li>Bitnami Stacks: <a href="https://bitnami.com/">https://bitnami.com/</a></li>
-              </ul>
-            </li>
-            <li><strong>Contacto</strong>, con información de contacto (correo, redes sociales, etc).</li>
-            <li><strong>Acerca de</strong>, con una descripción del contenido del blog.</li>
-          </ul>
-          <p class="captura"><img src="../img/wordpress/2-2-e-1-paginas.png" alt="WordPress. Páginas" width="1008" height="510" /></p>
-        </li>
-        <li>Compruebe que las páginas no se muestran por ahora en la web, pero sí que puede acceder a ellas escribiendo su dirección, por ejemplo, <strong>http://.../wordpress/contacto</strong>.</li>
-      </ul>
-    </section>
+  <section id="ejercicio-5">
+    <h2>WordPress (2) 5 - Comentarios</h2>
+    <ul>
+      <li>Añada un primer comentario a la primera entrada
+        <p>Desde otro navegador y sin identificarse como administrador, visite el blog y añada un comentario a la primera entrada. Compruebe que el comentario no está publicado todavía.</p>
+        <p>Como administrador, apruebe el comentario. Compruebe que el comentario ya es visible.</p>
+      </li>
+      <li>Pruebe las diferentes opciones de configuración de los comentarios en Escritorio &gt; Ajustes &gt; Comentarios.
+        <ul>
+          <li>impida totalmente la creación de comentarios</li>
+          <li>permita la creación de comentarios a cualquier visitante (esta configuración se desaconseja en sitios reales debido a la proliferación de spammers)</li>
+          <li>pruebe el funcionamiento de opciones como:
+            <ul>
+              <li>El autor del comentario debe rellenar el nombre y el correo electrónico </li>
+              <li>El autor del comentario debe tener un comentario previamente aprobado</li>
+              <li>Lista negra de comentarios</li>
+            </ul>
+          </li>
+          <li>permita la creación de comentarios solamente a usuarios registrados (véase apartado siguiente)</li>
+          <li>permita la creación de comentarios con aprobación del administrador (esta es la configuración predeterminada).</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-3">
-      <h2>WordPress (2) 3 - Menús</h2>
-      <ul>
-        <li>Cree un nuevo menú primario llamado <strong>Menú 1</strong>, que incluya únicamente un enlace a la página inicial:
-          <p class="captura"><img src="../img/wordpress/2-3-e-1-menu.jpg" alt="WordPress. Menú" width="991" height="500" /></p>
-        </li>
-        <li>Amplie el menú <strong>Menú 1</strong>:
-          <ul>
-            <li><strong>Inicio</strong>.</li>
-            <li><strong>Enlaces</strong>
-              <ul>
-                <li><strong>Blogs</strong></li>
-                <li><strong>Sitios</strong></li>
-              </ul>
-            </li>
-            <li><strong>Ayuda</strong>
-              <ul>
-                <li><strong>Contacto</strong></li>
-                <li><strong>Acerca de</strong></li>
-              </ul>
-            </li>
-          </ul>
-          <p><strong>Notas</strong>:</p>
-          <ul>
-            <li>Para añadir las opciones Enlaces y Ayuda, que no enlazan a ninguna página, puede añadir dos enlaces al menú.</li>
-            <li>Para guardar un enlace hay que escribir algo en el campo URL, pero luego se puede borrar el campo URL para que no se comporte como enlace.</li>
-          </ul>
-          <p class="captura"><img src="../img/wordpress/2-3-e-2-menu.jpg" alt="WordPress. Menú" width="991" height="450" /></p>
-        </li>
-      </ul>
-    </section>
+  <section id="ejercicio-6">
+    <h2>WordPress (2) 6 - Medios</h2>
+    <ul>
+      <li>Busque imágenes relacionadas con las entradas o páginas creadas en los ejercicios anteriores en alguna de las <a href="../otros/bibliotecas-medios.html">bibliotecas de medios disponibles en Internet</a>, cree imágenes con algún editor como Inkscape o GIMP o utilice alguna de las <a href="../otros/imagenes.html">imágenes para ejercicios</a>.</li>
+      <li>Incorpore esas imágenes en la Librería Multimedia de WordPress</li>
+      <li>Incluya esas imágenes en las páginas o entradas correspondientes.</li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-4">
-      <h2>WordPress (2) 4 - Entradas</h2>
+  <section id="ejercicio-7">
+    <h2>WordPress (2) 7 - Usuarios</h2>
+    <ul>
+      <li>Cree usuarios de las diferentes categorías y compruebe las tareas que puede realizar:
+        <ul>
+          <li>Suscriptor</li>
+          <li>Colaborador</li>
+          <li>Autor</li>
+          <li>Editor</li>
+          <li>Administrador</li>
+        </ul>
+      </li>
+      <li>Configure los ajustes de comentarios, de manera que las imágenes de usuario por defecto (también llamada <a href="https://en.wikipedia.org/wiki/Avatar_%28computing%29">avatar</a>) las genere WordPress automáticamente (Identicon, Wavatar, MonsterID o Retro).
+        <p><strong>Nota</strong>: Para que cada usuario pueda elegir su propia imagen, haría falta instalar algún plugin, lo que se hará en la lección siguiente. Otra alternativa es utilizar el sistema <a href="https://es.gravatar.com/">gravatar</a>, un servicio de WordPress que nos permite registrarnos y que nuestro usuario se muestre en cualquier WordPress.</p>
+      </li>
+    </ul>
+  </section>
 
-      <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /> Tenga en cuenta que las entradas se muestran automáticamente en la web. Además, de forma predeterminada, se pueden crear comentarios en las páginas (aunque se puede configurar una página para que no admita comentarios).</p>
+  <section id="ejercicio-8">
+    <h2>WordPress (2) 8 - Etiquetas y categorías</h2>
 
-      <ul>
-        <li>Cree siete entradas en el blog. Como el blog está dedicado a las aplicaciones web, las entradas pueden tratar temas como: la publicación de nuevas versiones de aplicaciones web, breves tutoriales sobre aplicaciones web, etc.
-          <ul>
-            <li>Nueva versión: Drupal 8.2
-              <p>El 5 de octubre de 2016 se ha publicado Drupal 8.2.</p>
-            </li>
-            <li>Tutorial: Documentación oficial de Drupal<br />
-              <p>En <a href="https://www.drupal.org/documentation/">https://www.drupal.org/documentation/</a> se encuentra la documentación oficial de Drupal.</p>
-            </li>
-            <li>Nueva versión: WordPress 4.7<br />
-              <p>El 6 de diciembre de 2016 se ha publicado WordPress 4.7.</p>
-            </li>
-            <li>Tutorial: Documentación oficial de WordPress<br />
-              <p>En <a href="https://codex.wordpress.org/">https://codex.wordpress.org/</a> se encuentra la documentación oficial de WordPress.</p>
-            </li>
-            <li>Nueva versión: Nextcloud 11
-              <p>El 13 de diciembre de 2016 se ha publicado Nextcloud 11.</p>
-            </li>
-            <li>Nueva versión: phpBB 3.2
-              <p>El 7 de enero de 2017 se ha publicado phpBB 3.2.</p>
-            </li>
-            <li>Nueva versión: LibreOffice 5.3
-              <p>El 1 de febrero de 2017 se ha publicado LibreOffice 5.3.</p>
-            </li>
-          </ul>
-          <p class="captura"><img src="../img/wordpress/2-4-e-1-entradas.png" alt="WordPress. Entradas" width="991" height="570" /></p>
-        </li>
-        <li>Cambie la fecha de publicación de las novedades para que coincidan con el día de publicación de cada nueva versión.</li>
-      </ul>
-    </section>
+    <p>WordPress permite crear tanto categorías como etiquetas. Ambas permiten recuperar todas las entradas relacionadas tanto con una categoría como con una etiqueta, pero no son lo mismo. Las categorías deben ser relativamente pocas y estar jerarquizadas. Sin embargo las etiquetas son más "caóticas": puede haber muchas etiquetas distintas y cada entrada tendrá asociadas varias etiquetas.</p>
+    <ul>
+      <li>Cree las categorías: Novedades, Tutoriales, </li>
+      <li>Cree las categorías Nueva versión y Actualización como subcategorías de Novedades</li>
+      <li>Cree las etiquetas: drupal, nextcloud, opencart, phpbb, wordpress, almacenamiento, cms, comercio electrónico, foro, novedad, tutorial</li>
+      <li>Asocie las categorías y etiquetas a las entradas creadas</li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-5">
-      <h2>WordPress (2) 5 - Comentarios</h2>
-      <ul>
-        <li>Añada un primer comentario a la primera entrada
-          <p>Desde otro navegador y sin identificarse como administrador, visite el blog y añada un comentario a la primera entrada. Compruebe que el comentario no está publicado todavía.</p>
-          <p>Como administrador, apruebe el comentario. Compruebe que el comentario ya es visible.</p>
-        </li>
-        <li>Pruebe las diferentes opciones de configuración de los comentarios en Escritorio &gt; Ajustes &gt; Comentarios.
-          <ul>
-            <li>impida totalmente la creación de comentarios</li>
-            <li>permita la creación de comentarios a cualquier visitante (esta configuración se desaconseja en sitios reales debido a la proliferación de spammers)</li>
-            <li>pruebe el funcionamiento de opciones como:
-              <ul>
-                <li>El autor del comentario debe rellenar el nombre y el correo electrónico </li>
-                <li>El autor del comentario debe tener un comentario previamente aprobado</li>
-                <li>Lista negra de comentarios</li>
-              </ul>
-            </li>
-            <li>permita la creación de comentarios solamente a usuarios registrados (véase apartado siguiente)</li>
-            <li>permita la creación de comentarios con aprobación del administrador (esta es la configuración predeterminada).</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 7 de febrero de 2017</p>
 
-    <section id="ejercicio-6">
-      <h2>WordPress (2) 6 - Medios</h2>
-      <ul>
-        <li>Busque imágenes relacionadas con las entradas o páginas creadas en los ejercicios anteriores en alguna de las <a href="../otros/bibliotecas-medios.html">bibliotecas de medios disponibles en Internet</a>, cree imágenes con algún editor como Inkscape o GIMP o utilice alguna de las <a href="../otros/imagenes.html">imágenes para ejercicios</a>.</li>
-        <li>Incorpore esas imágenes en la Librería Multimedia de WordPress</li>
-        <li>Incluya esas imágenes en las páginas o entradas correspondientes.</li>
-      </ul>
-    </section>
-
-    <section id="ejercicio-7">
-      <h2>WordPress (2) 7 - Usuarios</h2>
-      <ul>
-        <li>Cree usuarios de las diferentes categorías y compruebe las tareas que puede realizar:
-          <ul>
-            <li>Suscriptor</li>
-            <li>Colaborador</li>
-            <li>Autor</li>
-            <li>Editor</li>
-            <li>Administrador</li>
-          </ul>
-        </li>
-        <li>Configure los ajustes de comentarios, de manera que las imágenes de usuario por defecto (también llamada <a href="https://en.wikipedia.org/wiki/Avatar_%28computing%29">avatar</a>) las genere WordPress automáticamente (Identicon, Wavatar, MonsterID o Retro).
-          <p><strong>Nota</strong>: Para que cada usuario pueda elegir su propia imagen, haría falta instalar algún plugin, lo que se hará en la lección siguiente. Otra alternativa es utilizar el sistema <a href="https://es.gravatar.com/">gravatar</a>, un servicio de WordPress que nos permite registrarnos y que nuestro usuario se muestre en cualquier WordPress.</p>
-        </li>
-      </ul>
-    </section>
-
-    <section id="ejercicio-8">
-      <h2>WordPress (2) 8 - Etiquetas y categorías</h2>
-
-      <p>WordPress permite crear tanto categorías como etiquetas. Ambas permiten recuperar todas las entradas relacionadas tanto con una categoría como con una etiqueta, pero no son lo mismo. Las categorías deben ser relativamente pocas y estar jerarquizadas. Sin embargo las etiquetas son más "caóticas": puede haber muchas etiquetas distintas y cada entrada tendrá asociadas varias etiquetas.</p>
-      <ul>
-        <li>Cree las categorías: Novedades, Tutoriales, </li>
-        <li>Cree las categorías Nueva versión y Actualización como subcategorías de Novedades</li>
-        <li>Cree las etiquetas: drupal, nextcloud, opencart, phpbb, wordpress, almacenamiento, cms, comercio electrónico, foro, novedad, tutorial</li>
-        <li>Asocie las categorías y etiquetas a las entradas creadas</li>
-      </ul>
-    </section>
-
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 7 de febrero de 2017</p>
-
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

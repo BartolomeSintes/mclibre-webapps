@@ -1,344 +1,343 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Bitnami. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Bitnami. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>Bitnami</h1>
+<body>
+  <h1>Bitnami</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" />
-          Bitnami
-          <a href="bitnami-1.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-        </h2>
+    <div class="toc">
+      <h2>
+        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" /> Bitnami
+        <a href="bitnami-1.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
 
-        <ul>
-          <li><a href="#organizacion-ejercicios">Organización ejercicios</a></li>
-          <li><a href="#bitnami">Bitnami</a></li>
-          <li><a href="#tipos-instaladores">Tipos de instaladores</a>
-            <ul>
-              <li><a href="#instalar-1-aplicacion">Instalar una única aplicación</a></li>
-              <li><a href="#instalar-n-aplicaciones">Instalar varias aplicaciones</a></li>
-            </ul>
-          </li>
-          <li><a href="#descargar-instaladores">Descarga de instaladores</a>
-            <ul>
-              <li><a href="#descargar-instalador-1-aplicacion">para una única aplicación</a></li>
-              <li><a href="#descargar-instalador-n-aplicaciones">para varias aplicaciones</a></li>
-            </ul>
-          </li>
-          <li><a href="#instaladores-xampp">Instaladores para XAMPP</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <section id="organizacion-ejercicios">
-      <h2>Organización de los ejercicios</h2>
-
-      <p>Los ejercicios de Bitnami se han dividido en cuatro páginas, más una página con un resumen de comandos de GNU/Linux:</p>
       <ul>
-        <li><a href="bitnami-1.html">Bitnami (1)</a>: Aplicación única en máquina virtual Ubuntu</li>
-        <li><a href="bitnami-2.html">Bitnami (2)</a>: Máquina virtual Ubuntu de infraestructura y módulos de aplicaciones</li>
-        <li><a href="bitnami-3.html">Bitnami (3)</a>: Stack de infraestructura y módulos en Windows</li>
-        <li><a href="bitnami-varios.html">Varios</a>: Comandos GNU/Linux</li>
+        <li><a href="#organizacion-ejercicios">Organización ejercicios</a></li>
+        <li><a href="#bitnami">Bitnami</a></li>
+        <li><a href="#tipos-instaladores">Tipos de instaladores</a>
+          <ul>
+            <li><a href="#instalar-1-aplicacion">Instalar una única aplicación</a></li>
+            <li><a href="#instalar-n-aplicaciones">Instalar varias aplicaciones</a></li>
+          </ul>
+        </li>
+        <li><a href="#descargar-instaladores">Descarga de instaladores</a>
+          <ul>
+            <li><a href="#descargar-instalador-1-aplicacion">para una única aplicación</a></li>
+            <li><a href="#descargar-instalador-n-aplicaciones">para varias aplicaciones</a></li>
+          </ul>
+        </li>
+        <li><a href="#instaladores-xampp">Instaladores para XAMPP</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="organizacion-ejercicios">
+    <h2>Organización de los ejercicios</h2>
+
+    <p>Los ejercicios de Bitnami se han dividido en cuatro páginas, más una página con un resumen de comandos de GNU/Linux:</p>
+    <ul>
+      <li><a href="bitnami-1.html">Bitnami (1)</a>: Aplicación única en máquina virtual Ubuntu</li>
+      <li><a href="bitnami-2.html">Bitnami (2)</a>: Máquina virtual Ubuntu de infraestructura y módulos de aplicaciones</li>
+      <li><a href="bitnami-3.html">Bitnami (3)</a>: Stack de infraestructura y módulos en Windows</li>
+      <li><a href="bitnami-varios.html">Varios</a>: Comandos GNU/Linux</li>
+    </ul>
+  </section>
+
+  <section id="bitnami">
+    <h2>Bitnami</h2>
+
+    <p><a href="https://bitnami.com/">Bitnami</a> nació en 2007 como proyecto de software libre dirigido a facilitar el despliegue y configuración de aplicaciones web, tanto en servidores propios como en Internet. Bitnami surgió de la empresa <a href="http://bitrock.com/">BitRock</a>, fundada en 2003 por el ingeniero español Daniel López Ridruejo.</p>
+
+    <p>La lista de aplicaciones web que ofrece Bitnami se puede ver en <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a>. Actualmente (enero de 2017) ofrecen más de 150 aplicaciones distintas.</p>
+
+    <p>Bitnami ofrece una información muy completa sobre la instalación y administración de las aplicaciones en la <a href="https://docs.bitnami.com/">web de documentación de Bitnami</a></p>
+
+    <p>El sistema operativo normalmente proporcionado por Bitnami es actualmente (enero de 2017) Ubuntu LTS 14.04.</p>
+  </section>
+
+  <section id="tipos-instaladores">
+    <h2>Tipos de instaladores</h2>
+
+    <p>Bitnami ofrece muchos tipos de instaladores.</p>
+
+    <ul>
+      <li>Por un lado, podemos distinguir los instaladores de acuerdo con el sistema de base utilizado:
+        <ul>
+          <li>instaladores para servidores físicos o máquinas virtuales</li>
+          <li>instaladores para servidores en la nube (AWS, Google Cloud, MS Azure, etc.)</li>
+          <li>instaladores para contenedores (Docker)</li>
+        </ul>
+      </li>
+      <li>Por otro lado, podemos distinguir los instaladores de acuerdo con las capas de software incluidas:
+        <ul>
+          <li>un <strong>módulo</strong> es un instalador que sólo incluye la aplicación</li>
+          <li>un <strong>stack</strong> (pila) es un instalador que incluye la aplicación y los servidores que necesita la aplicación</li>
+          <li>un <strong>stack de infraestructura</strong> es un instalador que incluye varios servidores que suelen utilizarse conjuntamente.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>Algunos de los instaladores están pensados para el caso en que sólo queremos tener una aplicación en el ordenador y otros están pensados para el caso en que queremos tener varias aplicaciones simultáneamente (aunque se pueden mezclar ambos tipos de instaladores, es mejor no hacerlo porque pueden aparecer algunos problemas).</p>
+
+    <section id="instalar-1-aplicacion">
+      <h3>Instalar una única aplicación</h3>
+
+      <p class="captura"><img src="../img/bitnami/bn-tipos-1.png" alt="Bitnami. Tipos de instaladores" width="730" height="300" /></p>
+
+      <p>Si queremos instalar una única aplicación web, Bitnami ofrece varios tipos de instaladores "llave en mano":</p>
+      <ul>
+        <li><strong>Cloud</strong>:
+          <ul>
+            <li>El instalador de Bitnami prepara un ordenador virtual, instala el sistema operativo Ubuntu, instala los servidores necesitados por la aplicación (servidor web, base de datos, lenguajes, etc.) y la propia aplicación.</li>
+            <li>El ordenador virtual se puede crear en varias de las plataformas comerciales (Amazon web services, Google Cloud Plataform, Microsoft Azure, etc.).</li>
+            <li>Los acuerdos de Bitnami con las diferentes plataformas permiten hacer pruebas gratuitas.</li>
+            <li>Página web: <a href="https://bitnami.com/cloud">https://bitnami.com/cloud</a></li>
+          </ul>
+        </li>
+        <li><strong>Virtual Machine</strong>:
+          <ul>
+            <li>La máquina virtual de Bitnami incluye el sistema operativo Ubuntu, los servidores necesitados por la aplicación (servidor web, base de datos, lenguajes de programación, etc.) y la propia aplicación.</li>
+            <li>Las imágenes suelen estar preparadas en el <a href="https://en.wikipedia.org/wiki/Open_Virtualization_Format">formato OVA</a> y se pueden ejecutar en <a href="https://www.virtualbox.org/">VirtualBox</a> (software libre) o con la versión gratuita de <a href="https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_player/6_0%7CPLAYER-607%7Cproduct_downloads">VMware player</a>).</li>
+            <li>Página web: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a></li>
+          </ul>
+        </li>
+        <li><strong>Application stack</strong>:
+          <ul>
+            <li>Los instaladores de aplicaciones de Bitnami incluyen los servidores necesitados por la aplicación (servidor web, base de datos, lenguajes de programación, etc.) y la propia aplicación.</li>
+            <li>Los instaladores están disponibles para Windows, Linux y OSX, en muchos casos para 32 o 64 bits y en algunos casos para varias versiones de la aplicación (estables o en desarrollo).</li>
+            <li>Podemos instalar varias aplicaciones en un mismo ordenador mediante estos instaladores, pero se ocupa espacio innecesario y los servidores pueden interferirse entre sí.</li>
+            <li>Página web: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a></li>
+          </ul>
+        </li>
+        <li><strong>Contenedor Docker</strong>:
+          <ul>
+            <li>Los contenedores Docker de aplicaciones de Bitnami incluyen únicamente la aplicación, aunque están disponibles contenedores de aplicaciones de infraestructura (lenguajes de programación, bases de datos, servidores web, etc.).</li>
+            <li>Actualmente (enero de 2017) el número de aplicaciones ofrecidas como contenedor es bastante menor que en los otros formatos (unas 50 aplicaciones frente a unas 150 aplicaciones).</li>
+            <li>Los contenedores están creados por una herramienta de Bitnami llamada <a href="https://stacksmith.bitnami.com/">Stacksmith</a> que Bitnami ofrece para crear contenedores personalizados.</li>
+            <li>Página web: <a href="https://bitnami.com/stacks">https://bitnami.com/containers</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
 
-    <section id="bitnami">
-      <h2>Bitnami</h2>
+    <section id="instalar-n-aplicaciones">
+      <h3>Instalar varias aplicaciones</h3>
 
-      <p><a href="https://bitnami.com/">Bitnami</a> nació en 2007 como proyecto de software libre dirigido a facilitar el despliegue y configuración de aplicaciones web, tanto en servidores propios como en Internet. Bitnami surgió de la empresa <a href="http://bitrock.com/">BitRock</a>, fundada en 2003 por el ingeniero español Daniel López Ridruejo.</p>
+      <p class="captura"><img src="../img/bitnami/bn-tipos-2.png" alt="Bitnami. Tipos de instaladores" width="1000" height="350" /></p>
 
-      <p>La lista de aplicaciones web que ofrece Bitnami se puede ver en <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a>. Actualmente (enero de 2017) ofrecen más de 150 aplicaciones distintas.</p>
-
-      <p>Bitnami ofrece una información muy completa sobre la instalación y administración de las aplicaciones en la <a href="https://docs.bitnami.com/">web de documentación de Bitnami</a></p>
-
-      <p>El sistema operativo normalmente proporcionado por Bitnami es actualmente (enero de 2017) Ubuntu LTS 14.04.</p>
-    </section>
-
-    <section id="tipos-instaladores">
-      <h2>Tipos de instaladores</h2>
-
-      <p>Bitnami ofrece muchos tipos de instaladores.</p>
-
+      <p>Si queremos instalar varias aplicaciones web que pueden necesitar diferentes servidores, Bitanmi ofrece varios tipos de instaladores "llave en mano":</p>
       <ul>
-        <li>Por un lado, podemos distinguir los instaladores de acuerdo con el sistema de base utilizado:
+        <li><strong>Infrastructure Virtual Machine (VM)</strong>:
           <ul>
-            <li>instaladores para servidores físicos o máquinas virtuales</li>
-            <li>instaladores para servidores en la nube (AWS, Google Cloud, MS Azure, etc.)</li>
-            <li>instaladores para contenedores (Docker)</li>
+            <li>Las máquinas virtuales de infraestructura de Bitnami incluyen el sistema operativo Ubuntu y los servidores que suelen necesitarse de forma conjunta (por ejemplo, Apache y MySQL, o Apache y PostgreSQL, o Nginx y MySQL, etc.).</li>
+            <li>Página web: <a href="https://bitnami.com/stacks/infrastructure">https://bitnami.com/stacks/infrastructure</a></li>
           </ul>
         </li>
-        <li>Por otro lado, podemos distinguir los instaladores de acuerdo con las capas de software incluidas:
+        <li><strong>Infrastructure stack</strong>:
           <ul>
-            <li>un <strong>módulo</strong> es un instalador que sólo incluye la aplicación</li>
-            <li>un <strong>stack</strong> (pila) es un instalador que incluye la aplicación y los servidores que necesita la aplicación</li>
-            <li>un <strong>stack de infraestructura</strong> es un instalador que incluye varios servidores que suelen utilizarse conjuntamente.</li>
+            <li>Los instaladores de infraestructura de Bitanmi instalan los servidores que suelen necesitarse de forma conjunta (por ejemplo, Apache y MySQL, o Apache y PostgreSQL, o Nginx y MySQL, etc.).</li>
+            <li>Los instaladores de infraestructura están disponibles para Windows, Linux y OSX.</li>
+            <li>Es posible instalar varios instaladores de infraestructura en el mismo sistema operativo.</li>
+            <li>Página web: <a href="https://bitnami.com/stacks/infrastructure">https://bitnami.com/stacks/infrastructure</a></li>
+          </ul>
+        </li>
+        <li><strong>Module</strong>:
+          <ul>
+            <li>Los módulos de Bitanami incluyen únicamente la aplicación, por lo que se necesita tener instalado previamente los servidores necesarios (a través de instaladores de infraestructura).</li>
+            <li>Los módulos están disponibles para Windows, Linux y OSX, en muchos casos para 32 o 64 bits y en algunos casos para varias versiones de la aplicación (estables o en desarrollo).</li>
+            <li>Página web: Windows: <a href="https://bitnami.com/stack/wamp/modules">https://bitnami.com/stack/wamp/modules</a> - Linux: <a href="https://bitnami.com/stack/lamp/modules">https://bitnami.com/stack/lamp/modules</a>.</li>
           </ul>
         </li>
       </ul>
-
-      <p>Algunos de los instaladores están pensados para el caso en que sólo queremos tener una aplicación en el ordenador y otros están pensados para el caso en que queremos tener varias aplicaciones simultáneamente (aunque se pueden mezclar ambos tipos de instaladores, es mejor no hacerlo porque pueden aparecer algunos problemas).</p>
-
-      <section id="instalar-1-aplicacion">
-        <h3>Instalar una única aplicación</h3>
-
-        <p class="captura"><img src="../img/bitnami/bn-tipos-1.png" alt="Bitnami. Tipos de instaladores" width="730" height="300" /></p>
-
-        <p>Si queremos instalar una única aplicación web, Bitnami ofrece varios tipos de instaladores "llave en mano":</p>
-        <ul>
-          <li><strong>Cloud</strong>:
-            <ul>
-              <li>El instalador de Bitnami prepara un ordenador virtual, instala el sistema operativo Ubuntu, instala los servidores necesitados por la aplicación (servidor web, base de datos, lenguajes, etc.) y la propia aplicación.</li>
-              <li>El ordenador virtual se puede crear en varias de las plataformas comerciales (Amazon web services, Google Cloud Plataform, Microsoft Azure, etc.).</li>
-              <li>Los acuerdos de Bitnami con las diferentes plataformas permiten hacer pruebas gratuitas.</li>
-              <li>Página web: <a href="https://bitnami.com/cloud">https://bitnami.com/cloud</a></li>
-            </ul>
-          </li>
-          <li><strong>Virtual Machine</strong>:
-            <ul>
-              <li>La máquina virtual de Bitnami incluye el sistema operativo Ubuntu, los servidores necesitados por la aplicación (servidor web, base de datos, lenguajes de programación, etc.) y la propia aplicación.</li>
-              <li>Las imágenes suelen estar preparadas en el <a href="https://en.wikipedia.org/wiki/Open_Virtualization_Format">formato OVA</a> y se pueden ejecutar en <a href="https://www.virtualbox.org/">VirtualBox</a> (software libre) o con la versión gratuita de <a href="https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_player/6_0%7CPLAYER-607%7Cproduct_downloads">VMware player</a>).</li>
-              <li>Página web: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a></li>
-            </ul>
-          </li>
-          <li><strong>Application stack</strong>:
-            <ul>
-              <li>Los instaladores de aplicaciones de Bitnami incluyen los servidores necesitados por la aplicación (servidor web, base de datos, lenguajes de programación, etc.) y la propia aplicación.</li>
-              <li>Los instaladores están disponibles para Windows, Linux y OSX, en muchos casos para 32 o 64 bits y en algunos casos para varias versiones de la aplicación (estables o en desarrollo).</li>
-              <li>Podemos instalar varias aplicaciones en un mismo ordenador mediante estos instaladores, pero se ocupa espacio innecesario y los servidores pueden interferirse entre sí.</li>
-              <li>Página web: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a></li>
-            </ul>
-          </li>
-          <li><strong>Contenedor Docker</strong>:
-            <ul>
-              <li>Los contenedores Docker de aplicaciones de Bitnami incluyen únicamente la aplicación, aunque están disponibles contenedores de aplicaciones de infraestructura (lenguajes de programación, bases de datos, servidores web, etc.).</li>
-              <li>Actualmente (enero de 2017) el número de aplicaciones ofrecidas como contenedor es bastante menor que en los otros formatos (unas 50 aplicaciones frente a unas 150 aplicaciones).</li>
-              <li>Los contenedores están creados por una herramienta de Bitnami llamada <a href="https://stacksmith.bitnami.com/">Stacksmith</a> que Bitnami ofrece para crear contenedores personalizados.</li>
-              <li>Página web: <a href="https://bitnami.com/stacks">https://bitnami.com/containers</a></li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-
-      <section id="instalar-n-aplicaciones">
-        <h3>Instalar varias aplicaciones</h3>
-
-        <p class="captura"><img src="../img/bitnami/bn-tipos-2.png" alt="Bitnami. Tipos de instaladores" width="1000" height="350" /></p>
-
-        <p>Si queremos instalar varias aplicaciones web que pueden necesitar diferentes servidores, Bitanmi ofrece varios tipos de instaladores "llave en mano":</p>
-        <ul>
-          <li><strong>Infrastructure Virtual Machine (VM)</strong>:
-            <ul>
-              <li>Las máquinas virtuales de infraestructura de Bitnami incluyen el sistema operativo Ubuntu y los servidores que suelen necesitarse de forma conjunta (por ejemplo, Apache y MySQL, o Apache y PostgreSQL, o Nginx y MySQL, etc.).</li>
-              <li>Página web: <a href="https://bitnami.com/stacks/infrastructure">https://bitnami.com/stacks/infrastructure</a></li>
-            </ul>
-          </li>
-          <li><strong>Infrastructure stack</strong>:
-            <ul>
-              <li>Los instaladores de infraestructura de Bitanmi instalan los servidores que suelen necesitarse de forma conjunta (por ejemplo, Apache y MySQL, o Apache y PostgreSQL, o Nginx y MySQL, etc.).</li>
-              <li>Los instaladores de infraestructura están disponibles para Windows, Linux y OSX.</li>
-              <li>Es posible instalar varios instaladores de infraestructura en el mismo sistema operativo.</li>
-              <li>Página web: <a href="https://bitnami.com/stacks/infrastructure">https://bitnami.com/stacks/infrastructure</a></li>
-            </ul>
-          </li>
-          <li><strong>Module</strong>:
-            <ul>
-              <li>Los módulos de Bitanami incluyen únicamente la aplicación, por lo que se necesita tener instalado previamente los servidores necesarios (a través de instaladores de infraestructura).</li>
-              <li>Los módulos están disponibles para Windows, Linux y OSX, en muchos casos para 32 o 64 bits y en algunos casos para varias versiones de la aplicación (estables o en desarrollo).</li>
-              <li>Página web: Windows: <a href="https://bitnami.com/stack/wamp/modules">https://bitnami.com/stack/wamp/modules</a> - Linux: <a href="https://bitnami.com/stack/lamp/modules">https://bitnami.com/stack/lamp/modules</a>.</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
     </section>
+  </section>
 
-    <section id="descargar-instaladores">
-      <h2>Descarga de instaladores</h2>
+  <section id="descargar-instaladores">
+    <h2>Descarga de instaladores</h2>
 
-      <p>Para descargar el instalador adecuado (o los instaladores adecuados), tenemos que tener claro qué queremos instalar:</p>
+    <p>Para descargar el instalador adecuado (o los instaladores adecuados), tenemos que tener claro qué queremos instalar:</p>
+    <ul>
+      <li>una única aplicación:
+        <ul>
+          <li>en la nube (<strong>cloud</strong> = ordenador + sistema operativo + servidores + aplicación)</li>
+          <li>en una máquina virtual (<strong>virtual machine</strong> = sistema operativo Ubuntu + servidores + aplicación)</li>
+          <li>en un sistema operativo ya instalado (<strong>application stack</strong> = servidores + aplicación)</li>
+        </ul>
+      </li>
+      <li>varias aplicaciones:
+        <ol>
+          <li>primero se necesita instalar la infraestructura:
+            <ul>
+              <li>en una máquina virtual (<strong>infrastructure virtual machine</strong> = sistema operativo Ubuntu + servidores)</li>
+              <li>en un sistema operativo ya instalado (<strong>infrastructure stack</strong> = servidores)</li>
+            </ul>
+          </li>
+          <li>después se instalan las aplicaciones (<strong>module</strong> = aplicación)</li>
+        </ol>
+      </li>
+    </ul>
+
+    <p>A continuación se muestra para cada caso, cómo descargar los instaladores desde la página web de Bitnami:</p>
+
+    <section id="descargar-instalador-1-aplicacion">
+      <h3>Descarga de instalador para una única aplicación</h3>
+
+      <p>Si queremos instalar una única aplicación web, Bitnami ofrece varios tipos de instaladores "llave en mano":</p>
       <ul>
-        <li>una única aplicación:
+        <li><strong>Cloud</strong>:
           <ul>
-            <li>en la nube (<strong>cloud</strong> = ordenador + sistema operativo + servidores + aplicación)</li>
-            <li>en una máquina virtual (<strong>virtual machine</strong> = sistema operativo Ubuntu + servidores + aplicación)</li>
-            <li>en un sistema operativo ya instalado (<strong>application stack</strong> = servidores + aplicación)</li>
+            <li><span class="incompleto">Por escribir</span></li>
+            <li>Página web: <a href="https://bitnami.com/cloud">https://bitnami.com/cloud</a></li>
           </ul>
         </li>
-        <li>varias aplicaciones:
-          <ol>
-            <li>primero se necesita instalar la infraestructura:
-              <ul>
-                <li>en una máquina virtual (<strong>infrastructure virtual machine</strong> = sistema operativo Ubuntu + servidores)</li>
-                <li>en un sistema operativo ya instalado (<strong>infrastructure stack</strong> = servidores)</li>
-              </ul>
+        <li><strong>Virtual Machine</strong>:
+          <ul>
+            <li>Para descargar una máquina virtual Ubuntu que incluya los servidores y la aplicación ya instalada y configurada, siga los siguientes pasos:
+              <ol>
+                <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la aplicación deseada:
+                  <p class="captura"><a href="../img/bitnami/bn-descarga-1-1.png"><img src="../img/bitnami/bn-descarga-1-1-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores + aplicación" width="495" height="300" /></a></p>
+                </li>
+                <li>Haga clic en la opción de descarga de máquinas virtuales (hay dos enlaces, uno en el menú superior y otro a la derecha):
+                  <p class="captura"><a href="../img/bitnami/bn-descarga-1-2.png"><img src="../img/bitnami/bn-descarga-1-2-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores + aplicación" width="495" height="348" /></a></p>
+                </li>
+                <li>Finalmente, elija la versión para VMware o VirtualBox:
+                  <p class="captura"><a href="../img/bitnami/bn-descarga-1-3.png"><img src="../img/bitnami/bn-descarga-1-3-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores + aplicación" width="495" height="300" /></a></p>
+                </li>
+              </ol>
             </li>
-            <li>después se instalan las aplicaciones (<strong>module</strong> = aplicación)</li>
+          </ul>
+        </li>
+        <li><strong>Application stack</strong>:
+          <ul>
+            <li>Para descargar un instalador que incluya los servidores y la aplicación ya instalada y configurada, siga los siguientes pasos:
+              <ol>
+                <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la aplicación deseada:
+                  <p class="captura"><a href="../img/bitnami/bn-descarga-1-1.png"><img src="../img/bitnami/bn-descarga-1-1-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="495" height="300" /></a></p>
+                </li>
+                <li>Haga clic en la opción de descarga de instaladores (hay dos enlaces, uno en el menú superior y otro a la derecha):
+                  <p class="captura"><a href="../img/bitnami/bn-descarga-1-4.png"><img src="../img/bitnami/bn-descarga-1-4-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="495" height="348" /></a></p>
+                </li>
+                <li>Finalmente, elija la versión para su sistema operativo:
+                  <p class="captura"><a href="../img/bitnami/bn-descarga-1-5.png"><img src="../img/bitnami/bn-descarga-1-5-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="368" height="400" /></a></p>
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section id="descargar-instalador-n-aplicaciones">
+      <h3>Descarga de instalador para varias aplicaciones</h3>
+
+      <p>Si queremos instalar varias aplicaciones web que pueden necesitar diferentes servidores, Bitanmi ofrece varios tipos de instaladores "llave en mano":</p>
+      <ul>
+        <li><strong>Infrastructure Virtual Machine (VM)</strong>:
+          <ol>
+            <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la categoría Infraestructura
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-1.png"><img src="../img/bitnami/bn-descarga-2-1-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="504" height="300" /></a>
+              </p>
+            </li>
+            <li>Haga clic en la infraestructura deseada (las máquinas virtuales sólo están disponibles con Ubuntu):
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-2.png"><img src="../img/bitnami/bn-descarga-2-2-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="504" height="300" /></a>
+              </p>
+            </li>
+            <li>Haga clic en la opción de descarga de máquinas virtuales (hay dos enlaces, uno en el menú superior y otro a la derecha):
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-3.png"><img src="../img/bitnami/bn-descarga-2-3-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="495" height="348" /></a>
+              </p>
+            </li>
+            <li>Finalmente, elija la versión deseada (la diferencia entre ellas son las versiones de los servidores o de los lenguajes de programación):
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-4.png"><img src="../img/bitnami/bn-descarga-2-4-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="495" height="200" /></a>
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li><strong>Infrastructure stack</strong>:
+          <ol>
+            <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la categoría Infraestructura
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-1.png"><img src="../img/bitnami/bn-descarga-2-1-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="504" height="300" /></a>
+              </p>
+            </li>
+            <li>Haga clic en la infraestructura deseada:
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-12.png"><img src="../img/bitnami/bn-descarga-2-12-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="504" height="300" /></a>
+              </p>
+            </li>
+            <li>Haga clic en la opción de descarga de instaladores (hay dos enlaces, uno en el menú superior y otro a la derecha):
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-13.png"><img src="../img/bitnami/bn-descarga-2-13-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="495" height="300" /></a>
+              </p>
+            </li>
+            <li>Finalmente, elija la versión deseada (la diferencia entre ellas son las versiones de los servidores o de los lenguajes de programación):
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-14.png"><img src="../img/bitnami/bn-descarga-2-14-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="504" height="150" /></a>
+              </p>
+            </li>
+          </ol>
+        </li>
+        <li><strong>Module</strong>:
+          <ol>
+            <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la categoría Infraestructura
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-1.png"><img src="../img/bitnami/bn-descarga-2-1-mini.png" alt="Bitnami. Descarga de módulos" width="504" height="300" /></a>
+              </p>
+            </li>
+            <li>Haga clic en la infraestructura deseada:
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-12.png"><img src="../img/bitnami/bn-descarga-2-12-mini.png" alt="Bitnami. Descarga de módulos" width="504" height="300" /></a>
+              </p>
+            </li>
+            <li>Haga clic en la opción de descarga de módulos (enlace en el menú superior):
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-23.png"><img src="../img/bitnami/bn-descarga-2-23-mini.png" alt="Bitnami. Descarga de módulos" width="495" height="300" /></a>
+              </p>
+            </li>
+            <li>Finalmente, elija la aplicación deseada:
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-24.png"><img src="../img/bitnami/bn-descarga-2-24-mini.png" alt="Bitnami. Descarga de módulos" width="504" height="300" /></a>
+              </p>
+            </li>
           </ol>
         </li>
       </ul>
-
-      <p>A continuación se muestra para cada caso, cómo descargar los instaladores desde la página web de Bitnami:</p>
-
-      <section id="descargar-instalador-1-aplicacion">
-        <h3>Descarga de instalador para una única aplicación</h3>
-
-        <p>Si queremos instalar una única aplicación web, Bitnami ofrece varios tipos de instaladores "llave en mano":</p>
-        <ul>
-          <li><strong>Cloud</strong>:
-            <ul>
-              <li><span class="incompleto">Por escribir</span></li>
-              <li>Página web: <a href="https://bitnami.com/cloud">https://bitnami.com/cloud</a></li>
-            </ul>
-          </li>
-          <li><strong>Virtual Machine</strong>:
-            <ul>
-              <li>Para descargar una máquina virtual Ubuntu que incluya los servidores y la aplicación ya instalada y configurada, siga los siguientes pasos:
-                <ol>
-                  <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la aplicación deseada:
-                    <p class="captura"><a href="../img/bitnami/bn-descarga-1-1.png"><img src="../img/bitnami/bn-descarga-1-1-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores + aplicación" width="495" height="300" /></a></p>
-                  </li>
-                  <li>Haga clic en la opción de descarga de máquinas virtuales (hay dos enlaces, uno en el menú superior y otro a la derecha):
-                    <p class="captura"><a href="../img/bitnami/bn-descarga-1-2.png"><img src="../img/bitnami/bn-descarga-1-2-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores + aplicación" width="495" height="348" /></a></p>
-                  </li>
-                  <li>Finalmente, elija la versión para VMware o VirtualBox:
-                    <p class="captura"><a href="../img/bitnami/bn-descarga-1-3.png"><img src="../img/bitnami/bn-descarga-1-3-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores + aplicación" width="495" height="300" /></a></p>
-                  </li>
-                </ol>
-              </li>
-            </ul>
-          </li>
-          <li><strong>Application stack</strong>:
-            <ul>
-              <li>Para descargar un instalador que incluya los servidores y la aplicación ya instalada y configurada, siga los siguientes pasos:
-                <ol>
-                  <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la aplicación deseada:
-                    <p class="captura"><a href="../img/bitnami/bn-descarga-1-1.png"><img src="../img/bitnami/bn-descarga-1-1-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="495" height="300" /></a></p>
-                  </li>
-                  <li>Haga clic en la opción de descarga de instaladores (hay dos enlaces, uno en el menú superior y otro a la derecha):
-                    <p class="captura"><a href="../img/bitnami/bn-descarga-1-4.png"><img src="../img/bitnami/bn-descarga-1-4-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="495" height="348" /></a></p>
-                  </li>
-                  <li>Finalmente, elija la versión para su sistema operativo:
-                    <p class="captura"><a href="../img/bitnami/bn-descarga-1-5.png"><img src="../img/bitnami/bn-descarga-1-5-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="368" height="400" /></a></p>
-                  </li>
-                </ol>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-
-      <section id="descargar-instalador-n-aplicaciones">
-        <h3>Descarga de instalador para varias aplicaciones</h3>
-
-        <p>Si queremos instalar varias aplicaciones web que pueden necesitar diferentes servidores, Bitanmi ofrece varios tipos de instaladores "llave en mano":</p>
-        <ul>
-          <li><strong>Infrastructure Virtual Machine (VM)</strong>:
-            <ol>
-              <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la categoría Infraestructura
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-1.png"><img src="../img/bitnami/bn-descarga-2-1-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="504" height="300" /></a>
-                </p>
-              </li>
-              <li>Haga clic en la infraestructura deseada (las máquinas virtuales sólo están disponibles con Ubuntu):
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-2.png"><img src="../img/bitnami/bn-descarga-2-2-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="504" height="300" /></a>
-                </p>
-              </li>
-              <li>Haga clic en la opción de descarga de máquinas virtuales (hay dos enlaces, uno en el menú superior y otro a la derecha):
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-3.png"><img src="../img/bitnami/bn-descarga-2-3-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="495" height="348" /></a>
-                </p>
-              </li>
-              <li>Finalmente, elija la versión deseada (la diferencia entre ellas son las versiones de los servidores o de los lenguajes de programación):
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-4.png"><img src="../img/bitnami/bn-descarga-2-4-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="495" height="200" /></a>
-                </p>
-              </li>
-            </ol>
-          </li>
-          <li><strong>Infrastructure stack</strong>:
-            <ol>
-              <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la categoría Infraestructura
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-1.png"><img src="../img/bitnami/bn-descarga-2-1-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="504" height="300" /></a>
-                </p>
-              </li>
-              <li>Haga clic en la infraestructura deseada:
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-12.png"><img src="../img/bitnami/bn-descarga-2-12-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="504" height="300" /></a>
-                </p>
-              </li>
-              <li>Haga clic en la opción de descarga de instaladores (hay dos enlaces, uno en el menú superior y otro a la derecha):
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-13.png"><img src="../img/bitnami/bn-descarga-2-13-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="495" height="300" /></a>
-                </p>
-              </li>
-              <li>Finalmente, elija la versión deseada (la diferencia entre ellas son las versiones de los servidores o de los lenguajes de programación):
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-14.png"><img src="../img/bitnami/bn-descarga-2-14-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="504" height="150" /></a>
-                </p>
-              </li>
-            </ol>
-          </li>
-          <li><strong>Module</strong>:
-            <ol>
-              <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la categoría Infraestructura
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-1.png"><img src="../img/bitnami/bn-descarga-2-1-mini.png" alt="Bitnami. Descarga de módulos" width="504" height="300" /></a>
-                </p>
-              </li>
-              <li>Haga clic en la infraestructura deseada:
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-12.png"><img src="../img/bitnami/bn-descarga-2-12-mini.png" alt="Bitnami. Descarga de módulos" width="504" height="300" /></a>
-                </p>
-              </li>
-              <li>Haga clic en la opción de descarga de módulos (enlace en el menú superior):
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-23.png"><img src="../img/bitnami/bn-descarga-2-23-mini.png" alt="Bitnami. Descarga de módulos" width="495" height="300" /></a>
-                </p>
-              </li>
-              <li>Finalmente, elija la aplicación deseada:
-                <p class="captura">
-                  <a href="../img/bitnami/bn-descarga-2-24.png"><img src="../img/bitnami/bn-descarga-2-24-mini.png" alt="Bitnami. Descarga de módulos" width="504" height="300" /></a>
-                </p>
-              </li>
-            </ol>
-          </li>
-        </ul>
-      </section>
     </section>
+  </section>
 
-    <section id="instaladores-xampp">
-      <h2>Instaladores de Bitnami para XAMPP</h2>
+  <section id="instaladores-xampp">
+    <h2>Instaladores de Bitnami para XAMPP</h2>
 
-      <p>Desde 2013, Bitnami colabora con <a href="https://www.apachefriends.org/es/index.html">Apache Friends</a> directamente en la creación del instalador de XAMPP.</p>
+    <p>Desde 2013, Bitnami colabora con <a href="https://www.apachefriends.org/es/index.html">Apache Friends</a> directamente en la creación del instalador de XAMPP.</p>
 
-      <p>Bitnami ofrece una página de módulos para XAMPP en <a href="https://bitnami.com/stack/xampp">https://bitnami.com/stack/xampp</a>, pero creo que son los mismos que hay disponibles en la página de módulos para WAMP en <a href="https://bitnami.com/stack/wamp/modules">https://bitnami.com/stack/wamp/modules</a>.</p>
+    <p>Bitnami ofrece una página de módulos para XAMPP en <a href="https://bitnami.com/stack/xampp">https://bitnami.com/stack/xampp</a>, pero creo que son los mismos que hay disponibles en la página de módulos para WAMP en <a href="https://bitnami.com/stack/wamp/modules">https://bitnami.com/stack/wamp/modules</a>.</p>
 
-      <p class="captura">
-        <a href="../img/bitnami/bn-descarga-3-1.png"><img src="../img/bitnami/bn-descarga-3-1-mini.png" alt="Bitnami. Descarga de módulos para XAMPP" width="330" height="300" /></a>
-      </p>
-    </section>
+    <p class="captura">
+      <a href="../img/bitnami/bn-descarga-3-1.png"><img src="../img/bitnami/bn-descarga-3-1-mini.png" alt="Bitnami. Descarga de módulos para XAMPP" width="330" height="300" /></a>
+    </p>
+  </section>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 25 de enero de 2017</p>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 25 de enero de 2017</p>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

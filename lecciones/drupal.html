@@ -1,324 +1,323 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Drupal. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Drupal. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>Drupal</h1>
+<body>
+  <h1>Drupal</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" />
-          Drupal
-          <a href="drupal-1.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-        </h2>
+    <div class="toc">
+      <h2>
+        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" /> Drupal
+        <a href="drupal-1.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
 
+      <ul>
+        <li><a href="#organizacion-ejercicios">Organización ejercicios</a></li>
+        <li><a href="#drupal">CMS: Drupal</a></li>
+        <li><a href="#articulos-paginas">Artículos y páginas básicas</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="organizacion-ejercicios">
+    <h2>Organización de los ejercicios</h2>
+
+    <p>Los ejercicios de Drupal se han dividido en cuatro páginas:</p>
+    <ul>
+      <li><a href="drupal-1.html">Drupal (1)</a>: Instalación de Drupal, traducción al español, actualización de Drupal.</li>
+      <li><a href="drupal-2.html">Drupal (2)</a>: Elementos básicos de Drupal: creación de artículos y páginas básicas, roles y usuarios, instalación y configuración de módulos.</li>
+      <li><a href="drupal-3.html">Drupal (3)</a>: Creación de un sitio web con Drupal dedicado a las aplicaciones web.</li>
+      <li><a href="drupal-4.html">Drupal (4)</a>: Instalación de módulos.</li>
+    </ul>
+  </section>
+
+  <section id="drupal">
+    <h2>Sistemas de Gestión de Contenido (CMS): Drupal</h2>
+
+    <p>Los Sistemas de Gestión de Contenido (en inglés, CMS, Content Management Systems) son aplicaciones web que permiten crear, modificar y publicar sitios webs de forma centralizada. Los CMS surgieron a finales de los 90, en muchos casos como evolución de aplicaciones creadas originalmente para sitios de noticias.</p>
+
+    <p>Las aplicaciones orientadas a crear y mantener sitios web generalistas se suelen autodenominar CMS y las que están más orientadas a sectores específicos (entornos empresariales, documentación , educativos, etc.) suelen utilizar otras denominaciones (Knowledge MS, Document MS, Learning MS, etc), pero también se pueden considerar CMS.</p>
+
+    <p>Los CMS suelen ofrecer unas características básicas que después pueden ampliarse a través de módulos o plug-ins. Uno de los CMS más populares es Drupal, que se trata en esta lección.</p>
+
+    <hr class="corta" />
+
+    <p>El creador de Drupal fue el belga <a href="https://dri.es/">Dries Buytaert</a>, que sigue al frente de la comunidad que desarrolla Drupal. Drupal es software libre distribuido bajo licencia GPL 2 o posterior.</p>
+
+    <p>Drupal ha tenido siempre la fama de ser difícil de utilizar, pero también la de estar más preparado para crear sitios complejos, al contrario que WordPress que se ha caracterizado por su facilidad de uso.</p>
+
+    <hr class="corta" />
+
+    <p>Drupal 1.0 se publicó en 2001. Hasta Drupal 6, publicado en febrero de 2008, se fueron publicando una o dos versiones de Drupal al año. Pero publicar Drupal 7 costó tres años debido a los grandes cambios introducidos para facilitar la administración en general y la creación de sitios en varios idiomas. Y Drupal 8 costó casi cinco años debido a los todavía más grandes cambios internos en la aplicación a todos los niveles. Afortunadamente, a partir de Drupal 8 se ha adoptado un modelo de desarrollo más corto y predecible, planificando dos versiones anuales, en abril y octubre. En teoría, este nuevo modelo tiene que permitir que Drupal vaya mejorando de forma progresiva y que los sitios se puedan ir actualizando sin problemas.</p>
+
+    <p class="mcl-centrado">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1210" viewBox="-50 -60 1210 100">
+        <line x1="35" y1="0" x2="1160" y2="0" stroke-width="3" stroke="hsl(203, 94%, 38%)" />
+        <text x="-30" y="4" text-anchor="start" style="font-size: 100%">Drupal</text>
+        <text x="-10" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
+        <text x="-10" y="-38" text-anchor="middle" style="font-size: 60%">29-10-2017</text>
+
+        <line x1="60" y1="-30" x2="60" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="90" y="-40" text-anchor="middle" style="font-size: 80%">2001</text>
+        <line x1="120" y1="-30" x2="120" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="150" y="-40" text-anchor="middle" style="font-size: 80%">2002</text>
+        <line x1="180" y1="-30" x2="180" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="210" y="-40" text-anchor="middle" style="font-size: 80%">2003</text>
+        <line x1="240" y1="-30" x2="240" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="270" y="-40" text-anchor="middle" style="font-size: 80%">2004</text>
+        <line x1="300" y1="-30" x2="300" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="330" y="-40" text-anchor="middle" style="font-size: 80%">2005</text>
+        <line x1="360" y1="-30" x2="360" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="390" y="-40" text-anchor="middle" style="font-size: 80%">2006</text>
+        <line x1="420" y1="-30" x2="420" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="450" y="-40" text-anchor="middle" style="font-size: 80%">2007</text>
+        <line x1="480" y1="-30" x2="480" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="510" y="-40" text-anchor="middle" style="font-size: 80%">2008</text>
+        <line x1="540" y1="-30" x2="540" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="570" y="-40" text-anchor="middle" style="font-size: 80%">2009</text>
+        <line x1="600" y1="-30" x2="600" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="630" y="-40" text-anchor="middle" style="font-size: 80%">2010</text>
+        <line x1="660" y1="-30" x2="660" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="690" y="-40" text-anchor="middle" style="font-size: 80%">2011</text>
+        <line x1="720" y1="-30" x2="720" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="750" y="-40" text-anchor="middle" style="font-size: 80%">2012</text>
+        <line x1="780" y1="-30" x2="780" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="810" y="-40" text-anchor="middle" style="font-size: 80%">2013</text>
+        <line x1="840" y1="-30" x2="840" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="870" y="-40" text-anchor="middle" style="font-size: 80%">2014</text>
+        <line x1="900" y1="-30" x2="900" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="930" y="-40" text-anchor="middle" style="font-size: 80%">2015</text>
+        <line x1="960" y1="-30" x2="960" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="990" y="-40" text-anchor="middle" style="font-size: 80%">2016</text>
+        <line x1="1020" y1="-30" x2="1020" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="1050" y="-40" text-anchor="middle" style="font-size: 80%">2017</text>
+        <line x1="1080" y1="-30" x2="1080" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="1110" y="-40" text-anchor="middle" style="font-size: 80%">2018</text>
+        <line x1="1140" y1="-30" x2="1140" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <!-- <text x="1170" y="-40" text-anchor="middle" style="font-size: 80%">2019</text> -->
+
+        <circle cx="62" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="62" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">1</text>
+        <circle cx="72" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="72" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">2</text>
+        <circle cx="102" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="102" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">3</text>
+        <circle cx="147" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="147" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4</text>
+        <circle cx="185" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="185" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.1</text>
+        <circle cx="215" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="215" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.2</text>
+        <circle cx="230" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="230" y="25" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.3</text>
+        <circle cx="255" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="255" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.4</text>
+        <circle cx="288" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="288" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.5</text>
+        <circle cx="317" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="317" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.6</text>
+        <circle cx="380" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="380" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.7</text>
+        <circle cx="422" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="422" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">5</text>
+        <circle cx="487" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="487" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">6</text>
+        <circle cx="661" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="661" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">7</text>
+        <circle cx="953" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="953" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.0</text>
+        <circle cx="979" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="979" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.1</text>
+        <circle cx="1006" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="1006" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.2</text>
+        <circle cx="1036" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="1036" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.3</text>
+        <circle cx="1066" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
+        <text x="1066" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.4</text>
+        <circle cx="1091" cy="0" r="5" fill="white" stroke="hsl(203, 94%, 38%)" stroke-width="2" />
+        <text x="1091" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.5</text>
+        <circle cx="1121" cy="0" r="5" fill="white" stroke="hsl(203, 94%, 38%)" stroke-width="2" />
+        <text x="1121" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.6</text>
+      </svg>
+    </p>
+
+    <p>Actualmente (octubre de 2017), la versión más popular sigue siendo Drupal 7, seguramente debido a la gran cantidad de módulos existentes para esa versión que permiten ampliar las capacidades de Drupal y a que muchos profesionales creadores de sitios web se encuentran más cómodos con Drupal 7 que con 8. Seguramente costará años que Drupal 8 alcance a Drupal 7.</p>
+
+    <hr class="corta" />
+
+    <h3>Enlaces de interés</h3>
+
+    <ul>
+      <li><a href="https://www.drupal.org/core/release-cycle-overview">Planificación del desarrollo de Drupal</a></li>
+      <li><a href="https://www.drupal.org/core/roadmap">Drupal Core roadmap</a></li>
+      <li><a href="https://www.drupal.org/project/usage/drupal">Versión de Drupal más utilizada</a></li>
+      <li><a href="https://www.drupal.org/project/usage">Los 100 módulos de Drupal más utilizados</a>. Esta información es muy útil para Drupal 7, pero poco útil para Drupal 8 ya que los módulos de Drupal 8 se utilizan comparativamente muy poco (además hay que tener en cuenta que algunos de los módulos más populares en Drupal 7 forman parte ahora de Drupal 8).</li>
+      <li><a href="https://www.bluespark.com/status-top-100-contributed-modules-drupal-8">Estado de desarrollo para Drupal 8 de los 100 módulos de Drupal más utilizados</a>. Esta información es más útil, aunque sigue estando sesgada porque los módulos más utilizados son los de Drupal 7. Es útil para los sitios creados con Drupal 7 que se estén planteando la migración a Drupal 8.</li>
+      <li><a href="https://simplytest.me/">simplytest.me</a>
+        <p>En esta web se pueden probar versiones de Drupal y módulos: se elige lo que se quiere probar y se genera un Drupal para utilizar durante media hora (usuarios no registrados) o 3 horas (usuarios registrados).</p>
+      </li>
+      <li>Drupal 8
         <ul>
-          <li><a href="#organizacion-ejercicios">Organización ejercicios</a></li>
-          <li><a href="#drupal">CMS: Drupal</a></li>
-          <li><a href="#articulos-paginas">Artículos y páginas básicas</a></li>
+          <li><a href="https://www.drupal.org/node/2164623">Módulos de Drupal 7 añadidos al núcleo de Drupal 8</a></li>
+          <li><a href="https://www.drupal.org/node/2116417">Módulos eliminados del núcleo de Drupal 8</a></li>
         </ul>
-      </div>
-    </nav>
+      </li>
+      <li>Release notes: <a href="https://www.drupal.org/drupal-7-released">Drupal 7</a> - <a href="https://www.drupal.org/8">Drupal 8</a></li>
+      <li>Novedades:
+        <a href="https://www.drupal.org/project/drupal/releases/8.1.0">Drupal 8.1</a> (
+        <a href="https://www.drupal.org/blog/drupal-8-1-0">blog</a>) -
+        <a href="https://www.drupal.org/project/drupal/releases/8.2.0">Drupal 8.2</a> (
+        <a href="https://www.drupal.org/blog/drupal-8-2-0">blog</a>) -
+        <a href="https://www.drupal.org/project/drupal/releases/8.3.0">Drupal 8.3</a> (
+        <a href="https://www.drupal.org/blog/drupal-8-3-0">blog</a>) -
+        <a href="https://www.drupal.org/project/drupal/releases/8.4.0">Drupal 8.4</a> (
+        <a href="https://www.drupal.org/blog/drupal-8-4-0">blog</a>)
+      </li>
+    </ul>
+  </section>
 
-    <section id="organizacion-ejercicios">
-      <h2>Organización de los ejercicios</h2>
+  <section id="articulos-paginas">
+    <h2>Artículos y páginas básicas</h2>
 
-      <p>Los ejercicios de Drupal se han dividido en cuatro páginas:</p>
-      <ul>
-        <li><a href="drupal-1.html">Drupal (1)</a>: Instalación de Drupal, traducción al español, actualización de Drupal.</li>
-        <li><a href="drupal-2.html">Drupal (2)</a>: Elementos básicos de Drupal: creación de artículos y páginas básicas, roles y usuarios, instalación y configuración de módulos.</li>
-        <li><a href="drupal-3.html">Drupal (3)</a>: Creación de un sitio web con Drupal dedicado a las aplicaciones web.</li>
-        <li><a href="drupal-4.html">Drupal (4)</a>: Instalación de módulos.</li>
-      </ul>
-    </section>
+    <p>Se explican a continuación los tipos de contenido <strong>páginas básicas</strong> y <strong>artículos</strong> y sus opciones de creación.</p>
 
-    <section id="drupal">
-      <h2>Sistemas de Gestión de Contenido (CMS): Drupal</h2>
+    <p>En Drupal existen dos tipos principales de contenido:</p>
+    <ul>
+      <li>las <strong>páginas básicas</strong> son páginas "permanentes", que generalmente están siempre a disposición del visitante y a los que se accede mediante los menús de la página principal. Serían equivalentes a las Páginas de WordPress.</li>
+      <li>los <strong>artículos</strong> son páginas "temporales", que se muestran en la página principal hasta que nuevos artículos les hacen perder vigencia, aunque siguen accesibles. Serían equivalente a las Entradas de WordPress.</li>
+    </ul>
 
-      <p>Los Sistemas de Gestión de Contenido (en inglés, CMS, Content Management Systems) son aplicaciones web que permiten crear, modificar y publicar sitios webs de forma centralizada. Los CMS surgieron a finales de los 90, en muchos casos como evolución de aplicaciones creadas originalmente para sitios de noticias.</p>
+    <p>Cada vez que se crea un artículo o una página básica, Drupal le asigna un número de nodo que lo identifica y permite acceder a él directamente.</p>
+    <ul>
+      <li>Entre en Drupal como usuario administrador:</li>
+      <li>Haga clic en el enlace <strong>Agregar contenido</strong>:
+        <p class="captura">
+          <img src="../img/drupal/2-1-e-1-contenido.png" alt="Drupal. Agregar contenido" width="991" height="510" />
+        </p>
+      </li>
+      <li>En la pantalla de Agregar contenido, se puede elegir crear un artículo o un página básica:
+        <p class="captura">
+          <img src="../img/drupal/2-1-e-2-contenido.png" alt="Drupal. Agregar contenido" width="1008" height="340" />
+        </p>
+      </li>
+    </ul>
 
-      <p>Las aplicaciones orientadas a crear y mantener sitios web generalistas se suelen autodenominar CMS y las que están más orientadas a sectores específicos (entornos empresariales, documentación , educativos, etc.) suelen utilizar otras denominaciones (Knowledge MS, Document MS, Learning MS, etc), pero también se pueden considerar CMS.</p>
+    <h3>Crear artículos</h3>
 
-      <p>Los CMS suelen ofrecer unas características básicas que después pueden ampliarse a través de módulos o plug-ins. Uno de los CMS más populares es Drupal, que se trata en esta lección.</p>
+    <ul>
+      <li>Haga clic en <strong>Artículo</strong> para crear un artículo.</li>
+      <li>Los campos que hay que rellenar son los siguientes:
+        <ul>
+          <li>Título
+            <p>El título se mostrará junto con el artículo.</p>
+            <p class="captura">
+              <img src="../img/drupal/2-1-e-11-contenido.png" alt="Drupal. Crear artículo" width="590" height="70" />
+            </p>
+          </li>
+          <li>Texto del artículo y Formato de texto
+            <p>El texto del artículo puede incluir etiquetas HTML, pero se debe elegir entre:</p>
+            <ul>
+              <li>HTML Restringido: Sólo se permiten unas pocas etiquetas, que además debe escribir el propio usuario</li>
+              <li>HTML Básico: Sólo se permiten unas pocas etiquetas, pero una barra de herramientas evita tener que escribirlas.</li>
+              <li>HTML Completo: Texto html, permitiéndose cualquier etiqueta.</li>
+            </ul>
+            <p>Si se incluyen etiquetas html no permitidas en el formato de texto elegido, Drupal filtra esas etiquetas html y no se muestran al visitante. Las etiquetas permitidas en cada tipo de formato de texto se puede modificar.</p>
+            <p class="captura">
+              <img src="../img/drupal/2-1-e-12-contenido.png" alt="Drupal. Crear artículo" width="590" height="350" />
+            </p>
+          </li>
+          <li>Etiquetas (tags)
+            <p>Las etiquetas son palabras (o grupos de palabras) que describen el contenido del artículo. Drupal permite recuperar todos los artículos a los que se ha asignado una determinada etiqueta.</p>
+            <p class="captura">
+              <img src="../img/drupal/2-1-e-13-contenido.png" alt="Drupal. Crear artículo" width="590" height="100" />
+            </p>
+          </li>
+          <li>Imagen
+            <p>La imagen subida se mostrará al principio del artículo.</p>
+            <p class="captura">
+              <img src="../img/drupal/2-1-e-14-contenido.png" alt="Drupal. Crear artículo" width="590" height="129" />
+            </p>
+          </li>
+          <li>Guardar
+            <p>Los artículos se pueden guardar y publicar inmediatamente en la página web o mantenerlos sin publicar en estado de borrador.</p>
+            <p class="captura">
+              <img src="../img/drupal/2-1-e-15-contenido.png" alt="Drupal. Crear artículo" width="590" height="90" />
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>En la parte derecha se encuentran opciones adicionales:
+        <p class="captura">
+          <img src="../img/drupal/2-1-e-21-contenido.png" alt="Drupal. Crear artículo" width="345" height="340" />
+        </p>
+        <ul>
+          <li>Crear nueva revisión:
+            <p>Al marcar la casilla de verificación se muestra el cuadro de texto para escribir una breve descripción de los cambios realizados en el artículo.</p>
+            <p class="captura">
+              <img src="../img/drupal/2-1-e-22-contenido.png" alt="Drupal. Crear artículo" width="345" height="310" />
+            </p>
+          </li>
+          <li>Opciones del menú
+            <p>Al marcar esta casilla de verificación se muestran las opciones que permiten definir una opción de menú que enlace directamente con el artículo, pero normalmente los artículos no se suelen vincular con menús.</p>
+            <p class="captura">
+              <img src="../img/drupal/2-1-e-23-contenido.png" alt="Drupal. Crear artículo" width="345" height="410" />
+            </p>
+          </li>
+          <li>Opciones de comentario
+            <p class="captura">
+              <img src="../img/drupal/2-1-e-24-contenido.png" alt="Drupal. Crear artículo" width="345" height="220" />
+            </p>
+          </li>
+          <li>Opciones de ruta URL
+            <p class="captura">
+              <img src="../img/drupal/2-1-e-25-contenido.png" alt="Drupal. Crear artículo" width="345" height="180" />
+            </p>
+          </li>
+          <li>Información de autoría
+            <p>Como los artículos se muestran por orden cronológico inverso, una forma sencilla de reordenar artículos es modificar la fecha y hora de creación.</p>
+            <p class="captura">
+              <img src="../img/drupal/2-1-e-26-contenido.png" alt="Drupal. Crear artículo" width="345" height="250" />
+            </p>
+          </li>
+          <li>Opciones de promoción
+            <p>Las opciones disponibles son:</p>
+            <ul>
+              <li>Promovido a la portada: Si no se marca esta casilla de verificación, los artículos publicados no aparecerán en la página principal, aunque será accesible por otros procedimientos (etiquetas, número de nodo, etc.)</li>
+              <li>Fijo al comienzo de las listas: Si se marca esta casilla de verificación, el artículo no se verá desplazado por nuevos artículos que se publiquen posteriormente. Si hay varios artículos marcados como fijos al comienzo de las listas, estos se muestran en orden cronológico inverso.</li>
+            </ul>
+            <p class="captura">
+              <img src="../img/drupal/2-1-e-27-contenido.png" alt="Drupal. Crear artículo" width="343" height="125" />
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
 
-      <hr class="corta" />
+    <h3>Crear páginas básicas</h3>
 
-      <p>El creador de Drupal fue el belga <a href="https://dri.es/">Dries Buytaert</a>, que sigue al frente de la comunidad que desarrolla Drupal. Drupal es software libre distribuido bajo licencia GPL 2 o posterior.</p>
+    <ul>
+      <li>Haga clic en <strong>Página básica</strong> para crear una página básica. Los campos son los mismos que en los artículos, excepto que no existen los campos de etiquetas ni de comentarios.</li>
+    </ul>
+  </section>
 
-      <p>Drupal ha tenido siempre la fama de ser difícil de utilizar, pero también la de estar más preparado para crear sitios complejos, al contrario que WordPress que se ha caracterizado por su facilidad de uso.</p>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 12 de noviembre de 2017</p>
 
-      <hr class="corta" />
-
-      <p>Drupal 1.0 se publicó en 2001. Hasta Drupal 6, publicado en febrero de 2008, se fueron publicando una o dos versiones de Drupal al año. Pero publicar Drupal 7 costó tres años debido a los grandes cambios introducidos para facilitar la administración en general y la creación de sitios en varios idiomas. Y Drupal 8 costó casi cinco años debido a los todavía más grandes cambios internos en la aplicación a todos los niveles. Afortunadamente, a partir de Drupal 8 se ha adoptado un modelo de desarrollo más corto y predecible, planificando dos versiones anuales, en abril y octubre. En teoría, este nuevo modelo tiene que permitir que Drupal vaya mejorando de forma progresiva y que los sitios se puedan ir actualizando sin problemas.</p>
-
-      <p class="mcl-centrado">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1210" viewBox="-50 -60 1210 100">
-          <line x1="35" y1="0" x2="1160" y2="0" stroke-width="3" stroke="hsl(203, 94%, 38%)" />
-          <text x="-30" y="4" text-anchor="start" style="font-size: 100%">Drupal</text>
-          <text x="-10" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
-          <text x="-10" y="-38" text-anchor="middle" style="font-size: 60%">29-10-2017</text>
-
-          <line x1="60" y1="-30" x2="60" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="90" y="-40" text-anchor="middle" style="font-size: 80%">2001</text>
-          <line x1="120" y1="-30" x2="120" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="150" y="-40" text-anchor="middle" style="font-size: 80%">2002</text>
-          <line x1="180" y1="-30" x2="180" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="210" y="-40" text-anchor="middle" style="font-size: 80%">2003</text>
-          <line x1="240" y1="-30" x2="240" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="270" y="-40" text-anchor="middle" style="font-size: 80%">2004</text>
-          <line x1="300" y1="-30" x2="300" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="330" y="-40" text-anchor="middle" style="font-size: 80%">2005</text>
-          <line x1="360" y1="-30" x2="360" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="390" y="-40" text-anchor="middle" style="font-size: 80%">2006</text>
-          <line x1="420" y1="-30" x2="420" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="450" y="-40" text-anchor="middle" style="font-size: 80%">2007</text>
-          <line x1="480" y1="-30" x2="480" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="510" y="-40" text-anchor="middle" style="font-size: 80%">2008</text>
-          <line x1="540" y1="-30" x2="540" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="570" y="-40" text-anchor="middle" style="font-size: 80%">2009</text>
-          <line x1="600" y1="-30" x2="600" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="630" y="-40" text-anchor="middle" style="font-size: 80%">2010</text>
-          <line x1="660" y1="-30" x2="660" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="690" y="-40" text-anchor="middle" style="font-size: 80%">2011</text>
-          <line x1="720" y1="-30" x2="720" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="750" y="-40" text-anchor="middle" style="font-size: 80%">2012</text>
-          <line x1="780" y1="-30" x2="780" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="810" y="-40" text-anchor="middle" style="font-size: 80%">2013</text>
-          <line x1="840" y1="-30" x2="840" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="870" y="-40" text-anchor="middle" style="font-size: 80%">2014</text>
-          <line x1="900" y1="-30" x2="900" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="930" y="-40" text-anchor="middle" style="font-size: 80%">2015</text>
-          <line x1="960" y1="-30" x2="960" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="990" y="-40" text-anchor="middle" style="font-size: 80%">2016</text>
-          <line x1="1020" y1="-30" x2="1020" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="1050" y="-40" text-anchor="middle" style="font-size: 80%">2017</text>
-          <line x1="1080" y1="-30" x2="1080" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="1110" y="-40" text-anchor="middle" style="font-size: 80%">2018</text>
-          <line x1="1140" y1="-30" x2="1140" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <!-- <text x="1170" y="-40" text-anchor="middle" style="font-size: 80%">2019</text> -->
-
-          <circle cx="62" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="62" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">1</text>
-          <circle cx="72" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="72" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">2</text>
-          <circle cx="102" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="102" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">3</text>
-          <circle cx="147" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="147" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4</text>
-          <circle cx="185" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="185" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.1</text>
-          <circle cx="215" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="215" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.2</text>
-          <circle cx="230" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="230" y="25" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.3</text>
-          <circle cx="255" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="255" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.4</text>
-          <circle cx="288" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="288" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.5</text>
-          <circle cx="317" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="317" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.6</text>
-          <circle cx="380" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="380" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">4.7</text>
-          <circle cx="422" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="422" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">5</text>
-          <circle cx="487" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="487" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">6</text>
-          <circle cx="661" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="661" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">7</text>
-          <circle cx="953" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="953" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.0</text>
-          <circle cx="979" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="979" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.1</text>
-          <circle cx="1006" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="1006" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.2</text>
-          <circle cx="1036" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="1036" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.3</text>
-          <circle cx="1066" cy="0" r="5" fill="hsl(203, 94%, 38%)" />
-          <text x="1066" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.4</text>
-          <circle cx="1091" cy="0" r="5" fill="white" stroke="hsl(203, 94%, 38%)" stroke-width="2"/>
-          <text x="1091" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.5</text>
-          <circle cx="1121" cy="0" r="5" fill="white" stroke="hsl(203, 94%, 38%)" stroke-width="2"/>
-          <text x="1121" y="-15" text-anchor="middle" fill="hsl(203, 94%, 38%)" style="font-size: 80%; font-weight: bold">8.6</text>
-        </svg>
-      </p>
-
-      <p>Actualmente (octubre de 2017), la versión más popular sigue siendo Drupal 7, seguramente debido a la gran cantidad de módulos existentes para esa versión que permiten ampliar las capacidades de Drupal y a que muchos profesionales creadores de sitios web se encuentran más cómodos con Drupal 7 que con 8. Seguramente costará años que Drupal 8 alcance a Drupal 7.</p>
-
-      <hr class="corta" />
-
-      <h3>Enlaces de interés</h3>
-
-      <ul>
-        <li><a href="https://www.drupal.org/core/release-cycle-overview">Planificación del desarrollo de Drupal</a></li>
-        <li><a href="https://www.drupal.org/core/roadmap">Drupal Core roadmap</a></li>
-        <li><a href="https://www.drupal.org/project/usage/drupal">Versión de Drupal más utilizada</a></li>
-        <li><a href="https://www.drupal.org/project/usage">Los 100 módulos de Drupal más utilizados</a>. Esta información es muy útil para Drupal 7, pero poco útil para Drupal 8 ya que los módulos de Drupal 8 se utilizan comparativamente muy poco (además hay que tener en cuenta que algunos de los módulos más populares en Drupal 7 forman parte ahora de Drupal 8).</li>
-        <li><a href="https://www.bluespark.com/status-top-100-contributed-modules-drupal-8">Estado de desarrollo para Drupal 8 de los 100 módulos de Drupal más utilizados</a>. Esta información es más útil, aunque sigue estando sesgada porque los módulos más utilizados son los de Drupal 7. Es útil para los sitios creados con Drupal 7 que se estén planteando la migración a Drupal 8.</li>
-        <li><a href="https://simplytest.me/">simplytest.me</a>
-          <p>En esta web se pueden probar versiones de Drupal y módulos: se elige lo que se quiere probar y se genera un Drupal para utilizar durante media hora (usuarios no registrados) o 3 horas (usuarios registrados).</p>
-        </li>
-        <li>Drupal 8
-          <ul>
-            <li><a href="https://www.drupal.org/node/2164623">Módulos de Drupal 7 añadidos al núcleo de Drupal 8</a></li>
-            <li><a href="https://www.drupal.org/node/2116417">Módulos eliminados del núcleo de Drupal 8</a></li>
-          </ul>
-        </li>
-        <li>Release notes: <a href="https://www.drupal.org/drupal-7-released">Drupal 7</a> - <a href="https://www.drupal.org/8">Drupal 8</a></li>
-        <li>Novedades:
-          <a href="https://www.drupal.org/project/drupal/releases/8.1.0">Drupal 8.1</a>
-          (<a href="https://www.drupal.org/blog/drupal-8-1-0">blog</a>) -
-          <a href="https://www.drupal.org/project/drupal/releases/8.2.0">Drupal 8.2</a>
-          (<a href="https://www.drupal.org/blog/drupal-8-2-0">blog</a>) -
-          <a href="https://www.drupal.org/project/drupal/releases/8.3.0">Drupal 8.3</a>
-          (<a href="https://www.drupal.org/blog/drupal-8-3-0">blog</a>) -
-          <a href="https://www.drupal.org/project/drupal/releases/8.4.0">Drupal 8.4</a>
-          (<a href="https://www.drupal.org/blog/drupal-8-4-0">blog</a>)
-        </li>
-      </ul>
-    </section>
-
-    <section id="articulos-paginas">
-      <h2>Artículos y páginas básicas</h2>
-
-      <p>Se explican a continuación los tipos de contenido <strong>páginas básicas</strong> y <strong>artículos</strong> y sus opciones de creación.</p>
-
-      <p>En Drupal existen dos tipos principales de contenido:</p>
-      <ul>
-        <li>las <strong>páginas básicas</strong> son páginas "permanentes", que generalmente están siempre a disposición del visitante y a los que se accede mediante los menús de la página principal. Serían equivalentes a las Páginas de WordPress.</li>
-        <li>los <strong>artículos</strong> son páginas "temporales", que se muestran en la página principal hasta que nuevos artículos les hacen perder vigencia, aunque siguen accesibles. Serían equivalente a las Entradas de WordPress.</li>
-      </ul>
-
-      <p>Cada vez que se crea un artículo o una página básica, Drupal le asigna un número de nodo que lo identifica y permite acceder a él directamente.</p>
-      <ul>
-        <li>Entre en Drupal como usuario administrador:</li>
-        <li>Haga clic en el enlace <strong>Agregar contenido</strong>:
-          <p class="captura">
-            <img src="../img/drupal/2-1-e-1-contenido.png" alt="Drupal. Agregar contenido" width="991" height="510" />
-          </p>
-        </li>
-        <li>En la pantalla de Agregar contenido, se puede elegir crear un artículo o un página básica:
-          <p class="captura">
-            <img src="../img/drupal/2-1-e-2-contenido.png" alt="Drupal. Agregar contenido" width="1008" height="340" />
-          </p>
-        </li>
-      </ul>
-
-      <h3>Crear artículos</h3>
-
-      <ul>
-        <li>Haga clic en <strong>Artículo</strong> para crear un artículo.</li>
-        <li>Los campos que hay que rellenar son los siguientes:
-          <ul>
-            <li>Título
-              <p>El título se mostrará junto con el artículo.</p>
-              <p class="captura">
-                <img src="../img/drupal/2-1-e-11-contenido.png" alt="Drupal. Crear artículo" width="590" height="70" />
-              </p>
-            </li>
-            <li>Texto del artículo y Formato de texto
-              <p>El texto del artículo puede incluir etiquetas HTML, pero se debe elegir entre:</p>
-              <ul>
-                <li>HTML Restringido: Sólo se permiten unas pocas etiquetas, que además debe escribir el propio usuario</li>
-                <li>HTML Básico: Sólo se permiten unas pocas etiquetas, pero una barra de herramientas evita tener que escribirlas.</li>
-                <li>HTML Completo: Texto html, permitiéndose cualquier etiqueta.</li>
-              </ul>
-              <p>Si se incluyen etiquetas html no permitidas en el formato de texto elegido, Drupal filtra esas etiquetas html y no se muestran al visitante. Las etiquetas permitidas en cada tipo de formato de texto se puede modificar.</p>
-              <p class="captura">
-                <img src="../img/drupal/2-1-e-12-contenido.png" alt="Drupal. Crear artículo" width="590" height="350" />
-              </p>
-            </li>
-            <li>Etiquetas (tags)
-              <p>Las etiquetas son palabras (o grupos de palabras) que describen el contenido del artículo. Drupal permite recuperar todos los artículos a los que se ha asignado una determinada etiqueta.</p>
-              <p class="captura">
-                <img src="../img/drupal/2-1-e-13-contenido.png" alt="Drupal. Crear artículo" width="590" height="100" />
-              </p>
-            </li>
-            <li>Imagen
-              <p>La imagen subida se mostrará al principio del artículo.</p>
-              <p class="captura">
-                <img src="../img/drupal/2-1-e-14-contenido.png" alt="Drupal. Crear artículo" width="590" height="129" />
-              </p>
-            </li>
-            <li>Guardar
-              <p>Los artículos se pueden guardar y publicar inmediatamente en la página web o mantenerlos sin publicar en estado de borrador.</p>
-              <p class="captura">
-                <img src="../img/drupal/2-1-e-15-contenido.png" alt="Drupal. Crear artículo" width="590" height="90" />
-              </p>
-            </li>
-          </ul>
-        </li>
-        <li>En la parte derecha se encuentran opciones adicionales:
-          <p class="captura">
-            <img src="../img/drupal/2-1-e-21-contenido.png" alt="Drupal. Crear artículo" width="345" height="340" />
-          </p>
-          <ul>
-            <li>Crear nueva revisión:
-              <p>Al marcar la casilla de verificación se muestra el cuadro de texto para escribir una breve descripción de los cambios realizados en el artículo.</p>
-              <p class="captura">
-                <img src="../img/drupal/2-1-e-22-contenido.png" alt="Drupal. Crear artículo" width="345" height="310" />
-              </p>
-            </li>
-            <li>Opciones del menú
-              <p>Al marcar esta casilla de verificación se muestran las opciones que permiten definir una opción de menú que enlace directamente con el artículo, pero normalmente los artículos no se suelen vincular con menús.</p>
-              <p class="captura">
-                <img src="../img/drupal/2-1-e-23-contenido.png" alt="Drupal. Crear artículo" width="345" height="410" />
-              </p>
-            </li>
-            <li>Opciones de comentario
-              <p class="captura">
-                <img src="../img/drupal/2-1-e-24-contenido.png" alt="Drupal. Crear artículo" width="345" height="220" />
-              </p>
-            </li>
-            <li>Opciones de ruta URL
-              <p class="captura">
-                <img src="../img/drupal/2-1-e-25-contenido.png" alt="Drupal. Crear artículo" width="345" height="180" />
-              </p>
-            </li>
-            <li>Información de autoría
-              <p>Como los artículos se muestran por orden cronológico inverso, una forma sencilla de reordenar artículos es modificar la fecha y hora de creación.</p>
-              <p class="captura">
-                <img src="../img/drupal/2-1-e-26-contenido.png" alt="Drupal. Crear artículo" width="345" height="250" />
-              </p>
-            </li>
-            <li>Opciones de promoción
-              <p>Las opciones disponibles son:</p>
-              <ul>
-                <li>Promovido a la portada: Si no se marca esta casilla de verificación, los artículos publicados no aparecerán en la página principal, aunque será accesible por otros procedimientos (etiquetas, número de nodo, etc.)</li>
-                <li>Fijo al comienzo de las listas: Si se marca esta casilla de verificación, el artículo no se verá desplazado por nuevos artículos que se publiquen posteriormente. Si hay varios artículos marcados como fijos al comienzo de las listas, estos se muestran en orden cronológico inverso.</li>
-              </ul>
-              <p class="captura">
-                <img src="../img/drupal/2-1-e-27-contenido.png" alt="Drupal. Crear artículo" width="343" height="125" />
-              </p>
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-      <h3>Crear páginas básicas</h3>
-
-      <ul>
-        <li>Haga clic en <strong>Página básica</strong> para crear una página básica. Los campos son los mismos que en los artículos, excepto que no existen los campos de etiquetas ni de comentarios.</li>
-      </ul>
-    </section>
-
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 12 de noviembre de 2017</p>
-
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

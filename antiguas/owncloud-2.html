@@ -1,344 +1,342 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Ejercicios (2). ownCloud. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Ejercicios (2). ownCloud. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>ownCloud. Ejercicios (2)</h1>
+<body>
+  <h1>ownCloud. Ejercicios (2)</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="owncloud-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          ownCloud (2)
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="owncloud-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> ownCloud (2)
+      </h2>
 
-        <h3>Enunciados</h3>
-        <ul>
-          <li><a href="#ejercicio-1">1 - Perfil del administrador</a></li>
-          <li><a href="#ejercicio-2">2 - Crear usuarios y grupos</a></li>
-          <li><a href="#ejercicio-3">3 - Subir y compartir ficheros</a></li>
-          <li><a href="#ejercicio-4">4 - Calendario</a></li>
-          <li><a href="#ejercicio-5">5 - Archivos de texto</a></li>
-          <li><a href="#ejercicio-6">6 - ownCloud Desktop Client</a></li>
-          <li><a href="#ejercicio-7">7 - Conexión inalámbrica</a></li>
-          <li><a href="#ejercicio-8">8 - Aplicaciones: Música</a></li>
-          <li><a href="#ejercicio-9">9 - Otras aplicaciones</a></li>
-          <li><a href="#ejercicio-10">10 - Temas</a></li>
-          <li><a href="#ejercicio-11">11 - Otras cosas para probar</a></li>
-        </ul>
+      <h3>Enunciados</h3>
+      <ul>
+        <li><a href="#ejercicio-1">1 - Perfil del administrador</a></li>
+        <li><a href="#ejercicio-2">2 - Crear usuarios y grupos</a></li>
+        <li><a href="#ejercicio-3">3 - Subir y compartir ficheros</a></li>
+        <li><a href="#ejercicio-4">4 - Calendario</a></li>
+        <li><a href="#ejercicio-5">5 - Archivos de texto</a></li>
+        <li><a href="#ejercicio-6">6 - ownCloud Desktop Client</a></li>
+        <li><a href="#ejercicio-7">7 - Conexión inalámbrica</a></li>
+        <li><a href="#ejercicio-8">8 - Aplicaciones: Música</a></li>
+        <li><a href="#ejercicio-9">9 - Otras aplicaciones</a></li>
+        <li><a href="#ejercicio-10">10 - Temas</a></li>
+        <li><a href="#ejercicio-11">11 - Otras cosas para probar</a></li>
+      </ul>
 
-        <h3><a href="owncloud-2-soluciones.html">Soluciones</a></h3>
-        <ul>
-          <li><a href="owncloud-2-soluciones.html#ejercicio-1">1 - Perfil del administrador</a></li>
-          <li><a href="owncloud-2-soluciones.html#ejercicio-2">2 - Crear usuarios y grupos</a></li>
-          <li><a href="owncloud-2-soluciones.html#ejercicio-3">3 - Subir y compartir ficheros</a></li>
-          <li><a href="owncloud-2-soluciones.html#ejercicio-4">4 - Calendario</a></li>
-          <li><a href="owncloud-2-soluciones.html#ejercicio-5">5 - Archivos de texto</a></li>
-          <li><a href="owncloud-2-soluciones.html#ejercicio-6">6 - ownCloud Desktop Client</a></li>
-          <li><a href="owncloud-2-soluciones.html#ejercicio-7">7 - Conexión inalámbrica</a></li>
-          <li><a href="owncloud-2-soluciones.html#ejercicio-8">8 - Aplicaciones: Música</a></li>
-          <li><a href="owncloud-2-soluciones.html#ejercicio-9">9 - Otras aplicaciones</a></li>
-          <li><a href="owncloud-2-soluciones.html#ejercicio-10">10 - Temas</a></li>
-          <li><a href="owncloud-2-soluciones.html#ejercicio-11">11 - Otras cosas para probar</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="aviso-antiguo">
-      <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de ownCloud. No están actualizados a versiones más actuales porque desde el curso 2016/17 no estoy trabajando en clase ownCloud, sino <a href="../lecciones/nextcloud.html">Nextcloud</a>. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+      <h3><a href="owncloud-2-soluciones.html">Soluciones</a></h3>
+      <ul>
+        <li><a href="owncloud-2-soluciones.html#ejercicio-1">1 - Perfil del administrador</a></li>
+        <li><a href="owncloud-2-soluciones.html#ejercicio-2">2 - Crear usuarios y grupos</a></li>
+        <li><a href="owncloud-2-soluciones.html#ejercicio-3">3 - Subir y compartir ficheros</a></li>
+        <li><a href="owncloud-2-soluciones.html#ejercicio-4">4 - Calendario</a></li>
+        <li><a href="owncloud-2-soluciones.html#ejercicio-5">5 - Archivos de texto</a></li>
+        <li><a href="owncloud-2-soluciones.html#ejercicio-6">6 - ownCloud Desktop Client</a></li>
+        <li><a href="owncloud-2-soluciones.html#ejercicio-7">7 - Conexión inalámbrica</a></li>
+        <li><a href="owncloud-2-soluciones.html#ejercicio-8">8 - Aplicaciones: Música</a></li>
+        <li><a href="owncloud-2-soluciones.html#ejercicio-9">9 - Otras aplicaciones</a></li>
+        <li><a href="owncloud-2-soluciones.html#ejercicio-10">10 - Temas</a></li>
+        <li><a href="owncloud-2-soluciones.html#ejercicio-11">11 - Otras cosas para probar</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Empecé a actualizar esta lección para ownCloud 8, pero no terminé de hacerlo.</p>
+  <div class="aviso-antiguo">
+    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de ownCloud. No están actualizados a versiones más actuales porque desde el curso 2016/17 no estoy trabajando en clase ownCloud, sino <a href="../lecciones/nextcloud.html">Nextcloud</a>. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+  </div>
 
-    <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>ownCloud</strong>. Se pueden consultar las <a href="owncloud-2-soluciones.html">soluciones de estos ejercicios de ownCloud</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Empecé a actualizar esta lección para ownCloud 8, pero no terminé de hacerlo.</p>
 
-    <p>Se recomienda haber realizado antes los <a href="owncloud-1.html">ejercicios (1) de ownCloud</a> en los que se pone en marcha ownCloud.</p>
+  <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>ownCloud</strong>. Se pueden consultar las <a href="owncloud-2-soluciones.html">soluciones de estos ejercicios de ownCloud</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-    <section id="ejercicio-1">
-      <h2>ownCloud (2) 1 - Perfil del administrador</h2>
-      <ol>
-        <li>Configure la cuenta del administrador estableciendo su Nombre completo, Dirección de correo y Foto de perfil.
-          <p class="captura">
-            <img src="img/owncloud-8-2/2-1-e-1-perfil.png" alt="ownCloud. Perfil de administrador" title="ownCloud. Instalación" width="1008" height="130" />
-          </p>
-          <ul>
-            <li>Nombre: <span class="codigo-modificacion">Admin Istrador</span></li>
-            <li>Dirección de correo: <span class="codigo-modificacion">admin@example.com</span></li>
-            <li>Foto de perfil: <img src="../img/iconos/animales/leon-128.png" alt="Imagen de usuario" width="128" height="128" /> (puede usar otra de las imágenes de la página <a href="../otros/imagenes.html">Imágenes para ejercicios</a>)</li>
-          </ul>
-        </li>
-      </ol>
-    </section>
+  <p>Se recomienda haber realizado antes los <a href="owncloud-1.html">ejercicios (1) de ownCloud</a> en los que se pone en marcha ownCloud.</p>
 
-    <section id="ejercicio-2">
-      <h2>ownCloud (2) 2 - Crear más usuarios y grupos</h2>
+  <section id="ejercicio-1">
+    <h2>ownCloud (2) 1 - Perfil del administrador</h2>
+    <ol>
+      <li>Configure la cuenta del administrador estableciendo su Nombre completo, Dirección de correo y Foto de perfil.
+        <p class="captura">
+          <img src="img/owncloud-8-2/2-1-e-1-perfil.png" alt="ownCloud. Perfil de administrador" title="ownCloud. Instalación" width="1008" height="130" />
+        </p>
+        <ul>
+          <li>Nombre: <span class="codigo-modificacion">Admin Istrador</span></li>
+          <li>Dirección de correo: <span class="codigo-modificacion">admin@example.com</span></li>
+          <li>Foto de perfil: <img src="../img/iconos/animales/leon-128.png" alt="Imagen de usuario" width="128" height="128" /> (puede usar otra de las imágenes de la página <a href="../otros/imagenes.html">Imágenes para ejercicios</a>)</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
 
-      <p>En este ejercicio se trata de crear varios usuarios que pertenezcan a dos grupos de usuarios distintos.</p>
+  <section id="ejercicio-2">
+    <h2>ownCloud (2) 2 - Crear más usuarios y grupos</h2>
 
-      <p class="captura">
-        <img src="img/owncloud-8-2/2-2-e-1-usuarios.png" alt="ownCloud. Crear usuarios y grupos" title="ownCloud. Instalación" width="1220" height="290" />
-      </p>
-      <ol>
-        <li>Cree los usuarios <strong>comercial_1</strong>, <strong>programador_1</strong> y <strong>sistemas_1</strong> (con contraseña que coincida con el nombre)</li>
-        <li>Cree el grupo de usuarios <strong>Tecnicos</strong> y <strong>WebApps</strong>.</li>
-        <li>Incluya a los usuarios <strong>programador_1</strong> y <strong>sistemas_1</strong> en el grupo <strong>Tecnicos</strong> y a los tres usuarios en el grupo <strong>WebApps</strong>.</li>
-        <li>Compruebe que se puede entrar en ownCloud como los usuarios <strong>comercial_1</strong>, <strong>programador_1</strong> y <strong>sistemas_1</strong> y cambie la imagen de perfil de estos usuarios.
-          <p>Fotos de perfil:
-            <img src="../img/iconos/animales/mono-128.png" alt="Imagen de usuario" width="128" height="128" />
-            <img src="../img/iconos/animales/pinguino-128.png" alt="Imagen de usuario" width="128" height="128" />
-            <img src="../img/iconos/animales/cebra-128.png" alt="Imagen de usuario" width="128" height="128" />
-            (puede usar otras de las imágenes de la página <a href="../otros/imagenes.html">Imágenes para ejercicios</a>)</p>
-        </li>
-        <li>Cree algún nuevo usuario y grupo y bórrelos.</li>
-      </ol>
-    </section>
+    <p>En este ejercicio se trata de crear varios usuarios que pertenezcan a dos grupos de usuarios distintos.</p>
 
-    <section id="ejercicio-3">
-      <h2>ownCloud (2) 3 - Subir y compartir ficheros</h2>
+    <p class="captura">
+      <img src="img/owncloud-8-2/2-2-e-1-usuarios.png" alt="ownCloud. Crear usuarios y grupos" title="ownCloud. Instalación" width="1220" height="290" />
+    </p>
+    <ol>
+      <li>Cree los usuarios <strong>comercial_1</strong>, <strong>programador_1</strong> y <strong>sistemas_1</strong> (con contraseña que coincida con el nombre)</li>
+      <li>Cree el grupo de usuarios <strong>Tecnicos</strong> y <strong>WebApps</strong>.</li>
+      <li>Incluya a los usuarios <strong>programador_1</strong> y <strong>sistemas_1</strong> en el grupo <strong>Tecnicos</strong> y a los tres usuarios en el grupo <strong>WebApps</strong>.</li>
+      <li>Compruebe que se puede entrar en ownCloud como los usuarios <strong>comercial_1</strong>, <strong>programador_1</strong> y <strong>sistemas_1</strong> y cambie la imagen de perfil de estos usuarios.
+        <p>Fotos de perfil:
+          <img src="../img/iconos/animales/mono-128.png" alt="Imagen de usuario" width="128" height="128" />
+          <img src="../img/iconos/animales/pinguino-128.png" alt="Imagen de usuario" width="128" height="128" />
+          <img src="../img/iconos/animales/cebra-128.png" alt="Imagen de usuario" width="128" height="128" /> (puede usar otras de las imágenes de la página <a href="../otros/imagenes.html">Imágenes para ejercicios</a>)</p>
+      </li>
+      <li>Cree algún nuevo usuario y grupo y bórrelos.</li>
+    </ol>
+  </section>
 
-      <p>En este ejercicio se trata de subir ficheros y compartirlos con otros usuarios.</p>
+  <section id="ejercicio-3">
+    <h2>ownCloud (2) 3 - Subir y compartir ficheros</h2>
 
-      <h3>Compartir ficheros</h3>
-      <ol>
-        <li>Como usuario <strong>programador_1</strong>, suba a la carpeta <strong>Documents</strong> cuatro documentos: <a href="../elementos/documentos/manual-de-bitnami.odt">Manual de Bitnami (odt)</a>, <a href="../elementos/documentos/manual-de-bitnami.pdf">Manual de Bitnami (pdf)</a>, <a href="../elementos/documentos/manual-de-wordpress.odt">Manual de WordPress (odt)</a>, <a href="../elementos/documentos/manual-de-wordpress.pdf">Manual de WordPress (pdf)</a>. Comparta el Manual de WordPress (pdf) con el grupo <strong>WebApps</strong> y el manual de Bitnami con el grupo <strong>Tecnicos</strong>.
-          <p class="captura"><img src="img/owncloud-8-2/2-3-e-1-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="215" /></p>
-        </li>
-        <li>Compruebe que los usuarios <strong>sistemas_1</strong> y <strong>comercial_1</strong> ven correctamente los documentos compartidos (dos y uno, respectivamente):
-          <p class="captura"><img src="img/owncloud-8-2/2-3-e-2-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="120" /></p>
-          <p class="captura"><img src="img/owncloud-8-2/2-3-e-3-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="200" /></p>
-        </li>
-      </ol>
+    <p>En este ejercicio se trata de subir ficheros y compartirlos con otros usuarios.</p>
 
-      <h3>Compartir imágenes con un usuario</h3>
+    <h3>Compartir ficheros</h3>
+    <ol>
+      <li>Como usuario <strong>programador_1</strong>, suba a la carpeta <strong>Documents</strong> cuatro documentos: <a href="../elementos/documentos/manual-de-bitnami.odt">Manual de Bitnami (odt)</a>, <a href="../elementos/documentos/manual-de-bitnami.pdf">Manual de Bitnami (pdf)</a>, <a href="../elementos/documentos/manual-de-wordpress.odt">Manual de WordPress (odt)</a>, <a href="../elementos/documentos/manual-de-wordpress.pdf">Manual de WordPress (pdf)</a>. Comparta el Manual de WordPress (pdf) con el grupo <strong>WebApps</strong> y el manual de Bitnami con el grupo <strong>Tecnicos</strong>.
+        <p class="captura"><img src="img/owncloud-8-2/2-3-e-1-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="215" /></p>
+      </li>
+      <li>Compruebe que los usuarios <strong>sistemas_1</strong> y <strong>comercial_1</strong> ven correctamente los documentos compartidos (dos y uno, respectivamente):
+        <p class="captura"><img src="img/owncloud-8-2/2-3-e-2-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="120" /></p>
+        <p class="captura"><img src="img/owncloud-8-2/2-3-e-3-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="200" /></p>
+      </li>
+    </ol>
 
-      <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Este ejercicio está por actualizar (cambiar las imágenes y actualizar las capturas)</p>
+    <h3>Compartir imágenes con un usuario</h3>
 
-      <p>Como usuario <strong>programador_1</strong>:</p>
-      <ol>
-        <li>Suba a ownCloud un par de imágenes (<a href="img/owncloud-8-2/familia.png">familia.png</a> <img src="img/owncloud-8-2/familia-mini.png" alt="Imagen de prueba. Familia" width="80" height="76" /> y <a href="img/owncloud-8-2/amigos.png">amigos.png</a> <img src="img/owncloud-8-2/amigos-mini.png" alt="Imagen de prueba. Amigos" width="80" height="80" />)</li>
-        <li>Compruebe en Galería que las imágenes se ven correctamente:
-          <p class="captura">
-            <img src="img/owncloud-8-2/owncloud-galeria-1.png" alt="ownCloud. Galería" width="1016" height="325" />
-          </p>
-        </li>
-        <li>Comparta las imágenes con el usuario <strong>sistemas_1</strong>.</li>
-      </ol>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Este ejercicio está por actualizar (cambiar las imágenes y actualizar las capturas)</p>
 
-      <hr class="corta" />
+    <p>Como usuario <strong>programador_1</strong>:</p>
+    <ol>
+      <li>Suba a ownCloud un par de imágenes (<a href="img/owncloud-8-2/familia.png">familia.png</a> <img src="img/owncloud-8-2/familia-mini.png" alt="Imagen de prueba. Familia" width="80" height="76" /> y <a href="img/owncloud-8-2/amigos.png">amigos.png</a> <img src="img/owncloud-8-2/amigos-mini.png" alt="Imagen de prueba. Amigos" width="80" height="80" />)</li>
+      <li>Compruebe en Galería que las imágenes se ven correctamente:
+        <p class="captura">
+          <img src="img/owncloud-8-2/owncloud-galeria-1.png" alt="ownCloud. Galería" width="1016" height="325" />
+        </p>
+      </li>
+      <li>Comparta las imágenes con el usuario <strong>sistemas_1</strong>.</li>
+    </ol>
 
-      <h3>Compartir imágenes con un grupo</h3>
+    <hr class="corta" />
 
-      <p>Como usuario <strong>comercial_1</strong>:</p>
-      <ol>
-        <li>Suba a ownCloud un par de imágenes (<a href="img/owncloud-8-2/familia.png">familia.png</a> <img src="img/owncloud-8-2/familia-mini.png" alt="Imagen de prueba. Familia" width="80" height="76" /> y <a href="img/owncloud-8-2/amigos.png">amigos.png</a> <img src="img/owncloud-8-2/amigos-mini.png" alt="Imagen de prueba. Amigos" width="80" height="80" />)</li>
-        <li>Compruebe en Galería que las imágenes se ven correctamente:
-          <p class="captura">
-            <img src="img/owncloud-8-2/owncloud-galeria-1.png" alt="ownCloud. Galería" width="1016" height="325" />
-          </p>
-        </li>
-        <li>Comparta las imágenes con el grupo <strong>tecnicos</strong>.</li>
-      </ol>
+    <h3>Compartir imágenes con un grupo</h3>
 
-      <hr class="corta" />
+    <p>Como usuario <strong>comercial_1</strong>:</p>
+    <ol>
+      <li>Suba a ownCloud un par de imágenes (<a href="img/owncloud-8-2/familia.png">familia.png</a> <img src="img/owncloud-8-2/familia-mini.png" alt="Imagen de prueba. Familia" width="80" height="76" /> y <a href="img/owncloud-8-2/amigos.png">amigos.png</a> <img src="img/owncloud-8-2/amigos-mini.png" alt="Imagen de prueba. Amigos" width="80" height="80" />)</li>
+      <li>Compruebe en Galería que las imágenes se ven correctamente:
+        <p class="captura">
+          <img src="img/owncloud-8-2/owncloud-galeria-1.png" alt="ownCloud. Galería" width="1016" height="325" />
+        </p>
+      </li>
+      <li>Comparta las imágenes con el grupo <strong>tecnicos</strong>.</li>
+    </ol>
 
-      <h3>Ver imágenes compartidas</h3>
+    <hr class="corta" />
 
-      <p>Como usuario <strong>sistemas_1</strong>:</p>
-      <ol>
-        <li>Compruebe que puede acceder a las imágenes compartidas por los otros dos usuarios:
-          <p class="captura">
-            <img src="img/owncloud-8-2/owncloud-galeria-2.png" alt="ownCloud. Galería" width="723" height="360" />
-          </p>
-        </li>
-      </ol>
-    </section>
+    <h3>Ver imágenes compartidas</h3>
 
-    <section id="ejercicio-4">
-      <h2>ownCloud (2) 4 - Calendario</h2>
+    <p>Como usuario <strong>sistemas_1</strong>:</p>
+    <ol>
+      <li>Compruebe que puede acceder a las imágenes compartidas por los otros dos usuarios:
+        <p class="captura">
+          <img src="img/owncloud-8-2/owncloud-galeria-2.png" alt="ownCloud. Galería" width="723" height="360" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-      <p>En este ejercicio se trata de probar la creación de eventos en el calendario.</p>
+  <section id="ejercicio-4">
+    <h2>ownCloud (2) 4 - Calendario</h2>
 
-      <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar con capturas</p>
-    </section>
+    <p>En este ejercicio se trata de probar la creación de eventos en el calendario.</p>
 
-    <section id="ejercicio-5">
-      <h2>ownCloud (2) 5 - Crear y compartir archivos de texto</h2>
-      <ol>
-        <li>Como usuario <strong>sistemas_1</strong> cree en la carpeta <strong>Documents</strong> un documento de texto <strong>Cosas por hacer.txt</strong> y compártalo con el grupo <strong>Técnicos</strong>:
-          <p class="captura">
-            <img src="img/owncloud-8-2/2-5-e-1-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="250" />
-          </p>
-          <p class="captura">
-            <img src="img/owncloud-8-2/2-5-e-2-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="170" />
-          </p>
-        </li>
-        <li>Compruebe que el usuario <strong>programador_1</strong> ve y puede editar el documento compartido:
-          <p class="captura">
-            <img src="img/owncloud-8-2/2-5-e-3-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="190" />
-          </p>
-        </li>
-      </ol>
-    </section>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar con capturas</p>
+  </section>
 
-    <section id="ejercicio-6">
-      <h2>ownCloud (2) 6 - ownCloud Desktop Client</h2>
+  <section id="ejercicio-5">
+    <h2>ownCloud (2) 5 - Crear y compartir archivos de texto</h2>
+    <ol>
+      <li>Como usuario <strong>sistemas_1</strong> cree en la carpeta <strong>Documents</strong> un documento de texto <strong>Cosas por hacer.txt</strong> y compártalo con el grupo <strong>Técnicos</strong>:
+        <p class="captura">
+          <img src="img/owncloud-8-2/2-5-e-1-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="250" />
+        </p>
+        <p class="captura">
+          <img src="img/owncloud-8-2/2-5-e-2-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="170" />
+        </p>
+      </li>
+      <li>Compruebe que el usuario <strong>programador_1</strong> ve y puede editar el documento compartido:
+        <p class="captura">
+          <img src="img/owncloud-8-2/2-5-e-3-compartir.png" alt="ownCloud. Compartir documentos" width="1220" height="190" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-      <p>En este ejercicio se trata de probar el cliente de escritorio.</p>
-      <ol>
-        <li>Descargue la versión <strong>ownCloud Desktop Client 2.1.0</strong>, publicada el 3 de diciembre de 2015. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.
-          <p>Si la versión <strong>ownCloud Desktop Client 2.1.0</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
-        </li>
-        <li>Instale y configure el cliente de escritorio para el usuario <strong>sistemas_1</strong> para sincronizar ownCloud con una carpeta de <strong>Mis documentos</strong></li>
-        <li>Comprueba el funcionamiento del cliente de escritorio:
-          <ul>
-            <li>añadiendo o eliminando archivos en ownCloud y comprobando que se añaden o elimina en la carpeta local.</li>
-            <li>añadiendo o eliminando archivos en la carpeta y comprobando que se añaden o elimina en ownCloud.</li>
-          </ul>
-        </li>
-      </ol>
-    </section>
+  <section id="ejercicio-6">
+    <h2>ownCloud (2) 6 - ownCloud Desktop Client</h2>
 
-    <section id="ejercicio-7">
-      <h2>ownCloud (2) 7 - Conexión inalámbrica</h2>
+    <p>En este ejercicio se trata de probar el cliente de escritorio.</p>
+    <ol>
+      <li>Descargue la versión <strong>ownCloud Desktop Client 2.1.0</strong>, publicada el 3 de diciembre de 2015. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.
+        <p>Si la versión <strong>ownCloud Desktop Client 2.1.0</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
+      </li>
+      <li>Instale y configure el cliente de escritorio para el usuario <strong>sistemas_1</strong> para sincronizar ownCloud con una carpeta de <strong>Mis documentos</strong></li>
+      <li>Comprueba el funcionamiento del cliente de escritorio:
+        <ul>
+          <li>añadiendo o eliminando archivos en ownCloud y comprobando que se añaden o elimina en la carpeta local.</li>
+          <li>añadiendo o eliminando archivos en la carpeta y comprobando que se añaden o elimina en ownCloud.</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
 
-      <p>En este ejercicio se trata de probar la conexión a ownCloud desde un teléfono móvil (por ejemplo, mediante wifi).</p>
+  <section id="ejercicio-7">
+    <h2>ownCloud (2) 7 - Conexión inalámbrica</h2>
 
-      <h3>Conexión mediante el navegador del móvil</h3>
-      <ol>
-        <li>Acceda con el móvil a la red wifi en la que se encuentra el ordenador en el que ha instalado ownCloud</li>
-        <li>Compruebe que puede entrar en ownCloud con el móvil como usuario <strong>sistemas_1</strong> mediante la dirección <strong>https://AAA.BBB.CCC.DDD/</strong>.</li>
-      </ol>
+    <p>En este ejercicio se trata de probar la conexión a ownCloud desde un teléfono móvil (por ejemplo, mediante wifi).</p>
 
-      <h3>Conexión mediante aplicación específica</h3>
-      <ol>
-        <li>Instale en el móvil alguna aplicación para conectar con ownCloud:
-          <ul>
-            <li>Aplicación oficial <strong>ownCloud</strong> (de pago): disponible en Google Play (para Android) o en la AppStore (para Apple).</li>
-            <li>Aplicación <strong>ownCloud.de</strong> (gratuita): disponible en Google Play (para Android) o en la AppStore (para Apple) se puede encontrar la aplicación oficial ownCloud (de pago<img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />
-              <p>He elegido esta aplicación porque era la más valorada actualmente (enero de 2016) en Google Play , pero realmente no la conozco lo suficiente como para recomendarla.</p>
-            </li>
-          </ul>
-        </li>
-        <li>Compruebe el funcionamiento de la aplicación</li>
-      </ol>
+    <h3>Conexión mediante el navegador del móvil</h3>
+    <ol>
+      <li>Acceda con el móvil a la red wifi en la que se encuentra el ordenador en el que ha instalado ownCloud</li>
+      <li>Compruebe que puede entrar en ownCloud con el móvil como usuario <strong>sistemas_1</strong> mediante la dirección <strong>https://AAA.BBB.CCC.DDD/</strong>.</li>
+    </ol>
 
-      <h3>Otras aplicaciones</h3>
-      <ol>
-        <li>Probar la aplicación (de Android) <strong>ownCloud Bookmarks</strong> (gratuita).</li>
-      </ol>
-    </section>
+    <h3>Conexión mediante aplicación específica</h3>
+    <ol>
+      <li>Instale en el móvil alguna aplicación para conectar con ownCloud:
+        <ul>
+          <li>Aplicación oficial <strong>ownCloud</strong> (de pago): disponible en Google Play (para Android) o en la AppStore (para Apple).</li>
+          <li>Aplicación <strong>ownCloud.de</strong> (gratuita): disponible en Google Play (para Android) o en la AppStore (para Apple) se puede encontrar la aplicación oficial ownCloud (de pago<img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />
+            <p>He elegido esta aplicación porque era la más valorada actualmente (enero de 2016) en Google Play , pero realmente no la conozco lo suficiente como para recomendarla.</p>
+          </li>
+        </ul>
+      </li>
+      <li>Compruebe el funcionamiento de la aplicación</li>
+    </ol>
 
-    <section id="ejercicio-8">
-      <h2>ownCloud (2) 8 - Aplicaciones: Música</h2>
+    <h3>Otras aplicaciones</h3>
+    <ol>
+      <li>Probar la aplicación (de Android) <strong>ownCloud Bookmarks</strong> (gratuita).</li>
+    </ol>
+  </section>
 
-      <h3>Compartir canciones (sin reproducción)</h3>
-      <ol>
-        <li>Descargue alguna canción libre de <a href="https://www.jamendo.com/?language=es">Jamendo</a> o <a href="http://altermusique.org/">Altermusique</a>. Por ejemplo, la canción <a href="http://www.mclibre.org/descargar/musica/Ehma-Les-Temps-Modernes-03-Pizzicato.mp3">Pizzicato</a> (3,3 MB) del álbum <a href="http://altermusique.org/Ehma/Les-temps-modernes/">Les temps modernes</a> del compositor belga <a href="https://fr.wikipedia.org/wiki/Ehma">Emmanuel Codden</a> "Ehma".</li>
-        <li>Como usuario <strong>sistemas_1</strong>:
-          <ul>
-            <li>Suba a ownCloud la canción y compartala con el usuario <strong>programador_1</strong>.</li>
-          </ul>
-        </li>
-        <li>Como usuario <strong>programador_1</strong>:
-          <ul>
-            <li>Compruebe que puede acceder a la canción para descargarla, pero no para reproducirla.
-              <p><strong>Nota</strong>: ownCloud 7 no permite reproducir archivos de música sin instalar aplicaciones adicionales</p>
-            </li>
-          </ul>
-        </li>
-      </ol>
+  <section id="ejercicio-8">
+    <h2>ownCloud (2) 8 - Aplicaciones: Música</h2>
 
-      <hr class="corta" />
+    <h3>Compartir canciones (sin reproducción)</h3>
+    <ol>
+      <li>Descargue alguna canción libre de <a href="https://www.jamendo.com/?language=es">Jamendo</a> o <a href="http://altermusique.org/">Altermusique</a>. Por ejemplo, la canción <a href="http://www.mclibre.org/descargar/musica/Ehma-Les-Temps-Modernes-03-Pizzicato.mp3">Pizzicato</a> (3,3 MB) del álbum <a href="http://altermusique.org/Ehma/Les-temps-modernes/">Les temps modernes</a> del compositor belga <a href="https://fr.wikipedia.org/wiki/Ehma">Emmanuel Codden</a> "Ehma".</li>
+      <li>Como usuario <strong>sistemas_1</strong>:
+        <ul>
+          <li>Suba a ownCloud la canción y compartala con el usuario <strong>programador_1</strong>.</li>
+        </ul>
+      </li>
+      <li>Como usuario <strong>programador_1</strong>:
+        <ul>
+          <li>Compruebe que puede acceder a la canción para descargarla, pero no para reproducirla.
+            <p><strong>Nota</strong>: ownCloud 7 no permite reproducir archivos de música sin instalar aplicaciones adicionales</p>
+          </li>
+        </ul>
+      </li>
+    </ol>
 
-      <h3>Instalar aplicación Music</h3>
+    <hr class="corta" />
 
-      <p>Como usuario administrador:</p>
-      <ol>
-        <li>En el menú de selección de aplicaciones, abra la página de Aplicaciones</li>
-        <li>En la lista de aplicaciones, elija la opción que abre la página web del repositorio de aplicaciones para ownCloud.</li>
-        <li>Active la aplicación <strong>Music 0.3.8</strong>, publicada el 27 de octubre de 2015. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.</li>
-      </ol>
+    <h3>Instalar aplicación Music</h3>
 
-      <hr class="corta" />
+    <p>Como usuario administrador:</p>
+    <ol>
+      <li>En el menú de selección de aplicaciones, abra la página de Aplicaciones</li>
+      <li>En la lista de aplicaciones, elija la opción que abre la página web del repositorio de aplicaciones para ownCloud.</li>
+      <li>Active la aplicación <strong>Music 0.3.8</strong>, publicada el 27 de octubre de 2015. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.</li>
+    </ol>
 
-      <h3>Reproducir canciones</h3>
+    <hr class="corta" />
 
-      <p>Como usuario <strong>sistemas_1</strong> o <strong>programador_1</strong>:</p>
-      <ol>
-        <li>Compruebe que puede reproducir la canción subida:
-          <p class="captura">
-            <img src="img/owncloud-8-2/owncloud-musica-101.png" alt="ownCloud. Música" width="525" height="240" />
-          </p>
-        </li>
-      </ol>
-    </section>
+    <h3>Reproducir canciones</h3>
 
-    <section id="ejercicio-9">
-      <h2>ownCloud (2) 9 - Otras aplicaciones </h2>
+    <p>Como usuario <strong>sistemas_1</strong> o <strong>programador_1</strong>:</p>
+    <ol>
+      <li>Compruebe que puede reproducir la canción subida:
+        <p class="captura">
+          <img src="img/owncloud-8-2/owncloud-musica-101.png" alt="ownCloud. Música" width="525" height="240" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-      <p>Pruebe alguna de las aplicaciones disponibles para ownCloud 8.2.</p>
+  <section id="ejercicio-9">
+    <h2>ownCloud (2) 9 - Otras aplicaciones </h2>
 
-      <p>El repositiorio <a href="https://apps.owncloud.com/">https://apps.owncloud.com/</a> contiene un catálogo de las aplicaciones disponibles para todas las versiones de ownCloud.</p>
-    </section>
+    <p>Pruebe alguna de las aplicaciones disponibles para ownCloud 8.2.</p>
 
-    <section id="ejercicio-10">
-      <h2>ownCloud (2) 10 - Temas</h2>
+    <p>El repositiorio <a href="https://apps.owncloud.com/">https://apps.owncloud.com/</a> contiene un catálogo de las aplicaciones disponibles para todas las versiones de ownCloud.</p>
+  </section>
 
-      <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar</p>
+  <section id="ejercicio-10">
+    <h2>ownCloud (2) 10 - Temas</h2>
 
-      <p>Para modificar el aspecto de ownCloud, puede crear un tema. Los temas se crean en la carpeta <strong>/themes</strong>, creando una carpeta. En esa carpeta se debe reproducir la estructura de carpetas y archivos de ownCloud. ownCloud utilizará el archivo que se guarde allí en lugar del original.</p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar</p>
 
-      <p>Además, en el fichero de configuración debe añadirse la referencia al nuevo tema:</p>
+    <p>Para modificar el aspecto de ownCloud, puede crear un tema. Los temas se crean en la carpeta <strong>/themes</strong>, creando una carpeta. En esa carpeta se debe reproducir la estructura de carpetas y archivos de ownCloud. ownCloud utilizará el archivo que se guarde allí en lugar del original.</p>
 
-      <div class="codigo">
-        <pre>
+    <p>Además, en el fichero de configuración debe añadirse la referencia al nuevo tema:</p>
+
+    <div class="codigo">
+      <pre>
 <code class="language-php">/* config/config.php */
 
 &ldquo;theme&rdquo; =&gt; <span class="codigo-modificacion">&lsquo;nombreDeLaCarpetaDelTema&rsquo;</span></code>
 </pre>
-      </div>
-      <ol>
-        <li>Cambie el logotipo de la página inicial de ownCloud.</li>
-        <li>Cambie el logotipo pequeño de la interfaz de ownCloud.</li>
-        <li>Cambie la hoja de estilo de la interfaz de ownCloud, cambiando por ejemplo colores de fondo o de texto.</li>
-      </ol>
-    </section>
+    </div>
+    <ol>
+      <li>Cambie el logotipo de la página inicial de ownCloud.</li>
+      <li>Cambie el logotipo pequeño de la interfaz de ownCloud.</li>
+      <li>Cambie la hoja de estilo de la interfaz de ownCloud, cambiando por ejemplo colores de fondo o de texto.</li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-11">
-      <h2>ownCloud (2) 11 - Otras cosas para probar</h2>
+  <section id="ejercicio-11">
+    <h2>ownCloud (2) 11 - Otras cosas para probar</h2>
 
-      <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar</p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar</p>
 
-      <p>Para investigar:</p>
-      <ul>
-        <li>Arrastrar y soltar ficheros</li>
-        <li>Versiones de ficheros</li>
-        <li>Almacenamiento de vídeo</li>
-      </ul>
+    <p>Para investigar:</p>
+    <ul>
+      <li>Arrastrar y soltar ficheros</li>
+      <li>Versiones de ficheros</li>
+      <li>Almacenamiento de vídeo</li>
+    </ul>
 
-      <p>Cosas que funcionaban en versiones antiguas y no parecen funcionar en ownCloud 7:</p>
-      <ul>
-        <li>Exportar e importar cuenta de usuario </li>
-      </ul>
-    </section>
+    <p>Cosas que funcionaban en versiones antiguas y no parecen funcionar en ownCloud 7:</p>
+    <ul>
+      <li>Exportar e importar cuenta de usuario </li>
+    </ul>
+  </section>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 7 de enero de 2016</p>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 7 de enero de 2016</p>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

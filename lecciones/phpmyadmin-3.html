@@ -1,140 +1,139 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Ejercicios (3). phpMyAdmin. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Ejercicios (3). phpMyAdmin. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>phpMyAdmin. Ejercicios (3)</h1>
+<body>
+  <h1>phpMyAdmin. Ejercicios (3)</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="phpmyadmin-2.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          phpMyAdmin (3)
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="phpmyadmin-2.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> phpMyAdmin (3)
+      </h2>
 
-        <h3>Enunciados</h3>
-        <ul>
-          <li><a href="#ejercicio-1">1 - Completar instalación</a></li>
-          <li><a href="#ejercicio-2">2 - Instalar tema</a></li>
-          <li><a href="#ejercicio-3">3 - Permitir borrar BD</a></li>
-          <li><a href="#ejercicio-4">4 - Copias de seguridad</a></li>
-          <li><a href="#ejercicio-5">5 - Generar PDFs estructura</a></li>
-        </ul>
-
-        <h3><a href="phpmyadmin-3-soluciones.html">Soluciones</a></h3>
-        <ul>
-          <li><a href="phpmyadmin-3-soluciones.html#ejercicio-1">1 - Completar instalación</a></li>
-          <li><a href="phpmyadmin-3-soluciones.html#ejercicio-2">2 - Instalar tema</a></li>
-          <li><a href="phpmyadmin-3-soluciones.html#ejercicio-3">3 - Permitir borrar BD</a></li>
-          <li><a href="phpmyadmin-3-soluciones.html#ejercicio-4">4 - Copias de seguridad</a></li>
-          <li><a href="phpmyadmin-3-soluciones.html#ejercicio-5">5 - Generar PDFs estructura</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <p>En esta lección se proponen ejercicios "avanzados" de administración de <strong>phpMyAdmin</strong>. Se pueden consultar las <a href="phpmyadmin-3-soluciones.html">soluciones de estos ejercicios de phpMyAdmin</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
-
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Esta lección está pendiente de actualizar para phpMyAdmin 4.5</p>
-
-    <section id="ejercicio-1">
-      <h2>phpMyAdmin (3) 1 - Completar instalación</h2>
-
-      <p>Se trata de eliminar los avisos que muestran phpMyAdmin.</p>
-    </section>
-
-    <section id="ejercicio-2">
-      <h2>phpMyAdmin (3) 2 - Instalar tema</h2>
-
-      <p><strong>Notas</strong>:</p>
+      <h3>Enunciados</h3>
       <ul>
-        <li>Actualmente (noviembre de 2014) la página de descarga de temas de phpMyAdmin no parece funcionar correctamente. Los temas se pueden descargar de la página web de phpMyAdmin en SourceForge.</li>
+        <li><a href="#ejercicio-1">1 - Completar instalación</a></li>
+        <li><a href="#ejercicio-2">2 - Instalar tema</a></li>
+        <li><a href="#ejercicio-3">3 - Permitir borrar BD</a></li>
+        <li><a href="#ejercicio-4">4 - Copias de seguridad</a></li>
+        <li><a href="#ejercicio-5">5 - Generar PDFs estructura</a></li>
       </ul>
-      <ol>
-        <li>Aplique el tema <strong>Original</strong>:
-          <p class="captura">
-            <a href="../img/phpmyadmin/3-1-e-1-temas-original.png"><img src="../img/phpmyadmin/3-1-e-1-temas-original-mini.png" alt="phpMyAdmin. Tema Original" title="phpMyAdmin. Tema Original" width="602" height="400" /></a>
-          </p>
-        </li>
-        <li>Descargue el tema <strong>Cleanstrap</strong> (u otro tema disponible para la versión instalada) de la página de phpMyAdmin en SourceForge y descomprímalo en la carpeta adecuada.
-          <p>Descargue la versión <strong>cleanstrap 1.0</strong>, publicada el 4 de diciembre de 2012. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.</p>
-          <p>Si la versión <strong>cleanstrap 1.0</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
-        </li>
-        <li>Aplique el tema <strong>Cleanstrap</strong>:
-          <p class="captura">
-            <a href="../img/phpmyadmin/3-1-e-2-temas-cleanstrap.png"><img src="../img/phpmyadmin/3-1-e-2-temas-cleanstrap-mini.png" alt="phpMyAdmin. Tema Cleanstrap" title="phpMyAdmin. Tema Cleanstrap" width="602" height="400" /></a>
-          </p>
-        </li>
-        <li>Vuelva al tema predeterminado <strong>pmahomme</strong>.</li>
-      </ol>
-    </section>
 
-    <section id="ejercicio-3">
-      <h2>phpMyAdmin (3) 3 - Permitir borrar bases de datos a los usuarios</h2>
-      <ol>
-        <li>Como usuario <strong>root</strong>, compruebe que podría borrar bases de datos (no hace falta hacerlo).</li>
-        <li>Como usuario <strong>iaw_agenda_2</strong>, compruebe que no puede borrar sus bases de datos.</li>
-        <li>Con la configuración inicial, los usuarios no pueden borrar bases de datos, pero añadiendo la línea
+      <h3><a href="phpmyadmin-3-soluciones.html">Soluciones</a></h3>
+      <ul>
+        <li><a href="phpmyadmin-3-soluciones.html#ejercicio-1">1 - Completar instalación</a></li>
+        <li><a href="phpmyadmin-3-soluciones.html#ejercicio-2">2 - Instalar tema</a></li>
+        <li><a href="phpmyadmin-3-soluciones.html#ejercicio-3">3 - Permitir borrar BD</a></li>
+        <li><a href="phpmyadmin-3-soluciones.html#ejercicio-4">4 - Copias de seguridad</a></li>
+        <li><a href="phpmyadmin-3-soluciones.html#ejercicio-5">5 - Generar PDFs estructura</a></li>
+      </ul>
+    </div>
+  </nav>
 
-          <div class="codigo">
-            <pre>
+  <p>En esta lección se proponen ejercicios "avanzados" de administración de <strong>phpMyAdmin</strong>. Se pueden consultar las <a href="phpmyadmin-3-soluciones.html">soluciones de estos ejercicios de phpMyAdmin</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Esta lección está pendiente de actualizar para phpMyAdmin 4.5</p>
+
+  <section id="ejercicio-1">
+    <h2>phpMyAdmin (3) 1 - Completar instalación</h2>
+
+    <p>Se trata de eliminar los avisos que muestran phpMyAdmin.</p>
+  </section>
+
+  <section id="ejercicio-2">
+    <h2>phpMyAdmin (3) 2 - Instalar tema</h2>
+
+    <p><strong>Notas</strong>:</p>
+    <ul>
+      <li>Actualmente (noviembre de 2014) la página de descarga de temas de phpMyAdmin no parece funcionar correctamente. Los temas se pueden descargar de la página web de phpMyAdmin en SourceForge.</li>
+    </ul>
+    <ol>
+      <li>Aplique el tema <strong>Original</strong>:
+        <p class="captura">
+          <a href="../img/phpmyadmin/3-1-e-1-temas-original.png"><img src="../img/phpmyadmin/3-1-e-1-temas-original-mini.png" alt="phpMyAdmin. Tema Original" title="phpMyAdmin. Tema Original" width="602" height="400" /></a>
+        </p>
+      </li>
+      <li>Descargue el tema <strong>Cleanstrap</strong> (u otro tema disponible para la versión instalada) de la página de phpMyAdmin en SourceForge y descomprímalo en la carpeta adecuada.
+        <p>Descargue la versión <strong>cleanstrap 1.0</strong>, publicada el 4 de diciembre de 2012. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.</p>
+        <p>Si la versión <strong>cleanstrap 1.0</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
+      </li>
+      <li>Aplique el tema <strong>Cleanstrap</strong>:
+        <p class="captura">
+          <a href="../img/phpmyadmin/3-1-e-2-temas-cleanstrap.png"><img src="../img/phpmyadmin/3-1-e-2-temas-cleanstrap-mini.png" alt="phpMyAdmin. Tema Cleanstrap" title="phpMyAdmin. Tema Cleanstrap" width="602" height="400" /></a>
+        </p>
+      </li>
+      <li>Vuelva al tema predeterminado <strong>pmahomme</strong>.</li>
+    </ol>
+  </section>
+
+  <section id="ejercicio-3">
+    <h2>phpMyAdmin (3) 3 - Permitir borrar bases de datos a los usuarios</h2>
+    <ol>
+      <li>Como usuario <strong>root</strong>, compruebe que podría borrar bases de datos (no hace falta hacerlo).</li>
+      <li>Como usuario <strong>iaw_agenda_2</strong>, compruebe que no puede borrar sus bases de datos.</li>
+      <li>Con la configuración inicial, los usuarios no pueden borrar bases de datos, pero añadiendo la línea
+
+        <div class="codigo">
+          <pre>
 <code class="language-php">/* config.inc.php */
 $cfg['AllowUserDropDatabase'] = true;</code>
 </pre>
-          </div>
-          <p>en el archivo config.inc.php, el usuario podrá borrar bases de datos.</p>
-        </li>
-        <li>Como usuario <strong>iaw_agenda_2</strong>, compruebe que ya puede borrar sus bases de datos.</li>
-        <li>Deje el archivo de configuración de manera que los usuarios puedan borrar sus bases de datos, para poder hacer el ejercicio siguiente.</li>
-      </ol>
-    </section>
+        </div>
+        <p>en el archivo config.inc.php, el usuario podrá borrar bases de datos.</p>
+      </li>
+      <li>Como usuario <strong>iaw_agenda_2</strong>, compruebe que ya puede borrar sus bases de datos.</li>
+      <li>Deje el archivo de configuración de manera que los usuarios puedan borrar sus bases de datos, para poder hacer el ejercicio siguiente.</li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-4">
-      <h2>phpMyAdmin (3) 4 - Realizar copias de seguridad de las bases de datos del usuario iaw_agenda_2</h2>
-      <ol>
-        <li>Compruebe que hay registros guardados en las tablas <strong>tabla_1</strong> y <strong>tabla_2</strong>.</li>
-        <li>Copia de seguridad rápida
-          <ol>
-            <li>Realice copias de seguridad rápidas de las tablas del usuario <strong>iaw_agenda_2</strong> </li>
-            <li>Borre las <strong>tablas</strong> de ambas aplicaciones.</li>
-            <li>Restaure las copias de seguridad realizadas.</li>
-            <li>Compruebe que los registros de las tablas se han recuperado correctamente.</li>
-          </ol>
-        </li>
-        <li>Copia de seguridad personalizada
-          <ol>
-            <li>Realice copias de seguridad personalizadas de las bases de datos del usuario <strong>iaw_agenda_2</strong> (incluyendo la creación de las bases de datos en la copia de seguridad).</li>
-            <li>Borre las <strong>bases de datos</strong> de ambas aplicaciones.</li>
-            <li>Restaure las copias de seguridad realizadas.</li>
-            <li>Compruebe que los registros de las tablas se han recuperado correctamente.</li>
-          </ol>
-        </li>
-      </ol>
-    </section>
+  <section id="ejercicio-4">
+    <h2>phpMyAdmin (3) 4 - Realizar copias de seguridad de las bases de datos del usuario iaw_agenda_2</h2>
+    <ol>
+      <li>Compruebe que hay registros guardados en las tablas <strong>tabla_1</strong> y <strong>tabla_2</strong>.</li>
+      <li>Copia de seguridad rápida
+        <ol>
+          <li>Realice copias de seguridad rápidas de las tablas del usuario <strong>iaw_agenda_2</strong> </li>
+          <li>Borre las <strong>tablas</strong> de ambas aplicaciones.</li>
+          <li>Restaure las copias de seguridad realizadas.</li>
+          <li>Compruebe que los registros de las tablas se han recuperado correctamente.</li>
+        </ol>
+      </li>
+      <li>Copia de seguridad personalizada
+        <ol>
+          <li>Realice copias de seguridad personalizadas de las bases de datos del usuario <strong>iaw_agenda_2</strong> (incluyendo la creación de las bases de datos en la copia de seguridad).</li>
+          <li>Borre las <strong>bases de datos</strong> de ambas aplicaciones.</li>
+          <li>Restaure las copias de seguridad realizadas.</li>
+          <li>Compruebe que los registros de las tablas se han recuperado correctamente.</li>
+        </ol>
+      </li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-5">
-      <h2>phpMyAdmin (3) 5 (optativo) - Generar PDFs de la estructura de las bases de datos</h2>
-      <ol>
-        <li>phpMyAdmin puede crear gráficos en formato pdf de la estructura de las bases de datos, pero no lo hace de forma predeterminada.</li>
-      </ol>
-    </section>
+  <section id="ejercicio-5">
+    <h2>phpMyAdmin (3) 5 (optativo) - Generar PDFs de la estructura de las bases de datos</h2>
+    <ol>
+      <li>phpMyAdmin puede crear gráficos en formato pdf de la estructura de las bases de datos, pero no lo hace de forma predeterminada.</li>
+    </ol>
+  </section>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 9 de diciembre de 2015</p>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 9 de diciembre de 2015</p>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

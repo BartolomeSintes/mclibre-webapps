@@ -1,205 +1,205 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>PrestaShop. Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../../../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>PrestaShop. Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../../../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>Exámenes - PrestaShop</h1>
+<body>
+  <h1>Exámenes - PrestaShop</h1>
 
-    <nav>
-      <p>
-        <a href="../../../index.html"><img src="../../../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../../../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-        <a href="../../examenes.html"><img src="../../../varios/iconos/icono-school.svg" alt="Exámenes" title="Exámenes" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../../../index.html"><img src="../../../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../../../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      <a href="../../examenes.html"><img src="../../../varios/iconos/icono-school.svg" alt="Exámenes" title="Exámenes" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>Examen PrestaShop</h2>
+    <div class="toc">
+      <h2>Examen PrestaShop</h2>
 
-        <ul>
-          <li><a href="#ejercicio-1">1. Descargar la aplicación</a></li>
-          <li><a href="#ejercicio-2">2. Instalar PrestaShop</a></li>
-          <li><a href="#ejercicio-3">3. Página de inicio</a></li>
-          <li><a href="#ejercicio-4">4. Categorías</a></li>
-          <li><a href="#ejercicio-5">5. Productos</a></li>
-          <li><a href="#ejercicio-6">6. HomeSlider</a></li>
-          <li><a href="#ejercicio-7">7. Eliminar módulo categorías</a></li>
-          <li><a href="#ejercicio-8">8. Copia de seguridad</a></li>
-        </ul>
-      </div>
-    </nav>
+      <ul>
+        <li><a href="#ejercicio-1">1. Descargar la aplicación</a></li>
+        <li><a href="#ejercicio-2">2. Instalar PrestaShop</a></li>
+        <li><a href="#ejercicio-3">3. Página de inicio</a></li>
+        <li><a href="#ejercicio-4">4. Categorías</a></li>
+        <li><a href="#ejercicio-5">5. Productos</a></li>
+        <li><a href="#ejercicio-6">6. HomeSlider</a></li>
+        <li><a href="#ejercicio-7">7. Eliminar módulo categorías</a></li>
+        <li><a href="#ejercicio-8">8. Copia de seguridad</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <p>En este ejercicio hay que acabar entregando:</p>
+  <p>En este ejercicio hay que acabar entregando:</p>
+  <ul>
+    <li>las 7 capturas de pantalla</li>
+    <li>la copia de seguridad de los datos de la aplicación</li>
+    <li>la carpeta de la aplicación (comprimida en un zip)</li>
+  </ul>
+
+  <section id="ejercicio-1">
+    <h2>1. Descargar la aplicación</h2>
+
     <ul>
-      <li>las 7 capturas de pantalla</li>
-      <li>la copia de seguridad de los datos de la aplicación</li>
-      <li>la carpeta de la aplicación (comprimida en un zip)</li>
+      <li>Aplicación: <a href="https://sourceforge.net/projects/prestashop/files/prestashop%20v1/1.5.3%20stable/prestashop_1.5.3.1.zip/download">Prestashop 1.5.3.1</a> (31/12/12). PrestaShop es una aplicación de comercio electrónico</li>
+      <li>Descomprimir PrestaShop en la carpeta prestashop. La aplicación se abrirá en el navegador con la dirección <strong>prestashop/index.php.</strong></li>
     </ul>
+  </section>
 
-    <section id="ejercicio-1">
-      <h2>1. Descargar la aplicación</h2>
+  <section id="ejercicio-2">
+    <h2>2. Instalar PrestaShop</h2>
 
-      <ul>
-        <li>Aplicación: <a href="https://sourceforge.net/projects/prestashop/files/prestashop%20v1/1.5.3%20stable/prestashop_1.5.3.1.zip/download">Prestashop 1.5.3.1</a> (31/12/12). PrestaShop es una aplicación de comercio electrónico</li>
-        <li>Descomprimir PrestaShop en la carpeta prestashop. La aplicación se abrirá en el navegador con la dirección <strong>prestashop/index.php.</strong></li>
-      </ul>
-    </section>
+    <ul>
+      <li>Entrar en phpMyAdmin como usuario <strong>root</strong> y crear un usuario de MySQL con nombre <strong>iwb_prestashop_1</strong>, contraseña <strong>iwb_prestashop_1</strong> y base de datos <strong>iwb_prestashop_1</strong>.</li>
+      <li>Abrir en el navegador la dirección <strong>prestashop/index.php</strong>.</li>
+      <li>Instalar la aplicación <strong>sin datos de productos</strong>.
+        <ul>
+          <li>Nombre de la tienda: WebApps</li>
+          <li>Actividad principal: Informátcia y programas</li>
+          <li>Demo products: No</li>
+          <li>Datos del usuario administrador:
+            <ul>
+              <li>dirección de correo: admin@example.org</li>
+              <li>contraseña: adminadmin</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla y guardarla como <strong>prestashop_1.png</strong>:
+        <p class="captura">
+          <img src="prestashop-01.png" alt="PrestaShop" width="991" height="300" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-2">
-      <h2>2. Instalar PrestaShop</h2>
+  <section id="ejercicio-3">
+    <h2>3. Personalizar página de inicio</h2>
 
-      <ul>
-        <li>Entrar en phpMyAdmin como usuario <strong>root</strong> y crear un usuario de MySQL con nombre <strong>iwb_prestashop_1</strong>, contraseña <strong>iwb_prestashop_1</strong> y base de datos <strong>iwb_prestashop_1</strong>.</li>
-        <li>Abrir en el navegador la dirección <strong>prestashop/index.php</strong>.</li>
-        <li>Instalar la aplicación <strong>sin datos de productos</strong>.
-          <ul>
-            <li>Nombre de la tienda: WebApps</li>
-            <li>Actividad principal: Informátcia y programas</li>
-            <li>Demo products: No</li>
-            <li>Datos del usuario administrador:
-              <ul>
-                <li>dirección de correo: admin@example.org</li>
-                <li>contraseña: adminadmin</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla y guardarla como <strong>prestashop_1.png</strong>:
-          <p class="captura">
-            <img src="prestashop-01.png" alt="PrestaShop" width="991" height="300" />
-          </p>
-        </li>
-      </ul>
-    </section>
+    <ul>
+      <li>Modificar el logotipo del sitio web: <img src="logo-tienda-webapps.png" alt="PrestaShop" width="213" height="50" /></li>
+      <li>Desactivar los módulos necesarios para que en el pie de página sólo se vea la información de contacto y las categorías.</li>
+      <li>Modificar los módulos de contactos para que aparezca la información siguiente:
+        <ul>
+          <li>Contacte con nosotros (derecha): 96 382 08 31 / info@example.org</li>
+          <li>Contacte con nostros (abajo): WebApps / c/ Alberique, 18 / 46008 Valencia / España / Tel.: 96 382 08 31 / Email info@example.org</li>
+        </ul>
+      </li>
+      <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla y guardarla como <strong>prestashop_2.png</strong>:
+        <p class="captura">
+          <img src="prestashop-02.png" alt="PrestaShop" width="991" height="883" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-3">
-      <h2>3. Personalizar página de inicio</h2>
+  <section id="ejercicio-4">
+    <h2>4. Categorías</h2>
 
-      <ul>
-        <li>Modificar el logotipo del sitio web: <img src="logo-tienda-webapps.png" alt="PrestaShop" width="213" height="50" /></li>
-        <li>Desactivar los módulos necesarios para que en el pie de página sólo se vea la información de contacto y las categorías.</li>
-        <li>Modificar los módulos de contactos para que aparezca la información siguiente:
-          <ul>
-            <li>Contacte con nosotros (derecha): 96 382 08 31 / info@example.org</li>
-            <li>Contacte con nostros (abajo): WebApps / c/ Alberique, 18 / 46008 Valencia / España / Tel.: 96 382 08 31 / Email info@example.org</li>
-          </ul>
-        </li>
-        <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla y guardarla como <strong>prestashop_2.png</strong>:
-          <p class="captura">
-            <img src="prestashop-02.png" alt="PrestaShop" width="991" height="883" />
-          </p>
-        </li>
-      </ul>
-    </section>
+    <ul>
+      <li>Crear tres categorías de productos:
+        <ul>
+          <li>Documentación - Manuales, tutoriales, FAQs, etc. - </li>
+          <li>Software - Software - </li>
+          <li>Soluciones - Contrate su aplicación web adaptada a sus necesidades - </li>
+        </ul>
+        <p>Imágenes de categorías:
+          <img src="cat-documentacion.png" alt="PrestaShop" width="93" height="100" />
+          <img src="cat-software.png" alt="PrestaShop" width="76" height="100" />
+          <img src="cat-soluciones.png" alt="PrestaShop" width="104" height="100" />
+        </p>
+      </li>
+      <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla y guardarla como <strong>prestashop_2.png</strong>:
+        <p class="captura">
+          <img src="prestashop-03.png" alt="PrestaShop" width="991" height="275" />
+        </p>
+      </li>
+      <li>Configurar el módulo Menú horizontal superior para mostrar las tres categorías</li>
+      <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla y guardarla como <strong>prestashop_3.png</strong>:
+        <p class="captura">
+          <img src="prestashop-04.png" alt="PrestaShop" width="991" height="275" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-4">
-      <h2>4. Categorías</h2>
+  <section id="ejercicio-5">
+    <h2>5. Productos</h2>
 
-      <ul>
-        <li>Crear tres categorías de productos:
-          <ul>
-            <li>Documentación - Manuales, tutoriales, FAQs, etc. - </li>
-            <li>Software - Software - </li>
-            <li>Soluciones - Contrate su aplicación web adaptada a sus necesidades - </li>
-          </ul>
-          <p>Imágenes de categorías:
-            <img src="cat-documentacion.png" alt="PrestaShop" width="93" height="100" />
-            <img src="cat-software.png" alt="PrestaShop" width="76" height="100" />
-            <img src="cat-soluciones.png" alt="PrestaShop" width="104" height="100" />
-          </p>
-        </li>
-        <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla y guardarla como <strong>prestashop_2.png</strong>:
-          <p class="captura">
-            <img src="prestashop-03.png" alt="PrestaShop" width="991" height="275" />
-          </p>
-        </li>
-        <li>Configurar el módulo Menú horizontal superior para mostrar las tres categorías</li>
-        <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla y guardarla como <strong>prestashop_3.png</strong>:
-          <p class="captura">
-            <img src="prestashop-04.png" alt="PrestaShop" width="991" height="275" />
-          </p>
-        </li>
-      </ul>
-    </section>
+    <ul>
+      <li>Crear los productos:
+        <ul>
+          <li>Documentación: Manual LibreOffice - Manual de LibreOffice. Actualizado a la versión 4.0. Incluye Writer, Calc, Impress, Draw y Base. - 10 &euro; - </li>
+          <li>Software: CD LibreOffice 4.0 - CD que incluye LibreOffice 4.0, archivos de ayuda en muchos idiomas, plantillas, clipart, etc. - 1 &euro; - </li>
+          <li>Soluciones: Drupal 7- Creamos tu web en Drupal 7 en una semana. - 600 &euro; - </li>
+        </ul>
+        <p>Imágenes de productos:
+          <img src="prod-man-libreoffice.png" alt="PrestaShop" width="126" height="150" />
+          <img src="prod-sof-libreoffice.png" alt="PrestaShop" width="145" height="150" />
+          <img src="prod-sol-drupal.png" alt="PrestaShop" width="162" height="150" />
+        </p>
+      </li>
+      <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla de novedades y guardarla como <strong>prestashop_4.png</strong>:
+        <p class="captura">
+          <img src="prestashop-05.png" alt="PrestaShop" width="540" height="500" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-5">
-      <h2>5. Productos</h2>
+  <section id="ejercicio-6">
+    <h2>6. HomeSlider</h2>
 
-      <ul>
-        <li>Crear los productos:
-          <ul>
-            <li>Documentación: Manual LibreOffice - Manual de LibreOffice. Actualizado a la versión 4.0. Incluye Writer, Calc, Impress, Draw y Base. - 10 &euro; - </li>
-            <li>Software: CD LibreOffice 4.0 - CD que incluye LibreOffice 4.0, archivos de ayuda en muchos idiomas, plantillas, clipart, etc. - 1 &euro; - </li>
-            <li>Soluciones: Drupal 7- Creamos tu web en Drupal 7 en una semana. - 600 &euro; - </li>
-          </ul>
-          <p>Imágenes de productos:
-            <img src="prod-man-libreoffice.png" alt="PrestaShop" width="126" height="150" />
-            <img src="prod-sof-libreoffice.png" alt="PrestaShop" width="145" height="150" />
-            <img src="prod-sol-drupal.png" alt="PrestaShop" width="162" height="150" />
-          </p>
-        </li>
-        <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla de novedades y guardarla como <strong>prestashop_4.png</strong>:
-          <p class="captura">
-            <img src="prestashop-05.png" alt="PrestaShop" width="540" height="500" />
-          </p>
-        </li>
-      </ul>
-    </section>
+    <ul>
+      <li>Configurar el control deslizante para incluir dos imágenes que enlacen al manual de LibreOffice y a la solución Drupal:</li>
+      <li>Imágenes:
+        <p><img src="diapo-libreoffice.png" alt="PrestaShop" width="535" height="300" /></p>
+        <p><img src="diapo-drupal.png" alt="PrestaShop" width="535" height="300" /></p>
+      </li>
+      <li>Como administrador, hacer una captura de <strong>toda</strong> la pantalla una de las dos diapositivas y guardarla como <strong>prestashop_5.png</strong>:
+        <p class="captura">
+          <img src="prestashop-06.png" alt="PrestaShop" width="640" height="300" />
+        </p>
+      </li>
+      <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla de inicio y guardarla como <strong>prestashop_6.png</strong>:
+        <p class="captura">
+          <img src="prestashop-07.png" alt="PrestaShop" width="991" height="300" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-6">
-      <h2>6. HomeSlider</h2>
+  <section id="ejercicio-7">
+    <h2>7. Eliminar módulo categorías inferior</h2>
 
-      <ul>
-        <li>Configurar el control deslizante para incluir dos imágenes que enlacen al manual de LibreOffice y a la solución Drupal:</li>
-        <li>Imágenes:
-          <p><img src="diapo-libreoffice.png" alt="PrestaShop" width="535" height="300" /></p>
-          <p><img src="diapo-drupal.png" alt="PrestaShop" width="535" height="300" /></p>
-        </li>
-        <li>Como administrador, hacer una captura de <strong>toda</strong> la pantalla una de las dos diapositivas y guardarla como <strong>prestashop_5.png</strong>:
-          <p class="captura">
-            <img src="prestashop-06.png" alt="PrestaShop" width="640" height="300" />
-          </p>
-        </li>
-        <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla de inicio y guardarla como <strong>prestashop_6.png</strong>:
-          <p class="captura">
-            <img src="prestashop-07.png" alt="PrestaShop" width="991" height="300" />
-          </p>
-        </li>
-      </ul>
-    </section>
+    <ul>
+      <li>Con la opción Posiciones, hacer que no se muestre el módulo Categorías en el pie de página, pero sí se siga mostrando en la parte izquierda.</li>
+      <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla de inicio y guardarla como <strong>prestashop_7.png</strong>:
+        <p class="captura">
+          <img src="prestashop-08.png" alt="PrestaShop" width="271" height="300" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-7">
-      <h2>7. Eliminar módulo categorías inferior</h2>
+  <section id="ejercicio-8">
+    <h2>8. Copia de seguridad</h2>
 
-      <ul>
-        <li>Con la opción Posiciones, hacer que no se muestre el módulo Categorías en el pie de página, pero sí se siga mostrando en la parte izquierda.</li>
-        <li>Como usuario no registrado, hacer una captura de <strong>toda</strong> la pantalla de inicio y guardarla como <strong>prestashop_7.png</strong>:
-          <p class="captura">
-            <img src="prestashop-08.png" alt="PrestaShop" width="271" height="300" />
-          </p>
-        </li>
-      </ul>
-    </section>
+    <ul>
+      <li>Entrar en phpMyAdmin como usuario <strong>iwb_prestashop_1</strong>, elegir la base de datos <strong>iwb_prestashop_1</strong> y exportar las tablas con el método rápido al fichero <strong>iwb_prestashop_1.sql</strong>.</li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-8">
-      <h2>8. Copia de seguridad</h2>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 21 de febrero de 2013</p>
 
-      <ul>
-        <li>Entrar en phpMyAdmin como usuario <strong>iwb_prestashop_1</strong>, elegir la base de datos <strong>iwb_prestashop_1</strong> y exportar las tablas con el método rápido al fichero <strong>iwb_prestashop_1.sql</strong>.</li>
-      </ul>
-    </section>
-
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 21 de febrero de 2013</p>
-
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../../../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../../../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

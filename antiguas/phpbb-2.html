@@ -1,222 +1,221 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Ejercicios (2). phpBB 3.0.12. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Ejercicios (2). phpBB 3.0.12. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>phpBB 3.0.12. Ejercicios (2)</h1>
+<body>
+  <h1>phpBB 3.0.12. Ejercicios (2)</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="phpbb-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          phpBB 3.0 (2)
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="phpbb-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> phpBB 3.0 (2)
+      </h2>
 
-        <h3>Enunciados</h3>
-        <ul>
-          <li><a href="#ejercicio-11">A1 - Acceder desde otros</a></li>
-          <li><a href="#ejercicio-12">A2 - Avatares</a></li>
-          <li><a href="#ejercicio-13">A3 - Captcha</a></li>
-          <li><a href="#ejercicio-21">B1 - Foro completo</a></li>
-          <li><a href="#ejercicio-22">B2 - Cambiar descripción</a></li>
-          <li><a href="#ejercicio-23">B3 - Cambiar logotipo</a></li>
-          <li><a href="#ejercicio-24">B4 - Asignar favicon</a></li>
-          <li><a href="#ejercicio-25">B5 - Creación de foros</a></li>
-          <li><a href="#ejercicio-26">B6 - Creación de usuarios</a></li>
-          <li><a href="#ejercicio-31">C1 - Migración a MyBB</a></li>
-        </ul>
+      <h3>Enunciados</h3>
+      <ul>
+        <li><a href="#ejercicio-11">A1 - Acceder desde otros</a></li>
+        <li><a href="#ejercicio-12">A2 - Avatares</a></li>
+        <li><a href="#ejercicio-13">A3 - Captcha</a></li>
+        <li><a href="#ejercicio-21">B1 - Foro completo</a></li>
+        <li><a href="#ejercicio-22">B2 - Cambiar descripción</a></li>
+        <li><a href="#ejercicio-23">B3 - Cambiar logotipo</a></li>
+        <li><a href="#ejercicio-24">B4 - Asignar favicon</a></li>
+        <li><a href="#ejercicio-25">B5 - Creación de foros</a></li>
+        <li><a href="#ejercicio-26">B6 - Creación de usuarios</a></li>
+        <li><a href="#ejercicio-31">C1 - Migración a MyBB</a></li>
+      </ul>
 
-        <h3><a href="phpbb-2-soluciones.html">Soluciones</a></h3>
-        <ul>
-          <li><a href="phpbb-2-soluciones.html#ejercicio-11">A1 - Acceder desde otros</a></li>
-          <li><a href="phpbb-2-soluciones.html#ejercicio-12">A2 - Avatares</a></li>
-          <li><a href="phpbb-2-soluciones.html#ejercicio-13">A3 - Captcha</a></li>
-          <li><a href="phpbb-2-soluciones.html#ejercicio-21">B1 - Foro completo</a></li>
-          <li><a href="phpbb-2-soluciones.html#ejercicio-22">B2 - Cambiar descripción</a></li>
-          <li><a href="phpbb-2-soluciones.html#ejercicio-23">B3 - Cambiar logotipo</a></li>
-          <li><a href="phpbb-2-soluciones.html#ejercicio-24">B4 - Asignar favicon</a></li>
-          <li><a href="phpbb-2-soluciones.html#ejercicio-25">B5 - Creación de foros</a></li>
-          <li><a href="phpbb-2-soluciones.html#ejercicio-26">B6 - Creación de usuarios</a></li>
-          <li><a href="phpbb-2-soluciones.html#ejercicio-31">C1 - Migración a MyBB</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="aviso-antiguo">
-      <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de phpBB. No están actualizados a versiones más actuales porque desde el curso 2014/15 no estoy trabajando en clase phpBB ya que estoy dedicando más tiempo a otras aplicaciones. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+      <h3><a href="phpbb-2-soluciones.html">Soluciones</a></h3>
+      <ul>
+        <li><a href="phpbb-2-soluciones.html#ejercicio-11">A1 - Acceder desde otros</a></li>
+        <li><a href="phpbb-2-soluciones.html#ejercicio-12">A2 - Avatares</a></li>
+        <li><a href="phpbb-2-soluciones.html#ejercicio-13">A3 - Captcha</a></li>
+        <li><a href="phpbb-2-soluciones.html#ejercicio-21">B1 - Foro completo</a></li>
+        <li><a href="phpbb-2-soluciones.html#ejercicio-22">B2 - Cambiar descripción</a></li>
+        <li><a href="phpbb-2-soluciones.html#ejercicio-23">B3 - Cambiar logotipo</a></li>
+        <li><a href="phpbb-2-soluciones.html#ejercicio-24">B4 - Asignar favicon</a></li>
+        <li><a href="phpbb-2-soluciones.html#ejercicio-25">B5 - Creación de foros</a></li>
+        <li><a href="phpbb-2-soluciones.html#ejercicio-26">B6 - Creación de usuarios</a></li>
+        <li><a href="phpbb-2-soluciones.html#ejercicio-31">C1 - Migración a MyBB</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>phpBB</strong>. Se pueden consultar las <a href="phpbb-2-soluciones.html">soluciones de estos ejercicios de phpBB</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+  <div class="aviso-antiguo">
+    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de phpBB. No están actualizados a versiones más actuales porque desde el curso 2014/15 no estoy trabajando en clase phpBB ya que estoy dedicando más tiempo a otras aplicaciones. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+  </div>
 
-    <section id="ejercicio-11">
-      <h2>phpBB (2) A1 - Acceder desde otros ordenadores</h2>
+  <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>phpBB</strong>. Se pueden consultar las <a href="phpbb-2-soluciones.html">soluciones de estos ejercicios de phpBB</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-      <ul>
-        <li>Intentar acceder al foro desde otras otras máquinas (desde otros ordenadores pertenecientes a la misma red o desde una máquina virtual en el mismo ordenador) incluyendo en la dirección la IP del servidor (es decir, en vez de <strong>http://localhost/NombreAlumno/iwb/aplicaciones/phpBB/</strong>, escribiendo <strong>http://AAA.BBB.CCC.DDD/NombreAlumno/iwb/aplicaciones/phpBB/</strong>, siendo AAA.BBB.CCC.DDD la IP del propio ordenador).</li>
-        <li>Crear un alias para que los visitantes puedan accceder escribiendo <strong>http://AAA.BBB.CCC.DDD/phpBB/</strong></li>
-      </ul>
-    </section>
+  <section id="ejercicio-11">
+    <h2>phpBB (2) A1 - Acceder desde otros ordenadores</h2>
 
-    <section id="ejercicio-12">
-      <h2>phpBB (2) A2 - Avatares</h2>
+    <ul>
+      <li>Intentar acceder al foro desde otras otras máquinas (desde otros ordenadores pertenecientes a la misma red o desde una máquina virtual en el mismo ordenador) incluyendo en la dirección la IP del servidor (es decir, en vez de <strong>http://localhost/NombreAlumno/iwb/aplicaciones/phpBB/</strong>, escribiendo <strong>http://AAA.BBB.CCC.DDD/NombreAlumno/iwb/aplicaciones/phpBB/</strong>, siendo AAA.BBB.CCC.DDD la IP del propio ordenador).</li>
+      <li>Crear un alias para que los visitantes puedan accceder escribiendo <strong>http://AAA.BBB.CCC.DDD/phpBB/</strong></li>
+    </ul>
+  </section>
 
-      <p>En este ejercicio se trata de configurar phpBB para que los usuarios puedan incluir avatares en su mensajes.</p>
+  <section id="ejercicio-12">
+    <h2>phpBB (2) A2 - Avatares</h2>
 
-      <p>Los avatares son imágenes de tamaño reducido que se muestran junto al nombre del usuario, para facilitar la identificación de la autoría de los mensajes.</p>
+    <p>En este ejercicio se trata de configurar phpBB para que los usuarios puedan incluir avatares en su mensajes.</p>
 
-      <p>phpBB permite tres tipos de avatares:</p>
-      <ul>
-        <li>local: el administrador define los avatares a disposición de los usuarios. Los avatares están organizados en galerías de avatares.</li>
-        <li>upload: cada usuario puede subir su propio avatar (el administrador define el tamaño máximo en píxeles y en KB).</li>
-        <li>remote: el avatar puede ser una imagen situada en cualquier servidor (en este caso no hay tamaño máximo de avatar).</li>
-      </ul>
+    <p>Los avatares son imágenes de tamaño reducido que se muestran junto al nombre del usuario, para facilitar la identificación de la autoría de los mensajes.</p>
 
-      <hr class="corta" />
+    <p>phpBB permite tres tipos de avatares:</p>
+    <ul>
+      <li>local: el administrador define los avatares a disposición de los usuarios. Los avatares están organizados en galerías de avatares.</li>
+      <li>upload: cada usuario puede subir su propio avatar (el administrador define el tamaño máximo en píxeles y en KB).</li>
+      <li>remote: el avatar puede ser una imagen situada en cualquier servidor (en este caso no hay tamaño máximo de avatar).</li>
+    </ul>
 
-      <p>Galería de avatares (local) (1)</p>
-      <ul>
-        <li>Descargar este grupo de dibujos de animales: <a href="img/phpbb-3-0/avatares-dibujos-animales.zip">Galería de avatares: dibujos de animales</a> y descomprimirlo en la carpeta adecuada.</li>
-        <li>Entrar en phpBB como administrador <strong>admin</strong> y habilitar los avatares y la galería de avatares.</li>
-        <li>Elegir un avatar para el administrador</li>
-        <li>Comprobar que en los mensajes del foro del administrador se muestra el avatar elegido.</li>
-      </ul>
+    <hr class="corta" />
 
-      <p>Galería de avatares (local) (2)</p>
-      <ul>
-        <li>Crear una galería de avatares de media docena de dibujos, obtenidos por ejemplo de esta colección de dibujos de la Open Clip Art Library: <a href="https://openclipart.org/search/?query=baddie">https://openclipart.org/search/?query=baddie</a>. Descargarlos en formato PNG y con un tamaño de 64 píxeles.</li>
-        <li>Copiar los dibujos en la carpeta adecuada.</li>
-        <li>Entrar en phpBB como usuario <strong>usuario_1</strong> y elegir uno de los nuevos avatares.</li>
-        <li>Comprobar que en los mensajes del usuario se muestra el avatar elegido.</li>
-      </ul>
-    </section>
+    <p>Galería de avatares (local) (1)</p>
+    <ul>
+      <li>Descargar este grupo de dibujos de animales: <a href="img/phpbb-3-0/avatares-dibujos-animales.zip">Galería de avatares: dibujos de animales</a> y descomprimirlo en la carpeta adecuada.</li>
+      <li>Entrar en phpBB como administrador <strong>admin</strong> y habilitar los avatares y la galería de avatares.</li>
+      <li>Elegir un avatar para el administrador</li>
+      <li>Comprobar que en los mensajes del foro del administrador se muestra el avatar elegido.</li>
+    </ul>
 
-    <section id="ejercicio-13">
-      <h2>phpBB (2) A3 - Captcha</h2>
+    <p>Galería de avatares (local) (2)</p>
+    <ul>
+      <li>Crear una galería de avatares de media docena de dibujos, obtenidos por ejemplo de esta colección de dibujos de la Open Clip Art Library: <a href="https://openclipart.org/search/?query=baddie">https://openclipart.org/search/?query=baddie</a>. Descargarlos en formato PNG y con un tamaño de 64 píxeles.</li>
+      <li>Copiar los dibujos en la carpeta adecuada.</li>
+      <li>Entrar en phpBB como usuario <strong>usuario_1</strong> y elegir uno de los nuevos avatares.</li>
+      <li>Comprobar que en los mensajes del usuario se muestra el avatar elegido.</li>
+    </ul>
+  </section>
 
-      <p>Para asegurarse de que los formularios de los sitios web han sido rellenados por humanos y no por programas diseñados para ello (para posteriormente inundar el sitio web de propaganda o boicotear el sitio), se diseñaron los <a href="https://en.wikipedia.org/wiki/CAPTCHA">captcha</a>. Se trata de pequeños acertijos (reconocimiento de letras y números, preguntas triviales, etc.) que presuntamente los ordenadores no pueden resolver.</p>
+  <section id="ejercicio-13">
+    <h2>phpBB (2) A3 - Captcha</h2>
 
-      <p>phpBB plantea un captcha al inscribir un nuevo usuario. El captcha predeterminado de phpBB se llama "imagen GD" y consiste en reconocer media docena de letras y números en una imagen como la siguiente:</p>
+    <p>Para asegurarse de que los formularios de los sitios web han sido rellenados por humanos y no por programas diseñados para ello (para posteriormente inundar el sitio web de propaganda o boicotear el sitio), se diseñaron los <a href="https://en.wikipedia.org/wiki/CAPTCHA">captcha</a>. Se trata de pequeños acertijos (reconocimiento de letras y números, preguntas triviales, etc.) que presuntamente los ordenadores no pueden resolver.</p>
 
-      <p class="captura">
-        <img src="img/phpbb-3-0/phpbb-captcha-1.png" alt="phpBB. Captcha. Imagen de ejemplo" width="360" height="95" />
-      </p>
+    <p>phpBB plantea un captcha al inscribir un nuevo usuario. El captcha predeterminado de phpBB se llama "imagen GD" y consiste en reconocer media docena de letras y números en una imagen como la siguiente:</p>
 
-      <hr class="corta" />
+    <p class="captura">
+      <img src="img/phpbb-3-0/phpbb-captcha-1.png" alt="phpBB. Captcha. Imagen de ejemplo" width="360" height="95" />
+    </p>
 
-      <ul>
-        <li>Descargar el captcha Sortables</li>
-        <li>Instalarlo y configurarlo para que funcione.</li>
-      </ul>
-    </section>
+    <hr class="corta" />
 
-    <section id="ejercicio-21">
-      <h2>phpBB (2) B1 - Foro completo</h2>
+    <ul>
+      <li>Descargar el captcha Sortables</li>
+      <li>Instalarlo y configurarlo para que funcione.</li>
+    </ul>
+  </section>
 
-      <p>Cree una nueva instalación de phpBB cuyo tema sean las Aplicaciones Web.</p>
-    </section>
+  <section id="ejercicio-21">
+    <h2>phpBB (2) B1 - Foro completo</h2>
 
-    <section id="ejercicio-22">
-      <h2>phpBB (2) B2 - Cambiar la descripción del foro</h2>
+    <p>Cree una nueva instalación de phpBB cuyo tema sean las Aplicaciones Web.</p>
+  </section>
 
-      <ul>
-        <li>Cambie el nombre y la descripción del foro
-          <p class="captura">
-            <img src="img/phpbb-3-0/phpbb-webapps-configuracion-sitio-2.png" alt="phpBB. Configuración del sitio 2" title="phpBB. Configuración del sitio 2" width="1024" height="250" />
-          </p>
-        </li>
-      </ul>
-    </section>
+  <section id="ejercicio-22">
+    <h2>phpBB (2) B2 - Cambiar la descripción del foro</h2>
 
-    <section id="ejercicio-23">
-      <h2>phpBB (2) B3 - Cambiar el logotipo del foro</h2>
+    <ul>
+      <li>Cambie el nombre y la descripción del foro
+        <p class="captura">
+          <img src="img/phpbb-3-0/phpbb-webapps-configuracion-sitio-2.png" alt="phpBB. Configuración del sitio 2" title="phpBB. Configuración del sitio 2" width="1024" height="250" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>Cambie el logotipo del foro, utilizando esta imagen: <img src="../img/webapps/webapps-logo.png" alt="Logo WebApps" title="Logo WebApps" width="91" height="73" />
-          <p class="captura">
-            <img src="img/phpbb-3-0/phpbb-webapps-cambio-logo-3.png" alt="phpBB. Cambiar logo 3" title="phpBB. Cambiar logo 3" width="1024" height="203" />
-          </p>
-        </li>
-      </ul>
-    </section>
+  <section id="ejercicio-23">
+    <h2>phpBB (2) B3 - Cambiar el logotipo del foro</h2>
 
-    <section id="ejercicio-24">
-      <h2>phpBB (2) B4 - Asignar un favicon al foro</h2>
+    <ul>
+      <li>Cambie el logotipo del foro, utilizando esta imagen: <img src="../img/webapps/webapps-logo.png" alt="Logo WebApps" title="Logo WebApps" width="91" height="73" />
+        <p class="captura">
+          <img src="img/phpbb-3-0/phpbb-webapps-cambio-logo-3.png" alt="phpBB. Cambiar logo 3" title="phpBB. Cambiar logo 3" width="1024" height="203" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>Asigne un <a href="http://www.mclibre.org/consultar/htmlcss/html/html-favicon.html">favicon</a> al foro, utilizando esta imagen: <img src="../img/webapps/webapps-favicon.ico" alt="favicon WebApps" width="16" height="13" />
-          <p class="captura">
-            <img src="img/phpbb-3-0/phpbb-webapps-favicon-3.png" alt="phpBB. favicon" title="phpBB. favicon" width="1024" height="203" />
-          </p>
-        </li>
-      </ul>
-    </section>
+  <section id="ejercicio-24">
+    <h2>phpBB (2) B4 - Asignar un favicon al foro</h2>
 
-    <section id="ejercicio-25">
-      <h2>phpBB (2) B5 - Creación de foros</h2>
+    <ul>
+      <li>Asigne un <a href="http://www.mclibre.org/consultar/htmlcss/html/html-favicon.html">favicon</a> al foro, utilizando esta imagen: <img src="../img/webapps/webapps-favicon.ico" alt="favicon WebApps" width="16" height="13" />
+        <p class="captura">
+          <img src="img/phpbb-3-0/phpbb-webapps-favicon-3.png" alt="phpBB. favicon" title="phpBB. favicon" width="1024" height="203" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-      <p>Cree la siguiente estructura de foros:</p>
-      <ul>
-        <li>Categoría Generales
-          <ul>
-            <li>Foro Nuevas aplicaciones: para informar de nuevas aplicaciones web</li>
-            <li>Foro Nuevas versiones: para informar de la aparición de nuevas versiones</li>
-          </ul>
-        </li>
-        <li>Categoría Consultas
-          <ul>
-            <li>Apache: para preguntas y respuestas sobre el servidor Apache</li>
-            <li>MySQL: para preguntas y respuestas sobre el servidor de bases de datos MySQL</li>
-            <li>phpBB: para preguntas y respuestas sobre phpBB</li>
-          </ul>
-        </li>
-        <li>Ejemplo de foro:
-          <p class="captura">
-            <img src="img/phpbb-3-0/phpbb-webapps-forocompleto-1a.png" alt="phpBB. Foro completo. Imagen de ejemplo" title="phpBB. Foro completo. Imagen de ejemplo" width="1024" height="570" />
-          </p>
-        </li>
-      </ul>
-    </section>
+  <section id="ejercicio-25">
+    <h2>phpBB (2) B5 - Creación de foros</h2>
 
-    <section id="ejercicio-26">
-      <h2>phpBB (2) B6 - Creación de usuarios</h2>
+    <p>Cree la siguiente estructura de foros:</p>
+    <ul>
+      <li>Categoría Generales
+        <ul>
+          <li>Foro Nuevas aplicaciones: para informar de nuevas aplicaciones web</li>
+          <li>Foro Nuevas versiones: para informar de la aparición de nuevas versiones</li>
+        </ul>
+      </li>
+      <li>Categoría Consultas
+        <ul>
+          <li>Apache: para preguntas y respuestas sobre el servidor Apache</li>
+          <li>MySQL: para preguntas y respuestas sobre el servidor de bases de datos MySQL</li>
+          <li>phpBB: para preguntas y respuestas sobre phpBB</li>
+        </ul>
+      </li>
+      <li>Ejemplo de foro:
+        <p class="captura">
+          <img src="img/phpbb-3-0/phpbb-webapps-forocompleto-1a.png" alt="phpBB. Foro completo. Imagen de ejemplo" title="phpBB. Foro completo. Imagen de ejemplo" width="1024" height="570" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-      <p>Cree un usuario en cada uno de estos grupos:</p>
-      <ul>
-        <li>admin_1: grupo Administradores</li>
-        <li>moderador_1: grupo Moderadores globales</li>
-        <li>usuario_1: grupo Usuarios registrado</li>
-      </ul>
-    </section>
+  <section id="ejercicio-26">
+    <h2>phpBB (2) B6 - Creación de usuarios</h2>
 
-    <section id="ejercicio-31">
-      <h2>phpBB (2) C (optativo) - Migración a MyBB</h2>
+    <p>Cree un usuario en cada uno de estos grupos:</p>
+    <ul>
+      <li>admin_1: grupo Administradores</li>
+      <li>moderador_1: grupo Moderadores globales</li>
+      <li>usuario_1: grupo Usuarios registrado</li>
+    </ul>
+  </section>
 
-      <p>MyBB es un foro cuya popularidad está aumentando últimamente.</p>
-      <ul>
-        <li>Instalar MyBB.</li>
-        <li>Migrar el foro de phpBB del ejercicio anterior a MyBB.</li>
-      </ul>
+  <section id="ejercicio-31">
+    <h2>phpBB (2) C (optativo) - Migración a MyBB</h2>
 
-      <p class="incompleto">Por completar</p>
-    </section>
+    <p>MyBB es un foro cuya popularidad está aumentando últimamente.</p>
+    <ul>
+      <li>Instalar MyBB.</li>
+      <li>Migrar el foro de phpBB del ejercicio anterior a MyBB.</li>
+    </ul>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 9 de diciembre de 2013</p>
+    <p class="incompleto">Por completar</p>
+  </section>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 9 de diciembre de 2013</p>
+
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

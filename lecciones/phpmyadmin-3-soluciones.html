@@ -1,169 +1,167 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Soluciones (3). phpMyAdmin. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="../varios/highlight-htmlcss.css" />
-    <script src="../varios/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Soluciones (3). phpMyAdmin. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="../varios/highlight-htmlcss.css" />
+  <script src="../varios/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
 
-  <body>
-    <h1>phpMyAdmin. Soluciones (3)</h1>
+<body>
+  <h1>phpMyAdmin. Soluciones (3)</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="phpmyadmin-2.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          phpMyAdmin (3)
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="phpmyadmin-2.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> phpMyAdmin (3)
+      </h2>
 
-        <h3><a href="phpmyadmin-3.html">Enunciados</a></h3>
+      <h3><a href="phpmyadmin-3.html">Enunciados</a></h3>
+      <ul>
+        <li><a href="phpmyadmin-3.html#ejercicio-1">1 - Completar instalación</a></li>
+        <li><a href="phpmyadmin-3.html#ejercicio-2">2 - Instalar tema</a></li>
+        <li><a href="phpmyadmin-3.html#ejercicio-3">3 - Permitir borrar BD</a></li>
+        <li><a href="phpmyadmin-3.html#ejercicio-4">4 - Copias de seguridad</a></li>
+        <li><a href="phpmyadmin-3.html#ejercicio-5">5 - Generar PDFs estructura</a></li>
+      </ul>
+
+      <h3>Soluciones</h3>
+      <ul>
+        <li><a href="#ejercicio-1">1 - Completar instalación</a></li>
+        <li><a href="#ejercicio-2">2 - Instalar tema</a></li>
+        <li><a href="#ejercicio-3">3 - Permitir borrar BD</a></li>
+        <li><a href="#ejercicio-4">4 - Copias de seguridad</a></li>
+        <li><a href="#ejercicio-5">5 - Generar PDFs estructura</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <p>En esta lección se proponen soluciones detalladas de los <a href="phpmyadmin-3.html">ejercicios (3) de phpMyAdmin</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Estas soluciones están pendientes de actualizar a los ejercicios propuestos en el curso 2015/16.</p>
+
+  <section id="ejercicio-1">
+    <h2>phpMyAdmin (3) 1 - Completar instalación</h2>
+
+    <p>Se trata de eliminar los avisos que muestran phpMyAdmin.</p>
+  </section>
+
+  <section id="ejercicio-2">
+    <h2>phpMyAdmin (3) 2 - Instalar tema</h2>
+    <ol>
+      <li>El tema aplicado a phpMyAdmin se modifica en la página principal (apartado <strong>Configuraciones de apariencia &gt; Tema &gt; Estilo</strong>).
         <ul>
-          <li><a href="phpmyadmin-3.html#ejercicio-1">1 - Completar instalación</a></li>
-          <li><a href="phpmyadmin-3.html#ejercicio-2">2 - Instalar tema</a></li>
-          <li><a href="phpmyadmin-3.html#ejercicio-3">3 - Permitir borrar BD</a></li>
-          <li><a href="phpmyadmin-3.html#ejercicio-4">4 - Copias de seguridad</a></li>
-          <li><a href="phpmyadmin-3.html#ejercicio-5">5 - Generar PDFs estructura</a></li>
+          <li>La lista desplegable Tema muestra los temas disponibles. Al elegir uno de ellos, se aplicará inmediatamente:
+            <p class=" captura">
+              <img src="../img/phpmyadmin/3-1-s-1-temas.png" alt="XAMPP. Página principal" title="XAMPP. Página principal" width="1009" height="490" />
+            </p>
+          </li>
         </ul>
+      </li>
+      <li>Los temas adicionales se deberían descargar en principio desde la página web <a href="https://www.phpmyadmin.net/themes/">https://www.phpmyadmin.net/themes/</a>, en la que conviene elegir la versión de phpMyAdmin para ver únicamente los temas apropiados para la versión instalada.
+        <p>Los temas se distribuyen en forma de archivo comprimido. Descomprima el archivo descargado en la carpeta <strong>phpmyadmin/themes</strong>, en la que ya se encuentran los temas <strong>original</strong> y <strong>pmahomme</strong>. Al descomprimirlo se añadirá una carpeta con el nombre del tema (en este caso, <strong>cleanstrap</strong>).</p>
+        <p><strong>Nota</strong>: En diciembre de 2014 la página de descarga de tema de phpMyAdmin no funcionaba correctamente. El 26/11/14 abrí una pregunta en StackOverflow (http://stackoverflow.com/questions/27145138/does-the-phpmyadmin-themes-page-work-properly), ya que parecía que el soporte de phpMyAdmin se hace en StackOverflow, pero me la cerraron En abril de 2015 ya parece funcionar.</p>
+      </li>
+      <li>Para ver el nuevo tema en la lista desplegable, actualice la página principal de phpMyAdmin.
+        <p class=" captura">
+          <img src="../img/phpmyadmin/3-1-s-2-temas.png" alt="XAMPP. Página principal" title="XAMPP. Página principal" width="1009" height="490" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-        <h3>Soluciones</h3>
-        <ul>
-          <li><a href="#ejercicio-1">1 - Completar instalación</a></li>
-          <li><a href="#ejercicio-2">2 - Instalar tema</a></li>
-          <li><a href="#ejercicio-3">3 - Permitir borrar BD</a></li>
-          <li><a href="#ejercicio-4">4 - Copias de seguridad</a></li>
-          <li><a href="#ejercicio-5">5 - Generar PDFs estructura</a></li>
-        </ul>
-      </div>
-    </nav>
+  <section id="ejercicio-3">
+    <h2>phpMyAdmin (3) 3 - Permitir borrar bases de datos a los usuarios</h2>
 
-    <p>En esta lección se proponen soluciones detalladas de los <a href="phpmyadmin-3.html">ejercicios (3) de phpMyAdmin</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />CAPTURAS PENDIENTES DE ACTUALIZAR</p>
+    <ol>
+      <li>Al añadir la línea
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Estas soluciones están pendientes de actualizar a los ejercicios propuestos en el curso 2015/16.</p>
-
-    <section id="ejercicio-1">
-      <h2>phpMyAdmin (3) 1 - Completar instalación</h2>
-
-      <p>Se trata de eliminar los avisos que muestran phpMyAdmin.</p>
-    </section>
-
-    <section id="ejercicio-2">
-      <h2>phpMyAdmin (3) 2 - Instalar tema</h2>
-      <ol>
-        <li>El tema aplicado a phpMyAdmin se modifica en la página principal (apartado <strong>Configuraciones de apariencia &gt; Tema &gt; Estilo</strong>).
-          <ul>
-            <li>La lista desplegable Tema muestra los temas disponibles. Al elegir uno de ellos, se aplicará inmediatamente:
-              <p class=" captura">
-                <img src="../img/phpmyadmin/3-1-s-1-temas.png" alt="XAMPP. Página principal" title="XAMPP. Página principal" width="1009" height="490" />
-              </p>
-            </li>
-          </ul>
-        </li>
-        <li>Los temas adicionales se deberían descargar en principio desde la página web <a href="https://www.phpmyadmin.net/themes/">https://www.phpmyadmin.net/themes/</a>, en la que conviene elegir la versión de phpMyAdmin para ver únicamente los temas apropiados para la versión instalada.
-          <p>Los temas se distribuyen en forma de archivo comprimido. Descomprima el archivo descargado en la carpeta <strong>phpmyadmin/themes</strong>, en la que ya se encuentran los temas <strong>original</strong> y <strong>pmahomme</strong>. Al descomprimirlo se añadirá una carpeta con el nombre del tema (en este caso, <strong>cleanstrap</strong>).</p>
-          <p><strong>Nota</strong>: En diciembre de 2014 la página de descarga de tema de phpMyAdmin no funcionaba correctamente. El 26/11/14 abrí una
-            pregunta en StackOverflow (http://stackoverflow.com/questions/27145138/does-the-phpmyadmin-themes-page-work-properly), ya que parecía que el soporte de phpMyAdmin se hace en StackOverflow, pero me la cerraron En abril de 2015 ya parece funcionar.</p>
-        </li>
-        <li>Para ver el nuevo tema en la lista desplegable, actualice la página principal de phpMyAdmin.
-          <p class=" captura">
-            <img src="../img/phpmyadmin/3-1-s-2-temas.png" alt="XAMPP. Página principal" title="XAMPP. Página principal" width="1009" height="490" />
-          </p>
-        </li>
-      </ol>
-    </section>
-
-    <section id="ejercicio-3">
-      <h2>phpMyAdmin (3) 3 - Permitir borrar bases de datos a los usuarios</h2>
-
-      <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />CAPTURAS PENDIENTES DE ACTUALIZAR</p>
-      <ol>
-        <li>Al añadir la línea
-
-          <div class="codigo">
-            <pre>
+        <div class="codigo">
+          <pre>
 <code class="language-php">/* config.inc.php */
 $cfg['AllowUserDropDatabase'] = true;</code>
 </pre>
-          </div>
-          <p>en el archivo config.inc.php, la opción "Bases de datos" permite borrar bases de datos:</p>
-          <p class=" captura">
-            <img src="../img/phpmyadmin/1-8-s-1-config-1.png" alt="XAMPP. Configuración" title="XAMPP. Configuración" width="990" height="420" /></p>
-        </li>
-        <li>Al eliminar la línea (o comentarla):
+        </div>
+        <p>en el archivo config.inc.php, la opción "Bases de datos" permite borrar bases de datos:</p>
+        <p class=" captura">
+          <img src="../img/phpmyadmin/1-8-s-1-config-1.png" alt="XAMPP. Configuración" title="XAMPP. Configuración" width="990" height="420" /></p>
+      </li>
+      <li>Al eliminar la línea (o comentarla):
 
-          <div class="codigo">
-            <pre>
+        <div class="codigo">
+          <pre>
 <code class="language-php">/* config.inc.php */
 /* $cfg['AllowUserDropDatabase'] = true; */</code>
 </pre>
-          </div>
-          <p>en el archivo config.inc.php, la opción "Bases de datos" ya no permite borrar bases de datos:</p>
-          <p class=" captura">
-            <img src="../img/phpmyadmin/1-8-s-2-config-2.png" alt="XAMPP. Configuración" title="XAMPP. Configuración" width="990" height="381" />
-          </p>
-        </li>
-      </ol>
-    </section>
+        </div>
+        <p>en el archivo config.inc.php, la opción "Bases de datos" ya no permite borrar bases de datos:</p>
+        <p class=" captura">
+          <img src="../img/phpmyadmin/1-8-s-2-config-2.png" alt="XAMPP. Configuración" title="XAMPP. Configuración" width="990" height="381" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-4">
-      <h2>phpMyAdmin (3) 4 - Realizar copias de seguridad de las bases de datos del usuario iaw_agenda_2</h2>
+  <section id="ejercicio-4">
+    <h2>phpMyAdmin (3) 4 - Realizar copias de seguridad de las bases de datos del usuario iaw_agenda_2</h2>
 
-      <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />CAPTURAS PENDIENTES DE ACTUALIZAR</p>
-      <ul>
-        <li>Entrar en phpMyAdmin como el usuario <strong>iaw_agenda_2</strong>.</li>
-        <li>Elegir la opción "Exportar", elegir el método de exportación personalizado para poder marcar la casilla "Agregar sentencia CREATE DATABASE / USE", elegir únicamente las dos bases de datos de las aplicaciones y hacer clic en "Continuar":
-          <p class=" captura">
-            <img src="../img/phpmyadmin/1-9-e-1-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="400" />
-          </p>
-        </li>
-        <li>phpMyAdmin generará la copia de seguridad en forma de archivo .sql que el navegador permitirá abrir o descargar
-          <p class=" captura">
-            <img src="../img/phpmyadmin/1-9-e-2-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="360" />
-          </p>
-        </li>
-        <li>A continuación, borrar las bases de datos:
-          <p class=" captura">
-            <img src="../img/phpmyadmin/1-9-e-3-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="450" />
-          </p>
-          <p class=" captura">
-            <img src="../img/phpmyadmin/1-9-e-4-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="240" />
-          </p>
-          <p class=" captura">
-            <img src="../img/phpmyadmin/1-9-e-5-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="180" />
-          </p>
-        </li>
-        <li>Restaurar las bases de datos importando la copia de seguridad:
-          <p class=" captura">
-            <img src="../img/phpmyadmin/1-9-e-6-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="300" />
-          </p>
-          <p class=" captura">
-            <img src="../img/phpmyadmin/1-9-e-7-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="275" />
-          </p>
-        </li>
-      </ul>
-    </section>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />CAPTURAS PENDIENTES DE ACTUALIZAR</p>
+    <ul>
+      <li>Entrar en phpMyAdmin como el usuario <strong>iaw_agenda_2</strong>.</li>
+      <li>Elegir la opción "Exportar", elegir el método de exportación personalizado para poder marcar la casilla "Agregar sentencia CREATE DATABASE / USE", elegir únicamente las dos bases de datos de las aplicaciones y hacer clic en "Continuar":
+        <p class=" captura">
+          <img src="../img/phpmyadmin/1-9-e-1-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="400" />
+        </p>
+      </li>
+      <li>phpMyAdmin generará la copia de seguridad en forma de archivo .sql que el navegador permitirá abrir o descargar
+        <p class=" captura">
+          <img src="../img/phpmyadmin/1-9-e-2-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="360" />
+        </p>
+      </li>
+      <li>A continuación, borrar las bases de datos:
+        <p class=" captura">
+          <img src="../img/phpmyadmin/1-9-e-3-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="450" />
+        </p>
+        <p class=" captura">
+          <img src="../img/phpmyadmin/1-9-e-4-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="240" />
+        </p>
+        <p class=" captura">
+          <img src="../img/phpmyadmin/1-9-e-5-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="180" />
+        </p>
+      </li>
+      <li>Restaurar las bases de datos importando la copia de seguridad:
+        <p class=" captura">
+          <img src="../img/phpmyadmin/1-9-e-6-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="300" />
+        </p>
+        <p class=" captura">
+          <img src="../img/phpmyadmin/1-9-e-7-backup.png" alt="XAMPP. Copia de seguridad" title="XAMPP. Copia de seguridad" width="990" height="275" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-5">
-      <h2>phpMyAdmin (3) 5 (optativo) - Generar PDFs de la estructura de las bases de datos</h2>
+  <section id="ejercicio-5">
+    <h2>phpMyAdmin (3) 5 (optativo) - Generar PDFs de la estructura de las bases de datos</h2>
 
-      <p class="incompleto">Por escribir</p>
-    </section>
+    <p class="incompleto">Por escribir</p>
+  </section>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 9 de diciembre de 2015</p>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 9 de diciembre de 2015</p>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

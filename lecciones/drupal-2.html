@@ -1,202 +1,201 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Ejercicios (2). Drupal. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Ejercicios (2). Drupal. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>Drupal. Ejercicios (2)</h1>
+<body>
+  <h1>Drupal. Ejercicios (2)</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="drupal-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          Drupal (2)
-          <a href="drupal-3.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="drupal-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> Drupal (2)
+        <a href="drupal-3.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
 
-        <h3>Enunciados</h3>
+      <h3>Enunciados</h3>
+      <ul>
+        <li><a href="#ejercicio-1">1 - Artículos y páginas</a></li>
+        <li><a href="#ejercicio-2">2 - Configuración creación</a></li>
+        <li><a href="#ejercicio-3">3 - Roles y usuarios</a></li>
+        <li><a href="#ejercicio-4">4 - Ajustar CKEditor</a></li>
+        <li><a href="#ejercicio-5">5 - Módulo IMCE</a></li>
+        <li><a href="#ejercicio-6">6 - Configurar IMCE</a></li>
+        <li><a href="#ejercicio-7">7 - Módulo IMCE Mkdir</a></li>
+      </ul>
+
+      <h3><a href="drupal-2-soluciones.html">Soluciones</a></h3>
+      <ul>
+        <li><a href="drupal-2-soluciones.html#ejercicio-1">1 - Artículos y páginas</a></li>
+        <li><a href="drupal-2-soluciones.html#ejercicio-2">2 - Configuración creación</a></li>
+        <li><a href="drupal-2-soluciones.html#ejercicio-3">3 - Roles y usuarios</a></li>
+        <li><a href="drupal-2-soluciones.html#ejercicio-4">4 - Ajustar CKEditor</a></li>
+        <li><a href="drupal-2-soluciones.html#ejercicio-5">5 - Módulo IMCE</a></li>
+        <li><a href="drupal-2-soluciones.html#ejercicio-6">6 - Configurar IMCE</a></li>
+        <li><a href="drupal-2-soluciones.html#ejercicio-7">7 - Módulo IMCE Mkdir</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />He empezado a actualizar esta lección para Drupal 8, pero no he terminado de hacerlo.</p>
+
+  <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>Drupal</strong>. Se pueden consultar las <a href="drupal-2-soluciones.html">soluciones de estos ejercicios de Drupal</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+  <section id="ejercicio-1">
+    <h2>Drupal (2) 1 - Artículos y páginas básicas</h2>
+
+    <p>El objetivo de este ejercicio es conocer los dos tipos de contenidos básicos de Drupal: <strong>artículos</strong> y <strong>páginas básicas</strong>. Para ello, se propone al alumno:</p>
+    <ol>
+      <li>Leer la explicación sobre artículos y páginas básicas de la lección <a href="drupal.html#articulos-paginas">Drupal</a>.</li>
+      <li>Crear algunos artículos y páginas básicas, probando las opciones que permite Drupal al crearlas. El contenido de los artículos y páginas básicas puede ser cualquiera.</li>
+      <li>Eliminar las páginas básicas y artículos de prueba creados en el punto anterior.</li>
+    </ol>
+  </section>
+
+  <section id="ejercicio-2">
+    <h2>Drupal (2) 2 - Modificar la configuración de creación de artículos y páginas básicas</h2>
+    <ol>
+      <li>Aumentar el tamaño de las imágenes que se pueden subir a los artículos.
+        <p>Ayuda: <a href="https://www.drupal.org/node/97193">https://www.drupal.org/node/97193</a></p>
+      </li>
+      <li>Permitir crear tablas en HTML Básico.</li>
+    </ol>
+  </section>
+
+  <section id="ejercicio-3">
+    <h2>Drupal (2) 3 - Roles y usuarios</h2>
+
+    <p>Drupal permite crear <strong>usuarios</strong> y concederles diferentes posibilidades (permisos) de edición en el portal. Para facilitar la organización de los permisos otorgados a los diferentes usuarios, Drupal permite crear categorías de usuarios (denominadas <strong>Roles</strong>).</p>
+    <ol>
+      <li>Cree los roles:
         <ul>
-          <li><a href="#ejercicio-1">1 - Artículos y páginas</a></li>
-          <li><a href="#ejercicio-2">2 - Configuración creación</a></li>
-          <li><a href="#ejercicio-3">3 - Roles y usuarios</a></li>
-          <li><a href="#ejercicio-4">4 - Ajustar CKEditor</a></li>
-          <li><a href="#ejercicio-5">5 - Módulo IMCE</a></li>
-          <li><a href="#ejercicio-6">6 - Configurar IMCE</a></li>
-          <li><a href="#ejercicio-7">7 - Módulo IMCE Mkdir</a></li>
+          <li><strong>minieditor</strong>,
+            <ul>
+              <li>que pueda crear nuevo contenido y comentarios (sin limitaciones de HTML), </li>
+              <li>que únicamente modificar lo que ha creado él, </li>
+              <li>que pueda usar búsquedas</li>
+              <li>que no pueda crear etiquetas</li>
+            </ul>
+          </li>
+          <li><strong>editor</strong>,
+            <ul>
+              <li>que pueda crear nuevo contenido y comentarios (sin limitaciones de HTML), </li>
+              <li>que pueda modificar el contenido creado por él o por otros</li>
+              <li>que pueda usar búsquedas</li>
+              <li>que pueda crear etiquetas</li>
+            </ul>
+          </li>
         </ul>
-
-        <h3><a href="drupal-2-soluciones.html">Soluciones</a></h3>
+      </li>
+      <li>Cree los usuarios:
         <ul>
-          <li><a href="drupal-2-soluciones.html#ejercicio-1">1 - Artículos y páginas</a></li>
-          <li><a href="drupal-2-soluciones.html#ejercicio-2">2 - Configuración creación</a></li>
-          <li><a href="drupal-2-soluciones.html#ejercicio-3">3 - Roles y usuarios</a></li>
-          <li><a href="drupal-2-soluciones.html#ejercicio-4">4 - Ajustar CKEditor</a></li>
-          <li><a href="drupal-2-soluciones.html#ejercicio-5">5 - Módulo IMCE</a></li>
-          <li><a href="drupal-2-soluciones.html#ejercicio-6">6 - Configurar IMCE</a></li>
-          <li><a href="drupal-2-soluciones.html#ejercicio-7">7 - Módulo IMCE Mkdir</a></li>
+          <li><strong>minieditor_1</strong> con el rol minieditor y contraseña minieditor_1.</li>
+          <li><strong>editor_1</strong> con el rol editor y contraseña editor_1</li>
         </ul>
-      </div>
-    </nav>
+      </li>
+      <li>Como usuario <strong>minieditor_1</strong>, incluya una imagen de usuario (por ejemplo: <img src="../img/iconos/cabezas/cabeza-02-128.png" alt="Cabeza nº 2" width="116" height="128" />)
+        <p class="captura">
+          <img src="../img/drupal/drupal-usuarios-6.png" alt="Drupal. Usuarios" width="700" height="320" />
+        </p>
+      </li>
+      <li>Como usuario <strong>minieditor_1</strong> compruebe que puede crear contenido y como usuario <strong>editor</strong> compruebe que puede modificarlo.</li>
+      <li>Como usuario <strong>editor_1</strong> compruebe que puede crear contenido y como usuario <strong>minieditor</strong> compruebe que <strong>no</strong> puede modificarlo.</li>
+    </ol>
+  </section>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />He empezado a actualizar esta lección para Drupal 8, pero no he terminado de hacerlo.</p>
+  <section id="ejercicio-4">
+    <h2>Drupal (2) 4 - Ajustar el editor CKEditor al rol</h2>
 
-    <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>Drupal</strong>. Se pueden consultar las <a href="drupal-2-soluciones.html">soluciones de estos ejercicios de Drupal</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />En Drupal 7, CKEditor se instalaba mediante un módulo. En Drupal 8, CKEditor está incluido en Drupal. Supongo que se podrá configurar de forma similar.</p>
 
-    <section id="ejercicio-1">
-      <h2>Drupal (2) 1 - Artículos y páginas básicas</h2>
+    <p>En este ejercicio se ajustará el editor <strong>CKEditor</strong> al rol <strong>minieditor</strong>, para que al crear contenido el usuario <strong>minieditor_1</strong> vea la barra de herramientas básica de CKEditor:</p>
 
-      <p>El objetivo de este ejercicio es conocer los dos tipos de contenidos básicos de Drupal: <strong>artículos</strong> y <strong>páginas básicas</strong>. Para ello, se propone al alumno:</p>
-      <ol>
-        <li>Leer la explicación sobre artículos y páginas básicas de la lección <a href="drupal.html#articulos-paginas">Drupal</a>.</li>
-        <li>Crear algunos artículos y páginas básicas, probando las opciones que permite Drupal al crearlas. El contenido de los artículos y páginas básicas puede ser cualquiera.</li>
-        <li>Eliminar las páginas básicas y artículos de prueba creados en el punto anterior.</li>
-      </ol>
-    </section>
+    <p class="captura">
+      <img src="../img/drupal/drupal-ckeditor-minieditor-21.png" alt="Drupal. Comprobación" title="Drupal. Comprobación" width="991" height="625" />
+    </p>
 
-    <section id="ejercicio-2">
-      <h2>Drupal (2) 2 - Modificar la configuración de creación de artículos y páginas básicas</h2>
-      <ol>
-        <li>Aumentar el tamaño de las imágenes que se pueden subir a los artículos.
-          <p>Ayuda: <a href="https://www.drupal.org/node/97193">https://www.drupal.org/node/97193</a></p>
-        </li>
-        <li>Permitir crear tablas en HTML Básico.</li>
-      </ol>
-    </section>
+    <p>En Drupal 7, los perfiles de CKEditor van asociados a formatos de entrada. Por ello, para que un usuario vea un menú de CKEditor distinto del del administrador, siga los pasos siguientes:</p>
+    <ol>
+      <li>Cree un nuevo Formato de texto (que se llamará, por ejemplo, HTML_para_minieditor)</li>
+      <li>Cree un nuevo perfil de CKEditor asociado al formato de texto creado (que se llamará, por ejemplo, CKEditor_para_minieditor)</li>
+      <li>Desactive los formatos de texto Full HTML y Filtered HTML para el rol minieditor (y para el usuario autenticado)
+        <p class="captura">
+          <img src="../img/drupal/drupal-ckeditor-minieditor-22.png" alt="Drupal. Comprobación" title="Drupal. Comprobación" width="991" height="110" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-3">
-      <h2>Drupal (2) 3 - Roles y usuarios</h2>
+  <section id="ejercicio-5">
+    <h2>Drupal (2) 5 - Subir imágenes y archivos: módulo IMCE</h2>
 
-      <p>Drupal permite crear <strong>usuarios</strong> y concederles diferentes posibilidades (permisos) de edición en el portal. Para facilitar la organización de los permisos otorgados a los diferentes usuarios, Drupal permite crear categorías de usuarios (denominadas <strong>Roles</strong>).</p>
-      <ol>
-        <li>Cree los roles:
-          <ul>
-            <li><strong>minieditor</strong>,
-              <ul>
-                <li>que pueda crear nuevo contenido y comentarios (sin limitaciones de HTML), </li>
-                <li>que únicamente modificar lo que ha creado él, </li>
-                <li>que pueda usar búsquedas</li>
-                <li>que no pueda crear etiquetas</li>
-              </ul>
-            </li>
-            <li><strong>editor</strong>,
-              <ul>
-                <li>que pueda crear nuevo contenido y comentarios (sin limitaciones de HTML), </li>
-                <li>que pueda modificar el contenido creado por él o por otros</li>
-                <li>que pueda usar búsquedas</li>
-                <li>que pueda crear etiquetas</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>Cree los usuarios:
-          <ul>
-            <li><strong>minieditor_1</strong> con el rol minieditor y contraseña minieditor_1.</li>
-            <li><strong>editor_1</strong> con el rol editor y contraseña editor_1</li>
-          </ul>
-        </li>
-        <li>Como usuario <strong>minieditor_1</strong>, incluya una imagen de usuario (por ejemplo: <img src="../img/iconos/cabezas/cabeza-02-128.png" alt="Cabeza nº 2" width="116" height="128" />)
-          <p class="captura">
-            <img src="../img/drupal/drupal-usuarios-6.png" alt="Drupal. Usuarios" width="700" height="320" />
-          </p>
-        </li>
-        <li>Como usuario <strong>minieditor_1</strong> compruebe que puede crear contenido y como usuario <strong>editor</strong> compruebe que puede modificarlo.</li>
-        <li>Como usuario <strong>editor_1</strong> compruebe que puede crear contenido y como usuario <strong>minieditor</strong> compruebe que <strong>no</strong> puede modificarlo.</li>
-      </ol>
-    </section>
+    <p>En este ejercicio se instalará un módulo para subir archivos, concretamente, el módulo IMCE.</p>
 
-    <section id="ejercicio-4">
-      <h2>Drupal (2) 4 - Ajustar el editor CKEditor al rol</h2>
+    <ul>
+      <li>Descargue la <strong>versión 1.9 del módulo IMCE para Drupal 7</strong>, publicado el 16 de mayo de 2014, y descomprímalo en la carpeta adecuada. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.
+        <p>Si la <strong>versión 1.9 del módulo IMCE para Drupal 7</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
+      </li>
+      <li>Entre en Drupal como usuario <strong>admin</strong> y active el módulo IMCE.</li>
+      <li>Configure CKEditor para que utilice IMCE al enlazar a ficheros o imágenes en el perfil "Full HTML":</li>
+      <li>Configure IMCE para que usuarios con un determinado rol puedan utilizar IMCE:
+        <ul>
+          <li>En el módulo <strong>IMCE</strong>, asigne el perfil <strong>User-1</strong> al rol <strong>administrador</strong>:</li>
+        </ul>
+      </li>
+      <li>Compruebe creando un artículo que al insertar una imagen el cuadro de diálogo incluye el botón "Ver Servidor":
+        <p class="captura">
+          <img src="../img/drupal/drupal-imce-5.png" alt="Drupal. IMCE" width="991" height="125" />
+        </p>
 
-      <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />En Drupal 7, CKEditor se instalaba mediante un módulo. En Drupal 8, CKEditor está incluido en Drupal. Supongo que se podrá configurar de forma similar.</p>
+        <p class="captura">
+          <img src="../img/drupal/drupal-imce-5a.png" alt="Drupal. IMCE" width="465" height="490" />
+          <img src="../img/drupal/drupal-imce-5b.png" alt="Drupal. IMCE" width="465" height="490" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-      <p>En este ejercicio se ajustará el editor <strong>CKEditor</strong> al rol <strong>minieditor</strong>, para que al crear contenido el usuario <strong>minieditor_1</strong> vea la barra de herramientas básica de CKEditor:</p>
+  <section id="ejercicio-6">
+    <h2>Drupal (2) 6 - Configurar IMCE para el rol de minieditor</h2>
 
-      <p class="captura">
-        <img src="../img/drupal/drupal-ckeditor-minieditor-21.png" alt="Drupal. Comprobación" title="Drupal. Comprobación" width="991" height="625" />
-      </p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar con capturas y decir qué versión hay que utilizar.</p>
 
-      <p>En Drupal 7, los perfiles de CKEditor van asociados a formatos de entrada. Por ello, para que un usuario vea un menú de CKEditor distinto del del administrador, siga los pasos siguientes:</p>
-      <ol>
-        <li>Cree un nuevo Formato de texto (que se llamará, por ejemplo, HTML_para_minieditor)</li>
-        <li>Cree un nuevo perfil de CKEditor asociado al formato de texto creado (que se llamará, por ejemplo, CKEditor_para_minieditor)</li>
-        <li>Desactive los formatos de texto Full HTML y Filtered HTML para el rol minieditor (y para el usuario autenticado)
-          <p class="captura">
-            <img src="../img/drupal/drupal-ckeditor-minieditor-22.png" alt="Drupal. Comprobación" title="Drupal. Comprobación" width="991" height="110" />
-          </p>
-        </li>
-      </ol>
-    </section>
+    <p>Configure IMCE para que dos usuarios <strong>minieditor_1</strong> y <strong>minieditor_2</strong> (de rol minieditor) también pueda subir archivos e imágenes con IMCE, creando en IMCE un perfil <strong>minieditor</strong>. Hágalo de dos maneras distintas:</p>
+    <ul>
+      <li>Hágalo primero de manera que cada uno pueda subir archivos en su propia carpeta.</li>
+      <li>Modifíquelo después de manera que compartan la misma carpeta.</li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-5">
-      <h2>Drupal (2) 5 - Subir imágenes y archivos: módulo IMCE</h2>
+  <section id="ejercicio-7">
+    <h2>Drupal (2) 7 - Ampliar las capacidades de IMCE con el módulo IMCE Mkdir</h2>
 
-      <p>En este ejercicio se instalará un módulo para subir archivos, concretamente, el módulo IMCE.</p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />En Drupal 7, el módulo IMCE Mkdir era un complemento del módulo IMCE para permitir crear carpetas a los usuarios. Parece ser que este módulo no es necesario en Drupal 8, pero tendría que comprobarlo.</p>
 
-      <ul>
-        <li>Descargue la <strong>versión 1.9 del módulo IMCE para Drupal 7</strong>, publicado el 16 de mayo de 2014, y descomprímalo en la carpeta adecuada. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.
-          <p>Si la <strong>versión 1.9 del módulo IMCE para Drupal 7</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
-        </li>
-        <li>Entre en Drupal como usuario <strong>admin</strong> y active el módulo IMCE.</li>
-        <li>Configure CKEditor para que utilice IMCE al enlazar a ficheros o imágenes en el perfil "Full HTML":</li>
-        <li>Configure IMCE para que usuarios con un determinado rol puedan utilizar IMCE:
-          <ul>
-            <li>En el módulo <strong>IMCE</strong>, asigne el perfil <strong>User-1</strong> al rol <strong>administrador</strong>:</li>
-          </ul>
-        </li>
-        <li>Compruebe creando un artículo que al insertar una imagen el cuadro de diálogo incluye el botón "Ver Servidor":
-          <p class="captura">
-            <img src="../img/drupal/drupal-imce-5.png" alt="Drupal. IMCE" width="991" height="125" />
-          </p>
+    <p>En este ejercicio se ampliarán las capacidades de IMCE con el módulo IMCE Mkdir, de manera que los usuarios puedan crear subcarpetas en la carpeta donde suben sus archivos.</p>
 
-          <p class="captura">
-            <img src="../img/drupal/drupal-imce-5a.png" alt="Drupal. IMCE" width="465" height="490" />
-            <img src="../img/drupal/drupal-imce-5b.png" alt="Drupal. IMCE" width="465" height="490" />
-          </p>
-        </li>
-      </ul>
-    </section>
+    <p>Referencias:</p>
+    <ul>
+      <li>Módulo IMCE Mkdir <a href="https://www.drupal.org/project/imce_mkdir">https://www.drupal.org/project/imce_mkdir</a></li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-6">
-      <h2>Drupal (2) 6 - Configurar IMCE para el rol de minieditor</h2>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 4 de febrero de 2016</p>
 
-      <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar con capturas y decir qué versión hay que utilizar.</p>
-
-      <p>Configure IMCE para que dos usuarios <strong>minieditor_1</strong> y <strong>minieditor_2</strong> (de rol minieditor) también pueda subir archivos e imágenes con IMCE, creando en IMCE un perfil <strong>minieditor</strong>. Hágalo de dos maneras distintas:</p>
-      <ul>
-        <li>Hágalo primero de manera que cada uno pueda subir archivos en su propia carpeta.</li>
-        <li>Modifíquelo después de manera que compartan la misma carpeta.</li>
-      </ul>
-    </section>
-
-    <section id="ejercicio-7">
-      <h2>Drupal (2) 7 - Ampliar las capacidades de IMCE con el módulo IMCE Mkdir</h2>
-
-      <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />En Drupal 7, el módulo IMCE Mkdir era un complemento del módulo IMCE para permitir crear carpetas a los usuarios. Parece ser que este módulo no es necesario en Drupal 8, pero tendría que comprobarlo.</p>
-
-      <p>En este ejercicio se ampliarán las capacidades de IMCE con el módulo IMCE Mkdir, de manera que los usuarios puedan crear subcarpetas en la carpeta donde suben sus archivos.</p>
-
-      <p>Referencias:</p>
-      <ul>
-        <li>Módulo IMCE Mkdir <a href="https://www.drupal.org/project/imce_mkdir">https://www.drupal.org/project/imce_mkdir</a></li>
-      </ul>
-    </section>
-
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 4 de febrero de 2016</p>
-
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

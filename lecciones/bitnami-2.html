@@ -1,180 +1,182 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Ejercicios (2). Bitnami. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Ejercicios (2). Bitnami. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>Bitnami. Ejercicios (2). Máquina virtual de infraestructura y módulos sobre Ubuntu</h1>
+<body>
+  <h1>Bitnami. Ejercicios (2). Máquina virtual de infraestructura y módulos sobre Ubuntu</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="bitnami-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          Bitnami (2)
-          <a href="bitnami-3.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="bitnami-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> Bitnami (2)
+        <a href="bitnami-3.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
 
-        <h3>Enunciados</h3>
-        <ul>
-          <li><a href="#ejercicio-1">1 - VM de infraestructura</a></li>
-          <li><a href="#ejercicio-2">2 - phpMyAdmin</a></li>
-          <li><a href="#ejercicio-3">3 - OpenCart</a></li>
-        </ul>
-
-        <h3><a href="bitnami-2-soluciones.html">Soluciones</a></h3>
-        <ul>
-          <li><a href="bitnami-2-soluciones.html#ejercicio-1">1 - VM de infraestructura</a></li>
-          <li><a href="bitnami-2-soluciones.html#ejercicio-2">2 - phpMyAdmin</a></li>
-          <li><a href="bitnami-2-soluciones.html#ejercicio-3">3 - OpenCart</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>Bitnami</strong> instalando aplicaciones web en una máquina virtual de infraestructura. Se pueden consultar las <a href="bitnami-2-soluciones.html">soluciones de estos ejercicios de Bitnami (2)</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
-
-    <p>En estos ejercicios se nombran las versiones disponibles actualmente (enero de 2017), pero seguramente se podrán realizar sin problemas con versiones posteriores.</p>
-
-    <p><strong>Nota:</strong> En estos ejercicios se propone únicamente la instalación de la aplicación OpenCart, pero se anima al alumno a probar otras aplicaciones.</p>
-
-    <section id="ejercicio-1">
-      <h2>Bitnami (2) 1 - VM de infraestructura</h2>
-
-      <ol>
-        <li>Visite la página web de Bitnami.</li>
-        <li>Descargue la máquina virtual de infraestructura LAMP de Bitnami. Actualmente (enero de 2017), la versión disponible es LAMP 5.6.29-1 (64 bits) en una máquina virtual Ubuntu 14.04.</li>
-        <li>Importe la máquina virtual de infraestructura LAMP de Bitnami en VirtualBox.</li>
-        <li>Arranque la máquina virtual.</li>
-        <li>Compruebe en el navegador del ordenador anfitrión que puede ver la web del servidor, escribiendo la dirección http://AAA.BBB.CCC.DDD en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
-          <p class="captura"><img src="../img/bitnami/2-1-e-1-vm-lamp.png" alt="Servidor web en la máquina virtual" title="Servidor web en la máquina virtual" width="495" height="250" /></p></li>
-        <li>Compruebe en el navegador del ordenador anfitrión que no hay aplicaciones instaladas.
-          <p class="captura"><img src="../img/bitnami/2-1-e-2-vm-lamp.png" alt="Aplicaciones instaladas en la máquina virtual" title="Aplicaciones instaladas en la máquina virtual" width="495" height="250" /></p></li>
-      </ol>
-    </section>
-
-    <section id="ejercicio-2">
-      <h2>Bitnami (2) 2 - phpMyAdmin</h2>
-
-      <p>Documentación de Bitnami:</p>
-
+      <h3>Enunciados</h3>
       <ul>
-        <li>phpMyAdmin:
-          <a href="https://docs.bitnami.com/virtual-machine/components/phpmyadmin/">en máquina virtual</a> -
-          <a href="https://docs.bitnami.com/installer/components/phpmyadmin/">en instalador</a>
-        </li>
-        <li>SSH: <a href="https://docs.bitnami.com/virtual-machine/faq/#how-to-enable-the-ssh-server">en máquina virtual</a></li>
+        <li><a href="#ejercicio-1">1 - VM de infraestructura</a></li>
+        <li><a href="#ejercicio-2">2 - phpMyAdmin</a></li>
+        <li><a href="#ejercicio-3">3 - OpenCart</a></li>
       </ul>
 
-      <ol>
-        <li>Compruebe que no puede acceder la aplicación phpMyAdmin instalada en la máquina virtual:
-          <p class="captura"><img src="../img/bitnami/2-2-e-1-phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" title="Acceso prohibido a phpMyAdmin" width="650" height="140" /></p>
-        </li>
-        <li>En la página inicial de la web de la máquina virtual se encuentra un enlace a la documentación de Bitnami sobre phpMyAdmin::
-          <p class="captura">
-            <img src="../img/bitnami/2-2-e-3-phpmyadmin.png" alt="Enlace a documentación phpMyAdmin" title="Enlace a documentación phpMyAdmin" width="495" height="250" />
-            <img src="../img/bitnami/2-2-e-4-phpmyadmin.png" alt="Documentación de Bitnami" title="Documentación de Bitnami" width="495" height="275" />
-          </p>
-        </li>
-        <li>En esa documentación se explica qué por motivos de seguridad sólo se permite conectarse a phpMyAdmin con direcciones locales (127.0.0.1) y que desde otros equipos debe hacerse a través de un túnel SSH (127.0.0.1:8888). Compruebe que sin abrir el túnel tampoco puede realizar la conexión desde el ordenador anfitrión:
-          <p class="captura"><img src="../img/bitnami/2-2-e-2-phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" title="Acceso prohibido a phpMyAdmin" width="800" height="300" /></p>
-        </li>
-        <li>Configure la máquina virtual y el ordenador anfitrión siguiendo las instrucciones de la documentación de Bitnami, de manera que pueda acceder al phpMyAdmin que está instalado en la máquina virtual a través de un túnel SSH:
+      <h3><a href="bitnami-2-soluciones.html">Soluciones</a></h3>
+      <ul>
+        <li><a href="bitnami-2-soluciones.html#ejercicio-1">1 - VM de infraestructura</a></li>
+        <li><a href="bitnami-2-soluciones.html#ejercicio-2">2 - phpMyAdmin</a></li>
+        <li><a href="bitnami-2-soluciones.html#ejercicio-3">3 - OpenCart</a></li>
+      </ul>
+    </div>
+  </nav>
 
-          <p class="captura"><img src="../img/bitnami/2-2-e-5-phpmyadmin.png" alt="login de phpMyAdmin" title="login de phpMyAdmin" width="615" height="370" /></p>
+  <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>Bitnami</strong> instalando aplicaciones web en una máquina virtual de infraestructura. Se pueden consultar las <a href="bitnami-2-soluciones.html">soluciones de estos ejercicios de Bitnami (2)</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-          <p>Si tiene problemas para seguir las instrucciones de la documentación de Bitnami, los pasos siguientes resumen esas instrucciones. En caso necesario, puede consultar la lección <a href="bitnami-varios.html">Bitnami Varios</a> o las <a href="bitnami-2-soluciones.html#ejercicio-2">soluciones Bitnami (2)</a> que explican cómo realizar esos pasos.</p>
+  <p>En estos ejercicios se nombran las versiones disponibles actualmente (enero de 2017), pero seguramente se podrán realizar sin problemas con versiones posteriores.</p>
 
-          <p>Realice los siguientes pasos en la máquina virtual:</p>
+  <p><strong>Nota:</strong> En estos ejercicios se propone únicamente la instalación de la aplicación OpenCart, pero se anima al alumno a probar otras aplicaciones.</p>
 
-          <ul>
-            <li>Entre en la máquina virtual LAMP</li>
-            <li>Por comodidad, reconfigure el teclado al teclado español</li>
-            <li>Arranque el servicio SSH. Antes deberá crear el archivo de configuración del servicio, que de forma predeterminada está como fichero .back.</li>
-          </ul>
+  <section id="ejercicio-1">
+    <h2>Bitnami (2) 1 - VM de infraestructura</h2>
 
-          <p>Realice los siguientes pasos en el ordenador anfitrión:</p>
+    <ol>
+      <li>Visite la página web de Bitnami.</li>
+      <li>Descargue la máquina virtual de infraestructura LAMP de Bitnami. Actualmente (enero de 2017), la versión disponible es LAMP 5.6.29-1 (64 bits) en una máquina virtual Ubuntu 14.04.</li>
+      <li>Importe la máquina virtual de infraestructura LAMP de Bitnami en VirtualBox.</li>
+      <li>Arranque la máquina virtual.</li>
+      <li>Compruebe en el navegador del ordenador anfitrión que puede ver la web del servidor, escribiendo la dirección http://AAA.BBB.CCC.DDD en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
+        <p class="captura"><img src="../img/bitnami/2-1-e-1-vm-lamp.png" alt="Servidor web en la máquina virtual" title="Servidor web en la máquina virtual" width="495" height="250" /></p>
+      </li>
+      <li>Compruebe en el navegador del ordenador anfitrión que no hay aplicaciones instaladas.
+        <p class="captura"><img src="../img/bitnami/2-1-e-2-vm-lamp.png" alt="Aplicaciones instaladas en la máquina virtual" title="Aplicaciones instaladas en la máquina virtual" width="495" height="250" /></p>
+      </li>
+    </ol>
+  </section>
 
-          <ul>
-            <li>Instale PuTTY en el ordenador anfitrión</li>
-            <li>Configure, guarde una sesión de PuTTY con los siguientes parámetros y abra la sesión:
-              <ul>
-                <li>Session > Host name: IP de la máquina virtual</li>
-                <li>Session > Port: 22</li>
-                <li>Session > Saved Sessions: Bitnami Lampstack (por ejemplo)</li>
-                <li>Session > Save</li>
-                <li>Connection > SSH > Tunnels > Source port: 8888</li>
-                <li>Connection > SSH > Tunnels > Destination: localhost:80</li>
-                <li>Connection > SSH > Tunnels > Add</li>
-                <li>Session > Save</li>
-                <li>Session > Open</li>
-              </ul>
-            </li>
-          </ul>
+  <section id="ejercicio-2">
+    <h2>Bitnami (2) 2 - phpMyAdmin</h2>
 
-          <p>Ahora debería poder conectar a phpMyAdmin desde el ordenador anfitrión:</p>
+    <p>Documentación de Bitnami:</p>
 
-          <p class="captura"><img src="../img/bitnami/2-2-e-5-phpmyadmin.png" alt="login de phpMyAdmin" title="login de phpMyAdmin" width="615" height="370" /></p>
-        </li>
-      </ol>
-    </section>
+    <ul>
+      <li>phpMyAdmin:
+        <a href="https://docs.bitnami.com/virtual-machine/components/phpmyadmin/">en máquina virtual</a> -
+        <a href="https://docs.bitnami.com/installer/components/phpmyadmin/">en instalador</a>
+      </li>
+      <li>SSH: <a href="https://docs.bitnami.com/virtual-machine/faq/#how-to-enable-the-ssh-server">en máquina virtual</a></li>
+    </ul>
 
-    <section id="ejercicio-3">
-      <h2>Bitnami (2) 3 - OpenCart</h2>
-      <ol>
-        <li>Descargue e instale el módulo de OpenCart.
-          <p>En el ordenador anfitrión</p>
-          <ul>
-            <li>Abra la página de Bitnami correspondiente al <strong>módulo</strong> de OpenCart para Linux, no al del stack de aplicación.</li>
-            <li>Copie el enlace al módulo (https://bitnami ... installer.run), que ocupa unos 20 MB aproximadamente.</li>
-          </ul>
-          <p>En la máquina virtual</p>
-          <ul>
-            <li>Vaya a un directorio temporal</li>
-            <li>Descargue con wget el módulo de OpenCart</li>
-            <li>De permisos de ejecución al archivo descargado (bitnami-opencart-....-installer.run)</li>
-            <li>Ejecute el archivo</li>
-            <li>En la instalación tenga en cuenta que
-              <p>El directorio donde se instalan los servidores es <strong>/opt/bitnami</strong>.</p>
-              <p>La contraseña predeterminada de MySQL es <strong>bitnami</strong></p>
-              <p>La contraseña predeterminada del usuario de la aplicación es <strong>bitnami</strong></p>
-            </li>
-          </ul>
-        </li>
-        <li>Compruebe en el navegador del ordenador anfitrión que OpenCart aparece en la lista de aplicaciones instaladas
-          <p class="captura"><img src="../img/bitnami/2-3-e-1-opencart.png" alt="OpenCart en la lista de aplicaciones de la máquina virtual" title="OpenCart en la lista de aplicaciones de la máquina virtual" width="767" height="330" /></p>
-        </li>
-        <li>Compruebe que la tienda de ejemplo funciona correctamente.
-          <ul>
-            <li>Compruebe en el navegador del ordenador anfitrión que puede ver la tienda de ejemplo de OpenCart, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD/opencart</strong> en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
-              <p class="captura"><img src="../img/bitnami/1-2-e-1-vm-opencart.png" alt="Tienda OpenCart en la máquina virtual" title="Tienda OpenCart en la máquina virtual" width="495" height="273" /></p></li>
-            <li>Compruebe en el navegador del ordenador anfitrión que puede acceder como administrador de la tienda OpenCart escribiendo la dirección adecuada.
-              <p class="captura">
-                <img src="../img/bitnami/1-2-e-2-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="504" height="273" />
-                <img src="../img/bitnami/1-2-e-3-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="495" height="273" />
-              </p>
-              <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /><strong>Nota</strong>: El navegador mostrará un aviso sobre el certificado de seguridad del sitio web</p>
-            </li>
+    <ol>
+      <li>Compruebe que no puede acceder la aplicación phpMyAdmin instalada en la máquina virtual:
+        <p class="captura"><img src="../img/bitnami/2-2-e-1-phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" title="Acceso prohibido a phpMyAdmin" width="650" height="140" /></p>
+      </li>
+      <li>En la página inicial de la web de la máquina virtual se encuentra un enlace a la documentación de Bitnami sobre phpMyAdmin::
+        <p class="captura">
+          <img src="../img/bitnami/2-2-e-3-phpmyadmin.png" alt="Enlace a documentación phpMyAdmin" title="Enlace a documentación phpMyAdmin" width="495" height="250" />
+          <img src="../img/bitnami/2-2-e-4-phpmyadmin.png" alt="Documentación de Bitnami" title="Documentación de Bitnami" width="495" height="275" />
+        </p>
+      </li>
+      <li>En esa documentación se explica qué por motivos de seguridad sólo se permite conectarse a phpMyAdmin con direcciones locales (127.0.0.1) y que desde otros equipos debe hacerse a través de un túnel SSH (127.0.0.1:8888). Compruebe que sin abrir el túnel tampoco puede realizar la conexión desde el ordenador anfitrión:
+        <p class="captura"><img src="../img/bitnami/2-2-e-2-phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" title="Acceso prohibido a phpMyAdmin" width="800" height="300" /></p>
+      </li>
+      <li>Configure la máquina virtual y el ordenador anfitrión siguiendo las instrucciones de la documentación de Bitnami, de manera que pueda acceder al phpMyAdmin que está instalado en la máquina virtual a través de un túnel SSH:
 
-          </ul>
-        </li>
-      </ol>
-    </section>
+        <p class="captura"><img src="../img/bitnami/2-2-e-5-phpmyadmin.png" alt="login de phpMyAdmin" title="login de phpMyAdmin" width="615" height="370" /></p>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 17 de enero de 2017</p>
+        <p>Si tiene problemas para seguir las instrucciones de la documentación de Bitnami, los pasos siguientes resumen esas instrucciones. En caso necesario, puede consultar la lección <a href="bitnami-varios.html">Bitnami Varios</a> o las <a href="bitnami-2-soluciones.html#ejercicio-2">soluciones Bitnami (2)</a> que explican cómo realizar esos pasos.</p>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+        <p>Realice los siguientes pasos en la máquina virtual:</p>
+
+        <ul>
+          <li>Entre en la máquina virtual LAMP</li>
+          <li>Por comodidad, reconfigure el teclado al teclado español</li>
+          <li>Arranque el servicio SSH. Antes deberá crear el archivo de configuración del servicio, que de forma predeterminada está como fichero .back.</li>
+        </ul>
+
+        <p>Realice los siguientes pasos en el ordenador anfitrión:</p>
+
+        <ul>
+          <li>Instale PuTTY en el ordenador anfitrión</li>
+          <li>Configure, guarde una sesión de PuTTY con los siguientes parámetros y abra la sesión:
+            <ul>
+              <li>Session > Host name: IP de la máquina virtual</li>
+              <li>Session > Port: 22</li>
+              <li>Session > Saved Sessions: Bitnami Lampstack (por ejemplo)</li>
+              <li>Session > Save</li>
+              <li>Connection > SSH > Tunnels > Source port: 8888</li>
+              <li>Connection > SSH > Tunnels > Destination: localhost:80</li>
+              <li>Connection > SSH > Tunnels > Add</li>
+              <li>Session > Save</li>
+              <li>Session > Open</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p>Ahora debería poder conectar a phpMyAdmin desde el ordenador anfitrión:</p>
+
+        <p class="captura"><img src="../img/bitnami/2-2-e-5-phpmyadmin.png" alt="login de phpMyAdmin" title="login de phpMyAdmin" width="615" height="370" /></p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="ejercicio-3">
+    <h2>Bitnami (2) 3 - OpenCart</h2>
+    <ol>
+      <li>Descargue e instale el módulo de OpenCart.
+        <p>En el ordenador anfitrión</p>
+        <ul>
+          <li>Abra la página de Bitnami correspondiente al <strong>módulo</strong> de OpenCart para Linux, no al del stack de aplicación.</li>
+          <li>Copie el enlace al módulo (https://bitnami ... installer.run), que ocupa unos 20 MB aproximadamente.</li>
+        </ul>
+        <p>En la máquina virtual</p>
+        <ul>
+          <li>Vaya a un directorio temporal</li>
+          <li>Descargue con wget el módulo de OpenCart</li>
+          <li>De permisos de ejecución al archivo descargado (bitnami-opencart-....-installer.run)</li>
+          <li>Ejecute el archivo</li>
+          <li>En la instalación tenga en cuenta que
+            <p>El directorio donde se instalan los servidores es <strong>/opt/bitnami</strong>.</p>
+            <p>La contraseña predeterminada de MySQL es <strong>bitnami</strong></p>
+            <p>La contraseña predeterminada del usuario de la aplicación es <strong>bitnami</strong></p>
+          </li>
+        </ul>
+      </li>
+      <li>Compruebe en el navegador del ordenador anfitrión que OpenCart aparece en la lista de aplicaciones instaladas
+        <p class="captura"><img src="../img/bitnami/2-3-e-1-opencart.png" alt="OpenCart en la lista de aplicaciones de la máquina virtual" title="OpenCart en la lista de aplicaciones de la máquina virtual" width="767" height="330" /></p>
+      </li>
+      <li>Compruebe que la tienda de ejemplo funciona correctamente.
+        <ul>
+          <li>Compruebe en el navegador del ordenador anfitrión que puede ver la tienda de ejemplo de OpenCart, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD/opencart</strong> en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
+            <p class="captura"><img src="../img/bitnami/1-2-e-1-vm-opencart.png" alt="Tienda OpenCart en la máquina virtual" title="Tienda OpenCart en la máquina virtual" width="495" height="273" /></p>
+          </li>
+          <li>Compruebe en el navegador del ordenador anfitrión que puede acceder como administrador de la tienda OpenCart escribiendo la dirección adecuada.
+            <p class="captura">
+              <img src="../img/bitnami/1-2-e-2-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="504" height="273" />
+              <img src="../img/bitnami/1-2-e-3-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="495" height="273" />
+            </p>
+            <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /><strong>Nota</strong>: El navegador mostrará un aviso sobre el certificado de seguridad del sitio web</p>
+          </li>
+
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 17 de enero de 2017</p>
+
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

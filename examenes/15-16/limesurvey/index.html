@@ -1,236 +1,236 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Lime Survey. Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../../../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Lime Survey. Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../../../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>Exámenes - Lime Survey</h1>
+<body>
+  <h1>Exámenes - Lime Survey</h1>
 
-    <nav>
-      <p>
-        <a href="../../../index.html"><img src="../../../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../../../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-        <a href="../../examenes.html"><img src="../../../varios/iconos/icono-school.svg" alt="Exámenes" title="Exámenes" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../../../index.html"><img src="../../../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../../../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      <a href="../../examenes.html"><img src="../../../varios/iconos/icono-school.svg" alt="Exámenes" title="Exámenes" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>Examen Lime Survey</h2>
+    <div class="toc">
+      <h2>Examen Lime Survey</h2>
 
-        <ul>
-          <li><a href="#ejercicio-1">1. Instalar</a></li>
-          <li><a href="#ejercicio-2">2. Nombre, logo y favicon</a></li>
-          <li><a href="#ejercicio-3">3. Crear una encuesta</a></li>
-          <li><a href="#ejercicio-4">4. Contestar la encuesta</a></li>
-          <li><a href="#ejercicio-5">5. Completar la traducción</a></li>
-          <li><a href="#ejercicio-6">6. Cambiar la plantilla</a></li>
-          <li><a href="#ejercicio-7">7. Cambiar el aspecto visual</a></li>
-          <li><a href="#ejercicio-8">8. Alias</a></li>
-          <li><a href="#ejercicio-9">9. Copia de seguridad</a></li>
-        </ul>
-      </div>
-    </nav>
+      <ul>
+        <li><a href="#ejercicio-1">1. Instalar</a></li>
+        <li><a href="#ejercicio-2">2. Nombre, logo y favicon</a></li>
+        <li><a href="#ejercicio-3">3. Crear una encuesta</a></li>
+        <li><a href="#ejercicio-4">4. Contestar la encuesta</a></li>
+        <li><a href="#ejercicio-5">5. Completar la traducción</a></li>
+        <li><a href="#ejercicio-6">6. Cambiar la plantilla</a></li>
+        <li><a href="#ejercicio-7">7. Cambiar el aspecto visual</a></li>
+        <li><a href="#ejercicio-8">8. Alias</a></li>
+        <li><a href="#ejercicio-9">9. Copia de seguridad</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <p>En este ejercicio hay que acabar entregando una carpeta con el <strong>nombre del alumno</strong> y que contenga:</p>
+  <p>En este ejercicio hay que acabar entregando una carpeta con el <strong>nombre del alumno</strong> y que contenga:</p>
+  <ul>
+    <li>las capturas de pantalla (que se llamen <strong>XX_YY.png</strong> donde X sea el número de ejercicio e Y el número de captura del ejercicio).</li>
+    <li>el fichero <strong>favicon.txt </strong>del ejercicio 2.</li>
+    <li>el fichero <strong>alias.txt</strong> del ejercicio 8.</li>
+    <li>la copia de seguridad de los datos de la aplicación del ejercicio 9.</li>
+    <li>la carpeta de la aplicación (comprimida en un zip).</li>
+  </ul>
+
+  <p><img src="../../../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Las capturas deben ser capturas de <strong>toda</strong> la pantalla.</p>
+
+  <section id="ejercicio-1">
+    <h2>1. Instalar</h2>
+
     <ul>
-      <li>las capturas de pantalla (que se llamen <strong>XX_YY.png</strong> donde X sea el número de ejercicio e Y el número de captura del ejercicio).</li>
-      <li>el fichero <strong>favicon.txt </strong>del ejercicio 2.</li>
-      <li>el fichero <strong>alias.txt</strong> del ejercicio 8.</li>
-      <li>la copia de seguridad de los datos de la aplicación del ejercicio 9.</li>
-      <li>la carpeta de la aplicación (comprimida en un zip).</li>
+      <li>Lime Survey es una aplicación web para crear encuestas.
+        <p>Aplicación: <a href="http://www.mclibre.org/descargar/webapps/1516/limesurvey250plus-build160225.zip">Lime Survey 2.50+ (15/02/16)</a>. Página web: <a href="https://www.limesurvey.org/">Lime Survey</a></p>
+      </li>
+      <li>Descomprima <strong>Lime Survey</strong>.</li>
+      <li>Entre en phpMyAdmin como usuario <strong>root</strong> y cree un usuario de MySQL con nombre <strong>iaw_limesurvey-1</strong>, contraseña <strong>iaw_limesurvey-1</strong> y base de datos <strong>iaw_limesurvey-1</strong>.</li>
+      <li>Abra en el navegador <strong>/limesurvey</strong> e inicie la instalación.</li>
+      <li>Resuelva las advertencias iniciales y haga una captura de <strong>toda</strong> la pantalla en la que se vea que se han resuelto las advertencias iniciales:
+        <p class="captura">
+          <img src="ls-1-1.png" alt="Lime Survey" width="850" height="230" />
+        </p>
+      </li>
+      <li>Instale Lime Survey creando el usuario administrador <strong>admin</strong> y contraseña <strong>admin</strong>.</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla una vez instalado, tras entrar como administrador:
+        <p class="captura">
+          <img src="ls-1-2.png" alt="Lime Survey" width="991" height="250" />
+        </p>
+      </li>
     </ul>
+  </section>
 
-    <p><img src="../../../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Las capturas deben ser capturas de <strong>toda</strong> la pantalla.</p>
+  <section id="ejercicio-2">
+    <h2>2. Nombre, logo y favicon del sitio</h2>
 
-    <section id="ejercicio-1">
-      <h2>1. Instalar</h2>
+    <ul>
+      <li>Cambie el nombre del sitio (<strong>WebApps encuestas</strong>) usando el interfaz de la aplicación.</li>
+      <li>Cambie el favicon del sitio <img src="webapps-favicon.png" alt="favicon del sitio WebApps Gallery" width="16" height="13" /> (<a href="webapps-favicon.ico">favicon en formato .ico</a>).</li>
+      <li>Cambie el logotipo para la web en general <img src="webapps-encuestas.png" alt="Logotipo del sitio WebApps Encuestas" width="438" height="80" /></li>
+      <li>Escriba un fichero <strong>favicon_logo.txt</strong> explicando cómo lo ha hecho.</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla mostrando estos tres elementos:
+        <p class="captura">
+          <img src="ls-2-1.png" alt="Lime Survey" width="800" height="420" />
+        </p>
+      </li>
+      <li>Cambie el logotipo para el administrador <img src="webapps-encuestas.png" alt="Logotipo del sitio WebApps Encuestas" width="438" height="80" /></li>
+      <li>Escriba un fichero <strong>logo.txt</strong> explicando cómo lo ha hecho.</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla mostrando este elemento:
+        <p class="captura">
+          <img src="ls-2-2.png" alt="Lime Survey" width="581" height="230" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>Lime Survey es una aplicación web para crear encuestas.
-          <p>Aplicación: <a href="http://www.mclibre.org/descargar/webapps/1516/limesurvey250plus-build160225.zip">Lime Survey 2.50+ (15/02/16)</a>. Página web: <a href="https://www.limesurvey.org/">Lime Survey</a></p>
-        </li>
-        <li>Descomprima <strong>Lime Survey</strong>.</li>
-        <li>Entre en phpMyAdmin como usuario <strong>root</strong> y cree un usuario de MySQL con nombre <strong>iaw_limesurvey-1</strong>, contraseña <strong>iaw_limesurvey-1</strong> y base de datos <strong>iaw_limesurvey-1</strong>.</li>
-        <li>Abra en el navegador <strong>/limesurvey</strong> e inicie la instalación.</li>
-        <li>Resuelva las advertencias iniciales y haga una captura de <strong>toda</strong> la pantalla en la que se vea que se han resuelto las advertencias iniciales:
-          <p class="captura">
-            <img src="ls-1-1.png" alt="Lime Survey" width="850" height="230" />
-          </p>
-        </li>
-        <li>Instale Lime Survey creando el usuario administrador <strong>admin</strong> y contraseña <strong>admin</strong>.</li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla una vez instalado, tras entrar como administrador:
-          <p class="captura">
-            <img src="ls-1-2.png" alt="Lime Survey" width="991" height="250" />
-          </p>
-        </li>
-      </ul>
-    </section>
+  <section id="ejercicio-3">
+    <h2>3. Crear una encuesta</h2>
+    <ul>
+      <li>Entre en LimeSurvey como administrador.</li>
+      <li>Cree una nueva encuesta:
+        <ul>
+          <li>Título: <span class="codigo-modificacion">Sus aplicaciones web favoritas</span></li>
+          <li>Descripción: <span class="codigo-modificacion">Queremos saber cuáles son las aplicaciones web más populares. Gracias por participat en esta encuesta</span></li>
+        </ul>
+      </li>
+      <li>Añada un nuevo grupo de preguntas a la encuesta:
+        <ul>
+          <li>Título: <span class="codigo-modificacion">CMS</span></li>
+          <li>Descripción: <span class="codigo-modificacion">Content Management Systems</span></li>
+        </ul>
+      </li>
+      <li>Añada una nueva pregunta al grupo:
+        <ul>
+          <li>Código: <span class="codigo-modificacion">P001</span></li>
+          <li>Pregunta: <span class="codigo-modificacion">Como usuario, ¿cuál es su CMS favorito?</span></li>
+          <li>Tipo de pregunta: <span class="codigo-modificacion">Lista desplegable</span></li>
+        </ul>
+      </li>
+      <li>Añada las posibles respuestas a la pregunta:
+        <ul>
+          <li>Opción de respuesta: <span class="codigo-modificacion">Drupal</span></li>
+          <li>Opción de respuesta: <span class="codigo-modificacion">Joomla</span></li>
+          <li>Opción de respuesta: <span class="codigo-modificacion">WordPress</span></li>
+        </ul>
+      </li>
+      <li>Active la encuesta y muéstrela al público.</li>
+      <li>Abra en otro navegador la dirección <strong>/limesurvey</strong> y haga una captura de <strong>toda</strong> la pantalla en la que se vea la encuesta disponible:
+        <p class="captura">
+          <img src="ls-3-1.png" alt="Lime Survey" width="360" height="150" />
+        </p>
+      </li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla en la que se vea la pregunta en la encuesta:
+        <p class="captura">
+          <img src="ls-3-2.png" alt="Lime Survey" width="400" height="200" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-2">
-      <h2>2. Nombre, logo y favicon del sitio</h2>
+  <section id="ejercicio-4">
+    <h2>4. Contestar la encuesta</h2>
 
-      <ul>
-        <li>Cambie el nombre del sitio (<strong>WebApps encuestas</strong>) usando el interfaz de la aplicación.</li>
-        <li>Cambie el favicon del sitio <img src="webapps-favicon.png" alt="favicon del sitio WebApps Gallery" width="16" height="13" /> (<a href="webapps-favicon.ico">favicon en formato .ico</a>).</li>
-        <li>Cambie el logotipo para la web en general <img src="webapps-encuestas.png" alt="Logotipo del sitio WebApps Encuestas" width="438" height="80" /></li>
-        <li>Escriba un fichero <strong>favicon_logo.txt</strong> explicando cómo lo ha hecho.</li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando estos tres elementos:
-          <p class="captura">
-            <img src="ls-2-1.png" alt="Lime Survey" width="800" height="420" />
-          </p>
-        </li>
-        <li>Cambie el logotipo para el administrador <img src="webapps-encuestas.png" alt="Logotipo del sitio WebApps Encuestas" width="438" height="80" /></li>
-        <li>Escriba un fichero <strong>logo.txt</strong> explicando cómo lo ha hecho.</li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando este elemento:
-          <p class="captura">
-            <img src="ls-2-2.png" alt="Lime Survey" width="581" height="230" />
-          </p>
-        </li>
-      </ul>
-    </section>
+    <ul>
+      <li>Conteste la encuesta tres veces, contestando una respuesta dos veces y otra una sola vez.</li>
+      <li>Entre en LimeSurvey como usuario <strong>admin</strong>, muestre el resumen de respuestas con las respuestas recibidas. Haga una captura de <strong>toda</strong> la pantalla:
+        <p class="captura">
+          <img src="ls-4-1.png" alt="Lime Survey" width="420" height="180" />
+        </p>
+      </li>
+      <li>Muestre la información en forma de gráfico de donut. Haga una captura de <strong>toda</strong> la pantalla.
+        <p class="captura">
+          <img src="ls-4-2.png" alt="Lime Survey" width="690" height="450" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-3">
-      <h2>3. Crear una encuesta</h2>
-      <ul>
-        <li>Entre en LimeSurvey como administrador.</li>
-        <li>Cree una nueva encuesta:
-          <ul>
-            <li>Título: <span class="codigo-modificacion">Sus aplicaciones web favoritas</span></li>
-            <li>Descripción: <span class="codigo-modificacion">Queremos saber cuáles son las aplicaciones web más populares. Gracias por participat en esta encuesta</span></li>
-          </ul>
-        </li>
-        <li>Añada un nuevo grupo de preguntas a la encuesta:
-          <ul>
-            <li>Título: <span class="codigo-modificacion">CMS</span></li>
-            <li>Descripción: <span class="codigo-modificacion">Content Management Systems</span></li>
-          </ul>
-        </li>
-        <li>Añada una nueva pregunta al grupo:
-          <ul>
-            <li>Código: <span class="codigo-modificacion">P001</span></li>
-            <li>Pregunta: <span class="codigo-modificacion">Como usuario, ¿cuál es su CMS favorito?</span></li>
-            <li>Tipo de pregunta: <span class="codigo-modificacion">Lista desplegable</span></li>
-          </ul>
-        </li>
-        <li>Añada las posibles respuestas a la pregunta:
-          <ul>
-            <li>Opción de respuesta: <span class="codigo-modificacion">Drupal</span></li>
-            <li>Opción de respuesta: <span class="codigo-modificacion">Joomla</span></li>
-            <li>Opción de respuesta: <span class="codigo-modificacion">WordPress</span></li>
-          </ul>
-        </li>
-        <li>Active la encuesta y muéstrela al público.</li>
-        <li>Abra en otro navegador la dirección <strong>/limesurvey</strong> y haga una captura de <strong>toda</strong> la pantalla en la que se vea la encuesta disponible:
-          <p class="captura">
-            <img src="ls-3-1.png" alt="Lime Survey" width="360" height="150" />
-          </p>
-        </li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla en la que se vea la pregunta en la encuesta:
-          <p class="captura">
-            <img src="ls-3-2.png" alt="Lime Survey" width="400" height="200" />
-          </p>
-        </li>
-      </ul>
-    </section>
+  <section id="ejercicio-5">
+    <h2>5. Completar la traducción al español</h2>
 
-    <section id="ejercicio-4">
-      <h2>4. Contestar la encuesta</h2>
+    <ul>
+      <li>En el menú de Configuración, una de las opciones no está traducida:
+        <p class="captura">
+          <img src="ls-5-1.png" alt="Lime Survey" width="500" height="260" />
+        </p>
+      </li>
+      <li>Abra con <strong>poedit</strong> el <a href="http://www.mclibre.org/descargar/webapps/1516/limesurvey2-es.po">fichero de cadenas .pot de Lime Survey</a>.</li>
+      <li>Traduzca "Check data integrity" por "Verificación de consistencia de datos".</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla mostrando la traducción de la cadena en poedit.</li>
+      <li>Sustituya el archivo de traducción en LimeSurvey.</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla mostrando el menú traducido:
+        <p class="captura">
+          <img src="ls-5-2.png" alt="Lime Survey" width="500" height="260" />
+        </p>
+      </li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>Conteste la encuesta tres veces, contestando una respuesta dos veces y otra una sola vez.</li>
-        <li>Entre en LimeSurvey como usuario <strong>admin</strong>, muestre el resumen de respuestas con las respuestas recibidas. Haga una captura de <strong>toda</strong> la pantalla:
-          <p class="captura">
-            <img src="ls-4-1.png" alt="Lime Survey" width="420" height="180" />
-          </p>
-        </li>
-        <li>Muestre la información en forma de gráfico de donut. Haga una captura de <strong>toda</strong> la pantalla.
-          <p class="captura">
-            <img src="ls-4-2.png" alt="Lime Survey" width="690" height="450" />
-          </p>
-        </li>
-      </ul>
-    </section>
+  <section id="ejercicio-6">
+    <h2>6. Cambiar la plantilla</h2>
 
-    <section id="ejercicio-5">
-      <h2>5. Completar la traducción al español</h2>
+    <ul>
+      <li>Haga una copia de la plantilla <strong>default</strong> y llámela con su nombre, usando el interfaz de la aplicación.</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla de la página en la que se puede editar la nueva plantilla.</li>
+      <li>Añada la imagen <img src="webapps-institute.png" alt="WebApps Institute" width="140" height="46" />a la plantilla, usando el interfaz de la aplicación.</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla en la que se vea que se ha subido la imagen.</li>
+      <li>Modifique el archivo <strong>surveylist.pstpl</strong> de manera que el pie de página sea el siguiente:
+        <p class="captura">
+          <img src="ls-6-1.png" alt="Lime Survey" width="944" height="250" />
+        </p>
+      </li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla de la página en que se vea el código modificado.</li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>En el menú de Configuración, una de las opciones no está traducida:
-          <p class="captura">
-            <img src="ls-5-1.png" alt="Lime Survey" width="500" height="260" />
-          </p>
-        </li>
-        <li>Abra con <strong>poedit</strong> el <a href="http://www.mclibre.org/descargar/webapps/1516/limesurvey2-es.po">fichero de cadenas .pot de Lime Survey</a>.</li>
-        <li>Traduzca "Check data integrity" por "Verificación de consistencia de datos".</li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando la traducción de la cadena en poedit.</li>
-        <li>Sustituya el archivo de traducción en LimeSurvey.</li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando el menú traducido:
-          <p class="captura">
-            <img src="ls-5-2.png" alt="Lime Survey" width="500" height="260" />
-          </p>
-        </li>
-      </ul>
-    </section>
+  <section id="ejercicio-7">
+    <h2>7. Cambiar el aspecto visual</h2>
 
-    <section id="ejercicio-6">
-      <h2>6. Cambiar la plantilla</h2>
+    <ul>
+      <li>Cambie el aspecto visual de LimeSurvey (borde punteado de la imagen, fondo rosa del pie y espacio alrededor del texto del pie, modificando la hoja de estilo de la plantilla usando el interfaz de la aplicación.
+        <p class="captura">
+          <img src="ls-7-1.png" alt="Lime Survey" width="944" height="500" />
+        </p>
+      </li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla mostrando las modificaciones realizadas en la hoja de estilo (una captura es suficiente si se escriben las reglas al final de la plantilla).</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla mostrando el resultado.</li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>Haga una copia de la plantilla <strong>default</strong> y llámela con su nombre, usando el interfaz de la aplicación.</li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla de la página en la que se puede editar la nueva plantilla.</li>
-        <li>Añada la imagen <img src="webapps-institute.png" alt="WebApps Institute" width="140" height="46" />a la plantilla, usando el interfaz de la aplicación.</li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla en la que se vea que se ha subido la imagen.</li>
-        <li>Modifique el archivo <strong>surveylist.pstpl</strong> de manera que el pie de página sea el siguiente:
-          <p class="captura">
-            <img src="ls-6-1.png" alt="Lime Survey" width="944" height="250" />
-          </p>
-        </li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla de la página en que se vea el código modificado.</li>
-      </ul>
-    </section>
+  <section id="ejercicio-8">
+    <h2>8. Alias</h2>
 
-    <section id="ejercicio-7">
-      <h2>7. Cambiar el aspecto visual</h2>
+    <ul>
+      <li>Cree un alias para poder acceder a Lime Survey mediante la dirección <strong>http://localhost/limesurvey</strong>.</li>
+      <li>Escriba un fichero <strong>alias.txt</strong> con el alias que ha creado.</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla mostrando que funciona el alias.</li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>Cambie el aspecto visual de LimeSurvey (borde punteado de la imagen, fondo rosa del pie y espacio alrededor del texto del pie, modificando la hoja de estilo de la plantilla usando el interfaz de la aplicación.
-          <p class="captura">
-            <img src="ls-7-1.png" alt="Lime Survey" width="944" height="500" />
-          </p>
-        </li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando las modificaciones realizadas en la hoja de estilo (una captura es suficiente si se escriben las reglas al final de la plantilla).</li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando el resultado.</li>
-      </ul>
-    </section>
+  <section id="ejercicio-9">
+    <h2>9. Copia de seguridad</h2>
 
-    <section id="ejercicio-8">
-      <h2>8. Alias</h2>
+    <ul>
+      <li>Como usuario <strong>iaw_limesurvey-1</strong> haga una copia de seguridad de la base de datos.</li>
+    </ul>
+  </section>
 
-      <ul>
-        <li>Cree un alias para poder acceder a Lime Survey mediante la dirección <strong>http://localhost/limesurvey</strong>.</li>
-        <li>Escriba un fichero <strong>alias.txt</strong> con el alias que ha creado.</li>
-        <li>Haga una captura de <strong>toda</strong> la pantalla mostrando que funciona el alias.</li>
-      </ul>
-    </section>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 4 de marzo de 2016</p>
 
-    <section id="ejercicio-9">
-      <h2>9. Copia de seguridad</h2>
-
-      <ul>
-        <li>Como usuario <strong>iaw_limesurvey-1</strong> haga una copia de seguridad de la base de datos.</li>
-      </ul>
-    </section>
-
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 4 de marzo de 2016</p>
-
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../../../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../../../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

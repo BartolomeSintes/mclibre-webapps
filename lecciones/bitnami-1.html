@@ -1,89 +1,89 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Ejercicios (1). Bitnami. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Ejercicios (1). Bitnami. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>Bitnami. Ejercicios (1). Aplicación única en máquina virtual Ubuntu</h1>
+<body>
+  <h1>Bitnami. Ejercicios (1). Aplicación única en máquina virtual Ubuntu</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="bitnami.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          Bitnami (1)
-          <a href="bitnami-2.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="bitnami.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> Bitnami (1)
+        <a href="bitnami-2.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
 
-        <h3>Enunciados</h3>
-        <ul>
-          <li><a href="#ejercicio-1">1 - VirtualBox</a></li>
-          <li><a href="#ejercicio-2">2 - VM OpenCart</a></li>
-        </ul>
+      <h3>Enunciados</h3>
+      <ul>
+        <li><a href="#ejercicio-1">1 - VirtualBox</a></li>
+        <li><a href="#ejercicio-2">2 - VM OpenCart</a></li>
+      </ul>
 
-        <h3><a href="bitnami-1-soluciones.html">Soluciones</a></h3>
-        <ul>
-          <li><a href="bitnami-1-soluciones.html#ejercicio-1">1 - VirtualBox</a></li>
-          <li><a href="bitnami-1-soluciones.html#ejercicio-2">2 - VM OpenCart</a></li>
-        </ul>
-      </div>
-    </nav>
+      <h3><a href="bitnami-1-soluciones.html">Soluciones</a></h3>
+      <ul>
+        <li><a href="bitnami-1-soluciones.html#ejercicio-1">1 - VirtualBox</a></li>
+        <li><a href="bitnami-1-soluciones.html#ejercicio-2">2 - VM OpenCart</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <p>En esta lección se proponen ejercicios para conocer y utilizar las <strong>Máquinas Virtuales de aplicación</strong> de Bitnami. Se pueden consultar las <a href="bitnami-1-soluciones.html">soluciones de estos ejercicios de Bitnami (1)</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+  <p>En esta lección se proponen ejercicios para conocer y utilizar las <strong>Máquinas Virtuales de aplicación</strong> de Bitnami. Se pueden consultar las <a href="bitnami-1-soluciones.html">soluciones de estos ejercicios de Bitnami (1)</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-    <p>En estos ejercicios se nombran las versiones disponibles actualmente (enero de 2017), pero seguramente se podrán realizar sin problemas con versiones posteriores.</p>
+  <p>En estos ejercicios se nombran las versiones disponibles actualmente (enero de 2017), pero seguramente se podrán realizar sin problemas con versiones posteriores.</p>
 
-    <p><strong>Nota:</strong> En estos ejercicios se propone únicamente la instalación de la aplicación OpenCart, pero se anima al alumno a probar otras aplicaciones.</p>
+  <p><strong>Nota:</strong> En estos ejercicios se propone únicamente la instalación de la aplicación OpenCart, pero se anima al alumno a probar otras aplicaciones.</p>
 
-    <section id="ejercicio-1">
-      <h2>Bitnami (1) 1 - VirtualBox</h2>
+  <section id="ejercicio-1">
+    <h2>Bitnami (1) 1 - VirtualBox</h2>
 
-      <p>En este ejercicio se pide descargar e instalar VirtualBox. Lógicamente, no es necesario hacerlo si ya tiene instalada la última versión de VitrtualBox.</p>
+    <p>En este ejercicio se pide descargar e instalar VirtualBox. Lógicamente, no es necesario hacerlo si ya tiene instalada la última versión de VitrtualBox.</p>
 
-      <ol>
-        <li>Visite la página web de VirtualBox.</li>
-        <li>Descargue la última versión de VirtualBox. Actualmente (enero de 2017), la última versión disponible es VirtualBox 5.1.14, publicada el 17 de enero de 2017.</li>
-        <li>Instale VirtualBox.</li>
-        <li>Descargue el VirtualBox Extension Pack correspondiente a la versión descargada.</li>
-        <li>Instale VirtualBox Extension Pack.</li>
-      </ol>
-    </section>
+    <ol>
+      <li>Visite la página web de VirtualBox.</li>
+      <li>Descargue la última versión de VirtualBox. Actualmente (enero de 2017), la última versión disponible es VirtualBox 5.1.14, publicada el 17 de enero de 2017.</li>
+      <li>Instale VirtualBox.</li>
+      <li>Descargue el VirtualBox Extension Pack correspondiente a la versión descargada.</li>
+      <li>Instale VirtualBox Extension Pack.</li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-2">
-      <h2>Bitnami (1) 2 - Máquina virtual con OpenCart</h2>
+  <section id="ejercicio-2">
+    <h2>Bitnami (1) 2 - Máquina virtual con OpenCart</h2>
 
-      <ol>
-        <li>Visite la página web de Bitnami.</li>
-        <li>Descargue la máquina virtual de Opencart de Bitnami. Actualmente (enero de 2017), la versión disponible es OpenCart 2.3.0.2 en una máquina virtual Ubuntu 14.04.</li>
-        <li>Importe la máquina virtual de OpenCart de Bitnami en VirtualBox.</li>
-        <li>Arranque la máquina virtual.</li>
-        <li>Compruebe en el navegador del ordenador anfitrión que puede ver la tienda de ejemplo de OpenCart, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD</strong> en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
-          <p class="captura"><img src="../img/bitnami/1-2-e-1-vm-opencart.png" alt="Tienda OpenCart en la máquina virtual" title="Tienda OpenCart en la máquina virtual" width="495" height="273" /></p></li>
-        <li>Compruebe en el navegador del ordenador anfitrión que puede acceder como administrador de la tienda OpenCart escribiendo la dirección adecuada.
-          <p class="captura">
-            <img src="../img/bitnami/1-2-e-2-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="504" height="273" />
-            <img src="../img/bitnami/1-2-e-3-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="495" height="273" />
-          </p>
-          <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /><strong>Nota</strong>: El navegador mostrará un aviso sobre el certificado de seguridad del sitio web</p>
-        </li>
-      </ol>
-    </section>
+    <ol>
+      <li>Visite la página web de Bitnami.</li>
+      <li>Descargue la máquina virtual de Opencart de Bitnami. Actualmente (enero de 2017), la versión disponible es OpenCart 2.3.0.2 en una máquina virtual Ubuntu 14.04.</li>
+      <li>Importe la máquina virtual de OpenCart de Bitnami en VirtualBox.</li>
+      <li>Arranque la máquina virtual.</li>
+      <li>Compruebe en el navegador del ordenador anfitrión que puede ver la tienda de ejemplo de OpenCart, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD</strong> en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
+        <p class="captura"><img src="../img/bitnami/1-2-e-1-vm-opencart.png" alt="Tienda OpenCart en la máquina virtual" title="Tienda OpenCart en la máquina virtual" width="495" height="273" /></p>
+      </li>
+      <li>Compruebe en el navegador del ordenador anfitrión que puede acceder como administrador de la tienda OpenCart escribiendo la dirección adecuada.
+        <p class="captura">
+          <img src="../img/bitnami/1-2-e-2-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="504" height="273" />
+          <img src="../img/bitnami/1-2-e-3-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="495" height="273" />
+        </p>
+        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /><strong>Nota</strong>: El navegador mostrará un aviso sobre el certificado de seguridad del sitio web</p>
+      </li>
+    </ol>
+  </section>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 14 de enero de 2017</p>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 14 de enero de 2017</p>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

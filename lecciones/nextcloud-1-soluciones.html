@@ -1,258 +1,257 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Soluciones (1). Nextcloud. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Soluciones (1). Nextcloud. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>Nextcloud. Soluciones (1)</h1>
+<body>
+  <h1>Nextcloud. Soluciones (1)</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="nextcloud.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          Nextcloud (1)
-          <a href="nextcloud-2.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="nextcloud.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> Nextcloud (1)
+        <a href="nextcloud-2.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
 
-        <h3><a href="nextcloud-1.html">Enunciados</a></h3>
-        <ul>
-          <li><a href="nextcloud-1.html#ejercicio-1">1 - Crear contenedor</a></li>
-          <li><a href="nextcloud-1.html#ejercicio-2">2 - Completar instalación</a></li>
-          <li><a href="nextcloud-1.html#ejercicio-3">3 - Actualizar</a></li>
-          <li><a href="nextcloud-1.html#ejercicio-4">4 - http a https</a></li>
-          <li><a href="nextcloud-1.html#ejercicio-5">5 - Crear alias</a></li>
-          <li><a href="nextcloud-1.html#ejercicio-6">6 - Cambio IP</a></li>
-          <li><a href="nextcloud-1.html#ejercicio-7">7 - Acceder SSH o FTP</a></li>
-        </ul>
-
-        <h3>Soluciones</h3>
-        <ul>
-          <li><a href="#ejercicio-1">1 - Crear contenedor</a></li>
-          <li><a href="#ejercicio-2">2 - Completar instalación</a></li>
-          <li><a href="#ejercicio-3">3 - Actualizar</a></li>
-          <li><a href="#ejercicio-4">4 - http a https</a></li>
-          <li><a href="#ejercicio-5">5 - Crear alias</a></li>
-          <li><a href="#ejercicio-6">6 - Cambio IP</a></li>
-          <li><a href="#ejercicio-7">7 - Acceder SSH o FTP</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <p>En esta lección se proponen soluciones detalladas de los <a href="nextcloud-1.html">ejercicios (1) de Nextcloud</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
-
-    <section id="ejercicio-1">
-      <h2>Nextcloud (1) 1 - Crear contenedor Docker</h2>
-      <ol>
-        <li>Las instrucciones se encuentran en el repositorio <a href="https://github.com/greyltc/docker-nextcloud">https://github.com/greyltc/docker-nextcloud</a>.</li>
-        <li>Si va a utilizar SQLite, ejecute el comando:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker run -d --name nc -p 80:80 -p 443:443 greyltc/nextcloud</code></pre>
-          </div>
-        </li>
-        <li>Si va a utilizar MariaDB, ejecute los comandos siguientes:
-          <ul>
-            <li>Cree una red:
-              <div class="codigo">
-                <pre><code class="language-shell">sudo docker network create nc_network</code></pre>
-              </div>
-            </li>
-            <li>Cree el contenedor de MariaDB:
-              <div class="codigo">
-                <pre><code class="language-shell">sudo docker run -d --name mariadb --net=nc_network bitnami/mariadb</code></pre>
-              </div>
-            </li>
-            <li>Cree el contenedor de phpMyAdmin:
-              <div class="codigo">
-                <pre><code class="language-shell">sudo docker run -d --name phpmyadmin -p 8802:80 --net=nc_network bitnami/phpmyadmin</code></pre>
-              </div>
-            </li>
-            <li>Abra en el navegador del host la página http://AAA.BBB.CCC.DDD:8802 (usuario root sin contraseña) y con phpMyAdmin cree un usuario nextcloud, que pueda acceder desde cualquier servidor, con contraseña nextcloud y base de datos única.</li>
-            <li>Cree el contenedor de Nextcloud:
-              <div class="codigo">
-                <pre><code class="language-shell">sudo docker run -d --name nc -p 80:80 -p 443:443 --net=nc_network greyltc/nextcloud</code></pre>
-              </div>
-            </li>
-          </ul>
-        </li>
-      </ol>
-    </section>
-
-    <section id="ejercicio-2">
-      <h2>Nextcloud (1) 2 - Completar instalación</h2>
-
-      <p>Si va a utilizar MariaDB:</p>
-
+      <h3><a href="nextcloud-1.html">Enunciados</a></h3>
       <ul>
-        <li>Consulte la dirección IP privada del servidor de bases de datos:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker network inspect nc_network</code></pre>
-          </div>
-          <p>La dirección debe ser del tipo <span class="codigo-modificacion">172.XXX.YYY.ZZZ</span></p>
-        </li>
-        <li>Configure el acceso de Nextcloud a la base de datos:
-          <p class="captura"><img src="../img/nextcloud/1-2-s-1-completar.png" alt="Nextcloud. Conexión con MariaDB" width="400" height="680" title="Nextcloud. Conexión con MariaDB" /></p>
-        </li>
-        <li>Para salir de Nextcloud, haga clic en el nombre del usuario (arriba a la derecha) y seleccione la opción Salir:
-          <p class="captura"><img src="../img/nextcloud/1-2-s-2-salir.png" alt="Nextcloud. Salir" width="1008" height="260" title="Nextcloud. Salir" /></p>
-        </li>
+        <li><a href="nextcloud-1.html#ejercicio-1">1 - Crear contenedor</a></li>
+        <li><a href="nextcloud-1.html#ejercicio-2">2 - Completar instalación</a></li>
+        <li><a href="nextcloud-1.html#ejercicio-3">3 - Actualizar</a></li>
+        <li><a href="nextcloud-1.html#ejercicio-4">4 - http a https</a></li>
+        <li><a href="nextcloud-1.html#ejercicio-5">5 - Crear alias</a></li>
+        <li><a href="nextcloud-1.html#ejercicio-6">6 - Cambio IP</a></li>
+        <li><a href="nextcloud-1.html#ejercicio-7">7 - Acceder SSH o FTP</a></li>
       </ul>
-    </section>
 
-    <section id="ejercicio-3">
-      <h2>Nextcloud (1) 3 -  Actualizar Nextcloud</h2>
-
+      <h3>Soluciones</h3>
       <ul>
-        <li>Entre en Nextcloud como administrador. Haga clic en el nombre del usuario (arriba a la derecha) y seleccione la opción Administración:
-          <p class="captura"><img src="../img/nextcloud/1-3-s-1-actualizar.png" alt="Nextcloud. Actualizar" width="1008" height="260" title="Nextcloud. Actualizar" /></p>
-        </li>
-        <li>Compruebe que existe una actualización disponible:
-          <p class="captura"><img src="../img/nextcloud/1-3-s-2-actualizar.png" alt="Nextcloud. Actualizar" width="700" height="300" title="Nextcloud. Actualizar" /></p>
-        </li>
-        <li>Antes de hacer clic en el botón "Abrir el actualizador", ejecute el script que cambia los permisos:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker exec -it nc sh -c 'set-nc-perms upgrade'</code></pre>
-          </div>
-        </li>
-        <li>Haga clic en el botón "Abrir el actualizador":</li>
-        <li>Haga clic en el botón "Start update":
-          <p class="captura"><img src="../img/nextcloud/1-3-s-3-actualizar.png" alt="Nextcloud. Actualizar" width="700" height="300" title="Nextcloud. Actualizar" /></p>
-        </li>
-        <li><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />En mi caso no he podido realizar la actualización porque me sale el siguiente mensaje de errror:
-          <p class="captura"><img src="../img/nextcloud/1-3-s-4-actualizar.png" alt="Nextcloud. Actualizar" width="700" height="300" title="Nextcloud. Actualizar" /></p>
-        </li>
-        <li>Ejecute el script que restaura los permisos:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker exec -it nc sh -c 'set-nc-perms runtime'</code></pre>
-          </div>
-        </li>
+        <li><a href="#ejercicio-1">1 - Crear contenedor</a></li>
+        <li><a href="#ejercicio-2">2 - Completar instalación</a></li>
+        <li><a href="#ejercicio-3">3 - Actualizar</a></li>
+        <li><a href="#ejercicio-4">4 - http a https</a></li>
+        <li><a href="#ejercicio-5">5 - Crear alias</a></li>
+        <li><a href="#ejercicio-6">6 - Cambio IP</a></li>
+        <li><a href="#ejercicio-7">7 - Acceder SSH o FTP</a></li>
       </ul>
-    </section>
+    </div>
+  </nav>
 
-    <section id="ejercicio-4">
-      <h2>Nextcloud (1) 4 - Acceder mediante https</h2>
+  <p>En esta lección se proponen soluciones detalladas de los <a href="nextcloud-1.html">ejercicios (1) de Nextcloud</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-      <ul>
-        <li>Entre en la shell del contenedor de Nextcloud:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
-          </div>
-        </li>
-        <li>Busque el directorio en el que se encuentra el fichero <strong>nextcloud.conf</strong>:
-          <div class="codigo">
-            <pre><code class="language-shell">find / -name nextcloud.conf</code></pre>
-          </div>
-        </li>
-        <li>Salga de la shell del contenedor de Nextcloud:
-          <div class="codigo">
-            <pre><code class="language-shell">exit</code></pre>
-          </div>
-        </li>
-        <li>Haga una copia de seguridad del fichero <strong>nextcloud.conf</strong> original:
-          <div class="codigo">
-            <pre>
+  <section id="ejercicio-1">
+    <h2>Nextcloud (1) 1 - Crear contenedor Docker</h2>
+    <ol>
+      <li>Las instrucciones se encuentran en el repositorio <a href="https://github.com/greyltc/docker-nextcloud">https://github.com/greyltc/docker-nextcloud</a>.</li>
+      <li>Si va a utilizar SQLite, ejecute el comando:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker run -d --name nc -p 80:80 -p 443:443 greyltc/nextcloud</code></pre>
+        </div>
+      </li>
+      <li>Si va a utilizar MariaDB, ejecute los comandos siguientes:
+        <ul>
+          <li>Cree una red:
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker network create nc_network</code></pre>
+            </div>
+          </li>
+          <li>Cree el contenedor de MariaDB:
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker run -d --name mariadb --net=nc_network bitnami/mariadb</code></pre>
+            </div>
+          </li>
+          <li>Cree el contenedor de phpMyAdmin:
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker run -d --name phpmyadmin -p 8802:80 --net=nc_network bitnami/phpmyadmin</code></pre>
+            </div>
+          </li>
+          <li>Abra en el navegador del host la página http://AAA.BBB.CCC.DDD:8802 (usuario root sin contraseña) y con phpMyAdmin cree un usuario nextcloud, que pueda acceder desde cualquier servidor, con contraseña nextcloud y base de datos única.</li>
+          <li>Cree el contenedor de Nextcloud:
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker run -d --name nc -p 80:80 -p 443:443 --net=nc_network greyltc/nextcloud</code></pre>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <section id="ejercicio-2">
+    <h2>Nextcloud (1) 2 - Completar instalación</h2>
+
+    <p>Si va a utilizar MariaDB:</p>
+
+    <ul>
+      <li>Consulte la dirección IP privada del servidor de bases de datos:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker network inspect nc_network</code></pre>
+        </div>
+        <p>La dirección debe ser del tipo <span class="codigo-modificacion">172.XXX.YYY.ZZZ</span></p>
+      </li>
+      <li>Configure el acceso de Nextcloud a la base de datos:
+        <p class="captura"><img src="../img/nextcloud/1-2-s-1-completar.png" alt="Nextcloud. Conexión con MariaDB" width="400" height="680" title="Nextcloud. Conexión con MariaDB" /></p>
+      </li>
+      <li>Para salir de Nextcloud, haga clic en el nombre del usuario (arriba a la derecha) y seleccione la opción Salir:
+        <p class="captura"><img src="../img/nextcloud/1-2-s-2-salir.png" alt="Nextcloud. Salir" width="1008" height="260" title="Nextcloud. Salir" /></p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-3">
+    <h2>Nextcloud (1) 3 - Actualizar Nextcloud</h2>
+
+    <ul>
+      <li>Entre en Nextcloud como administrador. Haga clic en el nombre del usuario (arriba a la derecha) y seleccione la opción Administración:
+        <p class="captura"><img src="../img/nextcloud/1-3-s-1-actualizar.png" alt="Nextcloud. Actualizar" width="1008" height="260" title="Nextcloud. Actualizar" /></p>
+      </li>
+      <li>Compruebe que existe una actualización disponible:
+        <p class="captura"><img src="../img/nextcloud/1-3-s-2-actualizar.png" alt="Nextcloud. Actualizar" width="700" height="300" title="Nextcloud. Actualizar" /></p>
+      </li>
+      <li>Antes de hacer clic en el botón "Abrir el actualizador", ejecute el script que cambia los permisos:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker exec -it nc sh -c 'set-nc-perms upgrade'</code></pre>
+        </div>
+      </li>
+      <li>Haga clic en el botón "Abrir el actualizador":</li>
+      <li>Haga clic en el botón "Start update":
+        <p class="captura"><img src="../img/nextcloud/1-3-s-3-actualizar.png" alt="Nextcloud. Actualizar" width="700" height="300" title="Nextcloud. Actualizar" /></p>
+      </li>
+      <li><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />En mi caso no he podido realizar la actualización porque me sale el siguiente mensaje de errror:
+        <p class="captura"><img src="../img/nextcloud/1-3-s-4-actualizar.png" alt="Nextcloud. Actualizar" width="700" height="300" title="Nextcloud. Actualizar" /></p>
+      </li>
+      <li>Ejecute el script que restaura los permisos:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker exec -it nc sh -c 'set-nc-perms runtime'</code></pre>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-4">
+    <h2>Nextcloud (1) 4 - Acceder mediante https</h2>
+
+    <ul>
+      <li>Entre en la shell del contenedor de Nextcloud:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
+        </div>
+      </li>
+      <li>Busque el directorio en el que se encuentra el fichero <strong>nextcloud.conf</strong>:
+        <div class="codigo">
+          <pre><code class="language-shell">find / -name nextcloud.conf</code></pre>
+        </div>
+      </li>
+      <li>Salga de la shell del contenedor de Nextcloud:
+        <div class="codigo">
+          <pre><code class="language-shell">exit</code></pre>
+        </div>
+      </li>
+      <li>Haga una copia de seguridad del fichero <strong>nextcloud.conf</strong> original:
+        <div class="codigo">
+          <pre>
 <code class="language-shell">sudo docker cp CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf /tmp/nextcloud.conf.original
 sudo docker cp /tmp/nextcloud.conf.original CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf.original</code>
 </pre>
-          </div>
-        </li>
-        <li>Copie el fichero <strong>nextcloud.conf</strong> del contenedor a la máquina virtual
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker cp CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf /tmp/nextcloud.conf</code></pre>
-          </div>
-        </li>
-        <li>Edite el fichero de configuración:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo vi /tmp/nextcloud.conf</code></pre>
-          </div>
-        </li>
-        <li>Añada una directiva VirtualHost que redirija las peticiones http a https.
-          <div class="codigo">
-            <pre>
+        </div>
+      </li>
+      <li>Copie el fichero <strong>nextcloud.conf</strong> del contenedor a la máquina virtual
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker cp CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf /tmp/nextcloud.conf</code></pre>
+        </div>
+      </li>
+      <li>Edite el fichero de configuración:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo vi /tmp/nextcloud.conf</code></pre>
+        </div>
+      </li>
+      <li>Añada una directiva VirtualHost que redirija las peticiones http a https.
+        <div class="codigo">
+          <pre>
 <code class="language-configuracion">&lt;VirtualHost *:80>
   Servername 192.168.<span class="codigo-modificacion">XXX.YYY</span>
   Redirect permanent / https://192.168.<span class="codigo-modificacion">XXX.YYY</span>/
 &lt;/VirtualHost></code>
 </pre>
-          </div>
-          <p><strong>Nota</strong>: Creo que el valor de Servername no es importante, pero debe haber Servername.</p>
-        </li>
-        <li>Copie el fichero <strong>nextcloud.conf</strong> de la máquina virtual al contenedor:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker cp /tmp/nextcloud.conf CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf</code></pre>
-          </div>
-        </li>
-        <li>Reinicie el contenedor
-          <div class="codigo">
-            <pre>
+        </div>
+        <p><strong>Nota</strong>: Creo que el valor de Servername no es importante, pero debe haber Servername.</p>
+      </li>
+      <li>Copie el fichero <strong>nextcloud.conf</strong> de la máquina virtual al contenedor:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker cp /tmp/nextcloud.conf CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf</code></pre>
+        </div>
+      </li>
+      <li>Reinicie el contenedor
+        <div class="codigo">
+          <pre>
 <code class="language-shell">sudo docker stop CONTENEDOR
 sudo docker start CONTENEDOR</code>
 </pre>
-          </div>
-        </li>
-      </ul>
-    </section>
+        </div>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-5">
-      <h2>Nextcloud (1) 5 - Crear alias</h2>
-      <ul>
-        <li>Como en el ejercicio anterior, añada el alias en el fichero <strong>nextcloud.conf</strong>:
-          <div class="codigo">
-            <pre><code class="language-configuracion">Alias /nc /usr/share/webapps/nextcloud/</code></pre>
-          </div>
-        </li>
-        <li>Reinicie el contenedor
-          <div class="codigo">
-            <pre>
+  <section id="ejercicio-5">
+    <h2>Nextcloud (1) 5 - Crear alias</h2>
+    <ul>
+      <li>Como en el ejercicio anterior, añada el alias en el fichero <strong>nextcloud.conf</strong>:
+        <div class="codigo">
+          <pre><code class="language-configuracion">Alias /nc /usr/share/webapps/nextcloud/</code></pre>
+        </div>
+      </li>
+      <li>Reinicie el contenedor
+        <div class="codigo">
+          <pre>
 <code class="language-shell">sudo docker stop CONTENEDOR
 sudo docker start CONTENEDOR</code>
 </pre>
-          </div>
-        </li>
-      </ul>
-    </section>
+        </div>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-6">
-      <h2>Nextcloud (1) 6 - Cambio de IP</h2>
+  <section id="ejercicio-6">
+    <h2>Nextcloud (1) 6 - Cambio de IP</h2>
 
-      <ul>
-        <li>Entre en la shell del contenedor de Nextcloud:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
-          </div>
-        </li>
-        <li>Busque el directorio en el que se encuentra el fichero <strong>config.php</strong> de Nextcloud:
-          <div class="codigo">
-            <pre><code class="language-shell">find / -name config.php</code></pre>
-          </div>
-        </li>
-        <li>Salga de la shell del contenedor de Nextcloud:
-          <div class="codigo">
-            <pre><code class="language-shell">exit</code></pre>
-          </div>
-        </li>
-        <li>Copie el fichero <strong>config.php</strong> del contenedor a la máquina virtual
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker cp CONTENEDOR:/usr/share/webapps/nextcloud/condfig/config.php /tmp/config.php</code></pre>
-          </div>
-        </li>
-        <li>Edite el fichero de configuración:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo vi /tmp/config.php</code></pre>
-          </div>
-        </li>
-        <li>Cambie la IP.
-          <div class="codigo">
-            <pre>
+    <ul>
+      <li>Entre en la shell del contenedor de Nextcloud:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
+        </div>
+      </li>
+      <li>Busque el directorio en el que se encuentra el fichero <strong>config.php</strong> de Nextcloud:
+        <div class="codigo">
+          <pre><code class="language-shell">find / -name config.php</code></pre>
+        </div>
+      </li>
+      <li>Salga de la shell del contenedor de Nextcloud:
+        <div class="codigo">
+          <pre><code class="language-shell">exit</code></pre>
+        </div>
+      </li>
+      <li>Copie el fichero <strong>config.php</strong> del contenedor a la máquina virtual
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker cp CONTENEDOR:/usr/share/webapps/nextcloud/condfig/config.php /tmp/config.php</code></pre>
+        </div>
+      </li>
+      <li>Edite el fichero de configuración:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo vi /tmp/config.php</code></pre>
+        </div>
+      </li>
+      <li>Cambie la IP.
+        <div class="codigo">
+          <pre>
 <code class="language-configuracion">...
   array (
     0 => '192.168.<span class="codigo-modificacion">XXX.YYY</span>'.
@@ -261,28 +260,28 @@ sudo docker start CONTENEDOR</code>
   'overwirte.cli.url' => 'https://192.168.<span class="codigo-modificacion">XXX.YYY</span>'/nextcloud',
 ...</code>
 </pre>
-          </div>
-        </li>
-        <li>Copie el fichero <strong>config.php</strong> de la máquina virtual al contenedor:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker cp /tmp/config.php CONTENEDOR:/usr/share/webapps/nextcloud/condfig/config.php</code></pre>
-          </div>
-        </li>
-      </ul>
-    </section>
+        </div>
+      </li>
+      <li>Copie el fichero <strong>config.php</strong> de la máquina virtual al contenedor:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker cp /tmp/config.php CONTENEDOR:/usr/share/webapps/nextcloud/condfig/config.php</code></pre>
+        </div>
+      </li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-7">
-      <h2>Nextcloud (1) 7 - Acceso mediante SSH o FTP</h2>
+  <section id="ejercicio-7">
+    <h2>Nextcloud (1) 7 - Acceso mediante SSH o FTP</h2>
 
-      <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />No he tenido tiempo de preparar este ejercicio.</p>
-    </section>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />No he tenido tiempo de preparar este ejercicio.</p>
+  </section>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 1 de febrero de 2017</p>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 1 de febrero de 2017</p>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

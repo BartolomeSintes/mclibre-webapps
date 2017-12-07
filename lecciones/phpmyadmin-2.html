@@ -1,189 +1,188 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Ejercicios (2). phpMyAdmin. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Ejercicios (2). phpMyAdmin. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>phpMyAdmin. Ejercicios (2)</h1>
+<body>
+  <h1>phpMyAdmin. Ejercicios (2)</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="phpmyadmin-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          phpMyAdmin (2)
-          <a href="phpmyadmin-3.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="phpmyadmin-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> phpMyAdmin (2)
+        <a href="phpmyadmin-3.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
 
-        <h3>Enunciados</h3>
-        <ul>
-          <li><a href="#intro">Introducción</a></li>
-          <li><a href="#ejercicio-1">1 - usuario 1 con BD única</a></li>
-          <li><a href="#ejercicio-2">2 - aplicación usuario 1</a></li>
-          <li><a href="#ejercicio-3">3 - usuario 2 con varias BD</a></li>
-          <li><a href="#ejercicio-4">4 - aplicaciones usuario 2</a></li>
-          <li><a href="#ejercicio-5">5 - usuario 3 con BD única</a></li>
-          <li><a href="#ejercicio-6">6 - aplicaciones usuario 3</a></li>
-          <li><a href="#ejercicio-7">7 - mejoras aplicaciones ej. 6</a></li>
-        </ul>
-
-        <h3><a href="phpmyadmin-2-soluciones.html">Soluciones</a></h3>
-        <ul>
-          <li><a href="phpmyadmin-2-soluciones.html#ejercicio-1">1 - usuario 1 con BD única</a></li>
-          <li><a href="phpmyadmin-2-soluciones.html#ejercicio-2">2 - aplicación usuario 1</a></li>
-          <li><a href="phpmyadmin-2-soluciones.html#ejercicio-3">3 - usuario 2 con varias BD</a></li>
-          <li><a href="phpmyadmin-2-soluciones.html#ejercicio-4">4 - aplicaciones usuario 2</a></li>
-          <li><a href="phpmyadmin-2-soluciones.html#ejercicio-5">5 - usuario 3 con BD única</a></li>
-          <li><a href="phpmyadmin-2-soluciones.html#ejercicio-6">6 - aplicaciones usuario 3</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <p>En esta lección se proponen ejercicios para practicar el uso de <strong>phpMyAdmin</strong> instalando pequeñas aplicaciones. Se pueden consultar las <a href="phpmyadmin-2-soluciones.html">soluciones de estos ejercicios de phpMyAdmin</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
-
-    <section id="intro">
-      <h2>Administración de bases de datos on phpMyAdmin</h2>
-
-      <p>Las aplicaciones web que se abordan en este curso utilizan la base de datos MySQL. Por motivos de seguridad, en servidores reales no se recomienda que las aplicaciones se conecten a MySQL como usuario <strong>root</strong>. Para cada aplicación, es más recomendable crear un usuario en MySQL que administre la aplicación. Ese procedimiento es el que se utilizará en estos apuntes. Para crear esos usuarios y, en general, administrar MySQL, se utilizará la aplicación <strong>phpMyAdmin</strong>.</p>
-
-      <p>En esta lección se proponen ejercicios en los que se instalará varias veces una pequeña aplicación de agenda. En los ejercicios se plantean tres situaciones distintas:</p>
+      <h3>Enunciados</h3>
       <ul>
-        <li>instalar y configurar manualmente la aplicación como usuario que sólo puede crear una base de datos</li>
-        <li>instalar y configurar manualmente <strong>dos</strong> aplicaciones como usuario que puede crear varias bases de datos</li>
-        <li>instalar y configurar manualmente <strong>dos</strong> aplicaciones como usuario que sólo puede crear una base de datos (es necesario además modificar la aplicación)</li>
+        <li><a href="#intro">Introducción</a></li>
+        <li><a href="#ejercicio-1">1 - usuario 1 con BD única</a></li>
+        <li><a href="#ejercicio-2">2 - aplicación usuario 1</a></li>
+        <li><a href="#ejercicio-3">3 - usuario 2 con varias BD</a></li>
+        <li><a href="#ejercicio-4">4 - aplicaciones usuario 2</a></li>
+        <li><a href="#ejercicio-5">5 - usuario 3 con BD única</a></li>
+        <li><a href="#ejercicio-6">6 - aplicaciones usuario 3</a></li>
+        <li><a href="#ejercicio-7">7 - mejoras aplicaciones ej. 6</a></li>
       </ul>
-    </section>
 
-    <section id="ejercicio-1">
-      <h2>phpMyAdmin (2) 1 - Crear un usuario iaw_agenda_1 con una base de datos única</h2>
-      <ol>
-        <li>Cree un nuevo usuario de MySQL con la siguiente configuración
-          <ul>
-            <li>nombre de usuario: <strong>iaw_agenda_1</strong> </li>
-            <li>servidor: <strong>localhost</strong> </li>
-            <li>contraseña: <strong>iaw_agenda_1</strong> </li>
-            <li>base de datos para el usuario: base de datos con el mismo nombre (<strong>iaw_agenda_1</strong>)</li>
-            <li>sin privilegios globales</li>
-            <li>sin límite de recursos</li>
-          </ul>
-        </li>
-        <li>Una vez creado el usuario, entre en phpMyAdmin como usuario <strong>iaw_agenda_1</strong> y compruebe que se ha creado la base de datos <strong>iaw_agenda_1</strong>.
-          <p class="captura">
-            <img src="../img/phpmyadmin/2-1-e-1-general-agenda-1-detalle.png" alt="phpMyAdmin. Detalle" width="185" height="175" />
-          </p>
-        </li>
-        <li>Como usuario <strong>iaw_agenda_1</strong>, compruebe que no puede borrar la base de datos, ni crear otra base de datos (por ejemplo, la base de datos <strong>iaw_agenda_1_db1</strong>).</li>
-      </ol>
-    </section>
+      <h3><a href="phpmyadmin-2-soluciones.html">Soluciones</a></h3>
+      <ul>
+        <li><a href="phpmyadmin-2-soluciones.html#ejercicio-1">1 - usuario 1 con BD única</a></li>
+        <li><a href="phpmyadmin-2-soluciones.html#ejercicio-2">2 - aplicación usuario 1</a></li>
+        <li><a href="phpmyadmin-2-soluciones.html#ejercicio-3">3 - usuario 2 con varias BD</a></li>
+        <li><a href="phpmyadmin-2-soluciones.html#ejercicio-4">4 - aplicaciones usuario 2</a></li>
+        <li><a href="phpmyadmin-2-soluciones.html#ejercicio-5">5 - usuario 3 con BD única</a></li>
+        <li><a href="phpmyadmin-2-soluciones.html#ejercicio-6">6 - aplicaciones usuario 3</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <section id="ejercicio-2">
-      <h2>phpMyAdmin (2) 2 - Instalar una aplicación como usuario iaw_agenda_1</h2>
-      <ol>
-        <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1617/agenda_161212.zip">Agenda (12/12/16)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/">Programación web en PHP</a>).</li>
-        <li>Descomprima la aplicación en la carpeta adecuada y renombre la carpeta como <strong>agenda_1</strong>.</li>
-        <li>Modifique el archivo de configuración <strong>config.php</strong> de la aplicación Agenda para que esta utilice la cuenta del usuario <strong>iaw_agenda_1</strong> en MySQL.</li>
-        <li>Ejecute la aplicación en el navegador, eligiendo primero la opción "Borrar todo" para crear la tabla en la base de datos, y compruebe que funciona creando varios registros.</li>
-        <li>Compruebe el contenido de la tabla en phpMyAdmin como usuario <strong>iaw_agenda_1</strong>.</li>
-      </ol>
-    </section>
+  <p>En esta lección se proponen ejercicios para practicar el uso de <strong>phpMyAdmin</strong> instalando pequeñas aplicaciones. Se pueden consultar las <a href="phpmyadmin-2-soluciones.html">soluciones de estos ejercicios de phpMyAdmin</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-    <section id="ejercicio-3">
-      <h2>phpMyAdmin (2) 3 - Crear un usuario iaw_agenda_2 que pueda administrar varias bases de datos</h2>
-      <ol>
-        <li>Cree un nuevo usuario de MySQL con la siguiente configuración
-          <ul>
-            <li>nombre de usuario: <strong>iaw_agenda_2</strong> </li>
-            <li>servidor: <strong>localhost</strong> </li>
-            <li>contraseña: <strong>iaw_agenda_2</strong> </li>
-            <li>base de datos para el usuario: Otorgar todos los privilegios al nombre que contiene comodín (<strong>username\_%</strong>)</li>
-            <li>sin privilegios globales</li>
-            <li>sin límite de recursos</li>
-          </ul>
-        </li>
-        <li>Una vez creado el usuario, entre en phpMyAdmin como usuario <strong>iaw_agenda_2</strong> y compruebe que no se ha creado ninguna base de datos.
-          <p class="captura">
-            <img src="../img/phpmyadmin/2-4-e-1-general-agenda-2-detalle.png" alt="phpMyAdmin. Detalle" width="200" height="200" />
-          </p>
-        </li>
-        <li>Compruebe que el usuario <strong>iaw_agenda_2</strong> no puede crear una base de datos cuyo nombre no empiece por <strong>iaw_agenda_2_</strong>, por ejemplo una base de datos que se llame <strong>agenda_2</strong>.</li>
-      </ol>
-    </section>
+  <section id="intro">
+    <h2>Administración de bases de datos on phpMyAdmin</h2>
 
-    <section id="ejercicio-4">
-      <h2>phpMyAdmin (2) 4 - Instalar dos aplicaciones como usuario iaw_agenda_2</h2>
-      <ol>
-        <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1617/agenda_161212.zip">Agenda (12/12/16)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/">Programación web en PHP</a>).</li>
-        <li>Descomprima la aplicación dos veces en dos carpetas y renombre las carpetas como <strong>agenda_2a</strong> y <strong>agenda_2b</strong>.</li>
-        <li>Modifique los archivos de configuración <strong>config.php</strong> de ambas aplicaciones para que estas utilicen la cuenta del usuario <strong>iaw_agenda_2</strong> en MySQL (pero bases de datos distintas).
-          <p><strong>Nota</strong>: Hay que tener en cuenta que el nombre de las bases de datos debe comenzar por el nombre del usuario y un guión bajo (en este caso, iaw_agenda_2_agenda_2a y iaw_agenda_2_agenda_2b, por ejemplo)</p>
-          <p>Para distingir después una aplicación de otra fácilmente, puede cambiar el color básico de la aplicación en el archivo de configuración.</p>
-        </li>
-        <li>Ejecute las aplicaciones en el navegador, eligiendo primero la opción "Borrar todo" para crear la tabla en la base de datos, y compruebe que funcionan creando varios registros.</li>
-        <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_2</strong>.</li>
-      </ol>
-    </section>
+    <p>Las aplicaciones web que se abordan en este curso utilizan la base de datos MySQL. Por motivos de seguridad, en servidores reales no se recomienda que las aplicaciones se conecten a MySQL como usuario <strong>root</strong>. Para cada aplicación, es más recomendable crear un usuario en MySQL que administre la aplicación. Ese procedimiento es el que se utilizará en estos apuntes. Para crear esos usuarios y, en general, administrar MySQL, se utilizará la aplicación <strong>phpMyAdmin</strong>.</p>
 
-    <section id="ejercicio-5">
-      <h2>phpMyAdmin (2) 5 - Crear un usuario iaw_agenda_3 con una base de datos única</h2>
-      <ol>
-        <li>Cree un nuevo usuario de MySQL con la siguiente configuración
-          <ul>
-            <li>nombre de usuario: <strong>iaw_agenda_3</strong> </li>
-            <li>servidor: <strong>localhost</strong> </li>
-            <li>contraseña: <strong>iaw_agenda_3</strong> </li>
-            <li>base de datos con el mismo nombre (<strong>iaw_agenda_3</strong>)</li>
-            <li>sin privilegios globales</li>
-            <li>sin límite de recursos</li>
-          </ul>
-        </li>
-        <li>Una vez creado el usuario, entre en phpMyAdmin como usuario <strong>iaw_agenda_3</strong> y compruebe que se ha creado la base de datos <strong>iaw_agenda_3</strong>.</li>
-      </ol>
-    </section>
+    <p>En esta lección se proponen ejercicios en los que se instalará varias veces una pequeña aplicación de agenda. En los ejercicios se plantean tres situaciones distintas:</p>
+    <ul>
+      <li>instalar y configurar manualmente la aplicación como usuario que sólo puede crear una base de datos</li>
+      <li>instalar y configurar manualmente <strong>dos</strong> aplicaciones como usuario que puede crear varias bases de datos</li>
+      <li>instalar y configurar manualmente <strong>dos</strong> aplicaciones como usuario que sólo puede crear una base de datos (es necesario además modificar la aplicación)</li>
+    </ul>
+  </section>
 
-    <section id="ejercicio-6">
-      <h2>phpMyAdmin (2) 6 - Instalar dos aplicaciones como usuario iaw_agenda_3</h2>
-      <ol>
-        <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1617/agenda_161212.zip">Agenda (12/12/16)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/index.html">Programación web en PHP</a>).</li>
-        <li>Descomprima la aplicación en dos carpetas y renombre las carpetas como <strong>agenda_3a</strong> y <strong>agenda_3b</strong>.</li>
-        <li>Modifique los archivos de configuración <strong>config.php</strong> para que las aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_3</strong> en MySQL y la misma base de datos <strong>iaw_agenda_3</strong>, pero cada una guarde sus registros en tablas distintas.</li>
-        <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros.</li>
-        <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong>.</li>
-      </ol>
-    </section>
+  <section id="ejercicio-1">
+    <h2>phpMyAdmin (2) 1 - Crear un usuario iaw_agenda_1 con una base de datos única</h2>
+    <ol>
+      <li>Cree un nuevo usuario de MySQL con la siguiente configuración
+        <ul>
+          <li>nombre de usuario: <strong>iaw_agenda_1</strong> </li>
+          <li>servidor: <strong>localhost</strong> </li>
+          <li>contraseña: <strong>iaw_agenda_1</strong> </li>
+          <li>base de datos para el usuario: base de datos con el mismo nombre (<strong>iaw_agenda_1</strong>)</li>
+          <li>sin privilegios globales</li>
+          <li>sin límite de recursos</li>
+        </ul>
+      </li>
+      <li>Una vez creado el usuario, entre en phpMyAdmin como usuario <strong>iaw_agenda_1</strong> y compruebe que se ha creado la base de datos <strong>iaw_agenda_1</strong>.
+        <p class="captura">
+          <img src="../img/phpmyadmin/2-1-e-1-general-agenda-1-detalle.png" alt="phpMyAdmin. Detalle" width="185" height="175" />
+        </p>
+      </li>
+      <li>Como usuario <strong>iaw_agenda_1</strong>, compruebe que no puede borrar la base de datos, ni crear otra base de datos (por ejemplo, la base de datos <strong>iaw_agenda_1_db1</strong>).</li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-7">
-      <h2>phpMyAdmin (2) 7 - Mejora de las aplicaciones del usuario iaw_agenda_3</h2>
+  <section id="ejercicio-2">
+    <h2>phpMyAdmin (2) 2 - Instalar una aplicación como usuario iaw_agenda_1</h2>
+    <ol>
+      <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1617/agenda_161212.zip">Agenda (12/12/16)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/">Programación web en PHP</a>).</li>
+      <li>Descomprima la aplicación en la carpeta adecuada y renombre la carpeta como <strong>agenda_1</strong>.</li>
+      <li>Modifique el archivo de configuración <strong>config.php</strong> de la aplicación Agenda para que esta utilice la cuenta del usuario <strong>iaw_agenda_1</strong> en MySQL.</li>
+      <li>Ejecute la aplicación en el navegador, eligiendo primero la opción "Borrar todo" para crear la tabla en la base de datos, y compruebe que funciona creando varios registros.</li>
+      <li>Compruebe el contenido de la tabla en phpMyAdmin como usuario <strong>iaw_agenda_1</strong>.</li>
+    </ol>
+  </section>
 
-      <p>El problema de las aplicaciones del ejercicio 6 es que si se elige la opción "Borrar todo" en una de las aplicaciones se pierde toda la información de la otra, ya que al "Borrar todo" se borra la base de datos completa.</p>
-      <ol>
-        <li>Modifique la función <strong>borraTodo()</strong> del fichero <strong>biblioteca_mysql.php</strong> para que no se produzca este problema. Se puede hacer de dos maneras:
-          <ul>
-            <li>Añadiendo otra opción al programa Agenda que borre las tablas.</li>
-            <li>Haciendo que la opción Borrar todo sólo borre la tabla que usa la aplicación (para usar la aplicación por primera vez sería necesario crear la base de datos en phpMyAdmin).
-              <p><strong>Nota</strong>: Para modificar la función <strong>borraTodo()</strong> del fichero <strong>biblioteca_mysql.php</strong> puede utilizar la función <strong>borraTodo()</strong> del fichero <strong>biblioteca_sqlite.php</strong>.</p>
-            </li>
-          </ul>
-        </li>
-        <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros. Compruebe especialmente que al borrar todo desde una aplicación no se borran los registros de la otra.</li>
-        <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong>.</li>
-      </ol>
-    </section>
+  <section id="ejercicio-3">
+    <h2>phpMyAdmin (2) 3 - Crear un usuario iaw_agenda_2 que pueda administrar varias bases de datos</h2>
+    <ol>
+      <li>Cree un nuevo usuario de MySQL con la siguiente configuración
+        <ul>
+          <li>nombre de usuario: <strong>iaw_agenda_2</strong> </li>
+          <li>servidor: <strong>localhost</strong> </li>
+          <li>contraseña: <strong>iaw_agenda_2</strong> </li>
+          <li>base de datos para el usuario: Otorgar todos los privilegios al nombre que contiene comodín (<strong>username\_%</strong>)</li>
+          <li>sin privilegios globales</li>
+          <li>sin límite de recursos</li>
+        </ul>
+      </li>
+      <li>Una vez creado el usuario, entre en phpMyAdmin como usuario <strong>iaw_agenda_2</strong> y compruebe que no se ha creado ninguna base de datos.
+        <p class="captura">
+          <img src="../img/phpmyadmin/2-4-e-1-general-agenda-2-detalle.png" alt="phpMyAdmin. Detalle" width="200" height="200" />
+        </p>
+      </li>
+      <li>Compruebe que el usuario <strong>iaw_agenda_2</strong> no puede crear una base de datos cuyo nombre no empiece por <strong>iaw_agenda_2_</strong>, por ejemplo una base de datos que se llame <strong>agenda_2</strong>.</li>
+    </ol>
+  </section>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 14 de diciembre de 2016</p>
+  <section id="ejercicio-4">
+    <h2>phpMyAdmin (2) 4 - Instalar dos aplicaciones como usuario iaw_agenda_2</h2>
+    <ol>
+      <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1617/agenda_161212.zip">Agenda (12/12/16)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/">Programación web en PHP</a>).</li>
+      <li>Descomprima la aplicación dos veces en dos carpetas y renombre las carpetas como <strong>agenda_2a</strong> y <strong>agenda_2b</strong>.</li>
+      <li>Modifique los archivos de configuración <strong>config.php</strong> de ambas aplicaciones para que estas utilicen la cuenta del usuario <strong>iaw_agenda_2</strong> en MySQL (pero bases de datos distintas).
+        <p><strong>Nota</strong>: Hay que tener en cuenta que el nombre de las bases de datos debe comenzar por el nombre del usuario y un guión bajo (en este caso, iaw_agenda_2_agenda_2a y iaw_agenda_2_agenda_2b, por ejemplo)</p>
+        <p>Para distingir después una aplicación de otra fácilmente, puede cambiar el color básico de la aplicación en el archivo de configuración.</p>
+      </li>
+      <li>Ejecute las aplicaciones en el navegador, eligiendo primero la opción "Borrar todo" para crear la tabla en la base de datos, y compruebe que funcionan creando varios registros.</li>
+      <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_2</strong>.</li>
+    </ol>
+  </section>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+  <section id="ejercicio-5">
+    <h2>phpMyAdmin (2) 5 - Crear un usuario iaw_agenda_3 con una base de datos única</h2>
+    <ol>
+      <li>Cree un nuevo usuario de MySQL con la siguiente configuración
+        <ul>
+          <li>nombre de usuario: <strong>iaw_agenda_3</strong> </li>
+          <li>servidor: <strong>localhost</strong> </li>
+          <li>contraseña: <strong>iaw_agenda_3</strong> </li>
+          <li>base de datos con el mismo nombre (<strong>iaw_agenda_3</strong>)</li>
+          <li>sin privilegios globales</li>
+          <li>sin límite de recursos</li>
+        </ul>
+      </li>
+      <li>Una vez creado el usuario, entre en phpMyAdmin como usuario <strong>iaw_agenda_3</strong> y compruebe que se ha creado la base de datos <strong>iaw_agenda_3</strong>.</li>
+    </ol>
+  </section>
+
+  <section id="ejercicio-6">
+    <h2>phpMyAdmin (2) 6 - Instalar dos aplicaciones como usuario iaw_agenda_3</h2>
+    <ol>
+      <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1617/agenda_161212.zip">Agenda (12/12/16)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/index.html">Programación web en PHP</a>).</li>
+      <li>Descomprima la aplicación en dos carpetas y renombre las carpetas como <strong>agenda_3a</strong> y <strong>agenda_3b</strong>.</li>
+      <li>Modifique los archivos de configuración <strong>config.php</strong> para que las aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_3</strong> en MySQL y la misma base de datos <strong>iaw_agenda_3</strong>, pero cada una guarde sus registros en tablas distintas.</li>
+      <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros.</li>
+      <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong>.</li>
+    </ol>
+  </section>
+
+  <section id="ejercicio-7">
+    <h2>phpMyAdmin (2) 7 - Mejora de las aplicaciones del usuario iaw_agenda_3</h2>
+
+    <p>El problema de las aplicaciones del ejercicio 6 es que si se elige la opción "Borrar todo" en una de las aplicaciones se pierde toda la información de la otra, ya que al "Borrar todo" se borra la base de datos completa.</p>
+    <ol>
+      <li>Modifique la función <strong>borraTodo()</strong> del fichero <strong>biblioteca_mysql.php</strong> para que no se produzca este problema. Se puede hacer de dos maneras:
+        <ul>
+          <li>Añadiendo otra opción al programa Agenda que borre las tablas.</li>
+          <li>Haciendo que la opción Borrar todo sólo borre la tabla que usa la aplicación (para usar la aplicación por primera vez sería necesario crear la base de datos en phpMyAdmin).
+            <p><strong>Nota</strong>: Para modificar la función <strong>borraTodo()</strong> del fichero <strong>biblioteca_mysql.php</strong> puede utilizar la función <strong>borraTodo()</strong> del fichero <strong>biblioteca_sqlite.php</strong>.</p>
+          </li>
+        </ul>
+      </li>
+      <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros. Compruebe especialmente que al borrar todo desde una aplicación no se borran los registros de la otra.</li>
+      <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong>.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 14 de diciembre de 2016</p>
+
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

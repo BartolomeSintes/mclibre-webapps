@@ -1,235 +1,234 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Soluciones (1) WordPress. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Soluciones (1) WordPress. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>WordPress. Soluciones (1)</h1>
+<body>
+  <h1>WordPress. Soluciones (1)</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="wordpress.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          WordPress (1)
-          <a href="wordpress-2.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="wordpress.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> WordPress (1)
+        <a href="wordpress-2.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
 
-        <h3><a href="wordpress-1.html">Enunciados</a></h3>
+      <h3><a href="wordpress-1.html">Enunciados</a></h3>
+      <ul>
+        <li><a href="wordpress-1.html#ejercicio-1">1 - Descargar</a></li>
+        <li><a href="wordpress-1.html#ejercicio-2">2 - Instalar</a></li>
+        <li><a href="wordpress-1.html#ejercicio-3">3 - Acceder como admin</a></li>
+        <li><a href="wordpress-1.html#ejercicio-4">4 - Actualizar </a></li>
+        <li><a href="wordpress-1.html#ejercicio-5">5 - Alias </a></li>
+        <li><a href="wordpress-1.html#ejercicio-6">6 - Permalinks</a></li>
+        <li><a href="wordpress-1.html#ejercicio-7">7 - Acceso desde otros </a></li>
+        <li><a href="wordpress-1.html#ejercicio-8">8 - Cambio de IP</a></li>
+        <li><a href="wordpress-1.html#ejercicio-9">9 - Copia de seguridad</a></li>
+      </ul>
+
+      <h3>Soluciones</h3>
+      <ul>
+        <li><a href="#ejercicio-1">1 - Descargar</a></li>
+        <li><a href="#ejercicio-2">2 - Instalar</a></li>
+        <li><a href="#ejercicio-3">3 - Acceder como admin</a></li>
+        <li><a href="#ejercicio-4">4 - Actualizar </a></li>
+        <li><a href="#ejercicio-5">5 - Alias </a></li>
+        <li><a href="#ejercicio-6">6 - Permalinks</a></li>
+        <li><a href="#ejercicio-7">7 - Acceso desde otros </a></li>
+        <li><a href="#ejercicio-8">8 - Cambio de IP</a></li>
+        <li><a href="#ejercicio-9">9 - Copia de seguridad</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <p>En esta lección se proponen soluciones detalladas de los <a href="wordpress-1.html">ejercicios (1) de WordPress</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Algunas capturas están pendientes de actualizar a la versión WordPress 4.7.</p>
+
+  <section id="ejercicio-1">
+    <h2>WordPress (1) 1 - Descargar </h2>
+    <ol>
+      <li>La página web de WordPress en español es <a href="https://es.wordpress.org/">https://es.wordpress.org/</a>. La página oficial en inglés es <a href="https://wordpress.org/">https://wordpress.org/</a>.</li>
+      <li>Desde la página principal del sitio se puede descargar la última versión. Las versiones anteriores están disponibles en <a href="https://es.wordpress.org/releases/#older">https://es.wordpress.org/releases/#older</a>.
+        <p>La última versión disponible actualmente (enero de 2017) es la versión 4.7.2, publicada el 26 de enero de 2017 (aunque el fichero disponible para descargar puede ser de una fecha posterior, ya que lo actualizan cuando se modifica la traducción al español). Esta lección está escrita para esa versión.</p>
+        <p>Como en un ejercicio posterior consiste en la actualización de WordPress, se recomienda instalar una versión anterior, por ejemplo la versión 4.7 en español, publicada el 11 de diciembre de 2016. Se puede descargar de <a href="https://es.wordpress.org/wordpress-4.7-es_ES.zip">https://es.wordpress.org/wordpress-4.7-es_ES.zip</a>.</p>
+        <p>Si la versión <strong>WordPress 4.7 (en español)</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
+      </li>
+      <li>Una vez descargado WordPress, simplemente se debe descomprimir en una carpeta accesible desde el servidor local.
+        <p>En estas soluciones, de acuerdo con las <a href="../otros/configuracion.html">recomendaciones de configuración general</a> de estos apuntes, se supondrá que:</p>
         <ul>
-          <li><a href="wordpress-1.html#ejercicio-1">1 - Descargar</a></li>
-          <li><a href="wordpress-1.html#ejercicio-2">2 - Instalar</a></li>
-          <li><a href="wordpress-1.html#ejercicio-3">3 - Acceder como admin</a></li>
-          <li><a href="wordpress-1.html#ejercicio-4">4 - Actualizar </a></li>
-          <li><a href="wordpress-1.html#ejercicio-5">5 - Alias </a></li>
-          <li><a href="wordpress-1.html#ejercicio-6">6 - Permalinks</a></li>
-          <li><a href="wordpress-1.html#ejercicio-7">7 - Acceso desde otros </a></li>
-          <li><a href="wordpress-1.html#ejercicio-8">8 - Cambio de IP</a></li>
-          <li><a href="wordpress-1.html#ejercicio-9">9 - Copia de seguridad</a></li>
+          <li>WordPress se encuentra en la carpeta <strong><strong>:</strong></strong>
+            <p><strong><strong>Mis documentos &gt; IAW Nombre-de-Alumno &gt; Aplicaciones &gt; wordpress</strong></strong>
+            </p>
+          </li>
+          <li>al ejecutar desde Eclipse el fichero <strong>index.php</strong> de WordPress, se abrirá en el navegador la dirección
+            <p><strong>http://localhost/nombre-de-alumno/webapps/wordpress/index.php</strong>.</p>
+          </li>
         </ul>
+      </li>
+    </ol>
+  </section>
 
-        <h3>Soluciones</h3>
+  <section id="ejercicio-2">
+    <h2>WordPress (1) 2 - Instalar </h2>
+
+    <p>Para poner en marcha un blog en WordPress:</p>
+    <ol>
+      <li>Cree con phpMyAdmin un usuario de MySQL con nombre <strong>iaw_wordpress_1</strong>, contraseña <strong>iaw_wordpress_1</strong> y base de datos <strong>iaw_wordpress_1</strong>.
+        <p class="captura">
+          <img src="../img/wordpress/1-2-s-1-instalar.png" alt="phpMyAdmin. Creación de usuario para WordPress" width="740" height="560" />
+        </p>
+      </li>
+      <li>Abra en el navegador la carpeta de Wordpress (<strong>http:/localhost/.../wordpress/</strong>) y complete la información de acceso a la base de datos:
+        <p class="captura">
+          <img src="../img/wordpress/1-2-s-2-instalar.png" alt="WordPress. Instalación" width="760" height="600" />
+        </p>
+      </li>
+      <li>Rellenar la información necesario para crear el blog. Por ejemplo:
         <ul>
-          <li><a href="#ejercicio-1">1 - Descargar</a></li>
-          <li><a href="#ejercicio-2">2 - Instalar</a></li>
-          <li><a href="#ejercicio-3">3 - Acceder como admin</a></li>
-          <li><a href="#ejercicio-4">4 - Actualizar </a></li>
-          <li><a href="#ejercicio-5">5 - Alias </a></li>
-          <li><a href="#ejercicio-6">6 - Permalinks</a></li>
-          <li><a href="#ejercicio-7">7 - Acceso desde otros </a></li>
-          <li><a href="#ejercicio-8">8 - Cambio de IP</a></li>
-          <li><a href="#ejercicio-9">9 - Copia de seguridad</a></li>
+          <li>Título del sitio: <strong>Web Apps blog</strong></li>
+          <li>Nombre de usuario: <strong>admin</strong></li>
+          <li>Password: <strong>uno dos tres cuatro</strong><br /> WordPress en sus <a href="https://en.support.wordpress.com/selecting-a-strong-password/">recomendaciones sobre contraseñas</a> aconseja utilizar gestores de contraseñas y en caso de no utilizar gestores de contraseñas, utilizar varias pabras comunes sin relación entre sí.</li>
+          <li>Tu correo electrónico: <strong>una dirección de correo real</strong></li>
+          <li>Visibilidad para los buscadores: <strong>dejar desmarcado</strong></li>
         </ul>
-      </div>
-    </nav>
+        <p class="captura">
+          <img src="../img/wordpress/1-2-s-3-instalar.png" alt="WordPress. Instalación" width="760" height="580" />
+        </p>
+        <p>Si no hay errores, el proceso termina en unos segundos y se muestra el formulario de entrada al panel de administración. Para ver el blog como un usuario cualquiera, haga clic en el enlace "Volver a Mi blog". Para entrar en el panel de administración escriba la contraseña del usuario <strong>admin</strong></p>
+        <p class="captura">
+          <img src="../img/wordpress/1-2-s-4-instalar.png" alt="WordPress. Instalación" width="370" height="500" />
+        </p>
+      </li>
+      <li>
+        <p>Se debe abrir una página similar a esta:</p>
+        <p class="captura">
+          <img src="../img/wordpress/1-2-s-5-instalar.jpg" alt="WordPress. Aspecto inicial" width="991" height="760" />
+        </p>
+      </li>
+      <li>Para cerrar la sesión, haga clic en el nombre de usuario (arriba a la derecha) y haga clic en "Cerrar sesión":
+        <p class="captura">
+          <img src="../img/wordpress/1-2-s-6-instalar.jpg" alt="WordPress. Aspecto inicial" width="991" height="180" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-    <p>En esta lección se proponen soluciones detalladas de los <a href="wordpress-1.html">ejercicios (1) de WordPress</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+  <section id="ejercicio-3">
+    <h2>WordPress (1) 3 - Acceder como administrador</h2>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Algunas capturas están pendientes de actualizar a la versión WordPress 4.7.</p>
+    <ol>
+      <li>Para administrar el blog hay que hacer clic en el enlace <strong>Acceder</strong> de la página principal del blog
+        <p class="captura">
+          <img src="../img/wordpress/1-3-s-1-administrador.png" alt="WordPress. Acceder como administrador" width="991" height="210" />
+        </p>
+        <p>y escribir nombre y contraseña del usuario. Por el momento sólo está definido el usuario administrador con nombre <strong>admin</strong> y contraseña <strong>uno dos tres cuatro</strong> creado en el ejercicio anterior:</p>
+        <p class="captura">
+          <img src="../img/wordpress/1-3-s-2-administrador.png" alt="WordPress. Identificación de usuario" width="370" height="500" />
+        </p>
+        <p>Se abrirá la pantalla de administración (denominado Escritorio):</p>
+        <p class="captura">
+          <a href="../img/wordpress/1-3-s-3-administrador.png"><img src="../img/wordpress/1-3-s-3-administrador-mini.png" alt="WordPress. Pantalla de administración" width="600" height="400" /></a>
+        </p>
+      </li>
+      <li>Se puede volver al blog sin cerrar la sesión de administración haciendo clic en el icono de la casita:
+        <p class="captura">
+          <img src="../img/wordpress/1-3-s-11-administrador.png" alt="WordPress. Volver al blog" width="991" height="200" />
+        </p>
+        <p>Desde el blog se puede volver al Escritorio haciendo clic en el icono del indicador:</p>
+        <p class="captura">
+          <img src="../img/wordpress/1-3-s-12-administrador.jpg" alt="WordPress. Menú de administración" width="991" height="268" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-1">
-      <h2>WordPress (1) 1 - Descargar </h2>
-      <ol>
-        <li>La página web de WordPress en español es <a href="https://es.wordpress.org/">https://es.wordpress.org/</a>. La página oficial en inglés es <a href="https://wordpress.org/">https://wordpress.org/</a>.</li>
-        <li>Desde la página principal del sitio se puede descargar la última versión. Las versiones anteriores están disponibles en <a href="https://es.wordpress.org/releases/#older">https://es.wordpress.org/releases/#older</a>.
-          <p>La última versión disponible actualmente (enero de 2017) es la versión 4.7.2, publicada el 26 de enero de 2017 (aunque el fichero disponible para descargar puede ser de una fecha posterior, ya que lo actualizan cuando se modifica la traducción al español). Esta lección está escrita para esa versión.</p>
-          <p>Como en un ejercicio posterior consiste en la actualización de WordPress, se recomienda instalar una versión anterior, por ejemplo la versión 4.7 en español, publicada el 11 de diciembre de 2016. Se puede descargar de <a href="https://es.wordpress.org/wordpress-4.7-es_ES.zip">https://es.wordpress.org/wordpress-4.7-es_ES.zip</a>.</p>
-          <p>Si la versión <strong>WordPress 4.7 (en español)</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
-        </li>
-        <li>Una vez descargado WordPress, simplemente se debe descomprimir en una carpeta accesible desde el servidor local.
-          <p>En estas soluciones, de acuerdo con las <a href="../otros/configuracion.html">recomendaciones de configuración general</a> de estos apuntes, se supondrá que:</p>
-          <ul>
-            <li>WordPress se encuentra en la carpeta <strong><strong>:</strong></strong>
-              <p><strong><strong>Mis documentos &gt; IAW Nombre-de-Alumno &gt; Aplicaciones &gt; wordpress</strong></strong></p>
-            </li>
-            <li>al ejecutar desde Eclipse el fichero <strong>index.php</strong> de WordPress, se abrirá en el navegador la dirección
-              <p><strong>http://localhost/nombre-de-alumno/webapps/wordpress/index.php</strong>.</p>
-            </li>
-          </ul>
-        </li>
-      </ol>
-    </section>
+  <section id="ejercicio-4">
+    <h2>WordPress (1) 4 - Actualizar </h2>
+    <ol>
+      <li>Actualizar WordPress
+        <ul>
+          <li>En caso de que haya elementos actualizables (la aplicación, los plugins, los temas o las traducciones), en el Escritorio de WordPress se muestra el aviso de actualización disponible. El número que se muestra en el menú indica el número de actualizaciones disponibles (en la imagen siguiente, dos actualizaciones, aunque tras actualizar unos elementos pueden aparecer nuevas actualizaciones).
+            <p>Haga clic en el enlace "Actualizaciones" para ver las actualizaciones disponibles.</p>
+            <p class="captura">
+              <img src="../img/wordpress/1-4-s-1-actualizar.png" alt="WordPress. Actualización" width="991" height="180" />
+            </p>
+          </li>
+          <li>Si hay una actualización de la aplicación, esta se muestra en primer lugar. Cuando se trata de una actualización menor (el tercer número en el número de versión), la actualización se realiza automáticamente, por lo que a veces no llegamos a verla.
+            <p class="captura">
+              <img src="../img/wordpress/1-4-s-2-actualizar.png" alt="WordPress. Actualización" width="1008" height="435" />
+            </p>
+          </li>
+          <li>Si no es necesario actualizar WordPress, se avisa al usuario.
+            <p class="captura">
+              <img src="../img/wordpress/1-4-s-3-actualizar.png" alt="WordPress. Actualización" width="992" height="290" />
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>Actualizar plug-ins
+        <ul>
+          <li>Seleccione los plug-ins a actualizar y haga clic en "Actualizar plugins".
+            <p class="captura">
+              <img src="../img/wordpress/1-4-s-11-actualizar.png" alt="WordPress. Actualización" width="991" height="370" />
+            </p>
+          </li>
+          <li>En unos segundos se completará la actualización de los plug-ins.
+            <p class="captura">
+              <img src="../img/wordpress/1-4-s-12-actualizar.png" alt="WordPress. Actualización" width="991" height="290" />
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>Actualizar temas
+        <ul>
+          <li>Seleccione los temas a actualizar y haga clic en "Actualizar temas".
+            <p class="captura">
+              <img src="../img/wordpress/1-4-s-21-actualizar.png" alt="WordPress. Actualización" width="991" height="415" />
+            </p>
+          </li>
+          <li>En unos segundos se completará la actualización de los temas.
+            <p class="captura">
+              <img src="../img/wordpress/1-4-s-22-actualizar.png" alt="WordPress. Actualización" width="991" height="360" />
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>Actualizar traducciones
+        <ul>
+          <li>Haga clic en "Actualizar traducciones".
+            <p class="captura">
+              <img src="../img/wordpress/1-4-s-31-actualizar.png" alt="WordPress. Actualización" width="992" height="550" />
+            </p>
+          </li>
+          <li>En unos segundos se completará la actualización de traducciones.
+            <p class="captura">
+              <img src="../img/wordpress/1-4-s-32-actualizar.png" alt="WordPress. Actualización" width="1009" height="210" />
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-2">
-      <h2>WordPress (1) 2 - Instalar </h2>
+  <section id="ejercicio-5">
+    <h2>WordPress (1) 5 - Alias</h2>
 
-      <p>Para poner en marcha un blog en WordPress:</p>
-      <ol>
-        <li>Cree con phpMyAdmin un usuario de MySQL con nombre <strong>iaw_wordpress_1</strong>, contraseña <strong>iaw_wordpress_1</strong> y base de datos <strong>iaw_wordpress_1</strong>.
-          <p class="captura">
-            <img src="../img/wordpress/1-2-s-1-instalar.png" alt="phpMyAdmin. Creación de usuario para WordPress" width="740" height="560" />
-          </p>
-        </li>
-        <li>Abra en el navegador la carpeta de Wordpress (<strong>http:/localhost/.../wordpress/</strong>) y complete la información de acceso a la base de datos:
-          <p class="captura">
-            <img src="../img/wordpress/1-2-s-2-instalar.png" alt="WordPress. Instalación" width="760" height="600" />
-          </p>
-        </li>
-        <li>Rellenar la información necesario para crear el blog. Por ejemplo:
-          <ul>
-            <li>Título del sitio: <strong>Web Apps blog</strong></li>
-            <li>Nombre de usuario: <strong>admin</strong></li>
-            <li>Password: <strong>uno dos tres cuatro</strong><br />
-              WordPress en sus <a href="https://en.support.wordpress.com/selecting-a-strong-password/">recomendaciones sobre contraseñas</a> aconseja utilizar gestores de contraseñas y en caso de no utilizar gestores de contraseñas, utilizar varias pabras comunes sin relación entre sí.</li>
-            <li>Tu correo electrónico: <strong>una dirección de correo real</strong></li>
-            <li>Visibilidad para los buscadores: <strong>dejar desmarcado</strong></li>
-          </ul>
-          <p class="captura">
-            <img src="../img/wordpress/1-2-s-3-instalar.png" alt="WordPress. Instalación" width="760" height="580" />
-          </p>
-          <p>Si no hay errores, el proceso termina en unos segundos y se muestra el formulario de entrada al panel de administración. Para ver el blog como un usuario cualquiera, haga clic en el enlace "Volver a Mi blog". Para entrar en el panel de administración escriba la contraseña del usuario <strong>admin</strong></p>
-          <p class="captura">
-            <img src="../img/wordpress/1-2-s-4-instalar.png" alt="WordPress. Instalación" width="370" height="500" />
-          </p>
-        </li>
-        <li>
-          <p>Se debe abrir una página similar a esta:</p>
-          <p class="captura">
-            <img src="../img/wordpress/1-2-s-5-instalar.jpg" alt="WordPress. Aspecto inicial" width="991" height="760" />
-          </p>
-        </li>
-        <li>Para cerrar la sesión, haga clic en el nombre de usuario (arriba a la derecha) y haga clic en "Cerrar sesión":
-          <p class="captura">
-            <img src="../img/wordpress/1-2-s-6-instalar.jpg" alt="WordPress. Aspecto inicial" width="991" height="180" />
-          </p>
-        </li>
-      </ol>
-    </section>
+    <ol>
+      <li>Incluya en httpd.conf el alias correspondiente:
 
-    <section id="ejercicio-3">
-      <h2>WordPress (1) 3 - Acceder como administrador</h2>
-
-      <ol>
-        <li>Para administrar el blog hay que hacer clic en el enlace <strong>Acceder</strong> de la página principal del blog
-          <p class="captura">
-            <img src="../img/wordpress/1-3-s-1-administrador.png" alt="WordPress. Acceder como administrador" width="991" height="210" />
-          </p>
-          <p>y escribir nombre y contraseña del usuario. Por el momento sólo está definido el usuario administrador con nombre <strong>admin</strong> y contraseña <strong>uno dos tres cuatro</strong> creado en el ejercicio anterior:</p>
-          <p class="captura">
-            <img src="../img/wordpress/1-3-s-2-administrador.png" alt="WordPress. Identificación de usuario" width="370" height="500" />
-          </p>
-          <p>Se abrirá la pantalla de administración (denominado Escritorio):</p>
-          <p class="captura">
-            <a href="../img/wordpress/1-3-s-3-administrador.png"><img src="../img/wordpress/1-3-s-3-administrador-mini.png" alt="WordPress. Pantalla de administración" width="600" height="400" /></a>
-          </p>
-        </li>
-        <li>Se puede volver al blog sin cerrar la sesión de administración haciendo clic en el icono de la casita:
-          <p class="captura">
-            <img src="../img/wordpress/1-3-s-11-administrador.png" alt="WordPress. Volver al blog" width="991" height="200" />
-          </p>
-          <p>Desde el blog se puede volver al Escritorio haciendo clic en el icono del indicador:</p>
-          <p class="captura">
-            <img src="../img/wordpress/1-3-s-12-administrador.jpg" alt="WordPress. Menú de administración" width="991" height="268" />
-          </p>
-        </li>
-      </ol>
-    </section>
-
-    <section id="ejercicio-4">
-      <h2>WordPress (1) 4 - Actualizar </h2>
-      <ol>
-        <li>Actualizar WordPress
-          <ul>
-            <li>En caso de que haya elementos actualizables (la aplicación, los plugins, los temas o las traducciones), en el Escritorio de WordPress se muestra el aviso de actualización disponible. El número que se muestra en el menú indica el número de actualizaciones disponibles (en la imagen siguiente, dos actualizaciones, aunque tras actualizar unos elementos pueden aparecer nuevas actualizaciones).
-              <p>Haga clic en el enlace "Actualizaciones" para ver las actualizaciones disponibles.</p>
-              <p class="captura">
-                <img src="../img/wordpress/1-4-s-1-actualizar.png" alt="WordPress. Actualización" width="991" height="180" />
-              </p>
-            </li>
-            <li>Si hay una actualización de la aplicación, esta se muestra en primer lugar. Cuando se trata de una actualización menor (el tercer número en el número de versión), la actualización se realiza automáticamente, por lo que a veces no llegamos a verla.
-              <p class="captura">
-                <img src="../img/wordpress/1-4-s-2-actualizar.png" alt="WordPress. Actualización" width="1008" height="435" />
-              </p>
-            </li>
-            <li>Si no es necesario actualizar WordPress, se avisa al usuario.
-              <p class="captura">
-                <img src="../img/wordpress/1-4-s-3-actualizar.png" alt="WordPress. Actualización" width="992" height="290" />
-              </p>
-            </li>
-          </ul>
-        </li>
-        <li>Actualizar plug-ins
-          <ul>
-            <li>Seleccione los plug-ins a actualizar y haga clic en "Actualizar plugins".
-              <p class="captura">
-                <img src="../img/wordpress/1-4-s-11-actualizar.png" alt="WordPress. Actualización" width="991" height="370" />
-              </p>
-            </li>
-            <li>En unos segundos se completará la actualización de los plug-ins.
-              <p class="captura">
-                <img src="../img/wordpress/1-4-s-12-actualizar.png" alt="WordPress. Actualización" width="991" height="290" />
-              </p>
-            </li>
-          </ul>
-        </li>
-        <li>Actualizar temas
-          <ul>
-            <li>Seleccione los temas a actualizar y haga clic en "Actualizar temas".
-              <p class="captura">
-                <img src="../img/wordpress/1-4-s-21-actualizar.png" alt="WordPress. Actualización" width="991" height="415" />
-              </p>
-            </li>
-            <li>En unos segundos se completará la actualización de los temas.
-              <p class="captura">
-                <img src="../img/wordpress/1-4-s-22-actualizar.png" alt="WordPress. Actualización" width="991" height="360" />
-              </p>
-            </li>
-          </ul>
-        </li>
-        <li>Actualizar traducciones
-          <ul>
-            <li>Haga clic en "Actualizar traducciones".
-              <p class="captura">
-                <img src="../img/wordpress/1-4-s-31-actualizar.png" alt="WordPress. Actualización" width="992" height="550" />
-              </p>
-            </li>
-            <li>En unos segundos se completará la actualización de traducciones.
-              <p class="captura">
-                <img src="../img/wordpress/1-4-s-32-actualizar.png" alt="WordPress. Actualización" width="1009" height="210" />
-              </p>
-            </li>
-          </ul>
-        </li>
-      </ol>
-    </section>
-
-    <section id="ejercicio-5">
-      <h2>WordPress (1) 5 - Alias</h2>
-
-      <ol>
-        <li>Incluya en httpd.conf el alias correspondiente:
-
-          <div class="codigo">
-            <pre>
+        <div class="codigo">
+          <pre>
 <code class="language-configuracion">&lt;IfModule alias_module&gt;
  ...
 <strong>    # 2017-01-30. Barto. Alias para WordPress
@@ -242,109 +241,109 @@
     ScriptAlias /cgi-bin/ "C:/xampp/cgi-bin/"
 &lt;/IfModule&gt;</code>
 </pre>
-          </div>
-        </li>
-        <li>Para abrir el formulario de entrada, abra la dirección <strong>http:// ... /wp-login.php</strong>.</li>
-        <li>Abra el menú <strong>Ajustes &gt; Generales</strong>:
-          <p class="captura">
-            <img src="../img/wordpress/1-5-s-1-alias.png" alt="WordPress. Alias" width="335" height="210" />
-          </p>
-        </li>
-        <li>Escriba la dirección que queremos utilizar (<strong>http://localhost/wordpress</strong>) en los campos "Dirección de WordPress (URL)" y "Dirección del sitio (URL)" y haga clic en "Guardar cambios".
-          <p class="captura">
-            <img src="../img/wordpress/1-5-s-2-alias.png" alt="WordPress. Alias" width="991" height="410" />
-          </p>
-        </li>
-      </ol>
-    </section>
+        </div>
+      </li>
+      <li>Para abrir el formulario de entrada, abra la dirección <strong>http:// ... /wp-login.php</strong>.</li>
+      <li>Abra el menú <strong>Ajustes &gt; Generales</strong>:
+        <p class="captura">
+          <img src="../img/wordpress/1-5-s-1-alias.png" alt="WordPress. Alias" width="335" height="210" />
+        </p>
+      </li>
+      <li>Escriba la dirección que queremos utilizar (<strong>http://localhost/wordpress</strong>) en los campos "Dirección de WordPress (URL)" y "Dirección del sitio (URL)" y haga clic en "Guardar cambios".
+        <p class="captura">
+          <img src="../img/wordpress/1-5-s-2-alias.png" alt="WordPress. Alias" width="991" height="410" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-6">
-      <h2>WordPress (1) 6 - Enlaces permanentes (permalinks)</h2>
-      <ol>
-        <li>Abra el menú <strong>Ajustes &gt; Enlaces permanentes</strong>:
-          <p class="captura">
-            <img src="../img/wordpress/1-6-s-1-permalink.png" alt="WordPress. Enlaces permanentes" width="335" height="210" />
-          </p>
-        </li>
-        <li>Seleccione el formato "Nombre entrada" y guarde los cambios.
-          <p class="captura">
-            <img src="../img/wordpress/1-6-s-2-permalink.png" alt="WordPress. Enlaces permanentes" width="991" height="560" />
-          </p>
-        </li>
-      </ol>
-    </section>
+  <section id="ejercicio-6">
+    <h2>WordPress (1) 6 - Enlaces permanentes (permalinks)</h2>
+    <ol>
+      <li>Abra el menú <strong>Ajustes &gt; Enlaces permanentes</strong>:
+        <p class="captura">
+          <img src="../img/wordpress/1-6-s-1-permalink.png" alt="WordPress. Enlaces permanentes" width="335" height="210" />
+        </p>
+      </li>
+      <li>Seleccione el formato "Nombre entrada" y guarde los cambios.
+        <p class="captura">
+          <img src="../img/wordpress/1-6-s-2-permalink.png" alt="WordPress. Enlaces permanentes" width="991" height="560" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-7">
-      <h2>WordPress (1) 7 - Acceso desde otros ordenadores</h2>
-      <ol>
-        <li>Abra el menú <strong>Ajustes &gt; Generales</strong>:
-          <p class="captura">
-            <img src="../img/wordpress/1-7-s-1-acceder.png" alt="WordPress. Acceso desde otros ordenadores" width="335" height="210" />
-          </p>
-        </li>
-        <li>Escriba la dirección que queremos utilizar (<strong>http://AAA.BBB.CCC.DDD/wordpress/</strong>, donde AAA.BBB.CCC.DDD es la IP del equipo) en los campos "Dirección de WordPress" y "Dirección del sitio" y haga clic en "Guardar cambios":
-          <p class="captura">
-            <img src="../img/wordpress/1-7-s-2-acceder.png" alt="WordPress. Acceso desde otros ordenadores" width="991" height="410" />
-          </p>
-        </li>
-      </ol>
-    </section>
+  <section id="ejercicio-7">
+    <h2>WordPress (1) 7 - Acceso desde otros ordenadores</h2>
+    <ol>
+      <li>Abra el menú <strong>Ajustes &gt; Generales</strong>:
+        <p class="captura">
+          <img src="../img/wordpress/1-7-s-1-acceder.png" alt="WordPress. Acceso desde otros ordenadores" width="335" height="210" />
+        </p>
+      </li>
+      <li>Escriba la dirección que queremos utilizar (<strong>http://AAA.BBB.CCC.DDD/wordpress/</strong>, donde AAA.BBB.CCC.DDD es la IP del equipo) en los campos "Dirección de WordPress" y "Dirección del sitio" y haga clic en "Guardar cambios":
+        <p class="captura">
+          <img src="../img/wordpress/1-7-s-2-acceder.png" alt="WordPress. Acceso desde otros ordenadores" width="991" height="410" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
 
-    <section id="ejercicio-8">
-      <h2>WordPress (1) 8 - Cambio de IP</h2>
+  <section id="ejercicio-8">
+    <h2>WordPress (1) 8 - Cambio de IP</h2>
 
-      <p>Si el servidor que aloja WordPress cambiara de IP, no se podría acceder al panel de administración de WordPress para modificar las direcciones de WordPress.</p>
+    <p>Si el servidor que aloja WordPress cambiara de IP, no se podría acceder al panel de administración de WordPress para modificar las direcciones de WordPress.</p>
 
-      <ol>
-        <li>Abra con phpMyAdmin y corrija la IP en los dos registros de la tabla wp_options:
-          <p class="captura">
-            <img src="../img/wordpress/1-8-s-1-phpmyadmin.png" alt="WordPress. Cambio de IP" width="991" height="400" />
-          </p>
-        </li>
-      </ol>
-    </section>
+    <ol>
+      <li>Abra con phpMyAdmin y corrija la IP en los dos registros de la tabla wp_options:
+        <p class="captura">
+          <img src="../img/wordpress/1-8-s-1-phpmyadmin.png" alt="WordPress. Cambio de IP" width="991" height="400" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-9">
-      <h2>WordPress (1) 9 - Copia de seguridad manual completa</h2>
+  <section id="ejercicio-9">
+    <h2>WordPress (1) 9 - Copia de seguridad manual completa</h2>
 
-      <p>Referencias:</p>
-      <ul>
-        <li>Backup de WordPress: <a href="https://codex.wordpress.org/WordPress_Backups">https://codex.wordpress.org/WordPress_Backups</a></li>
-        <li>Backup de la base de datos con phpMyAdmin: <a href="https://codex.wordpress.org/Backing_Up_Your_Database#Using_phpMyAdmin">https://codex.wordpress.org/Backing_Up_Your_Database#Using_phpMyAdmin</a></li>
-      </ul>
+    <p>Referencias:</p>
+    <ul>
+      <li>Backup de WordPress: <a href="https://codex.wordpress.org/WordPress_Backups">https://codex.wordpress.org/WordPress_Backups</a></li>
+      <li>Backup de la base de datos con phpMyAdmin: <a href="https://codex.wordpress.org/Backing_Up_Your_Database#Using_phpMyAdmin">https://codex.wordpress.org/Backing_Up_Your_Database#Using_phpMyAdmin</a></li>
+    </ul>
 
-      <p>La copia de seguridad de los archivos del disco no plantea ninguna dificultad, por lo que no se hace aquí ningún comentario.</p>
+    <p>La copia de seguridad de los archivos del disco no plantea ninguna dificultad, por lo que no se hace aquí ningún comentario.</p>
 
-      <p>Con respecto a la copia de seguridad de la base de datos, sí que se comenta un detalle importante:</p>
-      <ul>
-        <li>Al realizar la copia de seguridad de la base de datos con phpMyAdmin, antes de hacer clic en Exportar se puede haber seleccionado o no la base de datos:
-          <p class="captura">
-            <img src="../img/wordpress/1-9-s-1-backup.png" alt="WordPress. Copia de seguridad" width="991" height="200" />
-          </p>
-          <p class="captura">
-            <img src="../img/wordpress/1-9-s-2-backup.png" alt="WordPress. Copia de seguridad" width="991" height="200" />
-          </p>
-        </li>
-        <li>Si al hacer la exportación se mantiene el método de exportación rápido predeterminado, si no se selecciona la base de datos, la copia de seguridad incluye las órdenes de creación de la base de datos, pero si se ha seleccionado la base de datos, no:
-          <p class="captura">
-            <img src="../img/wordpress/1-9-s-3-backup.png" alt="WordPress. Copia de seguridad" width="800" height="150" />
-          </p>
-          <p class="captura">
-            <img src="../img/wordpress/1-9-s-4-backup.png" alt="WordPress. Copia de seguridad" width="800" height="150" />
-          </p>
-          <p><strong>Nota</strong>: al hacer la exportación, en el método de exportación personalizado se puede elegir incluir la sentencia CREATE DATABASE.</p>
-        </li>
-        <li>En el segundo caso, para poder importar la copia de seguridad debe existir la base de datos. Si este ejercicio se ha hecho como usuario iaw_wordpress_1, la base de datos existirá puesto que ese usuario no puede borrar su propia base de datos. Si este ejercicio se ha hecho como usuario administrador y se ha borrado la base de datos, no se podría hacer la restauración en el segundo caso hasta crear la base de datos.</li>
-      </ul>
-    </section>
+    <p>Con respecto a la copia de seguridad de la base de datos, sí que se comenta un detalle importante:</p>
+    <ul>
+      <li>Al realizar la copia de seguridad de la base de datos con phpMyAdmin, antes de hacer clic en Exportar se puede haber seleccionado o no la base de datos:
+        <p class="captura">
+          <img src="../img/wordpress/1-9-s-1-backup.png" alt="WordPress. Copia de seguridad" width="991" height="200" />
+        </p>
+        <p class="captura">
+          <img src="../img/wordpress/1-9-s-2-backup.png" alt="WordPress. Copia de seguridad" width="991" height="200" />
+        </p>
+      </li>
+      <li>Si al hacer la exportación se mantiene el método de exportación rápido predeterminado, si no se selecciona la base de datos, la copia de seguridad incluye las órdenes de creación de la base de datos, pero si se ha seleccionado la base de datos, no:
+        <p class="captura">
+          <img src="../img/wordpress/1-9-s-3-backup.png" alt="WordPress. Copia de seguridad" width="800" height="150" />
+        </p>
+        <p class="captura">
+          <img src="../img/wordpress/1-9-s-4-backup.png" alt="WordPress. Copia de seguridad" width="800" height="150" />
+        </p>
+        <p><strong>Nota</strong>: al hacer la exportación, en el método de exportación personalizado se puede elegir incluir la sentencia CREATE DATABASE.</p>
+      </li>
+      <li>En el segundo caso, para poder importar la copia de seguridad debe existir la base de datos. Si este ejercicio se ha hecho como usuario iaw_wordpress_1, la base de datos existirá puesto que ese usuario no puede borrar su propia base de datos. Si este ejercicio se ha hecho como usuario administrador y se ha borrado la base de datos, no se podría hacer la restauración en el segundo caso hasta crear la base de datos.</li>
+    </ul>
+  </section>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 6 de febrero de 2017</p>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 6 de febrero de 2017</p>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

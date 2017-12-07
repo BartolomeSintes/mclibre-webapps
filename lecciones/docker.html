@@ -1,385 +1,384 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Docker. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Docker. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>Docker</h1>
+<body>
+  <h1>Docker</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" />
-          Docker
-          <a href="docker-1.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-        </h2>
-
-        <ul>
-          <li><a href="#organizacion-ejercicios">Organización ejercicios</a></li>
-          <li><a href="#docker">Docker</a></li>
-          <li><a href="#aprender-mas">Aprender más</a></li>
-          <li><a href="#docker-comandos">Comandos Docker</a>
-            <ul>
-              <li><a href="#imagenes">Imágenes</a></li>
-              <li><a href="#contenedores">Contenedores</a></li>
-              <li><a href="#redes">Redes</a></li>
-              <li><a href="#sistema">Sistema</a></li>
-            </ul>
-          </li>
-          <li><a href="#bitnami">Contenedores de Bitnami</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <section id="organizacion-ejercicios">
-      <h2>Organización de los ejercicios</h2>
-
-      <p>Sólo hay una página de ejercicios de Docker:</p>
-      <ul>
-        <li><a href="docker-1.html">Docker (1)</a>: Máquina virtual Ubuntu y Docker</li>
-      </ul>
-    </section>
-
-    <section id="docker">
-      <h2>Contenedores: Docker</h2>
-
-      <p><img src="../img/iconos/logos/logo-docker.svg" alt="Logotipo Docker" title="Logotipo Docker" width="255" height="145" class="derecha" /></p>
-
-      <p><a href="https://www.docker.com/">Docker</a> es un sistema de virtualización de aplicaciones mediante contenedores, creado por Solomon Hykes y otros ingenieros. En 2013 se convirtió en un proyecto de software libre (licencia Apache) en el que participan cada vez más empresas. La versión 1.0 se publicó en junio de 2014 y ha tenido un desarrollo muy rápido.</p>
-
-      <p>A partir de marzo de 2017, Docker quiere publicar una nueva versión cada mes y ha cambiado su numeración al formato AA.MM (año y mes). Estas versiones se mantendrán solamente durante un mes, aunque habrá una versión trimestral que se mantendrá durante cuatro meses (la primera ha sido Docker 17.03).</p>
-
-      <p class="mcl-centrado">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="900" viewBox="-50 -60 900 100">
-          <line x1="35" y1="0" x2="850" y2="0" stroke-width="3" stroke="hsl(195, 80%, 40%)" />
-          <text x="-30" y="4" text-anchor="start" style="font-size: 100%">Docker</text>
-          <text x="-10" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
-          <text x="-10" y="-38" text-anchor="middle" style="font-size: 60%">07-10-2017</text>
-
-          <line x1="60" y1="-30" x2="60" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="135" y="-40" text-anchor="middle" style="font-size: 80%">2013</text>
-          <line x1="210" y1="-30" x2="210" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="285" y="-40" text-anchor="middle" style="font-size: 80%">2014</text>
-          <line x1="360" y1="-30" x2="360" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="435" y="-40" text-anchor="middle" style="font-size: 80%">2015</text>
-          <line x1="510" y1="-30" x2="510" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="585" y="-40" text-anchor="middle" style="font-size: 80%">2016</text>
-          <line x1="660" y1="-30" x2="660" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <text x="735" y="-40" text-anchor="middle" style="font-size: 80%">2017</text>
-          <line x1="810" y1="-30" x2="810" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-          <!-- <text x="885" y="-40" text-anchor="middle" style="font-size: 80%">2018</text> -->
-
-          <circle cx="93" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="93" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">0.1</text>
-          <circle cx="141" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="141" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">0.5</text>
-          <circle cx="250" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="250" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">0.10</text>
-          <circle cx="275" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="275" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.0</text>
-          <circle cx="285" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="285" y="25" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.1</text>
-          <circle cx="305" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="305" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.2</text>
-          <circle cx="328" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="328" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.3</text>
-          <circle cx="352" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="352" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.4</text>
-          <circle cx="376" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="376" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.5</text>
-          <circle cx="403" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="403" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.6</text>
-          <circle cx="429" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="429" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.7</text>
-          <circle cx="451" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="451" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.8</text>
-          <circle cx="486" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="486" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.9</text>
-          <circle cx="524" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="524" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.10</text>
-          <circle cx="552" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="552" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.11</text>
-          <circle cx="596" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="596" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.12</text>
-          <circle cx="667" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="667" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.13</text>
-          <circle cx="682" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="682" y="25" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.03</text>
-          <circle cx="699" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="699" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.04</text>
-          <circle cx="711" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="711" y="25" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.05</text>
-          <circle cx="734" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-          <text x="734" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.06</text>
-        </svg>
-      </p>
-
-      <p>Los contenedores se distinguen de las máquinas virtuales en que las máquinas virtuales emulan un ordenador físico en el que se instala un sistema operativo completo, mientras que los contenedores usan el kernel del sistema operativo anfitrión pero contienen las capas superiores (sistema de ficheros, utilidades, aplicaciones).</p>
-
-      <p>Al ahorrarse la emulación del ordenador y el sistema operativo de la máquina virtual, los contenedores son más pequeños y rápidos que las máquinas virtuales. Pero al incluir el resto de capas de software, se consigue el aislamiento e independencia entre contenedores que se busca con las máquinas virtuales.</p>
-
-      <p>Los contenedores son útiles en los servidores, pero también para pruebas de software, ya que incluyen todos los elementos que necesitan las aplicaciones, lo que facilita la instalación y elimina los problemas de incompatibilidad de versiones en bibliotecas y aplicaciones auxiliares. También podría utilizarse para la distribución de software en general, pero en ese caso juega en contra la duplicidad que supone el que cada contenedor incluye todas las capas de software.</p>
-
-      <p>Docker empezó estando disponible solamente para distribuciones GNU/Linux, pero desde Windows Server 2016 y Windows 10 también está disponible en Windows.</p>
-
-      <p>Para utilizar Docker, se debe instalar el <a href="https://docs.docker.com/engine/userguide/intro/">Docker Engine</a>, pero Docker ofrece también una serie de herramientas para administrar, distribuir e instalar contenedores: <a href="https://docs.docker.com/compose/overview/">Docker Compose</a>, <a href="https://docs.docker.com/machine/overview/">Docker Machine</a>, etc.</p>
-
-      <hr class="corta" />
-
-      <p>Aunque un contenedor puede incluir cualquier número de aplicaciones, lo habitual es que un contenedor contenga una sola aplicación (y los programas necesarios para ponerse en marcha). Por ejemplo, si una aplicación web guarda la información en una base de datos, en vez de incluir la aplicación y la base de datos en el mismo contenedor, se suelen crear dos contenedores: uno con la aplicación web y otro con la base de datos. Por supuesto, en el contenedor de la aplicación web sí que se incluiría un servidor web.</p>
-
-      <p>Para que varios contenedores puedan comunicarse entre sí, Docker permite la creación de redes virtuales privadas en la que se incluyen los contenedores.</p>
-
-      <p>Cuando varios contenedores contienen aplicaciones web, los servidores web de cada contenedor en principio entrarían en conflicto puesto que todos atienden al puerto 80. Ese problema se presenta siempre que contenedores distintos incluyen aplicaciones que atienden a través de los mismos puertos (base de datos, etc.). Para resolver este problema, Docker permite que los contenedores escuchen por un puerto cualquiera, aunque internamente el servidor sigue utilizando su puerto habitual. En estos casos se debe utilizar un proxy inverso que redirija las peticiones exteriores al puerto correspondiente.</p>
-
-      <hr class="corta" />
-
-      <p>El proceso de creación de un contenedor incluye varias fases.</p>
-      <ul>
-        <li>El primer paso es escribir un <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>, un fichero de texto que enumera los elementos que acabará teniendo el contenedor. El Dockerfile lo puede escribir el propio usuario o pueden utilizarse Dockerfiles públicos disponibles en Internet.</li>
-        <li>A partir del Dockerfile, se crea una imagen que recopila todos los elementos incluidos en un único paquete. La imagen la puede crear el propio usuario o pueden descargarse imágenes públicas disponibles en Internet.</li>
-        <li>Las imágenes se incluyen en <a href="https://docs.docker.com/registry/">registros</a>, que funcionan como repositorio de las imágenes. Los registros pueden ser públicos o privados.</li>
-        <li>Los clientes de Docker descargan las imágenes de los registros y crean los contenedores en el ordenador del usuario.</li>
-      </ul>
-
-      <p>No es necesario realizar todas estas fases para crear un contenedor, pues cada vez más podemos encotnrar en Internet imágenes ya preparadas por los creadores de las aplicaciones o por terceros (como <a href="https://bitnami.com/stacks">Bitnami</a>).</p>
-    </section>
-
-    <section id="aprender-mas">
-      <h2>Aprender más</h2>
+    <div class="toc">
+      <h2>
+        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" /> Docker
+        <a href="docker-1.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
 
       <ul>
-        <li><a href="https://docs.docker.com/engine/userguide/intro/">Documentación oficial de Docker</a></li>
-        <li><a href="https://github.com/docker/labs">Docker Labs</a>: Tutoriales de Docker</li>
-        <li>Novedades:
-          <a href="https://blog.docker.com/2017/06/announcing-docker-17-06-community-edition-ce/">Docker 17.06 CE</a> -
-          <a href="https://blog.docker.com/2017/01/whats-new-in-docker-1-13/">Docker 1.13</a> -
-          <a href="https://blog.docker.com/2016/07/docker-built-in-orchestration-ready-for-production-docker-1-12-goes-ga/">Docker 1.12</a>
+        <li><a href="#organizacion-ejercicios">Organización ejercicios</a></li>
+        <li><a href="#docker">Docker</a></li>
+        <li><a href="#aprender-mas">Aprender más</a></li>
+        <li><a href="#docker-comandos">Comandos Docker</a>
+          <ul>
+            <li><a href="#imagenes">Imágenes</a></li>
+            <li><a href="#contenedores">Contenedores</a></li>
+            <li><a href="#redes">Redes</a></li>
+            <li><a href="#sistema">Sistema</a></li>
+          </ul>
         </li>
-        <li><a href="https://ericchiang.github.io/post/containers-from-scratch/">Containers from scratch</a></li>
-        <li><a href="https://opensource.com/article/17/1/container-strategy-for-executives">An executive's guide to containers (25/01/17)</a></li>
+        <li><a href="#bitnami">Contenedores de Bitnami</a></li>
       </ul>
-    </section>
+    </div>
+  </nav>
 
-    <section id="docker-comandos">
-      <h2>Algunos comandos de Docker</h2>
+  <section id="organizacion-ejercicios">
+    <h2>Organización de los ejercicios</h2>
 
-      <ul>
-        <li><a href="https://github.com/wsargent/docker-cheat-sheet">Docker Cheat Sheet</a></li>
-        <li>Una vez instalado Docker, todo se gestiona mediante comandos, que en Ubuntu se deben ejecutar como administrador:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker ...</code></pre>
-          </div>
-        </li>
-        <li>Para ver los comandos disponibles (en general y en particular):
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker</code></pre>
-          </div>
+    <p>Sólo hay una página de ejercicios de Docker:</p>
+    <ul>
+      <li><a href="docker-1.html">Docker (1)</a>: Máquina virtual Ubuntu y Docker</li>
+    </ul>
+  </section>
 
-          <div class="codigo">
-            <pre>
+  <section id="docker">
+    <h2>Contenedores: Docker</h2>
+
+    <p><img src="../img/iconos/logos/logo-docker.svg" alt="Logotipo Docker" title="Logotipo Docker" width="255" height="145" class="derecha" /></p>
+
+    <p><a href="https://www.docker.com/">Docker</a> es un sistema de virtualización de aplicaciones mediante contenedores, creado por Solomon Hykes y otros ingenieros. En 2013 se convirtió en un proyecto de software libre (licencia Apache) en el que participan cada vez más empresas. La versión 1.0 se publicó en junio de 2014 y ha tenido un desarrollo muy rápido.</p>
+
+    <p>A partir de marzo de 2017, Docker quiere publicar una nueva versión cada mes y ha cambiado su numeración al formato AA.MM (año y mes). Estas versiones se mantendrán solamente durante un mes, aunque habrá una versión trimestral que se mantendrá durante cuatro meses (la primera ha sido Docker 17.03).</p>
+
+    <p class="mcl-centrado">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="900" viewBox="-50 -60 900 100">
+        <line x1="35" y1="0" x2="850" y2="0" stroke-width="3" stroke="hsl(195, 80%, 40%)" />
+        <text x="-30" y="4" text-anchor="start" style="font-size: 100%">Docker</text>
+        <text x="-10" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
+        <text x="-10" y="-38" text-anchor="middle" style="font-size: 60%">07-10-2017</text>
+
+        <line x1="60" y1="-30" x2="60" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="135" y="-40" text-anchor="middle" style="font-size: 80%">2013</text>
+        <line x1="210" y1="-30" x2="210" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="285" y="-40" text-anchor="middle" style="font-size: 80%">2014</text>
+        <line x1="360" y1="-30" x2="360" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="435" y="-40" text-anchor="middle" style="font-size: 80%">2015</text>
+        <line x1="510" y1="-30" x2="510" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="585" y="-40" text-anchor="middle" style="font-size: 80%">2016</text>
+        <line x1="660" y1="-30" x2="660" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="735" y="-40" text-anchor="middle" style="font-size: 80%">2017</text>
+        <line x1="810" y1="-30" x2="810" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <!-- <text x="885" y="-40" text-anchor="middle" style="font-size: 80%">2018</text> -->
+
+        <circle cx="93" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="93" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">0.1</text>
+        <circle cx="141" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="141" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">0.5</text>
+        <circle cx="250" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="250" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">0.10</text>
+        <circle cx="275" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="275" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.0</text>
+        <circle cx="285" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="285" y="25" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.1</text>
+        <circle cx="305" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="305" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.2</text>
+        <circle cx="328" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="328" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.3</text>
+        <circle cx="352" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="352" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.4</text>
+        <circle cx="376" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="376" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.5</text>
+        <circle cx="403" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="403" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.6</text>
+        <circle cx="429" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="429" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.7</text>
+        <circle cx="451" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="451" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.8</text>
+        <circle cx="486" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="486" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.9</text>
+        <circle cx="524" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="524" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.10</text>
+        <circle cx="552" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="552" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.11</text>
+        <circle cx="596" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="596" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.12</text>
+        <circle cx="667" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="667" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.13</text>
+        <circle cx="682" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="682" y="25" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.03</text>
+        <circle cx="699" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="699" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.04</text>
+        <circle cx="711" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="711" y="25" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.05</text>
+        <circle cx="734" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="734" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.06</text>
+      </svg>
+    </p>
+
+    <p>Los contenedores se distinguen de las máquinas virtuales en que las máquinas virtuales emulan un ordenador físico en el que se instala un sistema operativo completo, mientras que los contenedores usan el kernel del sistema operativo anfitrión pero contienen las capas superiores (sistema de ficheros, utilidades, aplicaciones).</p>
+
+    <p>Al ahorrarse la emulación del ordenador y el sistema operativo de la máquina virtual, los contenedores son más pequeños y rápidos que las máquinas virtuales. Pero al incluir el resto de capas de software, se consigue el aislamiento e independencia entre contenedores que se busca con las máquinas virtuales.</p>
+
+    <p>Los contenedores son útiles en los servidores, pero también para pruebas de software, ya que incluyen todos los elementos que necesitan las aplicaciones, lo que facilita la instalación y elimina los problemas de incompatibilidad de versiones en bibliotecas y aplicaciones auxiliares. También podría utilizarse para la distribución de software en general, pero en ese caso juega en contra la duplicidad que supone el que cada contenedor incluye todas las capas de software.</p>
+
+    <p>Docker empezó estando disponible solamente para distribuciones GNU/Linux, pero desde Windows Server 2016 y Windows 10 también está disponible en Windows.</p>
+
+    <p>Para utilizar Docker, se debe instalar el <a href="https://docs.docker.com/engine/userguide/intro/">Docker Engine</a>, pero Docker ofrece también una serie de herramientas para administrar, distribuir e instalar contenedores: <a href="https://docs.docker.com/compose/overview/">Docker Compose</a>, <a href="https://docs.docker.com/machine/overview/">Docker Machine</a>, etc.</p>
+
+    <hr class="corta" />
+
+    <p>Aunque un contenedor puede incluir cualquier número de aplicaciones, lo habitual es que un contenedor contenga una sola aplicación (y los programas necesarios para ponerse en marcha). Por ejemplo, si una aplicación web guarda la información en una base de datos, en vez de incluir la aplicación y la base de datos en el mismo contenedor, se suelen crear dos contenedores: uno con la aplicación web y otro con la base de datos. Por supuesto, en el contenedor de la aplicación web sí que se incluiría un servidor web.</p>
+
+    <p>Para que varios contenedores puedan comunicarse entre sí, Docker permite la creación de redes virtuales privadas en la que se incluyen los contenedores.</p>
+
+    <p>Cuando varios contenedores contienen aplicaciones web, los servidores web de cada contenedor en principio entrarían en conflicto puesto que todos atienden al puerto 80. Ese problema se presenta siempre que contenedores distintos incluyen aplicaciones que atienden a través de los mismos puertos (base de datos, etc.). Para resolver este problema, Docker permite que los contenedores escuchen por un puerto cualquiera, aunque internamente el servidor sigue utilizando su puerto habitual. En estos casos se debe utilizar un proxy inverso que redirija las peticiones exteriores al puerto correspondiente.</p>
+
+    <hr class="corta" />
+
+    <p>El proceso de creación de un contenedor incluye varias fases.</p>
+    <ul>
+      <li>El primer paso es escribir un <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>, un fichero de texto que enumera los elementos que acabará teniendo el contenedor. El Dockerfile lo puede escribir el propio usuario o pueden utilizarse Dockerfiles públicos disponibles en Internet.</li>
+      <li>A partir del Dockerfile, se crea una imagen que recopila todos los elementos incluidos en un único paquete. La imagen la puede crear el propio usuario o pueden descargarse imágenes públicas disponibles en Internet.</li>
+      <li>Las imágenes se incluyen en <a href="https://docs.docker.com/registry/">registros</a>, que funcionan como repositorio de las imágenes. Los registros pueden ser públicos o privados.</li>
+      <li>Los clientes de Docker descargan las imágenes de los registros y crean los contenedores en el ordenador del usuario.</li>
+    </ul>
+
+    <p>No es necesario realizar todas estas fases para crear un contenedor, pues cada vez más podemos encotnrar en Internet imágenes ya preparadas por los creadores de las aplicaciones o por terceros (como <a href="https://bitnami.com/stacks">Bitnami</a>).</p>
+  </section>
+
+  <section id="aprender-mas">
+    <h2>Aprender más</h2>
+
+    <ul>
+      <li><a href="https://docs.docker.com/engine/userguide/intro/">Documentación oficial de Docker</a></li>
+      <li><a href="https://github.com/docker/labs">Docker Labs</a>: Tutoriales de Docker</li>
+      <li>Novedades:
+        <a href="https://blog.docker.com/2017/06/announcing-docker-17-06-community-edition-ce/">Docker 17.06 CE</a> -
+        <a href="https://blog.docker.com/2017/01/whats-new-in-docker-1-13/">Docker 1.13</a> -
+        <a href="https://blog.docker.com/2016/07/docker-built-in-orchestration-ready-for-production-docker-1-12-goes-ga/">Docker 1.12</a>
+      </li>
+      <li><a href="https://ericchiang.github.io/post/containers-from-scratch/">Containers from scratch</a></li>
+      <li><a href="https://opensource.com/article/17/1/container-strategy-for-executives">An executive's guide to containers (25/01/17)</a></li>
+    </ul>
+  </section>
+
+  <section id="docker-comandos">
+    <h2>Algunos comandos de Docker</h2>
+
+    <ul>
+      <li><a href="https://github.com/wsargent/docker-cheat-sheet">Docker Cheat Sheet</a></li>
+      <li>Una vez instalado Docker, todo se gestiona mediante comandos, que en Ubuntu se deben ejecutar como administrador:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker ...</code></pre>
+        </div>
+      </li>
+      <li>Para ver los comandos disponibles (en general y en particular):
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker</code></pre>
+        </div>
+
+        <div class="codigo">
+          <pre>
 <code class="language-shell">sudo docker image
 sudo docker network
 ...</code>
 </pre>
+        </div>
+      </li>
+      <li>Para ver las opciones de cada comando:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker cp --help</code></pre>
+        </div>
+      </li>
+    </ul>
+
+    <section id="imagenes">
+      <h3>Imágenes</h3>
+
+      <p>En los comandos siguientes REPOSITORIO es el nombre del repositorio en el que se encuentra la imagen (por ejemplo bitnami/phpmyadmin) e IMAGEN es el nombre de la imagen descargada. Realmente, las imágenes descargadas se llaman igual que los repositorios de donde se han descargado, pero he distinguido los nombres para dejar claro cuándo nos estamos haciendo referencia a la imagen del repositiorio y cuándo a la imagen local.</p>
+
+      <ul>
+        <li>Para gestionar las imágenes, se utiliza el comando:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker image ...</code></pre>
           </div>
         </li>
-        <li>Para ver las opciones de cada comando:
+        <li>Para descargar una imagen:
           <div class="codigo">
-            <pre><code class="language-shell">sudo docker cp --help</code></pre>
+            <pre><code class="language-shell">sudo docker image pull REPOSITORIO</code></pre>
+          </div>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker pull REPOSITORIO</code></pre>
+          </div>
+        </li>
+        <li>Para ver las imágenes ya descargadas:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker image ls</code></pre>
+          </div>
+        </li>
+        <li>Para borrar una imagen (se deben borrar previamente los contenedores basados en esa imagen):
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker image rm IMAGEN</code></pre>
           </div>
         </li>
       </ul>
+    </section>
 
-      <section id="imagenes">
-        <h3>Imágenes</h3>
+    <section id="contenedores">
+      <h3>Contenedores</h3>
 
-        <p>En los comandos siguientes REPOSITORIO es el nombre del repositorio en el que se encuentra la imagen (por ejemplo bitnami/phpmyadmin) e IMAGEN es el nombre de la imagen descargada. Realmente, las imágenes descargadas se llaman igual que los repositorios de donde se han descargado, pero he distinguido los nombres para dejar claro cuándo nos estamos haciendo referencia a la imagen del repositiorio y cuándo a la imagen local.</p>
-
-        <ul>
-          <li>Para gestionar las imágenes, se utiliza el comando:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker image ...</code></pre>
-            </div>
-          </li>
-          <li>Para descargar una imagen:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker image pull REPOSITORIO</code></pre>
-            </div>
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker pull REPOSITORIO</code></pre>
-            </div>
-          </li>
-          <li>Para ver las imágenes ya descargadas:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker image ls</code></pre>
-            </div>
-          </li>
-          <li>Para borrar una imagen (se deben borrar previamente los contenedores basados en esa imagen):
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker image rm IMAGEN</code></pre>
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      <section id="contenedores">
-        <h3>Contenedores</h3>
-
-        <p>En los comandos siguientes CONTENEDOR es el nombre del contenedor, que podemos elegir al crearlo, y RED es el nombre de una red ya existente.</p>
-        <ul>
-          <li>Para crear un contenedor:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker run --name CONTENEDOR REPOSITORIO</code></pre>
-            </div>
-            <p>Al crear el contenedor se pueden añadir diversas opciones:</p>
-            <ul>
-              <li>Para poner en marcha el contenedor nada más crearlo:
-                <div class="codigo">
-                  <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-d</strong> REPOSITORIO</code></pre>
-                </div>
-              </li>
-              <li>Para incluir el contenedor en una red privada virtual (y que se pueda comunicar con el resto de contenedores incluidos en esa red):
-                <div class="codigo">
-                  <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>--net=RED REPOSITORIO</strong></code></pre>
-                </div>
-              </li>
-              <li>Para que el contenedor atienda a un puerto determinado, aunque internamente atienda un puerto distinto:
-                <div class="codigo">
-                  <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-p PUERTO_EXTERNO:PUERTO_INTERNO</strong> REPOSITORIO</code></pre>
-                </div>
-              </li>
-              <li>Para establecer variables de configuración del contenedor:
-                <div class="codigo">
-                  <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-e VARIABLE=VALOR</strong> REPOSITORIO</code></pre>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li>Para ver los contenedores en funcionamiento:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker ps</code></pre>
-            </div>
-          </li>
-          <li>Para ver los contenedores en funcionamiento o detenidos:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker ps -a</code></pre>
-            </div>
-          </li>
-          <li>Para detener un contenedor:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker stop CONTENEDOR</code></pre>
-            </div>
-          </li>
-          <li>Para borrar un contenedor:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker rm CONTENEDOR</code></pre>
-            </div>
-          </li>
-          <li>Para poner en marcha un contenedor detenido:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker start CONTENEDOR</code></pre>
-            </div>
-          </li>
-          <li>Para entrar en la shell del contenedor:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
-            </div>
-          </li>
-          <li>Para salir de la shell del contenedor:
-            <div class="codigo">
-              <pre><code class="language-shell">exit</code></pre>
-            </div>
-          </li>
-          <li>Para copiar (o mover) archivos entre el contenedor y el sistema anfitrión o viceversa:
-            <div class="codigo">
-              <pre>
+      <p>En los comandos siguientes CONTENEDOR es el nombre del contenedor, que podemos elegir al crearlo, y RED es el nombre de una red ya existente.</p>
+      <ul>
+        <li>Para crear un contenedor:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker run --name CONTENEDOR REPOSITORIO</code></pre>
+          </div>
+          <p>Al crear el contenedor se pueden añadir diversas opciones:</p>
+          <ul>
+            <li>Para poner en marcha el contenedor nada más crearlo:
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-d</strong> REPOSITORIO</code></pre>
+              </div>
+            </li>
+            <li>Para incluir el contenedor en una red privada virtual (y que se pueda comunicar con el resto de contenedores incluidos en esa red):
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>--net=RED REPOSITORIO</strong></code></pre>
+              </div>
+            </li>
+            <li>Para que el contenedor atienda a un puerto determinado, aunque internamente atienda un puerto distinto:
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-p PUERTO_EXTERNO:PUERTO_INTERNO</strong> REPOSITORIO</code></pre>
+              </div>
+            </li>
+            <li>Para establecer variables de configuración del contenedor:
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-e VARIABLE=VALOR</strong> REPOSITORIO</code></pre>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li>Para ver los contenedores en funcionamiento:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker ps</code></pre>
+          </div>
+        </li>
+        <li>Para ver los contenedores en funcionamiento o detenidos:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker ps -a</code></pre>
+          </div>
+        </li>
+        <li>Para detener un contenedor:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker stop CONTENEDOR</code></pre>
+          </div>
+        </li>
+        <li>Para borrar un contenedor:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker rm CONTENEDOR</code></pre>
+          </div>
+        </li>
+        <li>Para poner en marcha un contenedor detenido:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker start CONTENEDOR</code></pre>
+          </div>
+        </li>
+        <li>Para entrar en la shell del contenedor:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
+          </div>
+        </li>
+        <li>Para salir de la shell del contenedor:
+          <div class="codigo">
+            <pre><code class="language-shell">exit</code></pre>
+          </div>
+        </li>
+        <li>Para copiar (o mover) archivos entre el contenedor y el sistema anfitrión o viceversa:
+          <div class="codigo">
+            <pre>
 <code class="language-shell">sudo docker CP CONTENEDOR:ORIGEN DESTINO
 sudo docker CP ORIGEN CONTENEDOR:DESTINO</code>
 </pre>
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      <section id="redes">
-        <h3>Redes</h3>
-
-        <p>En los comandos siguientes RED es el nombre de la red privada.</p>
-
-        <ul>
-          <li>Para gestionar las redes, se utiliza el comando:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker network ...</code></pre>
-            </div>
-          </li>
-          <li>Para crear una red:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker network create RED</code></pre>
-            </div>
-          </li>
-          <li>Para ver las redes existentes:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker network ls</code></pre>
-            </div>
-          </li>
-          <li>Para ver información detallada de una red (entre ella, los contenedores incluidos y sus IP privadas):
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker network inspect RED</code></pre>
-            </div>
-          </li>
-          <li>Para borrar una red:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker network rm RED</code></pre>
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      <section id="sistema">
-        <h3>Sistema</h3>
-
-        <ul>
-          <li>Para ver el espacio ocupado por las imágenes, los contenedores y los volúmenes:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker system df</code></pre>
-            </div>
-          </li>
-          <li>Para eliminar los elementos que no se utilizan (incluso contenedores detenidos):
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker system prune</code></pre>
-            </div>
-          </li>
-        </ul>
-      </section>
+          </div>
+        </li>
+      </ul>
     </section>
 
-    <section id="bitnami">
-      <h2>Contenedores Docker de Bitnami</h2>
+    <section id="redes">
+      <h3>Redes</h3>
 
-      <p>Los <a href="https://bitnami.com/stacks">contenedores Docker de aplicaciones de Bitnami</a> incluyen únicamente la aplicación, aunque también están disponibles contenedores de aplicaciones de infraestructura (lenguajes de programación, bases de datos, servidores web, etc.).</p>
+      <p>En los comandos siguientes RED es el nombre de la red privada.</p>
 
-      <p>Actualmente (enero de 2017) el número de contenedores que ofrece Bitnami es bastante menor que el que ofrece en forma de instaladores (unas 50 aplicaciones frente a unas 150 aplicaciones).</p>
-
-      <p>Los contenedores de Bitnami están creados por una herramienta llamada <a href="https://stacksmith.bitnami.com/">Stacksmith</a> que Bitnami ofrece para crear contenedores personalizados.</p>
+      <ul>
+        <li>Para gestionar las redes, se utiliza el comando:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker network ...</code></pre>
+          </div>
+        </li>
+        <li>Para crear una red:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker network create RED</code></pre>
+          </div>
+        </li>
+        <li>Para ver las redes existentes:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker network ls</code></pre>
+          </div>
+        </li>
+        <li>Para ver información detallada de una red (entre ella, los contenedores incluidos y sus IP privadas):
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker network inspect RED</code></pre>
+          </div>
+        </li>
+        <li>Para borrar una red:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker network rm RED</code></pre>
+          </div>
+        </li>
+      </ul>
     </section>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 7 de octubre de 2017</p>
+    <section id="sistema">
+      <h3>Sistema</h3>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+      <ul>
+        <li>Para ver el espacio ocupado por las imágenes, los contenedores y los volúmenes:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker system df</code></pre>
+          </div>
+        </li>
+        <li>Para eliminar los elementos que no se utilizan (incluso contenedores detenidos):
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker system prune</code></pre>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </section>
+
+  <section id="bitnami">
+    <h2>Contenedores Docker de Bitnami</h2>
+
+    <p>Los <a href="https://bitnami.com/stacks">contenedores Docker de aplicaciones de Bitnami</a> incluyen únicamente la aplicación, aunque también están disponibles contenedores de aplicaciones de infraestructura (lenguajes de programación, bases de datos, servidores web, etc.).</p>
+
+    <p>Actualmente (enero de 2017) el número de contenedores que ofrece Bitnami es bastante menor que el que ofrece en forma de instaladores (unas 50 aplicaciones frente a unas 150 aplicaciones).</p>
+
+    <p>Los contenedores de Bitnami están creados por una herramienta llamada <a href="https://stacksmith.bitnami.com/">Stacksmith</a> que Bitnami ofrece para crear contenedores personalizados.</p>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 7 de octubre de 2017</p>
+
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

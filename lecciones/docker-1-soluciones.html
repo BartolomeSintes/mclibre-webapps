@@ -1,99 +1,98 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Soluciones (1). Docker. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Soluciones (1). Docker. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>Docker. Soluciones (1)</h1>
+<body>
+  <h1>Docker. Soluciones (1)</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <a href="docker.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
-          Docker (1)
-        </h2>
+    <div class="toc">
+      <h2>
+        <a href="docker.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> Docker (1)
+      </h2>
 
-        <h3><a href="docker-1.html">Enunciados</a></h3>
+      <h3><a href="docker-1.html">Enunciados</a></h3>
+      <ul>
+        <li><a href="docker-1.html#ejercicio-1">1 - Instalar Docker</a></li>
+        <li><a href="docker-1.html#ejercicio-2">2 - Instalar OpenCart</a></li>
+        <li><a href="docker-1.html#ejercicio-3">3 - Probar comandos</a></li>
+        <li><a href="docker-1.html#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
+        <li><a href="docker-1.html#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
+      </ul>
+
+      <h3>Soluciones</h3>
+      <ul>
+        <li><a href="#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
+        <li><a href="#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <p>En esta lección se proponen soluciones detalladas de los <a href="bitnami-3.html">ejercicios de Docker (1)</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+
+  <section id="ejercicio-4">
+    <h2>Docker (1) 4 - Instalar phpMyAdmin</h2>
+
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar</p>
+
+    <p>En este ejercicio se pide instalar phpMyAdmin en un contenedor Docker.</p>
+
+    <ol>
+      <li>La imagen Docker de phpMyAdmin de Bitnami se encuentra en <a href="https://github.com/bitnami/bitnami-docker-phpmyadmin">https://github.com/bitnami/bitnami-docker-phpmyadmin</a>.</li>
+      <li>Para crear un contenedor phpMyAdmin:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker run -d -p 8802:80 --name phpmyadmin --net=opencart_network bitnami/phpmyadmin</code></pre>
+        </div>
+      </li>
+      <li>Este phpMyAdmin se abriría escribiendo en el navegador del host <strong>http://AAAA.BBB.CCC.DDD:8802</strong></li>
+      <li>El nombre de usuario de MariaDB creado para OpenCart y su contraseña se encuentran en el fichero de configuración de OpenCart (el usuario es siempre <strong>bn_opencart</strong>, pero la contraseña se genera al azar cada vez que se crea un contenedor.</li>
+      <li>El MariaDB instalado desde la imagen de Bitnami tiene usuario <strong>root</strong> sin contraseña.</li>
+    </ol>
+  </section>
+
+  <section id="ejercicio-5">
+    <h2>Docker (1) 5 - Instalar dos aplicaciones (OPTATIVO)</h2>
+
+    <ol>
+      <li>Primero habría que detener y borrar los contenedores anteriores.</li>
+      <li><strong>Contenedor de phpMyAdmin</strong>
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker run -d -p 8802:80 --name phpmyadmin --net=opencart_network bitnami/phpmyadmin</code></pre>
+        </div>
+      </li>
+      <li><strong>Contenedor de OpenCart</strong>
         <ul>
-          <li><a href="docker-1.html#ejercicio-1">1 - Instalar Docker</a></li>
-          <li><a href="docker-1.html#ejercicio-2">2 - Instalar OpenCart</a></li>
-          <li><a href="docker-1.html#ejercicio-3">3 - Probar comandos</a></li>
-          <li><a href="docker-1.html#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
-          <li><a href="docker-1.html#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
-        </ul>
-
-        <h3>Soluciones</h3>
-        <ul>
-          <li><a href="#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
-          <li><a href="#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <p>En esta lección se proponen soluciones detalladas de los <a href="bitnami-3.html">ejercicios de Docker (1)</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
-
-    <section id="ejercicio-4">
-      <h2>Docker (1) 4 - Instalar phpMyAdmin</h2>
-
-      <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar</p>
-
-      <p>En este ejercicio se pide instalar phpMyAdmin en un contenedor Docker.</p>
-
-      <ol>
-        <li>La imagen Docker de phpMyAdmin de Bitnami se encuentra en <a href="https://github.com/bitnami/bitnami-docker-phpmyadmin">https://github.com/bitnami/bitnami-docker-phpmyadmin</a>.</li>
-        <li>Para crear un contenedor phpMyAdmin:
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker run -d -p 8802:80 --name phpmyadmin --net=opencart_network bitnami/phpmyadmin</code></pre>
-          </div>
-        </li>
-        <li>Este phpMyAdmin se abriría escribiendo en el navegador del host <strong>http://AAAA.BBB.CCC.DDD:8802</strong></li>
-        <li>El nombre de usuario de MariaDB creado para OpenCart y su contraseña se encuentran en el fichero de configuración de OpenCart (el usuario es siempre <strong>bn_opencart</strong>, pero la contraseña se genera al azar cada vez que se crea un contenedor.</li>
-        <li>El MariaDB instalado desde la imagen de Bitnami tiene usuario <strong>root</strong> sin contraseña.</li>
-      </ol>
-    </section>
-
-    <section id="ejercicio-5">
-      <h2>Docker (1) 5 - Instalar dos aplicaciones (OPTATIVO)</h2>
-
-      <ol>
-        <li>Primero habría que detener y borrar los contenedores anteriores.</li>
-        <li><strong>Contenedor de phpMyAdmin</strong>
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker run -d -p 8802:80 --name phpmyadmin --net=opencart_network bitnami/phpmyadmin</code></pre>
-          </div>
-        </li>
-        <li><strong>Contenedor de OpenCart</strong>
-          <ul>
-            <li>Cree la imagen de OpenCart
-              <div class="codigo">
-                <pre><code class="language-shell">sudo docker run -d -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 8801:80 --name opencart --net=opencart_network bitnami/opencart</code></pre>
-              </div>
-            </li>
-            <li>A continuación es necesario modificar los archivos de configuración de OpenCart para que los enlaces de la aplicación contengan el puerto.
-              <p><strong>Nota</strong>: He tenido que modificar los archivos de configuración a mano porque si incluía el puerto al crear la imagen de OpenCart el fichero de configuración no se creaba correctamente.</p>
-            </li>
-            <li>Copie el archivo de configuración de la imagen para poderlo modificar:
-              <div class="codigo">
-                <pre><code class="language-shell">sudo docker cp opencart:/bitnami/opencart/config.php /tmp/config.php</code></pre>
-              </div>
-            </li>
-            <li>Edite el archivo de configuración:
-              <div class="codigo">
-                <pre><code class="language-shell">sudo vi /tmp/config.php</code></pre>
-              </div>
-              <p>Incluya el puerto PUERTO1 en las direcciones de base:</p>
-              <div class="codigo">
-                <pre>
+          <li>Cree la imagen de OpenCart
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker run -d -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 8801:80 --name opencart --net=opencart_network bitnami/opencart</code></pre>
+            </div>
+          </li>
+          <li>A continuación es necesario modificar los archivos de configuración de OpenCart para que los enlaces de la aplicación contengan el puerto.
+            <p><strong>Nota</strong>: He tenido que modificar los archivos de configuración a mano porque si incluía el puerto al crear la imagen de OpenCart el fichero de configuración no se creaba correctamente.</p>
+          </li>
+          <li>Copie el archivo de configuración de la imagen para poderlo modificar:
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker cp opencart:/bitnami/opencart/config.php /tmp/config.php</code></pre>
+            </div>
+          </li>
+          <li>Edite el archivo de configuración:
+            <div class="codigo">
+              <pre><code class="language-shell">sudo vi /tmp/config.php</code></pre>
+            </div>
+            <p>Incluya el puerto PUERTO1 en las direcciones de base:</p>
+            <div class="codigo">
+              <pre>
 <code class="language-php">/* config.php */
 // HTTP
 define('HTTP_SERVER', 'http://AAA.BBB.CCC.DDD<span class="codigo-modificacion">:PUERTO2</span>/');
@@ -104,24 +103,24 @@ define('HTTPS_SERVER', 'http://AAA.BBB.CCC.DDD<span class="codigo-modificacion">
 
  ...</code>
  </pre>
-              </div>
-            </li>
-            <li>Repita la operación con el otro archivo de configuración.</li>
-          </ul>
-        </li>
-        <li><strong>Contenedor de nginx</strong>
-          <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Este apartado no he llegado a hacerlo, se supone que es posible hacerlo</p>
-        </li>
-      </ol>
-    </section>
+            </div>
+          </li>
+          <li>Repita la operación con el otro archivo de configuración.</li>
+        </ul>
+      </li>
+      <li><strong>Contenedor de nginx</strong>
+        <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Este apartado no he llegado a hacerlo, se supone que es posible hacerlo</p>
+      </li>
+    </ol>
+  </section>
 
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 24 de enero de 2017</p>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 24 de enero de 2017</p>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>

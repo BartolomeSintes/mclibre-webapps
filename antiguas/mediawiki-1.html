@@ -1,231 +1,230 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Ejercicios (1). MediaWiki 1.22.0. Aplicaciones web. Bartolomé Sintes Marco</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
-    <link rel="icon" href="../varios/favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Ejercicios (1). MediaWiki 1.22.0. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+</head>
 
-  <body>
-    <h1>MediaWiki 1.22.0. Ejercicios (1)</h1>
+<body>
+  <h1>MediaWiki 1.22.0. Ejercicios (1)</h1>
 
-    <nav>
-      <p>
-        <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-        <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
-      </p>
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
 
-      <div class="toc">
-        <h2>
-          <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" />
-          MediaWiki 1.22 (1)
-          <a href="mediawiki-marcado.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
-        </h2>
+    <div class="toc">
+      <h2>
+        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" /> MediaWiki 1.22 (1)
+        <a href="mediawiki-marcado.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
 
-        <h3>Enunciados</h3>
-        <ul>
-          <li><a href="#ejercicio-1">1 - MediaWiki</a></li>
-          <li><a href="#ejercicio-2">2 - Descargar</a></li>
-          <li><a href="#ejercicio-3">3 - Nueva página</a></li>
-          <li><a href="#ejercicio-4">4 - Trasladar una página</a></li>
-          <li><a href="#ejercicio-5">5 - Borrar página</a></li>
-          <li><a href="#ejercicio-6">6 - Editar página</a></li>
-          <li><a href="#ejercicio-7">7 - Crear usuarios</a></li>
-          <li><a href="#ejercicio-8">8 - Subir imágenes</a></li>
-          <li><a href="#ejercicio-9">9 - Varios</a></li>
-          <li><a href="#ejercicio-10">10 - Acceder desde otros</a></li>
-        </ul>
+      <h3>Enunciados</h3>
+      <ul>
+        <li><a href="#ejercicio-1">1 - MediaWiki</a></li>
+        <li><a href="#ejercicio-2">2 - Descargar</a></li>
+        <li><a href="#ejercicio-3">3 - Nueva página</a></li>
+        <li><a href="#ejercicio-4">4 - Trasladar una página</a></li>
+        <li><a href="#ejercicio-5">5 - Borrar página</a></li>
+        <li><a href="#ejercicio-6">6 - Editar página</a></li>
+        <li><a href="#ejercicio-7">7 - Crear usuarios</a></li>
+        <li><a href="#ejercicio-8">8 - Subir imágenes</a></li>
+        <li><a href="#ejercicio-9">9 - Varios</a></li>
+        <li><a href="#ejercicio-10">10 - Acceder desde otros</a></li>
+      </ul>
 
-        <h3><a href="mediawiki-1-soluciones.html">Soluciones</a></h3>
-        <ul>
-          <li><a href="mediawiki-1-soluciones.html#ejercicio-1">1 - MediaWiki</a></li>
-          <li><a href="mediawiki-1-soluciones.html#ejercicio-2">2 - Descargar</a></li>
-          <li><a href="mediawiki-1-soluciones.html#ejercicio-3">3 - Nueva página</a></li>
-          <li><a href="mediawiki-1-soluciones.html#ejercicio-4">4 - Trasladar una página</a></li>
-          <li><a href="mediawiki-1-soluciones.html#ejercicio-5">5 - Borrar página</a></li>
-          <li><a href="mediawiki-1-soluciones.html#ejercicio-6">6 - Editar página</a></li>
-          <li><a href="mediawiki-1-soluciones.html#ejercicio-7">7 - Crear usuarios</a></li>
-          <li><a href="mediawiki-1-soluciones.html#ejercicio-8">8 - Subir imágenes</a></li>
-          <li><a href="mediawiki-1-soluciones.html#ejercicio-9">9 - Varios</a></li>
-          <li><a href="mediawiki-1-soluciones.html#ejercicio-10">10 - Acceder desde otros</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="aviso-antiguo">
-      <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de MediaWiki. No están actualizados a versiones más actuales porque desde el curso 2014/15 no estoy trabajando en clase MediaWiki ya que estoy dedicando más tiempo a otras aplicaciones. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+      <h3><a href="mediawiki-1-soluciones.html">Soluciones</a></h3>
+      <ul>
+        <li><a href="mediawiki-1-soluciones.html#ejercicio-1">1 - MediaWiki</a></li>
+        <li><a href="mediawiki-1-soluciones.html#ejercicio-2">2 - Descargar</a></li>
+        <li><a href="mediawiki-1-soluciones.html#ejercicio-3">3 - Nueva página</a></li>
+        <li><a href="mediawiki-1-soluciones.html#ejercicio-4">4 - Trasladar una página</a></li>
+        <li><a href="mediawiki-1-soluciones.html#ejercicio-5">5 - Borrar página</a></li>
+        <li><a href="mediawiki-1-soluciones.html#ejercicio-6">6 - Editar página</a></li>
+        <li><a href="mediawiki-1-soluciones.html#ejercicio-7">7 - Crear usuarios</a></li>
+        <li><a href="mediawiki-1-soluciones.html#ejercicio-8">8 - Subir imágenes</a></li>
+        <li><a href="mediawiki-1-soluciones.html#ejercicio-9">9 - Varios</a></li>
+        <li><a href="mediawiki-1-soluciones.html#ejercicio-10">10 - Acceder desde otros</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>MediaWiki</strong>. Se pueden consultar las <a href="mediawiki-1-soluciones.html">soluciones de estos ejercicios de MediaWiki</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+  <div class="aviso-antiguo">
+    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de MediaWiki. No están actualizados a versiones más actuales porque desde el curso 2014/15 no estoy trabajando en clase MediaWiki ya que estoy dedicando más tiempo a otras aplicaciones. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+  </div>
 
-    <section id="mediawiki">
-      <h2>Wikis: MediaWiki</h2>
+  <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>MediaWiki</strong>. Se pueden consultar las <a href="mediawiki-1-soluciones.html">soluciones de estos ejercicios de MediaWiki</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-      <p>Un wiki o una wiki (del hawaiano wiki, que significa "rápido") es un sitio web cuyas páginas pueden ser visitadas y editadas libremente mediante el navegador web.</p>
+  <section id="mediawiki">
+    <h2>Wikis: MediaWiki</h2>
 
-      <p>La primera wiki, llamada WikiWikiWeb, fue creada por Ward Cunningham en 1995, que dió nombre a este tipo de sitios. La wiki más conocida es seguramente la Wikipedia una enciclopedia libre puesta en marcha por Jimmy Wales y Larry Sanger en 2001. La versión más importante de Wikipedia es lógicamente la <a href="https://en.wikipedia.org/wiki/Main_Page">versión en inglés</a>, pero la <a href="https://es.wikipedia.org/wiki/Wikipedia:Portada">versión en español</a> se encuentra entre <a href="https://en.wikipedia.org/wiki/Wikipedia:Multilingual_statistics">las diez primeras</a>. La Wikipedia utiliza su propio software llamado MediaWiki, escrito en PHP.</p>
-    </section>
+    <p>Un wiki o una wiki (del hawaiano wiki, que significa "rápido") es un sitio web cuyas páginas pueden ser visitadas y editadas libremente mediante el navegador web.</p>
 
-    <section id="ejercicio-1">
-      <h2>MediaWiki (1) 1 - Descargar MediaWiki</h2>
-      <ol>
-        <li>Visite la página web del proyecto MediaWiki.</li>
-        <li>Descargue la versión <strong>MediaWiki 1.22.0</strong> (con todos los idiomas), publicada el 6 de diciembre de 2013. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.<br />
-          <p>Si la versión <strong>MediaWiki 1.22.0</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/ejercicios-antiguos.html">Descarga de aplicaciones antiguas</a>.</p>
-        </li>
-      </ol>
-    </section>
+    <p>La primera wiki, llamada WikiWikiWeb, fue creada por Ward Cunningham en 1995, que dió nombre a este tipo de sitios. La wiki más conocida es seguramente la Wikipedia una enciclopedia libre puesta en marcha por Jimmy Wales y Larry Sanger en 2001. La versión más importante de Wikipedia es lógicamente la <a href="https://en.wikipedia.org/wiki/Main_Page">versión en inglés</a>, pero la <a href="https://es.wikipedia.org/wiki/Wikipedia:Portada">versión en español</a> se encuentra entre <a href="https://en.wikipedia.org/wiki/Wikipedia:Multilingual_statistics">las diez primeras</a>. La Wikipedia utiliza su propio software llamado MediaWiki, escrito en PHP.</p>
+  </section>
 
-    <section id="ejercicio-2">
-      <h2>MediaWiki (1) 2 - Instalar MediaWiki</h2>
+  <section id="ejercicio-1">
+    <h2>MediaWiki (1) 1 - Descargar MediaWiki</h2>
+    <ol>
+      <li>Visite la página web del proyecto MediaWiki.</li>
+      <li>Descargue la versión <strong>MediaWiki 1.22.0</strong> (con todos los idiomas), publicada el 6 de diciembre de 2013. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.<br />
+        <p>Si la versión <strong>MediaWiki 1.22.0</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/ejercicios-antiguos.html">Descarga de aplicaciones antiguas</a>.</p>
+      </li>
+    </ol>
+  </section>
 
-      <p>En este apartado se trata de poner en marcha una wiki en MediaWiki:</p>
-      <ol>
-        <li>Cree con phpMyAdmin un usuario de MySQL con nombre <strong>iaw_mediawiki_1</strong>, contraseña <strong>iaw_mediawiki_1</strong> y base de datos <strong>iaw_mediawiki_1</strong>.</li>
-        <li>Descomprima MediaWiki en la carpeta adecuada para poder ejecutarlo en el servidor local.</li>
-        <li>Abra <strong>mediawiki/index.php</strong> en Eclipse. MediaWiki detecta que no existe el archivo de configuración LocalSettings.php y que es necesario utilizar el asistente de instalación.
-          <p class="captura">
-            <img src="img/mediawiki-1-22/mediawiki-instalacion-1.png" alt="MediaWiki. Instalación. Aviso de ausencia de configuración." title="MediaWiki. Instalación. Aviso de ausencia de configuración." width="250" height="250" />
-          </p>
-        </li>
-        <li>El asistente de instalación va preguntando las opciones de configuración deseadas. A continuación se comentan las opciones a elegir distintas de las predeterminadas.
-          <ul>
-            <li>Idioma
-              <p>Idioma: <strong>español</strong></p>
-            </li>
-            <li>Conectar a la base de datos
-              <p>Base de datos a utilizar: <strong>MySQL</strong></p>
-              <p>Servidor de la base de datos: <strong>localhost</strong></p>
-              <p>Nombre de base de datos: <strong>iaw_mediawiki_1</strong></p>
-              <p>Nombre de usuario de base de datos: <strong>iaw_mediawiki_1</strong></p>
-              <p>Contraseña de base de datos: <strong>iaw_mediawiki_1</strong></p>
-            </li>
-            <li>Nombre
-              <p>Nombre del wiki: <strong>WebApps wiki</strong></p>
-              <p>Nombre del administrador: <strong>admin</strong></p>
-              <p>Contraseña del administrador: <strong>adminadmin</strong> (por seguridad, la contraseña no puede coincidir con el nombre)</p>
-              <p>Elegir <strong>Ya estoy aburrido, sólo instala el wiki</strong>.</p>
-            </li>
-          </ul>
-        </li>
-        <li>Abrir la página principal de la wiki.
-          <p class="captura">
-            <img src="img/mediawiki-1-22/mediawiki-instalacion-12.png" alt="MediaWiki. Pantalla inicial" title="MediaWiki. Pantalla inicial" width="1008" height="440" />
-          </p>
-        </li>
-      </ol>
-    </section>
+  <section id="ejercicio-2">
+    <h2>MediaWiki (1) 2 - Instalar MediaWiki</h2>
 
-    <section id="ejercicio-3">
-      <h2>MediaWiki (1) 3 - Crear una nueva página</h2>
+    <p>En este apartado se trata de poner en marcha una wiki en MediaWiki:</p>
+    <ol>
+      <li>Cree con phpMyAdmin un usuario de MySQL con nombre <strong>iaw_mediawiki_1</strong>, contraseña <strong>iaw_mediawiki_1</strong> y base de datos <strong>iaw_mediawiki_1</strong>.</li>
+      <li>Descomprima MediaWiki en la carpeta adecuada para poder ejecutarlo en el servidor local.</li>
+      <li>Abra <strong>mediawiki/index.php</strong> en Eclipse. MediaWiki detecta que no existe el archivo de configuración LocalSettings.php y que es necesario utilizar el asistente de instalación.
+        <p class="captura">
+          <img src="img/mediawiki-1-22/mediawiki-instalacion-1.png" alt="MediaWiki. Instalación. Aviso de ausencia de configuración." title="MediaWiki. Instalación. Aviso de ausencia de configuración." width="250" height="250" />
+        </p>
+      </li>
+      <li>El asistente de instalación va preguntando las opciones de configuración deseadas. A continuación se comentan las opciones a elegir distintas de las predeterminadas.
+        <ul>
+          <li>Idioma
+            <p>Idioma: <strong>español</strong></p>
+          </li>
+          <li>Conectar a la base de datos
+            <p>Base de datos a utilizar: <strong>MySQL</strong></p>
+            <p>Servidor de la base de datos: <strong>localhost</strong></p>
+            <p>Nombre de base de datos: <strong>iaw_mediawiki_1</strong></p>
+            <p>Nombre de usuario de base de datos: <strong>iaw_mediawiki_1</strong></p>
+            <p>Contraseña de base de datos: <strong>iaw_mediawiki_1</strong></p>
+          </li>
+          <li>Nombre
+            <p>Nombre del wiki: <strong>WebApps wiki</strong></p>
+            <p>Nombre del administrador: <strong>admin</strong></p>
+            <p>Contraseña del administrador: <strong>adminadmin</strong> (por seguridad, la contraseña no puede coincidir con el nombre)</p>
+            <p>Elegir <strong>Ya estoy aburrido, sólo instala el wiki</strong>.</p>
+          </li>
+        </ul>
+      </li>
+      <li>Abrir la página principal de la wiki.
+        <p class="captura">
+          <img src="img/mediawiki-1-22/mediawiki-instalacion-12.png" alt="MediaWiki. Pantalla inicial" title="MediaWiki. Pantalla inicial" width="1008" height="440" />
+        </p>
+      </li>
+    </ol>
+  </section>
 
-      <p>Para crear una página nueva en la wiki, se puede:</p>
-      <ul>
-        <li>hacer una búsqueda de la página que se quiere crear y al no encontrarse la página correspondiente, MediaWiki ofrece la posibilidad de crearla.</li>
-        <li>escribir su dirección en el navegador (por ejemplo <strong>http:// ... /index.php/Nombre_de_la_nueva_página</strong>) y cuando informe que esa página no existe, hacer clic en el enlace <strong>editar esta página</strong> para crearla.</li>
-        <li>crear en alguna página ya existente un enlace a la nueva página (por ejemplo <strong>[[Nombre de la nueva página]]</strong>) y hacer clic en el enlace.</li>
-      </ul>
+  <section id="ejercicio-3">
+    <h2>MediaWiki (1) 3 - Crear una nueva página</h2>
 
-      <hr class="corta" />
+    <p>Para crear una página nueva en la wiki, se puede:</p>
+    <ul>
+      <li>hacer una búsqueda de la página que se quiere crear y al no encontrarse la página correspondiente, MediaWiki ofrece la posibilidad de crearla.</li>
+      <li>escribir su dirección en el navegador (por ejemplo <strong>http:// ... /index.php/Nombre_de_la_nueva_página</strong>) y cuando informe que esa página no existe, hacer clic en el enlace <strong>editar esta página</strong> para crearla.</li>
+      <li>crear en alguna página ya existente un enlace a la nueva página (por ejemplo <strong>[[Nombre de la nueva página]]</strong>) y hacer clic en el enlace.</li>
+    </ul>
 
-      <ol>
-        <li>Cree tres páginas utilizando cada uno de estos métodos de creación de página. El contenido puede ser una frase cualquiera, pero las páginas se llamarán:
-          <ul>
-            <li>Mi primera página</li>
-            <li>Mi segunda página</li>
-            <li>Mi cuarta página (<strong>Nota</strong>: no es un error, este nombre se cambiará en el ejercicio siguiente) </li>
-          </ul>
-        </li>
-      </ol>
-    </section>
+    <hr class="corta" />
 
-    <section id="ejercicio-4">
-      <h2>MediaWiki (1) 4 - Cambiar de nombre (trasladar) una página</h2>
+    <ol>
+      <li>Cree tres páginas utilizando cada uno de estos métodos de creación de página. El contenido puede ser una frase cualquiera, pero las páginas se llamarán:
+        <ul>
+          <li>Mi primera página</li>
+          <li>Mi segunda página</li>
+          <li>Mi cuarta página (<strong>Nota</strong>: no es un error, este nombre se cambiará en el ejercicio siguiente) </li>
+        </ul>
+      </li>
+    </ol>
+  </section>
 
-      <p>Para MediaWiki, cambiar de nombre una página es lo mismo que "trasladar" esa página.</p>
-      <ol>
-        <li>Cambie el nombre de la página "Mi cuarta página" a "Mi tercera página".</li>
-      </ol>
-    </section>
+  <section id="ejercicio-4">
+    <h2>MediaWiki (1) 4 - Cambiar de nombre (trasladar) una página</h2>
 
-    <section id="ejercicio-5">
-      <h2>MediaWiki (1) 5 - Borrar una página</h2>
+    <p>Para MediaWiki, cambiar de nombre una página es lo mismo que "trasladar" esa página.</p>
+    <ol>
+      <li>Cambie el nombre de la página "Mi cuarta página" a "Mi tercera página".</li>
+    </ol>
+  </section>
 
-      <ol>
-        <li>Borre la página "Mi tercera página".</li>
-      </ol>
-    </section>
+  <section id="ejercicio-5">
+    <h2>MediaWiki (1) 5 - Borrar una página</h2>
 
-    <section id="ejercicio-6">
-      <h2>MediaWiki (1) 6 - Editar una página</h2>
-      <ol>
-        <li>En las páginas "Mi primera página" y "Mi segunda página" cree contenido, probando el marcado de MediaWiki (texto, listas, enlaces, firmas, etc.).
-          <p>Para dar formato al contenido, MediaWiki utiliza unas marcas especiales que se comentan en la página <a href="mediawiki-marcado.html">Marcado de MediaWiki</a>.</p>
-        </li>
-      </ol>
-    </section>
+    <ol>
+      <li>Borre la página "Mi tercera página".</li>
+    </ol>
+  </section>
 
-    <section id="ejercicio-7">
-      <h2>MediaWiki (1) 7 - Crear usuarios</h2>
+  <section id="ejercicio-6">
+    <h2>MediaWiki (1) 6 - Editar una página</h2>
+    <ol>
+      <li>En las páginas "Mi primera página" y "Mi segunda página" cree contenido, probando el marcado de MediaWiki (texto, listas, enlaces, firmas, etc.).
+        <p>Para dar formato al contenido, MediaWiki utiliza unas marcas especiales que se comentan en la página <a href="mediawiki-marcado.html">Marcado de MediaWiki</a>.</p>
+      </li>
+    </ol>
+  </section>
 
-      <ol>
-        <li>Cree un usuario distinto al administrador (por ejemplo, el usuario <strong>Numa Nigerio</strong>).</li>
-        <li>Compruebe que puede editar páginas con el nuevo usuario. Crear su página de usuario.</li>
-      </ol>
-    </section>
+  <section id="ejercicio-7">
+    <h2>MediaWiki (1) 7 - Crear usuarios</h2>
 
-    <section id="ejercicio-8">
-      <h2>MediaWiki (1) 8 - Subir imágenes</h2>
+    <ol>
+      <li>Cree un usuario distinto al administrador (por ejemplo, el usuario <strong>Numa Nigerio</strong>).</li>
+      <li>Compruebe que puede editar páginas con el nuevo usuario. Crear su página de usuario.</li>
+    </ol>
+  </section>
 
-      <ol>
-        <li>Modifique la variable adecuada en LocalSettings.php para que se puedan subir imágenes a la wiki.</li>
-        <li>Suba imágenes PNG o JPG e inclúyalas en las páginas, probando las diferentes opciones de formato.</li>
-      </ol>
-    </section>
+  <section id="ejercicio-8">
+    <h2>MediaWiki (1) 8 - Subir imágenes</h2>
 
-    <section id="ejercicio-9">
-      <h2>MediaWiki (1) 9 - Varios</h2>
+    <ol>
+      <li>Modifique la variable adecuada en LocalSettings.php para que se puedan subir imágenes a la wiki.</li>
+      <li>Suba imágenes PNG o JPG e inclúyalas en las páginas, probando las diferentes opciones de formato.</li>
+    </ol>
+  </section>
 
-      <p>En este apartado, se trata de buscar información sobre estas posibilidades de MediaWiki y probarlas.</p>
-      <ol>
-        <li>Redirecciones
-          <p>En MediaWiki una página puede redirigir a otra.</p>
-          <p>Cree un par de páginas de manera que una redirija a la otra (por ejemplo, una que se llame <strong>automóvil</strong> y otra que se llame <strong>coche</strong> que redirija a la primera).</p>
-          <p>Puede buscar información en la página <a href="https://www.mediawiki.org/wiki/Help:Redirects">https://www.mediawiki.org/wiki/Help:Redirects</a>.</p>
-        </li>
-        <li>Barra lateral
-          <p>La barra lateral puede contener enlaces a páginas creadas por los usuarios.</p>
-          <p>Añada en la barra lateral enlaces a las tres páginas creadas anteriormente.</p>
-          <p class="captura">
-            <img src="img/mediawiki-1-22/mediawiki-sidebar-01.png" alt="Mediawiki. Sidebar" title="Mediawiki. Sidebar" width="175" height="236" />
-          </p>
-          <p>Puede buscar información en <a href="https://www.mediawiki.org/wiki/Manual:Interface/Sidebar">https://www.mediawiki.org/wiki/Manual:Interface/Sidebar</a>.</p>
-        </li>
-        <li>Categorías
-          <p>Cree varias páginas y defina categorías y asigne categorías a las páginas (por ejemplo, categorías de mamíferos, peces y aves y páginas de esos tipos de animales).</p>
-          <p>Puede buscar información en <a href="https://www.mediawiki.org/wiki/Categories">https://www.mediawiki.org/wiki/Categories</a>.</p>
-        </li>
-      </ol>
-    </section>
+  <section id="ejercicio-9">
+    <h2>MediaWiki (1) 9 - Varios</h2>
 
-    <section id="ejercicio-10">
-      <h2>MediaWiki (1) 10 - Acceder desde otros ordenadores</h2>
+    <p>En este apartado, se trata de buscar información sobre estas posibilidades de MediaWiki y probarlas.</p>
+    <ol>
+      <li>Redirecciones
+        <p>En MediaWiki una página puede redirigir a otra.</p>
+        <p>Cree un par de páginas de manera que una redirija a la otra (por ejemplo, una que se llame <strong>automóvil</strong> y otra que se llame <strong>coche</strong> que redirija a la primera).</p>
+        <p>Puede buscar información en la página <a href="https://www.mediawiki.org/wiki/Help:Redirects">https://www.mediawiki.org/wiki/Help:Redirects</a>.</p>
+      </li>
+      <li>Barra lateral
+        <p>La barra lateral puede contener enlaces a páginas creadas por los usuarios.</p>
+        <p>Añada en la barra lateral enlaces a las tres páginas creadas anteriormente.</p>
+        <p class="captura">
+          <img src="img/mediawiki-1-22/mediawiki-sidebar-01.png" alt="Mediawiki. Sidebar" title="Mediawiki. Sidebar" width="175" height="236" />
+        </p>
+        <p>Puede buscar información en <a href="https://www.mediawiki.org/wiki/Manual:Interface/Sidebar">https://www.mediawiki.org/wiki/Manual:Interface/Sidebar</a>.</p>
+      </li>
+      <li>Categorías
+        <p>Cree varias páginas y defina categorías y asigne categorías a las páginas (por ejemplo, categorías de mamíferos, peces y aves y páginas de esos tipos de animales).</p>
+        <p>Puede buscar información en <a href="https://www.mediawiki.org/wiki/Categories">https://www.mediawiki.org/wiki/Categories</a>.</p>
+      </li>
+    </ol>
+  </section>
 
-      <ul>
-        <li>Intentar acceder a la wiki desde otras otras máquinas (desde otros ordenadores pertenecientes a la misma red o desde una máquina virtual en el mismo ordenador) incluyendo en la dirección la IP del servidor (es decir, en vez de <strong>http://localhost/NombreAlumno/iwb/aplicaciones/mediawiki/</strong>, escribiendo <strong>http://AAA.BBB.CCC.DDD/wiki/</strong>, siendo AAA.BBB.CCC.DDD la IP del propio ordenador).</li>
-        <li>Observar que no es posible acceder a la wiki.</li>
-        <li>Corregir este problema corrigiendo la variable adecuada en LocalSettings.php.</li>
-      </ul>
-    </section>
+  <section id="ejercicio-10">
+    <h2>MediaWiki (1) 10 - Acceder desde otros ordenadores</h2>
 
-    <footer>
-      <p class="ultmod">Última modificación de esta página: 8 de enero de 2014</p>
+    <ul>
+      <li>Intentar acceder a la wiki desde otras otras máquinas (desde otros ordenadores pertenecientes a la misma red o desde una máquina virtual en el mismo ordenador) incluyendo en la dirección la IP del servidor (es decir, en vez de <strong>http://localhost/NombreAlumno/iwb/aplicaciones/mediawiki/</strong>, escribiendo <strong>http://AAA.BBB.CCC.DDD/wiki/</strong>, siendo AAA.BBB.CCC.DDD la IP del propio ordenador).</li>
+      <li>Observar que no es posible acceder a la wiki.</li>
+      <li>Corregir este problema corrigiendo la variable adecuada en LocalSettings.php.</li>
+    </ul>
+  </section>
 
-      <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-        Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
-        que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
-    </footer>
-  </body>
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 8 de enero de 2014</p>
+
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
 </html>
