@@ -47,7 +47,7 @@
       <p>Para poder ejecutar las aplicaciones web, se deberá iniciar previamente el servidor Apache y el servidor MySQL desde el panel de control de XAMPP.</p>
 
       <p class="captura">
-        <img src="../img/xampp/xampp-apache-mysql.png" alt="Panel de control de XAMPP" title="Panel de control de XAMPP" width="682" height="245" />
+        <img src="../img/xampp/xampp-apache-mysql.png" alt="Panel de control de XAMPP" title="Panel de control de XAMPP" width="668" height="250" />
       </p>
     </section>
 
@@ -67,7 +67,7 @@
         <li><strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones &gt; phpmyadmin</strong></li>
       </ul>
 
-      <p>Para poder ejecutar las aplicaciones, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. La ruta del alias será <strong>/webapps</strong>, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
+      <p>Para poder ejecutar las aplicaciones, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. El alias puede ser simplemente <strong>/webapps</strong> y apuntar a la carpeta Aplicaciones, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
     </section>
 
     <section id="edicion">
@@ -75,7 +75,9 @@
 
       <p>En general, no se editará el código fuente de las aplicaciones web, pero ocasionalmente si que se modificará algún fichero en concreto.</p>
 
-      <p>Para esas modificaciones puntuales, se recomienda utilizar un editor ligero como <a href="https://notepad-plus-plus.org/">Notepad++</a></p>
+      <p>Para esas modificaciones puntuales, se recomienda utilizar un editor ligero como <a href="https://notepad-plus-plus.org/">Notepad++</a>. El inconveniente de utilizar Eclipse PDT es que como Eclipse PDT revisa y comprueba todos los archivos, a medida que vayamos instalando aplicaciones web, ese proceso tardará cada vez más tiempo.</p>
+
+      <hr class="corta" />
 
       <p>Si se quiere utilizar Eclipse PDT, se recomienda crear un workspace específico. Se recomienda:</p>
       <ul>
@@ -88,8 +90,6 @@
       <p>Al descomprimir una nueva aplicación web se deberá actualizar la vista del Explorador PHP de Eclipse.</p>
 
       <p>Para poder ejecutar las aplicaciones desde Eclipse PDT, se deberá crear otro alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. La ruta del alias será <strong>/Nombre-de-alumno/webapps</strong>, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
-
-      <p>El inconveniente de utilizar Eclipse PDT es que como Eclipse PDT revisa y comprueba todos los archivos, a medida que vayamos instalando aplicaciones web, ese proceso tardará cada vez más tiempo.</p>
 
       <p>Al ejecutar la página principal de cada aplicación web desde Eclipse PDT, se abrirá la página web en el navegador. Por ejemplo, en el caso de phpMyAdmin,</p>
       <ul>
@@ -136,7 +136,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 18 de diciembre de 2016</p>
+    <p class="ultmod">Última modificación de esta página: 11 de diciembre de 2017</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />

@@ -49,6 +49,8 @@
 
   <p>En esta lección se proponen ejercicios para instalar y comprobar el funcionamiento básico de <strong>phpMyAdmin</strong>. Se pueden consultar las <a href="phpmyadmin-1-soluciones.html">soluciones de estos ejercicios de phpMyAdmin</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />las capturas de pantalla están pendientes de actualizar a phpMyAdmin 4.7.</p>
+
   <section id="ejercicio-1">
     <h2>phpMyAdmin (1) 1 - phpMyAdmin de XAMPP</h2>
 
@@ -61,7 +63,7 @@
       <li>abrir directamente la dirección <strong>http://localhost/phpmyadmin/</strong>.</li>
     </ul>
 
-    <p>El phpMyAdmin de XAMPP está configurado inicialmente para conectarse directamente a MySQL/MariaDB como usuario <strong>root</strong> sin contraseña. En este ejercicio se supone que no se ha modificado todavía esa configuración inicial.</p>
+    <p>El phpMyAdmin de XAMPP está configurado inicialmente para conectarse directamente a MySQL/MariaDB como usuario <strong>root</strong> sin contraseña, ya que esta es la configuración inicial de MySQL cuando se instala XAMPP. En este ejercicio se supone que no se ha modificado todavía esa configuración inicial.</p>
 
     <ol>
       <li>Abra el phpMyAdmin de XAMPP para comprobar que se conecta a MySQL/MariaDB como usuario <strong>root</strong>.
@@ -81,7 +83,7 @@
         </p>
       </li>
       <li>Para poder conectarse como usuario <strong>root</strong> con contraseña <strong>root</strong>, modifique la variable de configuración correspondiente en el archivo de configuración de phpMyAdmin <strong>config.inc.php</strong> que se encuentra en la carpeta del phpMyAdmin de XAMPP.
-        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Antes de modificar cualquier archivo de configuración, haga una copia de seguridad del archivo de configuración. Y al modificar un archivo de configuración, documente siempre los cambios realizados.</p>
+        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Antes de modificar cualquier archivo de configuración, haga una copia de seguridad del archivo de configuración anterior. Y al modificar un archivo de configuración, documente siempre en el propio archivo los cambios realizados.</p>
       </li>
       <li>Compruebe que puede conectarse de nuevo a MySQL/MariaDB:
         <p class="captura">
@@ -98,8 +100,7 @@
       <li>Visite la página web del proyecto phpMyAdmin.</li>
       <li>phpMyAdmin se distribuye en forma de archivo comprimido. En la página de descarga se ofrecen varios archivos. La diferencia entre ellos son los idiomas incluidos (la mitad de los archivos incluyen únicamente el idioma inglés y la otra mitad incluyen todos los idiomas disponibles) y el tipo de compresión (zip, 7zip, tar.bz2, tar.gz, tar.xz).
         <p>Para poder hacer en un ejercicio posterior la actualización de phpMyAdmin, descargue la <strong>penúltima</strong> versión disponible, no la última versión. Descargue la versión con todos los idiomas, en el formato de compresión que prefiera.</p>
-        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Las versiones phpMyAdmin 4.6.5.X tienen un <i>bug</i> que causa problemas al crear usuarios, por lo que se recomienda utilizar versiones anteriores, por ejemplo la versión phpMyAdmin 4.6.3, publicada el 23 de junio de 2016. La versión phpMyAdmin 4.6.4 se utilizará para un ejercicio de actualización.</p>
-        <p>Si las versiones <strong>phpMyAdmin 4.6.3</strong> y <strong>phpMyAdmin 4.6.4</strong> ya no están disponible en la web del programa, puede descargarlas desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a> de estos apuntes.</p>
+        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" class="izquierda" />Al redactar esta página de ejercicios (diciembre de 2017), la última versión publicada era phpMyAdmin 4.7.6, publicada el 1 de diciembre de 2017, y la penúltima versión era phpMyAdmin 4.7.5, publicada el 23 de octubre de 2017. Probablemente, los ejercicios se puedan realizar con versiones posteriores, pero si quiere utilizar las mismas versiones, descárguelas del repositorio GitHub de phpMyAdmin o de la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a> de estos apuntes.</p>
       </li>
     </ol>
   </section>
@@ -169,7 +170,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 14 de diciembre de 2016</p>
+    <p class="ultmod">Última modificación de esta página: 12 de diciembre de 2017</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
