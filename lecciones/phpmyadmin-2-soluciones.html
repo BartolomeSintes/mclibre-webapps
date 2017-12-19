@@ -35,6 +35,7 @@
         <li><a href="phpmyadmin-2.html#ejercicio-4">4 - aplicaciones usuario 2</a></li>
         <li><a href="phpmyadmin-2.html#ejercicio-5">5 - usuario 3 con BD única</a></li>
         <li><a href="phpmyadmin-2.html#ejercicio-6">6 - aplicaciones usuario 3</a></li>
+        <li><a href="phpmyadmin-2.html#ejercicio-7">7 - mejoras aplicaciones ej. 6</a></li>
       </ul>
 
       <h3>Soluciones</h3>
@@ -45,6 +46,7 @@
         <li><a href="#ejercicio-4">4 - aplicaciones usuario 2</a></li>
         <li><a href="#ejercicio-5">5 - usuario 3 con BD única</a></li>
         <li><a href="#ejercicio-6">6 - aplicaciones usuario 3</a></li>
+        <li><a href="#ejercicio-7">7 - mejoras aplicaciones ej. 6</a></li>
       </ul>
     </div>
   </nav>
@@ -104,12 +106,12 @@
     <h2>phpMyAdmin (2) 2 - Instalar una aplicación como usuario iaw_agenda_1</h2>
     <ul>
       <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1718/agenda-171207.zip">Agenda (07/12/17)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
-      <li>Descomprima el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre la carpeta como <strong>agenda_1</strong>.</li>
+      <li>Descomprima el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre la carpeta como <strong>agenda-1</strong>.</li>
       <li>Modifique el archivo de configuración <strong>config.php</strong> de manera que la aplicación utilice la cuenta del usuario <strong>iaw_agenda_1</strong>:
 
         <div class="codigo">
           <pre>
-<code class="language-php">/* config.php aplicación agenda_1 */
+<code class="language-php">/* config.php aplicación agenda-1 */
 
 // Base de datos utilizada por el programa: MYSQL o SQLITE
 
@@ -192,12 +194,12 @@ define("MYSQL_TABLA",    "tabla");                  // Nombre de la tabla</code>
     <h2>phpMyAdmin (2) 4 - Instalar dos aplicaciones como usuario iaw_agenda_2</h2>
     <ul>
       <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1718/agenda-171207.zip">Agenda (07/12/17)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
-      <li>Descomprima dos veces el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombrar las carpetas como <strong>agenda_2a</strong> y <strong>agenda_2b</strong>.</li>
+      <li>Descomprima dos veces el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre las carpetas como <strong>agenda-2a</strong> y <strong>agenda-2b</strong>.</li>
       <li>Modifique los dos archivos de configuración <strong>config.php</strong> de manera que las dos aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_2</strong>:
 
         <div class="codigo">
           <pre>
-<code class="language-php">/* config.php aplicación agenda_2a */
+<code class="language-php">/* config.php aplicación agenda-2a */
 
 // Base de datos utilizada por el programa: MYSQL o SQLITE
 
@@ -215,7 +217,7 @@ define("MYSQL_TABLA",    "tabla");                   // Nombre de la tabla</code
 
         <div class="codigo">
           <pre>
-<code class="language-php">/* config.php aplicación agenda_2b */
+<code class="language-php">/* config.php aplicación agenda-2b */
 
 // Base de datos utilizada por el programa: MYSQL o SQLITE
 
@@ -239,17 +241,102 @@ define("MYSQL_TABLA",    "tabla");                   // Nombre de la tabla</code
   <section id="ejercicio-5">
     <h2>phpMyAdmin (2) 5 - Crear un usuario iaw_agenda_3 con una base de datos única</h2>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por escribir</p>
+    <p>Este ejercicio se resuelve como el ejercicio <a href="#ejercicio-1">phpMyadmin (2) 1</a>.</p>
   </section>
 
   <section id="ejercicio-6">
     <h2>phpMyAdmin (2) 6 - Instalar dos aplicaciones como usuario iaw_agenda_3</h2>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por escribir</p>
+    <ul>
+      <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1718/agenda-171207.zip">Agenda (07/12/17)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
+      <li>Descomprima dos veces el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre las carpetas como <strong>agenda-3a</strong> y <strong>agenda-3b</strong>.</li>
+      <li>Modifique los dos archivos de configuración <strong>config.php</strong> de manera que las dos aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_3</strong>:
+
+        <div class="codigo">
+          <pre>
+<code class="language-php">/* config.php aplicación agenda-3a */
+
+// Base de datos utilizada por el programa: MYSQL o SQLITE
+
+$dbMotor = <span class="codigo-modificacion">MYSQL</span>;     // Valores posibles: MYSQL o SQLITE
+
+// Configuración para MYSQL
+
+define("MYSQL_HOST",     "mysql:host=localhost");    // Nombre de host
+define("MYSQL_USER",     "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Nombre de usuario
+define("MYSQL_PASSWORD", "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Contraseña de usuario
+define("MYSQL_DATABASE", "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Nombre de la base de datos
+define("MYSQL_TABLA",    "tabla_3a");                // Nombre de la tabla</code>
+</pre>
+        </div>
+
+        <div class="codigo">
+          <pre>
+<code class="language-php">/* config.php aplicación agenda-2b */
+
+// Base de datos utilizada por el programa: MYSQL o SQLITE
+
+$dbMotor = <span class="codigo-modificacion">MYSQL</span>;     // Valores posibles: MYSQL o SQLITE
+
+// Configuración para MYSQL
+
+define("MYSQL_HOST",     "mysql:host=localhost");    // Nombre de host
+define("MYSQL_USER",     "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Nombre de usuario
+define("MYSQL_PASSWORD", "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Contraseña de usuario
+define("MYSQL_DATABASE", "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Nombre de la base de datos
+define("MYSQL_TABLA",    "tabla_3b");                // Nombre de la tabla</code>
+</pre>
+        </div>
+      </li>
+      <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros y comprobando que los datos no se mezclan.</li>
+      <li>Compruebe en phpMyAdmin los contenidos de las tablas.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-7">
+    <h2>phpMyAdmin (2) 7 - Mejora de las aplicaciones del usuario iaw_agenda_3</h2>
+
+    <ol>
+      <li>Modifique los dos archivos de bibliteca <strong>biblioteca-mysql.php</strong> de manera que al borrar todo sólo se borre la tabla empleada por cada aplicación:
+
+        <div class="codigo">
+          <pre>
+<code class="language-php">/* biblioteca-mysql.php aplicación agenda-3a y agenda-3b*/
+
+$consultaBorraTabla = "DELETE TABLE $dbTabla";
+
+function borraTodo($db)
+{
+    global $consultaBorraTabla, $consultaCreaTabla;
+
+    $consulta = $consultaBorraTabla;
+    if ($db-&gt;query($consulta)) {
+        print "    &lt;p&gt;Tabla borrada correctamente.&lt;/p&gt;\n";
+        print "\n";
+    } else {
+        print "    &lt;p&gt;Error al borrar la tabla.&lt;/p&gt;\n";
+        print "\n";
+    }
+
+    $consulta = $consultaCreaTabla;
+    if ($db-&gt;query($consulta)) {
+        print "    &lt;p&gt;Tabla creada correctamente.&lt;/p&gt;\n";
+        print "\n";
+    } else {
+        print "    &lt;p&gt;Error al crear la tabla.&lt;/p&gt;\n";
+        print "\n";
+    }
+}</code>
+</pre>
+        </div>
+      </li>
+      <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros. Compruebe especialmente que al borrar todo desde una aplicación no se borran los registros de la otra.</li>
+      <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong>.</li>
+    </ol>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 14 de diciembre de 2017</p>
+    <p class="ultmod">Última modificación de esta página: 19 de diciembre de 2017</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />

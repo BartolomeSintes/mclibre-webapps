@@ -51,8 +51,19 @@
 
   <section id="ejercicio-1">
     <h2>phpMyAdmin (3) 1 - Completar instalación</h2>
-
-    <p>Se trata de eliminar los avisos que muestran phpMyAdmin.</p>
+    <ol>
+      <li>Escriba una frase cualquiera de al menos 32 caracteres (letras, números, símbolos,
+        <div class="codigo">
+          <pre>
+<code class="language-php">/**
+  * This is needed for cookie based authentication to encrypt password in
+  * cookie. Needs to be 32 chars long.
+  */
+ $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */</code>
+</pre>
+        </div>
+      </li>
+    </ol>
   </section>
 
   <section id="ejercicio-2">

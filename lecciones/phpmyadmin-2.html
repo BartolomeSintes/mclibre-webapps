@@ -43,6 +43,7 @@
         <li><a href="phpmyadmin-2-soluciones.html#ejercicio-4">4 - aplicaciones usuario 2</a></li>
         <li><a href="phpmyadmin-2-soluciones.html#ejercicio-5">5 - usuario 3 con BD única</a></li>
         <li><a href="phpmyadmin-2-soluciones.html#ejercicio-6">6 - aplicaciones usuario 3</a></li>
+        <li><a href="phpmyadmin-2-soluciones.html#ejercicio-7">7 - mejoras aplicaciones ej. 6</a></li>
       </ul>
     </div>
   </nav>
@@ -154,23 +155,18 @@
       <li>Descargue la aplicación <a href="http://www.mclibre.org/descargar/webapps/1718/agenda-171207.zip">Agenda (07/12/17)</a> (esta aplicación corresponde al ejercicio <a href="http://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="http://www.mclibre.org/consultar/php/index.html">Programación web en PHP</a>).</li>
       <li>Descomprima la aplicación en dos carpetas y renombre las carpetas como <strong>agenda-3a</strong> y <strong>agenda-3b</strong>.</li>
       <li>Modifique los archivos de configuración <strong>config.php</strong> para que las aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_3</strong> en MySQL y la misma base de datos <strong>iaw_agenda_3</strong>, pero cada una guarde sus registros en tablas distintas.</li>
-      <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros.</li>
-      <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong>.</li>
+      <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros. El problema es que al borrar todo desde una aplicación se borra también la tabla de la otra aplicación. </li>
+      <li>Confirme el problema anterior comprobando los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong> </li>
     </ol>
   </section>
 
   <section id="ejercicio-7">
     <h2>phpMyAdmin (2) 7 - Mejora de las aplicaciones del usuario iaw_agenda_3</h2>
 
-    <p>El problema de las aplicaciones del ejercicio 6 es que si se elige la opción "Borrar todo" en una de las aplicaciones se pierde toda la información de la otra, ya que al "Borrar todo" se borra la base de datos completa.</p>
     <ol>
-      <li>Modifique la función <strong>borraTodo()</strong> del fichero <strong>biblioteca_mysql.php</strong> para que no se produzca este problema. Se puede hacer de dos maneras:
-        <ul>
-          <li>Añadiendo otra opción al programa Agenda que borre las tablas.</li>
-          <li>Haciendo que la opción Borrar todo sólo borre la tabla que usa la aplicación (para usar la aplicación por primera vez sería necesario crear la base de datos en phpMyAdmin).
-            <p><strong>Nota</strong>: Para modificar la función <strong>borraTodo()</strong> del fichero <strong>biblioteca_mysql.php</strong> puede utilizar la función <strong>borraTodo()</strong> del fichero <strong>biblioteca_sqlite.php</strong>.</p>
-          </li>
-        </ul>
+      <li>El problema de las aplicaciones del ejercicio 6 es que si se elige la opción "Borrar todo" en una de las aplicaciones se pierde toda la información de la otra, ya que al "Borrar todo" se borra la base de datos completa.
+        <p>Para resolver este problema puede modificar el código de las aplicaciones haciendo que la opción Borrar todo sólo borre la tabla que usa la aplicación</p>
+        <p>Nota: Al crear el usuario <strong>iaw_agenda_3</strong> con phpMyAdmin se crea la base de datos <strong>iaw_agenda_3</strong>, por lo que la aplicación no necesita crear la base de datos.</p>
       </li>
       <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros. Compruebe especialmente que al borrar todo desde una aplicación no se borran los registros de la otra.</li>
       <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong>.</li>
