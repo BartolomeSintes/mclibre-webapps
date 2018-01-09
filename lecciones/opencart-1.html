@@ -58,12 +58,10 @@
     <li>Para no tener que estar entrando y saliendo de OpenCart como administrador o como usuario registrado o no registrado, se aconseja acceder a OpenCart desde dos navegadores distintos, en uno como usuario administrador y en el otro como usuario no administrador. En vez de usar navegadores distintos, también se pueden usar varias ventanas privadas de Firefox o varias ventanas de incógnito de Google Chrome o ventanas de exploración InPrivate de Internet Explorer.</li>
   </ul>
 
-  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Esta lección está pendiente de actualizar para OpenCart 3.0.</p>
-
   <section id="ejercicio-1">
     <h2>OpenCart (1) 1 - Descargar</h2>
 
-    <p>En este ejercicio se pide descargar la penúltima versión de OpenCart disponible actualmente (diciembre de 2016). Se recomiendan esta versión ya que estos ejercicios se han preparado con ella. Si se trabaja con alguna versión posterior, el interfaz y el funcionamiento de la aplicación pueden ser diferentes.</p>
+    <p>En este ejercicio se pide descargar la penúltima versión de OpenCart disponible actualmente (enero de 2018). Se recomiendan esta versión ya que estos ejercicios se han preparado con ella. Si se trabaja con alguna versión posterior, el interfaz y el funcionamiento de la aplicación pueden ser diferentes.</p>
     <ol>
       <li>Visite la página web del proyecto OpenCart.</li>
       <li>Descargue la versión <strong>OpenCart 3.0.1.2</strong> (en inglés), publicada el 7 de julio de 2017.</li>
@@ -100,7 +98,6 @@
               <p>E-Mail: <span class="codigo-modificacion">admin@example.com</span></p>
             </li>
           </ul>
-          <p><strong>Nota</strong>: OpenCart 2.0 ofrece en DB Driver dos drivers, MySQLi y mPDO. Este curso propongo utilizar el driver mPDO, aunque en años anteriores he utilizado MySQLi. Espero que no dé problemas.</p>
         </li>
         <li>Al terminar la instalación, antes de abrir nuevamente OpenCart es <strong>necesario</strong> borrarel directorio <strong>opencart_0/install</strong>.</li>
       </ul>
@@ -125,7 +122,6 @@
               <p>E-Mail: <span class="codigo-modificacion">admin@example.com</span></p>
             </li>
           </ul>
-          <p><strong>Nota</strong>: OpenCart 2.0 ofrece en DB Driver dos drivers, MySQLi y mPDO. Este curso propongo utilizar el driver mPDO, aunque en años anteriores he utilizado MySQLi. Espero que no dé problemas.</p>
         </li>
         <li>Al terminar la instalación, antes de abrir nuevamente OpenCart es <strong>necesario</strong> borrar el directorio <strong>opencart/install</strong>.</li>
       </ul>
@@ -164,10 +160,13 @@
     <ol>
       <li><strong>Añadir el idioma español</strong>
         <ul>
-          <li>Descargue una traducción gratuita al español de OpenCart 2.3.0.2 (en estos ejercicios se ha utilizado la traducción gratuita Spanish opencart).
-            <p><strong>Nota</strong>: Si no hay disponible ninguna traducción para la versión OpenCart 2.3.0.2, en la <a href="../otros/descarga-aplicaciones.html">página de descarga de aplicaciones</a> se puede descargar la traducción Spanish opencart 2.3.0.2 del 1 de agosto de 2016 (aunque algún fichero está actualizado posteriormente).</p>
+          <li>Busque en la web de extensiones de OpenCart una traducción gratuita al español de OpenCart 3.0.2.0.
+            <p><strong>Nota</strong>:</p>
+            <ul>
+              <li>Si no hay disponible ninguna traducción para la versión OpenCart 3.0.2.0, en la <a href="../otros/descarga-aplicaciones.html">página de descarga de aplicaciones</a> se puede descargar una traducción al español (de España) que he preparado a partir de la traducción al español (de Chile) realizada por <a href="https://burbuja.cl/proyectos/opencart/">Burbuja</a>.</li>
+            </ul>
           </li>
-          <li>Descomprima el archivo de traducción y siga las instrucciones incluidas en la traducción.</li>
+          <li>Descomprima el archivo de traducción y, en su caso, siga las instrucciones incluidas en la traducción.</li>
           <li>Copie las carpetas en la carpeta de opencart.
             <p><strong>Nota</strong>: Compruebe que las carpetas es-es se han copiado en los dos lugares correctos.</p>
           </li>
@@ -254,6 +253,7 @@
     <section id="ejercicio-6-2">
       <h3>Acceso con alias y dirección ip desde otro ordenador perteneciente a la misma red o desde una máquina virtual en el mismo ordenador</h3>
       <ol>
+        <li><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Si en el ordenador B desde el que va a comprobar si se puede entrar en el OpenCart instalado en el ordenador A hay un OpenCart instalado, detenga el servidor Apache del ordenador B. Es conveniente hacerlo para asegurarse de que el OpenCart que se está viendo desde el ordenador B es el del ordenador A y no el del ordenador B o una combinación de ambos.</li>
         <li>Compruebe que puede entrar correctamente en OpenCart como usuario o administrador mediante las direcciones <strong>http://AAA.BBB.CCC.DDD/opencart/</strong> y <strong>http://AAA.BBB.CCC.DDD/opencart/admin</strong>.</li>
       </ol>
     </section>
@@ -274,7 +274,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 19 de diciembre de 2017</p>
+    <p class="ultmod">Última modificación de esta página: 9 de enero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
