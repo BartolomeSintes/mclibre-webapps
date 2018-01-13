@@ -143,7 +143,7 @@ extension=php_mysql.dll
             <p>Password: <span class="codigo-modificacion">admin</span></p>
             <p>E-Mail: <span class="codigo-modificacion">admin@example.com</span></p>
             <p class="captura">
-              <img src="../img/opencart/1-2-s-6-instalacion.png" alt="OpenCart. Instalación." width="991" height="725" />
+              <img src="../img/opencart/1-2-s-6-instalacion.png" alt="OpenCart. Instalación." width="991" height="780" />
             </p>
           </li>
         </ol>
@@ -182,7 +182,17 @@ extension=php_mysql.dll
           <img src="../img/opencart/1-3-s-3-inicio-admin.png" alt="OpenCart. Inicio. Usuario adminstrador" width="991" height="460" />
         </p>
       </li>
-      <li>Para cerrar la sesión en OpenCart como usuario registrado, hay que hacer clic en Logout.</li>
+      <li>Al entrar como administrador, OpenCart muestra un aviso de seguridad, en el que solicita mover el directorio de almacenamiento a un directorio cualquiera, no accesible vía web.
+        <p class="captura">
+          <img src="../img/opencart/1-3-s-4-storage.png" alt="OpenCart. Cambio de directorio storage" width="1008" height="440" />
+        </p>
+        <p>Elija la nueva ubicación del directorio storage (por ejemplo al directorio <strong>Mis documentos &gt; IAW Nombre-de-alumno</strong>) y haga clic en el botón Move.</p>
+        <p class="captura">
+          <img src="../img/opencart/1-3-s-5-storage.png" alt="OpenCart. Cambio de directorio storage" width="1008" height="500" />
+        </p>
+        <p>A continuación borre el directorio creado en la instalación <strong>system/storage</strong>.</p>
+      </li>
+      <li>Para cerrar la sesión en OpenCart como usuario registrado, haga clic en Logout.</li>
     </ul>
   </section>
 
@@ -349,7 +359,7 @@ define('HTTPS_CATALOG', 'http://AAA.BBB.CCC.DDD/opencart/');
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 9 de enero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 13 de enero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
