@@ -42,13 +42,32 @@
     <section id="servidores">
       <h2>Servidores</h2>
 
-      <p>En este curso se utilizará la misma instalación de Apache utilizada en el curso de <a href="http://www.mclibre.org/consultar/php/index.html">Programación en PHP</a>. En el apartado Lecciones de software &gt; XAMPP de los apuntes de PHP se explica la instalación y configuración de Apache y MySQL (mediante XAMPP).</p>
+      <p>En este curso se utilizará la misma instalación de Apache utilizada en el curso de <a href="http://www.mclibre.org/consultar/php/index.html">Programación web en PHP</a>. En el apartado Software &gt; XAMPP de este curso se explica la instalación y configuración de Apache y MySQL (mediante XAMPP).</p>
+
+      <hr class="corta" />
 
       <p>Para poder ejecutar las aplicaciones web, se deberá iniciar previamente el servidor Apache y el servidor MySQL desde el panel de control de XAMPP.</p>
 
       <p class="captura">
         <img src="../img/xampp/xampp-apache-mysql.png" alt="Panel de control de XAMPP" title="Panel de control de XAMPP" width="668" height="250" />
       </p>
+
+      <hr class="corta" />
+
+      <p>Algunas aplicaciones requieren modificaciones de la configuración de Apache o PHP y se comentan en las páginas correspondientes, pero hay un cambio que conviene hacer para no tener problemas cuando una página tarda mucho tiempo en ejecutarse (lo que puede ocurrir durante la instalación de las aplicaciones o con tareas como actualizaciones o copias de seguridad).</p>
+
+      <section id="max-execution-time">
+
+        <h3>Directiva <span class="php-dir">short_open_tag</span></h3>
+
+        <p>La directiva <span class="php-dir">short_open_tag</span> indica la tiempo máximo de ejecución de una página PHP. Si la página tarda más de ese tiempo en ejecutarse, el servidor interrumpirá la ejecución del programa. En XAMPP 7.1 esta directiva viene predeterminada con el valor 30 (segundos). Para evitar ese problema, se recomienda aumentar ese valor, por ejemplo a una hora</p>
+
+        <div class="codigo">
+          <pre>
+<code class="language-configuracion">max_execution_time=3600        ; Valor recomendado en este curso</code>
+</pre>
+        </div>
+      </section>
     </section>
 
     <section id="carpetas">
@@ -75,9 +94,11 @@
 
       <p>En general, no se editará el código fuente de las aplicaciones web, pero ocasionalmente si que se modificará algún fichero en concreto.</p>
 
-      <p>Para esas modificaciones puntuales, se recomienda utilizar un editor ligero como <a href="https://notepad-plus-plus.org/">Notepad++</a>. El inconveniente de utilizar Eclipse PDT es que como Eclipse PDT revisa y comprueba todos los archivos, a medida que vayamos instalando aplicaciones web, ese proceso tardará cada vez más tiempo.</p>
+      <p>Para esas modificaciones puntuales, se recomienda utilizar un editor ligero como <a href="https://notepad-plus-plus.org/">Notepad++</a>. </p>
 
       <hr class="corta" />
+
+      <p>También se puede utilizar el editor Eclipse for PHP developers, aunque como Eclipse PHP revisa y comprueba todos los archivos, a medida que vayamos instalando aplicaciones web, ese proceso tardará cada vez más tiempo.
 
       <p>Si se quiere utilizar Eclipse PDT, se recomienda crear un workspace específico. Se recomienda:</p>
       <ul>
@@ -89,9 +110,9 @@
 
       <p>Al descomprimir una nueva aplicación web se deberá actualizar la vista del Explorador PHP de Eclipse.</p>
 
-      <p>Para poder ejecutar las aplicaciones desde Eclipse PDT, se deberá crear otro alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. La ruta del alias será <strong>/Nombre-de-alumno/webapps</strong>, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
+      <p>Para poder ejecutar las aplicaciones desde Eclipse PHP, se deberá crear otro alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. La ruta del alias será <strong>/Nombre-de-alumno/webapps</strong>, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
 
-      <p>Al ejecutar la página principal de cada aplicación web desde Eclipse PDT, se abrirá la página web en el navegador. Por ejemplo, en el caso de phpMyAdmin,</p>
+      <p>Al ejecutar la página principal de cada aplicación web desde Eclipse PHP, se abrirá la página web en el navegador. Por ejemplo, en el caso de phpMyAdmin,</p>
       <ul>
         <li><strong>http://localhost/Nombre-de-alumno/webapps/phpmyadmin/</strong></li>
       </ul>
@@ -121,12 +142,11 @@
     &lt;li&gt;&lt;a href="http://localhost/webapps/phpmyadmin/"&gt;phpMyAdmin&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 
- &lt;h2&gt;Alias a aplicaciones&lt;/h2&gt;
+  &lt;h2&gt;Alias a aplicaciones&lt;/h2&gt;
 
   &lt;ul&gt;
     &lt;li&gt;&lt;a href="http://localhost/phpmyadmin2/"&gt;phpMyAdmin&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
-
 &lt;/body&gt;
 &lt;/html&gt;</code>
 </pre>
@@ -136,7 +156,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 11 de diciembre de 2017</p>
+    <p class="ultmod">Última modificación de esta página: 13 de enero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
