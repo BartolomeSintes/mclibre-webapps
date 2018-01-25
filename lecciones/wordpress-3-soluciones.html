@@ -139,6 +139,27 @@ wp_meta();
           </li>
         </ul>
       </li>
+      <li>Widget Audio / Vídeo
+        <p>Aumentar el tamaño de las imágenes que se pueden subir a los artículos.</p>
+        <ul>
+          <li>en <strong>php.ini</strong>:
+            <div class="codigo">
+              <pre>
+<code class="language-configuracion">upload_max_filesize = 10M
+post_max_size = 10M</code>
+</pre>
+            </div>
+          </li>
+          <li>en <strong>.htaccess</strong>:
+            <div class="codigo">
+              <pre>
+<code class="language-configuracion">php_value upload_max_filesize 10M
+php_value post_max_size 10M</code>
+</pre>
+            </div>
+          </li>
+        </ul>
+      </li>
     </ul>
   </section>
 
@@ -173,7 +194,7 @@ wp_meta();
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 18 de enero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 25 de enero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />

@@ -64,7 +64,24 @@
 
   <p>Los plugins propuestos en esta página estaban disponibles para WordPress 4.9 en el momento de redactar estos ejercicios (enero de 2018). Es posible que en futuro esos plugins no estén disponibles para versiones posteriores de WordPress, o incluso hayan dejado de estar disponibles para cualquier versión. En ese caso, se pueden utilizar otros plugins de los disponibles en ese momento.</p>
 
-  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Estas ejercicios están pendientes de actualizar para WordPress 4.9.</p>
+  <hr class="corta" />
+
+  <p>Los plugins que se muestran en el directorio de plugins son gratuitos, aunque muchos son las versiones gratuitas de plugins de pago.</p>
+
+  <p>En Internet existen bastantes directorios enfocados a plugins de pago como:</p>
+  <ul>
+    <li><a href="https://market.envato.com/">Envato Market</a>: <a href="https://codecanyon.net/category/wordpress">plugins</a>, <a href="https://themeforest.net/category/wordpress">temas</a>, etc.</li>
+    <li><a href="https://www.mojomarketplace.com/">MOJO Marketplace</a>: <a href="https://www.mojomarketplace.com/plugins/wordpress">plugins</a>, <a href="http://www.mojomarketplace.com/themes/wordpress">temas</a>, etc.</li>
+    <li><a href="https://www.codester.com/">codester</a>: <a href="https://www.codester.com/categories/32/wordpress-plugins">plugins</a>, <a href="https://www.codester.com/categories/33/wordpress-themes">temas</a>, etc.</li>
+  </ul>
+
+  <hr class="corta" />
+
+  <p>El directorio de plugins de WordPress cambió su diseño en marzo de 2017 y su usabilidad ha sido bastante criticada (por ejemplo, este <a href="https://medium.com/@jeffmcneill/wordpress-plugins-redesign-2017-263cbf12cf6a">artículo de Jeff Mcneill</a> o los comentarios de este <a href="https://wptavern.com/wordpress-relaunches-plugin-directory-with-new-design-and-improved-search-algorithm">post comentado la puesta en marcha</a>).</p>
+
+  <p>La principal crítica es posiblemente que no se pueden personalizar las búsquedas (por popularidad, valoraciones, fecha de actualización, existencia de versión de pago, etc.).</p>
+
+  <p>Por ejemplo, si se conoce el nombre de un plug-in, se suele encontrar antes buscando en Google (añadiendo site:https://es.wordpress.org en la búsqueda para que la respuesta sea la página del directorio de plugins) que en el propio directorio.</p>
 
   <section id="ejercicio-1">
     <h2>WordPress (3) 1 - Widgets</h2>
@@ -90,12 +107,12 @@
       </li>
       <li>Active los widgets Calendario y Nube de etiquetas y compruebe su funcionamiento.
         <p class="captura">
-          <img src="../img/wordpress/3-1-e-4-widgets.png" alt="WordPress. Widgets" width="991" height="350" />
+          <img src="../img/wordpress/3-1-e-4-widgets.png" alt="WordPress. Widgets" width="1008" height="310" />
         </p>
       </li>
       <li>Active el widget RSS. La fuente será <a href="https://wordpress.org/news/">https://wordpress.org/news/</a> y mostrará los dos últimos feeds con su fecha.
         <p class="captura">
-          <img src="../img/wordpress/3-1-e-5-widgets.png" alt="WordPress. Widgets" width="410" height="350" />
+          <img src="../img/wordpress/3-1-e-5-widgets.png" alt="WordPress. Widgets" width="450" height="380" />
         </p>
       </li>
       <li>Widget Texto
@@ -104,16 +121,6 @@
           <img src="../img/wordpress/3-1-e-6-widgets.png" alt="WordPress. Widgets" width="410" height="90" />
         </p>
         <p>Fuente: <a href="https://es.wikiquote.org/wiki/Proverbios_en_lat%C3%ADn">Proverbios latinos</a></p>
-      </li>
-      <li>Widget "Image widget"
-        <p>Instale y active el plugin "Image Widget".</p>
-        <p class="captura">
-          <img src="../img/wordpress/3-1-e-7-widgets.png" alt="WordPress. Widgets" width="570" height="276" />
-        </p>
-        <p>Configúrelo para insertar una imagen que enlace a algún sitio.</p>
-        <p class="captura">
-          <img src="../img/wordpress/3-1-e-8-widgets.png" alt="WordPress. Widgets" width="300" height="190" />
-        </p>
       </li>
       <li>Widget Meta.
         <p>Configure el widget Meta y modifique su código fuente (haga antes una copia de seguridad del archivo original) para dejar el widget con sólo dos opciones (que se convierten en tres al entrar como usuario registrado):</p>
@@ -128,6 +135,27 @@
           </ul>
         </details>
       </li>
+      <li>Widget Imagen
+        <p>Configúrelo para insertar una imagen que enlace a algún sitio.</p>
+        <p class="captura">
+          <img src="../img/wordpress/3-1-e-8-widgets.png" alt="WordPress. Widgets" width="300" height="190" />
+        </p>
+      </li>
+      <li>Widget Audio
+        <p>Configúrelo para insertar una canción (ejemplo: la canción <a href="http://www.mclibre.org/descargar/musica/Ehma-Les-Temps-Modernes-03-Pizzicato.mp3">Pizzicato</a> (3,3 MB) del álbum <a href="http://altermusique.org/Ehma/Les-temps-modernes/">Les temps modernes</a> del compositor belga <a href="https://fr.wikipedia.org/wiki/Ehma">Emmanuel Codden</a> "Ehma").</p>
+        <p>Puede ser necesaria cambiar la configuración de PHP para permitir la subida de archivos grandes.</p>
+        <p class="captura">
+          <img src="../img/wordpress/3-1-e-11-widgets.png" alt="WordPress. Widgets" width="350" height="110" />
+        </p>
+      </li>
+      <li>Widget Galería
+          <p>Configúrelo para insertar dos o tres imágenes.</p>
+          <p class="captura">
+            <img src="../img/wordpress/3-1-e-12-widgets.jpg" alt="WordPress. Widgets" width="350" height="555" />
+          </p>
+        </li>
+        <li><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Estas ejercicios están pendientes de actualizar para WordPress 4.9.</li>
+      <li>Pruebe los nuevos widgets de WordPress 4.9: HTML personalizado y Vídeo</li>
     </ol>
   </section>
 
@@ -464,7 +492,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 18 de enero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 25 de enero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
