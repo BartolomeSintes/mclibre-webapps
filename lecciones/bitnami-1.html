@@ -39,7 +39,7 @@
 
   <p>En esta lección se proponen ejercicios para conocer y utilizar las <strong>Máquinas Virtuales de aplicación</strong> de Bitnami. Se pueden consultar las <a href="bitnami-1-soluciones.html">soluciones de estos ejercicios de Bitnami (1)</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-  <p>En estos ejercicios se nombran las versiones disponibles actualmente (enero de 2017), pero seguramente se podrán realizar sin problemas con versiones posteriores.</p>
+  <p>En estos ejercicios se nombran las versiones disponibles actualmente (enero de 2018), pero seguramente se podrán realizar sin problemas con versiones posteriores.</p>
 
   <p><strong>Nota:</strong> En estos ejercicios se propone únicamente la instalación de la aplicación OpenCart, pero se anima al alumno a probar otras aplicaciones.</p>
 
@@ -50,7 +50,7 @@
 
     <ol>
       <li>Visite la página web de VirtualBox.</li>
-      <li>Descargue la última versión de VirtualBox. Actualmente (enero de 2017), la última versión disponible es VirtualBox 5.1.14, publicada el 17 de enero de 2017.</li>
+      <li>Descargue la última versión de VirtualBox. Actualmente (enero de 2018), la última versión disponible es VirtualBox 5.2.6, publicada el 15 de enero de 2018.</li>
       <li>Instale VirtualBox.</li>
       <li>Descargue el VirtualBox Extension Pack correspondiente a la versión descargada.</li>
       <li>Instale VirtualBox Extension Pack.</li>
@@ -64,14 +64,25 @@
       <li>Visite la página web de Bitnami.</li>
       <li>Descargue la máquina virtual de Opencart de Bitnami. Actualmente (enero de 2017), la versión disponible es OpenCart 2.3.0.2 en una máquina virtual Ubuntu 14.04.</li>
       <li>Importe la máquina virtual de OpenCart de Bitnami en VirtualBox.</li>
-      <li>Arranque la máquina virtual.</li>
+      <li>Arranque la máquina virtual.
+        <p><strong>Nota</strong>: Puede ser necesario cambiar la configuración de la tarjeta de red de la máquina virtual.</p>
+      </li>
       <li>Compruebe en el navegador del ordenador anfitrión que puede ver la tienda de ejemplo de OpenCart, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD</strong> en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
-        <p class="captura"><img src="../img/bitnami/1-2-e-1-vm-opencart.png" alt="Tienda OpenCart en la máquina virtual" title="Tienda OpenCart en la máquina virtual" width="495" height="273" /></p>
+        <p class="captura">
+          <a href="../img/bitnami/1-2-e-1-vm-opencart.png">
+            <img src="../img/bitnami/1-2-e-1-vm-opencart-mini.png" alt="Tienda OpenCart en la máquina virtual" width="495" height="273" />
+          </a>
+        </p>
       </li>
       <li>Compruebe en el navegador del ordenador anfitrión que puede acceder como administrador de la tienda OpenCart escribiendo la dirección adecuada.
+        <p><strong>Nota</strong>: Si no funciona el usuario y contraseña indicado en la pantalla, pruebe <strong>user</strong> y <strong>bitnami</strong>.</p>
         <p class="captura">
-          <img src="../img/bitnami/1-2-e-2-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="504" height="273" />
-          <img src="../img/bitnami/1-2-e-3-vm-opencart.png" alt="Administración de OpenCart en la máquina virtual" title="Administración de OpenCart en la máquina virtual" width="495" height="273" />
+          <a href="../img/bitnami/1-2-e-2-vm-opencart.png">
+            <img src="../img/bitnami/1-2-e-2-vm-opencart-mini.png" alt="Administración de OpenCart en la máquina virtual" width="504" height="273" />
+          </a>
+          <a href="../img/bitnami/1-2-e-3-vm-opencart.png">
+            <img src="../img/bitnami/1-2-e-3-vm-opencart-mini.png" alt="Administración de OpenCart en la máquina virtual" width="495" height="273" />
+          </a>
         </p>
         <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" /><strong>Nota</strong>: El navegador mostrará un aviso sobre el certificado de seguridad del sitio web</p>
       </li>
@@ -79,7 +90,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 14 de enero de 2017</p>
+    <p class="ultmod">Última modificación de esta página: 31 de enero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
