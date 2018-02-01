@@ -44,19 +44,19 @@
   <section id="ejercicio-1">
     <h2>Docker (1) 1 - Instalar Docker</h2>
 
-    <p>Estas instrucciones se han extraido de la página <a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">Install Docker on Ubuntu</a></p>
+    <p>En este ejercicio instalaremos Docker en una máquina virtual de Ubuntu 16.04.3 LTS Server ejecutada en VirtualBox.</p>
 
-    <p>En este ejercicio instalaremos Docker en una máquina virtual de Ubuntu 16.04 LTS Server ejecutada en VirtualBox.</p>
+    <p>Estas instrucciones se han extraido de la documentación oficial de Docker <a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">Install Docker on Ubuntu</a></p>
 
     <h3>Prepare la máquina virtual</h3>
 
     <ol>
-      <li>Descargue la imagen iso de la versión más reciente de Ubuntu 16.04 LTS Server de 64 bits.
-        <p>Actualmente (enero de 2017), la última versión disponible de Ubuntu LTS Server es Ubuntu 16.04.1 (21/07/16). <a href="http://releases.ubuntu.com/16.04/">página de descarga</a></p>
+      <li>Descargue la imagen iso de la versión más reciente de <strong>Ubuntu 16.04 LTS Server de 64 bits</strong>.
+        <p>Actualmente (enero de 2018), la última versión disponible de Ubuntu LTS Server es Ubuntu 16.04.3 (03/08/17). <a href="http://releases.ubuntu.com/16.04/">Página de descarga</a></p>
       </li>
       <li>Cree una máquina virtual en VirtualBox e instale Ubuntu 16.04 LTS Server.
-        <p>Para los ejercicios de esta página un disco duro virtual de 8 GB es suficiente, pero para poder instalar más aplicaciones de páginas de ejercicios posteriores se necesitará un disco mayor, por ejemplo de 16 GB.</p>
-        <p>Compruebe que en la configuración de red de la máquina virtual está conectado a Adaptador puente. Si está conectado a otro tipo de adaptador (probablemente NAT), apague la máquina virtual, cambie a Adaptador puente y reinicie la máquina virtual.</p>
+        <p>Para los ejercicios de esta página un disco duro virtual de 8 GB es suficiente, pero para poder instalar más aplicaciones se necesitaría un disco mayor, por ejemplo de <strong>16 GB</strong>.</p>
+        <p>Compruebe que en la configuración de red de la máquina virtual está conectado a <strong>Adaptador puente</strong>. Si está conectado a otro tipo de adaptador (probablemente NAT), apague la máquina virtual, cambie a Adaptador puente y reinicie la máquina virtual.</p>
       </li>
       <li>Actualice Ubuntu 16.04 LTS Server:
         <div class="codigo">
@@ -77,22 +77,41 @@ sudo apt upgrade</code>
         <div class="codigo">
           <pre>
 <code class="language-shell">sudo apt update
-sudo apt install apt-transport-https ca-certificates</code>
+sudo apt install apt-transport-https ca-certificates curl software-properties-common</code>
 </pre>
         </div>
       </li>
-      <li>Añada la nueva clave GPG (escriba todo en una sola línea, sin las contrabarras \):
+      <li>Añada la clave GPG oficial de Docker:
         <div class="codigo">
           <pre>
-<code class="language-shell">sudo apt-key adv \
---keyserver hkp://ha.pool.sks-keyservers.net:80 \
---recv-keys 58118E89F3A912897C070ADBF76221572C52609D</code>
+<code class="language-shell">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code>
 </pre>
         </div>
       </li>
-      <li>Añada el repositorio correspondiente a su versión de Ubuntu (en el ejemplo se usa xenial, es decir, Ubuntu 16.04):
+      <li>Compruebe que tiene la clave correcta:
         <div class="codigo">
-          <pre><code class="language-shell">echo deb https://apt.dockerproject.org/repo ubuntu-xenial main | sudo tee /etc/apt/sources.list.d/docker.list</code></pre>
+          <pre>
+<code class="language-shell">sudo apt-key fingerprint 0EBFCD88</code>
+</pre>
+        </div>
+        <p>El resultado debe ser:</p>
+        <div class="codigo">
+          <pre>
+<code class="language-shell">pub   4096R/0EBFCD88 2017-02-22
+      Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid                  Docker Release (CE deb) <docker@docker.com>
+sub   4096R/F273FCD8 2017-02-22</code>
+</pre>
+        </div>
+      </li>
+      <li>Añada el repositorio correspondiente a su versión de Ubuntu  (escriba todo en una sola línea, sin las contrabarras \):
+        <div class="codigo">
+          <pre>
+<code class="language-shell">sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"</code>
+</pre>
         </div>
       </li>
       <li>Actualice APT:
@@ -102,42 +121,19 @@ sudo apt install apt-transport-https ca-certificates</code>
       </li>
       <li>Compruebe que APT se conecta con el repositorio adecuado:
         <div class="codigo">
-          <pre><code class="language-shell">apt policy docker-engine</code></pre>
+          <pre><code class="language-shell">apt policy docker-ce</code></pre>
         </div>
-        <p>En la pantalla debe mostrarse el repositorio de la versión de Ubuntu indicada (en el ejemplo se usa xenial, es decir, Ubuntu 16.04):</p>
+        <p>En la pantalla debe mostrarse el repositorio de la versión de Ubuntu indicada (en el ejemplo se muestra xenial, es decir, Ubuntu 16.04):</p>
         <div class="codigo">
           <pre>
-<code class="language-shell">docker-engine:
-    Installed: 1.12.6-0~ubuntu-xenial
-    Candidate: 1.12.6-0~ubuntu-xenial
-    Version table:
-   *** 1.12.6-0~ubuntu-xenial 500
-          500 https://apt.dockerproject.org/repo/ ubuntu-xenial/main amd64 Packages
-          100 /var/lib/dpkg/status
+<code class="language-shell">docker-ce:
+  Instalados: (ninguno)
+  Candidato: 17.12.0~ce-0~ubuntu
+  Tabla de versión:
+  17.12.0~ce-0~ubuntu 500
+          500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
     ...</code>
 </pre>
-        </div>
-      </li>
-      <li>Actualice APT:
-        <div class="codigo">
-          <pre><code class="language-shell">sudo apt update</code></pre>
-        </div>
-      </li>
-    </ol>
-
-    <h3>Instale los paquetes del kernel necesarios</h3>
-
-    <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
-
-    <ol>
-      <li>Actualice el administrador de paquetes:
-        <div class="codigo">
-          <pre><code class="language-shell">sudo apt update</code></pre>
-        </div>
-      </li>
-      <li>Instale los paquetes recomendados
-        <div class="codigo">
-          <pre><code class="language-shell">sudo apt install linux-image-extra-$(uname -r) linux-image-extra-virtual</code></pre>
         </div>
       </li>
     </ol>
@@ -152,9 +148,9 @@ sudo apt install apt-transport-https ca-certificates</code>
           <pre><code class="language-shell">sudo apt update</code></pre>
         </div>
       </li>
-      <li>Instale Docker
+      <li>Instale la última versión de Docker
         <div class="codigo">
-          <pre><code class="language-shell">sudo apt install docker-engine</code></pre>
+          <pre><code class="language-shell">sudo apt install docker-ce</code></pre>
         </div>
       </li>
       <li>Arranque el servicio docker
@@ -166,7 +162,7 @@ sudo apt install apt-transport-https ca-certificates</code>
         <div class="codigo">
           <pre><code class="language-shell">sudo docker run hello-world</code></pre>
         </div>
-        <p>En la pantalla debe mostrarse el repositorio de la versión de Ubuntu indicada (en el ejemplo se usa xenial, es decir, Ubuntu 16.04):</p>
+        <p>Se descargará e instalará la aplicación y se mostrará el mensaje:</p>
         <div class="codigo">
           <pre>
 <code class="language-shell">Hello from Docker!
@@ -177,6 +173,10 @@ This message shows that your installation appears to be working correctly.
       </li>
     </ol>
   </section>
+
+  <hr />
+
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />A partir de aquí, los ejercicios no están actualizados.</p>
 
   <section id="ejercicio-2">
     <h2>Docker (1) 2 - Instalar OpenCart</h2>
@@ -314,7 +314,7 @@ This message shows that your installation appears to be working correctly.
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 31 de enero de 2017</p>
+    <p class="ultmod">Última modificación de esta página: 1 de febrero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
