@@ -27,6 +27,7 @@
         <li><a href="#organizacion-ejercicios">Organización ejercicios</a></li>
         <li><a href="#docker">Docker</a></li>
         <li><a href="#aprender-mas">Aprender más</a></li>
+        <li><a href="#bitnami">Contenedores de Bitnami</a></li>
         <li><a href="#docker-comandos">Comandos Docker</a>
           <ul>
             <li><a href="#imagenes">Imágenes</a></li>
@@ -35,7 +36,6 @@
             <li><a href="#sistema">Sistema</a></li>
           </ul>
         </li>
-        <li><a href="#bitnami">Contenedores de Bitnami</a></li>
       </ul>
     </div>
   </nav>
@@ -56,14 +56,16 @@
 
     <p><a href="https://www.docker.com/">Docker</a> es un sistema de virtualización de aplicaciones mediante contenedores, creado por Solomon Hykes y otros ingenieros. En 2013 se convirtió en un proyecto de software libre (licencia Apache) en el que participan cada vez más empresas. La versión 1.0 se publicó en junio de 2014 y ha tenido un desarrollo muy rápido.</p>
 
-    <p>A partir de marzo de 2017, Docker quiere publicar una nueva versión cada mes y ha cambiado su numeración al formato AA.MM (año y mes). Estas versiones se mantendrán solamente durante un mes, aunque habrá una versión trimestral que se mantendrá durante cuatro meses (la primera ha sido Docker 17.03).</p>
+    <p>En marzo de 2017, Docker pasó a publicar una nueva versión cada mes y cambió su numeración al formato AA.MM (año y mes). Estas versiones se mantienen solamente durante un mes, aunque hay una versión trimestral que se mantiene durante cuatro meses (la primera fue Docker 17.03).</p>
+
+    <p>Docker ofrece una versión Enterprise (de pago) y una versión Community (gratuita). La diferencia radica en el nivel de soporte y certificación que proporciona Docker a la versión Enterprise.</p>
 
     <p class="mcl-centrado">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="900" viewBox="-50 -60 900 100">
-        <line x1="35" y1="0" x2="850" y2="0" stroke-width="3" stroke="hsl(195, 80%, 40%)" />
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1050" viewBox="-50 -60 1050 100">
+        <line x1="35" y1="0" x2="1000" y2="0" stroke-width="3" stroke="hsl(195, 80%, 40%)" />
         <text x="-30" y="4" text-anchor="start" style="font-size: 100%">Docker</text>
         <text x="-10" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
-        <text x="-10" y="-38" text-anchor="middle" style="font-size: 60%">07-10-2017</text>
+        <text x="-10" y="-38" text-anchor="middle" style="font-size: 60%">01-02-2018</text>
 
         <line x1="60" y1="-30" x2="60" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
         <text x="135" y="-40" text-anchor="middle" style="font-size: 80%">2013</text>
@@ -76,7 +78,8 @@
         <line x1="660" y1="-30" x2="660" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
         <text x="735" y="-40" text-anchor="middle" style="font-size: 80%">2017</text>
         <line x1="810" y1="-30" x2="810" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-        <!-- <text x="885" y="-40" text-anchor="middle" style="font-size: 80%">2018</text> -->
+        <text x="885" y="-40" text-anchor="middle" style="font-size: 80%">2018</text>
+        <line x1="960" y1="-30" x2="960" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
 
         <circle cx="93" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
         <text x="93" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">0.1</text>
@@ -113,13 +116,13 @@
         <circle cx="667" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
         <text x="667" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">1.13</text>
         <circle cx="682" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-        <text x="682" y="25" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.03</text>
-        <circle cx="699" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-        <text x="699" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.04</text>
-        <circle cx="711" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-        <text x="711" y="25" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.05</text>
+        <text x="682" y="25" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">17.03</text>
         <circle cx="734" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
-        <text x="734" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 70%; font-weight: bold">17.06</text>
+        <text x="734" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">17.06</text>
+        <circle cx="771" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="771" y="25" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">17.09</text>
+        <circle cx="808" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="808" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">17.12</text>
       </svg>
     </p>
 
@@ -129,9 +132,13 @@
 
     <p>Los contenedores son útiles en los servidores, pero también para pruebas de software, ya que incluyen todos los elementos que necesitan las aplicaciones, lo que facilita la instalación y elimina los problemas de incompatibilidad de versiones en bibliotecas y aplicaciones auxiliares. También podría utilizarse para la distribución de software en general, pero en ese caso juega en contra la duplicidad que supone el que cada contenedor incluye todas las capas de software.</p>
 
-    <p>Docker empezó estando disponible solamente para distribuciones GNU/Linux, pero desde Windows Server 2016 y Windows 10 también está disponible en Windows.</p>
+    <hr class="corta" />
 
-    <p>Para utilizar Docker, se debe instalar el <a href="https://docs.docker.com/engine/userguide/intro/">Docker Engine</a>, pero Docker ofrece también una serie de herramientas para administrar, distribuir e instalar contenedores: <a href="https://docs.docker.com/compose/overview/">Docker Compose</a>, <a href="https://docs.docker.com/machine/overview/">Docker Machine</a>, etc.</p>
+    <p>Docker empezó estando disponible solamente para distribuciones GNU/Linux, pero desde junio de 2016 también está disponible como aplicación nativa en Windows Server 2016 y Windows 10.</p>
+
+    <p>Docker utiliza la virtualización ofrecida por el sistema operativo. En el caso de Windows 10, eso significa que para usar Docker de forma nativa hay que activar Hyper-V que, por desgracia, es incompatible con VirtualBox. Para poder utilizar Docker en Windows 7 o en Windows 10 sin Hyper-V, Docker ofrece desde agosto de 2015 <a href="https://github.com/docker/toolbox">Docker Toolbox</a>, que relamente es una máquina virtual (que se ejecuta en VirtualBox) que contiene Docker.</p>
+
+    <p>El componente básico de Docker es el <a href="https://docs.docker.com/engine/userguide/intro/">Docker Engine</a>, pero Docker ofrece también una serie de herramientas para administrar, distribuir e instalar contenedores: <a href="https://docs.docker.com/compose/overview/">Docker Compose</a>, <a href="https://docs.docker.com/machine/overview/">Docker Machine</a>, etc.</p>
 
     <hr class="corta" />
 
@@ -159,7 +166,20 @@
 
     <ul>
       <li><a href="https://docs.docker.com/engine/userguide/intro/">Documentación oficial de Docker</a></li>
+      <li><a href="https://docs.docker.com/toolbox/overview/">Documentación de Docker Toolbox</a></li>
       <li><a href="https://github.com/docker/labs">Docker Labs</a>: Tutoriales de Docker</li>
+      <li>Release Notes:
+        <a href="https://docs.docker.com/release-notes/docker-ce/#18010-ce-2018-01-10">18.01</a> -
+        <a href="https://docs.docker.com/release-notes/docker-ce/#17120-ce-2017-12-27">17.12</a> -
+        <a href="https://docs.docker.com/release-notes/docker-ce/#17110-ce-2017-11-20">17.11</a> -
+        <a href="https://docs.docker.com/release-notes/docker-ce/#17100-ce-2017-10-17">17.10</a> -
+        <a href="https://docs.docker.com/release-notes/docker-ce/#17090-ce-2017-09-26">17.09</a> -
+        <a href="https://docs.docker.com/release-notes/docker-ce/#17070-ce-2017-08-29">17.07</a> -
+        <a href="https://docs.docker.com/release-notes/docker-ce/#17060-ce-2017-06-28">17.06</a> -
+        <a href="https://docs.docker.com/release-notes/docker-ce/#17050-ce-2017-05-04">17.05</a> -
+        <a href="https://docs.docker.com/release-notes/docker-ce/#17040-ce-2017-04-05">17.04</a> -
+        <a href="https://docs.docker.com/release-notes/docker-ce/#17030-ce-2017-03-01">17.03</a>
+      </li>
       <li>Novedades:
         <a href="https://blog.docker.com/2017/06/announcing-docker-17-06-community-edition-ce/">Docker 17.06 CE</a> -
         <a href="https://blog.docker.com/2017/01/whats-new-in-docker-1-13/">Docker 1.13</a> -
@@ -168,6 +188,16 @@
       <li><a href="https://ericchiang.github.io/post/containers-from-scratch/">Containers from scratch</a></li>
       <li><a href="https://opensource.com/article/17/1/container-strategy-for-executives">An executive's guide to containers (25/01/17)</a></li>
     </ul>
+  </section>
+
+  <section id="bitnami">
+    <h2>Contenedores Docker de Bitnami</h2>
+
+    <p>Los <a href="https://bitnami.com/containers">contenedores Docker de aplicaciones de Bitnami</a> incluyen únicamente la aplicación, aunque también están disponibles contenedores de aplicaciones de infraestructura (lenguajes de programación, bases de datos, servidores web, etc.).</p>
+
+    <p>Actualmente (enero de 2018) el número de contenedores que ofrece Bitnami es bastante menor que el que ofrece en forma de instaladores (unas 50 contenedores frente a unos 150 instaladores).</p>
+
+    <p>Los contenedores de Bitnami están creados con una herramienta llamada <a href="https://stacksmith.bitnami.com/">Stacksmith</a> que Bitnami ofrece para crear contenedores personalizados.</p>
   </section>
 
   <section id="docker-comandos">
@@ -363,18 +393,8 @@ sudo docker CP ORIGEN CONTENEDOR:DESTINO</code>
     </section>
   </section>
 
-  <section id="bitnami">
-    <h2>Contenedores Docker de Bitnami</h2>
-
-    <p>Los <a href="https://bitnami.com/containers">contenedores Docker de aplicaciones de Bitnami</a> incluyen únicamente la aplicación, aunque también están disponibles contenedores de aplicaciones de infraestructura (lenguajes de programación, bases de datos, servidores web, etc.).</p>
-
-    <p>Actualmente (enero de 2018) el número de contenedores que ofrece Bitnami es bastante menor que el que ofrece en forma de instaladores (unas 50 contenedores frente a unos 150 instaladores).</p>
-
-    <p>Los contenedores de Bitnami están creados con una herramienta llamada <a href="https://stacksmith.bitnami.com/">Stacksmith</a> que Bitnami ofrece para crear contenedores personalizados.</p>
-  </section>
-
   <footer>
-    <p class="ultmod">Última modificación de esta página: 31 de enero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 1 de febrero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
