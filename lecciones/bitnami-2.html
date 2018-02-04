@@ -41,7 +41,7 @@
 
   <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>Bitnami</strong> instalando aplicaciones web en una máquina virtual de infraestructura. Se pueden consultar las <a href="bitnami-2-soluciones.html">soluciones de estos ejercicios de Bitnami (2)</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-  <p>En estos ejercicios se nombran las versiones disponibles actualmente (enero de 2017), pero seguramente se podrán realizar sin problemas con versiones posteriores.</p>
+  <p>En estos ejercicios se nombran las versiones disponibles actualmente (febrero de 2018), pero seguramente se podrán realizar sin problemas con versiones posteriores.</p>
 
   <p><strong>Nota:</strong> En estos ejercicios se propone únicamente la instalación de la aplicación OpenCart, pero se anima al alumno a probar otras aplicaciones.</p>
 
@@ -50,17 +50,17 @@
 
     <ol>
       <li>Visite la página web de Bitnami.</li>
-      <li>Descargue la máquina virtual de infraestructura LAMP de Bitnami. Actualmente (enero de 2017), la versión disponible es LAMP 5.6.29-1 (64 bits) en una máquina virtual Ubuntu 14.04.</li>
+      <li>Descargue la máquina virtual de infraestructura LAMP de Bitnami. Actualmente (febrero de 2018), la versión disponible es LAMP 7.1.13-1 (64 bits) en una máquina virtual Debian 9.</li>
       <li>Importe la máquina virtual de infraestructura LAMP de Bitnami en VirtualBox.</li>
       <li>Arranque la máquina virtual.</li>
       <li>Compruebe en el navegador del ordenador anfitrión que puede ver la web del servidor, escribiendo la dirección http://AAA.BBB.CCC.DDD en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
         <p class="captura">
-          <img src="../img/bitnami/2-1-e-1-vm-lamp.png" alt="Servidor web en la máquina virtual" width="495" height="250" />
+          <img src="../img/bitnami/2-1-e-1-vm-lamp.png" alt="Servidor web en la máquina virtual" width="991" height="370" />
         </p>
       </li>
       <li>Compruebe en el navegador del ordenador anfitrión que no hay aplicaciones instaladas.
         <p class="captura">
-          <img src="../img/bitnami/2-1-e-2-vm-lamp.png" alt="Aplicaciones instaladas en la máquina virtual" width="495" height="250" />
+          <img src="../img/bitnami/2-1-e-2-vm-lamp.png" alt="Aplicaciones instaladas en la máquina virtual" width="991" height="400" />
         </p>
       </li>
     </ol>
@@ -82,18 +82,20 @@
     <ol>
       <li>Compruebe que no puede acceder la aplicación phpMyAdmin instalada en la máquina virtual:
         <p class="captura">
-          <img src="../img/bitnami/2-2-e-1-phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" width="650" height="140" />
+          <img src="../img/bitnami/2-2-e-1-phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" width="1024" height="170" />
         </p>
       </li>
       <li>En la página inicial de la web de la máquina virtual se encuentra un enlace a la documentación de Bitnami sobre phpMyAdmin::
         <p class="captura">
-          <img src="../img/bitnami/2-2-e-3-phpmyadmin.png" alt="Enlace a documentación phpMyAdmin" width="495" height="250" />
-          <img src="../img/bitnami/2-2-e-4-phpmyadmin.png" alt="Documentación de Bitnami" width="495" height="275" />
+          <img src="../img/bitnami/2-2-e-2-phpmyadmin.png" alt="Enlace a documentación phpMyAdmin" width="991" height="370" />
+        </p>
+        <p class="captura">
+          <img src="../img/bitnami/2-2-e-3-phpmyadmin.png" alt="Documentación de Bitnami" width="1022" height="350" />
         </p>
       </li>
       <li>En esa documentación se explica qué por motivos de seguridad sólo se permite conectarse a phpMyAdmin con direcciones locales (127.0.0.1) y que desde otros equipos debe hacerse a través de un túnel SSH (127.0.0.1:8888). Compruebe que sin abrir el túnel tampoco puede realizar la conexión desde el ordenador anfitrión:
         <p class="captura">
-          <img src="../img/bitnami/2-2-e-2-phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" width="800" height="300" />
+          <img src="../img/bitnami/2-2-e-4-phpmyadmin.png" alt="Acceso prohibido a phpMyAdmin" width="1024" height="270" />
         </p>
       </li>
       <li>Configure la máquina virtual y el ordenador anfitrión siguiendo las instrucciones de la documentación de Bitnami, de manera que pueda acceder al phpMyAdmin que está instalado en la máquina virtual a través de un túnel SSH:
@@ -188,7 +190,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 17 de enero de 2017</p>
+    <p class="ultmod">Última modificación de esta página: 4 de febrero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />

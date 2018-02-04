@@ -385,6 +385,22 @@
 
       <p>Documentación de Bitnami: <a href="https://docs.bitnami.com/virtual-machine/faq/#how-to-install-virtualbox-guest-additions-on-bitnami-virtual-machines">Instalar VirtualBox Guest Additions</a></p>
     </section>
+
+    <section id="virtualbox-guest-addtions-instaladas">
+      <h3>Comprobar que las VirtualBox Guest Addtions están instaladas</h3>
+
+      <p>Para comprobar que las VirtualBox Guest Addtions están instaladas, escriba</p>
+
+      <div class="codigo">
+        <pre><code class="language-configuracion">lsmod | grep vboxguest</code></pre>
+      </div>
+
+      <p>La salida tiene que ser algo de este estilo</p>
+
+      <div class="codigo">
+        <pre><code class="language-configuracion">vboxguest        286720  2 vboxsf</code></pre>
+      </div>
+    </section>
   </section>
 
   <section id="Apache">
@@ -493,7 +509,7 @@ NameVirtualHost *:80
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 30 de enero de 2017</p>
+    <p class="ultmod">Última modificación de esta página: 4 de febrero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
