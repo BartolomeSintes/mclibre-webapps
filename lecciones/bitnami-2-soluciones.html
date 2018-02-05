@@ -77,6 +77,10 @@
           <img src="../img/bitnami/2-1-s-21-vm-lamp.png" alt="Máquina virtual en marcha" width="736" height="480" />
         </p>
         <p>Para acceder al servidor escriba la IP que se muestra en la pantalla. En la captura de ejemplo sería <strong>http:/192.168.1.14/</strong></p>
+        <p>La pantalla inicial muestra también la contraseña asignada al usuario de las aplicaciones (base de datos, etc.), aunque a veces la contraseña asignada es simplemente <strong>bitnami</strong>.</p>
+        <p class="captura">
+          <img src="../img/bitnami/2-1-s-22-vm-lamp.png" alt="Máquina virtual en marcha" width="736" height="480" />
+        </p>
       </li>
     </ul>
   </section>
@@ -174,7 +178,7 @@ sudo start ssh</code>
         </ul>
       </li>
       <li><strong>Abrir phpMyAdmin</strong>
-        <p>Abra phpMyAdmin en la máquina virtual a través de la sesión SSH escribiendo en el navegador del ordenador anfitrión la dirección <strong>http://127.0.01:8888/phpmyadmin/</strong>. El usuario administrador predeterminado de la base de datos es <strong>root</strong> con contraseña <strong>bitnami</strong>.</p>
+        <p>Abra phpMyAdmin en la máquina virtual a través de la sesión SSH escribiendo en el navegador del ordenador anfitrión la dirección <strong>http://127.0.01:8888/phpmyadmin/</strong>. El usuario administrador predeterminado de la base de datos es <strong>root</strong>, con la contraseña que se muestra en la pantalla inicial de la máquina virtual (aunque a veces, no sé por qué la contraseña es simplemente <strong>bitnami</strong>).</p>
       </li>
     </ul>
   </section>
@@ -212,7 +216,7 @@ sudo ./bitnami-opencart-3.0.2.0-4-module-linux-x64-installer.run</code>
           <li>La contraseña predeterminada de usuario <strong>root</strong> MySQL es <strong>bitnami</strong></li>
           <li>Hostaname: la IP de la máquina virtual</li>
           <li>Mail support: <strong>n</strong></li>
-          <li>Launch: <strong>Y</strong></li>
+          <li>Launch Module: <strong>Y</strong></li>
         </ul>
         <p>La contraseña predeterminada del usuario administrador de la aplicación será <strong>bitnami</strong></p>
       </li>

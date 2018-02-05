@@ -36,6 +36,7 @@
             <li><a href="#espacio-disco-libre">Espacio libre y ocupado</a></li>
             <li><a href="#buscar">Buscar archivo</a></li>
             <li><a href="#editor-vi">Editor vi</a></li>
+            <li><a href="#mysql">cambiar contraseña MySQL</a></li>
           </ul>
         </li>
         <li><a href="#ubuntu">Bitnami</a>
@@ -393,6 +394,18 @@ sudo apt install console-setup</code></pre>
         </li>
       </ul>
     </section>
+
+    <section id="mysql">
+      <h3>Cambiar la contraseña del usuario root de MySQL</h3>
+
+      <p>Para cambiar la contraseña del usuario <strong>root</strong> de MySQL, escriba la orden:</p>
+
+      <div class="codigo">
+        <pre><code class="language-shell">/opt/bitnami/mysql/bin/mysqladmin -p -u root password NEW_PASSWORD</code></pre>
+      </div>
+
+      <p><strong>Referencias</strong>: <a href="https://docs.bitnami.com/virtual-machine/components/mysql/#how-to-change-the-mysql-root-password">Bitnami docs</a></p>
+    </section>
   </section>
 
   <section id="bitnami">
@@ -571,7 +584,7 @@ NameVirtualHost *:80
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 4 de febrero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 5 de febrero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
