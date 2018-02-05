@@ -23,7 +23,7 @@
       </h2>
 
       <ul>
-        <li><a href="#ubuntu">Ubuntu</a>
+        <li><a href="#debian">Debian</a>
           <ul>
             <li><a href="#averiguar-version">Averiguar versión Ubuntu</a></li>
             <li><a href="#apagar">Apagar máquina</a></li>
@@ -54,17 +54,39 @@
     </div>
   </nav>
 
-  <section id="ubuntu">
-    <h2>Comandos de Ubuntu</h2>
+  <section id="debian">
+    <h2>Comandos de Debian</h2>
 
     <ul>
       <li><a href="https://tldr.ostera.io/">tldr</a>: ejemplos de comandos (hay que saber el nombre del comando y escribir linux/<em>comando</em>). Se puede también instalar como aplicación o descargar en <a href="http://tldr.sh/assets/tldr-book.pdf">formato pdf</a>, como explican en la <a href="http://tldr.sh/">web del proyecto</a></li>
     </ul>
 
     <section id="averiguar-version">
-      <h3>Averiguar la versión de Ubuntu</h3>
+      <h3>Averiguar la versión de Debian / Ubuntu</h3>
 
-      <p>Para averiguar la versión de Ubuntu de la máquina, escribir el comando:</p>
+      <p>Para averiguar la versión de Debian de la máquina, puede utilizar los siguientes comandos:</p>
+
+      <ul>
+        <li>Este comando repite el mensaje que se muestra al iniciar la máquina:
+          <div class="codigo">
+            <pre><code class="language-shell">cat /etc/issue</code></pre>
+          </div>
+        </li>
+        <li>Este comando muestra el número de versión y subversión de Debian
+          <div class="codigo">
+            <pre><code class="language-shell">cat /etc/debian-version</code></pre>
+          </div>
+        </li>
+        <li>Este comando muestra la versión y enlaces generales
+          <div class="codigo">
+            <pre><code class="language-shell">cat /etc/issue</code></pre>
+          </div>
+        </li>
+      </ul>
+
+      <hr class="corta" />
+
+      <p>Para averiguar la versión de Ubuntu de la máquina, escriba el comando:</p>
 
       <div class="codigo">
         <pre><code class="language-shell">lsb_releases -a</code></pre>
@@ -74,10 +96,26 @@
     <section id="apagar">
       <h3>Apagar la máquina</h3>
 
-      <p>Para apagar una máquina, escribir el comando:</p>
+      <p>Para apagar una máquina, escriba uno de estos comandos:</p>
+
+      <div class="codigo">
+        <pre><code class="language-shell">sudo poweroff</code></pre>
+      </div>
 
       <div class="codigo">
         <pre><code class="language-shell">sudo shutdown -h now</code></pre>
+      </div>
+
+      <p>Para reiniciar una máquina, escriba este comando:</p>
+
+      <div class="codigo">
+        <pre><code class="language-shell">sudo reboot</code></pre>
+      </div>
+
+      <p>Para cerrar la sesión (sin apagar la máquina, que sigue funcionando):</p>
+
+      <div class="codigo">
+        <pre><code class="language-shell">exit</code></pre>
       </div>
     </section>
 
@@ -112,14 +150,22 @@
     <section id="configuracion-teclado">
       <h3>Cambiar la configuración del teclado</h3>
 
-      <p>Las máquinas virtuales de Bitnami tienen configurado el teclado de Estados Unidos. Se puede cambiar la configuración del teclado a otros idiomas mediante la orden:</p>
+      <p>Las máquinas virtuales de Bitnami tienen configurado el teclado de Estados Unidos. Puede cambiar la configuración del teclado a otros idiomas mediante los comandos:</p>
 
       <div class="codigo">
-        <pre><code class="language-shell">sudo dpkg-reconfigure keyboard-configuration</code></pre>
+        <pre><code class="language-shell">sudo apt install dialog
+sudo apt install console-setup</code></pre>
       </div>
 
-      <p>En un teclado de España, las opciones a seleccionar suelen ser las siguientes:</p>
+      <p>En la instalación de console-setup, indique las características de su teclado. Por ejemplo:</p>
 
+      <ul>
+        <li>Keyboard layout: Other</li>
+        <li>Country of origin for the keyboard: Spanish</li>
+        <li>Keyboard layout: Spanish (Winkeys)</li>
+      </ul>
+
+      <p>Dependiendo del teclado que indique, el diálogo puede pedirle más características de su teclado. Por ejemplo:</p>
       <ul>
         <li>Keyboard model: Generic 105-key (Intl) PC</li>
         <li>Country of origin: Spanish</li>
@@ -127,6 +173,20 @@
         <li>Key to function as AltGr: The default for the keyboard layout</li>
         <li>Compose key: No compose key</li>
       </ul>
+
+      <hr class="corta" />
+
+      <p>Si necesita volver a reconfigurar su teclado, utilice la orden:</p>
+
+      <div class="codigo">
+        <pre><code class="language-shell">sudo dpkg-reconfigure keyboard-configuration</code></pre>
+      </div>
+
+      <hr class="corta" />
+
+      <p>La configuración del teclado se guarda en el fichero /etc/default/keyboard.</p>
+
+      <hr />
 
       <h3>Caracteres en el teclado de Estados Unidos</h3>
 
@@ -136,11 +196,11 @@
         <img src="../img/bitnami/bn-us-keyboard.png" alt="Teclado PC Estados Unidos" width="600" height="200" />
       </p>
 
-      <table class="tabla-con-borde centrado">
+      <table class="tabla-con-borde mcl-centrado">
         <tbody>
           <tr>
-            <th>Posición en el teclado inglés</th>
-            <th>Resultado en el teclado español</th>
+            <th>Posición en el teclado español</th>
+            <th>Resultado si está configurado como teclado inglés</th>
           </tr>
           <tr>
             <td>Ñ</td>
@@ -172,13 +232,15 @@
           </tr>
         </tbody>
       </table>
+
+      <p>La tecla del extremo derecho de la fila q ... p del teclado estadounidense se encuentra situada en el extremo derecho de la fila a ... l del teclado español.</p>
     </section>
 
     <section id="comprobar-aplicacion-instalada">
       <h3>Comprobar si una aplicación está instalada</h3>
 
       <div class="codigo">
-        <pre><code class="language-shell">dpkg -l | grep <em>aplicacion</em></code></pre>
+        <pre><code class="language-shell">sudo dpkg -l | grep <em>aplicacion</em></code></pre>
       </div>
     </section>
 
@@ -186,7 +248,7 @@
       <h3>Instalar una aplicación</h3>
 
       <div class="codigo">
-        <pre><code class="language-shell">sudo apt-get install <em>aplicacion</em></code></pre>
+        <pre><code class="language-shell">sudo apt install <em>aplicacion</em></code></pre>
       </div>
     </section>
 
@@ -218,11 +280,11 @@
       <p>Para ver el espacio de disco ocupado y libre:</p>
 
       <div class="codigo">
-        <pre><code class="language-shell">du -hs <em>/path</em></code></pre>
+        <pre><code class="language-shell">sudo du -hs <em>/path</em></code></pre>
       </div>
 
       <div class="codigo">
-        <pre><code class="language-shell">du -h --max-depth=<em>n</em> <em>/path</em></code></pre>
+        <pre><code class="language-shell">sudo du -h --max-depth=<em>n</em> <em>/path</em></code></pre>
       </div>
     </section>
 
@@ -232,19 +294,19 @@
       <p>Para buscar un archivo:</p>
 
       <div class="codigo">
-        <pre><code class="language-shell">find <em>/path</em> -name <em>archivo</em></code></pre>
+        <pre><code class="language-shell">sudo find <em>/path</em> -name <em>archivo</em></code></pre>
       </div>
 
       <p>Para mostrar sólo las líneas que contienen una palabra:</p>
 
       <div class="codigo">
-        <pre><code class="language-shell">find <em>/path</em> -name <em>archivo</em> | grep <em>palabra</em></code></pre>
+        <pre><code class="language-shell">sudo find <em>/path</em> -name <em>archivo</em> | grep <em>palabra</em></code></pre>
       </div>
 
       <p>Para mostrar sólo las líneas que <strong>no</strong> contienen una palabra:</p>
 
       <div class="codigo">
-        <pre><code class="language-shell">find <em>/path</em> -name <em>archivo</em> | grep -v <em>palabra</em></code></pre>
+        <pre><code class="language-shell">sudo find <em>/path</em> -name <em>archivo</em> | grep -v <em>palabra</em></code></pre>
       </div>
     </section>
 
@@ -256,7 +318,7 @@
       <p>Para editar un archivo con vi:</p>
 
       <div class="codigo">
-        <pre><code class="language-shell">vi nombre_de_archivo</code></pre>
+        <pre><code class="language-shell">sudo vi nombre_de_archivo</code></pre>
       </div>
 
       <p>El editor vi abre el archivo en modo Comando.</p>

@@ -93,21 +93,36 @@
         </p>
       </li>
       <li><strong>Reconfigurar teclado</strong><strong></strong>
-        <p>La máquina virtual de infrestructura viene configurada de forma predeterminada con un teclado inglés. Para cambiar la configuración del teclado al teclado español, se debe utilizar el comando dpkg-reconfigure:</p>
+        <p>La máquina virtual de infrestructura viene configurada de forma predeterminada con un teclado inglés. Para cambiar la configuración del teclado al teclado español, instale console-setup:</p>
 
         <div class="codigo">
-          <pre><code class="language-shell">sudo dpkg-reconfigure keyboard-configuration</code></pre>
+          <pre><code class="language-shell">sudo apt install dialog
+sudo apt install console-setup</code>
+</pre>
         </div>
       </li>
       <li><strong>Habilitar SSH en la máquina virtual</strong>
         <p>El servidor SSH está deshabilitado de forma predeterminada. Para habilitarlo:</p>
 
-        <div class="codigo">
-          <pre>
+        <ul>
+          <li>En Debian:
+            <div class="codigo">
+              <pre>
+<code class="language-shell">sudo rm -f /etc/ssh/sshd_not_to_be_run
+sudo systemctl enable ssh
+sudo systemctl start ssh</code>
+</pre>
+            </div>
+          </li>
+          <li>En Ubuntu:
+            <div class="codigo">
+              <pre>
 <code class="language-shell">sudo mv /etc/init/ssh.conf.back /etc/init/ssh.conf
 sudo start ssh</code>
 </pre>
-        </div>
+            </div>
+          </li>
+        </ul>
       </li>
       <li><strong>Instalar PuTTY</strong>
         <p>La página web de PuTTY es <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">https://www.chiark.greenend.org.uk/~sgtatham/putty/</a>.</p>
@@ -115,26 +130,48 @@ sudo start ssh</code>
         <p>En <a href="http://www.cdlibre.org/">cdlibre.org</a> hay una sección dedicada a <a href="http://www.cdlibre.org/consultar/catalogo/Internet_Otros.html">Otras herramientas de Internet</a>, con información detallada sobre la última versión publicada para Windows.</p>
       </li>
       <li><strong>Conectar el ordenador anfitrión con la máquina virtual con Putty con túnel SSH </strong>
-
-        <p class="captura">
-          <img src="../img/bitnami/2-2-s-11-putty.png" alt="Configurar PuTTY" width="456" height="438" />
-        </p>
-
-        <p class="captura">
-          <img src="../img/bitnami/2-2-s-12-putty.png" alt="Configurar PuTTY" width="456" height="438" />
-        </p>
-
-        <p>Al abrir la conexión, aceptar la clave del servidor:</p>
-
-        <p class="captura">
-          <img src="../img/bitnami/2-2-s-13-putty.png" alt="Configurar PuTTY" width="435" height="294" />
-        </p>
-
-        <p>Abra la sesión SSH y compruebe que puede conectarse como usuario <strong>bitnami</strong>:</p>
-
-        <p class="captura">
-          <img src="../img/bitnami/2-2-s-14-putty.png" alt="Configurar PuTTY" width="675" height="424" />
-        </p>
+        <ul>
+          <li>En Session ponga nombre a la sesión y guárdela:
+            <p class="captura">
+              <img src="../img/bitnami/2-2-s-11-putty.png" alt="Configurar PuTTY" width="452" height="442" />
+            </p>
+          </li>
+          <li>En Connection &gt; Data escriba el nombre del usuario:
+            <p class="captura">
+              <img src="../img/bitnami/2-2-s-12-putty.png" alt="Configurar PuTTY" width="452" height="442" />
+            </p>
+          </li>
+          <li>En Connection &gt; SSH &gt; Tunnels añada un nuevo puerto (origen: 8888; destino: localhost:80)
+            <p class="captura">
+              <img src="../img/bitnami/2-2-s-13-putty.png" alt="Configurar PuTTY" width="452" height="442" />
+            </p>
+          </li>
+          <li>Compruebe que se ha añadido el nuevo puerto
+            <p class="captura">
+              <img src="../img/bitnami/2-2-s-14-putty.png" alt="Configurar PuTTY" width="452" height="442" />
+            </p>
+          </li>
+          <li>En Session guarde de nuevo la configuración y abra la sesión:
+            <p class="captura">
+              <img src="../img/bitnami/2-2-s-15-putty.png" alt="Configurar PuTTY" width="452" height="442" />
+            </p>
+          </li>
+          <li>Al abrir la conexión, acepte la clave del servidor:
+            <p class="captura">
+              <img src="../img/bitnami/2-2-s-16-putty.png" alt="Configurar PuTTY" width="377" height="276" />
+            </p>
+          </li>
+          <li>Si la primera vez, la máquina rechaza la conexión y se muestra un mensaje de error, vuelva a abrir Putty, cargue la conexión guardada y ábrala de nuevo:
+            <p class="captura">
+              <img src="../img/bitnami/2-2-s-17-putty.png" alt="Configurar PuTTY" width="274" height="152" />
+            </p>
+          </li>
+          <li>Si la sesión se abre correctamente, compruebe que puede conectarse como usuario <strong>bitnami</strong>:
+            <p class="captura">
+              <img src="../img/bitnami/2-2-s-18-putty.png" alt="Configurar PuTTY" width="661" height="418" />
+            </p>
+          </li>
+        </ul>
       </li>
       <li><strong>Abrir phpMyAdmin</strong>
         <p>Abra phpMyAdmin en la máquina virtual a través de la sesión SSH escribiendo en el navegador del ordenador anfitrión la dirección <strong>http://127.0.01:8888/phpmyadmin/</strong>. El usuario administrador predeterminado de la base de datos es <strong>root</strong> con contraseña <strong>bitnami</strong>.</p>
@@ -149,41 +186,47 @@ sudo start ssh</code>
       <li><strong>Descargar y ejecutar el instalador de módulo</strong>
         <p>Para descargar e instalar un módulo, primero hay que ver la dirección del instalador del módulo en la página web de bitnami <a href="https://bitnami.com/stack/lamp/modules">https://bitnami.com/stack/lamp/modules</a></p>
         <p class="captura">
-          <img src="../img/bitnami/2-3-s-1-opencart.png" alt="Módulo OpenCart para Ubuntu en Bitnami" width="1022" height="290" />
+          <img src="../img/bitnami/2-3-s-1-opencart.png" alt="Módulo OpenCart para Ubuntu en Bitnami" width="1024" height="320" />
         </p>
         <p>A continuación se puede utilizar el comando wget (hay que moverse antes a la carpeta en que queramos realizar la descarga):</p>
 
         <div class="codigo">
           <pre>
 <code class="language-shell">cd /tmp
-wget https://bitnami.com/redirect/to/130228/bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run</code>
+wget https://bitnami.com/redirect/to/169794/bitnami-opencart-3.0.2.0-4-module-linux-x64-installer.run</code>
 </pre>
         </div>
         <p>Y por último cambiar los permisos del archivo y ejecutarlo:</p>
 
         <div class="codigo">
           <pre>
-<code class="language-shell">chmod +x ./bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run
-sudo ./bitnami-opencart-2.3.0.2-1-module-linux-x64-installer.run</code>
+<code class="language-shell">chmod +x ./bitnami-opencart-3.0.2.0-4-module-linux-x64-installer.run
+sudo ./bitnami-opencart-3.0.2.0-4-module-linux-x64-installer.run</code>
 </pre>
         </div>
       </li>
       <li><strong>Instalar la aplicación</strong>
-        <p>El directorio donde se instalan los servidores es <strong>/opt/bitnami</strong>.</p>
-        <p>La contraseña predeterminada de MySQL es <strong>bitnami</strong></p>
-        <p>La contraseña predeterminada del usuario de la aplicación es <strong>bitnami</strong></p>
+        <ul>
+          <li>Installation folder: <strong>/opt/bitnami</strong>.</li>
+          <li>Admin account: <strong>admin</strong> (por ejemplo)</li>
+          <li>La contraseña predeterminada de usuario <strong>root</strong> MySQL es <strong>bitnami</strong></li>
+          <li>Hostaname: la IP de la máquina virtual</li>
+          <li>Mail support: <strong>n</strong></li>
+          <li>Launch: <strong>Y</strong></li>
+        </ul>
+        <p>La contraseña predeterminada del usuario administrador de la aplicación será <strong>bitnami</strong></p>
       </li>
       <li><strong>Apagar la máquina virtual</strong>
         <p>Para apagar la máquina virtual, se puede utilizar el comando poweroff:</p>
         <div class="codigo">
-          <pre><code class="language-shell">bitnami@linux:~$ sudo poweroff</code></pre>
+          <pre><code class="language-shell">sudo poweroff</code></pre>
         </div>
       </li>
     </ul>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 4 de febrero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 5 de febrero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
