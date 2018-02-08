@@ -52,33 +52,33 @@
   <section id="ejercicio-1">
     <h2>Nextcloud (1) 1 - Crear contenedor Docker</h2>
     <ol>
-      <li>Las instrucciones se encuentran en el repositorio <a href="https://github.com/greyltc/docker-nextcloud">https://github.com/greyltc/docker-nextcloud</a>.</li>
+      <li>Las instrucciones se encuentran en el repositorio <a href="https://github.com/nextcloud/docker">https://github.com/nextcloud/docker</a>.</li>
       <li>Si va a utilizar SQLite, ejecute el comando:
         <div class="codigo">
-          <pre><code class="language-shell">sudo docker run -d --name nc -p 80:80 -p 443:443 greyltc/nextcloud</code></pre>
+          <pre><code class="language-shell">sudo docker run -d -p 8080:80 nextcloud</code></pre>
         </div>
       </li>
       <li>Si va a utilizar MariaDB, ejecute los comandos siguientes:
         <ul>
           <li>Cree una red:
             <div class="codigo">
-              <pre><code class="language-shell">sudo docker network create nc_network</code></pre>
+              <pre><code class="language-shell">sudo docker network create nc-red</code></pre>
             </div>
           </li>
           <li>Cree el contenedor de MariaDB:
             <div class="codigo">
-              <pre><code class="language-shell">sudo docker run -d --name mariadb --net=nc_network bitnami/mariadb</code></pre>
+              <pre><code class="language-shell">sudo docker run -d --name nc-mariadb -e ALLOW_EMPTY_PASSWORD=yes --net=nc-red bitnami/mariadb</code></pre>
             </div>
           </li>
           <li>Cree el contenedor de phpMyAdmin:
             <div class="codigo">
-              <pre><code class="language-shell">sudo docker run -d --name phpmyadmin -p 8802:80 --net=nc_network bitnami/phpmyadmin</code></pre>
+              <pre><code class="language-shell">sudo docker run -d --name nc-pma -e DATABASE_HOST=nc-mariadb -p 8802:80 --net=nc-red bitnami/phpmyadmin</code></pre>
             </div>
           </li>
           <li>Abra en el navegador del host la página http://AAA.BBB.CCC.DDD:8802 (usuario root sin contraseña) y con phpMyAdmin cree un usuario nextcloud, que pueda acceder desde cualquier servidor, con contraseña nextcloud y base de datos única.</li>
           <li>Cree el contenedor de Nextcloud:
             <div class="codigo">
-              <pre><code class="language-shell">sudo docker run -d --name nc -p 80:80 -p 443:443 --net=nc_network greyltc/nextcloud</code></pre>
+              <pre><code class="language-shell">sudo docker run -d --name nc -p 80:80 -p 443:443 --net=nc-red nextcloud</code></pre>
             </div>
           </li>
         </ul>
@@ -277,7 +277,7 @@ sudo docker start CONTENEDOR</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 1 de febrero de 2017</p>
+    <p class="ultmod">Última modificación de esta página: 8 de febrero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />

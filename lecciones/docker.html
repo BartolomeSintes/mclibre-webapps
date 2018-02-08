@@ -325,7 +325,12 @@ sudo docker network
             <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
           </div>
         </li>
-        <li>Para salir de la shell del contenedor:
+        <li>Para entrar en la shell del contenedor como root:
+            <div class="codigo">
+              <pre><code class="language-shell">sudo docker exec -u 0 -it CONTENEDOR /bin/bash</code></pre>
+            </div>
+          </li>
+          <li>Para salir de la shell del contenedor:
           <div class="codigo">
             <pre><code class="language-shell">exit</code></pre>
           </div>
@@ -384,10 +389,34 @@ sudo docker CP ORIGEN CONTENEDOR:DESTINO</code>
             <pre><code class="language-shell">sudo docker system df</code></pre>
           </div>
         </li>
-        <li>Para eliminar los elementos que no se utilizan (incluso contenedores detenidos):
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker system prune</code></pre>
-          </div>
+        <li>Para eliminar los elementos que no están en marcha:
+          <ul>
+            <li>Contenedores:
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker container prune</code></pre>
+              </div>
+            </li>
+            <li>Imágenes:
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker image prune</code></pre>
+              </div>
+            </li>
+            <li>Volúmenes:
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker volume prune</code></pre>
+              </div>
+            </li>
+            <li>Redes:
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker network prune</code></pre>
+              </div>
+            </li>
+            <li>todo:
+              <div class="codigo">
+                <pre><code class="language-shell">sudo docker container prune</code></pre>
+              </div>
+            </li>
+          </ul>
         </li>
       </ul>
     </section>
