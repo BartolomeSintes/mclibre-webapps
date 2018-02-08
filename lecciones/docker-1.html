@@ -99,7 +99,7 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
           <pre>
 <code class="language-shell">pub   4096R/0EBFCD88 2017-02-22
       Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid                  Docker Release (CE deb) <docker@docker.com>
+uid                  Docker Release (CE deb) &lt;docker@docker.com&gt;
 sub   4096R/F273FCD8 2017-02-22</code>
 </pre>
         </div>
@@ -177,9 +177,9 @@ This message shows that your installation appears to be working correctly.
   <section id="ejercicio-2">
     <h2>Docker (1) 2 - Instalar OpenCart</h2>
 
-    <p>Estas instrucciones se han extraido de la página <a href="https://github.com/bitnami/bitnami-docker-opencart">Bitnami Docker OpenCart</a></p>
-
     <p>En este ejercicio instalaremos OpenCart en un contenedor Docker.</p>
+
+    <p>Los repositorios de las imágenes de Bitnami son <a href="https://github.com/bitnami/bitnami-docker-mariadb">Bitnami MariaDB OpenCart</a>, <a href="https://github.com/bitnami/bitnami-docker-opencart">Bitnami Docker OpenCart</a>.</p>
 
     <ol>
       <li>Averigüe la dirección ip de la máquina virtual.</li>
@@ -190,19 +190,22 @@ This message shows that your installation appears to be working correctly.
       </li>
       <li>Cree un contenedor con la base de datos MariaDB en la nueva red:
         <div class="codigo">
-          <pre><code class="language-shell">sudo docker run -d --name mariadb -e ALLOW_EMPTY_PASSWORD=yes --net=opencart-network bitnami/mariadb:latest</code></pre>
+          <pre><code class="language-shell">sudo docker run -d --name=mariadb -e ALLOW_EMPTY_PASSWORD=yes --net=opencart-network bitnami/mariadb:latest</code></pre>
         </div>
+        <p><strong>Nota</strong>: El nombre mariadb se puede cambiar, pero tenga en cuenta que las imágenes de bitnami suponen de forma predeterminada que ese es el nombre del contenedor de la base de datos. Si utiliza otro nombre de contenedor, deberá añadir la opción de configuración correspondiente al crear el contenedor de la aplicación.</p>
+        <p><strong>Nota</strong>: Algunas de las variables disponibles (y su valores predeterminados entre corchetes) son MARIADB_EXTRA_FLAGS, MARIADB_ROOT_USER [root], MARIADB_ROOT_PASSWORD [], ALLOW_EMPTY_PASSWORD, MARIADB_USER, MARIADB_PASSWORD, MARIADB_DATABASE.</p>
       </li>
       <li>Cree un contenedor con OpenCart en la misma red (sustituya AAA.BBB.CCC.DDD por la dirección ip de la máquina virtual):
         <div class="codigo">
-          <pre><code class="language-shell">sudo docker run -d -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 80:80 -p 443:443 --name opencart --net opencart-network bitnami/opencart:latest</code></pre>
+          <pre><code class="language-shell">sudo docker run -d --name=opencart -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 80:80 -p 443:443 --net=opencart-network bitnami/opencart:latest</code></pre>
         </div>
+        <p><strong>Nota</strong>: Las variables disponibles (y su valores predeterminados entre corchetes) son OPENCART_USERNAME [user], OPENCART_PASSWORD [bitnami1], OPENCART_EMAIL [user@example.com], OPENCART_HOST, MARIADB_PASSWORD, MARIADB_HOST [mariadb], MARIADB_PORT_NUMBER [3306].</p>
       </li>
       <li>Compruebe que puede acceder a OpenCart en el navegador escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD</strong>, donde AAA.BBB.CCC.DDD es la dirección ip de la máquina virtual:
         <p class="captura"><img src="../img/bitnami/3-2-e-1-opencart.jpg" alt="Tienda OpenCart" title="Tienda OpenCart" width="495" height="275" /></p>
       </li>
       <li>Compruebe que puede acceder como administrador a OpenCart en el navegador escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD/admin</strong>, donde AAA.BBB.CCC.DDD es la dirección ip de la máquina virtual.
-        <p>El usuario administrador de OpenCart es <strong>user</strong> con contraseña <strong>bitnami1</strong>:</p>
+        <p>El usuario administrador predeterminado de OpenCart es <strong>user</strong> con contraseña <strong>bitnami1</strong>:</p>
         <p class="captura"><img src="../img/bitnami/3-2-e-2-opencart.png" alt="Administración de OpenCart" title="Administración de OpenCart" width="495" height="275" /></p>
       </li>
     </ol>
@@ -243,7 +246,7 @@ This message shows that your installation appears to be working correctly.
 
     <h3>Cambio de IP</h3>
 
-    <p>Si cambiara la IP de la máquina virtual, OpenCart dejaría de funciona correctamente porque en los archivos de configuración de OpenCart se guarda la URL de OpenCart. En clase esto ocurre de vez en cuando, ya que el router de aula está continuamente asignando direcciones. En casa puede ocurrir más raramente.</p>
+    <p>Si cambiara la IP de la máquina virtual, OpenCart dejaría de funcionar correctamente porque en los archivos de configuración de OpenCart se guarda la URL de OpenCart. En clase esto ocurre de vez en cuando, ya que el router de aula está continuamente asignando direcciones.</p>
 
     <ol>
       <li>Apague y reinicie la máquina virtual.
@@ -274,19 +277,16 @@ This message shows that your installation appears to be working correctly.
     </ol>
   </section>
 
-  <hr />
-
-  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />A partir de aquí, los ejercicios no están actualizados.</p>
-
   <section id="ejercicio-4">
     <h2>Docker (1) 4 - Instalar phpMyAdmin</h2>
 
     <p>En este ejercicio se pide instalar phpMyAdmin en un contenedor Docker.</p>
 
+    <p>El repositorio de las imágenes de Bitnami es <a href="https://github.com/bitnami/bitnami-docker-phpmyadmin">Bitnami phpMyAdmin OpenCart</a>.</p>
+
     <ol>
-      <li>Visite el repositorio de phpMyAdmin de Bitnami en GitHub.</li>
-      <li>En la página principal se indica la orden para crear un contenedor de phpMyAdmin, pero con persistencia. En vez de eso, escriba una orden similar a la del ejercicio 2 que ejecutaba una imagen de OpenCart. Deberá utilizar la IP de la máquina virtual y otro puerto.</li>
-      <li>Compruebe que puede ver la página inicial de conexión de phpMyAdmin en el navegador escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD:PUERTO</strong>, donde AAA.BBB.CCC.DDD es la dirección ip de la máquina virtual y PUERTO es el puerto elegido.</li>
+      <li>Cree un contenedor de phpMyadmin, al que se pueda acceder a través del puerto 8801.</li>
+      <li>Compruebe que puede ver la página inicial de conexión de phpMyAdmin en el navegador escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD:8801</strong>, donde AAA.BBB.CCC.DDD es la dirección ip de la máquina virtual.</li>
       <li>Averigüe la contraseña del usuario de OpenCart y entre con phpMyAdmin para ver la base de datos</li>
     </ol>
   </section>
@@ -294,28 +294,25 @@ This message shows that your installation appears to be working correctly.
   <section id="ejercicio-5">
     <h2>Docker (1) 5 - Instalar dos aplicaciones (OPTATIVO)</h2>
 
-    <p>En este ejercicio se pide instalar phpMyAdmin y OpenCart en el mismo servidor, como en el ejercicio anterior, pero con el objetivo de hacerlo accesibles mediante las URLs <strong>http://AAA.BBB.CCC.DDD/phpmyadmin</strong> y <strong>http://AAA.BBB.CCC.DDD/opencart</strong>. Eso se puede hacer creando contenedores a los que se acceda por puertos distintos al 80 y creando un contenedor que actue de proxy inverso en el puerto 80 y reenvie la peticiones a cada contenedor.</p>
+    <p>En este ejercicio se pide instalar la misma aplicación dos veces (por ejemplo, dos instalaciones de WordPress), pero que utilicen el mismo contenedor con la base de datos, con el objetivo de hacerlos accesibles mediante las URLs <strong>http://AAA.BBB.CCC.DDD:8802</strong> y <strong>http://AAA.BBB.CCC.DDD:8803</strong>.</p>
 
     <ol>
-      <li>Cree un contenedor de phpMyAdmin que escuche en un puerto distinto del puerto 80.</li>
+      <li>Cree una nueva red.</li>
+      <li>Cree un contenedor de MariaDB.</li>
+      <li>Cree un contenedor de phpMyAdmin al que se acceda por el puerto 8801.</li>
       <li>Compruebe que puede acceder a phpMyAdmin desde el host.</li>
-      <li>Cree un contenedor de OpenCart que escuche en un puerto distinto del puerto 80 y distinto del puerto de phpMyAdmin.</li>
-      <li>Compruebe que puede acceder a OpenCart desde el host.</li>
-      <li>Cree un contenedor del proxy inverso nginx (<a href="https://github.com/bitnami/bitnami-docker-nginx">imagen de nginx de Bitnami</a>) y configúrelo para funcionar como proxy inverso de manera que /phpmyadmin y /opencart redirijan a los puertos de cada aplicación.
-        <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Este apartado no he llegado a hacerlo, se supone que es posible hacerlo</p>
-        <p>Referencias:</p>
-        <ul>
-          <li><a href="https://stackoverflow.com/questions/36393734/mulitple-docker-containers-on-port-80-with-same-domain">Consulta en stackoverflow</a></li>
-          <li>Otra <a href="https://github.com/jwilder/nginx-proxy">imagen de nginx especializada para proxys inversos</a></li>
-          <li><a href="https://www.digitalocean.com/community/tutorials/docker-explained-how-to-containerize-and-use-nginx-as-a-proxy">How To Containerize and Use Nginx as a Proxy </a></li>
-        </ul>
-      </li>
-      <li>Compruebe que puede acceder a ambas aplicaciones desde el host con las URLs /phpmyadmin y /opencart.</li>
+      <li>Cree los usuarios wp1 y wp2, con base de datos única y con contraseña wp1 y wp2 y que puedan acceder desde cualquier nombre de host.</li>
+      <li>Cree un primer contenedor de WordPress que escuche en los puertos 8802 y 4432.</li>
+      <li>Compruebe que puede acceder a este WordPress desde el host.</li>
+      <li>Modifique el título del WordPress.</li>
+      <li>Cree un segundo contenedor de WordPress que escuche en los puertos 8803 y 4433.</li>
+      <li>Compruebe que puede acceder a este WordPress desde el host.</li>
+      <li>Modifique el tema o el título del WordPress para distinguirlo del anterior.</li>
     </ol>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 1 de febrero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 8 de febrero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />

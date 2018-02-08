@@ -155,7 +155,8 @@
       <li>El primer paso es escribir un <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>, un fichero de texto que enumera los elementos que acabará teniendo el contenedor. El Dockerfile lo puede escribir el propio usuario o pueden utilizarse Dockerfiles públicos disponibles en Internet.</li>
       <li>A partir del Dockerfile, se crea una imagen que recopila todos los elementos incluidos en un único paquete. La imagen la puede crear el propio usuario o pueden descargarse imágenes públicas disponibles en Internet.</li>
       <li>Las imágenes se incluyen en <a href="https://docs.docker.com/registry/">registros</a>, que funcionan como repositorio de las imágenes. Los registros pueden ser públicos o privados.</li>
-      <li>Los clientes de Docker descargan las imágenes de los registros y crean los contenedores en el ordenador del usuario.</li>
+      <li>Los clientes de Docker descargan las imágenes de los registros.</li>
+      <li>Los clientes de Docker crean los contenedores en el ordenador del usuario a partir de las imágenes descargadas.</li>
     </ul>
 
     <p>No es necesario realizar todas estas fases para crear un contenedor, pues en Internet podemos encontrar imágenes ya preparadas por los creadores de las aplicaciones o por terceros (como <a href="https://bitnami.com/stacks">Bitnami</a>).</p>
@@ -207,7 +208,7 @@
       <li><a href="https://github.com/wsargent/docker-cheat-sheet">Docker Cheat Sheet</a></li>
       <li>Una vez instalado Docker, todo se gestiona mediante comandos, que en Ubuntu se deben ejecutar como administrador:
         <div class="codigo">
-          <pre><code class="language-shell">sudo docker ...</code></pre>
+          <pre><code class="language-shell">sudo docker COMANDOS</code></pre>
         </div>
       </li>
       <li>Para ver los comandos disponibles (en general y en particular):
@@ -228,6 +229,19 @@ sudo docker network
           <pre><code class="language-shell">sudo docker cp --help</code></pre>
         </div>
       </li>
+      <li>Los comandos tienen a su vez opciones. Los nombres de las opciones van precedidas de los caracteres -- y entre la opción y su valor se puede escribir un espacio o el carácter =.
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker COMANDO --OPCION=VALOR</code></pre>
+        </div>
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker COMANDO --OPCION VALOR</code></pre>
+        </div>
+      </li>
+      <li>Si el valor de una opción contiene espacios, escriba el valor entre comillas
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker COMANDO --OPCION="VALOR CON ESPACIOS"</code></pre>
+        </div>
+      </li>
     </ul>
 
     <section id="imagenes">
@@ -238,7 +252,7 @@ sudo docker network
       <ul>
         <li>Para gestionar las imágenes, se utiliza el comando:
           <div class="codigo">
-            <pre><code class="language-shell">sudo docker image ...</code></pre>
+            <pre><code class="language-shell">sudo docker image OPCIONES</code></pre>
           </div>
         </li>
         <li>Para descargar una imagen:
@@ -267,31 +281,39 @@ sudo docker network
 
       <p>En los comandos siguientes CONTENEDOR es el nombre del contenedor, que podemos elegir al crearlo, y RED es el nombre de una red ya existente.</p>
       <ul>
-        <li>Para crear un contenedor:
+        <li>Para crear un contenedor (y ponerlo en marcha):
           <div class="codigo">
-            <pre><code class="language-shell">sudo docker run --name CONTENEDOR REPOSITORIO</code></pre>
+            <pre><code class="language-shell">sudo docker run --name=CONTENEDOR REPOSITORIO</code></pre>
           </div>
+          <p>El problema de este comando es que dejamos de tener acceso a la shell y sólo se puede parar el proceso desde otro terminal.</p>
+
+          <p>Lo habitual es poner en marcha el contenedor en modo separado (<i>detached</i>), es decir, en segundo plano, y así podemos seguir utilizando la shell:</p>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker run <strong>-d</strong> --name=CONTENEDOR REPOSITORIO</code></pre>
+          </div>
+
+          <p>Si queremos ver la secuencia de arranque del contenedor, podemos poner en marcha el contenedor en modo pseudo-tty, que trabaja en primer plano, pero del que podemos salir con <span class="soft-atajo-teclado">Ctrl+C</span>.</p>
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker run <strong>-t</strong> --name=CONTENEDOR REPOSITORIO</code></pre>
+          </div>
+
           <p>Al crear el contenedor se pueden añadir diversas opciones:</p>
           <ul>
-            <li>Para poner en marcha el contenedor nada más crearlo:
-              <div class="codigo">
-                <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-d</strong> REPOSITORIO</code></pre>
-              </div>
-            </li>
             <li>Para incluir el contenedor en una red privada virtual (y que se pueda comunicar con el resto de contenedores incluidos en esa red):
               <div class="codigo">
-                <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>--net=RED REPOSITORIO</strong></code></pre>
+                <pre><code class="language-shell">sudo docker run --name=CONTENEDOR <strong>--net=RED</strong> REPOSITORIO</code></pre>
               </div>
             </li>
             <li>Para que el contenedor atienda a un puerto determinado, aunque internamente atienda un puerto distinto:
               <div class="codigo">
-                <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-p PUERTO_EXTERNO:PUERTO_INTERNO</strong> REPOSITORIO</code></pre>
+                <pre><code class="language-shell">sudo docker run --name=CONTENEDOR <strong>-p PUERTO_EXTERNO:PUERTO_INTERNO</strong> REPOSITORIO</code></pre>
               </div>
             </li>
             <li>Para establecer variables de configuración del contenedor:
               <div class="codigo">
-                <pre><code class="language-shell">sudo docker run --name CONTENEDOR <strong>-e VARIABLE=VALOR</strong> REPOSITORIO</code></pre>
+                <pre><code class="language-shell">sudo docker run --name=CONTENEDOR <strong>-e VARIABLE=VALOR</strong> REPOSITORIO</code></pre>
               </div>
+              <p>Las variables de configuración se pueden consultar en el repositorio del que obtenemos la imagen.</p>
             </li>
           </ul>
         </li>
@@ -320,17 +342,17 @@ sudo docker network
             <pre><code class="language-shell">sudo docker start CONTENEDOR</code></pre>
           </div>
         </li>
-        <li>Para entrar en la shell del contenedor:
+        <li>Para entrar en la shell de un contenedor:
           <div class="codigo">
             <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
           </div>
         </li>
         <li>Para entrar en la shell del contenedor como root:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker exec -u 0 -it CONTENEDOR /bin/bash</code></pre>
-            </div>
-          </li>
-          <li>Para salir de la shell del contenedor:
+          <div class="codigo">
+            <pre><code class="language-shell">sudo docker exec -u 0 -it CONTENEDOR /bin/bash</code></pre>
+          </div>
+        </li>
+        <li>Para salir de la shell del contenedor:
           <div class="codigo">
             <pre><code class="language-shell">exit</code></pre>
           </div>
@@ -338,8 +360,12 @@ sudo docker network
         <li>Para copiar (o mover) archivos entre el contenedor y el sistema anfitrión o viceversa:
           <div class="codigo">
             <pre>
-<code class="language-shell">sudo docker CP CONTENEDOR:ORIGEN DESTINO
-sudo docker CP ORIGEN CONTENEDOR:DESTINO</code>
+<code class="language-shell">sudo docker cp CONTENEDOR:ORIGEN DESTINO</code>
+</pre>
+          </div>
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo docker cp ORIGEN CONTENEDOR:DESTINO</code>
 </pre>
           </div>
         </li>
@@ -354,7 +380,7 @@ sudo docker CP ORIGEN CONTENEDOR:DESTINO</code>
       <ul>
         <li>Para gestionar las redes, se utiliza el comando:
           <div class="codigo">
-            <pre><code class="language-shell">sudo docker network ...</code></pre>
+            <pre><code class="language-shell">sudo docker network OPCIONES</code></pre>
           </div>
         </li>
         <li>Para crear una red:
@@ -413,7 +439,7 @@ sudo docker CP ORIGEN CONTENEDOR:DESTINO</code>
             </li>
             <li>todo:
               <div class="codigo">
-                <pre><code class="language-shell">sudo docker container prune</code></pre>
+                <pre><code class="language-shell">sudo docker system prune</code></pre>
               </div>
             </li>
           </ul>
@@ -423,7 +449,7 @@ sudo docker CP ORIGEN CONTENEDOR:DESTINO</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 1 de febrero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 8 de febrero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />

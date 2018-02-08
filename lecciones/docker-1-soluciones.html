@@ -44,16 +44,15 @@
   <section id="ejercicio-4">
     <h2>Docker (1) 4 - Instalar phpMyAdmin</h2>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Por completar</p>
-
-    <p>En este ejercicio se pide instalar phpMyAdmin en un contenedor Docker.</p>
+    <p>Para instalar phpMyAdmin en un contenedor Docker.</p>
 
     <ol>
       <li>La imagen Docker de phpMyAdmin de Bitnami se encuentra en <a href="https://github.com/bitnami/bitnami-docker-phpmyadmin">https://github.com/bitnami/bitnami-docker-phpmyadmin</a>.</li>
       <li>Para crear un contenedor phpMyAdmin:
         <div class="codigo">
-          <pre><code class="language-shell">sudo docker run -d -p 8802:80 --name phpmyadmin --net=opencart_network bitnami/phpmyadmin</code></pre>
+          <pre><code class="language-shell">sudo docker run -d --name=phpmyadmin -p 8801:80 --net=opencart-network bitnami/phpmyadmin</code></pre>
         </div>
+        <p><strong>Nota</strong>: Las variables disponibles (y su valores predeterminados entre corchetes) son PHPMYADMIN_ALLOW_ARBITRARY_SERVER [false], PHPMYADMIN_ALLOW_NO_PASSWORD [true], DATABASE_HOST [mariadb], DATABASE_PORT_NUMBER [3306], WEBSERVER_REQUIRE [all granted].</p>
       </li>
       <li>Este phpMyAdmin se abriría escribiendo en el navegador del host <strong>http://AAAA.BBB.CCC.DDD:8802</strong></li>
       <li>El nombre de usuario de MariaDB creado para OpenCart y su contraseña se encuentran en el fichero de configuración de OpenCart (el usuario es siempre <strong>bn_opencart</strong>, pero la contraseña se genera al azar cada vez que se crea un contenedor.</li>
@@ -65,58 +64,46 @@
     <h2>Docker (1) 5 - Instalar dos aplicaciones (OPTATIVO)</h2>
 
     <ol>
-      <li>Primero habría que detener y borrar los contenedores anteriores.</li>
-      <li><strong>Contenedor de phpMyAdmin</strong>
+      <li>Cree la red:
         <div class="codigo">
-          <pre><code class="language-shell">sudo docker run -d -p 8802:80 --name phpmyadmin --net=opencart_network bitnami/phpmyadmin</code></pre>
+          <pre><code class="language-shell">sudo docker network create wps</code></pre>
         </div>
       </li>
-      <li><strong>Contenedor de OpenCart</strong>
-        <ul>
-          <li>Cree la imagen de OpenCart
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker run -d -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 8801:80 --name opencart --net=opencart_network bitnami/opencart</code></pre>
-            </div>
-          </li>
-          <li>A continuación es necesario modificar los archivos de configuración de OpenCart para que los enlaces de la aplicación contengan el puerto.
-            <p><strong>Nota</strong>: He tenido que modificar los archivos de configuración a mano porque si incluía el puerto al crear la imagen de OpenCart el fichero de configuración no se creaba correctamente.</p>
-          </li>
-          <li>Copie el archivo de configuración de la imagen para poderlo modificar:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo docker cp opencart:/bitnami/opencart/config.php /tmp/config.php</code></pre>
-            </div>
-          </li>
-          <li>Edite el archivo de configuración:
-            <div class="codigo">
-              <pre><code class="language-shell">sudo vi /tmp/config.php</code></pre>
-            </div>
-            <p>Incluya el puerto PUERTO1 en las direcciones de base:</p>
-            <div class="codigo">
-              <pre>
-<code class="language-php">/* config.php */
-// HTTP
-define('HTTP_SERVER', 'http://AAA.BBB.CCC.DDD<span class="codigo-modificacion">:PUERTO2</span>/');
-define('HTTP_ADMIN', 'http://AAA.BBB.CCC.DDD<span class="codigo-modificacion">:PUERTO2</span>/admin/');
-
-// HTTPS
-define('HTTPS_SERVER', 'http://AAA.BBB.CCC.DDD<span class="codigo-modificacion">:PUERTO2</span>/');
-
- ...</code>
- </pre>
-            </div>
-          </li>
-          <li>Repita la operación con el otro archivo de configuración.</li>
-        </ul>
+      <li>Cree el contenedor de MariaDB:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker run -d --name=wps-mariadb -e ALLOW_EMPTY_PASSWORD=yes --net=wps bitnami/mariadb</code></pre>
+        </div>
       </li>
-      <li><strong>Contenedor de nginx</strong>
-        <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Este apartado no he llegado a hacerlo, se supone que es posible hacerlo</p>
+      <li>Cree el contenedor de phpMyAdmin:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo docker run -d --name=wps-pma -p 8801:80 -e DATABASE_HOST=wps-mariadb --net=wps bitnami/phpmyadmin</code></pre>
+        </div>
       </li>
-    </ol>
+      <li>Entre en phpMyAdmin y cree los usuarios wp1 y wp2</li>
+      <li>Cree el primer contenedor de WordPress:
+        <div class="codigo">
+          <pre>
+<code class="language-shell">sudo docker run -d --name=wp1 -p 8803:80 -p 4433:443 \
+-e MARIADB_HOST=wps-mariadb -e WORDPRESS_DATABASE_NAME=wp1 -e WORDPRESS_DATABASE_USER=wp1 -e WORDPRESS_DATABASE_PASSWORD=wp1 -e \
+WORDPRESS_USERNAME=barto -e WORDPRESS_PASSWORD=barto --net=wps bitnami/wordpress</code>
+</pre>
+        </div>
+      </li>
+      <li>Cree el segundo contenedor de WordPress:
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo docker run -d --name=wp2 -p 8803:80 -p 4433:443 \
+-e MARIADB_HOST=wps-mariadb -e WORDPRESS_DATABASE_NAME=wp2 -e WORDPRESS_DATABASE_USER=wp2 -e WORDPRESS_DATABASE_PASSWORD=wp2 -e \
+WORDPRESS_USERNAME=barto -e WORDPRESS_PASSWORD=barto --net=wps bitnami/wordpress</code>
+</pre>
+          </div>
+        </li>
+      </ol>
   </section>
 
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 24 de enero de 2017</p>
+    <p class="ultmod">Última modificación de esta página: 8 de febrero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
