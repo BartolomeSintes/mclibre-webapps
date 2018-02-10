@@ -46,7 +46,7 @@
   </nav>
 
   <div class="aviso-antiguo">
-    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de ownCloud. No están actualizados a versiones más actuales porque desde el curso 2016/17 no estoy trabajando en clase ownCloud, sino <a href="../lecciones/nextcloud.html">Nextcloud</a>. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de ownCloud. No están actualizados a versiones más actuales porque desde el curso 2016/17 no estoy trabajando en clase ownCloud, sino <a href="../lecciones/nextcloud.html">Nextcloud</a>. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
   </div>
 
   <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>ownCloud</strong>. Se pueden consultar las <a href="owncloud-1-soluciones.html">soluciones de estos ejercicios de ownCloud</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones. A continuación se pueden realizar los <a href="owncloud-2.html">ejercicios (2) de ownCloud</a>, en los que se amplian las funcionalidades de ownCloud.</p>
@@ -71,19 +71,19 @@
     <ol>
       <li>Abra en VirtualBox o VMware la máquina virtual de ownCloud.</li>
       <li>Ponga en marcha la máquina virtual. En ella se indica la dirección IP asignada y los datos del usuario administrador tanto del sistema operativo como de la aplicación.
-        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />No es necesario entrar en la máquina virtual.</p>
+        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48" />No es necesario entrar en la máquina virtual.</p>
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-e-1-instalacion.png" alt="ownCloud. Instalación" title="ownCloud. Instalación" width="738" height="482" />
+          <img src="img/owncloud-8-2/1-2-e-1-instalacion.png" alt="ownCloud. Instalación" width="738" height="482" />
         </p>
       </li>
       <li>Abra <strong>http:/192.168.XXX.YYY</strong> en el navegador y compruebe que se abre la página inicial de ownCloud:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-e-2-instalacion.png" alt="ownCloud. Instalación" title="ownCloud. Instalación" width="350" height="300" />
+          <img src="img/owncloud-8-2/1-2-e-2-instalacion.png" alt="ownCloud. Instalación" width="350" height="300" />
         </p>
       </li>
       <li>Entre en ownCloud como administrador y compruebe que puede ver el escritorio de ownCloud:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-e-3-instalacion.png" alt="ownCloud. Instalación" title="ownCloud. Instalación" width="1008" height="382" />
+          <img src="img/owncloud-8-2/1-2-e-3-instalacion.png" alt="ownCloud. Instalación" width="1008" height="382" />
         </p>
       </li>
       <li>Salga de ownCloud y compruebe que puede volver a entrar como administrador.</li>
@@ -99,7 +99,7 @@
     <ol>
       <li>Cambie el idioma del interfaz del usuario administrador al español.
         <p class="captura">
-          <img src="img/owncloud-8-2/1-3-e-1-idioma.png" alt="ownCloud. idioma" title="ownCloud. Instalación" width="1008" height="300" />
+          <img src="img/owncloud-8-2/1-3-e-1-idioma.png" alt="ownCloud. idioma" width="1008" height="300" />
         </p>
       </li>
     </ol>
@@ -112,13 +112,13 @@
     <ol>
       <li>Entre en ownCloud como administrador mediante una conexión <strong>no</strong> cifrada <strong>http://192.168.XXX.YYY/...</strong> En el panel de administración, compruebe que se muestra el aviso siguiente:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-4-e-1-https.png" alt="ownCloud. Conexión no segura" title="ownCloud. Instalación" width="1008" height="160" />
+          <img src="img/owncloud-8-2/1-4-e-1-https.png" alt="ownCloud. Conexión no segura" width="1008" height="160" />
         </p>
       </li>
       <li>Configure el servidor Apache para forzar el acceso mediante https.
-        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Para ello, es necesario entrar en la máquina virtual. En la lección <a href="../lecciones/bitnami-varios.html">Bitnami Varios</a> se comenta cómo realizar operaciones básicas en las máquinas virtuales de Bitnami.</p>
+        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48" />Para ello, es necesario entrar en la máquina virtual. En la lección <a href="../lecciones/bitnami-varios.html">Bitnami Varios</a> se comenta cómo realizar operaciones básicas en las máquinas virtuales de Bitnami.</p>
         <p>Se puede hacer de dos formas distintas, modificando el archivo de configuración de Apache httpd.conf y reiniciando el servidor:</p>
-        <p class="incompleto"><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" title="¡Atención!" width="55" height="48" />Antes de modificar un archivo de configuración se recomienda siempre hacer una copia del archivo original.</p>
+        <p class="incompleto"><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48" />Antes de modificar un archivo de configuración se recomienda siempre hacer una copia del archivo original.</p>
         <ul>
           <li>Añada la directiva SSLRequireSSL en la directiva del directorio raíz. De esta forma sólo se atenderán las peticiones https.
 
@@ -148,19 +148,19 @@
       <li>Si se muestre un aviso de seguridad por no disponer el servidor de un certificado de seguridad válido, será necesario indicar al navegador que se confíe en la identificación del sitio.<br />
 
         <p class="captura">
-          <img src="img/owncloud-8-2/1-4-e-2-https.png" alt="ownCloud. Conexión no segura" title="ownCloud. Instalación" width="710" height="430" />
+          <img src="img/owncloud-8-2/1-4-e-2-https.png" alt="ownCloud. Conexión no segura" width="710" height="430" />
         </p>
       </li>
       <li>Una vez habilitada la opción de forzar https, salga de ownCloud y compruebe que, dependiendo de cómo se ha modificado httpd.conf, si se accede de nuevo mediante la dirección <strong>http://192.168.XXX.YYY/...</strong>
         <ul>
           <li>... o bien se muestra la página de Acceso prohibido (que corresponde a un código de estado HTTP 403)
             <p class="captura">
-              <img src="img/owncloud-8-2/1-4-e-3-https.png" alt="ownCloud. Conexión no segura" title="ownCloud. Instalación" width="400" height="100" />
+              <img src="img/owncloud-8-2/1-4-e-3-https.png" alt="ownCloud. Conexión no segura" width="400" height="100" />
             </p>
           </li>
           <li>... o bien se redirecciona automáticamente a <strong>https://192.168.XXX.YYY/...</strong>
             <p class="captura">
-              <img src="img/owncloud-8-2/1-4-e-4-https.png" alt="ownCloud. Conexión no segura" title="ownCloud. Instalación" width="650" height="180" />
+              <img src="img/owncloud-8-2/1-4-e-4-https.png" alt="ownCloud. Conexión no segura" width="650" height="180" />
             </p>
           </li>
         </ul>
@@ -175,7 +175,7 @@
     <ol>
       <li>Entre en ownCloud como administrador. En el panel de administración, compruebe que se muestra el aviso siguiente:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-5-e-1-sts.png" alt="ownCloud. HTTP Strict Transport Security" title="ownCloud. Instalación" width="1008" height="180" />
+          <img src="img/owncloud-8-2/1-5-e-1-sts.png" alt="ownCloud. HTTP Strict Transport Security" width="1008" height="180" />
         </p>
       </li>
       <li>Configure el servidor Apache para forzar el uso de HTTP Strict Transport Security
@@ -199,7 +199,7 @@
       </li>
       <li>Por motivos que deconozco, al actualizar el panel de administración se deja de ver ownCloud y se muestra otra página web del servidor.
         <p class="captura">
-          <img src="img/owncloud-8-2/1-5-e-2-sts.png" alt="ownCloud. HTTP Strict Transport Security" title="ownCloud. Instalación" width="991" height="290" />
+          <img src="img/owncloud-8-2/1-5-e-2-sts.png" alt="ownCloud. HTTP Strict Transport Security" width="991" height="290" />
         </p>
       </li>
       <li>Puede resolver este problema cambiando la directiva Document Root en el archivo de configuración de Apache httpd.conf y reiniciando el servidor:
@@ -214,7 +214,7 @@
       </li>
       <li>En el panel de administración, compruebe que ya no se muestra ningún aviso de seguridad:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-5-e-3-sts.png" alt="ownCloud. HTTP Strict Transport Security" title="ownCloud. Instalación" width="1008" height="240" />
+          <img src="img/owncloud-8-2/1-5-e-3-sts.png" alt="ownCloud. HTTP Strict Transport Security" width="1008" height="240" />
         </p>
       </li>
     </ol>
@@ -238,22 +238,22 @@
       <li>Configure el servicio VSFTP de la máquina virtual para permitir conexiones FTP. Para ello, consulte la ayuda de Bitnami <a href="https://docs.bitnami.com/?page=components&name=vsftpd">https://docs.bitnami.com/?page=components&name=vsftpd</a></li>
       <li>Instale Filezilla o WinSCP y conéctese a la máquina virtual:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-6-e-1-ftp.png" alt="ownCloud. WinSCP" title="ownCloud. Instalación" width="896" height="300" />
+          <img src="img/owncloud-8-2/1-6-e-1-ftp.png" alt="ownCloud. WinSCP" width="896" height="300" />
         </p>
         <p class="captura">
-          <img src="img/owncloud-8-2/1-6-e-2-ftp.png" alt="ownCloud. FileZilla" title="ownCloud. Instalación" width="900" height="440" />
+          <img src="img/owncloud-8-2/1-6-e-2-ftp.png" alt="ownCloud. FileZilla" width="900" height="440" />
         </p>
       </li>
       <li>Compruebe que también puede conectarse con el navegador:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-6-e-3-ftp.png" alt="ownCloud. FileZilla" title="ownCloud. Instalación" width="800" height="370" />
+          <img src="img/owncloud-8-2/1-6-e-3-ftp.png" alt="ownCloud. FileZilla" width="800" height="370" />
         </p>
       </li>
     </ol>
 
     <h3>Acceso por SFTP</h3>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" title="En construcción" width="55" height="48" />Esta parte del ejercicio está por redactar. No creo que me dé tiempo a prepararlo este curso. Se trataría de conectarse a la máquina virtual con WinSCP o Filezilla por SFTP (o FTPS).</p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta parte del ejercicio está por redactar. No creo que me dé tiempo a prepararlo este curso. Se trataría de conectarse a la máquina virtual con WinSCP o Filezilla por SFTP (o FTPS).</p>
 
     <p>Referencias:</p>
     <ul>
