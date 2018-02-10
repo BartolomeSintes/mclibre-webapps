@@ -190,14 +190,14 @@ This message shows that your installation appears to be working correctly.
       </li>
       <li>Cree un contenedor con la base de datos MariaDB en la nueva red:
         <div class="codigo">
-          <pre><code class="language-shell">sudo docker run -d --name=mariadb -e ALLOW_EMPTY_PASSWORD=yes --net=opencart-network bitnami/mariadb:latest</code></pre>
+          <pre><code class="language-shell">sudo docker run -d --name=mariadb -e ALLOW_EMPTY_PASSWORD=yes --net=opencart-network bitnami/mariadb</code></pre>
         </div>
         <p><strong>Nota</strong>: El nombre mariadb se puede cambiar, pero tenga en cuenta que las imágenes de bitnami suponen de forma predeterminada que ese es el nombre del contenedor de la base de datos. Si utiliza otro nombre de contenedor, deberá añadir la opción de configuración correspondiente al crear el contenedor de la aplicación.</p>
         <p><strong>Nota</strong>: Algunas de las variables disponibles (y su valores predeterminados entre corchetes) son MARIADB_EXTRA_FLAGS, MARIADB_ROOT_USER [root], MARIADB_ROOT_PASSWORD [], ALLOW_EMPTY_PASSWORD, MARIADB_USER, MARIADB_PASSWORD, MARIADB_DATABASE.</p>
       </li>
       <li>Cree un contenedor con OpenCart en la misma red (sustituya AAA.BBB.CCC.DDD por la dirección ip de la máquina virtual):
         <div class="codigo">
-          <pre><code class="language-shell">sudo docker run -d --name=opencart -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 80:80 -p 443:443 --net=opencart-network bitnami/opencart:latest</code></pre>
+          <pre><code class="language-shell">sudo docker run -d --name=opencart -e OPENCART_HOST=AAA.BBB.CCC.DDD -p 80:80 -p 443:443 --net=opencart-network bitnami/opencart</code></pre>
         </div>
         <p><strong>Nota</strong>: Las variables disponibles (y su valores predeterminados entre corchetes) son OPENCART_USERNAME [user], OPENCART_PASSWORD [bitnami1], OPENCART_EMAIL [user@example.com], OPENCART_HOST, MARIADB_PASSWORD, MARIADB_HOST [mariadb], MARIADB_PORT_NUMBER [3306].</p>
       </li>

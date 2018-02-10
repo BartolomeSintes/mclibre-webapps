@@ -54,7 +54,7 @@
         </div>
         <p><strong>Nota</strong>: Las variables disponibles (y su valores predeterminados entre corchetes) son PHPMYADMIN_ALLOW_ARBITRARY_SERVER [false], PHPMYADMIN_ALLOW_NO_PASSWORD [true], DATABASE_HOST [mariadb], DATABASE_PORT_NUMBER [3306], WEBSERVER_REQUIRE [all granted].</p>
       </li>
-      <li>Este phpMyAdmin se abriría escribiendo en el navegador del host <strong>http://AAAA.BBB.CCC.DDD:8802</strong></li>
+      <li>Este phpMyAdmin se abriría escribiendo en el navegador del host <strong>http://AAAA.BBB.CCC.DDD:8801</strong></li>
       <li>El nombre de usuario de MariaDB creado para OpenCart y su contraseña se encuentran en el fichero de configuración de OpenCart (el usuario es siempre <strong>bn_opencart</strong>, pero la contraseña se genera al azar cada vez que se crea un contenedor.</li>
       <li>El MariaDB instalado desde la imagen de Bitnami tiene usuario <strong>root</strong> sin contraseña.</li>
     </ol>
@@ -83,7 +83,7 @@
       <li>Cree el primer contenedor de WordPress:
         <div class="codigo">
           <pre>
-<code class="language-shell">sudo docker run -d --name=wp1 -p 8803:80 -p 4433:443 \
+<code class="language-shell">sudo docker run -d --name=wp1 -p 8802:80 -p 4432:443 \
 -e MARIADB_HOST=wps-mariadb -e WORDPRESS_DATABASE_NAME=wp1 -e WORDPRESS_DATABASE_USER=wp1 -e WORDPRESS_DATABASE_PASSWORD=wp1 -e \
 WORDPRESS_USERNAME=barto -e WORDPRESS_PASSWORD=barto --net=wps bitnami/wordpress</code>
 </pre>
@@ -103,7 +103,7 @@ WORDPRESS_USERNAME=barto -e WORDPRESS_PASSWORD=barto --net=wps bitnami/wordpress
 
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 8 de febrero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 9 de febrero de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
