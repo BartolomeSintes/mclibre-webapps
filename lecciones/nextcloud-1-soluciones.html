@@ -30,9 +30,7 @@
         <li><a href="nextcloud-1.html#ejercicio-3">3 - Actualizar</a></li>
         <li><a href="nextcloud-1.html#ejercicio-4">4 - Habilitar https</a></li>
         <li><a href="nextcloud-1.html#ejercicio-5">5 - http a https</a></li>
-        <li><a href="nextcloud-1.html#ejercicio-6">6 - Crear alias</a></li>
-        <li><a href="nextcloud-1.html#ejercicio-7">7 - Cambio IP</a></li>
-        <li><a href="nextcloud-1.html#ejercicio-8">8 - Acceder SSH o FTP</a></li>
+        <li><a href="nextcloud-1.html#ejercicio-6">6 - Cambio IP</a></li>
       </ul>
 
       <h3>Soluciones</h3>
@@ -42,9 +40,7 @@
         <li><a href="#ejercicio-3">3 - Actualizar</a></li>
         <li><a href="#ejercicio-4">4 - Habilitar https</a></li>
         <li><a href="#ejercicio-5">5 - http a https</a></li>
-        <li><a href="#ejercicio-6">6 - Crear alias</a></li>
-        <li><a href="#ejercicio-7">7 - Cambio IP</a></li>
-        <li><a href="#ejercicio-8">8 - Acceder SSH o FTP</a></li>
+        <li><a href="#ejercicio-6">6 - Cambio IP</a></li>
       </ul>
     </div>
   </nav>
@@ -174,20 +170,17 @@
           <pre><code class="language-shell">a2enmod ssl</code></pre>
         </div>
       </li>
+      <li>Habilite la configuración SSL de Apache:
+        <div class="codigo">
+          <pre><code class="language-shell">a2ensite default-ssl</code></pre>
+        </div>
+      </li>
       <li>Reinicie el servicio Apache:
         <div class="codigo">
           <pre><code class="language-shell">service apache2 restart</code></pre>
         </div>
       </li>
-      <li>Salga del contenedor de Nextcloud:
-        <div class="codigo">
-          <pre><code class="language-shell">exit</code></pre>
-        </div>
-      </li>
-      <li>Detenga y reinice el contenedor de Nextcloud:
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker stop nextcloud</code></pre>
-        </div>
+      <li>Reinicie el contenedor de Nextcloud:
         <div class="codigo">
           <pre><code class="language-shell">sudo docker start nextcloud</code></pre>
         </div>
@@ -195,24 +188,20 @@
     </ul>
   </section>
 
-  <hr />
-
-  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Los ejercicios siguientes no están adaptados a Nextcloud 13.</p>
-
   <section id="ejercicio-5">
     <h2>Nextcloud (1) 5 - Acceder mediante https</h2>
 
-    <p>para configurar el servidor Apache del contenedor de manera que fuerce conexiones seguras.</p>
+    <p>Para configurar el servidor Apache del contenedor de manera que fuerce conexiones seguras:</p>
 
-    <ul>
+    <ol>
       <li>Entre en la shell del contenedor de Nextcloud:
         <div class="codigo">
           <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
         </div>
       </li>
-      <li>Busque el directorio en el que se encuentra el fichero <strong>nextcloud.conf</strong>:
+      <li>Busque el directorio en el que se encuentra el fichero <strong>apache2.conf</strong>:
         <div class="codigo">
-          <pre><code class="language-shell">find / -name nextcloud.conf</code></pre>
+          <pre><code class="language-shell">find / -name apache2.conf</code></pre>
         </div>
       </li>
       <li>Salga de la shell del contenedor de Nextcloud:
@@ -220,124 +209,60 @@
           <pre><code class="language-shell">exit</code></pre>
         </div>
       </li>
-      <li>Haga una copia de seguridad del fichero <strong>nextcloud.conf</strong> original:
+      <li>Copie el fichero <strong>apache2.conf</strong> del contenedor al anfitrión:
         <div class="codigo">
-          <pre>
-  <code class="language-shell">sudo docker cp CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf /tmp/nextcloud.conf.original
-  sudo docker cp /tmp/nextcloud.conf.original CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf.original</code>
-  </pre>
+          <pre><code class="language-shell">sudo docker cp nextcloud:/etc/apache2/apache2.conf /tmp/apache2.conf</code></pre>
         </div>
       </li>
-      <li>Copie el fichero <strong>nextcloud.conf</strong> del contenedor a la máquina virtual
+      <li>Haga una copia de seguridad del fichero original:
         <div class="codigo">
-          <pre><code class="language-shell">sudo docker cp CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf /tmp/nextcloud.conf</code></pre>
+          <pre><code class="language-shell">sudo cp /tmp/apache2.conf /tmp/apache2.conf.original</code></pre>
         </div>
       </li>
       <li>Edite el fichero de configuración:
         <div class="codigo">
-          <pre><code class="language-shell">sudo vi /tmp/nextcloud.conf</code></pre>
+          <pre><code class="language-shell">sudo vi /tmp/apache2.conf</code></pre>
         </div>
       </li>
-      <li>Añada una directiva VirtualHost que redirija las peticiones http a https.
+      <li>Añada en el fichero de configuración una directiva VirtualHost que redirija las peticiones http a https, en la que AAA.BBB.CCC.DDD es la IP de la máquina virtual:
         <div class="codigo">
           <pre>
-  <code class="language-configuracion">&lt;VirtualHost *:80&gt;
-    Servername 192.168.<span class="codigo-modificacion">XXX.YYY</span>
-    Redirect permanent / https://192.168.<span class="codigo-modificacion">XXX.YYY</span>/
-  &lt;/VirtualHost&gt;</code>
-  </pre>
+<code class="language-configuracion">&lt;VirtualHost *:80&gt;
+  Servername <span class="codigo-modificacion">AAA.BBB.CCC.DDD</span>
+  Redirect permanent / https://<span class="codigo-modificacion">AAA.BBB.CCC.DDD</span>/
+&lt;/VirtualHost&gt;</code>
+</pre>
         </div>
         <p><strong>Nota</strong>: Creo que el valor de Servername no es importante, pero debe haber Servername.</p>
       </li>
-      <li>Copie el fichero <strong>nextcloud.conf</strong> de la máquina virtual al contenedor:
+      <li>Guarde el fichero de configuración modificado.</li>
+      <li>Copie el fichero <strong>apache2.conf</strong> del anfitrión al contenedor:
         <div class="codigo">
-          <pre><code class="language-shell">sudo docker cp /tmp/nextcloud.conf CONTENEDOR:/etc/httpd/conf/extra/nextcloud.conf</code></pre>
+          <pre><code class="language-shell">sudo docker cp /tmp/apache2:conf nextcloud:/etc/apache2/apache2.conf</code></pre>
         </div>
       </li>
-      <li>Reinicie el contenedor
-        <div class="codigo">
-          <pre>
-  <code class="language-shell">sudo docker stop CONTENEDOR
-  sudo docker start CONTENEDOR</code>
-  </pre>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <section id="ejercicio-6">
-    <h2>Nextcloud (1) 6 - Crear alias</h2>
-    <ul>
-      <li>Como en el ejercicio anterior, añada el alias en el fichero <strong>nextcloud.conf</strong>:
-        <div class="codigo">
-          <pre><code class="language-configuracion">Alias /nc /usr/share/webapps/nextcloud/</code></pre>
-        </div>
-      </li>
-      <li>Reinicie el contenedor
-        <div class="codigo">
-          <pre>
-<code class="language-shell">sudo docker stop CONTENEDOR
-sudo docker start CONTENEDOR</code>
-</pre>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <section id="ejercicio-7">
-    <h2>Nextcloud (1) 7 - Cambio de IP</h2>
-
-    <ul>
-      <li>Entre en la shell del contenedor de Nextcloud:
+      <li>Entre de nuevo en la shell del contenedor de Nextcloud:
         <div class="codigo">
           <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
         </div>
       </li>
-      <li>Busque el directorio en el que se encuentra el fichero <strong>config.php</strong> de Nextcloud:
+      <li>Reinicie el servicio Apache:
         <div class="codigo">
-          <pre><code class="language-shell">find / -name config.php</code></pre>
+          <pre><code class="language-shell">service apache2 restart</code></pre>
         </div>
       </li>
-      <li>Salga de la shell del contenedor de Nextcloud:
+      <li>Reinicie el contenedor
         <div class="codigo">
-          <pre><code class="language-shell">exit</code></pre>
+          <pre><code class="language-shell">sudo docker start nextcloud</code></pre>
         </div>
       </li>
-      <li>Copie el fichero <strong>config.php</strong> del contenedor a la máquina virtual
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker cp CONTENEDOR:/usr/share/webapps/nextcloud/condfig/config.php /tmp/config.php</code></pre>
-        </div>
-      </li>
-      <li>Edite el fichero de configuración:
-        <div class="codigo">
-          <pre><code class="language-shell">sudo vi /tmp/config.php</code></pre>
-        </div>
-      </li>
-      <li>Cambie la IP.
-        <div class="codigo">
-          <pre>
-<code class="language-configuracion">...
-  array (
-    0 =&gt; '192.168.<span class="codigo-modificacion">XXX.YYY</span>'.
-  ),
-...
-  'overwirte.cli.url' =&gt; 'https://192.168.<span class="codigo-modificacion">XXX.YYY</span>'/nextcloud',
-...</code>
-</pre>
-        </div>
-      </li>
-      <li>Copie el fichero <strong>config.php</strong> de la máquina virtual al contenedor:
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker cp /tmp/config.php CONTENEDOR:/usr/share/webapps/nextcloud/condfig/config.php</code></pre>
-        </div>
-      </li>
-    </ul>
+    </ol>
   </section>
 
-  <section id="ejercicio-8">
-    <h2>Nextcloud (1) 8 - Acceso mediante SSH o FTP</h2>
+  <section id="ejercicio-6">
+    <h2>Nextcloud (1) 6 - Cambio de IP</h2>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Por escribir.</p>
+    <p>Modifique la IP en el archivo apache2.conf, como se explica en el <a href="#ejercicio-5">ejercicio 5</a>.</p>
   </section>
 
   <footer>

@@ -30,9 +30,7 @@
         <li><a href="#ejercicio-3">3 - Actualizar</a></li>
         <li><a href="#ejercicio-4">4 - Habilitar https</a></li>
         <li><a href="#ejercicio-5">5 - http a https</a></li>
-        <li><a href="#ejercicio-6">6 - Crear alias</a></li>
-        <li><a href="#ejercicio-7">7 - Cambio IP</a></li>
-        <li><a href="#ejercicio-8">8 - Acceder SSH o FTP</a></li>
+        <li><a href="#ejercicio-6">6 - Cambio IP</a></li>
       </ul>
 
       <h3><a href="nextcloud-1-soluciones.html">Soluciones</a></h3>
@@ -42,9 +40,7 @@
         <li><a href="nextcloud-1-soluciones.html#ejercicio-3">3 - Actualizar</a></li>
         <li><a href="nextcloud-1-soluciones.html#ejercicio-4">4 - Habilitar https</a></li>
         <li><a href="nextcloud-1-soluciones.html#ejercicio-5">5 - http a https</a></li>
-        <li><a href="nextcloud-1-soluciones.html#ejercicio-6">6 - Crear alias</a></li>
-        <li><a href="nextcloud-1-soluciones.html#ejercicio-7">7 - Cambio IP</a></li>
-        <li><a href="nextcloud-1-soluciones.html#ejercicio-8">8 - Acceder SSH o FTP</a></li>
+        <li><a href="nextcloud-1-soluciones.html#ejercicio-6">6 - Cambio IP</a></li>
       </ul>
     </div>
   </nav>
@@ -154,7 +150,7 @@
         </p>
       </li>
       <li>Configure el servidor Apache del contenedor para permitir conexiones seguras.
-        <p>Para ello, entre en el contenedor, genere un autocertificado, active el módulo SSL en Apache, habilite la configuración en Apache y reinicie Apache.</p>
+        <p>Para ello, entre en el contenedor, genere un autocertificado, active el módulo SSL en Apache, habilite la configuración SSL en Apache y reinicie Apache.</p>
       </li>
       <li>Intente entrar en Nextcloud como administrador mediante una conexión cifrada <strong>https://AAA.BBB.CCC.DDD/</strong> y compruebe que se muestra el aviso siguiente:
         <p class="captura">
@@ -169,10 +165,6 @@
     </ol>
   </section>
 
-  <hr />
-
-  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Los ejercicios siguientes no están adaptados a Nextcloud 13.</p>
-
   <section id="ejercicio-5">
     <h2>Nextcloud (1) 5 - Redirigir http a https</h2>
 
@@ -180,15 +172,15 @@
 
     <ol>
       <li>Configure el servidor Apache del contenedor para forzar el acceso mediante https.
-        <p>Para ello, modifique el archivo de configuración de Apache <strong>nextcloud.conf</strong> y reinicie el contenedor.</p>
+        <p>Para ello, modifique el archivo de configuración de Apache <strong>apache2.conf</strong> que se encuentra en el contenedor y reinicie el servicio apache2.</p>
         <p class="incompleto"><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48" />Antes de modificar un archivo de configuración se recomienda siempre hacer una copia del archivo original.</p>
         <ul>
-          <li>Añada una directiva VirtualHost que redirija las peticiones http a https.
+          <li>En el archivo de congiguración, añada una directiva VirtualHost que redirija las peticiones http a https, en la que AAA.BBB.CCC.DDD es la IP de la máquina virtual:
             <div class="codigo">
               <pre>
 <code class="language-configuracion">&lt;VirtualHost *:80&gt;
-  Servername 192.168.<span class="codigo-modificacion">XXX.YYY</span>
-  Redirect permanent / https://192.168.<span class="codigo-modificacion">XXX.YYY</span>/
+  Servername <span class="codigo-modificacion">AAA.BBB.CCC.DDD</span>
+  Redirect permanent / https://<span class="codigo-modificacion">AAA.BBB.CCC.DDD</span>/
 &lt;/VirtualHost&gt;</code>
 </pre>
             </div>
@@ -196,23 +188,14 @@
           </li>
         </ul>
       </li>
-      <li>Compruebe que al escribir <strong>http://192.168.XXX.YYY/...</strong> se redirige automáticamente a <strong>https://192.168.XXX.YYY/...</strong></li>
+      <li>Compruebe que al escribir <strong>http://AAA.BBB.CCC.DDD/</strong> se redirige automáticamente a <strong>https://AAA.BBB.CCC.DDD/</strong></li>
     </ol>
   </section>
 
   <section id="ejercicio-6">
-    <h2>Nextcloud (1) 6 - Crear un alias</h2>
+    <h2>Nextcloud (1) 6 - Cambio de IP</h2>
 
-    <ol>
-      <li>Incluya en el archivo de configuración de Apache <strong>nextcloud.conf</strong> un alias, de manera que pueda escribir <strong>https:/192.168.XXX.YYY/nc/</strong> en vez de <strong>https:/192.168.XXX.YYY/nextcloud/</strong>.
-      </li>
-    </ol>
-  </section>
-
-  <section id="ejercicio-7">
-    <h2>Nextcloud (1) 7 - Cambio de IP</h2>
-
-    <p>Si cambiara la IP de la máquina virtual, Nextcloud dejaría de funcionar correctamente porque en el archivo de configuración se guarda la URL de Nextcloud. En clase esto ocurre de vez en cuando, ya que el router de aula está continuamente asignando direcciones. En casa puede ocurrir más raramente.</p>
+    <p>Si cambiara la IP de la máquina virtual, Nextcloud dejaría de funcionar correctamente porque en el archivo de configuración se guarda la URL de Nextcloud. En clase esto ocurre a menudo, ya que el router de aula está continuamente asignando direcciones. En casa puede ocurrir más raramente.</p>
 
     <ol>
       <li>Apague y reinicie la máquina virtual.
@@ -221,21 +204,9 @@
           <li>Si <strong>no</strong> cambia la IP de la máquina virtual, haga el ejercicio sin cambiar la IP, pero así sabrá cómo hacerlo si algún día cambia la IP.</li>
         </ul>
       </li>
-      <li>Corrija el archivo de configuración de Nextcloud <strong>config.php</strong> con la nueva IP.</li>
+      <li>Corrija el archivo de configuración de Nextcloud <strong>apache2.php</strong> con la nueva IP.</li>
       <li>Compruebe que puede entrar en Nextcloud correctamente.</li>
     </ol>
-  </section>
-
-  <section id="ejercicio-8">
-    <h2>Nextcloud (1) 8 - Acceso mediante SSH o FTP</h2>
-
-    <p>Configure el contenedor para ofrecer el servicio SSH o el servicio FTP.</p>
-
-    <p>Referencias:</p>
-    <ul>
-      <li><a href="https://blog.docker.com/2014/06/why-you-dont-need-to-run-sshd-in-docker/">Why you don't need to run SSHd in your Docker containers</a></li>
-      <li>Docker Docs: <a href="https://docs.docker.com/engine/tutorials/dockervolumes/">Manage data in containers</a></li>
-    </ul>
   </section>
 
   <footer>
