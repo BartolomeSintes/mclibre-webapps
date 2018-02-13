@@ -101,7 +101,7 @@
         <p>La dirección debe ser del tipo <span class="codigo-modificacion">172.XXX.YYY.ZZZ</span></p>
       </li>
       <li>Configure el acceso de Nextcloud a la base de datos:
-        <p class="captura"><img src="../img/nextcloud/1-2-s-1-completar.png" alt="Nextcloud. Conexión con MariaDB" width="400" height="680" /></p>
+        <p class="captura"><img src="../img/nextcloud/1-2-s-1-completar.png" alt="Nextcloud. Conexión con MariaDB" width="400" height="630" /></p>
       </li>
       <li>Para salir de Nextcloud, haga clic en la rueda dentada (arriba a la derecha) y seleccione la opción Desconectar:
         <p class="captura"><img src="../img/nextcloud/1-2-s-2-salir.png" alt="Nextcloud. Salir" width="1008" height="260" /></p>
@@ -294,10 +294,10 @@ iface enp0s3 inet dhcp</code></pre>
 auto enp0s3
 #iface enp0s3 inet dhcp
 iface enp0s3 inet static
-address <span class="codigo-modificacion">192.168.1.16</span>
-netmask 255.255.255.0
-gateway <span class="codigo-modificacion">192.168.1.14</span>
-</code></pre>
+  address <span class="codigo-modificacion">192.168.1.16</span>
+  netmask 255.255.255.0
+  gateway <span class="codigo-modificacion">192.168.1.1</span>
+dns-nameservers 8.8.8.8</code></pre>
         </div>
       </li>
     </ol>
