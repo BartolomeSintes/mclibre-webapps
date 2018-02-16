@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Dokuwiki. Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../../../varios/favicon.ico" />
+</head>
+
+<body>
+  <h1>Exámenes - Dokuwiki 2017-02-19-e</h1>
+
+  <nav>
+    <p>
+      <a href="../../../index.html"><img src="../../../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../../../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      <a href="../../examenes.html"><img src="../../../varios/iconos/icono-school.svg" alt="Exámenes" title="Exámenes" width="36" height="36" /></a>
+    </p>
+
+    <div class="toc">
+      <h2>Examen Dokuwiki</h2>
+
+      <ul>
+        <li><a href="#ejercicio-1">1. Instalar</a></li>
+        <li><a href="#ejercicio-2">2. Configuración del sitio</a></li>
+        <li><a href="#ejercicio-3">3. Crear elementos</a></li>
+        <li><a href="#ejercicio-4">4. Configurar permisos</a></li>
+        <li><a href="#ejercicio-5">5. Añadir páginas</a></li>
+        <li><a href="#ejercicio-6">6. Idiomas</a></li>
+        <li><a href="#ejercicio-7">7. Añadir captcha</a></li>
+        <li><a href="#ejercicio-8">8. Nueva plantilla</a></li>
+        <li><a href="#ejercicio-9">9. Alias</a></li>
+        <li><a href="#ejercicio-10">10. Copia de seguridad</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <p>En este ejercicio hay que acabar entregando una carpeta con el <strong>nombre del alumno</strong> y que contenga:</p>
+  <ul>
+    <li>las capturas de pantalla del escritorio completo (que se llamen <strong>X-Y.png</strong> donde X sea el número de ejercicio e Y el número de captura del ejercicio). Haga capturas:
+      <ul>
+        <li>de la página o el programa en la que ha resuelto cada ejercicio</li>
+        <li>del resultado obtenido en la aplicación</li>
+      </ul>
+    </li>
+    <li>el fichero <strong>estilo.txt</strong> del ejercicio 8.</li>
+    <li>el fichero <strong>alias.txt</strong> del ejercicio 9.</li>
+    <li>la carpeta de la aplicación (comprimida en un zip) del ejercicio 10.</li>
+  </ul>
+
+  <p><img src="../../../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48" /> En los enunciados de los ejercicios se muestran capturas parciales como ayuda, pero las capturas que se entreguen en el examen deben ser capturas de <strong>toda la pantalla</strong>.</p>
+
+  <section id="ejercicio-1">
+    <h2>1. Instalar (0,75 puntos)</h2>
+
+    <ul>
+      <li>Dokuwiki es un software de creación de wikis
+        <p>Aplicación: <a href="http://www.mclibre.org/descargar/webapps/1718/dokuwiki_2017-02-19-e.tgz">Dokuwiki 2017-02-19-e (23/08/17)</a>. Página web: <a href="https://www.dokuwiki.org/dokuwiki">Dokuwiki</a></p>
+      </li>
+      <li>Descomprima <strong>Dokuwiki</strong> (llame a la carpeta <strong>/dokuwiki</strong>).</li>
+      <li>Instale Dokuwiki abriendo la página correspondiente:
+        <ul>
+          <li>Llame al wiki "WebApps Wiki de <i>SuNombre</i>".</li>
+          <li>Haga que la wiki sea de tipo <strong>Público</strong> (todos leen, los usuarios registrados editan).</li>
+          <li>Haga que los usuarios <strong>no</strong> se puedan registrar ellos mismos.</li>
+          <li>Cree el usuario administrador con nombre de usuario <strong>admin</strong> y contraseña <strong>adminadmin</strong> y escriba su nombre real como nombre a mostrar.</li>
+        </ul>
+      </li>
+      <li>Haga una captura nada más terminar la instalación:
+        <p class="captura">
+          <img src="dokuwiki-1-1.png" alt="Dokuwiki" width="1008" height="340" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-2">
+    <h2>2. Configuración del sitio (0,5 puntos)</h2>
+
+    <ul>
+      <li>Cambie el idioma del sitio al español:
+        <p class="captura">
+          <img src="dokuwiki-2-1.png" alt="Dokuwiki" width="1008" height="340" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-3">
+    <h2>3. Crear elementos (1 punto)</h2>
+
+    <ul>
+      <li>Cree la página inicial (la que se muestra en la dirección <strong>/dokuwiki</strong>):
+        <p class="captura">
+          <img src="dokuwiki-3-1.png" alt="Dokuwiki" width="1008" height="300" />
+        </p>
+      </li>
+      <li>Cree dos usuarios no administradores, con contraseña igual a su nombre de usuario, y un grupo cms al que pertenezcan todos los usuarios:
+        <p class="captura">
+          <img src="dokuwiki-3-2.png" alt="Dokuwiki" width="1008" height="200" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-4">
+    <h2>4. Configurar permisos (0,5 puntos)</h2>
+
+    <p>Configure los permisos, de manera que:</p>
+    <ul>
+      <li>los usuarios no identificados sólo puedan leer páginas:
+        <p class="captura">
+          <img src="dokuwiki-4-1.png" alt="Dokuwiki" width="1008" height="340" />
+        </p>
+      </li>
+      <li>los usuarios identificados puedan crear páginas:
+        <p class="captura">
+          <img src="dokuwiki-4-2.png" alt="Dokuwiki" width="1008" height="340" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-5">
+    <h2>5. Añadir páginas (1 punto)</h2>
+
+    <ul>
+      <li>Como usuario <strong>drupal</strong>, añada una página sobre Drupal, enlazada desde la página principal:
+        <p class="captura">
+          <img src="dokuwiki-5-1.png" alt="Dokuwiki" width="1008" height="310" />
+        </p>
+        <p class="captura">
+          <img src="dokuwiki-5-2.png" alt="Dokuwiki" width="1008" height="310" />
+        </p>
+      </li>
+      <li>Como usuario <strong>wordpress</strong>, añada una página sobre WordPress, enlazada desde la página principal:
+        <p class="captura">
+          <img src="dokuwiki-5-3.png" alt="Dokuwiki" width="1008" height="310" />
+        </p>
+        <p class="captura">
+          <img src="dokuwiki-5-4.png" alt="Dokuwiki" width="1008" height="310" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-6">
+    <h2>6. Idiomas (0,75 puntos)</h2>
+
+    <ul>
+      <li>Cambie la traducción de algunos elementos de la interfaz:
+        <p class="captura">
+          <img src="dokuwiki-6-1.png" alt="Dokuwiki" width="1008" height="150" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-7">
+    <h2>7. Añadir captcha (0,75 puntos)</h2>
+
+    <ul>
+      <li>Instale el plugin PreRegister, que puede descargar con <a href="http://www.mclibre.org/descargar/webapps/1718/turnermm-preregister-stable-0-gea51f91.zip">este enlace</a>:
+        <p class="captura">
+          <img src="dokuwiki-7-1.png" alt="Dokuwiki" width="1008" height="110" />
+        </p>
+      </li>
+      <li>Cambie la configuración para que los vistantes puedan registrarse y se muestre el enlace de confirmación.
+        <p class="captura">
+          <img src="dokuwiki-7-2.png" alt="Dokuwiki" width="1008" height="310" />
+        </p>
+        <p class="captura">
+          <img src="dokuwiki-7-3.png" alt="Dokuwiki" width="1008" height="360" />
+        </p>
+      </li>
+      <li>Asigne contraseña al nuevo usuario y entre como ese usuario:
+        <p class="captura">
+          <img src="dokuwiki-7-4.png" alt="Dokuwiki" width="1008" height="140" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-8">
+    <h2>8. Crear nueva plantilla (1,25 puntos)</h2>
+
+    <ul>
+      <li>Cree una nueva plantilla a partir de la plantilla predeterminada y actívela
+        <p><strong>Pista</strong>: Plantilla se dice en inglés <i>template</i>, y se escribe en forma abreviada <i>tpl</i>.</p>
+        <p class="captura">
+          <img src="dokuwiki-8-1.png" alt="Dokuwiki" width="1008" height="370" />
+        </p>
+      </li>
+      <li>Como administrador, modifique dos colores de la plantilla (verde claro en el fondo y verde oscuro en el borde)
+        <p class="captura">
+          <img src="dokuwiki-8-2.png" alt="Dokuwiki" width="1008" height="340" />
+        </p>
+      </li>
+      <li>Cambie el logotipo (<img src="logo-webapps-91x73.png" alt="Logotipo WebApps" width="91" height="73" />) y modifique el archivo de la hoja de estilo para conseguir el siguiente resultado:
+        <p class="captura">
+          <img src="dokuwiki-8-3.png" alt="Dokuwiki" width="1008" height="470" />
+        </p>
+      </li>
+      <li><strong>Nota</strong>:
+        <ul>
+          <li>Para encontrar el fichero de hoja de estilo a modificar, utilice la opción de NotePad++ <span class="soft-menu">Buscar &gt; Buscar en archivos</span>, buscando únicamente en la carpeta de su plantilla, para localizar los nombres de las clases que intervienen.</li>
+        </ul>
+      </li>
+      <li>Cree un fichero <strong>estilo.txt</strong> con las reglas añadidas o modificadas.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-9">
+    <h2>9. Alias (0,5 puntos)</h2>
+
+    <ul>
+      <li>Cree un alias para poder acceder a Dokuwiki mediante la dirección <strong>http://localhost/wiki</strong>.</li>
+      <li>Escriba un fichero <strong>alias.txt</strong> con el alias que ha creado.</li>
+      <li>Entre como usuario administrador.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-10">
+    <h2>10. Copia de seguridad (0,25 puntos)</h2>
+    <ul>
+      <li>Comprima la carpeta de la aplicación completa.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 15 de febrero de 2018</p>
+
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../../../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>phpMyAdmin (2). Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../../../varios/favicon.ico" />
+</head>
+
+<body>
+  <h1>Exámenes - phpMyAdmin</h1>
+
+  <nav>
+    <p>
+      <a href="../../../index.html"><img src="../../../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../../../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      <a href="../../examenes.html"><img src="../../../varios/iconos/icono-school.svg" alt="Exámenes" title="Exámenes" width="36" height="36" /></a>
+    </p>
+
+    <div class="toc">
+      <h2>Examen phpMyAdmin</h2>
+
+      <ul>
+        <li><a href="#ejercicio-1">1. Creación</a></li>
+        <li><a href="#ejercicio-2">2. Copia de seguridad</a></li>
+        <li><a href="#ejercicio-3">3. Nueva base de datos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <p>Se entregará un archivo comprimido (cuyo nombre sea el nombre del alumno) que contenga una carpeta <strong>phpmyadmin</strong> que contenga a su vez:</p>
+  <ul>
+    <li>las capturas de pantalla del <strong>escritorio completo</strong>, (que se llamen <strong>pma-X.png</strong> donde X sea el número de captura).</li>
+    <li>la copia de seguridad de la base de datos y la copia modificada.</li>
+  </ul>
+
+  <section id="ejercicio-1">
+    <h2>1. Creación de la base de datos</h2>
+
+    <ul>
+      <li>Entre en phpMyAdmin como usuario <strong>root</strong> y crear un usuario de MySQL con nombre <strong>iaw_<em>su_nombre</em></strong>, contraseña <strong>iaw_<em>su_nombre</em></strong> y que pueda tener varias bases de datos.</li>
+      <li>Entre en phpMyAdmin como usuario <strong>iaw_<em>su_nombre</em></strong>.</li>
+      <li>Cree una base de datos con cotejamiento <strong>utf8mb4_unicode_ci.</strong></li>
+      <li>Cree una tabla <strong>usuarios</strong> con los siguientes campos:
+        <ul>
+          <li>id INT UNSIGNED PRIMARY AUTO_INCREMENT</li>
+          <li>usuario VARCHAR(20) </li>
+          <li>password VARCHAR(40),</li>
+        </ul>
+      </li>
+      <li>Haga una captura de pantalla donde se vea la estructura de la tabla:
+        <p class="captura">
+          <img src="phpmyadmin-1.png" alt="phpMyAdmin. Crear tabla" width="320" height="120" />
+        </p>
+      </li>
+      <li>Insertar varios registros en la tabla <strong>usuarios</strong>:
+        <ul>
+          <li>usuario: <span class="codigo-modificacion">root</span>. password: <span class="codigo-modificacion">root</span>.</li>
+          <li>usuario: <span class="codigo-modificacion">nombre-alumno</span>. password: <span class="codigo-modificacion">lo-que-sea</span>.</li>
+          <li>etc.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-2">
+    <h2>2. Copia de seguridad</h2>
+
+    <ul>
+      <li>Entre en phpMyAdmin como usuario <strong>iaw_<em>su_nombre</em></strong> y exporte la base de datos al fichero <strong>su-nombre-bd.sql</strong>.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-3">
+    <h2>3. Nueva base de datos</h2>
+
+    <ul>
+      <li>Haga una copia del fichero <strong>su-nombre-bd-nueva.sql</strong></li>
+      <li>Modifique el fichero para que corresponda a una nueva base de datos y añada algún registro más.</li>
+      <li>Entre en phpMyAdmin como usuario <strong>iaw_<em>su_nombre</em></strong> e importe el fichero modificado.</li>
+      <li>Haga una captura de pantalla que muestre que los datos se han importado correctamente.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 15 de febrero de 2012</p>
+
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../../../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
+</html>
