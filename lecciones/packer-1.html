@@ -21,7 +21,8 @@
 
     <div class="toc">
       <h2>
-        Packer
+        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" /> Packer
+        <a href="ubuntu-instalacion.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
       </h2>
 
       <ul>
@@ -385,6 +386,28 @@ PACKER_LOG_PATH=packerlog.txt
 }</code>
 </pre>
         </div>
+
+        <p>Este podría ser el <i>script</i> de instalación de Docker (basado en las instrucciones que se comentan en la lección <a href="docker-1.html#ejercicio-1">Doker. Ejercicios (1))</a>.</p>
+
+        <div class="codigo">
+          <pre class="line-numbers">
+<code class="language-bash">sudo apt update
+sudo apt upgrade -y
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88 &gt; <span class="codigo-resaltado">info-fingerprint.txt</span>
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+sudo apt update
+sudo apt upgrade -y
+sudo apt policy docker-ce &gt; <span class="codigo-resaltado">info-policy.txt</span>
+sudo apt install -y docker-ce</code>
+</pre>
+        </div>
+
+        <p>Comentario:</p>
+        <ul>
+          <li>El resultado de las comprobaciones de la clave GPG oficial de Docker (línea 5) y de que el comando apt está utilizando el repositorio correcto (línea 9) se guardan en dos ficheros .txt para su comprobación posterior.</li>
+        </ul>
       </section>
     </section>
 
