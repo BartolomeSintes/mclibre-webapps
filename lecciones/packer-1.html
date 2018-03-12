@@ -1,0 +1,453 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Packer. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+  <link rel="stylesheet" href="../varios/prism.css" />
+  <script src="../varios/prism.js"></script>
+</head>
+
+<body>
+  <h1>Packer</h1>
+
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
+
+    <div class="toc">
+      <h2>
+        Packer
+      </h2>
+
+      <ul>
+        <li><a href="#que-es">Qué es</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#ejemplos">Ejemplos</a>
+          <ol>
+            <li><a href="#creacion-vm-vbox-ubuntu">Creación e instalación SO</a></li>
+            <li><a href="#provisioners-inline">Ejecución comandos VM</a></li>
+            <li><a href="#provisioners-script">Ejecución scripts VM</a></li>
+            <li><a href="#modificacion-vm">Modificación VM</a></li>
+          </ol>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <p>Esta lección es una introducción al uso de packer, la herramienta de creación de máquinas virtuales. Como ejemplo, se explica cómo crear una máquina virtual de VirtualBox en la que se instala el sistema operativo Ubuntu Server y posteriormente se instala Docker en ella.</p>
+
+  <section id="que-es">
+    <h2>Qué es Packer</h2>
+
+    <p><a href="https://www.packer.io/">Packer</a> es una herramienta de creación de máquinas virtuales. La primera versión se publicó en junio de 2013 y la versión 1.0 se publicó en abril de 2017.</p>
+
+    <p class="mcl-centrado">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1050" viewBox="-50 -60 1050 100">
+        <line x1="35" y1="0" x2="1000" y2="0" stroke-width="3" stroke="hsl(202, 100%, 56%)" />
+        <text x="-30" y="4" text-anchor="start" style="font-size: 100%">packer</text>
+        <text x="-10" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
+        <text x="-10" y="-38" text-anchor="middle" style="font-size: 60%">11-03-2018</text>
+
+        <line x1="60" y1="-30" x2="60" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="135" y="-40" text-anchor="middle" style="font-size: 80%">2013</text>
+        <line x1="210" y1="-30" x2="210" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="285" y="-40" text-anchor="middle" style="font-size: 80%">2014</text>
+        <line x1="360" y1="-30" x2="360" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="435" y="-40" text-anchor="middle" style="font-size: 80%">2015</text>
+        <line x1="510" y1="-30" x2="510" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="585" y="-40" text-anchor="middle" style="font-size: 80%">2016</text>
+        <line x1="660" y1="-30" x2="660" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="735" y="-40" text-anchor="middle" style="font-size: 80%">2017</text>
+        <line x1="810" y1="-30" x2="810" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="885" y="-40" text-anchor="middle" style="font-size: 80%">2018</text>
+        <line x1="960" y1="-30" x2="960" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+
+        <circle cx="133" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="133" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.1</text>
+        <circle cx="209" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="209" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.5</text>
+        <circle cx="260" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="260" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.6</text>
+        <circle cx="313" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="313" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.7</text>
+        <circle cx="431" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="431" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.8</text>
+        <circle cx="531" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="531" y="25" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.9</text>
+        <circle cx="540" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="540" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.10</text>
+        <circle cx="631" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="631" y="25" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.11</text>
+        <circle cx="641" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="641" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.12</text>
+        <circle cx="699" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="699" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.0</text>
+        <circle cx="765" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="765" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.1</text>
+        <circle cx="827" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="827" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.2</text>
+      </svg>
+    </p>
+
+    <hr class="corta" />
+
+    <p>Packer trabaja a partir de plantillas. Las plantillas son ficheros JSON que le dicen a Packer qué tipo de máquina virtual se quiere crear, los pasos a realizar para instalar el sistema operativo y los comandos o scripts a ejecutar tras la instalación.</p>
+
+    <p>Una vez hemos creado la plantilla, Packer permite crear automáticamente tantas máquinas virtuales como necesitemos. Lógicamente, cuantas más máquinas virtuales creemos a partir de una plantilla, más rentabilizaremos el tiempo empleado en la elaboración de la plantilla, pero, aún en el caso de que sólo creemos una vez la máquina virtual, la plantilla nos servirá como documentación y especificación del proceso.</p>
+  </section>
+
+  <section id="instalacion">
+    <h2>Instalación en Windows</h2>
+
+    <p>En Windows, packer se distribuye en forma de fichero zip (<a href="https://www.packer.io/downloads.html">página de descarga de packer</a>).</p>
+
+    <p>Esta lección se ha elaborado con la versión <a href="https://releases.hashicorp.com/packer/1.2.1/packer_1.2.1_windows_amd64.zip">packer 1.2.1 para Windows 64 bits</a>.</p>
+
+    <p>Packer no necesita instalación. Simplemente, hay que descomrpimir el fichero zip en una carpeta para obtener el programa packer.exe.</p>
+
+    <p>Para ejecutar packer, abra una ventana de Símbolo de sistema y ejecute la orden packer con los parámetros adecuados. Por ejemplo, para conocer la versión de packer, ejecute:</p>
+
+    <div class="codigo">
+      <pre>C:\packer&gt;packer --version
+1.2.1
+</pre>
+    </div>
+
+    <hr class="corta" />
+
+    <p>Para que packer cree un archivo de log del proceso de creación de la plantilla, que nos será muy útil para identificar los errores del proceso, en Windows es necesario establecer dos variables de entorno.</p>
+
+    <p>En Windows 7, puede añadir estas variables:</p>
+    <ul>
+      <li>gráficamente en Panel de control &gt; Sistema &gt; Configuración avanzada del sistema &gt; Opciones avanzadas &gt; Variables de entorno</li>
+      <li>o en una ventana de Símbolo de sistema con el comando setx:
+        <div class="codigo">
+          <pre>C:\packer&gt;setx PACKER_LOG 1
+CORRECTO: se guardó el valor especificado
+C:\packer&gt;setx setx PACKER_LOG_PATH packerlog.txt
+CORRECTO: se guardó el valor especificado
+</pre>
+        </div>
+
+        <p>Compruebe que se han establecido las variables de entorno con el comando set:</p>
+        <div class="codigo">
+          <pre>C:\packer&gt;set PACKER
+PACKER_LOG=1
+PACKER_LOG_PATH=packerlog.txt
+</pre>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejemplos">
+    <h2>Ejemplos de creación de máquinas virtuales y configuración posterior</h2>
+
+    <p>Packer permite crear máquinas virtuales para muchos sistemas de virtualización e instalar y configurar en ellas el sistema operativo que queramos.</p>
+
+    <p>Las plantillas de packer admiten muchas posiblidades, que se detallan en la <a href="https://www.packer.io/docs/index.html">documentación oficial de packer</a>.</p>
+
+    <p>En esta lección veremos cuatro ejemplos de creación de máquinas virtuales y posterior instalación de aplicaciones en la máquinas:</p>
+    <ul>
+      <li>En el primer ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 16.04 LTS en ella.</li>
+      <li>En el segundo ejemplo, a partir de la máquina virtual creada en el primer ejemplo crearemos una segunda máquina y actualizaremos el sistema operativo.</li>
+      <li>En el tercer ejemplo, a partir de la máquina virtual creada en el primer ejemplo crearemos una tercera máquina en la que instalaremos Docker.</li>
+      <li>En el cuarto ejemplo, a partir de la máquina virtual creada en el tercer ejemplo modificaremos la configuración de la máquina virtual.</li>
+    </ul>
+
+    <p>Una de las ventajas de preparar primero la imagen básica es ahorrarnos la instalación del sistema operativo, un proceso que tarda más de 10 minutos, en cada prueba de instalación de aplicaciones.</p>
+
+    <section id="creacion-vm-vbox-ubuntu">
+      <h3>Ejemplo 1: Creación de una máquina virtual de VirtualBox con Ubuntu Server 16.04 LTS</h3>
+
+      <p>Para crear la máquina virtual, necesitamos:</p>
+
+      <ul>
+        <li>Tener instalado <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
+        <li>Descargar la imagen .iso del disco de instalación de Ubuntu Server 16.04 LTS.
+          <ul>
+            <li>página de descarga (1): <a href="https://www.ubuntu.com/download/server">https://www.ubuntu.com/download/server</a></li>
+            <li>página de descarga (2): <a href="http://cdimage.ubuntu.com/releases/16.04/release/">http://cdimage.ubuntu.com/releases/16.04/release/</a></li>
+          </ul>
+          <p>Esta lección se ha elaborado con la versión <a href="http://cdimage.ubuntu.com/releases/16.04/release/ubuntu-16.04.4-server-arm64.iso">Ubuntu Server 16.04.4 LTS 64 bits</a>.</p>
+        </li>
+        <li>Crear la plantilla de packer (por ejemplo, plantilla-1.json).</li>
+        <li>Ejecutar packer
+          <div class="codigo">
+            <pre>C:\packer&gt;packer build plantilla-1.json</pre>
+          </div>
+        </li>
+      </ul>
+
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-iso</strong> y creará en él el fichero ovf.</p>
+
+      <section id="plantilla-creacion-vm">
+        <h4>Plantilla de creación de la máquina virtual (plantilla-1.json)</h4>
+
+        <p>Documentación de packer: <a href="https://www.packer.io/docs/builders/virtualbox-iso.html">Builders en VirtualBox</a></p>
+
+        <p>En una plantilla de packer, la sección que define la creación de la máquina se denomina <strong>constructor</strong> (en inglés <strong><i>builder</i></strong>).</p>
+
+        <p>Packer instala el sistema operativo en la máquina virtual reproduciendo el proceso manual que realizamos nosotros cuando instalamos el sistema operativo en una máquina virtual.</p>
+
+        <p>Así, la plantilla de creación de una máquina virtual e instalación de un sistema operativo contiene tanto la descripción de la máquina virtual que queremos como las entradas de teclado a realizar para la instalación del sistema operativo.</p>
+
+        <p>Para obtener las entradas de teclado es necesario primero hacer una instalación manual y anotar cuidadosamente las opciones elegidas y también cronometrar lo que tarda en realizarse cada uno de los pasos de la instalación, ya que en la plantilla debemos indicar también el tiempo que packer debe esperar entre entrada y entrada de teclado. Si el tiempo de espera es demasiado corto, packer enviará las pulsaciones de teclado demasiado pronto y la instalación no se realizará correctamente.</p>
+
+        <p>En la lección <a href="ubuntu-instalacion.html">Instalación de Ubuntu</a> se muestra un ejemplo de instalación de Ubuntu Server 16.04 LTS. La página muestra los sucesivos pasos del proceso de instalación y las entradas de teclado y tiempos de espera correspondientes. Por precaución, el tiempo de espera indicado a packer es siempre algo superior al cronometrado.</p>
+
+        <p>Esta podría ser entonces la plantilla de creación de la máquina virtual con Ubuntu:</p>
+
+        <div class="codigo">
+          <pre class="line-numbers">
+<code class="language-json">{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "guest_os_type": "Ubuntu_64",
+      "iso_url": "ubuntu-16.04.4-server-amd64.iso",
+      "iso_checksum": "6a7f31eb125a0b2908cf2333d7777c82",
+      "iso_checksum_type": "md5",
+      "ssh_username": "<span class="codigo-resaltado">barto</span>",
+      "ssh_password": "<span class="codigo-resaltado">barto</span>",
+      "disk_size": "25000",
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--memory", "1024"]
+      ],
+      "boot_wait": "10s",
+      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
+      "boot_command": [
+        "&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "&lt;enter&gt;&lt;wait10&gt;",
+        "&lt;enter&gt;&lt;wait5&gt;",
+        "&lt;enter&gt;&lt;wait5&gt;",
+        "&lt;enter&gt;&lt;wait5&gt;",
+        "&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
+        "&lt;tab&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "<span class="codigo-resaltado">Bartolome Sintes</span>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "<span class="codigo-resaltado">barto</span>&lt;tab&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "<span class="codigo-resaltado">barto</span>&lt;tab&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "&lt;left&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "&lt;enter&gt;&lt;wait10&gt;",
+        "&lt;enter&gt;&lt;wait10&gt;",
+        "&lt;enter&gt;&lt;wait5&gt;",
+        "&lt;enter&gt;&lt;wait5&gt;",
+        "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;",
+        "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;",
+        "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
+        "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
+        "&lt;down&gt;&lt;enter&gt;&lt;wait10&gt;",
+        "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
+        "&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
+        "&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;"
+      ]
+    }
+  ]
+}</code>
+</pre>
+        </div>
+
+        <p>Comentarios:</p>
+        <ul>
+          <li>La propiedad vboxmanage (líneas 12 a 14) indican las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas caracterñisticas se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>).</li>
+          <li>La propiedad shutdown_command (línea 16) se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario (línea 16).</li>
+          <li>Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina con SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu se elige instalar el servidor OpenSSH (línea 39). La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="provisioners-inline">
+      <h3>Ejemplo 2: Actualización la de máquina virtual mediante comandos</h3>
+
+      <p>Para actualizar la máquina virtual necesitamos:</p>
+
+      <ul>
+        <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase el ejemplo 1)</li>
+        <li>Crear la plantilla de packer (por ejemplo, plantilla-2.json).</li>
+        <li>Ejecutar packer
+          <div class="codigo">
+            <pre>C:\packer&gt;packer build plantilla-2.json</pre>
+          </div>
+        </li>
+      </ul>
+
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-ovf</strong> y creará en él el fichero ovf (u ova) con una nueva imagen de máquina virtual.</p>
+
+      <section id="plantilla-actualizacion-vm">
+        <h4>Plantilla de actualización de la máquina virtual (plantilla-2.json)</h4>
+
+        <p>Documentación de packer: <a href="https://www.packer.io/docs/provisioners/shell.html">Shells provisioners</a></p>
+
+        <p>En una plantilla de packer, la sección que define la instalación y configuración de la máquina virtual se denomina <strong>proveedor</strong> (en inglés <strong><i>provisioner</i></strong>).</p>
+
+        <p>En la sección del constructores le indicamos a packer que utilice la imagen creada en el ejemplo anterior y el usuario creado en ella.</p>
+
+        <p>En la sección de proveedores le indicemos a packer que ejecute un par de comandos para actualizar el sistema.</p>
+
+        <p>Esta podría ser entonces la plantilla de modificación de la máquina virtual con Ubuntu:</p>
+
+        <div class="codigo">
+          <pre class="line-numbers">
+<code class="language-json">{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "<span class="codigo-resaltado">output-virtualbox-iso/packer-virtualbox-iso-1520842303.ovf</span>",
+      "ssh_username": "<span class="codigo-resaltado">barto</span>",
+      "ssh_password": "<span class="codigo-resaltado">barto</span>",
+      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
+      "boot_wait": "30s",
+      "format": "ova"
+      ],
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "inline": [
+        "apt update",
+        "apt upgrade -y"
+      ]
+    }
+  ]
+}</code>
+</pre>
+        </div>
+
+        <p>Comentarios:</p>
+        <ul>
+          <li>La máquina virtual se guarda en formato ova para que conste de un único fichero (línea 10).</li>
+          <li>Al comando apt upgrade le añadimos la opción -y (línea 20) porque no es un entorno interactivo.</li>
+          <li>Al importar la imagen en VirtualBox y ponerla en marcha, Ubuntu nos puede mostrar un mensaje indicando que hay actualizaciones pendientes, aunque realmente no hay actualizaciones pendientes. <a href="https://serverfault.com/questions/262751/updates-in-amazon-ec2-ubuntu-10-04-server/262773">Parece ser</a> que es un fallo de la utilidad MOTD (Message of the day) que no actualiza adecudamente el mensaje.</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="provisioners-script">
+      <h3>Ejemplo 3: Actualización la de máquina virtual e instalación de Docker mediante un <i>script</i></h3>
+
+      <p>Para actualizar la máquina virtual necesitamos:</p>
+
+      <ul>
+        <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase el ejemplo 1)</li>
+        <li>Crear la plantilla de packer (por ejemplo, plantilla-3.json) y el script de shell a ejecutar (por ejemplo, script-3.sh).</li>
+        <li>Ejecutar packer
+          <div class="codigo">
+            <pre>C:\packer&gt;packer build plantilla-3.json</pre>
+          </div>
+        </li>
+      </ul>
+
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-ovf</strong> y creará en él el fichero ovf (u ova) con una nueva imagen de máquina virtual.</p>
+
+      <section id="plantilla-instalacion-docker">
+        <h4>Plantilla de actualización de la máquina virtual e instalación de Docker (plantilla-3.json)</h4>
+
+        <p>Documentación de packer: <a href="https://www.packer.io/docs/provisioners/shell.html">Shells provisioners</a></p>
+
+        <p>En una plantilla de packer, la sección que define la instalación y configuración de la máquina virtual se denomina <strong>proveedor</strong> (en inglés <strong><i>provisioner</i></strong>).</p>
+
+        <p>En la sección del constructores le indicamos a packer que utilice la imagen creada en el ejemplo anterior y el usuario creado en ella.</p>
+
+        <p>En la sección de proveedores le indicamos a packer que ejecute un scripts con todos los comandos necesarios para actualizar el sistema e instalar Docker.</p>
+
+        <p>Esta podría ser entonces la plantilla de modificación de la máquina virtual con Ubuntu:</p>
+
+        <div class="codigo">
+          <pre class="line-numbers">
+<code class="language-json">{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "<span class="codigo-resaltado">output-virtualbox-iso/packer-virtualbox-iso-1520842303.ovf</span>",
+      "ssh_username": "<span class="codigo-resaltado">barto</span>",
+      "ssh_password": "<span class="codigo-resaltado">barto</span>",
+      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
+      "boot_wait": "30s",
+      "format": "ova"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "script": "<span class="codigo-resaltado">script-3.sh</span>",
+      "pause_before": "10s"
+    }
+  ]
+}</code>
+</pre>
+        </div>
+      </section>
+    </section>
+
+    <section id="modificacion-vm">
+      <h3>Ejemplo 4: Modificación de la de máquina virtual</h3>
+
+      <p>Para modificar la máquina virtual necesitamos:</p>
+
+      <ul>
+        <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella y en su caso, haber instalado programas en ella (véase los ejemplos 1, 2 o 3)</li>
+        <li>Crear la plantilla de packer (por ejemplo, plantilla-4.json).</li>
+        <li>Ejecutar packer
+          <div class="codigo">
+            <pre>C:\packer&gt;packer build plantilla-4.json</pre>
+          </div>
+        </li>
+      </ul>
+
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-ovf</strong> y creará en él el fichero ovf (u ova) con una nueva imagen de máquina virtual.</p>
+
+      <section id="plantilla-modificacion-vm">
+        <h4>Plantilla de actualización de modificación de la máquina virtual (plantilla-4.json)</h4>
+
+        <p>Documentación de packer: <a href="https://www.packer.io/docs/builders/virtualbox-iso.html">VirtualBox Builders</a></p>
+
+        <p>En una plantilla de packer, la sección que define la instalación y configuración de la máquina virtual se denomina <strong>proveedor</strong> (en inglés <strong><i>provisioner</i></strong>).</p>
+
+        <p>En la sección del constructores le indicamos a packer que utilice la imagen creada en el ejemplo anterior y el usuario creado en ella.</p>
+
+        <p>Las modificaciones de la máquina virtual se pueden realizar con la propiedad vboxmange o con la propiedad vboxmanage_post. En este ejemplo vamos a modificar el tipo de adaptador de red (de nat a bridged). Esta modificación debe realizarse con vboxmanage_post, ya que packer parece necesitar que el adaptador sea nat para poder realizar la conexión SSH con la que comprueba que la máquina es funcional (la comprobación se hace después de realizar las modificaciones de la máquina indicadas en vboxmanage pero antes de las indicadas en vboxmanage_post).</p>
+
+        <p>Esta podría ser entonces la plantilla de modificación de la máquina virtual:</p>
+
+        <div class="codigo">
+          <pre class="line-numbers">
+<code class="language-json">{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "<span class="codigo-resaltado">output-virtualbox-iso/packer-virtualbox-ovf-1520855952.ova</span>",
+      "ssh_username": "<span class="codigo-resaltado">barto</span>",
+      "ssh_password": "<span class="codigo-resaltado">barto</span>",
+      "boot_wait": "30s",
+      "format": "ova",
+      "vboxmanage_post": [
+        ["modifyvm", "{{.Name}}", "--nic1", "bridged"],
+        ["modifyvm", "{{.Name}}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]
+      ]
+    }
+  ]
+}</code>
+</pre>
+        </div>
+      </section>
+    </section>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 12 de marzo de 2018</p>
+
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
+</html>
