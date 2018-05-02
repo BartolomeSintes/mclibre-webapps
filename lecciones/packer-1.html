@@ -107,9 +107,9 @@
 
     <p>En Windows, packer se distribuye en forma de fichero zip (<a href="https://www.packer.io/downloads.html">página de descarga de packer</a>).</p>
 
-    <p>Esta lección se ha elaborado con la versión <a href="https://releases.hashicorp.com/packer/1.2.1/packer_1.2.1_windows_amd64.zip">packer 1.2.1 para Windows 64 bits</a>.</p>
+    <p>Esta lección se ha elaborado con la versión <a href="https://releases.hashicorp.com/packer/1.2.3/packer_1.2.3_windows_amd64.zip">packer 1.2.3 para Windows 64 bits</a>.</p>
 
-    <p>Packer no necesita instalación. Simplemente, hay que descomrpimir el fichero zip en una carpeta para obtener el programa packer.exe.</p>
+    <p>Packer no necesita instalación. Simplemente, hay que descomprimir el fichero zip en una carpeta para obtener el programa packer.exe.</p>
 
     <p>Para ejecutar packer, abra una ventana de Símbolo de sistema y ejecute la orden packer con los parámetros adecuados. Por ejemplo, para conocer la versión de packer, ejecute:</p>
 
@@ -130,7 +130,7 @@
         <div class="codigo">
           <pre>C:\packer&gt;setx PACKER_LOG 1
 CORRECTO: se guardó el valor especificado
-C:\packer&gt;setx setx PACKER_LOG_PATH packerlog.txt
+C:\packer&gt;setx PACKER_LOG_PATH packerlog.txt
 CORRECTO: se guardó el valor especificado
 </pre>
         </div>
@@ -155,7 +155,7 @@ PACKER_LOG_PATH=packerlog.txt
 
     <p>En esta lección veremos cuatro ejemplos de creación de máquinas virtuales y posterior instalación de aplicaciones en la máquinas:</p>
     <ul>
-      <li>En el primer ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 16.04 LTS en ella.</li>
+      <li>En el primer ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 18.04 LTS en ella.</li>
       <li>En el segundo ejemplo, a partir de la máquina virtual creada en el primer ejemplo crearemos una segunda máquina y actualizaremos el sistema operativo.</li>
       <li>En el tercer ejemplo, a partir de la máquina virtual creada en el primer ejemplo crearemos una tercera máquina en la que instalaremos Docker.</li>
       <li>En el cuarto ejemplo, a partir de la máquina virtual creada en el tercer ejemplo modificaremos la configuración de la máquina virtual.</li>
@@ -170,12 +170,12 @@ PACKER_LOG_PATH=packerlog.txt
 
       <ul>
         <li>Tener instalado <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
-        <li>Descargar la imagen .iso del disco de instalación de Ubuntu Server 16.04 LTS.
+        <li>Descargar la imagen .iso del disco de instalación de Ubuntu Server 18.04 LTS.
           <ul>
             <li>página de descarga (1): <a href="https://www.ubuntu.com/download/server">https://www.ubuntu.com/download/server</a></li>
-            <li>página de descarga (2): <a href="http://cdimage.ubuntu.com/releases/16.04/release/">http://cdimage.ubuntu.com/releases/16.04/release/</a></li>
+            <li>página de descarga (2): <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a></li>
           </ul>
-          <p>Esta lección se ha elaborado con la versión <a href="http://cdimage.ubuntu.com/releases/16.04/release/ubuntu-16.04.4-server-arm64.iso">Ubuntu Server 16.04.4 LTS 64 bits</a>.</p>
+          <p>Esta lección se ha elaborado con la versión <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-amd64.iso">Ubuntu Server 18.04 LTS 64 bits</a>.</p>
         </li>
         <li>Crear la plantilla de packer (por ejemplo, plantilla-1.json).</li>
         <li>Ejecutar packer
@@ -200,7 +200,7 @@ PACKER_LOG_PATH=packerlog.txt
 
         <p>Para obtener las entradas de teclado es necesario primero hacer una instalación manual y anotar cuidadosamente las opciones elegidas y también cronometrar lo que tarda en realizarse cada uno de los pasos de la instalación, ya que en la plantilla debemos indicar también el tiempo que packer debe esperar entre entrada y entrada de teclado. Si el tiempo de espera es demasiado corto, packer enviará las pulsaciones de teclado demasiado pronto y la instalación no se realizará correctamente.</p>
 
-        <p>En la lección <a href="ubuntu-instalacion.html">Instalación de Ubuntu</a> se muestra un ejemplo de instalación de Ubuntu Server 16.04 LTS. La página muestra los sucesivos pasos del proceso de instalación y las entradas de teclado y tiempos de espera correspondientes. Por precaución, el tiempo de espera indicado a packer es siempre algo superior al cronometrado.</p>
+        <p>En la lección <a href="ubuntu-instalacion.html">Instalación de Ubuntu</a> se muestra un ejemplo de instalación de Ubuntu Server 18.04 LTS. La página muestra los sucesivos pasos del proceso de instalación y las entradas de teclado y tiempos de espera correspondientes. Por precaución, el tiempo de espera indicado a packer es siempre algo superior al cronometrado.</p>
 
         <p>Esta podría ser entonces la plantilla de creación de la máquina virtual con Ubuntu:</p>
 
