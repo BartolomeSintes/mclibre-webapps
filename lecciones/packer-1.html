@@ -164,7 +164,7 @@ PACKER_LOG_PATH=packerlog.txt
     <p>Una de las ventajas de preparar primero la imagen básica es ahorrarnos la instalación del sistema operativo, un proceso que tarda más de 10 minutos, en cada prueba de instalación de aplicaciones.</p>
 
     <section id="creacion-vm-vbox-ubuntu">
-      <h3>Ejemplo 1: Creación de una máquina virtual de VirtualBox con Ubuntu Server 16.04 LTS</h3>
+      <h3>Ejemplo 1: Creación de una máquina virtual de VirtualBox con Ubuntu Server 18.04 LTS</h3>
 
       <p>Para crear la máquina virtual, necesitamos:</p>
 
@@ -211,8 +211,8 @@ PACKER_LOG_PATH=packerlog.txt
     {
       "type": "virtualbox-iso",
       "guest_os_type": "Ubuntu_64",
-      "iso_url": "ubuntu-16.04.4-server-amd64.iso",
-      "iso_checksum": "6a7f31eb125a0b2908cf2333d7777c82",
+      "iso_url": "ubuntu-18.04-server-amd64.iso",
+      "iso_checksum": "1413c9797dbfa1e57fabfb5c91cfb96f",
       "iso_checksum_type": "md5",
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
       "ssh_password": "<span class="codigo-resaltado">barto</span>",
@@ -228,7 +228,7 @@ PACKER_LOG_PATH=packerlog.txt
         "&lt;enter&gt;&lt;wait5&gt;",
         "&lt;enter&gt;&lt;wait5&gt;",
         "&lt;enter&gt;&lt;wait5&gt;",
-        "&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
+        "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
         "&lt;tab&gt;&lt;enter&gt;&lt;wait5&gt;",
         "<span class="codigo-resaltado">Bartolome Sintes</span>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
         "&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
@@ -236,16 +236,15 @@ PACKER_LOG_PATH=packerlog.txt
         "<span class="codigo-resaltado">barto</span>&lt;tab&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
         "&lt;left&gt;&lt;enter&gt;&lt;wait5&gt;",
         "&lt;enter&gt;&lt;wait10&gt;",
-        "&lt;enter&gt;&lt;wait10&gt;",
         "&lt;enter&gt;&lt;wait5&gt;",
         "&lt;enter&gt;&lt;wait5&gt;",
         "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;",
         "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;",
         "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
-        "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
+        "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
         "&lt;down&gt;&lt;enter&gt;&lt;wait10&gt;",
-        "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
-        "&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
+        "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
+        "&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
         "&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;"
       ]
     }
@@ -258,7 +257,7 @@ PACKER_LOG_PATH=packerlog.txt
         <ul>
           <li>La propiedad vboxmanage (líneas 12 a 14) indican las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas caracterñisticas se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>).</li>
           <li>La propiedad shutdown_command (línea 16) se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario (línea 16).</li>
-          <li>Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina con SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu se elige instalar el servidor OpenSSH (línea 39). La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
+          <li>Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina con SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu se elige instalar el servidor OpenSSH (línea 38). La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
         </ul>
       </section>
     </section>
@@ -466,7 +465,7 @@ sudo apt install -y docker-ce</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 12 de marzo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 3 de mayo de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />

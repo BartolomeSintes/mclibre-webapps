@@ -6,7 +6,7 @@
 /*                                          */
 /* CSS curso: Aplicaciones Web              */
 /*                                          */
-/* 28 de enero de 2018                      */
+/* 3 de mayo de 2018                        */
 /*                                          */
 
 /* CSS comun */
@@ -64,6 +64,8 @@ pre, pre code {
   margin-bottom: 0;
   font-family: "Inconsolata", monospace;  /* Chrome user agent style sheet */
   line-height: 120%;
+  white-space: pre-wrap;
+
 }
 
 hr {
@@ -284,7 +286,6 @@ div.filaflex div.icono-enlace {
 
 div.filaflex pre {
   margin: 5px 0;
-  white-space: pre-wrap;
 }
 
 div.codigo, div[class^="resultado"], div[class^="enunciado"] {
@@ -469,7 +470,6 @@ h2.con-aside, h3.con-aside, h4-con-aside {
 
   pre {
     text-align: left;
-    white-space: pre-wrap;
   }
 
   div.filaflex {
@@ -592,10 +592,6 @@ h2.con-aside, h3.con-aside, h4-con-aside {
 
   code {
     font-size: 100% !important;
-  }
-
-  pre {
-    white-space: pre-wrap !important;
   }
 
   tr {
