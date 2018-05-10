@@ -21,20 +21,17 @@
 
     <div class="toc">
       <h2>
-        Ansible
+        <a href="ubuntu-instalacion.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> Ansible
       </h2>
 
       <ul>
         <li><a href="#que-es">Qué es</a></li>
-        <li><a href="#instalacion">Instalación</a></li>
         <li><a href="#ejemplos">Ejemplos</a>
           <ol>
-            <li><a href="#creacion-vm-vbox-ubuntu">Creación e instalación SO</a></li>
-            <li><a href="#provisioners-inline">Ejecución comandos VM</a></li>
-            <li><a href="#provisioners-script">Ejecución scripts VM</a></li>
-            <li><a href="#modificacion-vm">Modificación VM</a></li>
+            <li><a href="#instalacion-maquina-control">Máquina de control</a></li>
+            <li><a href="#instalacion-nodos">Nodos administrados</a></li>
           </ol>
-          </li>
+        </li>
       </ul>
     </div>
   </nav>
@@ -114,14 +111,100 @@
 
     <hr class="corta" />
 
+    <p>Con Ansible, un ordenador es la <strong>máquina de control</strong> (<i>control machine</i>) y el resto de ordenadores son los <strong>nodos administrados</strong> (<i>managed nodes</i>).</p>
+
+    <p>En la máquina de control es donde se instala Ansible. En los nodos administrados no es necesario instalar ingún software. El acceso de la máquina de control a los nodos administrados se hace normalmente mediante conexiones SSH.</p>
   </section>
 
-  <section id="instalacion">
-    <h2>Instalación en Ubuntu</h2>
+  <section id="ejemplos">
+    <h2>Ejemplos</h2>
+
+    <section id="instalacion-maquina-control">
+      <h3>Máquina de control: instalación de Ansible en Ubuntu 18.04</h3>
+
+      <p>Instalaremos Ansible en una máquina virtual de VirtualBox con Ubuntu 18.04 Server que ejercerá de máquina de control. La instalación la realizaremos con Packer.</p>
+
+      <p>Para instalar Ansible con Packer, necesitamos:</p>
+
+      <ul>
+        <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase el <a href="#creacion-vm-vbox-ubuntu">ejemplo 1 de la lección de Packer</a>)</li>
+        <li>Crear la plantilla de packer (por ejemplo, ansible-1-template.json) y el script de shell a ejecutar (por ejemplo, ansible-1-shell.sh).</li>
+        <li>Ejecutar packer
+          <div class="codigo">
+            <pre>C:\packer&gt;packer build ansible-1-template.json</pre>
+          </div>
+        </li>
+      </ul>
+
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-ovf</strong> y creará en él el fichero ovf (u ova) con una nueva imagen de máquina virtual.</p>
+
+      <section id="plantilla-instalacion-maquina-control">
+        <h4>Plantilla de creación de la máquina de control (ansible-1-plantilla.json)</h4>
+
+        <p>Esta podría ser la plantilla de creación de la máquina de control Ubuntu:</p>
+
+        <div class="codigo">
+          <pre class="line-numbers">
+<code class="language-json">{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "<span class="codigo-resaltado">output-virtualbox-iso/packer-virtualbox-iso-1520842303.ovf</span>",
+      "boot_wait": "30s",
+      "ssh_username": "<span class="codigo-resaltado">barto</span>",
+      "ssh_password": "<span class="codigo-resaltado">barto</span>",
+      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
+      "post_shutdown_delay": "120s",
+      "format": "ova",
+      "vboxmanage_post": [
+        ["modifyvm", "{{.Name}}", "--nic1", "bridged"],
+        ["modifyvm", "{{.Name}}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"],
+        ["modifyvm", "{{.Name}}", "--vram", "<span class="codigo-resaltado">64</span>"]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "script": "<span class="codigo-resaltado">ansible-1-shell.sh</span>",
+      "pause_before": "10s"
+    }
+  ]
+}</code>
+</pre>
+        </div>
+
+        <p>Notas:</p>
+        <ul>
+          <li>El retardo tras el apagado (línea 10) es para dar tiempo a VirtualBox a desbloquear la máquina y poder hacer la exportación final.</li>
+          <li>El nombre del adaptador 1 (línea 14) depende del ordenador en el que esté instalado VirtualBox.</li>
+        </ul>
+
+        <p>Este podría ser el <i>script</i> de instalación de Ansible [<a href="http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu">fuente</a>].</p>
+
+        <div class="codigo">
+          <pre class="line-numbers">
+<code class="language-bash">sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install software-properties-common
+sudo apt-add-repository -y ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install -y ansible</code>
+</pre>
+        </div>
+      </section>
+    </section>
+
+    <section id="instalacion-nodos">
+      <h3>Nodos administrados: Ubuntu 18.04</h3>
+
+      <p>Por escribir ...</p>
+    </section>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 8 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 10 de mayo de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />

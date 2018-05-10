@@ -35,7 +35,7 @@
             <li><a href="#provisioners-script">Ejecución scripts VM</a></li>
             <li><a href="#modificacion-vm">Modificación VM</a></li>
           </ol>
-          </li>
+        </li>
       </ul>
     </div>
   </nav>
@@ -115,7 +115,7 @@
 
     <div class="codigo">
       <pre>C:\packer&gt;packer --version
-1.2.1
+1.2.3
 </pre>
     </div>
 
@@ -228,7 +228,7 @@ PACKER_LOG_PATH=packerlog.txt
         "&lt;enter&gt;&lt;wait5&gt;",
         "&lt;enter&gt;&lt;wait5&gt;",
         "&lt;enter&gt;&lt;wait5&gt;",
-        "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
+        "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait60s&gt;",
         "&lt;tab&gt;&lt;enter&gt;&lt;wait5&gt;",
         "<span class="codigo-resaltado">Bartolome Sintes</span>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
         "&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
@@ -240,12 +240,12 @@ PACKER_LOG_PATH=packerlog.txt
         "&lt;enter&gt;&lt;wait5&gt;",
         "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;",
         "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;",
-        "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
-        "&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
+        "&lt;tab&gt;&lt;enter&gt;&lt;wait90s&gt;",
+        "&lt;tab&gt;&lt;enter&gt;&lt;wait40s&gt;",
         "&lt;down&gt;&lt;enter&gt;&lt;wait10&gt;",
-        "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
-        "&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;",
-        "&lt;enter&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;&lt;wait10&gt;"
+        "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;enter&gt;&lt;wait3m30s&gt;",
+        "&lt;enter&gt;&lt;wait40s&gt;",
+        "&lt;enter&gt;&lt;wait40s&gt;"
       ]
     }
   ]
@@ -255,7 +255,7 @@ PACKER_LOG_PATH=packerlog.txt
 
         <p>Comentarios:</p>
         <ul>
-          <li>La propiedad vboxmanage (líneas 12 a 14) indican las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas caracterñisticas se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>).</li>
+          <li>La propiedad vboxmanage (líneas 12 a 14) indican las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>).</li>
           <li>La propiedad shutdown_command (línea 16) se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario (línea 16).</li>
           <li>Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina con SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu se elige instalar el servidor OpenSSH (línea 38). La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
         </ul>
@@ -263,7 +263,7 @@ PACKER_LOG_PATH=packerlog.txt
     </section>
 
     <section id="provisioners-inline">
-      <h3>Ejemplo 2: Actualización la de máquina virtual mediante comandos</h3>
+      <h3>Ejemplo 2: Actualización de la máquina virtual mediante comandos</h3>
 
       <p>Para actualizar la máquina virtual necesitamos:</p>
 
@@ -331,7 +331,7 @@ PACKER_LOG_PATH=packerlog.txt
     </section>
 
     <section id="provisioners-script">
-      <h3>Ejemplo 3: Actualización la de máquina virtual e instalación de Docker mediante un <i>script</i></h3>
+      <h3>Ejemplo 3: Actualización de la máquina virtual e instalación de Docker mediante un <i>script</i></h3>
 
       <p>Para actualizar la máquina virtual necesitamos:</p>
 
@@ -346,6 +346,10 @@ PACKER_LOG_PATH=packerlog.txt
       </ul>
 
       <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-ovf</strong> y creará en él el fichero ovf (u ova) con una nueva imagen de máquina virtual.</p>
+
+      <hr class="corta" />
+
+      <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48" />Packer 1.2.3 no es capaz de enviar el script si este tiene los finales de línea de Windows [<a href="https://github.com/hashicorp/packer/issues/6151">packer issue 6151</a>]. Es necesario asegurarse de que el script tenga finales de línea de Unix.</p>
 
       <section id="plantilla-instalacion-docker">
         <h4>Plantilla de actualización de la máquina virtual e instalación de Docker (plantilla-3.json)</h4>
@@ -386,7 +390,7 @@ PACKER_LOG_PATH=packerlog.txt
 </pre>
         </div>
 
-        <p>Este podría ser el <i>script</i> de instalación de Docker (basado en las instrucciones que se comentan en la lección <a href="docker-1.html#ejercicio-1">Doker. Ejercicios (1))</a>.</p>
+        <p>Este podría ser el <i>script</i> de instalación de Docker (basado en las instrucciones que se comentan en la lección <a href="docker-1.html#ejercicio-1">Docker. Ejercicios (1)</a>).</p>
 
         <div class="codigo">
           <pre class="line-numbers">
@@ -411,7 +415,7 @@ sudo apt install -y docker-ce</code>
     </section>
 
     <section id="modificacion-vm">
-      <h3>Ejemplo 4: Modificación de la de máquina virtual</h3>
+      <h3>Ejemplo 4: Modificación de la máquina virtual</h3>
 
       <p>Para modificar la máquina virtual necesitamos:</p>
 
@@ -428,7 +432,7 @@ sudo apt install -y docker-ce</code>
       <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-ovf</strong> y creará en él el fichero ovf (u ova) con una nueva imagen de máquina virtual.</p>
 
       <section id="plantilla-modificacion-vm">
-        <h4>Plantilla de actualización de modificación de la máquina virtual (plantilla-4.json)</h4>
+        <h4>Plantilla de modificación de la máquina virtual (plantilla-4.json)</h4>
 
         <p>Documentación de packer: <a href="https://www.packer.io/docs/builders/virtualbox-iso.html">VirtualBox Builders</a></p>
 
@@ -436,7 +440,7 @@ sudo apt install -y docker-ce</code>
 
         <p>En la sección del constructores le indicamos a packer que utilice la imagen creada en el ejemplo anterior y el usuario creado en ella.</p>
 
-        <p>Las modificaciones de la máquina virtual se pueden realizar con la propiedad vboxmange o con la propiedad vboxmanage_post. En este ejemplo vamos a modificar el tipo de adaptador de red (de nat a bridged). Esta modificación debe realizarse con vboxmanage_post, ya que packer parece necesitar que el adaptador sea nat para poder realizar la conexión SSH con la que comprueba que la máquina es funcional (la comprobación se hace después de realizar las modificaciones de la máquina indicadas en vboxmanage pero antes de las indicadas en vboxmanage_post).</p>
+        <p>Las modificaciones de la máquina virtual se pueden realizar con la propiedad vboxmange o con la propiedad vboxmanage_post. En este ejemplo vamos a modificar el tipo de adaptador de red (de nat a bridged). Esta modificación debe realizarse con vboxmanage_post, ya que packer parece necesitar que el adaptador sea nat para poder realizar la conexión SSH con la que comprueba que la máquina es funcional (la comprobación se hace después de realizar las modificaciones de la máquina indicadas en vboxmanage pero antes de las indicadas en vboxmanage_post). El nombre del adaptador dependerá de la tarjeta de red del ordenador en el que esté instalado VirtualBox.</p>
 
         <p>Esta podría ser entonces la plantilla de modificación de la máquina virtual:</p>
 
@@ -465,7 +469,7 @@ sudo apt install -y docker-ce</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 3 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 10 de mayo de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
