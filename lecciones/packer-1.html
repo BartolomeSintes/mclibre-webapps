@@ -40,7 +40,7 @@
     </div>
   </nav>
 
-  <p>Esta lección es una introducción al uso de packer, la herramienta de creación de máquinas virtuales. Como ejemplo, se explica cómo crear una máquina virtual de VirtualBox en la que se instala el sistema operativo Ubuntu Server y posteriormente se instala Docker en ella.</p>
+  <p>Esta lección es una introducción al uso de <a href="https://www.packer.io/">packer</a>, la herramienta de creación de máquinas virtuales. Como ejemplo, se explica cómo crear una máquina virtual de VirtualBox en la que se instala el sistema operativo Ubuntu Server y posteriormente se instala Docker en ella.</p>
 
   <section id="que-es">
     <h2>Qué es Packer</h2>
@@ -214,14 +214,12 @@ PACKER_LOG_PATH=packerlog.txt
       "iso_url": "ubuntu-18.04-server-amd64.iso",
       "iso_checksum": "1413c9797dbfa1e57fabfb5c91cfb96f",
       "iso_checksum_type": "md5",
-      "ssh_username": "<span class="codigo-resaltado">barto</span>",
-      "ssh_password": "<span class="codigo-resaltado">barto</span>",
       "disk_size": "25000",
       "vboxmanage": [
-        ["modifyvm", "{{.Name}}", "--memory", "1024"]
+        ["modifyvm", "{{.Name}}", "--memory", "1024"],
+        ["modifyvm", "{{.Name}}", "--vram", "64"]
       ],
       "boot_wait": "10s",
-      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
       "boot_command": [
         "&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait5&gt;",
         "&lt;enter&gt;&lt;wait10&gt;",
@@ -231,7 +229,7 @@ PACKER_LOG_PATH=packerlog.txt
         "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait60s&gt;",
         "&lt;tab&gt;&lt;enter&gt;&lt;wait5&gt;",
         "<span class="codigo-resaltado">Bartolome Sintes</span>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
-        "&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "<span class="codigo-resaltado">&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;</span>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
         "<span class="codigo-resaltado">barto</span>&lt;tab&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
         "<span class="codigo-resaltado">barto</span>&lt;tab&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
         "&lt;left&gt;&lt;enter&gt;&lt;wait5&gt;",
@@ -246,7 +244,13 @@ PACKER_LOG_PATH=packerlog.txt
         "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;enter&gt;&lt;wait3m30s&gt;",
         "&lt;enter&gt;&lt;wait40s&gt;",
         "&lt;enter&gt;&lt;wait40s&gt;"
-      ]
+      ],
+      "ssh_username": "<span class="codigo-resaltado">barto</span>",
+      "ssh_password": "<span class="codigo-resaltado">barto</span>",
+      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
+      "output_directory": "packer-1-1",
+      "vm_name": "packer-1-1-ubuntu-18-04-server",
+      "format": "ova"
     }
   ]
 }</code>
@@ -255,9 +259,9 @@ PACKER_LOG_PATH=packerlog.txt
 
         <p>Comentarios:</p>
         <ul>
-          <li>La propiedad vboxmanage (líneas 12 a 14) indican las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>).</li>
-          <li>La propiedad shutdown_command (línea 16) se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario (línea 16).</li>
-          <li>Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina con SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu se elige instalar el servidor OpenSSH (línea 38). La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
+          <li>La propiedad vboxmanage (líneas 10 a 13) indican las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>).</li>
+          <li>Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina con SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu se elige instalar el servidor OpenSSH (línea 36). La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
+          <li>La propiedad shutdown_command (línea 42) se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario (línea 42).</li>
         </ul>
       </section>
     </section>
@@ -298,13 +302,15 @@ PACKER_LOG_PATH=packerlog.txt
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">output-virtualbox-iso/packer-virtualbox-iso-1520842303.ovf</span>",
+      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-server.ova</span>",
+      "guest_additions_mode": "disable",
+      "boot_wait": "30s",
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
       "ssh_password": "<span class="codigo-resaltado">barto</span>",
       "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
-      "boot_wait": "30s",
+      "output_directory": "packer-1-2",
+      "vm_name": "packer-1-2-ubuntu-18-04-server",
       "format": "ova"
-      ],
     }
   ],
   "provisioners": [
@@ -312,8 +318,8 @@ PACKER_LOG_PATH=packerlog.txt
       "type": "shell",
       "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
       "inline": [
-        "apt update",
-        "apt upgrade -y"
+        "apt-get update",
+        "apt-get upgrade -y"
       ]
     }
   ]

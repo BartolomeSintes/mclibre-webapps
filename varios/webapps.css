@@ -6,7 +6,7 @@
 /*                                          */
 /* CSS curso: Aplicaciones Web              */
 /*                                          */
-/* 3 de mayo de 2018                        */
+/* 12 de mayo de 2018                       */
 /*                                          */
 
 /* CSS comun */
@@ -60,8 +60,8 @@ h2, h3, h4 {
 }
 
 pre, pre code {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-family: "Inconsolata", monospace;  /* Chrome user agent style sheet */
   line-height: 120%;
   white-space: pre-wrap;
