@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>VirtualBox. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+  <link rel="stylesheet" href="../varios/prism.css" />
+  <script src="../varios/prism.js"></script>
+</head>
+
+<body>
+  <h1>VirtualBox</h1>
+
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
+
+    <div class="toc">
+      <h2>
+        VirtualBox
+      </h2>
+
+      <ul>
+        <li><a href="#que-es">Qué es</a></li>
+        <li><a href="#ejemplos">Ejemplos</a>
+          <ol>
+            <li><a href="#instalacion-maquina-control">Máquina de control</a></li>
+            <li><a href="#instalacion-nodos">Nodos administrados</a></li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta lección está en elaboración</p>
+
+  <p>Esta lección es una introducción al uso de <a href="https://www.virtualbox.org/">VirtualBox</a>, la herramienta de virtualización de Oracle. Como ejemplo, ... </p>
+
+  <section id="que-es">
+    <h2>Qué es VirtualBox</h2>
+
+    <p>Por escribir ...</p>
+
+  </section>
+
+  <p>Cosas para incluir:</p>
+  <ul>
+    <li>expicar vdi, <a href="https://en.wikipedia.org/wiki/Open_Virtualization_Format">ovf</a>, ova</li>
+    <li>maximizar pantalla</li>
+    <li>conectar USB</li>
+    <li>carpetas compartidas</li>
+    <li>nombre de la tarjeta de red (problema al importar)</li>
+    <li>extension pack</li>
+  </ul>
+
+  <p>Otros</p>
+  <ul>
+    <li>RedHat está incluyendo las Guest additions en el kernel de Linux. En el kernel 4.16 (publicado en abril de 2018) han añadido una parte [<a href="https://www.phoronix.com/scan.php?page=news_item&px=Linux-4.16-vboxguest">fuente</a>].</li>
+  </ul>
+
+  <section id="guest-additions">
+    <h3>Instalar Guest Additions en Ubuntu 18.04 Server</h3>
+
+    <p>Si la máquina virtual se ha creado con Packer, la imagen .iso con las Guest Additions ya se habrá descargado en la máquina virtual, pero si la máquina virtual se ha creado manualmente, es necesario descargarla, por ejemplo con la orden:</p>
+
+    <div class="codigo">
+      <pre><code class="language-shell">wget http://download.virtualbox.org/virtualbox/<span class="codigo-resaltado">5.2.12</span>/VBoxGuestAdditions_<span class="codigo-resaltado">5.2.12</span>.iso</code></pre>
+    </div>
+
+    <p>Hay que descargar la versión de las Guest Additions que coincida con la versión de VirtualBox que se esté utilizando.</p>
+
+    <hr class="corta" />
+
+    <p>Para instalar las VirtualBox Guest Additions en Ubuntu 18.04, siga los pasos siguientes [<a href="https://docs.bitnami.com/virtual-machine/faq/#how-to-install-virtualbox-guest-additions-on-bitnami-virtual-machines">fuente</a>]:</p>
+
+    <ol>
+      <li>Averigúe primero la versión del kernel. Para ello, ejecute la orden:
+        <div class="codigo">
+          <pre><code class="language-shell">uname -a</code></pre>
+        </div>
+        <p>La respuesta indica la versión del kernel:</p>
+        <div class="codigo">
+          <pre><code class="language-shell">Linux ubuntu <span class="codigo-resaltado">4.15.0-20-generic</span> #21-Ubuntu SMP Tue Apr 24 ...</code></pre>
+        </div>
+      </li>
+      <li>Instale las dependencias necesarias para generar los módulos de kernel:
+        <div class="codigo">
+          <pre>
+<code class="language-shell">sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y install dkms build-essential linux-headers-4.15.0-20-generic</code>
+</pre>
+        </div>
+      </li>
+      <li>Las Guest Additions se distribuyen en forma de imagen .iso, por lo que se accede a ellas montándolas como cd-rom:
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo mkdir /mnt/cdrom
+sudo mount ~/<span class="codigo-resaltado">VBoxGuestAdditions.iso</span> /mnt/cdrom
+sudo sh /mnt/cdrom/VBoxLinuxAdditions.run --nox11
+sudo umount /mnt/cdrom
+rm ~/<span class="codigo-resaltado">VBoxGuestAdditions.iso</span></code>
+</pre>
+          </div>
+        </li>
+      </ol>
+  </section>
+
+  <section id="tarjeta-red">
+      <h3>Tarjeta de red</h3>
+
+      <p>Por escribir ...</p>
+    </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 12 de mayo de 2018</p>
+
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
+</html>
