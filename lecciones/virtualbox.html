@@ -26,12 +26,7 @@
 
       <ul>
         <li><a href="#que-es">Qué es</a></li>
-        <li><a href="#ejemplos">Ejemplos</a>
-          <ol>
-            <li><a href="#instalacion-maquina-control">Máquina de control</a></li>
-            <li><a href="#instalacion-nodos">Nodos administrados</a></li>
-          </ol>
-        </li>
+        <li><a href="#guest-additions">Guest Additions</a></li>
       </ul>
     </div>
   </nav>
@@ -97,27 +92,27 @@ sudo apt-get -y install dkms build-essential linux-headers-4.15.0-20-generic</co
         </div>
       </li>
       <li>Las Guest Additions se distribuyen en forma de imagen .iso, por lo que se accede a ellas montándolas como cd-rom:
-          <div class="codigo">
-            <pre>
+        <div class="codigo">
+          <pre>
 <code class="language-shell">sudo mkdir /mnt/cdrom
 sudo mount ~/<span class="codigo-resaltado">VBoxGuestAdditions.iso</span> /mnt/cdrom
 sudo sh /mnt/cdrom/VBoxLinuxAdditions.run --nox11
 sudo umount /mnt/cdrom
 rm ~/<span class="codigo-resaltado">VBoxGuestAdditions.iso</span></code>
 </pre>
-          </div>
-        </li>
-      </ol>
+        </div>
+      </li>
+    </ol>
   </section>
 
   <section id="tarjeta-red">
-      <h3>Tarjeta de red</h3>
+    <h3>Tarjeta de red</h3>
 
-      <p>Por escribir ...</p>
-    </section>
+    <p>Por escribir ...</p>
+  </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 12 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 13 de mayo de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />

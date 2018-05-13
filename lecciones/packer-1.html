@@ -36,6 +36,11 @@
             <li><a href="#modificacion-vm">Modificación VM</a></li>
           </ol>
         </li>
+        <li><a href="#ejemplos-2">Más ejemplos</a>
+          <ol>
+            <li><a href="#instalacion-docker">Instalación Docker</a></li>
+          </ol>
+        </li>
       </ul>
     </div>
   </nav>
@@ -157,7 +162,7 @@ PACKER_LOG_PATH=packerlog.txt
     <ul>
       <li>En el primer ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 18.04 LTS en ella.</li>
       <li>En el segundo ejemplo, a partir de la máquina virtual creada en el primer ejemplo crearemos una segunda máquina y actualizaremos el sistema operativo.</li>
-      <li>En el tercer ejemplo, a partir de la máquina virtual creada en el primer ejemplo crearemos una tercera máquina en la que instalaremos Docker.</li>
+      <li>En el tercer ejemplo, a partir de la máquina virtual creada en el primer ejemplo crearemos una tercera máquina en la que instalaremos las VirtualBox Guest Additions.</li>
       <li>En el cuarto ejemplo, a partir de la máquina virtual creada en el tercer ejemplo modificaremos la configuración de la máquina virtual.</li>
     </ul>
 
@@ -170,12 +175,9 @@ PACKER_LOG_PATH=packerlog.txt
 
       <ul>
         <li>Tener instalado <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
-        <li>Descargar la imagen .iso del disco de instalación de Ubuntu Server 18.04 LTS.
-          <ul>
-            <li>página de descarga (1): <a href="https://www.ubuntu.com/download/server">https://www.ubuntu.com/download/server</a></li>
-            <li>página de descarga (2): <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a></li>
-          </ul>
+        <li>Descargar la imagen .iso del disco de instalación de Ubuntu Server 18.04 LTS de la página de descarga <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a>.
           <p>Esta lección se ha elaborado con la versión <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-amd64.iso">Ubuntu Server 18.04 LTS 64 bits</a>.</p>
+          <p><strong>Nota</strong>: La página de descarga <a href="https://www.ubuntu.com/download/server">https://www.ubuntu.com/download/server</a> descarga la versión Live Server, que incluye un instalador diferente y por tanto una plantilla distinta a la de este ejemplo.</p>
         </li>
         <li>Crear la plantilla de packer (por ejemplo, plantilla-1.json).</li>
         <li>Ejecutar packer
@@ -185,7 +187,7 @@ PACKER_LOG_PATH=packerlog.txt
         </li>
       </ul>
 
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-iso</strong> y creará en él el fichero ovf.</p>
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-1</strong> y creará en él el fichero <strong>packer-1-1-ubuntu-18-04-server.ova</strong>.</p>
 
       <section id="plantilla-creacion-vm">
         <h4>Plantilla de creación de la máquina virtual (plantilla-1.json)</h4>
@@ -202,7 +204,7 @@ PACKER_LOG_PATH=packerlog.txt
 
         <p>En la lección <a href="ubuntu-instalacion.html">Instalación de Ubuntu</a> se muestra un ejemplo de instalación de Ubuntu Server 18.04 LTS. La página muestra los sucesivos pasos del proceso de instalación y las entradas de teclado y tiempos de espera correspondientes. Por precaución, el tiempo de espera indicado a packer es siempre algo superior al cronometrado.</p>
 
-        <p>Esta podría ser entonces la plantilla de creación de la máquina virtual con Ubuntu:</p>
+        <p>Esta podría ser la plantilla de creación de la máquina virtual con Ubuntu:</p>
 
         <div class="codigo">
           <pre class="line-numbers">
@@ -248,8 +250,8 @@ PACKER_LOG_PATH=packerlog.txt
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
       "ssh_password": "<span class="codigo-resaltado">barto</span>",
       "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
-      "output_directory": "packer-1-1",
-      "vm_name": "packer-1-1-ubuntu-18-04-server",
+      "output_directory": "<span class="codigo-resaltado">packer-1-1</span>",
+      "vm_name": "<span class="codigo-resaltado">packer-1-1-ubuntu-18-04-server</span>",
       "format": "ova"
     }
   ]
@@ -259,9 +261,10 @@ PACKER_LOG_PATH=packerlog.txt
 
         <p>Comentarios:</p>
         <ul>
-          <li>La propiedad vboxmanage (líneas 10 a 13) indican las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>).</li>
-          <li>Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina con SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu se elige instalar el servidor OpenSSH (línea 36). La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
-          <li>La propiedad shutdown_command (línea 42) se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario (línea 42).</li>
+          <li>Líneas 10 a 13: La propiedad vboxmanage indica las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>).</li>
+          <li>Línea 36: Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina con SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu se elige instalar el servidor OpenSSH. La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
+          <li>Línea 42: La propiedad shutdown_command se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario.</li>
+          <li>Linea 45: La máquina virtual se guarda en formato ova para que conste de un único fichero.</li>
         </ul>
       </section>
     </section>
@@ -281,7 +284,7 @@ PACKER_LOG_PATH=packerlog.txt
         </li>
       </ul>
 
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-ovf</strong> y creará en él el fichero ovf (u ova) con una nueva imagen de máquina virtual.</p>
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-2</strong> y creará en él el fichero <strong>packer-1-2-ubuntu-18-04-server.ova</strong>.</p>
 
       <section id="plantilla-actualizacion-vm">
         <h4>Plantilla de actualización de la máquina virtual (plantilla-2.json)</h4>
@@ -294,7 +297,7 @@ PACKER_LOG_PATH=packerlog.txt
 
         <p>En la sección de proveedores le indicemos a packer que ejecute un par de comandos para actualizar el sistema.</p>
 
-        <p>Esta podría ser entonces la plantilla de modificación de la máquina virtual con Ubuntu:</p>
+        <p>Esta podría ser la plantilla de actualización de la máquina virtual:</p>
 
         <div class="codigo">
           <pre class="line-numbers">
@@ -308,8 +311,8 @@ PACKER_LOG_PATH=packerlog.txt
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
       "ssh_password": "<span class="codigo-resaltado">barto</span>",
       "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
-      "output_directory": "packer-1-2",
-      "vm_name": "packer-1-2-ubuntu-18-04-server",
+      "output_directory": "<span class="codigo-resaltado">packer-1-2</span>",
+      "vm_name": "<span class="codigo-resaltado">packer-1-2-ubuntu-18-04-server</span>",
       "format": "ova"
     }
   ],
@@ -329,17 +332,16 @@ PACKER_LOG_PATH=packerlog.txt
 
         <p>Comentarios:</p>
         <ul>
-          <li>La máquina virtual se guarda en formato ova para que conste de un único fichero (línea 10).</li>
-          <li>Al comando apt upgrade le añadimos la opción -y (línea 20) porque no es un entorno interactivo.</li>
-          <li>Al importar la imagen en VirtualBox y ponerla en marcha, Ubuntu nos puede mostrar un mensaje indicando que hay actualizaciones pendientes, aunque realmente no hay actualizaciones pendientes. <a href="https://serverfault.com/questions/262751/updates-in-amazon-ec2-ubuntu-10-04-server/262773">Parece ser</a> que es un fallo de la utilidad MOTD (Message of the day) que no actualiza adecudamente el mensaje.</li>
+          <li>Línea 6: De forma predeterminada, Packer transfiere la imagen .iso de las VirtualBox Guest Additions a la máquina virtual. En este caso se ha deshabilitado esta transferencia puesto que ya se ha transferido a la imagen inicial creada en el ejemplo 1.</li>
+          <li>Línea 22: Al comando apt upgrade le añadimos la opción -y porque no es un entorno interactivo.</li>
         </ul>
       </section>
     </section>
 
     <section id="provisioners-script">
-      <h3>Ejemplo 3: Actualización de la máquina virtual e instalación de Docker mediante un <i>script</i></h3>
+      <h3>Ejemplo 3: Instalación de VirtualBox Guest Additions mediante un <i>script</i></h3>
 
-      <p>Para actualizar la máquina virtual necesitamos:</p>
+      <p>Para instalar las VirtualBox Guest Addtions en la máquina virtual necesitamos:</p>
 
       <ul>
         <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase el ejemplo 1)</li>
@@ -351,14 +353,14 @@ PACKER_LOG_PATH=packerlog.txt
         </li>
       </ul>
 
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-ovf</strong> y creará en él el fichero ovf (u ova) con una nueva imagen de máquina virtual.</p>
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-3</strong> y creará en él el fichero <strong>packer-1-3-ubuntu-18-04-server.ova</strong>.</p>
 
       <hr class="corta" />
 
       <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48" />Packer 1.2.3 no es capaz de enviar el script si este tiene los finales de línea de Windows [<a href="https://github.com/hashicorp/packer/issues/6151">packer issue 6151</a>]. Es necesario asegurarse de que el script tenga finales de línea de Unix.</p>
 
-      <section id="plantilla-instalacion-docker">
-        <h4>Plantilla de actualización de la máquina virtual e instalación de Docker (plantilla-3.json)</h4>
+      <section id="plantilla-instalacion-guest-additions">
+        <h4>Plantilla de instalación de VirtualBox Guest Additions (plantilla-3.json)</h4>
 
         <p>Documentación de packer: <a href="https://www.packer.io/docs/provisioners/shell.html">Shells provisioners</a></p>
 
@@ -368,7 +370,7 @@ PACKER_LOG_PATH=packerlog.txt
 
         <p>En la sección de proveedores le indicamos a packer que ejecute un scripts con todos los comandos necesarios para actualizar el sistema e instalar Docker.</p>
 
-        <p>Esta podría ser entonces la plantilla de modificación de la máquina virtual con Ubuntu:</p>
+        <p>Esta podría ser la plantilla de instalación de Virtual Guest Additions:</p>
 
         <div class="codigo">
           <pre class="line-numbers">
@@ -376,11 +378,14 @@ PACKER_LOG_PATH=packerlog.txt
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">output-virtualbox-iso/packer-virtualbox-iso-1520842303.ovf</span>",
+      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-server.ova</span>",
+      "guest_additions_mode": "disable",
+      "boot_wait": "30s",
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
       "ssh_password": "<span class="codigo-resaltado">barto</span>",
       "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
-      "boot_wait": "30s",
+      "output_directory": "<span class="codigo-resaltado">packer-1-3</span>",
+      "vm_name": "<span class="codigo-resaltado">packer-1-3-ubuntu-18-04-server</span>",
       "format": "ova"
     }
   ],
@@ -396,32 +401,38 @@ PACKER_LOG_PATH=packerlog.txt
 </pre>
         </div>
 
-        <p>Este podría ser el <i>script</i> de instalación de Docker (basado en las instrucciones que se comentan en la lección <a href="docker-1.html#ejercicio-1">Docker. Ejercicios (1)</a>).</p>
+        <p>Este podría ser el <i>script</i> de instalación de las VirtualBox Guest Additions (basado en las instrucciones que se comentan en la lección <a href="virtualbox.html#guest-additions">VirtualBox</a>).</p>
 
         <div class="codigo">
           <pre class="line-numbers">
-<code class="language-bash">sudo apt update
-sudo apt upgrade -y
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88 &gt; <span class="codigo-resaltado">info-fingerprint.txt</span>
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
-sudo apt update
-sudo apt upgrade -y
-sudo apt policy docker-ce &gt; <span class="codigo-resaltado">info-policy.txt</span>
-sudo apt install -y docker-ce</code>
+<code class="language-bash">sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-20-generic</span>
+sudo mkdir /mnt/cdrom
+sudo mount ~/VBoxGuestAdditions.iso /mnt/cdrom
+sudo sh /mnt/cdrom/VBoxLinuxAdditions.run --nox11
+sudo umount /mnt/cdrom
+rm ~/VBoxGuestAdditions.iso</code>
 </pre>
         </div>
 
         <p>Comentario:</p>
         <ul>
-          <li>El resultado de las comprobaciones de la clave GPG oficial de Docker (línea 5) y de que el comando apt está utilizando el repositorio correcto (línea 9) se guardan en dos ficheros .txt para su comprobación posterior.</li>
+          <li>Línea 3: la versión del kernel se puede obtener mediante la orden:
+            <div class="codigo">
+              <pre><code class="language-shell">uname -a</code></pre>
+            </div>
+            <p>La respuesta indica la versión del kernel:</p>
+            <div class="codigo">
+              <pre><code class="language-shell">Linux ubuntu <span class="codigo-resaltado">4.15.0-20-generic</span> #21-Ubuntu SMP Tue Apr 24 ...</code></pre>
+            </div>
+          </li>
         </ul>
       </section>
     </section>
 
     <section id="modificacion-vm">
-      <h3>Ejemplo 4: Modificación de la máquina virtual</h3>
+      <h3>Ejemplo 4: Modificación final de la máquina virtual</h3>
 
       <p>Para modificar la máquina virtual necesitamos:</p>
 
@@ -435,20 +446,22 @@ sudo apt install -y docker-ce</code>
         </li>
       </ul>
 
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-ovf</strong> y creará en él el fichero ovf (u ova) con una nueva imagen de máquina virtual.</p>
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-4</strong> y creará en él el fichero <strong>packer-1-4-ubuntu-18-04-server.ova</strong>.</p>
 
       <section id="plantilla-modificacion-vm">
-        <h4>Plantilla de modificación de la máquina virtual (plantilla-4.json)</h4>
+        <h4>Plantilla de modificación final de la máquina virtual (plantilla-4.json)</h4>
 
         <p>Documentación de packer: <a href="https://www.packer.io/docs/builders/virtualbox-iso.html">VirtualBox Builders</a></p>
 
-        <p>En una plantilla de packer, la sección que define la instalación y configuración de la máquina virtual se denomina <strong>proveedor</strong> (en inglés <strong><i>provisioner</i></strong>).</p>
+        <p>En una plantilla de packer, la sección que define la creación de la máquina se denomina <strong>constructor</strong> (en inglés <strong><i>builder</i></strong>).</p>
 
         <p>En la sección del constructores le indicamos a packer que utilice la imagen creada en el ejemplo anterior y el usuario creado en ella.</p>
 
-        <p>Las modificaciones de la máquina virtual se pueden realizar con la propiedad vboxmange o con la propiedad vboxmanage_post. En este ejemplo vamos a modificar el tipo de adaptador de red (de nat a bridged). Esta modificación debe realizarse con vboxmanage_post, ya que packer parece necesitar que el adaptador sea nat para poder realizar la conexión SSH con la que comprueba que la máquina es funcional (la comprobación se hace después de realizar las modificaciones de la máquina indicadas en vboxmanage pero antes de las indicadas en vboxmanage_post). El nombre del adaptador dependerá de la tarjeta de red del ordenador en el que esté instalado VirtualBox.</p>
+        <p>Las modificaciones de la máquina virtual se pueden realizar con la propiedad vboxmanage o con la propiedad vboxmanage_post. En este ejemplo vamos a modificar el tipo de adaptador de red (de nat a bridged). Esta modificación debe realizarse con vboxmanage_post, ya que packer parece necesitar que el adaptador sea nat para poder realizar la conexión SSH con la que comprueba que la máquina es funcional (la comprobación se hace después de realizar las modificaciones de la máquina indicadas en vboxmanage pero antes de las indicadas en vboxmanage_post).</p>
 
-        <p>Esta podría ser entonces la plantilla de modificación de la máquina virtual:</p>
+        <p>El nombre del adaptador dependerá de la tarjeta de red del ordenador en el que esté instalado VirtualBox.</p>
+
+        <p>Esta podría ser la plantilla de modificación final de la máquina virtual:</p>
 
         <div class="codigo">
           <pre class="line-numbers">
@@ -456,15 +469,18 @@ sudo apt install -y docker-ce</code>
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">output-virtualbox-iso/packer-virtualbox-ovf-1520855952.ova</span>",
+      "source_path": "<span class="codigo-resaltado">packer-1-3/packer-1-3-ubuntu-18-04-server.ova</span>",
+      "guest_additions_mode": "disable",
+      "boot_wait": "30s",
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
       "ssh_password": "<span class="codigo-resaltado">barto</span>",
-      "boot_wait": "30s",
-      "format": "ova",
       "vboxmanage_post": [
         ["modifyvm", "{{.Name}}", "--nic1", "bridged"],
         ["modifyvm", "{{.Name}}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]
-      ]
+      ],
+      "output_directory": "<span class="codigo-resaltado">packer-1-4</span>",
+      "vm_name": "<span class="codigo-resaltado">packer-1-4-ubuntu-18-04-server</span>",
+      "format": "ova"
     }
   ]
 }</code>
@@ -474,8 +490,76 @@ sudo apt install -y docker-ce</code>
     </section>
   </section>
 
+  <section id="ejemplos-2">
+    <h2>Otros ejemplos</h2>
+
+    <section id="instalacion-docker">
+      <h3>Ejemplo 5: Instalación de Docker mediante un <i>script</i></h3>
+
+      <p>Actualmente (mayo de 2018) todavía no hay disponible una versión de docker estable para Ubuntu 18.04, aunque sí que está disponible una versión nightly.</p>
+
+      <section id="plantilla-instalacion-docker">
+        <h4>Plantilla de instalación de Docker (plantilla-5.json)</h4>
+
+        <p>Esta podría ser la plantilla de instalación de Docker:</p>
+
+        <div class="codigo">
+          <pre class="line-numbers">
+<code class="language-json">{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-server.ova</span>",
+      "guest_additions_mode": "disable",
+      "boot_wait": "30s",
+      "ssh_username": "<span class="codigo-resaltado">barto</span>",
+      "ssh_password": "<span class="codigo-resaltado">barto</span>",
+      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
+      "output_directory": "<span class="codigo-resaltado">packer-1-5</span>",
+      "vm_name": "<span class="codigo-resaltado">packer-1-5-ubuntu-18-04-server</span>",
+      "format": "ova"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "script": "<span class="codigo-resaltado">script-5.sh</span>",
+      "pause_before": "10s"
+    }
+  ]
+}</code>
+</pre>
+        </div>
+
+        <p>Este podría ser el <i>script</i> de instalación de Docker (basado en las instrucciones que se comentan en la lección <a href="docker-1.html#ejercicio-1">Docker. Ejercicios (1)</a>).</p>
+
+        <div class="codigo">
+          <pre class="line-numbers">
+<code class="language-bash">sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88 &gt; <span class="codigo-resaltado">info-fingerprint.txt</span>
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic <span class="codigo-resaltado">stable</span>"
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-cache policy docker-ce &gt; <span class="codigo-resaltado">info-policy.txt</span>
+sudo apt install -y docker-ce</code>
+</pre>
+        </div>
+
+        <p>Comentario:</p>
+        <ul>
+          <li>Líneas 5 y 9: El resultado de las comprobaciones de la clave GPG oficial de Docker (línea 5) y de que el comando apt está utilizando el repositorio correcto (línea 9) se guardan en dos ficheros .txt para su comprobación posterior.</li>
+          <li>Línea 6: En vez de la versión <strong>stable</strong>, se pueden probar las versiones <strong>edge</strong> y <strong>nightly</strong>.</li>
+        </ul>
+      </section>
+    </section>
+  </section>
+
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 13 de mayo de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
