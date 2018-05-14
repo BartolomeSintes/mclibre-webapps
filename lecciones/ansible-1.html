@@ -26,10 +26,16 @@
 
       <ul>
         <li><a href="#que-es">Qué es</a></li>
-        <li><a href="#ejemplos">Ejemplos</a>
+        <li><a href="#ejemplos">Puesta en marcha</a>
           <ol>
             <li><a href="#instalacion-maquina-control">Máquina de control</a></li>
             <li><a href="#instalacion-nodos">Nodos administrados</a></li>
+            <li><a href="#configuracion-inicial">Configuración inicial</a></li>
+          </ol>
+        </li>
+        <li><a href="#playbooks">Playbooks</a>
+          <ol>
+            <li><a href="#playbook-shell">Comandos de shell</a></li>
           </ol>
         </li>
       </ul>
@@ -116,8 +122,15 @@
     <p>En la máquina de control es donde se instala Ansible. En los nodos administrados no es necesario instalar ningún software. El acceso de la máquina de control a los nodos administrados se hace normalmente mediante conexiones SSH.</p>
   </section>
 
-  <section id="ejemplos">
-    <h2>Ejemplos</h2>
+  <section id="puesta-en-marcha">
+    <h2>Puesta en marcha</h2>
+
+    <p>En los tres apartados siguientes:</p>
+    <ul>
+      <li>se crea una máquina virtual con Ubuntu 18.03 Server que actuará como máquina de control</li>
+      <li>se crea una o varias máquinas virtuales con Ubuntu 18.04 Server que actuará(n) como nodos administrados</li>
+      <li>se configura la máquina de control para que Ansible pueda acceder a los nodos administrados</li>
+    </ul>
 
     <section id="instalacion-maquina-control">
       <h3>Máquina de control: instalación de Ansible en Ubuntu 18.04</h3>
@@ -247,7 +260,7 @@ sudo apt-get install -y ansible</code>
 <code class="language-configuracion">[clients]
 <span class="codigo-resaltado">192.168.1.16</span>
 
-[clients-vars]
+[clients:vars]
 ansible_python_interpreter=/usr/bin/python3</code>
 </pre>
           </div>
@@ -298,6 +311,118 @@ ssh-copy-id <span class="codigo-resaltado">barto@192.168.1.16</span></code>
     </section>
   </section>
 
+  <section id="playbooks">
+    <p>Ansible trabaja mediante playboooks. Los playbooks son ficheros YAML que describen las operaciones a realizar sobre los nodos administrados.</p>
+
+    <section id="playbook-shell">
+      <h3>Ejemplo 1: Ejecución de comandos de shell</h3>
+
+      <ul>
+        <li>Cree el archivo <strong>playbook-1-1.yaml</strong> con el siguiente contenido:
+          <div class="codigo">
+            <pre>
+<code class="language-yaml">---
+- hosts: clients
+  tasks:
+  - name: ejemplo 1
+    shell: ls -al &gt;&gt; prueba.txt</code>
+</pre>
+          </div>
+        </li>
+        <li>Ejecute el archivo <strong>playbook-1-1.yaml</strong>:
+          <div class="codigo">
+            <pre>
+<code class="language-shell">ansible-playbook playbook-1-1.yaml</code>
+</pre>
+          </div>
+        </li>
+
+        <li>Obtendrá una respuesta similar a esta:
+          <div class="codigo">
+            <pre>
+<code class="language-shell">PLAY [clients] ******************************************************************
+
+TASK [Gathering facts] **********************************************************
+ok: [192.168.1.16]
+
+TASK [ejemplo 1] ****************************************************************
+changed: [192.168.1.16]
+
+PLAY RECAP **********************************************************************
+192.168.1.16                 : ok=2     changed=1   unreachable=0    failed=0</code>
+</pre>
+          </div>
+        </li>
+
+        <li>En el nodo administrado puede comprobar que se ha creado el fichero listado.txt con el listado del directorio.</li>
+
+        <li>Para obtener más información sobre la ejecución del playbook, ejecute el archivo con la opción --verbose:
+          <div class="codigo">
+            <pre>
+<code class="language-shell">ansible-playbook playbook-1-1.yaml --verbose</code>
+</pre>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="playbook-apt">
+      <h3>Ejemplo 1: Actualización del sistema</h3>
+
+      <ul>
+        <li>Cree el archivo <strong>playbook-1-2.yaml</strong> con el siguiente contenido:
+          <div class="codigo">
+            <pre>
+<code class="language-yaml">---
+- hosts: clients
+  tasks:
+  - name: ejemplo 2
+    become: yes
+    apt:
+      update_cache: yes
+      upgrade: yes</code>
+</pre>
+          </div>
+        </li>
+        <li>Ejecute el archivo <strong>playbook-1-2.yaml</strong> con la opción -K. La opción -K es necesaria porque apt requiere la contraseña del usuario:
+          <div class="codigo">
+            <pre>
+<code class="language-shell">ansible-playbook playbook-1-2.yaml -K</code>
+</pre>
+          </div>
+        </li>
+
+        <li>Obtendrá una respuesta similar a esta:
+          <div class="codigo">
+            <pre>
+<code class="language-shell">SUDO password:
+
+PLAY [clients] ******************************************************************
+
+TASK [Gathering facts] **********************************************************
+ok: [192.168.1.16]
+
+TASK [ejemplo 1] ****************************************************************
+changed: [192.168.1.16]
+
+PLAY RECAP **********************************************************************
+192.168.1.16                 : ok=2     changed=1   unreachable=0    failed=0</code>
+</pre>
+          </div>
+        </li>
+
+        <li>En el nodo administrado puede comprobar que se ha creado el fichero listado.txt con el listado del directorio.</li>
+
+        <li>Para obtener más información sobre la ejecución del playbook, ejecute el archivo con la opción --verbose:
+          <div class="codigo">
+            <pre>
+<code class="language-shell">ansible-playbook playbook-1-1.yaml --verbose</code>
+</pre>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </section>
   <footer>
     <p class="ultmod">Última modificación de esta página: 14 de mayo de 2018</p>
 
