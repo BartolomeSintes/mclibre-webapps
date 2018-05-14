@@ -262,6 +262,7 @@ PACKER_LOG_PATH=packerlog.txt
         <p>Comentarios:</p>
         <ul>
           <li>Líneas 10 a 13: La propiedad vboxmanage indica las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>).</li>
+          <li>Línea 24: Ubuntu propone un nombre de usuario a partir del nombre de usuario completo escrito en la pantalla anterior. Dependiendo del nombre propuesto habrá que borrar más o menos caracteres o añadir otros. En el ejemplo simplemente se borran los cuatro últimos caracteres del nombre propuesto por Ubuntu.</li>
           <li>Línea 36: Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina con SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu se elige instalar el servidor OpenSSH. La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
           <li>Línea 42: La propiedad shutdown_command se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario.</li>
           <li>Linea 45: La máquina virtual se guarda en formato ova para que conste de un único fichero.</li>
@@ -486,6 +487,11 @@ rm ~/VBoxGuestAdditions.iso</code>
 }</code>
 </pre>
         </div>
+
+        <p>Notas:</p>
+        <ul>
+          <li>Línea 12: El nombre del adaptador 1 depende del ordenador en el que esté instalado VirtualBox.</li>
+        </ul>
       </section>
     </section>
   </section>

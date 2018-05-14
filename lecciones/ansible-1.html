@@ -113,7 +113,7 @@
 
     <p>Con Ansible, un ordenador es la <strong>máquina de control</strong> (<i>control machine</i>) y el resto de ordenadores son los <strong>nodos administrados</strong> (<i>managed nodes</i>).</p>
 
-    <p>En la máquina de control es donde se instala Ansible. En los nodos administrados no es necesario instalar ingún software. El acceso de la máquina de control a los nodos administrados se hace normalmente mediante conexiones SSH.</p>
+    <p>En la máquina de control es donde se instala Ansible. En los nodos administrados no es necesario instalar ningún software. El acceso de la máquina de control a los nodos administrados se hace normalmente mediante conexiones SSH.</p>
   </section>
 
   <section id="ejemplos">
@@ -122,69 +122,54 @@
     <section id="instalacion-maquina-control">
       <h3>Máquina de control: instalación de Ansible en Ubuntu 18.04</h3>
 
-      <p>Instalaremos Ansible en una máquina virtual de VirtualBox con Ubuntu 18.04 Server que ejercerá de máquina de control. La instalación la realizaremos con Packer.</p>
-
-      <p>Para instalar Ansible con Packer, necesitamos:</p>
+      <p>Instalaremos Ansible en una máquina virtual de VirtualBox con Ubuntu 18.04 Server que ejercerá de máquina de control. La instalación la realizaremos con Packer a partir de la imagen creada en el <a href="#creacion-vm-vbox-ubuntu">ejemplo 1 de la lección de Packer</a> mediante la plantilla y script siguientes:</p>
 
       <ul>
-        <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase el <a href="#creacion-vm-vbox-ubuntu">ejemplo 1 de la lección de Packer</a>)</li>
-        <li>Crear la plantilla de packer (por ejemplo, ansible-1-template.json) y el script de shell a ejecutar (por ejemplo, ansible-1-shell.sh).</li>
-        <li>Ejecutar packer
+        <li>Plantilla de Packer <strong>ansible-1-1.json</strong>:
+
           <div class="codigo">
-            <pre>C:\packer&gt;packer build ansible-1-template.json</pre>
-          </div>
-        </li>
-      </ul>
-
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>output-virtualbox-ovf</strong> y creará en él el fichero ovf (u ova) con una nueva imagen de máquina virtual.</p>
-
-      <section id="plantilla-instalacion-maquina-control">
-        <h4>Plantilla de creación de la máquina de control (ansible-1-plantilla.json)</h4>
-
-        <p>Esta podría ser la plantilla de creación de la máquina de control Ubuntu:</p>
-
-        <div class="codigo">
-          <pre class="line-numbers">
+            <pre class="line-numbers">
 <code class="language-json">{
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">output-virtualbox-iso/packer-virtualbox-iso-1520842303.ovf</span>",
+      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-server.ova</span>",
+      "guest_additions_mode": "disable",
       "boot_wait": "30s",
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
       "ssh_password": "<span class="codigo-resaltado">barto</span>",
       "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
       "post_shutdown_delay": "120s",
-      "format": "ova",
       "vboxmanage_post": [
         ["modifyvm", "{{.Name}}", "--nic1", "bridged"],
-        ["modifyvm", "{{.Name}}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"],
-        ["modifyvm", "{{.Name}}", "--vram", "<span class="codigo-resaltado">64</span>"]
-      ]
+        ["modifyvm", "{{.Name}}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]
+      ],
+      "output_directory": "<span class="codigo-resaltado">ansible-1-1</span>",
+      "vm_name": "<span class="codigo-resaltado">ansible-1-1-control</span>",
+      "format": "ova"
     }
   ],
   "provisioners": [
     {
       "type": "shell",
       "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
-      "script": "<span class="codigo-resaltado">ansible-1-shell.sh</span>",
+      "script": "<span class="codigo-resaltado">ansible-1-1.sh</span>",
       "pause_before": "10s"
     }
   ]
 }</code>
 </pre>
-        </div>
+          </div>
 
-        <p>Notas:</p>
-        <ul>
-          <li>El retardo tras el apagado (línea 10) es para dar tiempo a VirtualBox a desbloquear la máquina y poder hacer la exportación final.</li>
-          <li>El nombre del adaptador 1 (línea 14) depende del ordenador en el que esté instalado VirtualBox.</li>
-        </ul>
+          <p>Notas:</p>
+          <ul>
+            <li>Línea 11: El retardo tras el apagado es para dar tiempo a VirtualBox a desbloquear la máquina y poder hacer la exportación final.</li>
+          </ul>
+        </li>
+        <li><i>script</i> de instalación de Ansible <strong>ansible-1-1.sh</strong> [<a href="http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu">fuente</a>]:
 
-        <p>Este podría ser el <i>script</i> de instalación de Ansible [<a href="http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-releases-via-apt-ubuntu">fuente</a>].</p>
-
-        <div class="codigo">
-          <pre class="line-numbers">
+          <div class="codigo">
+            <pre class="line-numbers">
 <code class="language-bash">sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install software-properties-common
@@ -192,19 +177,129 @@ sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get install -y ansible</code>
 </pre>
-        </div>
-      </section>
+          </div>
+        </li>
+      </ul>
     </section>
 
     <section id="instalacion-nodos">
       <h3>Nodos administrados: Ubuntu 18.04</h3>
 
-      <p>Por escribir ...</p>
+      <p>En los nodos administrados no es necesario instalar Ansible. Los nodos administrados serán también máquinas virtuales de VirtualBox con Ubuntu 18.04 Server. La instalación la realizaremos con Packer a partir de la imagen creada en el <a href="#creacion-vm-vbox-ubuntu">ejemplo 1 de la lección de Packer</a> mediante la plantilla siguiente. En caso de querer crear otros nodos administrados, deberíamos cambiar el directorio de salida y el nombre de la máquina virtual (líneas 16 y 17) y ejecutar de nuevo la plantilla.</p>
+
+      <ul>
+        <li>Plantilla de Packer <strong>ansible-1-2.json</strong>:
+
+          <div class="codigo">
+            <pre class="line-numbers">
+<code class="language-json">{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-server.ova</span>",
+      "guest_additions_mode": "disable",
+      "boot_wait": "30s",
+      "ssh_username": "<span class="codigo-resaltado">barto</span>",
+      "ssh_password": "<span class="codigo-resaltado">barto</span>",
+      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
+      "post_shutdown_delay": "120s",
+      "vboxmanage_post": [
+        ["modifyvm", "{{.Name}}", "--nic1", "bridged"],
+        ["modifyvm", "{{.Name}}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]
+      ],
+      "output_directory": "<span class="codigo-resaltado">ansible-1-2-1</span>",
+      "vm_name": "<span class="codigo-resaltado">ansible-1-2-nodo-1</span>",
+      "format": "ova"
+    }
+  ]
+}</code>
+</pre>
+          </div>
+
+          <p>Notas:</p>
+          <ul>
+            <li>Línea 11: El retardo tras el apagado es para dar tiempo a VirtualBox a desbloquear la máquina y poder hacer la exportación final.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section id="configuracion-inicial">
+      <h3>Configuración inicial y primera conexión</h3>
+
+      <p>La máquina de control Ansible se conecta con los nodos administrados por SSH. Para poder realizar esa conexión y comprobar su correcto funcionamiento, realice estos pasos en la máquina de cotnrol:</p>
+
+      <ul>
+        <li>Edite el archivo <strong>/etc/ansible/hosts</strong> para añadir la dirección IP de los nodos administrados:
+
+          <div class="codigo">
+            <pre>
+<code class="language-shell">sudo nano /etc/ansible/hosts</code>
+</pre>
+          </div>
+        </li>
+        <li>En el archivo <strong>/etc/ansible/hosts</strong> Ansible permite crear grupos de nodos. Los nombre de los grupos se escriben entre corchetes ([XXX]).
+
+          <p>Las opciones de configuración se pueden escribir en grupo [XXX-vars] (y afectan a todos los nodos incluidos en el grupo:</p>
+
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">[clients]
+<span class="codigo-resaltado">192.168.1.16</span>
+
+[clients-vars]
+ansible_python_interpreter=/usr/bin/python3</code>
+</pre>
+          </div>
+          <p>Notas:</p>
+          <ul>
+            <li>Como Ubuntu 18.04 incluye Python 3 (pero no Python 2), es necesario indicar a Ansible que utilice python3..
+            </li>
+          </ul>
+
+          <p>Las opciones de configuración se pueden escribir en cada nodo (y afectan únicamente a dicho nodo):</p>
+
+          <div class="codigo">
+            <pre>
+<code class="language-configuracion">[clients]
+<span class="codigo-resaltado">192.168.1.16</span> ansible_python_interpreter=/usr/bin/python3</code>
+</pre>
+          </div>
+        </li>
+
+        <li>Ansible se comunica con los nodos mediante SSH por lo que se debe crear una clave SSH en la máquina de control y enviarla a los nodos administrados:
+          <div class="codigo">
+            <pre>
+<code class="language-shell">ssh-keygen -t rsa
+ssh-copy-id <span class="codigo-resaltado">barto@192.168.1.16</span></code>
+</pre>
+          </div>
+        </li>
+
+        <li>Compruebe que se puede conectar con los nodos mediante la orden:
+
+          <div class="codigo">
+            <pre>
+<code class="language-shell">ansible all -m ping</code>
+</pre>
+          </div>
+
+          <p>Por cada nodo administrado debe mostrarse una respuesta similar a esta:</p>
+          <div class="codigo">
+            <pre>
+<code class="">192.168.1.16 | SUCCESS =&gt; {
+    "changed": false,
+    "ping": "pong"
+}</code>
+</pre>
+          </div>
+        </li>
+      </ul>
     </section>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 14 de mayo de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
