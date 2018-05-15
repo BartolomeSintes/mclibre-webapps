@@ -317,6 +317,8 @@ ssh-copy-id <span class="codigo-resaltado">barto@192.168.1.16</span></code>
     <section id="playbook-shell">
       <h3>Ejemplo 1: Ejecución de comandos de shell</h3>
 
+      <p>Para ejecutar comandos de la <i>shell</i>, Ansible dispone del módulo <a href="http://docs.ansible.com/ansible/latest/modules/shell_module.html">shell</a>.</p>
+
       <ul>
         <li>Cree el archivo <strong>playbook-1-1.yaml</strong> con el siguiente contenido:
           <div class="codigo">
@@ -366,8 +368,10 @@ PLAY RECAP *********************************************************************
       </ul>
     </section>
 
-    <section id="playbook-apt">
-      <h3>Ejemplo 1: Actualización del sistema</h3>
+    <section id="playbook-apt-1">
+      <h3>Ejemplo 2: Actualización del sistema</h3>
+
+      <p>Para tareas de mantenimiento de paquetes, Ansible dispone del módulo <a href="http://docs.ansible.com/ansible/latest/modules/apt_module.html">apt</a>.</p>
 
       <ul>
         <li>Cree el archivo <strong>playbook-1-2.yaml</strong> con el siguiente contenido:
@@ -402,29 +406,102 @@ PLAY [clients] *****************************************************************
 TASK [Gathering facts] **********************************************************
 ok: [192.168.1.16]
 
-TASK [ejemplo 1] ****************************************************************
+TASK [ejemplo 2] ****************************************************************
+[WARNING]: Could not find aptitude. Using apt-get instead.
 changed: [192.168.1.16]
 
 PLAY RECAP **********************************************************************
 192.168.1.16                 : ok=2     changed=1   unreachable=0    failed=0</code>
 </pre>
           </div>
+          <p>Nota:</p>
+          <ul>
+            <li>El aviso [WARNING] se debe a que el paquete aptitude no está instalado.</li>
+          </ul>
         </li>
+      </ul>
+    </section>
 
-        <li>En el nodo administrado puede comprobar que se ha creado el fichero listado.txt con el listado del directorio.</li>
+    <section id="playbook-apt-2">
+      <h3>Ejemplo 3: Instalación y desinstalación de un paquete</h3>
 
-        <li>Para obtener más información sobre la ejecución del playbook, ejecute el archivo con la opción --verbose:
+      <p>Para tareas de mantenimiento de paquetes, Ansible dispone del módulo <a href="http://docs.ansible.com/ansible/latest/modules/apt_module.html">apt</a>.</p>
+
+      <p>En el ejemplo siguiente, se instala el paquete <a href="https://help.ubuntu.com/lts/serverguide/aptitude.html.en">aptitude</a>, un interfaz en modo texto de APT.</p>
+
+      <ul>
+        <li>Compruebe en el nodo administrado que el paquete aptitude no está instalado con la orden:
           <div class="codigo">
             <pre>
-<code class="language-shell">ansible-playbook playbook-1-1.yaml --verbose</code>
+<code class="language-shell">apt-cache policy aptitude</code>
+</pre>
+          </div>
+          <p>Si aptitude no está instalado, se mostrará la respuesta:</p>
+          <div class="codigo">
+            <pre>
+<code class="language-shell">aptitude:
+  Instalados: (ninguno)
+  ...</code>
+</pre>
+          </div>
+        </li>
+        <li>Cree el archivo <strong>playbook-1-3.yaml</strong> con el siguiente contenido:
+          <div class="codigo">
+            <pre>
+  <code class="language-yaml">---
+- hosts: clients
+  tasks:
+  - name: ejemplo 3
+    become: yes
+    apt:
+      name: aptitude
+      state: present</code>
+</pre>
+          </div>
+        </li>
+        <li>Ejecute el archivo <strong>playbook-1-3.yaml</strong> con la opción -K. La opción -K es necesaria porque apt requiere la contraseña del usuario:
+          <div class="codigo">
+            <pre>
+<code class="language-shell">ansible-playbook playbook-1-3.yaml -K</code>
+</pre>
+          </div>
+        </li>
+
+        <li>Compruebe en el nodo administrado que el paquete aptitude sí que está ahora instalado con la orden:
+          <div class="codigo">
+            <pre>
+<code class="language-shell">apt-cache policy aptitude</code>
+</pre>
+          </div>
+          <p>Si aptitude está instalado, se mostrará una respuesta similar a esta:</p>
+          <div class="codigo">
+            <pre>
+<code class="language-shell">aptitude:
+  Instalados: 0.8.10-6ubuntu1
+  ...</code>
 </pre>
           </div>
         </li>
       </ul>
+
+      <p>Para desinstalar el paquete, el playbook sería:</p>
+      <div class="codigo">
+        <pre>
+<code class="language-yaml">---
+- hosts: clients
+tasks:
+- name: ejemplo 3
+become: yes
+apt:
+  name: aptitude
+  state: absent</code>
+</pre>
+      </div>
     </section>
   </section>
+
   <footer>
-    <p class="ultmod">Última modificación de esta página: 14 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 15 de mayo de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
