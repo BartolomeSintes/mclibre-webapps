@@ -22,6 +22,7 @@
     <div class="toc">
       <h2>
         <a href="ubuntu-instalacion.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> Ansible
+        <a href="ansible-playbooks-1.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
       </h2>
 
       <ul>
@@ -36,6 +37,8 @@
         <li><a href="#playbooks">Playbooks</a>
           <ol>
             <li><a href="#playbook-shell">Comandos de shell</a></li>
+            <li><a href="#playbook-apt-1">Actualización del sistema</a></li>
+            <li><a href="#playbook-apt-2">Instalación de paquetes</a></li>
           </ol>
         </li>
       </ul>
@@ -423,7 +426,7 @@ PLAY RECAP *********************************************************************
     </section>
 
     <section id="playbook-apt-2">
-      <h3>Ejemplo 3: Instalación y desinstalación de un paquete</h3>
+      <h3>Ejemplo 3: Instalación y desinstalación de paquetes</h3>
 
       <p>Para tareas de mantenimiento de paquetes, Ansible dispone del módulo <a href="http://docs.ansible.com/ansible/latest/modules/apt_module.html">apt</a>.</p>
 
@@ -448,7 +451,7 @@ PLAY RECAP *********************************************************************
         <li>Cree el archivo <strong>playbook-1-3.yaml</strong> con el siguiente contenido:
           <div class="codigo">
             <pre>
-  <code class="language-yaml">---
+<code class="language-yaml">---
 - hosts: clients
   tasks:
   - name: ejemplo 3
@@ -489,12 +492,12 @@ PLAY RECAP *********************************************************************
         <pre>
 <code class="language-yaml">---
 - hosts: clients
-tasks:
-- name: ejemplo 3
-become: yes
-apt:
-  name: aptitude
-  state: absent</code>
+  tasks:
+  - name: ejemplo 3
+    become: yes
+    apt:
+      name: aptitude
+      state: absent</code>
 </pre>
       </div>
     </section>
