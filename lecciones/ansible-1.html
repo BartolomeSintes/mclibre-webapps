@@ -327,10 +327,10 @@ ssh-copy-id <span class="codigo-resaltado">barto@192.168.1.16</span></code>
           <div class="codigo">
             <pre>
 <code class="language-yaml">---
-- hosts: clients
+- hosts: 'clients'
   tasks:
-  - name: ejemplo 1
-    shell: ls -al &gt;&gt; prueba.txt</code>
+  - name: 'ejemplo 1'
+    shell: 'ls -al &gt;&gt; prueba.txt'</code>
 </pre>
           </div>
         </li>
@@ -381,13 +381,13 @@ PLAY RECAP *********************************************************************
           <div class="codigo">
             <pre>
 <code class="language-yaml">---
-- hosts: clients
+- hosts: 'clients'
   tasks:
-  - name: ejemplo 2
-    become: yes
+  - name: 'ejemplo 2'
+    become: true
     apt:
-      update_cache: yes
-      upgrade: yes</code>
+      update_cache: true
+      upgrade: true</code>
 </pre>
           </div>
         </li>
@@ -452,13 +452,13 @@ PLAY RECAP *********************************************************************
           <div class="codigo">
             <pre>
 <code class="language-yaml">---
-- hosts: clients
+- hosts: 'clients'
   tasks:
-  - name: ejemplo 3
-    become: yes
+  - name: 'ejemplo 3'
+    become: true
     apt:
-      name: aptitude
-      state: present</code>
+      name: 'aptitude'
+      state: 'present'</code>
 </pre>
           </div>
         </li>
@@ -491,20 +491,33 @@ PLAY RECAP *********************************************************************
       <div class="codigo">
         <pre>
 <code class="language-yaml">---
-- hosts: clients
+- hosts: 'clients'
   tasks:
-  - name: ejemplo 3
-    become: yes
+  - name: 'ejemplo 3'
+    become: true
     apt:
-      name: aptitude
-      state: absent</code>
+      name: 'aptitude'
+      state: 'absent'</code>
 </pre>
       </div>
     </section>
   </section>
 
+  <section id="saber-mas">
+    <h2>Saber más</h2>
+
+    <p>Conferencia en <a href="https://www.redhat.com/en/summit/2018">RedHat Summit 2018</a> (mayo 2018)</p>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=FEdXUv02Dbg">Manage Windows like Linux with Ansible</a>, Matt Davis (09/05/2018)</li>
+      <li><a href="https://www.youtube.com/watch?v=9tAXBvuyXJU">Using Ansible and Redfish to Automate Systems Management</a>, (08/05/2018)</li>
+      <li><a href="https://www.youtube.com/watch?v=HtMeDbGEylU">Managing 15,000 network devices with Ansible</a>, Landon Holley y James Mighion (08/05/2018)</li>
+      <li><a href="https://www.youtube.com/watch?v=UetrkyGf62I">Google automates [Ansible] module development</a>, Alex Stephen y Dylan Silva (08/05/2018)</li>
+      <li><a href="https://www.youtube.com/user/redhatsummit/videos">Todas las conferencias</a></li>
+    </ul>
+  </section>
+
   <footer>
-    <p class="ultmod">Última modificación de esta página: 15 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 19 de mayo de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
