@@ -25,7 +25,8 @@
       </h2>
 
       <ul>
-        <li><a href="#playbooks">Playbooks</a></li>
+        <li><a href="#cambio-password">Cambio contraseña</a></li>
+        <li><a href="#cambio-host-name">Cambio nombre ordenador</a></li>
       </ul>
     </div>
   </nav>
@@ -40,26 +41,30 @@
     <p>Para la administración de cuentas de usuario, Ansible dispone del módulo <a href="http://docs.ansible.com/ansible/latest/modules/user_module.html">user</a>.</p>
 
     <ul>
-      <li>Este playbook solicita un nombre de usuario y su nueva contraseña y la cambia:
+      <li>Este playbook cambia la contraseña de un usuario:
         <div class="codigo">
-          <pre>
+          <pre class="line-numbers">
 <code class="language-yaml">---
-- hosts: clients
-  vars_prompt:
-  - name: user_name
-    prompt: Enter the user name for password reset
-    private: no
-  - name: pass
-    prompt: Enter the password
+- hosts: 'clients'
+  vars:
+    user_name: '<span class="codigo-resaltado">barto</span>'
+    new_password: '<span class="codigo-resaltado">barto</span>'
 
   tasks:
-  - name: Change user password
-    become: yes
-    user: name={{ user_name }} password={{ pass|password_hash('sha512') }} update_password=always</code>
+  - name: 'Change user password'
+    become: true
+    user:
+      name: '{{ user_name }}'
+      password: '{{ new_password | password_hash("sha512") }}'
+      update_password: 'always'</code>
 </pre>
         </div>
+        <p>Notas:</p>
+        <ul>
+          <li>línea 12: la contraseña se debe proporcionar encriptada, para lo que se utiliza un filtro para encriptar la contraseña.</li>
+        </ul>
       </li>
-      <li>Ejecute el archivo <strong>playbook-password-change.yaml</strong>:
+      <li>Ejecute el archivo:
         <div class="codigo">
           <pre>
 <code class="language-shell">ansible-playbook playbook.yaml -K</code>
@@ -79,20 +84,34 @@
     <p>Para la administración del nombre del ordenador en <strong>/etc/hosts</strong>, Ansible no dispone actualmente (mayo de 2018) de un módulo específico, pero podemos recurrir al módulo <a href="http://docs.ansible.com/ansible/latest/modules/replace_module.html">replace</a> para cambiar el nombre.</p>
 
     <ul>
-      <li>Este playbook solicita el nuevo nombre del ordenador y lo cambia:
+      <li>Este playbook cambia el nombre del ordenador:
         <div class="codigo">
-          <pre>
+          <pre class="line-numbers">
 <code class="language-yaml">---
-- hosts: clients
+- hosts: 'clients'
+  vars:
+    new_computer_name: '<span class="codigo-resaltado">hal</span>'
+
   tasks:
-  - name: Cambia el nombre del ordenador
-    become: yes
+  - name: 'Change computer name (1)'
+    become: true
+    replace:
+      path: '/etc/hosts'
+      regexp: '{{ ansible_hostname }}'
+      replace: '{{ new_computer_name }}'
+      backup: 'yes'
+  - name: 'Change computer name (2)'
+    become: true
     hostname:
-      name: <span class="codigo-resaltado">nuevoNombre</span></code>
+      name: '{{ new_computer_name }}'</code>'
 </pre>
         </div>
+        <p>Notas:</p>
+        <ul>
+          <li>línea 11: No es necesario conocer el nombre actual del ordenador, ya que Ansible encuentra por sí mismo esta información (mediante el módulo <a href="http://docs.ansible.com/ansible/latest/modules/setup_module.html">setup</a>, que se ejecuta de forma automática) y la guarda en la variable <i>ansible_hostname</i>).</li>
+        </ul>
       </li>
-      <li>Ejecute el archivo <strong>playbook-hostname-change.yaml</strong>:
+      <li>Ejecute el archivo:
         <div class="codigo">
           <pre>
 <code class="language-shell">ansible-hostname playbook.yaml -K</code>
@@ -103,7 +122,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 18 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 20 de mayo de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />

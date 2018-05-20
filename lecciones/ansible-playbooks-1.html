@@ -26,6 +26,7 @@
       </h2>
 
       <ul>
+        <li><a href="#best-practices">Buenas prácticas</a></li>
         <li><a href="#fijo-variable-entrada">Valor fijo, variable, entrada</a></li>
       </ul>
     </div>
@@ -33,7 +34,18 @@
 
   <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta lección está en elaboración</p>
 
-  <p>Esta lección es una recopilación de playbooks para realizar diferentes tareas de administración.</p>
+  <p>Esta lección comenta aspectos generales de los playbooks de Ansible.</p>
+
+  <section id="best-practices">
+    <h2>Buenas prácticas</h2>
+
+    <p>El formato YAML que utiliza Ansible admite diferentes sintaxis. Aunque Ansible no dispone de un libro de estilo oficial, sí que se recomienda seguir ciertas directrices:</p>
+
+    <ul>
+      <li>el manual de Ansible incluye un apartado de <a href="http://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html">buenas prácticas</a></li>
+      <li>la empresa WhiteCloud ofrece una <a href="https://github.com/whitecloud/ansible-styleguide">guía de estilo</a></li>
+    </ul>
+  </section>
 
   <section id="fijo-variable-entrada">
     <h3>Valores fijos, variables o entrada de usuario</h3>
@@ -59,8 +71,8 @@
         </div>
       </li>
       <li>Mediante una variable definida al principio del playbook:
-          <div class="codigo">
-            <pre>
+        <div class="codigo">
+          <pre>
 <code class="language-yaml">---
 - hosts: 'clients'
   vars:
@@ -74,11 +86,11 @@
       state: 'present'
       line: '¡Hola, mundo!'</code>
 </pre>
-          </div>
-        </li>
+        </div>
+      </li>
       <li>Mediante un valor solicitado al usuario:
-          <div class="codigo">
-            <pre>
+        <div class="codigo">
+          <pre>
 <code class="language-yaml">---
 - hosts: 'clients'
   vars_prompt:
@@ -94,8 +106,8 @@
       state: 'present'
       line: '¡Hola, mundo!'</code>
 </pre>
-          </div>
-        </li>
+        </div>
+      </li>
       <li>En los tres casos, para ejecutar el archivo <strong>playbook-add-line.yaml</strong> es suficiente el comando:
         <div class="codigo">
           <pre>
@@ -107,7 +119,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 19 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 20 de mayo de 2018</p>
 
     <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
       Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
