@@ -21,7 +21,7 @@
 
     <div class="toc">
       <h2>
-        <a href="ansible-playbooks-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> Ansible Playbooks (2)
+        <a href="ansible-playbooks-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> Playbooks (2)
       </h2>
 
       <ul>
@@ -40,10 +40,9 @@
 
     <p>Para la administración de cuentas de usuario, Ansible dispone del módulo <a href="http://docs.ansible.com/ansible/latest/modules/user_module.html">user</a>.</p>
 
-    <ul>
-      <li>Este playbook cambia la contraseña de un usuario:
-        <div class="codigo">
-          <pre class="line-numbers">
+    <p>Este playbook cambia la contraseña de un usuario:</p>
+    <div class="codigo">
+      <pre class="line-numbers">
 <code class="language-yaml">---
 - hosts: 'clients'
   vars:
@@ -58,19 +57,10 @@
       password: '{{ new_password | password_hash("sha512") }}'
       update_password: 'always'</code>
 </pre>
-        </div>
-        <p>Notas:</p>
-        <ul>
-          <li>línea 12: la contraseña se debe proporcionar encriptada, para lo que se utiliza un filtro para encriptar la contraseña.</li>
-        </ul>
-      </li>
-      <li>Ejecute el archivo:
-        <div class="codigo">
-          <pre>
-<code class="language-shell">ansible-playbook playbook.yaml -K</code>
-</pre>
-        </div>
-      </li>
+    </div>
+    <p>Notas:</p>
+    <ul>
+      <li>línea 12: la contraseña se debe proporcionar encriptada, para lo que se utiliza un filtro para encriptar la contraseña.</li>
     </ul>
   </section>
 
@@ -83,10 +73,9 @@
 
     <p>Para la administración del nombre del ordenador en <strong>/etc/hosts</strong>, Ansible no dispone actualmente (mayo de 2018) de un módulo específico, pero podemos recurrir al módulo <a href="http://docs.ansible.com/ansible/latest/modules/replace_module.html">replace</a> para cambiar el nombre.</p>
 
-    <ul>
-      <li>Este playbook cambia el nombre del ordenador:
-        <div class="codigo">
-          <pre class="line-numbers">
+    <p>Este playbook cambia el nombre del ordenador:</p>
+    <div class="codigo">
+      <pre class="line-numbers">
 <code class="language-yaml">---
 - hosts: 'clients'
   vars:
@@ -103,23 +92,56 @@
   - name: 'Change computer name (2)'
     become: true
     hostname:
-      name: '{{ new_computer_name }}'</code>'
+      name: '{{ new_computer_name }}'</code>
 </pre>
-        </div>
-        <p>Notas:</p>
-        <ul>
-          <li>línea 11: No es necesario conocer el nombre actual del ordenador, ya que Ansible encuentra por sí mismo esta información (mediante el módulo <a href="http://docs.ansible.com/ansible/latest/modules/setup_module.html">setup</a>, que se ejecuta de forma automática) y la guarda en la variable <i>ansible_hostname</i>).</li>
-        </ul>
-      </li>
-      <li>Ejecute el archivo:
-        <div class="codigo">
-          <pre>
-<code class="language-shell">ansible-hostname playbook.yaml -K</code>
-</pre>
-        </div>
-      </li>
+    </div>
+    <p>Notas:</p>
+    <ul>
+      <li>línea 11: No es necesario conocer el nombre actual del ordenador, ya que Ansible encuentra por sí mismo esta información (mediante el módulo <a href="http://docs.ansible.com/ansible/latest/modules/setup_module.html">setup</a>, que se ejecuta de forma automática) y la guarda en la variable <i>ansible_hostname</i>).</li>
     </ul>
   </section>
+
+  <section id="cambio-locale">
+      <h3>Cambio de opciones regionales</h3>
+
+      <p>Las opciones regionales se espoecifican mediante varias variables de entorno [<a href="https://help.ubuntu.com/community/Locale">Documentación de Ubuntu</a> - <a href="https://wiki.debian.org/Locale">Codumentación de Debian</a></p>
+
+      <p>Para generar el fichero con las variables de entornos de localización, Ansible dispone del módulo <a href="http://docs.ansible.com/ansible/latest/modules/locale_gen_module.html">locale_gen</a>.</p>
+
+      <p>Para esperar hasta que el nodo cliente esté en marcha, Ansible dispone del módulo <a href="http://docs.ansible.com/ansible/latest/modules/wait_for_connection_module.html">wait_for_connection</a>.</p>
+
+      <p>Este playbook cambia los códigos regionales</p>
+      <div class="codigo">
+        <pre class="line-numbers">
+<code class="language-yaml">---
+- hosts: 'clients'
+  vars:
+    new_locale: '<span class="codigo-resaltado">es_ES.UTF-8</span>'
+    new_lc_messages: '<span class="codigo-resaltado">es_ES.UTF-8</span>'
+
+  tasks:
+  - name: 'Generate locale'
+    become: true
+    locale_gen:
+      name: '{{ new_locale }}'
+      state: 'present'
+  - name: 'Reboot'
+    become: true
+    shell: 'sleep 5 &amp;&amp; /sbin/shutdown -r now'
+    async: true
+    poll: false
+  - name: 'Wait for reboot'
+    wait_for_connection:
+  - name: 'Change locale'
+    become: true
+    command: 'update-locale LANG={{ new_locale }} LC_MESSAGES={{ new_lc_messages }}'</code>
+</pre>
+      </div>
+      <p>Notas:</p>
+      <ul>
+        <li>línea 11: No es necesario conocer el nombre actual del ordenador, ya que Ansible encuentra por sí mismo esta información (mediante el módulo <a href="http://docs.ansible.com/ansible/latest/modules/setup_module.html">setup</a>, que se ejecuta de forma automática) y la guarda en la variable <i>ansible_hostname</i>).</li>
+      </ul>
+    </section>
 
   <footer>
     <p class="ultmod">Última modificación de esta página: 20 de mayo de 2018</p>
