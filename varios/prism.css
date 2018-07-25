@@ -38,7 +38,6 @@ code.language-python .punctuation          {                   } /* punctuation 
 code.language-python .string               { color: #00AA00; } /* string (of any type)                */
 code.language-python .triple-quoted-string { color: #00AA00; } /* string (of any type)                */
 
-
 /* Estilo para HTML imitando a Brackets */
 /* Tengo pendiente comprobar los nombres de las clases en prism */
 
