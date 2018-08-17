@@ -11215,7 +11215,7 @@ msgstr ""
 
 #: edituser.php:139
 msgid "Passwords must contain at least 6 characters."
-msgstr "La contraseña debe tener al menos 6 caracteres ."
+msgstr "La contraseña debe tener al menos 6 caracteres."
 
 #. I18N: Location of an LDS church temple
 #: app/GedcomCode/GedcomCodeTemp.php:291
