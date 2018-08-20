@@ -6,7 +6,7 @@
 /*                                          */
 /* CSS curso: Aplicaciones Web              */
 /*                                          */
-/* 12 de mayo de 2018                       */
+/* 19 de agosto de 2018                     */
 /*                                          */
 
 /* CSS comun */
@@ -112,6 +112,14 @@ p.inline-con-borde {
 }
 
 .mcl-centrado {
+  text-align: center;
+}
+
+.mcl-svg-diagrama-temporal {
+  text-align: center;
+}
+
+.mcl-svg-figura {
   text-align: center;
 }
 
