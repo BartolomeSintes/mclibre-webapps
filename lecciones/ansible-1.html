@@ -148,14 +148,14 @@
     <p>En los tres apartados siguientes:</p>
     <ul>
       <li>se crea una máquina virtual con Ubuntu 18.03 Server que actuará como máquina de control</li>
-      <li>se crea una o varias máquinas virtuales con Ubuntu 18.04 Server que actuará(n) como nodos administrados</li>
+      <li>se crea una o varias máquinas virtuales con Ubuntu 18.04.1 Server que actuará(n) como nodos administrados</li>
       <li>se configura la máquina de control para que Ansible pueda acceder a los nodos administrados</li>
     </ul>
 
     <section id="instalacion-maquina-control">
-      <h3>Máquina de control: instalación de Ansible en Ubuntu 18.04</h3>
+      <h3>Máquina de control: instalación de Ansible en Ubuntu 18.04.1</h3>
 
-      <p>Instalaremos Ansible en una máquina virtual de VirtualBox con Ubuntu 18.04 Server que ejercerá de máquina de control. La instalación la realizaremos con Packer a partir de la imagen creada en el <a href="#creacion-vm-vbox-ubuntu">ejemplo 1 de la lección de Packer</a> mediante la plantilla y script siguientes:</p>
+      <p>Instalaremos Ansible en una máquina virtual de VirtualBox con Ubuntu 18.04.1 Server que ejercerá de máquina de control. La instalación la realizaremos con Packer a partir de la imagen creada en el <a href="#creacion-vm-vbox-ubuntu">ejemplo 1 de la lección de Packer</a> mediante la plantilla y script siguientes:</p>
 
       <ul>
         <li>Plantilla de Packer <strong>ansible-1-1.json</strong>:
@@ -166,7 +166,7 @@
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-server.ova</span>",
+      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-1-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
@@ -216,9 +216,9 @@ sudo apt-get install -y ansible</code>
     </section>
 
     <section id="instalacion-nodos">
-      <h3>Nodos administrados: Ubuntu 18.04</h3>
+      <h3>Nodos administrados: Ubuntu 18.04.1</h3>
 
-      <p>En los nodos administrados no es necesario instalar Ansible. Los nodos administrados serán también máquinas virtuales de VirtualBox con Ubuntu 18.04 Server. La instalación la realizaremos con Packer a partir de la imagen creada en el <a href="#creacion-vm-vbox-ubuntu">ejemplo 1 de la lección de Packer</a> mediante la plantilla siguiente. En caso de querer crear otros nodos administrados, deberíamos cambiar el directorio de salida y el nombre de la máquina virtual (líneas 16 y 17) y ejecutar de nuevo la plantilla.</p>
+      <p>En los nodos administrados no es necesario instalar Ansible. Los nodos administrados serán también máquinas virtuales de VirtualBox con Ubuntu 18.04.1 Server. La instalación la realizaremos con Packer a partir de la imagen creada en el <a href="#creacion-vm-vbox-ubuntu">ejemplo 1 de la lección de Packer</a> mediante la plantilla siguiente. En caso de querer crear otros nodos administrados, deberíamos cambiar el directorio de salida y el nombre de la máquina virtual (líneas 16 y 17) y ejecutar de nuevo la plantilla.</p>
 
       <ul>
         <li>Plantilla de Packer <strong>ansible-1-2.json</strong>:
@@ -229,7 +229,7 @@ sudo apt-get install -y ansible</code>
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-server.ova</span>",
+      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-1-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
@@ -286,7 +286,7 @@ ansible_python_interpreter=/usr/bin/python3</code>
           </div>
           <p>Notas:</p>
           <ul>
-            <li>Como Ubuntu 18.04 incluye Python 3 (pero no Python 2), es necesario indicar a Ansible que utilice python3..
+            <li>Como Ubuntu 18.04.1 incluye Python 3 (pero no Python 2), es necesario indicar a Ansible que utilice python3..
             </li>
           </ul>
 
