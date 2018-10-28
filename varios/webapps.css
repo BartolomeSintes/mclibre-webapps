@@ -19,6 +19,7 @@
 html {
   background-color: white;
   font-family: sans-serif;
+  line-height: 130%;
   text-align: justify;
 }
 
@@ -39,6 +40,7 @@ footer {
 
 h1 {
   font-size: 200%;
+  line-height: 120%;
   text-align: center;
 }
 
@@ -60,12 +62,10 @@ h2, h3, h4 {
 }
 
 pre, pre code {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 0;
+  margin-bottom: 0;
   font-family: "Inconsolata", monospace;  /* Chrome user agent style sheet */
   line-height: 120%;
-  white-space: pre-wrap;
-
 }
 
 hr {
@@ -78,7 +78,7 @@ hr.corta {
 }
 
 p {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 p.aviso {
@@ -123,19 +123,13 @@ p.inline-con-borde {
   text-align: center;
 }
 
-.captura img, .captura svg {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-}
-
-img.derecha {
+.derecha {
   float: right;
   margin-left: 10px;
   margin-bottom: 5px;
 }
 
-img.izquierda {
+.izquierda {
   float: left;
   margin-right: 10px;
   margin-bottom: 5px;
@@ -166,6 +160,12 @@ a img {
 
 .captura {
   text-align: center;
+}
+
+.captura img, .captura svg {
+  width: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .captura img, .captura svg, .captura iframe {
@@ -294,6 +294,7 @@ div.filaflex div.icono-enlace {
 
 div.filaflex pre {
   margin: 5px 0;
+  white-space: pre-wrap;
 }
 
 div.codigo, div[class^="resultado"], div[class^="enunciado"] {
@@ -391,6 +392,7 @@ ul ul {
 
 li {
   clear: both;
+  margin-top: 5px;
 }
 
 /* Para ejemplos de ejecucion de codigo */
@@ -447,7 +449,7 @@ h2.con-aside, h3.con-aside, h4-con-aside {
 
 @media screen and (max-width: 768px) {
   html {
-    margin-left: 44px;
+    margin-left: 40px;
     margin-right: 5px;
   }
 
@@ -481,6 +483,7 @@ h2.con-aside, h3.con-aside, h4-con-aside {
 
   pre {
     text-align: left;
+    white-space: pre-wrap;
   }
 
   div.filaflex {
@@ -533,7 +536,7 @@ h2.con-aside, h3.con-aside, h4-con-aside {
 
   nav h2 {
     margin: 0;
-    padding: 0;
+    padding: 1em 0 0;
     font-size: 110%;
     text-align: left;
   }
@@ -605,6 +608,10 @@ h2.con-aside, h3.con-aside, h4-con-aside {
     font-size: 100% !important;
   }
 
+  pre {
+    white-space: pre-wrap !important;
+  }
+
   tr {
     page-break-inside: avoid;
   }
@@ -627,23 +634,23 @@ code.language-sql {
 
 /* Clases para fragmentos de codigo en texto */
 
-/* Estilo para HTML imitando a Brackets */
+/* Estilo para HTML imitando a Visual Studio Code con tema Light+ */
 
-.html-eti        { color: #446FBD; }
-.html-atri       { color: #6D8600; }
-.html-atri-valor { color: #E88501; }
+.html-eti        { color: #911F00; fill: #911F00; }
+.html-atri       { color: #FF0000; fill: #FF0000; }
+.html-atri-valor { color: #0000FF; fill: #0000FF; }
 
-/* Estilo para CSS imitando a Brackets */
+/* Estilo para CSS imitando a Visual Studio Code con tema Light+ */
 
-.css-sele    { color: #446FBD; }
-.css-prop    { color: #8757AD; }
-.css-feature { color: #8757AD; }
-.css-valor   { color: #E88501; }
-.css-numero  { color: #8E8600; }
-.css-unidad  { color: #8E8600; }
-.css-pseudo  { color: #535353; }
-.css-arroba  { color: #8757AD; }
-.css-funcion { color: #4700FF; }
+.css-sele    { color: #800000; fill: #800000; }
+.css-prop    { color: #FF0000; fill: #FF0000; }
+.css-feature { color: #FF0000; fill: #FF0000; }
+.css-valor   { color: #0451A5; fill: #0451A5; }
+.css-numero  { color: #008000; fill: #008000; }
+.css-unidad  { color: #008000; fill: #008000; }
+.css-pseudo  { color: #800000; fill: #800000; }
+.css-arroba  { color: #AF00DB; fill: #AF00DB; }
+.css-funcion { color: #4700FF; fill: #4700FF; }
 
 /* Estilo para Python imitando a IDLE */
 
@@ -668,14 +675,14 @@ code.language-sql {
 .xsl-i       { color: #0000FF; }
 .xsl-atri    { color: #FC0204; }
 
-/* Estilo para PHP imitando a Eclipse PHP */
+/* Estilo para PHP imitando a Eclipse for PHP developers */
 
 .php-con { font-weight: bold; } /* Constante                    */
 .php-del { font-weight: bold; } /* Delimitador de fragmento php */
 .php-dir { font-weight: bold; } /* Directiva de php.ini         */
 .php-fun { font-weight: bold; } /* Funcion                      */
 .php-ope { font-weight: bold; } /* Operador                     */
-.php-res { font-weight: bold; } /* Palabra reservada            */
+.php-res { font-weight: bold; color: rgb(127,  0, 85) } /* Palabra reservada            */
 .php-var { font-weight: bold; } /* Variable                     */
 
 /* CSS especifico apuntes Webapps */
