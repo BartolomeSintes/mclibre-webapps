@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../varios/webapps.css" title="mclibre" />
   <link rel="icon" href="../varios/favicon.ico" />
-  <link rel="stylesheet" href="../varios/highlight-htmlcss.css" />
+  <link rel="stylesheet" href="../varios/highlight-php.css" />
   <script src="../varios/highlight.pack.js" async="async"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 </head>
@@ -58,9 +58,9 @@
 
       <section id="max-execution-time">
 
-        <h3>Directiva <span class="php-dir">short_open_tag</span></h3>
+        <h3>Directiva <span class="php-dir">max-execution-time</span></h3>
 
-        <p>La directiva <span class="php-dir">short_open_tag</span> indica la tiempo máximo de ejecución de una página PHP. Si la página tarda más de ese tiempo en ejecutarse, el servidor interrumpirá la ejecución del programa. En XAMPP 7.1 esta directiva viene predeterminada con el valor 30 (segundos). Para evitar ese problema, se recomienda aumentar ese valor, por ejemplo a una hora</p>
+        <p>La directiva <a href="http://php.net/manual/es/info.configuration.php#ini.max-execution-time"><span class="php-dir">max-execution-time</span></a> indica la tiempo máximo de ejecución de una página PHP. Si la página tarda más de ese tiempo en ejecutarse, el servidor interrumpirá la ejecución del programa. En XAMPP 7.2 esta directiva viene predeterminada con el valor 30 (segundos). Para evitar ese problema, se recomienda aumentar ese valor, por ejemplo a una hora</p>
 
         <div class="codigo">
           <pre>
@@ -79,14 +79,14 @@
         <li><strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones</strong> </li>
       </ul>
 
-      <p>Cada aplicación se guardará en su propia carpeta. Se recomienda que el nombre de la carpeta sea simplemente el nombre de la aplicación, en minúsculas y sin incluir el número de versión. Únicamente cuando se instalen varias versiones de la misma aplicación, cada una en supropia carpeta, se añadirá un número al nombre de la aplicación (_1, _2, etc.)</p>
+      <p>Cada aplicación se guardará en su propia carpeta. Se recomienda que el nombre de la carpeta sea simplemente el nombre de la aplicación, en minúsculas y sin incluir el número de versión. Únicamente cuando se instalen varias versiones de la misma aplicación, cada una en su propia carpeta, se añadirá un número al nombre de la aplicación (-1, -2, etc.)</p>
 
       <p>Por ejemplo, en el caso de la aplicación web phpMyAdmin se creará la carpeta:</p>
       <ul>
         <li><strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones &gt; phpmyadmin</strong></li>
       </ul>
 
-      <p>Para poder ejecutar las aplicaciones, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. El alias puede ser simplemente <strong>/webapps</strong> y apuntar a la carpeta Aplicaciones, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
+      <p>Para poder ejecutar las aplicaciones, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. El alias puede ser simplemente <strong>/nombre-alumno/webapps</strong> y apuntar a la carpeta Aplicaciones, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
     </section>
 
     <section id="edicion">
@@ -102,19 +102,19 @@
 
       <p>Si se quiere utilizar Eclipse PHP, se recomienda crear un workspace específico. Se recomienda:</p>
       <ul>
-        <li>crear el workspace en "C:\software\workspace-nombre-de-alumno-php"</li>
-        <li>crear un proyecto que se llame: <strong>Nombre-de-alumno</strong> (sin espacios en el nombre del alumno)</li>
+        <li>crear el workspace en "C:\software\eclipse-workspace-nombre-de-alumno-webapps"</li>
+        <li>crear un proyecto que se llame: <strong>nombre-de-alumno</strong> (sin espacios en el nombre del alumno)</li>
         <li>crear una carpeta enlazada que se llame <strong>webapps</strong> y enlace a la carpeta <strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones</strong>
         </li>
       </ul>
 
       <p>Al descomprimir una nueva aplicación web se deberá actualizar la vista del Explorador PHP de Eclipse.</p>
 
-      <p>Para poder ejecutar las aplicaciones desde Eclipse PHP, se deberá crear otro alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. La ruta del alias será <strong>/Nombre-de-alumno/webapps</strong>, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
+      <p>Para poder ejecutar las aplicaciones desde Eclipse PHP, se deberá crear otro alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. La ruta del alias será <strong>/nombre-de-alumno/webapps</strong>, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
 
       <p>Al ejecutar la página principal de cada aplicación web desde Eclipse PHP, se abrirá la página web en el navegador. Por ejemplo, en el caso de phpMyAdmin,</p>
       <ul>
-        <li><strong>http://localhost/Nombre-de-alumno/webapps/phpmyadmin/</strong></li>
+        <li><strong>http://localhost/nombre-de-alumno/webapps/phpmyadmin/</strong></li>
       </ul>
     </section>
 
@@ -139,7 +139,7 @@
   &lt;h2&gt;Enlaces a aplicaciones&lt;/h2&gt;
 
   &lt;ul&gt;
-    &lt;li&gt;&lt;a href="http://localhost/webapps/phpmyadmin/"&gt;phpMyAdmin&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://localhost/nombre-de-alumno/webapps/phpmyadmin/"&gt;phpMyAdmin&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 
   &lt;h2&gt;Alias a aplicaciones&lt;/h2&gt;
@@ -156,7 +156,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 13 de enero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 12 de diciembre de 2018</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
