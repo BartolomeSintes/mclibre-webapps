@@ -60,7 +60,7 @@
 
         <h3>Directiva <span class="php-dir">max-execution-time</span></h3>
 
-        <p>La directiva <a href="http://php.net/manual/es/info.configuration.php#ini.max-execution-time"><span class="php-dir">max-execution-time</span></a> indica la tiempo máximo de ejecución de una página PHP. Si la página tarda más de ese tiempo en ejecutarse, el servidor interrumpirá la ejecución del programa. En XAMPP 7.2 esta directiva viene predeterminada con el valor 30 (segundos). Para evitar ese problema, se recomienda aumentar ese valor, por ejemplo a una hora</p>
+        <p>La directiva <a href="http://php.net/manual/es/info.configuration.php#ini.max-execution-time"><span class="php-dir">max-execution-time</span></a> indica la tiempo máximo de ejecución de una página PHP. En XAMPP 7.2 esta directiva viene predeterminada con el valor 30 (segundos). Si la página tarda más de ese tiempo en ejecutarse, el servidor interrumpirá la ejecución del programa. Para evitar ese problema, se recomienda aumentar ese valor, por ejemplo a una hora</p>
 
         <div class="codigo">
           <pre>
@@ -86,7 +86,28 @@
         <li><strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones &gt; phpmyadmin</strong></li>
       </ul>
 
-      <p>Para poder ejecutar las aplicaciones, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. El alias puede ser simplemente <strong>/nombre-alumno/webapps</strong> y apuntar a la carpeta Aplicaciones, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
+      <p>Para poder ejecutar las aplicaciones, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. Para que el alias pueda aprovecharse desde Eclipse PHP, el alias puede ser <strong>/nombre-alumno/webapps</strong> y apuntar a la carpeta Aplicaciones, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
+
+      <p>El alias puede ser el siguiente:</p>
+      <details>
+        <summary>Intente primero crear el alias o haga clic en el triángulo para verlo:</summary>
+
+        <div class="codigo">
+          <pre>
+<code class="language-configuracion">&lt;IfModule alias_module&gt;
+# ...
+<strong>    # 2018-12-12. Alias para las aplicaciones web
+    Alias <span class="codigo-resaltado">/nombre/webapps</span> <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW nombre\Aplicaciones"</span>
+    &lt;Directory <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW nombre\Aplicaciones"</span>&gt;
+      Options Indexes FollowSymLinks Includes ExecCGI
+      AllowOverride All
+      Require all granted
+    &lt;/Directory&gt;</strong>
+# ...
+&lt;/IfModule&gt;</code>
+</pre>
+        </div>
+      </details>
     </section>
 
     <section id="edicion">
@@ -110,7 +131,7 @@
 
       <p>Al descomprimir una nueva aplicación web se deberá actualizar la vista del Explorador PHP de Eclipse.</p>
 
-      <p>Para poder ejecutar las aplicaciones desde Eclipse PHP, se deberá crear otro alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. La ruta del alias será <strong>/nombre-de-alumno/webapps</strong>, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
+      <p>Como se ha comentado en el apartado anterior, para poder ejecutar las aplicaciones desde Eclipse PHP, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. La ruta del alias será <strong>/nombre-de-alumno/webapps</strong>, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
 
       <p>Al ejecutar la página principal de cada aplicación web desde Eclipse PHP, se abrirá la página web en el navegador. Por ejemplo, en el caso de phpMyAdmin,</p>
       <ul>
