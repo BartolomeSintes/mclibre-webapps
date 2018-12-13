@@ -137,14 +137,30 @@
     <p>Ejecute el fichero index.php desde Eclipse. Se abrirá en el navegador la página de inicio de phpMyAdmin, que solicita un nombre usuario y contraseña para poder acceder a MySQL:</p>
 
     <p class=" captura">
-      <img src="../img/phpmyadmin/1-4-es-1-inicio-sesion.png" alt="phpMyAdmin. Página de inicio" width="405" height="525" />
+      <img src="../img/phpmyadmin/1-4-es-1-inicio-sesion.png" alt="phpMyAdmin. Página de inicio" width="405" height="440" />
     </p>
   </section>
 
   <section id="ejercicio-5">
     <h2>phpMyAdmin (1) 5 - Alias</h2>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Por escribir</p>
+    <p>El alias puede ser el siguiente:</p>
+
+    <div class="codigo">
+      <pre>
+<code class="language-configuracion">&lt;IfModule alias_module&gt;
+# ...
+<strong>    # 2018-12-12. Alias para las aplicaciones web</strong>
+    <strong>Alias <span class="codigo-resaltado">/phpmyadmin2</span> <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW nombre\Aplicaciones\phpmyadmin"</span>
+    &lt;Directory <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW nombre\Aplicaciones\phpmyadmin"</span>&gt;
+      Options Indexes FollowSymLinks Includes ExecCGI
+      AllowOverride All
+      Require all granted
+    &lt;/Directory&gt;</strong>
+# ...
+&lt;/IfModule&gt;</code>
+</pre>
+    </div>
   </section>
 
   <section id="ejercicio-6">
@@ -155,7 +171,7 @@
           <pre>
 <code class="language-php">/* config.inc.php */
 
-$cfg['Servers'][$i]['AllowNoPassword'] = <span class="codigo-modificacion">true</span>;  // Barto 2017-12-13 Permito usuario root sin contraseña</code>
+$cfg['Servers'][$i]['AllowNoPassword'] = <span class="codigo-modificacion">true</span>;  // Barto 2018-12-12 Permito usuario root sin contraseña</code>
 </pre>
         </div>
       </li>
@@ -177,7 +193,7 @@ $cfg['Servers'][$i]['AllowNoPassword'] = <span class="codigo-modificacion">true<
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 11 de diciembre de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 12 de diciembre de 2018</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
