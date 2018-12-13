@@ -44,16 +44,18 @@
 
   <p>En esta lección se proponen ejercicios "avanzados" de administración de <strong>phpMyAdmin</strong>. Se pueden consultar las <a href="phpmyadmin-3-soluciones.html">soluciones de estos ejercicios de phpMyAdmin</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta lección está pendiente de actualizar para phpMyAdmin 4.8.</p>
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta lección no está completamente actualizada para phpMyAdmin 4.8.</p>
 
   <section id="ejercicio-1">
     <h2>phpMyAdmin (3) 1 - Completar instalación</h2>
 
     <ol>
+      <li>Para mantener la identificación de los usuarios en la base de datos, phpMyAdmin guarda una cookie en el cliente. Esta cookie está encriptada mediante el algoritmo <a href="https://es.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a>, que requiere una cadenas <i>sal</i> aleatoria de 32 caracteres.</li>
       <li>Elimine el aviso inicial que muestra phpMyAdmin.
         <p class="captura">
-          <img src="../img/phpmyadmin/3-1-e-1-avisos.png" alt="phpMyAdmin. Avisos iniciales" width="1005" height="409" />
+          <img src="../img/phpmyadmin/3-1-e-1-avisos.png" alt="phpMyAdmin. Avisos iniciales" width="1005" height="387" />
         </p>
+        <p>Aunque phpMyAdmin utiliza el algortimo AES, la variable de configuración se llama <i>blowfish_secret</i> debido a que anteriormente phpMyAdmin utilizaba el algoritmo <a href="https://en.wikipedia.org/wiki/Blowfish_(cipher)">Blowfish</a>. Para generar la cadena de 32 caracteres puede utilizar algún generador Blowfish de los disponibles en Internet.</p>
       </li>
     </ol>
   </section>
@@ -61,23 +63,23 @@
   <section id="ejercicio-2">
     <h2>phpMyAdmin (3) 2 - Instalar tema</h2>
 
-    <p><strong>Notas</strong>:</p>
-    <ul>
-      <li>Actualmente (noviembre de 2014) la página de descarga de temas de phpMyAdmin no parece funcionar correctamente. Los temas se pueden descargar de la página web de phpMyAdmin en SourceForge.</li>
-    </ul>
     <ol>
       <li>Aplique el tema <strong>Original</strong>:
         <p class="captura">
-          <a href="../img/phpmyadmin/3-1-e-1-temas-original.png"><img src="../img/phpmyadmin/3-1-e-1-temas-original-mini.png" alt="phpMyAdmin. Tema Original" width="602" height="400" /></a>
+          <a href="../img/phpmyadmin/3-1-e-1-temas-original.png"><img src="../img/phpmyadmin/3-1-e-1-temas-original-mini.png" alt="phpMyAdmin. Tema Original" width="576" height="400" /></a>
         </p>
       </li>
-      <li>Descargue el tema <strong>Cleanstrap</strong> (u otro tema disponible para la versión instalada) de la página de phpMyAdmin en SourceForge y descomprímalo en la carpeta adecuada.
-        <p>Descargue la versión <strong>cleanstrap 1.0</strong>, publicada el 4 de diciembre de 2012. Se recomienda esa versión ya que estos ejercicios se han preparado para ella.</p>
-        <p>Si la versión <strong>cleanstrap 1.0</strong> ya no está disponible en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
+      <li>Descargue el tema <strong>Metro</strong> de la página de temas de phpMyAdmin y descomprímalo en la carpeta adecuada.
+        <p>Si el tema <strong>Mtero</strong> ya no está disponible en la web del programa, puede descargarlo desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
       </li>
-      <li>Aplique el tema <strong>Cleanstrap</strong>:
+      <li>Aplique el tema <strong>Metro</strong>:
         <p class="captura">
-          <a href="../img/phpmyadmin/3-1-e-2-temas-cleanstrap.png"><img src="../img/phpmyadmin/3-1-e-2-temas-cleanstrap-mini.png" alt="phpMyAdmin. Tema Cleanstrap" width="602" height="400" /></a>
+          <a href="../img/phpmyadmin/3-1-e-2-temas-metro-win.png"><img src="../img/phpmyadmin/3-1-e-2-temas-metro-win-mini.png" alt="phpMyAdmin. Tema Metro" width="576" height="422" /></a>
+        </p>
+      </li>
+      <li>Modifique los colores del tema <strong>Metro</strong>:
+        <p class="captura">
+          <a href="../img/phpmyadmin/3-1-e-2-temas-metro-mono.png"><img src="../img/phpmyadmin/3-1-e-2-temas-metro-mono-mini.png" alt="phpMyAdmin. Tema Metro" width="576" height="421" /></a>
         </p>
       </li>
       <li>Vuelva al tema predeterminado <strong>pmahomme</strong>.</li>
@@ -135,7 +137,7 @@ $cfg['AllowUserDropDatabase'] = true;</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de diciembre de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 13 de diciembre de 2018</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />

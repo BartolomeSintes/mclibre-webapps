@@ -52,14 +52,14 @@
   <section id="ejercicio-1">
     <h2>phpMyAdmin (3) 1 - Completar instalación</h2>
     <ol>
-      <li>Escriba una frase cualquiera de al menos 32 caracteres (letras, números, símbolos,
+      <li>En el archivo de configuración <strong>config.inc.php</strong>, escriba una cadena cualquiera de al menos 32 caracteres (letras, números, símbolos, etc. al azar) en el campo <i>blowfish_secret</i>. Para generarla puede utilizar un generador como <a href="https://www.question-defense.com/tools/phpmyadmin-blowfish-secret-generator">https://www.question-defense.com/tools/phpmyadmin-blowfish-secret-generator</a>:
         <div class="codigo">
           <pre>
 <code class="language-php">/**
   * This is needed for cookie based authentication to encrypt password in
   * cookie. Needs to be 32 chars long.
   */
- $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */</code>
+ $cfg['blowfish_secret'] = '<span class="codigo-resaltado">B9tx)*MFNh0RF_DDItf8LuSdZM+5ilF}f#-M|VT</span>'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */</code>
 </pre>
         </div>
       </li>
@@ -69,21 +69,21 @@
   <section id="ejercicio-2">
     <h2>phpMyAdmin (3) 2 - Instalar tema</h2>
     <ol>
-      <li>El tema aplicado a phpMyAdmin se modifica en la página principal (apartado <strong>Configuraciones de apariencia &gt; Tema &gt; Estilo</strong>).
+      <li>El tema aplicado a phpMyAdmin se modifica en la página principal (apartado <strong>Configuraciones de apariencia &gt; Tema</strong>).
         <ul>
           <li>La lista desplegable Tema muestra los temas disponibles. Al elegir uno de ellos, se aplicará inmediatamente:
             <p class=" captura">
-              <img src="../img/phpmyadmin/3-1-s-1-temas.png" alt="XAMPP. Página principal" width="1009" height="490" />
+              <img src="../img/phpmyadmin/3-1-s-1-temas.png" alt="XAMPP. Página principal" width="1005" height="500" />
             </p>
           </li>
         </ul>
       </li>
       <li>Los temas adicionales se deberían descargar en principio desde la página web <a href="https://www.phpmyadmin.net/themes/">https://www.phpmyadmin.net/themes/</a>, en la que conviene elegir la versión de phpMyAdmin para ver únicamente los temas apropiados para la versión instalada.
-        <p>Los temas se distribuyen en forma de archivo comprimido. Descomprima el archivo descargado en la carpeta <strong>phpmyadmin/themes</strong>, en la que ya se encuentran los temas <strong>original</strong> y <strong>pmahomme</strong>. Al descomprimirlo se añadirá una carpeta con el nombre del tema (en este caso, <strong>cleanstrap</strong>).</p>
+        <p>Los temas se distribuyen en forma de archivo comprimido. Descomprima el archivo descargado en la carpeta <strong>phpmyadmin/themes</strong>, en la que ya se encuentran los temas <strong>original</strong> y <strong>pmahomme</strong>. Al descomprimirlo se añadirá una carpeta con el nombre del tema (en este caso, <strong>metro</strong>).</p>
       </li>
       <li>Para ver el nuevo tema en la lista desplegable, actualice la página principal de phpMyAdmin.
         <p class=" captura">
-          <img src="../img/phpmyadmin/3-1-s-2-temas.png" alt="XAMPP. Página principal" width="1009" height="490" />
+          <img src="../img/phpmyadmin/3-1-s-2-temas.png" alt="XAMPP. Página principal" width="1005" height="500" />
         </p>
       </li>
     </ol>
@@ -167,7 +167,7 @@ $cfg['AllowUserDropDatabase'] = true;</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de diciembre de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 13 de diciembre de 2018</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
