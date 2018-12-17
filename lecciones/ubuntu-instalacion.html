@@ -36,14 +36,14 @@
 
     <p>Entre corchetes se indica el tiempo que tarda en pasar al paso siguiente una vez elegida la opción correspondiente.</p>
 
-    <p>Los cuadros con borde negro contienen las pulsaciones de teclado que se realizan en ese paso de la instalación, que se deben incluir en el <a href="packer-1.html#creacion-vm-vbox-ubuntu">constructor de packer</a> de la máquina virtual.</p>
+    <p>Los cuadros con borde negro contienen las pulsaciones de teclado que se realizan en ese paso de la instalación, que se deben incluir en el <a href="packer-1.html#creacion-vm-vbox-ubuntu">constructor de packer</a> de la máquina virtual. En los casos en que se desplaza el cursor en una pantalla, se han añadido cinco segundos de espera antes de pulsar <kbd>Intro</kbd> para dar tiempo a ver que se realiza el movimiento del cursor en la pantalla.</p>
 
     <hr class="corta" />
 
     <ol>
       <li>Elija el idioma español [1 s]:
         <div class="codigo">
-          <pre>&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait5&gt;</pre>
+          <pre>&lt;down&gt;&lt;down&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-01.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -84,7 +84,7 @@
       </li>
       <li>Elija la distribución de teclado Spanish (Win keys) [50 s]:
         <div class="codigo">
-          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait60s&gt;</pre>
+          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait60s&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-07.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -93,7 +93,7 @@
       </li>
       <li>Escriba el nombre de la máquina (o mantenga el nombre predeterminado <strong>ubuntu</strong>) [1 s]:
         <div class="codigo">
-          <pre>&lt;tab&gt;&lt;enter&gt;&lt;wait5&gt;</pre>
+          <pre>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-09.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -146,7 +146,7 @@
       </li>
       <li>Si la contraseña es débil (lo que sólo debe ocurrir en instalaciones de prueba), confirme la contraseña [1 s]:
         <div class="codigo">
-          <pre>&lt;left&gt;&lt;enter&gt;&lt;wait5&gt;</pre>
+          <pre>&lt;left&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-27.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -179,7 +179,7 @@
       </li>
       <li>Guarde los cambios [1 s]:
         <div class="codigo">
-          <pre>&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt; </pre>
+          <pre>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait10&gt; </pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-32.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -188,7 +188,7 @@
       </li>
       <li>Confirme el tamaño del disco [2 s]:
         <div class="codigo">
-          <pre>&lt;tab&gt;&lt;enter&gt;&lt;wait10&gt;</pre>
+          <pre>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait10&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-34.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -197,7 +197,7 @@
       </li>
       <li>Guarde los cambios [80 s]:
         <div class="codigo">
-          <pre>&lt;tab&gt;&lt;enter&gt;&lt;wait90s&gt;</pre>
+          <pre>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait90s&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-36.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -206,7 +206,7 @@
       </li>
       <li>Indique el proxy (en el ejemplo no se usa ninguno) [30 s]:
         <div class="codigo">
-          <pre>&lt;tab&gt;&lt;enter&gt;&lt;wait40s&gt;</pre>
+          <pre>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait40s&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-38.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -215,7 +215,7 @@
       </li>
       <li>Elija el tipo de actualizaciones (en el ejemplo se elige actualizaciones automáticas) [4 s]:
         <div class="codigo">
-          <pre>&lt;down&gt;&lt;enter&gt;&lt;wait10&gt;</pre>
+          <pre>&lt;down&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait10&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-40.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -224,7 +224,7 @@
       </li>
       <li>Seleccione la instalación del servidor OpenSSH [180 s]:
         <div class="codigo">
-          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;enter&gt;&lt;wait3m30s&gt;</pre>
+          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;wait5&gt;&lt;tab&gt;&lt;enter&gt;&lt;wait3m30s&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-42.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -258,7 +258,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 17 de diciembre de 2018</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
