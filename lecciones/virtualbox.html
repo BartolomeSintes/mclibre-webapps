@@ -64,7 +64,7 @@
     <p>Si la máquina virtual se ha creado con Packer, la imagen .iso con las Guest Additions ya se habrá descargado en la máquina virtual, pero si la máquina virtual se ha creado manualmente, es necesario descargarla, por ejemplo con la orden:</p>
 
     <div class="codigo">
-      <pre><code class="language-shell">wget http://download.virtualbox.org/virtualbox/<span class="codigo-resaltado">5.2.12</span>/VBoxGuestAdditions_<span class="codigo-resaltado">5.2.12</span>.iso</code></pre>
+      <pre><code class="language-shell">wget http://download.virtualbox.org/virtualbox/<span class="codigo-resaltado">5.2.22</span>/VBoxGuestAdditions_<span class="codigo-resaltado">5.2.22</span>.iso</code></pre>
     </div>
 
     <p>Hay que descargar la versión de las Guest Additions que coincida con la versión de VirtualBox que se esté utilizando.</p>
@@ -80,7 +80,7 @@
         </div>
         <p>La respuesta indica la versión del kernel:</p>
         <div class="codigo">
-          <pre><code class="language-shell">Linux ubuntu <span class="codigo-resaltado">4.15.0-20-generic</span> #21-Ubuntu SMP Tue Apr 24 ...</code></pre>
+          <pre><code class="language-shell">Linux ubuntu <span class="codigo-resaltado">4.15.0-29-generic</span> #31-Ubuntu SMP Tue Jul 17 ...</code></pre>
         </div>
       </li>
       <li>Instale las dependencias necesarias para generar los módulos de kernel:
@@ -88,7 +88,7 @@
           <pre>
 <code class="language-shell">sudo apt-get update
 sudo apt-get -y upgrade
-sudo apt-get -y install dkms build-essential linux-headers-4.15.0-20-generic</code>
+sudo apt-get -y install dkms build-essential linux-headers-4.15.0-29-generic</code>
 </pre>
         </div>
       </li>
@@ -113,7 +113,7 @@ rm ~/<span class="codigo-resaltado">VBoxGuestAdditions.iso</span></code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 13 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 17 de diciembre de 2018</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
