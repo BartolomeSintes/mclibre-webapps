@@ -255,7 +255,7 @@ PACKER_LOG_PATH=packerlog.txt
         "&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait10&gt;",
         "&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait90s&gt;",
         "&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait40s&gt;",
-        "&lt;down&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait10&gt;",
+        "&lt;enter&gt;&lt;wait10&gt;",
         "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;wait5&gt;&lt;tab&gt;&lt;enter&gt;&lt;wait3m30s&gt;",
         "&lt;enter&gt;&lt;wait40s&gt;",
         "&lt;enter&gt;&lt;wait40s&gt;"
@@ -346,7 +346,7 @@ PACKER_LOG_PATH=packerlog.txt
       "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
       "inline": [
         "apt-get update",
-        "DEBIAN_FRONTEND=noninteractive apt-get upgrade -yq"
+        "DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade"
       ]
     }
   ]
@@ -357,7 +357,7 @@ PACKER_LOG_PATH=packerlog.txt
         <p>Comentarios:</p>
         <ul>
           <li>Línea 6: De forma predeterminada, Packer transfiere la imagen .iso de las VirtualBox Guest Additions a la máquina virtual. En este caso se ha deshabilitado esta transferencia puesto que ya se ha transferido a la imagen inicial creada en el ejemplo 1.</li>
-          <li>Línea 22: Al comando apt upgrade le añadimos la opción <i>DEBIAN_FRONTEND=noninteractive apt-get upgrade -yq</i> porque Packer no es un entorno interactivo. Con esta opción le decimos automáticamente a todo que sí.</li>
+          <li>Línea 22: En vez de apt-get upgrade se usa el comando <i>DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade</i> porque Packer no es un entorno interactivo y no podemos contestar a peticiones de los instaladores. Con esta opción le decimos automáticamente a todo que sí.</li>
         </ul>
       </section>
     </section>
@@ -430,7 +430,7 @@ PACKER_LOG_PATH=packerlog.txt
         <div class="codigo">
           <pre class="line-numbers">
 <code class="language-bash">sudo apt-get update
-DEBIAN_FRONTEND=noninteractive sudo apt-get upgrade -yq
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
 sudo apt-get -y install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-29-generic</span>
 sudo mkdir /mnt/cdrom
 sudo mount ~/VBoxGuestAdditions.iso /mnt/cdrom
@@ -566,24 +566,18 @@ rm ~/VBoxGuestAdditions.iso</code>
 
         <p>Este podría ser el <i>script</i> de instalación de Docker (basado en las instrucciones que se comentan en la lección <a href="docker-1.html#ejercicio-1">Docker. Ejercicios (1)</a>.</p>
 
-        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48" />Puede que este script se pueda simplificar.</p>
-
         <div class="codigo">
           <pre class="line-numbers">
-<code class="language-bash">export DEBIAN_FRONTEND=noninteractive
-sudo systemctl disable apt-daily.service # disable run when system boot
-sudo systemctl disable apt-daily.timer   # disable timer run
-sudo -E apt-get update
-sudo -E apt-get upgrade -yq
-sudo -E apt-get install -y apt-transport-https ca-certificates curl software-properties-common
-sudo -E curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-# sudo -E apt-key fingerprint 0EBFCD88 > info-fingerprint.txt
-sudo -E add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-sudo -E apt-get update
-sudo -E apt-get upgrade -yq
-# sudo -E apt-cache policy docker-ce > info-policy.txt
-sudo -E apt-get install -y docker-ce
-sudo -E systemctl start apt-daily.timer</code>
+<code class="language-bash">sudo apt-get update
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
+sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88 &gt; info-fingerprint.txt
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo apt-get update
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
+sudo apt-cache policy docker-ce &gt; info-policy.txt
+sudo apt-get -y install docker-ce</code>
 </pre>
         </div>
 
@@ -625,7 +619,7 @@ sub   rsa4096 2017-02-22 [S]</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 17 de diciembre de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 19 de diciembre de 2018</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
