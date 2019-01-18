@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../varios/webapps.css" title="mclibre" />
   <link rel="icon" href="../varios/favicon.ico" />
   <link rel="stylesheet" href="../varios/highlight-php.css" />
-  <script src="../varios/highlight.pack.js" async="async"></script>
+  <script src="../varios/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 </head>
 
@@ -55,11 +55,6 @@
   <section id="ejercicio-1">
     <h2>WordPress (3) 1 - Widgets</h2>
     <ul>
-      <li>Distribuir widgets en la parte inferior
-        <ul>
-          <li>Abra el menú "Apariencia &gt; Widgets" y arrastre los widgets del cuadro "Barra lateral" a los cuadros "Pie de página 1" o "Pie de página 2".</li>
-        </ul>
-      </li>
       <li>Modificar widgets
         <ul>
           <li>Para eliminar un widget, haga clic en el icono del triángulo situado en su parte derecha y haga clic en el enlace Borrar.</li>
@@ -68,71 +63,90 @@
       </li>
       <li>Activar widgets
         <ul>
-          <li>Para activar un widget, arrastre el widget desde la lista de widgets disponibles al cuadro deseado y modifique los campos necesarios.</li>
-        </ul>
-      </li>
-      <li>Widget "Image Widget"
-        <ul>
-          <li>Abra el menú "Plugins &gt; Añadir nuevo" y escriba el nombre del widget en la caja de búsqueda situada arriba a la derecha.</li>
-          <li>Haga clic en el botón "Instalar ahora" del plugin "Image widget".</li>
-          <li>Una vez instalado, haga clic en el botón Activar.</li>
-          <li>Una vez activado, se mostrará la lista de plugins instalados, con el plugin "Widget de una imagen".</li>
-          <li>Abra el menú "Apariencia &gt; Widgets" en el que ahora se mostrará el widget "Image Widget" en la lista de widgets disponibles.</li>
-          <li>Arrastre el widget al cuadro "Barra lateral".</li>
-          <li>Haga clic en el botón "Select an image" del widget para seleccionar una imagen de la Biblioteca multimedia o subir una nueva. Una vez subida complete los campos necesarios.</li>
-          <li>Haga clic en el botón Guardar del widget.</li>
-          <li>Comprueb</li>
+          <li>Para activar un widget, arrastre el widget desde la lista de widgets disponibles a la posición deseada y modifique los campos necesarios.</li>
         </ul>
       </li>
       <li>Widget Meta
         <ul>
-          <li>Cambie el título del widget en "Apariencia &gt; Widgets".</li>
+          <li>Cambie el título del widget en "Título".</li>
           <li>Para eliminar dos elementos del widget, debe editar el archivo con cualquier editor de texto plano (Notepad++, etc.)</li>
-          <li>En el archivo <strong>default-widgets.php</strong> se puede ver en qué fichero está configurado el plugin Meta
+          <li>En el archivo <strong>\wordpress\wp-includes\default-widgets.php</strong> se puede ver en qué fichero está configurado el plugin Meta
             <div class="codigo">
               <pre>
 <code class="language-php">/** WP_Widget_Meta class */
-require_once( ABSPATH . WPINC . '/<span class="codigo-modificacion">widgets/class-wp-widget-meta.php</span>' );
-</code>
+require_once( ABSPATH . WPINC . '/widgets/class-wp-widget-meta.php' );</code>
 </pre>
             </div>
           </li>
-          <li>En ese archivo <strong>class-wp-widget-meta.php</strong>, el fragmento de código que genera los elementos de la lista es el siguiente:
+          <li>En ese archivo <strong>class-wp-widget-meta.php</strong>, la función que genera los elementos de la lista es el siguiente:
             <div class="codigo">
               <pre>
-<code class="language-php">&lt;ul&gt;
-&lt;?php wp_register(); ?&gt;
-&lt;li&gt;&lt;?php wp_loginout(); ?&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;&lt;?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?&gt;&quot;&gt;&lt;?php _e('Entries &lt;abbr title=&quot;Really Simple Syndication&quot;&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;&lt;?php echo esc_url( get_bloginfo( 'comments_rss2_url' ) ); ?&gt;&quot;&gt;&lt;?php _e('Comments &lt;abbr title=&quot;Really Simple Syndication&quot;&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;?php
-/**
- * Filters the &quot;Powered by WordPress&quot; text in the Meta widget.
- *
- * @since 3.6.0
- *
- * @param string $title_text Default title text for the WordPress.org link.
- */
-echo apply_filters( 'widget_meta_poweredby', sprintf( '&lt;li&gt;&lt;a href=&quot;%s&quot; title=&quot;%s&quot;&gt;%s&lt;/a&gt;&lt;/li&gt;',
-  esc_url( __( 'https://wordpress.org/' ) ),
-  esc_attr__( 'Powered by WordPress, state-of-the-art semantic personal publishing platform.' ),
-  _x( 'WordPress.org', 'meta widget link text' )
-) );
+<code class="language-php">  public function widget( $args, $instance ) {
+      $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Meta' );
 
-wp_meta();
-?&gt;
-&lt;/ul&gt;</code>
+      /** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+      $title = apply_filters( 'widget_title', $title, $instance, $this-&gt;id_base );
+
+      echo $args['before_widget'];
+
+      if ( $title ) {
+          echo $args['before_title'] . $title . $args['after_title'];
+      }
+          ?&gt;
+          &lt;ul&gt;
+          &lt;?php wp_register(); ?&gt;
+          &lt;li&gt;&lt;?php wp_loginout(); ?&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?&gt;"&gt;&lt;?php _e('Entries &lt;abbr title="Really Simple Syndication"&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'comments_rss2_url' ) ); ?&gt;"&gt;&lt;?php _e('Comments &lt;abbr title="Really Simple Syndication"&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;?php
+          /**
+           * Filters the "Powered by WordPress" text in the Meta widget.
+           *
+           * @since 3.6.0
+           * @since 4.9.0 Added the `$instance` parameter.
+           *
+           * @param string $title_text Default title text for the WordPress.org link.
+           * @param array  $instance   Array of settings for the current widget.
+           */
+          echo apply_filters( 'widget_meta_poweredby', sprintf( '&lt;li&gt;&lt;a href="%s" title="%s"&gt;%s&lt;/a&gt;&lt;/li&gt;',
+              esc_url( __( 'https://wordpress.org/' ) ),
+              esc_attr__( 'Powered by WordPress, state-of-the-art semantic personal publishing platform.' ),
+              _x( 'WordPress.org', 'meta widget link text' )
+          ), $instance );
+
+          wp_meta();
+          ?&gt;
+          &lt;/ul&gt;
+          &lt;?php
+
+      echo $args['after_widget'];
+  }</code>
 </pre>
             </div>
           </li>
-          <li>Elimine los dos últimos elementos
+          <li>Elimine los tres últimos elementos
             <div class="codigo">
               <pre>
-<code class="language-php">&lt;ul&gt;
-&lt;?php wp_register(); ?&gt;
-&lt;li&gt;&lt;?php wp_loginout(); ?&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;&lt;?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?&gt;&quot;&gt;&lt;?php _e('Entries &lt;abbr title=&quot;Really Simple Syndication&quot;&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code>
+<code class="language-php">  &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?&gt;"&gt;&lt;?php _e('Entries &lt;abbr title="Really Simple Syndication"&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'comments_rss2_url' ) ); ?&gt;"&gt;&lt;?php _e('Comments &lt;abbr title="Really Simple Syndication"&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;?php
+  /**
+   * Filters the "Powered by WordPress" text in the Meta widget.
+   *
+   * @since 3.6.0
+   * @since 4.9.0 Added the `$instance` parameter.
+   *
+   * @param string $title_text Default title text for the WordPress.org link.
+   * @param array  $instance   Array of settings for the current widget.
+   */
+  echo apply_filters( 'widget_meta_poweredby', sprintf( '&lt;li&gt;&lt;a href="%s" title="%s"&gt;%s&lt;/a&gt;&lt;/li&gt;',
+      esc_url( __( 'https://wordpress.org/' ) ),
+      esc_attr__( 'Powered by WordPress, state-of-the-art semantic personal publishing platform.' ),
+      _x( 'WordPress.org', 'meta widget link text' )
+  ), $instance );
+
+  wp_meta();
+  ?&gt;</code>
 </pre>
             </div>
             <p><strong>Nota</strong>: Cuando el usuario no está registrado, el código &lt;?php wp_loginout(); ?&gt; no genera ningún texto.</p>
@@ -140,7 +154,7 @@ wp_meta();
         </ul>
       </li>
       <li>Widget Audio / Vídeo
-        <p>Aumentar el tamaño de las imágenes que se pueden subir a los artículos.</p>
+        <p>Aumentar el tamaño de los ficheros que se pueden subir a los artículos.</p>
         <ul>
           <li>en <strong>php.ini</strong>:
             <div class="codigo">
@@ -194,7 +208,7 @@ php_value post_max_size 10M</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 14 de enero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 18 de enero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
