@@ -28,7 +28,7 @@
       <h3><a href="wordpress-4.html">Enunciados</a></h3>
       <ul>
         <li><a href="wordpress-4.html#ejercicio-1">1 - Imagen destacada</a></li>
-        <li><a href="wordpress-4.html#ejercicio-2">2 - Personalizar tema 2017</a></li>
+        <li><a href="wordpress-4.html#ejercicio-2">2 - Personalizar tema 2019</a></li>
         <li><a href="wordpress-4.html#ejercicio-3">3 - Modificar traducción</a></li>
         <li><a href="wordpress-4.html#ejercicio-4">4 - Crear un tema hijo</a></li>
         <li><a href="wordpress-4.html#ejercicio-5">5 - Modificar CSS tema hijo</a></li>
@@ -41,7 +41,7 @@
       <h3><a href="#">Soluciones</a></h3>
       <ul>
         <li><a href="#ejercicio-1">1 - Imagen destacada</a></li>
-        <li><a href="#ejercicio-2">2 - Personalizar tema 2017</a></li>
+        <li><a href="#ejercicio-2">2 - Personalizar tema 2019</a></li>
         <li><a href="#ejercicio-3">3 - Modificar traducción</a></li>
         <li><a href="#ejercicio-4">4 - Crear un tema hijo</a></li>
         <li><a href="#ejercicio-5">5 - Modificar CSS tema hijo</a></li>
@@ -63,12 +63,12 @@
     <ul>
       <li>Para asignar una imagen a una entrada, edite la entrada y utilice la herramienta <strong>Imagen destacada</strong>:
         <p class="captura">
-          <img src="../img/wordpress/4-1-s-1-contenido-destacado.png" alt="WordPress. Contenido destacado" width="991" height="430" />
+          <img src="../img/wordpress/4-1-s-1-imagen-destacada.png" alt="WordPress. Contenido destacado" width="1008" height="470" />
         </p>
       </li>
       <li>La imagen elegida se mostrará en la herramienta <strong>Imagen destacada</strong>:
         <p class="captura">
-          <img src="../img/wordpress/4-1-s-2-contenido-destacado.png" alt="WordPress. Contenido destacado" width="991" height="595" />
+          <img src="../img/wordpress/4-1-s-2-imagen-destacada.png" alt="WordPress. Contenido destacado" width="1008" height="660" />
         </p>
       </li>
     </ul>
@@ -78,31 +78,58 @@
     <h2>WordPress (4) 2 - Personalizar el tema Twenty Seventeen</h2>
 
     <ul>
+      <li><strong>Icono del sitio</strong>
+        <p>Elija el menú <strong>Apariencia &gt; Personalizar &gt; Identidad del sitio</strong>.</p>
+        <p>En el apartado "Icono del sitio", haga clic en "Seleccionar imagen" y seleccione el icono.</p>
+      </li>
       <li>Para personalizar el tema predeterminado, elija el menú <strong>Apariencia &gt; Personalizar</strong>:
       </li>
 
       <li>
         <div class="codigo">
           <pre>
-<code class="language-css">html, div.custom-header, div.site-content-contain, footer{
- background-color: hsl(360, 75%, 70%);
+<code class="language-css">/* Cabecera */
+
+.site-header {
+	background-color: hsl(0, 75%, 70%);
 }
 
-div.navigation-top {
- background-color: hsl(360, 75%, 50%);
- color: white;
+/* Menu */
+.main-navigation {
+	background-color: hsl(0, 75%, 50%);
 }
 
-div.navigation-top ul#top-menu a {
- color: white;
+.main-navigation .main-menu li a {
+	color: white;
+}
+.main-menu button {
+	color: white;
 }
 
-div.navigation-top ul#top-menu ul.sub-menu li.menu-item a {
- color: black;
+/* Submenús */
+.menu-item {
+	background-color: hsl(0, 75%, 50%);
 }
 
-div#content {
- background-color: hsl(360, 75%, 90%);
+.menu-item .sub-menu li a {
+	background-color: hsl(0, 75%, 50%);
+}
+.menu-item .sub-menu li a:hover {
+	background-color: hsl(0, 75%, 90%);
+}
+
+/* Blog */
+.site-content {
+	background-color: hsl(0, 75%, 90%);
+}
+
+/* Pie */
+.site-footer {
+	background-color: hsl(0, 75%, 70%);
+}
+
+input[type=submit] {
+	background-color: hsl(0, 75%, 50%);
 }</code>
 </pre>
         </div>
@@ -140,7 +167,7 @@ Author: <span class="codigo-modificacion">TU NOMBRE</span>
 Author URI: <span class="codigo-modificacion">TU PÁGINA WEB</span>
 Description: <span class="codigo-modificacion">Tema hijo de Twenty Seventeen</span>
 Version: <span class="codigo-modificacion">1.0</span>
-Updated: <span class="codigo-modificacion">2017-02-06</span>
+Updated: <span class="codigo-modificacion">2019-01-21</span>
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */</code>
@@ -296,7 +323,7 @@ article h1, article h2 {
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 20 de enero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 21 de enero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
