@@ -53,8 +53,6 @@
     </div>
   </nav>
 
-  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Estas soluciones están pendientes de actualizar a la versión WordPress 5.0.</p>
-
   <p>En esta lección se proponen soluciones detalladas de los <a href="wordpress-4.html">ejercicios (4) de WordPress</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
   <section id="ejercicio-1">
@@ -63,29 +61,66 @@
     <ul>
       <li>Para asignar una imagen a una entrada, edite la entrada y utilice la herramienta <strong>Imagen destacada</strong>:
         <p class="captura">
-          <img src="../img/wordpress/4-1-s-1-imagen-destacada.png" alt="WordPress. Contenido destacado" width="1008" height="470" />
+          <img src="../img/wordpress/4-1-s-1-imagen-destacada.png" alt="WordPress. Imagen destacada" width="1008" height="470" />
         </p>
       </li>
       <li>La imagen elegida se mostrará en la herramienta <strong>Imagen destacada</strong>:
         <p class="captura">
-          <img src="../img/wordpress/4-1-s-2-imagen-destacada.png" alt="WordPress. Contenido destacado" width="1008" height="660" />
+          <img src="../img/wordpress/4-1-s-2-imagen-destacada.png" alt="WordPress. Imagen destacada" width="1008" height="660" />
         </p>
       </li>
     </ul>
   </section>
 
   <section id="ejercicio-2">
-    <h2>WordPress (4) 2 - Personalizar el tema Twenty Seventeen</h2>
+    <h2>WordPress (4) 2 - Personalizar el tema Twenty Nineteen</h2>
 
-    <ul>
+    <p>Para personalizar el tema predeterminado, elija el menú <strong>Apariencia &gt; Personalizar</strong>.</p>
+
+    <ol>
       <li><strong>Icono del sitio</strong>
         <p>Elija el menú <strong>Apariencia &gt; Personalizar &gt; Identidad del sitio</strong>.</p>
         <p>En el apartado "Icono del sitio", haga clic en "Seleccionar imagen" y seleccione el icono.</p>
       </li>
-      <li>Para personalizar el tema predeterminado, elija el menú <strong>Apariencia &gt; Personalizar</strong>:
+
+      <li><strong>Logotipo del sitio</strong>
+        <p>Elija el menú <strong>Apariencia &gt; Personalizar &gt; Identidad del sitio</strong>.</p>
+        <p>En el apartado "Logotipo del sitio", haga clic en "Elegir logo" y seleccione la imagen.</p>
       </li>
 
-      <li>
+      <li><strong>Página estática</strong>
+        <p>Para crear la página estática: </p>
+        <ol>
+          <li>Cree la página que se convertirá en la página de inicio del sitio:
+            <p class="captura">
+              <img src="../img/wordpress/4-2-s-31-portada-estatica.png" alt="WordPress. Portada estática" width="1008" height="660" />
+            </p>
+          </li>
+          <li>Elija el menú <strong>Apariencia &gt; Personalizar &gt; Ajustes de portada</strong>. Marque el botón "Una página estática". Seleccione la página creada en la lista "Página de inicio". Haga clic en "Añadir nueva página".
+            <p class="captura">
+              <img src="../img/wordpress/4-2-s-32-portada-estatica.png" alt="WordPress. Portada estática" width="1008" height="625" />
+            </p>
+          </li>
+          <li>Escriba un nombre para la página que contendrá las entradas del blog y haga clic en "Añadir":
+            <p class="captura">
+              <img src="../img/wordpress/4-2-s-33-portada-estatica.png" alt="WordPress. Portada estática" width="1008" height="640" />
+            </p>
+          </li>
+          <li>Haga clic en Publicar:
+            <p class="captura">
+              <img src="../img/wordpress/4-2-s-34-portada-estatica.png" alt="WordPress. Portada estática" width="1008" height="610" />
+            </p>
+          </li>
+          <li>Compruebe en <strong>Páginas &gt; Todas las páginas</strong> que las dos páginas son ahora la página de inicio y de entradas:
+            <p class="captura">
+              <img src="../img/wordpress/4-2-s-35-portada-estatica.png" alt="WordPress. Portada estática" width="991" height="310" />
+            </p>
+          </li>
+          <li>Añada al menú principal un enlace a la página de entradas.</li>
+        </ol>
+      </li>
+
+      <li><strong>CSS adicional</strong>
         <div class="codigo">
           <pre>
 <code class="language-css">/* Cabecera */
@@ -135,14 +170,14 @@ input[type=submit] {
         </div>
       </li>
 
-    </ul>
+    </ol>
   </section>
 
   <section id="ejercicio-3">
     <h2>WordPress (4) 3 - Modificar la traducción de WordPress</h2>
 
     <ul>
-      <li>El archivo de traducción del tema es <strong>wordpress\wp-content\languages\themes\twentyseventeen-es_ES.po</strong></li>
+      <li>El archivo de traducción del tema es <strong>wordpress\wp-content\languages\themes\twentynineteen-es_ES.po</strong></li>
     </ul>
   </section>
 
@@ -151,25 +186,26 @@ input[type=submit] {
 
     <p>Referencias:</p>
     <ul>
-      <li>Documentación oficial de Wordpress: <a href="https://codex.wordpress.org/Child_Themes">Child themes</a></li>
-      <li>Plugin Child Theme Configurator: <a href="https://wordpress.org/plugins/child-theme-configurator/">https://wordpress.org/plugins/child-theme-configurator/</a></li>
+      <li>Documentación oficial de Wordpress: <a href="https://developer.wordpress.org/themes/advanced-topics/child-themes/">Child themes</a></li>
+      <li>Plugin <a href="https://wordpress.org/plugins/child-theme-configurator/">Child Theme Configurator</a></li>
     </ul>
     <ol>
-      <li>Cree la carpeta <strong><span class="codigo-modificacion">twentyseventeen</span>-child</strong> y cree en ella los dos archivos siguientes:</li>
+      <li>Cree la carpeta <strong><span class="codigo-modificacion">twentynineteen</span>-child</strong> y cree en ella los dos archivos siguientes:</li>
       <li>Cree el archivo <strong>style.css</strong> con el siguiente contenido. Aunque sean líneas comentadas, el contenido de estas líneas es importante. La línea más importante es la de Template, ya que en ella se dice cuál es el tema padre de este tema hijo, escribiendo el nombre de la carpeta que lo contiene. El resto debería contener información real.
         <div class="codigo">
           <pre>
 <code class="language-css">/*
-Theme Name: <span class="codigo-modificacion">Twenty Seventeen Child</span>
-Theme URI: <span class="codigo-modificacion">https://wordpress.org/themes/twentyseventeen/</span>
-Template: twentyseventeen
+Theme Name: <span class="codigo-modificacion">Twenty Nineteen Child</span>
+Theme URI: <span class="codigo-modificacion">https://example.com/themes/twenty-nineteen-child/</span>
+Description: <span class="codigo-modificacion">Tema hijo de Twenty Nineteen</span>
 Author: <span class="codigo-modificacion">TU NOMBRE</span>
 Author URI: <span class="codigo-modificacion">TU PÁGINA WEB</span>
-Description: <span class="codigo-modificacion">Tema hijo de Twenty Seventeen</span>
-Version: <span class="codigo-modificacion">1.0</span>
-Updated: <span class="codigo-modificacion">2019-01-21</span>
+Template: <span class="codigo-modificacion">twentynineteen</span>
+Version: <span class="codigo-modificacion">1.0.0</span>
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, responsive-layout, accessibility-ready
+Updated: <span class="codigo-modificacion">2019-01-22</span>
 */</code>
 </pre>
         </div>
@@ -178,23 +214,21 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
         <div class="codigo">
           <pre>
 <code class="language-php">&lt;?php
-// Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) exit;
+add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
+function my_theme_enqueue_styles() {
 
-// BEGIN ENQUEUE PARENT ACTION
-// AUTO GENERATED - Do not modify or remove comment markers above or below:
+    $parent_style = '<span class="codigo-modificacion">twentynineteen</span>-style'; // This is 'twentynineteen-style' for the Twenty Nineteen theme.
 
-if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
-    function chld_thm_cfg_parent_css() {
-        wp_enqueue_style( 'chld_thm_cfg_parent', trailingslashit( get_template_directory_uri() ) . 'style.css', array(  ) );
-    }
-endif;
-add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
-
-// END ENQUEUE PARENT ACTION</code>
+    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        array( $parent_style ),
+        wp_get_theme()-&gt;get('Version')
+    );
+}
+?&gt;</code>
 </pre>
         </div>
-        <p><strong>Nota</strong>: El ejemplo anterior de <strong>functions.php</strong> es el que genera el plugin Child Theme Configurator.</p>
       </li>
     </ol>
   </section>
@@ -203,27 +237,39 @@ add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
     <h2>WordPress (4) 5 - Modificar la hoja de estilo del tema hijo</h2>
 
     <ol>
+      <li>La hoja de estilo del tema hijo se puede editar con un editor cualquiera o con el editor integrado disponible en el menú <strong>Apariencia &gt; Editor</strong>
+        <p class="captura">
+          <img src="../img/wordpress/4-5-s-1-editor.png" alt="WordPress. Modificar css tma hijo" width="991" height="585" />
+        </p>
+      </li>
       <li>Cuatro elementos de la interfaz
         <p>Para obtener el resultado propuesto, la hoja de estilo podría ser la siguiente:</p>
         <div class="codigo">
           <pre>
-<code class="language-css">body.has-header-image .site-description {
-  color: yellow;
+<code class="language-css">.site-description {
+  color: red;
 }
 
-.page-title {
-  border-bottom: green 3px solid;
+.post {
+  border-top: hsl(120, 100%, 25%) 3px solid;
+  border-bottom: hsl(120, 100%, 25%) 3px solid;
+  background-color: hsl(120, 100%, 90%);
 }
 
-article.post {
-  border: green 3px solid;
-  margin-bottom: 10px;
-  padding: 5px;
+.hfeed .entry .entry-header {
+  border-bottom: hsl(120, 100%, 25%) 3px solid;
+  margin: 0;
+  background-color: hsl(120, 100%, 80%);
+  text-align: center;
+  text-shadow: white 3px 3px;
 }
 
-h2.entry-title {
-  font-weight: bold;
-  text-shadow: 5px 5px lightgrey;
+.entry .entry-title::before, .widget h2::before {
+  display: none;
+}
+
+.entry .entry-footer  {
+  margin-bottom: 0;
 }</code>
 </pre>
         </div>
@@ -233,25 +279,19 @@ h2.entry-title {
 
         <div class="codigo">
           <pre>
-<code class="language-css">section.widget {
-  border: green 3px solid;
+<code class="language-css">.widget {
+  border: hsl(120, 100%, 25%) 3px solid;
   border-radius: 10px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
 }
-
-section.widget ul {
-  padding: 0 5px;
-}
-
-h2.widget-title {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  margin-bottom: 10px;
+.widget h2 {
+  margin: 0;
   padding: 5px;
-  background-color: green;
+  background-color: hsl(120, 100%, 25%);
   color: white;
-  font-size: 1rem;
+}
+
+.widget ul, .widget form {
+  padding: 10px;
 }</code>
 </pre>
         </div>
@@ -263,19 +303,29 @@ h2.widget-title {
     <h2>WordPress (4) 6 - Modificar una plantilla de página </h2>
 
     <ul>
-      <li>La plantilla de la página 404 que hay que copia en el tema hijo es <strong>\wordpress\wp-content\themes\twentyseventeen\404.php</strong>.</li>
-
-      <li>El código a incluir podría ser el siguiente (la url de la imagen debería cambiarse por la de la imagen subida):
-
+      <li>La plantilla de la página 404 que hay que copia en el tema hijo es <strong>\wordpress\wp-content\themes\twentynineteen\404.php</strong>.
+        <p>El código que genera el contenido de la página es el siguiente:</p>
         <div class="codigo">
           <pre>
-<code class="language-css">&lt;div class="page-content"&gt;
-  <span class="codigo-resaltado-caja">&lt;p style="text-align: center"&gt;
-    &lt;img class="alignnone size-full wp-image-102" src="<span class="codigo-modificacion">http://192.168.1.4/wordpress/wp-content/uploads/2016/09/oops-200.png</span>"
-    alt="" width="225" height="200" /&gt;
-  &lt;/p&gt;</span>
-  &lt;p <span class="codigo-resaltado">style="color: red"</span>&gt;&lt;?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentyseventeen' ); ?&gt;&lt;/p&gt;
-  &lt;?php get_search_form(); ?&gt;
+<code class="language-php">&lt;div class="page-content"&gt;
+    &lt;p&gt;&lt;?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentynineteen' ); ?&gt;&lt;/p&gt;
+    &lt;?php get_search_form(); ?&gt;
+&lt;/div&gt;&lt;!-- .page-content --&gt;</code>
+</pre>
+        </div>
+      </li>
+
+      <li>El código modificado podría ser el siguiente (la url de la imagen debería cambiarse por la de la imagen subida):
+        <div class="codigo">
+          <pre>
+<code class="language-php">&lt;div class="page-content"&gt;
+<span class="codigo-resaltado-caja">    &lt;div class="wp-block-image"&gt;
+        &lt;figure class="aligncenter is-resized"&gt;
+            &lt;img src="<span class="codigo-modificacion">http://192.168.1.4/wordpress/wp-content/uploads/2019/01/oops-200.png</span>" alt="404" class="wp-image-500" width="225" height="200" /&gt;
+        &lt;/figure&gt;
+    &lt;/div&gt;&lt;!-- .wp-block-image --&gt;</span>
+    &lt;p <span class="codigo-resaltado">style="color:red"</span>&gt;&lt;?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentynineteen' ); ?&gt;&lt;/p&gt;
+    &lt;?php get_search_form(); ?&gt;
 &lt;/div&gt;&lt;!-- .page-content --&gt;</code>
 </pre>
         </div>
@@ -284,6 +334,8 @@ h2.widget-title {
   </section>
 
   <section id="ejercicio-7">
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />las soluciones de los ejercicios siguientes están pendientes de actualizar a la versión WordPress 5.0.</p>
+
     <h2>WordPress (4) 7 - Google Fonts (css)</h2>
 
     <ul>
@@ -291,17 +343,14 @@ h2.widget-title {
 
         <div class="codigo">
           <pre>
-<code class="language-css">/* =Theme customization starts here
--------------------------------------------------------------- */
-
-@import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
+<code class="language-css">@import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
 @import url(http://fonts.googleapis.com/css?family=Over+the+Rainbow);
 
-p.site-title a, h1.site-title a {
+.site-title {
   font-family: "Montserrat Alternates";
 }
 
-article h1, article h2 {
+.entry-title {
   font-family: "Over the Rainbow";
 }</code>
 </pre>
@@ -323,7 +372,7 @@ article h1, article h2 {
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 21 de enero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 22 de enero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
