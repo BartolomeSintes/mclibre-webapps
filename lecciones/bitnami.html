@@ -95,7 +95,7 @@
       <h3>Instalar una única aplicación</h3>
 
       <p class="captura">
-        <img src="../img/bitnami/bn-tipos-1.png" alt="Bitnami. Tipos de instaladores" width="730" height="300" />
+        <img src="../img/bitnami/bn-tipos-1.png" alt="Bitnami. Tipos de instaladores" width="721" height="331" />
       </p>
 
       <p>Si queremos instalar una única aplicación web, Bitnami ofrece varios tipos de instaladores "llave en mano":</p>
@@ -125,10 +125,18 @@
         </li>
         <li><strong>Contenedor Docker</strong>:
           <ul>
-            <li>Los contenedores Docker de aplicaciones de Bitnami incluyen únicamente la aplicación, aunque están disponibles contenedores de aplicaciones de infraestructura (lenguajes de programación, bases de datos, servidores web, etc.).</li>
-            <li>Actualmente (enero de 2018) el número de aplicaciones ofrecidas como contenedor es bastante menor que en los otros formatos (unas 50 aplicaciones frente a unas 150 aplicaciones).</li>
+            <li>Los contenedores <a href="https://www.docker.com/">Docker</a> de aplicaciones de Bitnami incluyen únicamente la aplicación, aunque están disponibles contenedores de aplicaciones de infraestructura (lenguajes de programación, bases de datos, servidores web, etc.).</li>
+            <li>Actualmente (enero de 2019) el número de aplicaciones ofrecidas como contenedor es menor que en los otros formatos (unas 80 aplicaciones frente a unas 160 aplicaciones).</li>
             <li>Los contenedores están creados por una herramienta de Bitnami llamada <a href="https://stacksmith.bitnami.com/">Stacksmith</a> que Bitnami ofrece para crear contenedores personalizados.</li>
             <li>Página web: <a href="https://bitnami.com/stacks/containers">https://bitnami.com/stacks/containers</a></li>
+          </ul>
+        </li>
+        <li><strong>Helm charts para Kubernetes</strong>:
+          <ul>
+            <li><a href="https://helm.sh/">Helm</a> es el gestor de paquetes de <a href="https://kubernetes.io/">Kubernetes</a> y los <a href="https://hub.helm.sh/">Helm Charts</a> son los paquetes de Kubernetes.</li>
+            <li>Actualmente (enero de 2019) el número de aplicaciones ofrecidas como Helm charts es menor que en los otros formatos (unas 40 aplicaciones frente a unas 160 aplicaciones).</li>
+            <li>Los contenedores están creados por una herramienta de Bitnami llamada <a href="https://kubeapps.com/">Kubeapps</a> que Bitnami ofrece para crear contenedores personalizados.</li>
+            <li>Página web: <a href="https://bitnami.com/stacks/helm">https://bitnami.com/stacks/helm</a></li>
           </ul>
         </li>
       </ul>
@@ -146,7 +154,7 @@
         <li><strong>Infrastructure Virtual Machine (VM)</strong>:
           <ul>
             <li>Las máquinas virtuales de infraestructura de Bitnami incluyen el sistema operativo Debian y los servidores que suelen necesitarse de forma conjunta (por ejemplo, Apache y MySQL, o Apache y PostgreSQL, o Nginx y MySQL, etc.).</li>
-            <li>Página web: <a href="https://bitnami.com/stacks/infrastructure">https://bitnami.com/stacks/infrastructure</a></li>
+            <li>Página web: <a href="https://bitnami.com/stacks/virtual-machine">https://bitnami.com/stacks/virtual-machine</a></li>
           </ul>
         </li>
         <li><strong>Infrastructure stack</strong>:
@@ -161,7 +169,7 @@
           <ul>
             <li>Los módulos de Bitnami incluyen únicamente la aplicación, por lo que se necesita tener instalado previamente los servidores necesarios (a través de instaladores de infraestructura).</li>
             <li>Los módulos están disponibles para Windows, Linux y OSX, en muchos casos para 32 o 64 bits y en algunos casos para varias versiones de la aplicación (estables o en desarrollo).</li>
-            <li>Página web: Windows: <a href="https://bitnami.com/stack/wamp/modules">https://bitnami.com/stack/wamp/modules</a> - Linux: <a href="https://bitnami.com/stack/lamp/modules">https://bitnami.com/stack/lamp/modules</a>.</li>
+            <li>Módulos para Apache/MySQL/PHP: Windows: <a href="https://bitnami.com/stack/wamp/modules">https://bitnami.com/stack/wamp/modules</a> - Linux: <a href="https://bitnami.com/stack/lamp/modules">https://bitnami.com/stack/lamp/modules</a>.</li>
           </ul>
         </li>
       </ul>
@@ -170,6 +178,20 @@
 
   <section id="descargar-instaladores">
     <h2>Descarga de instaladores</h2>
+
+    <p>Abra la página web de <a href="https://bitnami.com/">Bitnami</a> y haga clic en el enlace al catálogo de aplicaciones:</p>
+    <p class="captura">
+      <a href="../img/bitnami/bn-descarga-0-1.png">
+        <img src="../img/bitnami/bn-descarga-0-1-mini.png" alt="Bitnami. Página principal" width="500" height="181" />
+      </a>
+    </p>
+
+    <p>Se mostrará la página web del <a href="https://bitnami.com/stacks">catálogo de aplicaciones</a>:</p>
+    <p class="captura">
+      <a href="../img/bitnami/bn-descarga-0-2.png">
+        <img src="../img/bitnami/bn-descarga-0-2-mini.png" alt="Bitnami. Catálogo de aplicaciones" width="500" height="437" />
+      </a>
+    </p>
 
     <p>Para descargar el instalador adecuado (o los instaladores adecuados), tenemos que tener claro qué queremos instalar:</p>
     <ul>
@@ -200,55 +222,63 @@
 
       <p>Si queremos instalar una única aplicación web, Bitnami ofrece varios tipos de instaladores "llave en mano":</p>
       <ul>
-        <li><strong>Cloud</strong>:
+        <li><strong>Cloud</strong> (sistema operativo + servidores + aplicación):
           <ul>
             <li><span class="incompleto">Por escribir</span></li>
             <li>Página web: <a href="https://bitnami.com/cloud">https://bitnami.com/cloud</a></li>
           </ul>
         </li>
-        <li><strong>Virtual Machine</strong>:
-          <ul>
-            <li>Para descargar una máquina virtual Debian que incluya los servidores y la aplicación ya instalada y configurada, siga los siguientes pasos:
-              <ol>
-                <li>Abra la página de máquinas virtuales de Bitnami: <a href="https://bitnami.com/stacks/virtual-machine">https://bitnami.com/stacks/virtual-machine</a> y haga clic en la aplicación deseada:
-                  <p class="captura">
-                    <a href="../img/bitnami/bn-descarga-1-1.png">
-                      <img src="../img/bitnami/bn-descarga-1-1-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores + aplicación" width="500" height="437" />
-                    </a>
-                  </p>
-                </li>
-                <li>Confirme que se encuentra en la página de descarga de máquinas virtuales y haga clic en el icono de descarga:
-                  <p class="captura">
-                    <a href="../img/bitnami/bn-descarga-1-2.png">
-                      <img src="../img/bitnami/bn-descarga-1-2-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores + aplicación" width="500" height="570" />
-                    </a>
-                  </p>
-                </li>
-              </ol>
+        <li><strong>Virtual Machine</strong> (sistema operativo + servidores + aplicación):
+          <p>Para descargar una máquina virtual Debian que incluya los servidores y la aplicación ya instalada y configurada, siga los siguientes pasos:</p>
+          <ol>
+            <li>En el <a href="https://bitnami.com/stacks">catálogo de aplicaciones</a> haga clic en el botón "Virtual Machines":
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-1-1.png">
+                  <img src="../img/bitnami/bn-descarga-1-1-mini.png" alt="Bitnami. Catálogo de aplicaciones" width="500" height="437" />
+                </a>
+              </p>
             </li>
-          </ul>
+            <li>Se abrirá la <a href="https://bitnami.com/stacks/virtual-machine">página de máquinas virtuales</a> de Bitnami. Haga clic en la aplicación deseada:
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-1-2.png">
+                  <img src="../img/bitnami/bn-descarga-1-2-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores + aplicación" width="500" height="437" />
+                </a>
+              </p>
+            </li>
+            <li>Haga clic en el icono de descarga de la versión de la aplicación deseada:
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-1-3.png">
+                  <img src="../img/bitnami/bn-descarga-1-3-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores + aplicación" width="500" height="570" />
+                </a>
+              </p>
+            </li>
+          </ol>
         </li>
-        <li><strong>Application stack</strong>:
-          <ul>
-            <li>Para descargar un instalador que incluya los servidores y la aplicación ya instalada y configurada, siga los siguientes pasos:
-              <ol>
-                <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks/installer">https://bitnami.com/stacks/installer</a> y haga clic en la aplicación deseada:
-                  <p class="captura">
-                    <a href="../img/bitnami/bn-descarga-1-3.png">
-                      <img src="../img/bitnami/bn-descarga-1-3-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="500" height="537" />
-                    </a>
-                  </p>
-                </li>
-                <li>Confirme que se encuentra en la página de descarga de instaladores y haga clic en el icono de descarga de su sistema operativo:
-                  <p class="captura">
-                    <a href="../img/bitnami/bn-descarga-1-4.png">
-                      <img src="../img/bitnami/bn-descarga-1-4-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="500" height="570" />
-                    </a>
-                  </p>
-                </li>
-              </ol>
+        <li><strong>Application stack</strong> (servidores + aplicación):
+          <p>Para descargar un instalador que incluya los servidores y la aplicación ya instalada y configurada, siga los siguientes pasos:</p>
+          <ol>
+            <li>En el <a href="https://bitnami.com/stacks">catálogo de aplicaciones</a> haga clic en el botón "Win/Mac/Linux":
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-1-4.png">
+                  <img src="../img/bitnami/bn-descarga-1-4-mini.png" alt="Bitnami. Catálogo de aplicaciones" width="500" height="437" />
+                </a>
+              </p>
             </li>
-          </ul>
+            <li>Se abrirá la <a href="https://bitnami.com/stacks/installer">página de aplicaciones</a> de Bitnami. Haga clic en la aplicación deseada:
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-1-5.png">
+                  <img src="../img/bitnami/bn-descarga-1-5-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="500" height="537" />
+                </a>
+              </p>
+            </li>
+            <li>Haga clic en el icono de descarga de la versión de la aplicación deseada correspondiente a su sistema operativo:
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-1-6.png">
+                  <img src="../img/bitnami/bn-descarga-1-6-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="500" height="570" />
+                </a>
+              </p>
+            </li>
+          </ol>
         </li>
       </ul>
     </section>
@@ -256,85 +286,88 @@
     <section id="descargar-instalador-n-aplicaciones">
       <h3>Descarga de instalador para varias aplicaciones</h3>
 
-      <p>Si queremos instalar varias aplicaciones web que pueden necesitar diferentes servidores, Bitnami ofrece varios tipos de instaladores "llave en mano":</p>
+      <p>Si queremos instalar varias aplicaciones web que pueden necesitar diferentes servidores, Bitnami ofrece varios tipos de instaladores "llave en mano".</p>
+      <p><strong>Nota</strong>:  Estos instaladores también se podrían utilziar para instalar una única aplicación, pero en ese caso es más sencillo utilizar los instaladores de la sección anterior.</p>
       <ul>
-        <li><strong>Infrastructure Virtual Machine (VM)</strong>:
+        <li><strong>Infrastructure Virtual Machine (VM)</strong> (sistema operativo + servidores):
+          <p>Para descargar una máquina virtual Debian que incluya los servidores y en la que se puedan instalar posteriormente una o varias aplicaciones, siga los siguientes pasos:</p>
           <ol>
-            <li>Abra la página de máquinas virtuales de Bitnami: <a href="https://bitnami.com/stacks/virtual-machine">https://bitnami.com/stacks/virtual-machine</a>. Escriba "infrastructure" en el cuadro de búsqueda, o haga clic en la etiqueta "infrastructure" situada en la parte inferior derecha de algunas fichas, o simplemente desplace la página hasta localizar la máquina deseada y haga clic en la infraestructura deseada:
+            <li>En el <a href="https://bitnami.com/stacks"">catálogo de aplicaciones</a> haga clic en el botón "Virtual Machines":
               <p class="captura">
-                <a href="../img/bitnami/bn-descarga-2-1.png">
-                  <img src="../img/bitnami/bn-descarga-2-1-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="500" height="437" />
+                <a href="../img/bitnami/bn-descarga-1-1.png">
+                  <img src="../img/bitnami/bn-descarga-1-1-mini.png" alt="Bitnami. Catálogo de aplicaciones" width="500" height="437" />
                 </a>
               </p>
             </li>
-            <li>Confirme que se encuentra en la página de descarga de máquinas virtuales y haga clic en el icono de descarga:
+            <li>Se abrirá la <a href="https://bitnami.com/stacks/virtual-machine">página de máquinas virtuales</a> de Bitnami. Escriba "<strong>infrastructure</strong>" en el cuadro de búsqueda, o haga clic en la etiqueta "infrastructure" situada en la parte inferior derecha de algunas fichas, o simplemente desplace la página hasta localizar la infrastructura deseada. Haga clic en la máquina virtual de infraestructura deseada:
               <p class="captura">
                 <a href="../img/bitnami/bn-descarga-2-2.png">
-                  <img src="../img/bitnami/bn-descarga-2-2-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="500" height="575" />
+                  <img src="../img/bitnami/bn-descarga-2-2-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="500" height="437" />
+                </a>
+              </p>
+            </li>
+            <li>Haga clic en el icono de descarga de la versión de la infrestructura deseada:
+              <p class="captura">
+                <a href="../img/bitnami/bn-descarga-2-3.png">
+                  <img src="../img/bitnami/bn-descarga-2-3-mini.png" alt="Bitnami. Descarga de Máquina virtual + servidores" width="500" height="575" />
                 </a>
               </p>
             </li>
           </ol>
         </li>
-        <li><strong>Infrastructure stack</strong>:
+        <li><strong>Infrastructure stack</strong> (servidores):
+          <p>Para descargar un instalador de servidores y posteriormente descargar e instalar una o varias aplicaciones, siga los siguientes pasos:</p>
           <ol>
-            <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la categoría Infraestructura
+            <li>En el <a href="https://bitnami.com/stacks">catálogo de aplicaciones</a> haga clic en el botón "Win/Mac/Linux":
               <p class="captura">
-                <a href="../img/bitnami/bn-descarga-2-1.png">
-                  <img src="../img/bitnami/bn-descarga-2-1-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="496" height="260" />
+                <a href="../img/bitnami/bn-descarga-1-4.png">
+                  <img src="../img/bitnami/bn-descarga-1-4-mini.png" alt="Bitnami. Catálogo de aplicaciones" width="500" height="437" />
                 </a>
               </p>
             </li>
-            <li>Haga clic en la infraestructura deseada:
+            <li>Se abrirá la <a href="https://bitnami.com/stacks/installer">página de aplicaciones</a> de Bitnami. Escriba "<strong>infrastructure</strong>" en el cuadro de búsqueda, o haga clic en la etiqueta "infrastructure" situada en la parte inferior derecha de algunas fichas, o simplemente desplace la página hasta localizar la infrastructura deseada. Haga clic en el instalador de infraestructura deseada:
               <p class="captura">
-                <a href="../img/bitnami/bn-descarga-2-12.png">
-                  <img src="../img/bitnami/bn-descarga-2-12-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="495" height="260" />
+                <a href="../img/bitnami/bn-descarga-2-5.png">
+                  <img src="../img/bitnami/bn-descarga-2-5-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="500" height="437" />
                 </a>
               </p>
             </li>
-            <li>Haga clic en la opción de descarga de instaladores (hay dos enlaces, uno en el menú superior y otro a la derecha). Desde esta pantalla se pueden descargar los instaladores más usuales, pero haciendo clic en "All WAMP installers" veremos todos los disponibles):
+            <li>Haga clic en el icono de descarga de la versión de la infrestructura deseada:
               <p class="captura">
-                <a href="../img/bitnami/bn-descarga-2-13.png">
-                  <img src="../img/bitnami/bn-descarga-2-13-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="495" height="450" />
-                </a>
-              </p>
-            </li>
-            <li>Finalmente, elija la versión deseada (la diferencia entre ellas son las versiones de los servidores o de los lenguajes de programación):
-              <p class="captura">
-                <a href="../img/bitnami/bn-descarga-2-14.png">
-                  <img src="../img/bitnami/bn-descarga-2-14-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="495" height="270" />
+                <a href="../img/bitnami/bn-descarga-2-6.png">
+                  <img src="../img/bitnami/bn-descarga-2-6-mini.png" alt="Bitnami. Descarga de servidores + aplicación" width="500" height="580" />
                 </a>
               </p>
             </li>
           </ol>
         </li>
-        <li><strong>Module</strong>:
+        <li><strong>Module</strong> (aplicaciones):
           <ol>
-            <li>Abra la página de aplicaciones de Bitnami: <a href="https://bitnami.com/stacks">https://bitnami.com/stacks</a> y haga clic en la categoría Infraestructura
+            <li>En el <a href="https://bitnami.com/stacks">catálogo de aplicaciones</a> haga clic en el botón "Win/Mac/Linux":
               <p class="captura">
-                <a href="../img/bitnami/bn-descarga-2-1.png">
-                  <img src="../img/bitnami/bn-descarga-2-1-mini.png" alt="Bitnami. Descarga de módulos" width="496" height="260" />
+                <a href="../img/bitnami/bn-descarga-1-4.png">
+                  <img src="../img/bitnami/bn-descarga-1-4-mini.png" alt="Bitnami. Catálogo de aplicaciones" width="500" height="437" />
                 </a>
               </p>
             </li>
-            <li>Haga clic en la infraestructura deseada:
+            <li>Se abrirá la <a href="https://bitnami.com/stacks/installer">página de aplicaciones</a> de Bitnami. Haga clic en la aplicación deseada:
               <p class="captura">
-                <a href="../img/bitnami/bn-descarga-2-12.png">
-                  <img src="../img/bitnami/bn-descarga-2-12-mini.png" alt="Bitnami. Descarga de módulos" width="495" height="260" />
+                <a href="../img/bitnami/bn-descarga-2-8.png">
+                  <img src="../img/bitnami/bn-descarga-2-8-mini.png" alt="Bitnami. Descarga de módulos" width="500" height="437" />
                 </a>
               </p>
             </li>
-            <li>Haga clic en la opción de descarga de módulos (enlace en el menú superior):
+            <li>Se abrirá la página de instaladores disponbiles para esa aplicación. Si hay disponible un módulo para un stack de infrestructura, se encontrará al final de la página. Baje hasta el final de la página y haga clic en el enlace correspondiente al sistema operativo en el que instaló la infraestrucura:
               <p class="captura">
-                <a href="../img/bitnami/bn-descarga-2-23.png">
-                  <img src="../img/bitnami/bn-descarga-2-23-mini.png" alt="Bitnami. Descarga de módulos" width="495" height="450" />
+                <a href="../img/bitnami/bn-descarga-2-9.png">
+                  <img src="../img/bitnami/bn-descarga-2-9-mini.png" alt="Bitnami. Descarga de módulos" width="500" height="252" />
                 </a>
               </p>
             </li>
-            <li>Finalmente, elija la aplicación deseada:
+            <li>Se abrirá la página de módulos disponibles para el stack de infraestructura correspondiente. Finalmente, haga clic en el enlace de descarga de la versión de la aplicación deseada:
               <p class="captura">
-                <a href="../img/bitnami/bn-descarga-2-24.png">
-                  <img src="../img/bitnami/bn-descarga-2-24-mini.png" alt="Bitnami. Descarga de módulos" width="495" height="140" />
+                <a href="../img/bitnami/bn-descarga-2-10.png">
+                  <img src="../img/bitnami/bn-descarga-2-10-mini.png" alt="Bitnami. Descarga de módulos" width="500" height="161" />
                 </a>
               </p>
             </li>
@@ -353,13 +386,13 @@
 
     <p class="captura">
       <a href="../img/bitnami/bn-descarga-3-1.png">
-        <img src="../img/bitnami/bn-descarga-3-1-mini.png" alt="Bitnami. Descarga de módulos para XAMPP" width="495" height="375" />
+        <img src="../img/bitnami/bn-descarga-3-1-mini.png" alt="Bitnami. Descarga de módulos para XAMPP" width="500" height="317" />
       </a>
     </p>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 31 de enero de 2017</p>
+    <p class="ultmod">Última modificación de esta página: 30 de enero de 2018</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
