@@ -30,8 +30,8 @@
             <li><a href="#terminales">Terminales modo texto</a></li>
             <li><a href="#averiguar-ip">Averiguar IP máquina</a></li>
             <li><a href="#configuracion-teclado">Configuración teclado</a></li>
-            <li><a href="#comprobar-aplicacion-instalada">Aplicación instalada</a></li>
             <li><a href="#instalar-aplicacion">Instalar aplicación</a></li>
+            <li><a href="#comprobar-aplicacion-instalada">Versión aplicación</a></li>
             <li><a href="#comprobar-servicio">Comprobar servicio</a></li>
             <li><a href="#arrancar-servicio">Arrancar servicio</a></li>
             <li><a href="#espacio-disco-libre">Espacio libre y ocupado</a></li>
@@ -128,12 +128,12 @@
     </section>
 
     <section id="terminales">
-        <h3>Cambiar de terminal en modo texto</h3>
+      <h3>Cambiar de terminal en modo texto</h3>
 
-        <p>Para cambiar entre los terminales en modo texto disponibles, teclear <span class="soft-atajo-teclado">Ctrl+Alt+F1</span>, <span class="soft-atajo-teclado">Ctrl+Alt+F2</span>, ..., <span class="soft-atajo-teclado">Ctrl+Alt+F6</span>.</p>
-      </section>
+      <p>Para cambiar entre los terminales en modo texto disponibles, teclear <span class="soft-atajo-teclado">Ctrl+Alt+F1</span>, <span class="soft-atajo-teclado">Ctrl+Alt+F2</span>, ..., <span class="soft-atajo-teclado">Ctrl+Alt+F6</span>.</p>
+    </section>
 
-      <section id="averiguar-ip">
+    <section id="averiguar-ip">
       <h3>Averiguar la IP de la máquina</h3>
 
       <p>Para averiguar la IP de la máquina, escribir el comando:</p>
@@ -250,20 +250,33 @@ sudo apt install console-setup</code></pre>
       <p>La tecla del extremo derecho de la fila q ... p del teclado estadounidense se encuentra situada en el extremo derecho de la fila a ... l del teclado español.</p>
     </section>
 
-    <section id="comprobar-aplicacion-instalada">
-      <h3>Comprobar si una aplicación está instalada</h3>
-
-      <div class="codigo">
-        <pre><code class="language-shell">sudo dpkg -l | grep <em>aplicacion</em></code></pre>
-      </div>
-    </section>
-
     <section id="instalar-aplicacion">
       <h3>Instalar una aplicación</h3>
 
       <div class="codigo">
         <pre><code class="language-shell">sudo apt install <em>aplicacion</em></code></pre>
       </div>
+    </section>
+
+    <section id="comprobar-aplicacion-instalada">
+      <h3>Comprobar si una aplicación/paquete está instalada y qué versión está instalada</h3>
+
+      <p>Para averiguar la versión de un paquete concreto:</p>
+
+      <div class="codigo">
+        <pre><code class="language-shell">apt list <i>paquete</i></code></pre>
+      </div>
+
+      <div class="codigo">
+        <pre><code class="language-shell">sudo dpkg -l | grep <em>aplicacion</em></code></pre>
+      </div>
+    </section>
+
+    <section id="averiguar-version-paquete">
+      <h3>Averiguar la versión de un paquete/aplicación</h3>
+
+
+      <p>Este comando también permite saber si un paquete está instalado, ya que si no está instalado, no se obtiene ningún resultado.</p>
     </section>
 
     <section id="comprobar-servicio">
@@ -274,6 +287,8 @@ sudo apt install console-setup</code></pre>
       <div class="codigo">
         <pre><code class="language-shell">ps aux | grep sshd</code></pre>
       </div>
+
+      <p><strong>Nota</strong>: Si la respuesta contiene sólo una línea que acaba en <i>grep sshd</i>, es que el servicio <strong>no</strong> está habilitado.</p>
     </section>
 
     <section id="arrancar-servicio">
@@ -408,6 +423,53 @@ sudo apt install console-setup</code></pre>
       </ul>
     </section>
 
+    <section id="editor-nano">
+      <h3>Editor <a href="https://www.nano-editor.org/">nano</a></h3>
+      <p>Comandos:</p>
+      <ul>
+        <li> File Control in nano
+          <ul>
+            <li>nano index.php Open or create the file “index.php” with nano on command line.</li>
+            <li>Ctrl-o Y Enter Save changes.</li>
+            <li>Ctrl-r Alt-f Open a new file with a new buffer within nano.</li>
+            <li>Alt-&gt; Switch to the next file buffer in nano.</li>
+            <li>Alt-&lt; Switch to the previous file buffer in nano.</li>
+            <li>Ctrl-x Quit nano.</li>
+          </ul>
+        </li>
+        <li>Navigating through file contents in nano
+          <ul>
+            <li>Ctrl-a Move to the beginning of the current line.</li>
+            <li>Ctrl-e Move to the end of the current line.</li>
+            <li>Ctrl-v Move down one page.</li>
+            <li>Ctrl-y Move up one page.</li>
+            <li>Alt-\ Go to the beginning of the file.</li>
+            <li>Alt-/ Go to the end of the file.</li>
+            <li>Alt-g Go to a target line number.</li>
+            <li>Alt-] Jump to matching open/close symbol.</li>
+            <li>Alt-a Alt-} Select a block and indent the block.</li>
+            <li>Alt-a Alt-{ Select a block and outden the block.</li>
+          </ul>
+        </li>
+        <li>Copy and Paste in nano
+          <ul>
+            <li>Alt-a To select a block for copy or cut operation, do Alt-a again to unselect.</li>
+            <li>Alt-a Alt-^ Copy a highlighted block to the clipboard.</li>
+            <li>Alt-a Ctrl-k Cut a highlighted block to the clipboard.</li>
+            <li>Ctrl-k Cut from the current cursor position to the end of the current line.</li>
+            <li>Ctrl-u Paste the contents from the clipboard at the current cursor position.</li>
+          </ul>
+        </li>
+        <li>Search and Replace in nano
+          <ul>
+            <li>Ctrl-w Search for a target string.</li>
+            <li>Alt-w Repeat the last search.</li>
+            <li>Alt-r Search and replace.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
     <section id="mysql">
       <h3>Cambiar la contraseña del usuario root de MySQL</h3>
 
@@ -424,6 +486,24 @@ sudo apt install console-setup</code></pre>
   <section id="bitnami">
     <h2>Comandos de Bitnami</h2>
 
+    <section id="applications-password">
+      <h3>Contraseñas del usuario</h3>
+
+      <p>La contraseña del usuario <strong>bitnami</strong> suele ser <strong>bitnami</strong>.</p>
+
+      <p>La contraseña del usuario <strong>root</strong> de las aplicaciones de infraestructura (por ejemplo, las bases de datos) se muestra al iniciarse la máquina.</p>
+      <p class="captura">
+        <img src="../img/bitnami/bn-user-password.png" alt="Bitnami Pantalla inicial máquina virtual" width="720" height="400" />
+      </p>
+
+      <p>Para volver a ver esa contraseña:</p>
+
+      <div class="codigo">
+        <pre><code class="language-shell">cat ./bitnami_credentials</code></pre>
+      </div>
+
+    </section>
+
     <section id="servidor-apache">
       <h3>Servidor Apache</h3>
 
@@ -433,11 +513,15 @@ sudo apt install console-setup</code></pre>
         <pre><code class="language-shell">cd /opt/bitnami/apache2/</code></pre>
       </div>
 
+      <hr class="corta" />
+
       <p>Reiniciar Apache</p>
 
       <div class="codigo">
         <pre><code class="language-shell">sudo /opt/bitnami/ctlscript.sh restart apache</code></pre>
       </div>
+
+      <p><strong>Referencia</strong>: <a href="https://docs.bitnami.com/aws/faq/administration/control-services/">Bitnami docs</a></p>
     </section>
 
     <section id="webapps">
@@ -597,7 +681,7 @@ NameVirtualHost *:80
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 12 de mayo de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 31 de enero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
