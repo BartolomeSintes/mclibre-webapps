@@ -46,16 +46,10 @@
 
     <ul>
       <li><strong>Descargue la máquina virtual</strong>
-        <p>La página de la máquina virtual de infraestructura LAMP de Bitnami es <a href="https://bitnami.com/stack/lamp">https://bitnami.com/stack/lamp</a>:</p>
+        <p>La página de la máquina virtual de infraestructura LAMP de Bitnami es <a href="https://bitnami.com/stack/lamp/virtual-machine">https://bitnami.com/stack/lamp/virtual-machine</a>:</p>
         <p class="captura">
           <a href="../img/bitnami/2-1-s-1-vm-lamp.png">
             <img src="../img/bitnami/2-1-s-1-vm-lamp-mini.png" alt="Página de LAMP en Bitnami" width="495" height="315" />
-          </a>
-        </p>
-        <p>La página de máquinas virtuales LAMP de Bitnami es <a href="https://bitnami.com/stack/lamp/virtual-machine">https://bitnami.com/stack/lamp/virtual-machine</a>:</p>
-        <p class="captura">
-          <a href="../img/bitnami/2-1-s-2-vm-lamp.png">
-            <img src="../img/bitnami/2-1-s-2-vm-lamp-mini.png" alt="Página de máquinas virtuales LAMP en Bitnami" width="495" height="205" />
           </a>
         </p>
         <p>Para importar en VirtualBox la máquina virtual, haga doble clic en el fichero .OVA. Puede modificar el nombre de la máquina, la cantidad de memoria RAM o la ubicación de la imagen de disco virtual antes de hacer clic en el botón Importar.</p>
@@ -89,15 +83,24 @@
     <h2>Bitnami (2) 2 - phpMyAdmin</h2>
 
     <ul>
-      <li><strong>Entrar en la máquina virtual</strong>
+      <li><strong>Entre en la máquina virtual</strong>
         <p>El nombre del usuario administrador y su contraseña se muestran en la pantalla inicial de la máquina virtual:</p>
 
         <p class="captura">
           <img src="../img/bitnami/2-2-s-1-lampp.png" alt="Máquina virtual en marcha" width="736" height="480" />
         </p>
       </li>
-      <li><strong>Reconfigurar teclado</strong><strong></strong>
-        <p>La máquina virtual de infrestructura viene configurada de forma predeterminada con un teclado inglés. Para cambiar la configuración del teclado al teclado español, instale console-setup:</p>
+      <li><strong>Actualice el sistema</strong>
+        <p>Actualice el sistema operativo:</p>
+
+        <div class="codigo">
+          <pre><code class="language-shell">sudo apt update
+sudo apt upgrade</code>
+</pre>
+        </div>
+      </li>
+      <li><strong>Reconfigurar teclado</strong>
+        <p>La máquina virtual de infrestructura viene configurada de forma predeterminada con un teclado inglés. Para cambiar la configuración del teclado al teclado español, instale console-setup, como se comenta en la lección <a href="bitnami-varios.html#configuracion-teclado">Bitnami - Varios</a>:</p>
 
         <div class="codigo">
           <pre><code class="language-shell">sudo apt install dialog
@@ -105,8 +108,16 @@ sudo apt install console-setup</code>
 </pre>
         </div>
       </li>
-      <li><strong>Habilitar SSH en la máquina virtual</strong>
-        <p>El servidor SSH está deshabilitado de forma predeterminada. Para habilitarlo:</p>
+      <li><strong>Comprobar que el servicio SSH está habilitado</strong>
+        <p>Para comprobar si el servicio SSH está habilitado:</p>
+
+        <div class="codigo">
+          <pre><code class="language-shell">ps aux | grep sshd</code></pre>
+        </div>
+
+        <p><strong>Nota</strong>: Si la respuesta contiene sólo una línea que acaba en <i>grep sshd</i>, es que el servicio <strong>no</strong> está habilitado.</p>
+
+        <p>Para habilitarlo en caso de que esté deshabilitado:</p>
 
         <ul>
           <li>En Debian:
@@ -118,7 +129,7 @@ sudo systemctl start ssh</code>
 </pre>
             </div>
           </li>
-          <li>En Debian:
+          <li>En Ubuntu:
             <div class="codigo">
               <pre>
 <code class="language-shell">sudo mv /etc/init/ssh.conf.back /etc/init/ssh.conf
@@ -170,9 +181,14 @@ sudo start ssh</code>
               <img src="../img/bitnami/2-2-s-17-putty.png" alt="Configurar PuTTY" width="274" height="152" />
             </p>
           </li>
-          <li>Si la sesión se abre correctamente, compruebe que puede conectarse como usuario <strong>bitnami</strong>:
+          <li>Si la sesión se abre correctamente, le solicitará la contraseña del usuario:
             <p class="captura">
-              <img src="../img/bitnami/2-2-s-18-putty.png" alt="Configurar PuTTY" width="661" height="418" />
+              <img src="../img/bitnami/2-2-s-18-putty.png" alt="Configurar PuTTY" width="661" height="130" />
+            </p>
+          </li>
+          <li>Compruebe que puede conectarse como usuario <strong>bitnami</strong>:
+            <p class="captura">
+              <img src="../img/bitnami/2-2-s-19-putty.png" alt="Configurar PuTTY" width="661" height="418" />
             </p>
           </li>
         </ul>
@@ -188,24 +204,32 @@ sudo start ssh</code>
 
     <ul>
       <li><strong>Descargar y ejecutar el instalador de módulo</strong>
-        <p>Para descargar e instalar un módulo, primero hay que ver la dirección del instalador del módulo en la página web de bitnami <a href="https://bitnami.com/stack/lamp/modules">https://bitnami.com/stack/lamp/modules</a></p>
+        <p>La página de instaladores de OpenCart de Bitnami es bitnami <a href="https://bitnami.com/stack/opencart/installer">https://bitnami.com/stack/opencart/installers</a></p>
         <p class="captura">
-          <img src="../img/bitnami/2-3-s-1-opencart.png" alt="Módulo OpenCart para Debian en Bitnami" width="1024" height="320" />
+          <a href="../img/bitnami/2-3-s-1-opencart.png">
+            <img src="../img/bitnami/2-3-s-1-opencart-mini.png" alt="Módulo OpenCart para Debian en Bitnami" width="500" height="302" />
+          </a>
         </p>
+
+        <p>Poniendo el ratón encima del icono de descarga se puede ver la URL del archivo:</p>
+        <p class="captura">
+          <img src="../img/bitnami/2-3-s-2-opencart.png" alt="Módulo OpenCart para Debian en Bitnami" width="991" height="302" />
+        </p>
+
         <p>A continuación se puede utilizar el comando wget (hay que moverse antes a la carpeta en que queramos realizar la descarga):</p>
 
         <div class="codigo">
           <pre>
 <code class="language-shell">cd /tmp
-wget https://bitnami.com/redirect/to/169794/bitnami-opencart-3.0.2.0-4-module-linux-x64-installer.run</code>
+wget https://bitnami.com/redirect/to/408311/bitnami-opencart-3.0.3.1-0-module-linux-x64-installer.run</code>
 </pre>
         </div>
         <p>Y por último cambiar los permisos del archivo y ejecutarlo:</p>
 
         <div class="codigo">
           <pre>
-<code class="language-shell">chmod +x ./bitnami-opencart-3.0.2.0-4-module-linux-x64-installer.run
-sudo ./bitnami-opencart-3.0.2.0-4-module-linux-x64-installer.run</code>
+<code class="language-shell">chmod +x ./bitnami-opencart-3.0.3.1-0-module-linux-x64-installer.run
+sudo .bitnami-opencart-3.0.3.1-0-module-linux-x64-installer.run</code>
 </pre>
         </div>
       </li>
@@ -230,7 +254,7 @@ sudo ./bitnami-opencart-3.0.2.0-4-module-linux-x64-installer.run</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 8 de febrero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 31 de enero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
