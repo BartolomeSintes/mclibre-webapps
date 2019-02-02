@@ -211,12 +211,19 @@ sudo start ssh</code>
           </a>
         </p>
 
-        <p>Poniendo el ratón encima del icono de descarga se puede ver la URL del archivo:</p>
+        <p>Desplácese hasta el final de la página y haga clic en el enlace a la página de módulos de aplicación para Linux:</p>
         <p class="captura">
-          <img src="../img/bitnami/2-3-s-2-opencart.png" alt="Módulo OpenCart para Debian en Bitnami" width="991" height="302" />
+          <a href="../img/bitnami/2-3-s-2-opencart.png">
+            <img src="../img/bitnami/2-3-s-2-opencart-mini.png" alt="Módulo OpenCart para Debian en Bitnami" width="500" height="227" />
+          </a>
         </p>
 
-        <p>A continuación se puede utilizar el comando wget (hay que moverse antes a la carpeta en que queramos realizar la descarga):</p>
+        <p>Poniendo el ratón encima del icono de descarga, puede ver la URL del archivo:</p>
+        <p class="captura">
+          <img src="../img/bitnami/2-3-s-3-opencart.png" alt="Módulo OpenCart para Debian en Bitnami" width="991" height="302" />
+        </p>
+
+        <p>A continuación utilice el comando wget para descargar el instalador (muévadse antes al directorio en que quiera realizar la descarga, por ejemplo <strong>/tmp</strong>):</p>
 
         <div class="codigo">
           <pre>
@@ -224,7 +231,8 @@ sudo start ssh</code>
 wget https://bitnami.com/redirect/to/408311/bitnami-opencart-3.0.3.1-0-module-linux-x64-installer.run</code>
 </pre>
         </div>
-        <p>Y por último cambiar los permisos del archivo y ejecutarlo:</p>
+
+        <p>Cambie los permisos del archivo y ejecute el instalador:</p>
 
         <div class="codigo">
           <pre>
@@ -245,7 +253,7 @@ sudo .bitnami-opencart-3.0.3.1-0-module-linux-x64-installer.run</code>
         <p>La contraseña predeterminada del usuario administrador de la aplicación será <strong>bitnami</strong></p>
       </li>
       <li><strong>Apagar la máquina virtual</strong>
-        <p>Para apagar la máquina virtual, se puede utilizar el comando poweroff:</p>
+        <p>Puede apagar la máquina virtual con el comando poweroff o cerrando la ventana de VirtualBox:</p>
         <div class="codigo">
           <pre><code class="language-shell">sudo poweroff</code></pre>
         </div>
@@ -254,7 +262,7 @@ sudo .bitnami-opencart-3.0.3.1-0-module-linux-x64-installer.run</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 31 de enero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 2 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />

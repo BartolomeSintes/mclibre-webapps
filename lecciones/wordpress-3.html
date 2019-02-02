@@ -262,10 +262,13 @@
 
     <h4>Google Maps</h4>
 
-    <p>Estos son dos de los plugins más populares para insertar mapas de Google Maps. </p>
+    <p>Desde 2016 Google maps requiere una clave API para gestionar mapas. Lógicamente, los plugins necesitan la clave para funcionar correctamente. La clave API se puede solicitar en la <a href="https://console.developers.google.com/project">Google Developers Console</a>, creando un proyecto y solicitando una clave Maps Javascript API. Tenga en cuenta que Google cobra por el uso de la clave a partir de cierta cantidad de uso (<a href="https://cloud.google.com/maps-platform/pricing/sheet/">Tarifas</a>). El ejercicio propuesto no requiere solicitar ninguna clave.</p>
 
-    <p><strong>Nota</strong>: Desde 2016 Google maps requiere una clave API para gestionar mapas. Lógicamente, los plugins necesitan la clave. La clave API se puede solicitar en la <a href="https://console.developers.google.com/project">Google Developers Console</a>, creando un proyecto y solicitando una clave Maps Javascript API. Tenga en cuenta que Google cobra por el uso de la clave a partir de cierta cantidad de uso (<a href="https://cloud.google.com/maps-platform/pricing/sheet/">Tarifas</a>). El ejercicio propuesto no requiere solicitar ninguna clave.</p>
     <p>Referencia: <a href="https://developers.google.com/maps/documentation/javascript/tutorial">Guía oficial de Google Maps JavaScript API</a></p>
+
+    <hr class="corta" />
+
+    <p>Estos son dos de los plugins más populares para insertar mapas de Google Maps. </p>
 
     <ul>
       <li><a href="https://es.wordpress.org/plugins/wp-google-maps/">WP Google Maps</a>
@@ -355,35 +358,38 @@
 
   <section id="ejercicio-5">
     <h2>WordPress (3) 5 - Calendarios</h2>
+
+    <p>Los plugins de calendarios permiten crear calendarios en nuestro propio WordPress o simplemente mostrar calendarios creados en otros sitos (por ejemplo, en Google Calendar), o ambas cosas.</p>
+
+    <p>Para insertar un calendario de Google Calendar, es necesario disponer de una clave API. Actualmente (enero de 2019), Google permite un millón de peticiones diarias gratuitas [<a href="https://developers.google.com/calendar/pricing">ref</a>] por clave.</p>
+    <p>En cualquier caso, se puede crear una clave API, realizar el ejercicio, y destruir la clave. Las claves se pueden solicitar <a href="https://console.developers.google.com/apis/api/calendar-json.googleapis.com/">aquí</a>, creando un proyecto y después la clave. En la ayuda de uno de los plugins propuestos (Simple Calendar) se encuentra una <a href="https://docs.simplecalendar.io/google-api-key/">guía de creación de clave API para calendarios</a>.</p>
+    <p>Una vez creada la clave API, se debe introducir en la configuración del plugin. A continuación se debe crear un calendario en Google Calendar y hacerlo público. Por último se debe definir un calendario en el plugin, indicando la ID del calendario público correspondiente. En la ayuda de uno de los plugins propuestos (Simple Calendar) se encuentran <a href="https://docs.simplecalendar.io/">guías para la realización de cada uno de estos pasos</a>.</p>
+    <p>Referencia: <a href="https://developers.google.com/calendar/overview">Guía oficial de Google Calendar API</a></p>
+
+    <hr class="corta" />
+
+    <p>Pruebe algún plugin para crear calendarios, por ejemplo:</p>
     <ul>
-      <li>Pruebe algún plugin para crear calendarios, por ejemplo:
-        <ul>
-          <li><a href="https://es.wordpress.org/plugins/the-events-calendar/">The Events Calendar</a>
-            <p class="captura">
-              <a href="https://es.wordpress.org/plugins/the-events-calendar/">
-                <img src="../img/wordpress/3-5-plugins-the-events-calendar.png" alt="WordPress. Plugin The Events Calendar" width="450" height="245" />
-              </a>
-            </p>
-          </li>
-          <li><a href="https://es.wordpress.org/plugins/all-in-one-event-calendar/">All-in-one Event Calendar</a>
-            <p class="captura">
-              <a href="https://es.wordpress.org/plugins/all-in-one-event-calendar/">
-                <img src="../img/wordpress/3-5-plugins-all-in-one-event-calendar.png" alt="WordPress. Plugin All-in-One Event Calendar" width="450" height="245" />
-              </a>
-            </p>
-          </li>
-          <li><a href="https://es.wordpress.org/plugins/google-calendar-events/">Simple Calendar</a>
-            <p class="captura">
-              <a href="https://es.wordpress.org/plugins/google-calendar-events/">
-                <img src="../img/wordpress/3-5-plugins-simple-calendar.png" alt="WordPress. Plugin Simple Calendar" width="450" height="250" />
-              </a>
-            </p>
-            <p>Para insertar un calendario de Google Calendar, es necesario disponer de una clave API. Actualmente (enero de 2019), Google permite un millón de peticiones diarias gratuitas [<a href="https://developers.google.com/calendar/pricing">ref</a>] por clave.</p>
-            <p>En cualquier caso, se puede crear una clave API, realizar el ejercicio, y destruir la clave. Las claves se pueden solicitar <a href="https://console.developers.google.com/apis/api/calendar-json.googleapis.com/">aquí</a>, creando un proyecto y después la clave. En la ayuda de este plugin, se encuentran una <a href="https://docs.simplecalendar.io/google-api-key/">guía de creación de clave API para calendarios</a>.</p>
-            <p>Una vez creada la clave API, se debe introducir en la configuración del plugin. A continuación se debe crear un calendario en Google Calendar y hacerlo público. Por último se debe definir un calendario en el plugin, indicando la ID del calendario público correspondiente. En la ayuda de este plugin, se encuentran <a href="https://docs.simplecalendar.io/">guías de cada uno de estos pasos</a>.</p>
-            <p>Referencia: <a href="https://developers.google.com/calendar/overview">Guía oficial de Google Calendar API</a></p>
-          </li>
-        </ul>
+      <li><a href="https://es.wordpress.org/plugins/the-events-calendar/">The Events Calendar</a>
+        <p class="captura">
+          <a href="https://es.wordpress.org/plugins/the-events-calendar/">
+            <img src="../img/wordpress/3-5-plugins-the-events-calendar.png" alt="WordPress. Plugin The Events Calendar" width="450" height="245" />
+          </a>
+        </p>
+      </li>
+      <li><a href="https://es.wordpress.org/plugins/all-in-one-event-calendar/">All-in-one Event Calendar</a>
+        <p class="captura">
+          <a href="https://es.wordpress.org/plugins/all-in-one-event-calendar/">
+            <img src="../img/wordpress/3-5-plugins-all-in-one-event-calendar.png" alt="WordPress. Plugin All-in-One Event Calendar" width="450" height="245" />
+          </a>
+        </p>
+      </li>
+      <li><a href="https://es.wordpress.org/plugins/google-calendar-events/">Simple Calendar</a>
+        <p class="captura">
+          <a href="https://es.wordpress.org/plugins/google-calendar-events/">
+            <img src="../img/wordpress/3-5-plugins-simple-calendar.png" alt="WordPress. Plugin Simple Calendar" width="450" height="250" />
+          </a>
+        </p>
       </li>
     </ul>
   </section>
@@ -544,7 +550,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 22 de enero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 2 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
