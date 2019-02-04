@@ -6,7 +6,7 @@
 /*                                          */
 /* CSS curso: Aplicaciones Web              */
 /*                                          */
-/* 28 de octubre de 2018                    */
+/* 4 de febrero de 2019                     */
 /*                                          */
 
 /* CSS comun */
@@ -297,7 +297,7 @@ div.filaflex pre {
   white-space: pre-wrap;
 }
 
-div.codigo, div[class^="resultado"], div[class^="enunciado"] {
+div.terminal, div.codigo, div[class^="resultado"], div[class^="enunciado"] {
   clear: both;
   border: 2px black solid;
   margin: 5px 10px;
@@ -306,7 +306,7 @@ div.codigo, div[class^="resultado"], div[class^="enunciado"] {
   color: black;
 }
 
-div.codigo {
+div.terminal, div.codigo {
   font-family: "Inconsolata", monospace;
 }
 
