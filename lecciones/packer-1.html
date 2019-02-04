@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../varios/webapps.css" title="mclibre" />
   <link rel="icon" href="../varios/favicon.ico" />
-  <link rel="stylesheet" href="../varios/prism.css" />
+  <link rel="stylesheet" href="../varios/prism-webapps.css" />
   <script src="../varios/prism.js"></script>
 </head>
 
@@ -131,9 +131,10 @@
 
     <p>Para ejecutar packer, abra una ventana de Símbolo de sistema y ejecute la orden packer con los parámetros adecuados. Por ejemplo, para conocer la versión de packer, ejecute:</p>
 
-    <div class="codigo">
-      <pre>C:\packer&gt;packer --version
-1.3.3
+    <div class="terminal">
+      <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2">
+<code class="language-shell">packer --version
+1.3.3</code>
 </pre>
     </div>
 
@@ -145,19 +146,21 @@
     <ul>
       <li>gráficamente en Panel de control &gt; Sistema &gt; Configuración avanzada del sistema &gt; Opciones avanzadas &gt; Variables de entorno</li>
       <li>o en una ventana de Símbolo de sistema (CMD) con el comando setx:
-        <div class="codigo">
-          <pre>C:\packer&gt;setx PACKER_LOG 1
+        <div class="terminal">
+          <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 4">
+<code class="language-shell">setx PACKER_LOG 1
 CORRECTO: se guardó el valor especificado
-C:\packer&gt;setx PACKER_LOG_PATH packerlog.txt
-CORRECTO: se guardó el valor especificado
+setx PACKER_LOG_PATH packerlog.txt
+CORRECTO: se guardó el valor especificado</code>
 </pre>
         </div>
 
         <p>Cierre la ventana, abra de nuevo una ventana de símbolo de sistema (CMD) y compruebe que se han establecido las variables de entorno con el comando set:</p>
-        <div class="codigo">
-          <pre>C:\packer&gt;set PACKER
+        <div class="terminal">
+          <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
+<code class="language-shell">set PACKER
 PACKER_LOG=1
-PACKER_LOG_PATH=packerlog.txt
+PACKER_LOG_PATH=packerlog.txt</code>
 </pre>
         </div>
       </li>
@@ -194,8 +197,10 @@ PACKER_LOG_PATH=packerlog.txt
         </li>
         <li>Crear la plantilla de packer (por ejemplo, packer-1-1.json).</li>
         <li>Ejecutar packer
-          <div class="codigo">
-            <pre>C:\packer&gt;packer build packer-1-1.json</pre>
+          <div class="terminal">
+            <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
+<code class="language-shell">packer build packer-1-1.json</code>
+</pre>
           </div>
         </li>
       </ul>
@@ -304,8 +309,10 @@ PACKER_LOG_PATH=packerlog.txt
         <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase el ejemplo 1)</li>
         <li>Crear la plantilla de packer (por ejemplo, packer-1-2.json).</li>
         <li>Ejecutar packer
-          <div class="codigo">
-            <pre>C:\packer&gt;packer build packer-1-2.json</pre>
+          <div class="terminal">
+            <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
+<code class="language-shell">packer build packer-1-2.json</code>
+</pre>
           </div>
         </li>
       </ul>
@@ -372,9 +379,10 @@ PACKER_LOG_PATH=packerlog.txt
       <ul>
         <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase el ejemplo 1)</li>
         <li>Crear la plantilla de packer (por ejemplo, packer-1-3.json) y el script de shell a ejecutar (por ejemplo, script-3.sh).</li>
-        <li>Ejecutar packer
-          <div class="codigo">
-            <pre>C:\packer&gt;packer build packer-1-3.json</pre>
+        <li>Ejecutar packer <div class="terminal">
+            <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
+<code class="language-shell">packer build packer-1-3.json</code>
+</pre>
           </div>
         </li>
       </ul>
@@ -444,13 +452,12 @@ rm ~/VBoxGuestAdditions.iso</code>
 
         <p>Comentario:</p>
         <ul>
-          <li>Línea 3: la versión del kernel se puede obtener mediante la orden:
-            <div class="codigo">
-              <pre><code class="language-shell">uname -a</code></pre>
-            </div>
-            <p>La respuesta indica la versión del kernel:</p>
-            <div class="codigo">
-              <pre><code class="language-shell">Linux ubuntu <span class="codigo-resaltado">4.15.0-29-generic</span> #31-Ubuntu SMP Tue Jul 17 ...</code></pre>
+          <li>Línea 3: la versión del kernel se puede obtener (en una de las máquinas virtuales creadas en los ejercicios anteriores) mediante la orden <i>uname</i>. La respuesta indica la versión del kernel.
+            <div class="terminal">
+              <pre class="command-line" data-prompt="user@ubuntu:/$" data-output="2">
+<code class="language-shell">uname -a
+Linux ubuntu <span class="codigo-resaltado">4.15.0-29-generic</span> #31-Ubuntu SMP Tue Jul 17 ...</code>
+</pre>
             </div>
           </li>
         </ul>
@@ -466,9 +473,11 @@ rm ~/VBoxGuestAdditions.iso</code>
         <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella y en su caso, haber instalado programas en ella (véase los ejemplos 1, 2 o 3)</li>
         <li>Crear la plantilla de packer (por ejemplo, packer-1-4.json).</li>
         <li>Ejecutar packer
-          <div class="codigo">
-            <pre>C:\packer&gt;packer build packer-1-4.json</pre>
-          </div>
+            <div class="terminal">
+              <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
+<code class="language-shell">packer build packer-1-4.json</code>
+</pre>
+            </div>
         </li>
       </ul>
 
