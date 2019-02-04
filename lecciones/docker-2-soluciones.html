@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../varios/webapps.css" title="mclibre" />
   <link rel="icon" href="../varios/favicon.ico" />
+  <link rel="stylesheet" href="../varios/prism-webapps.css" />
+  <script src="../varios/prism.js"></script>
 </head>
 
 <body>
@@ -24,32 +26,31 @@
 
       <h3><a href="docker-2.html">Enunciados</a></h3>
       <ul>
-        <li><a href="docker-2.html#ejercicio-1">1 - Instalar Docker</a></li>
-        <li><a href="docker-2.html#ejercicio-2">2 - Instalar OpenCart</a></li>
-        <li><a href="docker-2.html#ejercicio-3">3 - Probar comandos</a></li>
-        <li><a href="docker-2.html#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
-        <li><a href="docker-2.html#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
+        <li><a href="docker-2.html#ejercicio-1">1 - Instalar OpenCart</a></li>
+        <li><a href="docker-2.html#ejercicio-2">2 - Probar comandos</a></li>
+        <li><a href="docker-2.html#ejercicio-3">3 - Instalar phpMyAdmin</a></li>
+        <li><a href="docker-2.html#ejercicio-4">4 - Instalar 2 aplicaciones</a></li>
       </ul>
 
       <h3><a href="#">Soluciones</a></h3>
       <ul>
-        <li><a href="#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
-        <li><a href="#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
+        <li><a href="#ejercicio-3">3 - Instalar phpMyAdmin</a></li>
+        <li><a href="#ejercicio-4">4 - Instalar 2 aplicaciones</a></li>
       </ul>
     </div>
   </nav>
 
   <p>En esta lección se proponen soluciones detalladas de los <a href="docker-2.html">ejercicios de Docker (2)</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-  <section id="ejercicio-4">
-    <h2>Docker (2) 4 - Instalar phpMyAdmin</h2>
+  <section id="ejercicio-3">
+    <h2>Docker (2) 3 - Instalar phpMyAdmin</h2>
 
     <p>Para instalar phpMyAdmin en un contenedor Docker.</p>
 
     <ol>
       <li>La imagen Docker de phpMyAdmin de Bitnami se encuentra en <a href="https://github.com/bitnami/bitnami-docker-phpmyadmin">https://github.com/bitnami/bitnami-docker-phpmyadmin</a>.</li>
       <li>Para crear un contenedor phpMyAdmin:
-        <div class="codigo">
+        <div class="terminal">
           <pre><code class="language-shell">sudo docker run -d --name=phpmyadmin -p 8801:80 --net=opencart-network bitnami/phpmyadmin</code></pre>
         </div>
         <p><strong>Nota</strong>: Las variables disponibles (y su valores predeterminados entre corchetes) son PHPMYADMIN_ALLOW_ARBITRARY_SERVER [false], PHPMYADMIN_ALLOW_NO_PASSWORD [true], DATABASE_HOST [mariadb], DATABASE_PORT_NUMBER [3306], WEBSERVER_REQUIRE [all granted].</p>
@@ -60,28 +61,28 @@
     </ol>
   </section>
 
-  <section id="ejercicio-5">
-    <h2>Docker (2) 5 - Instalar dos aplicaciones (OPTATIVO)</h2>
+  <section id="ejercicio-4">
+    <h2>Docker (2) 4 - Instalar dos aplicaciones (OPTATIVO)</h2>
 
     <ol>
       <li>Cree la red:
-        <div class="codigo">
+        <div class="terminal">
           <pre><code class="language-shell">sudo docker network create wps</code></pre>
         </div>
       </li>
       <li>Cree el contenedor de MariaDB:
-        <div class="codigo">
+        <div class="terminal">
           <pre><code class="language-shell">sudo docker run -d --name=wps-mariadb -e ALLOW_EMPTY_PASSWORD=yes --net=wps bitnami/mariadb</code></pre>
         </div>
       </li>
       <li>Cree el contenedor de phpMyAdmin:
-        <div class="codigo">
+        <div class="terminal">
           <pre><code class="language-shell">sudo docker run -d --name=wps-pma -p 8801:80 -e DATABASE_HOST=wps-mariadb --net=wps bitnami/phpmyadmin</code></pre>
         </div>
       </li>
       <li>Entre en phpMyAdmin y cree los usuarios wp1 y wp2</li>
       <li>Cree el primer contenedor de WordPress:
-        <div class="codigo">
+        <div class="terminal">
           <pre>
 <code class="language-shell">sudo docker run -d --name=wp1 -p 8802:80 -p 4432:443 \
 -e MARIADB_HOST=wps-mariadb -e WORDPRESS_DATABASE_NAME=wp1 -e WORDPRESS_DATABASE_USER=wp1 -e WORDPRESS_DATABASE_PASSWORD=wp1 -e \
@@ -90,7 +91,7 @@ WORDPRESS_USERNAME=barto -e WORDPRESS_PASSWORD=barto --net=wps bitnami/wordpress
         </div>
       </li>
       <li>Cree el segundo contenedor de WordPress:
-          <div class="codigo">
+          <div class="terminal">
             <pre>
 <code class="language-shell">sudo docker run -d --name=wp2 -p 8803:80 -p 4433:443 \
 -e MARIADB_HOST=wps-mariadb -e WORDPRESS_DATABASE_NAME=wp2 -e WORDPRESS_DATABASE_USER=wp2 -e WORDPRESS_DATABASE_PASSWORD=wp2 -e \
@@ -102,7 +103,7 @@ WORDPRESS_USERNAME=barto -e WORDPRESS_PASSWORD=barto --net=wps bitnami/wordpress
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 9 de febrero de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 4 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />

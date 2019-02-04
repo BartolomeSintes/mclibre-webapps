@@ -26,17 +26,16 @@
 
       <h3><a href="#">Enunciados</a></h3>
       <ul>
-        <li><a href="#ejercicio-1">1 - Instalar Docker</a></li>
-        <li><a href="#ejercicio-2">2 - Instalar OpenCart</a></li>
-        <li><a href="#ejercicio-3">3 - Probar comandos</a></li>
-        <li><a href="#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
-        <li><a href="#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
+        <li><a href="#ejercicio-1">1 - Instalar OpenCart</a></li>
+        <li><a href="#ejercicio-2">2 - Probar comandos</a></li>
+        <li><a href="#ejercicio-3">3 - Instalar phpMyAdmin</a></li>
+        <li><a href="#ejercicio-4">4 - Instalar 2 aplicaciones</a></li>
       </ul>
 
       <h3><a href="docker-2-soluciones.html">Soluciones</a></h3>
       <ul>
-        <li><a href="docker-2-soluciones.html#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
-        <li><a href="docker-2-soluciones.html#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
+        <li><a href="docker-2-soluciones.html#ejercicio-3">3 - Instalar phpMyAdmin</a></li>
+        <li><a href="docker-2-soluciones.html#ejercicio-4">4 - Instalar 2 aplicaciones</a></li>
       </ul>
     </div>
   </nav>
@@ -44,155 +43,7 @@
   <p>Esta lección es una introducción a la instalación de aplicaciones mediante <strong>Docker</strong>, utilizando las imágenes proporcionadas por Bitnami. Esta lección tiene un carácter "experimental". Los dos primeros ejercicios están planteados como actividades guiadas, por lo que no se ofrece una página de soluciones. Se pueden consultar las <a href="docker-2-soluciones.html">soluciones de los demás ejercicios de Docker (2)</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
   <section id="ejercicio-1">
-    <h2>Docker (2) 1 - Instalar Docker</h2>
-
-    <p>En este ejercicio instalaremos Docker en una máquina virtual de Ubuntu 18.04.1 LTS Server ejecutada en VirtualBox.</p>
-
-    <p>Estas instrucciones se han extraido de la documentación oficial de Docker <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Install Docker on Ubuntu</a></p>
-
-    <h3>Prepare la máquina virtual</h3>
-
-    <p>Si ha realizado los <a href="packer-1.html">ejercicios de Packer</a> de estos apuntes, puede utilizar la máquina virtual creada en el <a href="packer-1.html#modificacion-vm">ejercicio 4</a>, importándola en VirtualBox como servicio virtualizado.</p>
-
-    <p>Si no ha realizado estos ejericios, cree manualmente un áquina virtual:</p>
-    <ol>
-      <li>Descargue la imagen iso de la versión más reciente de <strong>Ubuntu 18.04 LTS Server de 64 bits</strong>.
-        <p>Actualmente (enero de 2019), la última versión disponible de Ubuntu LTS Server es Ubuntu 18.04.1 (25/07/18). <a href="http://cdimage.ubuntu.com/releases/18.04/release/">Página de descarga</a></p>
-      </li>
-      <li>Cree una máquina virtual en VirtualBox e instale Ubuntu 18.04 LTS Server.
-        <p>Para los ejercicios de esta página un disco duro virtual de 8 GB es suficiente, pero para poder instalar más aplicaciones se necesitaría un disco mayor, por ejemplo de <strong>16 GB</strong>.</p>
-        <p>Compruebe que en la configuración de red de la máquina virtual está conectado a <strong>Adaptador puente</strong>. Si está conectado a otro tipo de adaptador (probablemente NAT), apague la máquina virtual, cambie a Adaptador puente y reinicie la máquina virtual.</p>
-      </li>
-    </ol>
-
-    <h3>Actualice la distribución</h3>
-
-    <p>Arranque la máquina virtual y ejecute los comandos siguientes en un terminal:</p>
-
-    <ol>
-      <li>Actualice la distribución:
-
-        <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
-<code class="language-shell">sudo apt update
-sudo apt upgrade</code>
-</pre>
-        </div>
-      </li>
-    </ol>
-
-    <h3>Actualice los repositorios de APT</h3>
-
-    <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
-
-    <ol>
-      <li>Instale los certificados para trabajar con https:
-
-        <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
-<code class="language-shell">sudo apt update
-sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</code>
-</pre>
-        </div>
-      </li>
-      <li>Añada la clave GPG oficial de Docker:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
-<code class="language-shell">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code>
-</pre>
-        </div>
-      </li>
-      <li>Compruebe que tiene la clave correcta:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
-<code class="language-shell">sudo apt-key fingerprint 0EBFCD88</code>
-</pre>
-        </div>
-        <p>El resultado debe ser:</p>
-        <div class="terminal">
-          <pre>
-<code class="language-shell">pub   rsa4096 2017-02-22 [SCEA]
-      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid        [desconocida] Docker Release (CE deb) &lt;docker@docker.com&gt;
-sub   rsa4096R 2017-02-22 [S]</code>
-</pre>
-        </div>
-      </li>
-      <li>Añada el repositorio correspondiente a su versión de Ubuntu (escriba todo en una sola línea, sin las contrabarras \):
-        <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$" data-output="2-4">
-<code class="language-shell">sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"</code>
-</pre>
-        </div>
-      </li>
-      <li>Actualice APT:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
-<code class="language-shell">sudo apt update</code>
-</pre>
-        </div>
-      </li>
-      <li>Compruebe que APT se conecta con el repositorio adecuado:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
-<code class="language-shell">apt policy docker-ce</code></pre>
-        </div>
-        <p>En la pantalla debe mostrarse el repositorio de la versión de Ubuntu indicada (en el ejemplo se muestra bionic, es decir, Ubuntu 18.04):</p>
-        <div class="terminal">
-          <pre>
-<code class="language-shell">docker-ce:
-  Instalados: (ninguno)
-  Candidato: 5:18.09.1~3-0~ubuntu-bionic
-  Tabla de versión:
-  5:18.09.1~3-0~ubuntu-bionic 500
-          500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
-...</code>
-</pre>
-        </div>
-      </li>
-    </ol>
-
-    <h3>Instale Docker</h3>
-
-    <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
-
-    <ol>
-      <li>Actualice el administrador de paquetes:
-        <div class="codigo">
-          <pre><code class="language-shell">sudo apt update</code></pre>
-        </div>
-      </li>
-      <li>Instale la última versión de Docker
-        <div class="codigo">
-          <pre><code class="language-shell">sudo apt install docker-ce</code></pre>
-        </div>
-      </li>
-      <li>Arranque el servicio docker
-        <div class="codigo">
-          <pre><code class="language-shell">sudo service docker start</code></pre>
-        </div>
-      </li>
-      <li>Compruebe que docker está instalado correctamente ejecutando la imagen hello-world:
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker run hello-world</code></pre>
-        </div>
-        <p>Se descargará e instalará la aplicación y se mostrará el mensaje:</p>
-        <div class="codigo">
-          <pre>
-<code class="language-shell">Hello from Docker!
-This message shows that your installation appears to be working correctly.
-...</code>
-</pre>
-        </div>
-      </li>
-    </ol>
-  </section>
-
-  <section id="ejercicio-2">
-    <h2>Docker (2) 2 - Instalar OpenCart</h2>
+    <h2>Docker (2) 1 - Instalar OpenCart</h2>
 
     <p>En este ejercicio instalaremos OpenCart en un contenedor Docker.</p>
 
@@ -201,15 +52,15 @@ This message shows that your installation appears to be working correctly.
     <ol>
       <li>Averigüe la dirección ip de la máquina virtual.</li>
       <li>Cree una nueva red para la aplicación y la base de datos:
-        <div class="codigo">
+        <div class="terminal">
           <pre><code class="language-shell">sudo docker network create opencart-network</code></pre>
         </div>
       </li>
       <li>Cree un contenedor con la base de datos MariaDB en la nueva red:
-        <div class="codigo">
+        <div class="terminal">
           <pre>
 <code class="language-shell">sudo docker run -d --name=mariadb \
-    e ALLOW_EMPTY_PASSWORD=yes -e MARIADB_USER=bn_opencart -e MARIADB_DATABASE=bitnami_opencart \
+    -e ALLOW_EMPTY_PASSWORD=yes -e MARIADB_USER=bn_opencart -e MARIADB_DATABASE=bitnami_opencart \
     --net=opencart-network bitnami/mariadb</code>
 </pre>
         </div>
@@ -217,7 +68,7 @@ This message shows that your installation appears to be working correctly.
         <p><strong>Nota</strong>: Algunas de las variables disponibles (y su valores predeterminados entre corchetes) son MARIADB_EXTRA_FLAGS, MARIADB_ROOT_USER [root], MARIADB_ROOT_PASSWORD [], ALLOW_EMPTY_PASSWORD, MARIADB_USER, MARIADB_PASSWORD, MARIADB_DATABASE.</p>
       </li>
       <li>Cree un contenedor con OpenCart en la misma red (sustituya AAA.BBB.CCC.DDD por la dirección ip de la máquina virtual):
-        <div class="codigo">
+        <div class="terminal">
           <pre>
 <code class="language-shell">sudo docker run -d --name=opencart \
     -e ALLOW_EMPTY_PASSWORD=yes -e OPENCART_DATABASE_NAME=bitnami_opencart -e OPENCART_HOST=AAA.BBB.CCC.DDD \
@@ -240,8 +91,8 @@ This message shows that your installation appears to be working correctly.
     </ol>
   </section>
 
-  <section id="ejercicio-3">
-    <h2>Docker (2) 3 - Probar los comandos de Docker</h2>
+  <section id="ejercicio-2">
+    <h2>Docker (2) 2 - Probar los comandos de Docker</h2>
 
     <p>En este ejercicio se trabaja con el OpenCart instalado en el ejercicio anterior.</p>
 
@@ -252,21 +103,21 @@ This message shows that your installation appears to be working correctly.
       <li>Modifique la tienda OpenCart eliminando alguna categoría del menú principal.</li>
       <li>Detenga y reinice el contenedor y compruebe que la tienda conserva los cambios. Los comandos que se deben utilizar son:
         <p>Para ver los contenedores existentes (en marcha o detenidos):</p>
-        <div class="codigo">
+        <div class="terminal">
           <pre><code class="language-shell">sudo docker ps -a</code></pre>
         </div>
         <p>Para detener un contenedor:</p>
-        <div class="codigo">
+        <div class="terminal">
           <pre><code class="language-shell">sudo docker stop CONTENEDOR</code></pre>
         </div>
         <p>Para poner en marcha un contenedor detenido:</p>
-        <div class="codigo">
+        <div class="terminal">
           <pre><code class="language-shell">sudo docker start CONTENEDOR</code></pre>
         </div>
       </li>
       <li>Detenga y borre el contenedor. Cree un nuevo contendor y compruebe que los cambios se han perdido. Los comandos que se deben utilizar son:
         <p>Para borrar un contenedor (debe estar detenido primero):</p>
-        <div class="codigo">
+        <div class="terminal">
           <pre><code class="language-shell">sudo docker rm CONTENEDOR</code></pre>
         </div>
         <p><strong>Nota</strong>: La base de datos no se ha borrado, así que se podría cambiar el usuario y contraseña de la tienda para usar la antigua base de datos y recuperar la tienda antigua.</p>
@@ -286,18 +137,18 @@ This message shows that your installation appears to be working correctly.
       </li>
       <li>Corrija los archivos de configuración de OpenCart con la nueva IP.
         <p>La forma más fácil es copiar los dos archivos de configuración de OpenCart del contenedor a la máquina virtual, modificarlos y volverlos a copiar a la imagen</p>
-        <div class="codigo">
+        <div class="terminal">
           <pre><code class="language-shell">sudo docker cp CONTENEDOR:ORIGEN DESTINO</code></pre>
         </div>
 
         <p>Para averiguar el directorio del sistema de ficheros del contenedor en el que se encuentra opencart, puede abrir una sesión en la imagen y después buscarlo:</p>
-        <div class="codigo">
+        <div class="terminal">
           <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
         </div>
         <details>
           <summary><strong>Ayuda</strong></summary>
           <p>Los ficheros de configuración están en /bitnami/opencart/config.php y /bitnami/opencart/admin/config.php. Los ficheros se pueden copiar en cualquier carpeta fuera del contenedor. Por ejemplo,</p>
-          <div class="codigo">
+          <div class="terminal">
             <pre><code class="language-shell">sudo docker cp opencart:/bitnami/opencart/config.php /tmp/config.php</code></pre>
           </div>
         </details>
@@ -306,8 +157,8 @@ This message shows that your installation appears to be working correctly.
     </ol>
   </section>
 
-  <section id="ejercicio-4">
-    <h2>Docker (2) 4 - Instalar phpMyAdmin</h2>
+  <section id="ejercicio-3">
+    <h2>Docker (2) 3 - Instalar phpMyAdmin</h2>
 
     <p>En este ejercicio se pide instalar phpMyAdmin en un contenedor Docker.</p>
 
@@ -320,8 +171,8 @@ This message shows that your installation appears to be working correctly.
     </ol>
   </section>
 
-  <section id="ejercicio-5">
-    <h2>Docker (2) 5 - Instalar dos aplicaciones (OPTATIVO)</h2>
+  <section id="ejercicio-4">
+    <h2>Docker (2) 4 - Instalar dos aplicaciones (OPTATIVO)</h2>
 
     <p>En este ejercicio se pide instalar la misma aplicación dos veces (por ejemplo, dos instalaciones de WordPress), pero que utilicen el mismo contenedor con la base de datos, con el objetivo de hacerlos accesibles mediante las URLs <strong>http://AAA.BBB.CCC.DDD:8802</strong> y <strong>http://AAA.BBB.CCC.DDD:8803</strong>.</p>
 
@@ -341,7 +192,7 @@ This message shows that your installation appears to be working correctly.
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 30 de enero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 4 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
