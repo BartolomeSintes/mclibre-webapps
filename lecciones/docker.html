@@ -363,12 +363,17 @@ sudo docker network
             <pre><code class="language-shell">sudo docker stop CONTENEDOR</code></pre>
           </div>
         </li>
-        <li>Para borrar un contenedor:
-          <div class="terminal">
-            <pre><code class="language-shell">sudo docker rm CONTENEDOR</code></pre>
-          </div>
-        </li>
-        <li>Para poner en marcha un contenedor detenido:
+        <li>Para detener todos los contenedores:
+            <div class="terminal">
+              <pre><code class="language-shell">sudo docker stop $sudo docker ps -aq)</code></pre>
+            </div>
+          </li>
+          <li>Para borrar un contenedor:
+            <div class="terminal">
+              <pre><code class="language-shell">sudo docker rm CONTENEDOR</code></pre>
+            </div>
+          </li>
+          <li>Para poner en marcha un contenedor detenido:
           <div class="terminal">
             <pre><code class="language-shell">sudo docker start CONTENEDOR</code></pre>
           </div>

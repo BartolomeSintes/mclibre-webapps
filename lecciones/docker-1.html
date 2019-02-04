@@ -28,21 +28,16 @@
       <h3><a href="#">Enunciados</a></h3>
       <ul>
         <li><a href="#ejercicio-1">1 - Instalar Docker</a></li>
-        <li><a href="#ejercicio-2">2 - Instalar OpenCart</a></li>
-        <li><a href="#ejercicio-3">3 - Probar comandos</a></li>
-        <li><a href="#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
-        <li><a href="#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
-      </ul>
-
-      <h3><a href="docker-1-soluciones.html">Soluciones</a></h3>
-      <ul>
-        <li><a href="docker-1-soluciones.html#ejercicio-4">4 - Instalar phpMyAdmin</a></li>
-        <li><a href="docker-1-soluciones.html#ejercicio-5">5 - Instalar 2 aplicaciones</a></li>
+        <li><a href="#ejercicio-2">2 - Imagen hello-world</a></li>
+        <li><a href="#ejercicio-3">3 - Imagen Apache</a></li>
+        <li><a href="#ejercicio-4">4 - Volúmenes</a></li>
       </ul>
     </div>
   </nav>
 
-  <p>Esta lección es una introducción a la instalación de aplicaciones mediante <strong>Docker</strong>, utilizando las imágenes proporcionadas por Bitnami. Esta lección tiene un carácter "experimental". Los dos primeros ejercicios están planteados como actividades guiadas, por lo que no se ofrece una página de soluciones. Se pueden consultar las <a href="docker-1-soluciones.html">soluciones de los demás ejercicios de Docker (1)</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta lección está por completar. Por ahora, están completos los ejercicios 1 y 2.</p>
+
+  <p>Esta lección es una introducción a la instalación de aplicaciones mediante <strong>Docker</strong>, utilizando las imágenes proporcionadas por Bitnami. Esta lección tiene un carácter "experimental". Los ejercicios están planteados como actividades guiadas, por lo que no se ofrece una página de soluciones.</p>
 
   <section id="ejercicio-1">
     <h2>Docker (1) 1 - Instalar Docker</h2>
@@ -55,7 +50,7 @@
 
     <p>Si ha realizado los <a href="packer-1.html">ejercicios de Packer</a> de estos apuntes, puede utilizar la máquina virtual creada en el <a href="packer-1.html#modificacion-vm">ejercicio 4</a>, importándola en VirtualBox como servicio virtualizado.</p>
 
-    <p>Si no ha realizado estos ejericios, cree manualmente un áquina virtual:</p>
+    <p>Si no ha realizado estos ejercicios, cree manualmente una máquina virtual:</p>
     <ol>
       <li>Descargue la imagen iso de la versión más reciente de <strong>Ubuntu 18.04 LTS Server de 64 bits</strong>.
         <p>Actualmente (enero de 2019), la última versión disponible de Ubuntu LTS Server es Ubuntu 18.04.1 (25/07/18). <a href="http://cdimage.ubuntu.com/releases/18.04/release/">Página de descarga</a></p>
@@ -74,7 +69,7 @@
       <li>Actualice la distribución:
 
         <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
+          <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo apt update
 sudo apt upgrade</code>
 </pre>
@@ -82,7 +77,22 @@ sudo apt upgrade</code>
       </li>
     </ol>
 
-    <h3>Actualice los repositorios de APT</h3>
+    <h3>Instale utilidades</h3>
+
+    <p>Instale las utilidades siguientes:</p>
+
+    <ol>
+      <li>Instale el editor nano:
+
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo apt install nano</code>
+</pre>
+        </div>
+      </li>
+    </ol>
+
+    <h3>Añada los repositorios de Docker</h3>
 
     <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
 
@@ -90,7 +100,7 @@ sudo apt upgrade</code>
       <li>Instale los certificados para trabajar con https:
 
         <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
+          <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo apt update
 sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</code>
 </pre>
@@ -98,14 +108,14 @@ sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-p
       </li>
       <li>Añada la clave GPG oficial de Docker:
         <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
+          <pre class="command-line" data-prompt="$">
 <code class="language-shell">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code>
 </pre>
         </div>
       </li>
       <li>Compruebe que tiene la clave correcta:
         <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
+          <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo apt-key fingerprint 0EBFCD88</code>
 </pre>
         </div>
@@ -121,7 +131,7 @@ sub   rsa4096R 2017-02-22 [S]</code>
       </li>
       <li>Añada el repositorio correspondiente a su versión de Ubuntu (escriba todo en una sola línea, sin las contrabarras \):
         <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$" data-output="2-4">
+          <pre class="command-line" data-prompt="$" data-output="2-4">
 <code class="language-shell">sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
@@ -131,14 +141,14 @@ sub   rsa4096R 2017-02-22 [S]</code>
       </li>
       <li>Actualice APT:
         <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
+          <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo apt update</code>
 </pre>
         </div>
       </li>
       <li>Compruebe que APT se conecta con el repositorio adecuado:
         <div class="terminal">
-          <pre class="command-line" data-prompt="user@ubuntu:/$">
+          <pre class="command-line" data-prompt="$">
 <code class="language-shell">apt policy docker-ce</code></pre>
         </div>
         <p>En la pantalla debe mostrarse el repositorio de la versión de Ubuntu indicada (en el ejemplo se muestra bionic, es decir, Ubuntu 18.04):</p>
@@ -162,29 +172,38 @@ sub   rsa4096R 2017-02-22 [S]</code>
 
     <ol>
       <li>Actualice el administrador de paquetes:
-        <div class="codigo">
-          <pre><code class="language-shell">sudo apt update</code></pre>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo apt update</code>
+</pre>
         </div>
       </li>
       <li>Instale la última versión de Docker
-        <div class="codigo">
-          <pre><code class="language-shell">sudo apt install docker-ce</code></pre>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo apt install docker-ce</code>
+</pre>
         </div>
       </li>
       <li>Arranque el servicio docker
-        <div class="codigo">
-          <pre><code class="language-shell">sudo service docker start</code></pre>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo service docker start</code>
+</pre>
         </div>
       </li>
-      <li>Compruebe que docker está instalado correctamente ejecutando la imagen hello-world:
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker run hello-world</code></pre>
+      <li>Compruebe que el servicio está activo:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">systemctl status docker</code>
+</pre>
         </div>
-        <p>Se descargará e instalará la aplicación y se mostrará el mensaje:</p>
-        <div class="codigo">
+        <p>Se mostrará un mensaje similar a este (pulse Ctrl+C para salir del texto):</p>
+        <div class="terminal">
           <pre>
-<code class="language-shell">Hello from Docker!
-This message shows that your installation appears to be working correctly.
+<code class="language-shell">&bull; docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+   Active: active (running) since ...
 ...</code>
 </pre>
         </div>
@@ -193,156 +212,363 @@ This message shows that your installation appears to be working correctly.
   </section>
 
   <section id="ejercicio-2">
-    <h2>Docker (1) 2 - Instalar OpenCart</h2>
+    <h2>Docker (1) 2 - Imagen hello-world</h2>
 
-    <p>En este ejercicio instalaremos OpenCart en un contenedor Docker.</p>
+    <p>Dos conceptos fundamentales de Docker son los <strong>contenedores</strong> y las <strong>imágenes</strong>.</p>
 
-    <p>Los repositorios de las imágenes de Bitnami son <a href="https://github.com/bitnami/bitnami-docker-mariadb">Bitnami MariaDB OpenCart</a>, <a href="https://github.com/bitnami/bitnami-docker-opencart">Bitnami Docker OpenCart</a>.</p>
+    <p>Docker encapsula las aplicaciones en <strong>contenedores</strong>. Un contenedor es el equivalente a una máquina virtual de la virtualización clásica, pero mucho más ligera porque utiliza recursos del sistema operativo del <i>host</i>. Las aplicaciones de cada contenedor "ven" un sistema opertativo, que puede ser diferente en cada contenedor, pero quien realiza el trabajo es el sistema operativo común que hay por debajo.</p>
+
+    <p>Docker crea los contenedores a partir de <strong>imágenes</strong>. Las imágenes son una especie de plantillas que contienen como mínimo todo el software que necesita la aplicación para ponerse en marcha. Las imágenes se pueden crear a partir de otras imágenes más básicas incluyendo software adicional en forma de capas. Todos los contenedores creados a partir de una imagen contienen el mismo software, aunque en el momento de su creación se pueden personalizar algunos detalles.</p>
+
+    <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
 
     <ol>
-      <li>Averigüe la dirección ip de la máquina virtual.</li>
-      <li>Cree una nueva red para la aplicación y la base de datos:
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker network create opencart-network</code></pre>
-        </div>
-      </li>
-      <li>Cree un contenedor con la base de datos MariaDB en la nueva red:
-        <div class="codigo">
-          <pre>
-<code class="language-shell">sudo docker run -d --name=mariadb \
-    e ALLOW_EMPTY_PASSWORD=yes -e MARIADB_USER=bn_opencart -e MARIADB_DATABASE=bitnami_opencart \
-    --net=opencart-network bitnami/mariadb</code>
+      <li>Compruebe que inicialmente no hay ningún contenedor creado (la opción -a hace que se muestren también los contenedores detenidos, sin ella se muestran sólo los contenedor que estén en marcha):
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker ps -a</code>
 </pre>
         </div>
-        <p><strong>Nota</strong>: El nombre mariadb se puede cambiar, pero tenga en cuenta que las imágenes de bitnami suponen de forma predeterminada que ese es el nombre del contenedor de la base de datos. Si utiliza otro nombre de contenedor, deberá añadir la opción de configuración correspondiente al crear el contenedor de la aplicación.</p>
-        <p><strong>Nota</strong>: Algunas de las variables disponibles (y su valores predeterminados entre corchetes) son MARIADB_EXTRA_FLAGS, MARIADB_ROOT_USER [root], MARIADB_ROOT_PASSWORD [], ALLOW_EMPTY_PASSWORD, MARIADB_USER, MARIADB_PASSWORD, MARIADB_DATABASE.</p>
-      </li>
-      <li>Cree un contenedor con OpenCart en la misma red (sustituya AAA.BBB.CCC.DDD por la dirección ip de la máquina virtual):
-        <div class="codigo">
-          <pre>
-<code class="language-shell">sudo docker run -d --name=opencart \
-    -e ALLOW_EMPTY_PASSWORD=yes -e OPENCART_DATABASE_NAME=bitnami_opencart -e OPENCART_HOST=AAA.BBB.CCC.DDD \
-    -p 80:80 -p 443:443 --net=opencart-network bitnami/opencart</code>
+
+        <p>o también</p>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker container ls -a</code>
 </pre>
         </div>
-        <p><strong>Nota</strong>: Las variables disponibles (y su valores predeterminados entre corchetes) son OPENCART_USERNAME [user], OPENCART_PASSWORD [bitnami1], OPENCART_EMAIL [user@example.com], OPENCART_HOST, MARIADB_PASSWORD, MARIADB_HOST [mariadb], MARIADB_PORT_NUMBER [3306].</p>
+
+        <p>La respuesta, en forma de tabla, será la siguiente. La cabecera de la tabla ocupa dos líneas ya que es una tabla con muchos campos.</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS
+PORTS               NAMES</code>
+</pre>
+        </div>
       </li>
-      <li>Compruebe que puede acceder a OpenCart en el navegador escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD</strong>, donde AAA.BBB.CCC.DDD es la dirección ip de la máquina virtual:
-        <p class="captura">
-          <img src="../img/docker/1-2-e-1-opencart.jpg" alt="Tienda OpenCart" width="500" height="280" />
-        </p>
+      <li>Compruebe que inicialmente tampoco disponemos de ninguna imagen:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker image ls</code>
+</pre>
+        </div>
+        <p>La respuesta, en forma de tabla, será la siguiente:</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</code>
+</pre>
+        </div>
       </li>
-      <li>Compruebe que puede acceder como administrador a OpenCart en el navegador escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD/admin</strong>, donde AAA.BBB.CCC.DDD es la dirección ip de la máquina virtual.
-        <p>El usuario administrador predeterminado de OpenCart es <strong>user</strong> con contraseña <strong>bitnami1</strong>:</p>
-        <p class="captura">
-          <img src="../img/docker/1-2-e-2-opencart.png" alt="Administración de OpenCart" width="500" height="280" />
-        </p>
+
+      <li>Docker crea los contenedores a partir de imágenes locales (ya descargadas), pero si al crear el contenedor no se dispone de la imagen local, Docker descarga la imagen de su repositorio.
+
+        <p>La orden más simple para crear un contenedor es:</p>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker run IMAGEN</code>
+</pre>
+        </div>
+
+        <p>Cree un contenedor con la aplicación de ejemplo <strong>hello-world</strong>. La imagen de este contenedor se llama <strong>hello-world</strong>:</p>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker run hello-world</code>
+</pre>
+        </div>
+
+        <p>Como no tenemos todavía la imagen en nuestro ordenador, Docker descarga la imagen, crea el contenedor y lo pone en marcha. En este caso, la aplicación que contiene el contenedor hello-world simplemente escribe un mensaje de salida al arrancar e inmediatamente se detiene el contenedor. La respuesta será similar a esta:</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+1b930d010525: Pull complete
+Digest: sha256:2557c3c07ed1e38f26e389462d03ed943586f744521577a99efb77324b0fe535
+Status: Download newer image from hello-wolrd:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+...</code>
+</pre>
+        </div>
+      </li>
+      <li>Si listamos ahora los contenedores existentes ...
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker ps -a</code>
+</pre>
+        </div>
+        <p>... se mostrará información del contenedor creado:</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS
+PORTS               NAMES
+614B4c431ffa        hello-world         "/hello"            2 minutes ago       Exited (0) 2 minutes
+ago                 hopeful_elbakyan</code>
+</pre>
+        </div>
+      </li>
+      <li>Si listamos ahora las imágenes existentes ...
+
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker image ls</code>
+</pre>
+        </div>
+        <p>... se mostrará información de la imagen creada:</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              fce209e99eb9        4 weeks ago         1.84 kB</code>
+</pre>
+        </div>
+        <p>Cada contenedor debe tener un identificador (ID) y un nombre distinto. Docker "bautiza" los contenedores con un nombre peculiar, compuesto de un adjetivo y un apellido.</p>
+      </li>
+      <li>Podemos crear tantos contenedores como queramos a partir de una imagen. Una vez la imagen está disponible localmente, Docker no necesita descargarla y el proceso de creación del contenedor es inmediato (aunque en el caso de hello-world la descarga es rápida, con imágenes más grandes la descarga inicial puede tardar un rato)
+
+        <p>Normalmente se aconseja usar siempre la opción <strong>-d</strong>, que arranca el contenedor en segundo plano (<i>detached</i>) y permite seguir teniendo acceso a la shell (aunque con este contenedor en particular no es estrictamente necesario porque se detiene a los pocos segundos).</p>
+
+        <p>Al crear el contenedor hello-world con la opción -d no se muestra el mensaje, simplemente muestra el identificador completo del contenedor.</p>
+
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$" data-output="2">
+<code class="language-shell">sudo docker run -d hello-world
+1ae54736196021523a2b21c123fd671253e62150daccd882374</code>
+</pre>
+        </div>
+      </li>
+      <li>Si listamos los contenedores existentes ...
+
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker ps -a</code>
+</pre>
+        </div>
+        <p>... se mostrarán los dos contenedores:</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS
+PORTS               NAMES
+1ae547361960        hello-world         "/hello"            4 seconds ago       Exited (0) 3 seconds
+ago                 distracted_banach
+614B4c431ffa        hello-world         "/hello"            5 minutes ago       Exited (0) 5 minutes
+ago                 hopeful_elbakyan</code>
+</pre>
+        </div>
+      </li>
+      <li>Los contenedores se pueden destruir mediante el comando <i>rm</i>, haciendo referencia a ellos mediante su nombre o su id. Borre los dos contenedores existentes:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$" data-output="2, 4">
+<code class="language-shell">sudo docker rm 1ae547361960
+1ae547361960
+sudo docker rm hopefukl_elbakyan
+hopefukl_elbakyan</code>
+</pre>
+        </div>
+        <p>Compruebe que ya no quedan contenedores:</p>
+
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$" data-output="2-3">
+<code class="language-shell">sudo docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS
+PORTS               NAMES</code>
+</pre>
+        </div>
+      </li>
+      <li>Podemos dar nombre a los contenedores al crearlos:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker run -d --name=hola-1 hello-world</code>
+</pre>
+        </div>
+
+        <p>Al haber utilizado la opción -d únicamente se mostrará el ID completo del contenedor:</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">54e9827bd10ab2825e1b3e4d3bf7a8cbdf778b472359c655d72d9c09e753500a</code>
+</pre>
+        </div>
+      </li>
+      <li>Si listamos los contenedores existentes ...
+
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker ps -a</code>
+</pre>
+        </div>
+        <p>... se mostrará el contenedor con el nombre que hemos indicado:</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS
+PORTS               NAMES
+54e9827bd10a        hello-world         "/hello"            4 seconds ago       Exited (0) 3 seconds
+ago                 hola-1</code>
+</pre>
+        </div>
+      </li>
+      <li>Si intentamos crear un segundo contenedor con un nombre ya utilizado ...
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker run -d --name=hola-1 hello-world</code>
+</pre>
+        </div>
+
+        <p>Docker nos avisará de que no es posible:</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">docker: Error response from daemon: Conflict. The container name "/hola-1" is already in use by con
+tainer "54e9827bd10ab2825e1b3e4d3bf7a8cbdf778b472359c655d72d9c09e753500a". You have to remove (or re
+name) that container to be able to reuse that name.
+See 'docker run --help'.</code>
+</pre>
+        </div>
       </li>
     </ol>
   </section>
 
   <section id="ejercicio-3">
-    <h2>Docker (1) 3 - Probar los comandos de Docker</h2>
+    <h2>Docker (1) 3 - Imagen apache</h2>
 
-    <p>En este ejercicio se trabaja con el OpenCart instalado en el ejercicio anterior.</p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Este ejercicio está por completar.</p>
 
-    <p>Puede consultar la <a href="https://github.com/wsargent/docker-cheat-sheet">Docker Cheat Sheet</a> para obtener información sobre los comandos básicos de Docker.</p>
-
-    <h3>Detener y poner en marcha</h3>
+    <h3>Crear el contenedor Apache</h3>
     <ol>
-      <li>Modifique la tienda OpenCart eliminando alguna categoría del menú principal.</li>
-      <li>Detenga y reinice el contenedor y compruebe que la tienda conserva los cambios. Los comandos que se deben utilizar son:
-        <p>Para ver los contenedores existentes (en marcha o detenidos):</p>
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker ps -a</code></pre>
-        </div>
-        <p>Para detener un contenedor:</p>
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker stop CONTENEDOR</code></pre>
-        </div>
-        <p>Para poner en marcha un contenedor detenido:</p>
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker start CONTENEDOR</code></pre>
+      <li>Cre un contenedor que contenga un servidor Apache:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$" data-output="2">
+<code class="language-shell">sudo docker run -d -P --name=apache-1 bitnami/apache
+44c9e89bdfd24fa623774b3e774b0fb0efa107f752af5161b1d6b925330a82f6</code>
+</pre>
         </div>
       </li>
-      <li>Detenga y borre el contenedor. Cree un nuevo contendor y compruebe que los cambios se han perdido. Los comandos que se deben utilizar son:
-        <p>Para borrar un contenedor (debe estar detenido primero):</p>
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker rm CONTENEDOR</code></pre>
+
+      <li>Consulte el puerto del <i>host</i> utilizado por el contenedor ...
+
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker ps -a</code>
+</pre>
         </div>
-        <p><strong>Nota</strong>: La base de datos no se ha borrado, así que se podría cambiar el usuario y contraseña de la tienda para usar la antigua base de datos y recuperar la tienda antigua.</p>
+        <p>... se mostrará el contenedor con el nombre que hemos indicado:</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS
+      PORTS                                             NAMES
+44c9e89bdfd2        bitnami/apache      "/app-entrypoint.sh &hellip;"   About a minute ago       Up About a min
+ute   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32774-&gt;8443/tcp   apache-1</code>
+</pre>
+        </div>
       </li>
+      <li>Abra en el navegador la página inicial del contenedor.</li>
     </ol>
 
-    <h3>Cambio de IP</h3>
+    <h3>Modificar la página inicial del contenedor Apache</h3>
 
-    <p>Si cambiara la IP de la máquina virtual, OpenCart dejaría de funcionar correctamente porque en los archivos de configuración de OpenCart se guarda la URL de OpenCart. En clase esto ocurre de vez en cuando, ya que el router de aula está continuamente asignando direcciones.</p>
+    <p><strong>Nota</strong>: Modificar de esta manera un contenedor va en contra de la "filosofía" de Docker, en la que los contenedores pueden ser creados, destruidos y creados de nuevo sin afectar al estado final.</p>
 
     <ol>
-      <li>Apague y reinicie la máquina virtual.
-        <ul>
-          <li>Si cambia la IP de la máquina virtual, compruebe que la tienda OpenCart ya no se ve correctamente</li>
-          <li>Si <strong>no</strong> cambia la IP de la máquina virtual, haga el ejercicio sin cambiar la IP, pero así sabrá cómo hacerlo si algún día cambia la IP.</li>
-        </ul>
-      </li>
-      <li>Corrija los archivos de configuración de OpenCart con la nueva IP.
-        <p>La forma más fácil es copiar los dos archivos de configuración de OpenCart del contenedor a la máquina virtual, modificarlos y volverlos a copiar a la imagen</p>
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker cp CONTENEDOR:ORIGEN DESTINO</code></pre>
+      <li>Cree la nueva página index.html ...
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo nano index.html</code>
+</pre>
         </div>
 
-        <p>Para averiguar el directorio del sistema de ficheros del contenedor en el que se encuentra opencart, puede abrir una sesión en la imagen y después buscarlo:</p>
-        <div class="codigo">
-          <pre><code class="language-shell">sudo docker exec -it CONTENEDOR /bin/bash</code></pre>
+        <p>... por ejemplo con el contenido siguiente</p>
+        <div class="terminal">
+          <pre>
+<code class="language-shell">&lt;h1&gt;¡Hola, mundo!&lt;/h1&gt;</code>
+</pre>
         </div>
-        <details>
-          <summary><strong>Ayuda</strong></summary>
-          <p>Los ficheros de configuración están en /bitnami/opencart/config.php y /bitnami/opencart/admin/config.php. Los ficheros se pueden copiar en cualquier carpeta fuera del contenedor. Por ejemplo,</p>
-          <div class="codigo">
-            <pre><code class="language-shell">sudo docker cp opencart:/bitnami/opencart/config.php /tmp/config.php</code></pre>
-          </div>
-        </details>
       </li>
-      <li>Compruebe que la tienda OpenCart vuelve a verse correctamente.</li>
+      <li>Entre en la <i>shell</i> del contenedor para averiguar la ubicación de la página inicial:
+
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker exec -it apache-1 /bin/bash</code>
+</pre>
+        </div>
+      </li>
+      <li>Copie el fichero index.html en el contenedor:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker cp index.html apache:/opt/bitnami/apache/htdocs/index.html</code>
+</pre>
+        </div>
+      </li>
+      <li>Abra en el navegador la página inicial del contenedor y compruebe que se ha modificado.</li>
+    </ol>
+
+    <h3>Crear una nueva imagen</h3>
+
+    <p><strong>Nota</strong>: Si queremos cambiar la página inicial, la forma correcta de hacerlo en Docker es crear una nueva imagen que incluya la página modificada, de manera que cada vez que se cree el contenedor, la página inicial sea la modificada.</p>
+
+    <p>Las imágenes se crean a partir de Dockerfiles, ficheros que describen los elementos que forman la imagen. Los Dockerfiles pueden ser muy extensos. En este caso, se trata de un Dockerfile mínimo.</p>
+
+    <ol>
+      <li>Cree un directorio que contendrá el Dockerfile
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo mkdir mi-apache</code>
+</pre>
+        </div>
+      </li>
+      <li>Copie el fichero index.html creado anteriormente
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo mv index.html mi-apache</code>
+</pre>
+        </div>
+      </li>
+      <li>Entre en el directorio y cree un fichero Dockerlife
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">cd mi-apache
+sudo nano Dockerfile</code>
+</pre>
+        </div>
+        <p>El contenido del Dockerfile puede ser el siguiente:</p>
+        <div class="terminal">
+          <pre>
+<code class="language-shell">FROM bitnami/apache
+COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
+</pre>
+        </div>
+      </li>
+      <li>Genere la nueva imagen:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker build -t barto/mi-apache .</code>
+</pre>
+        </div>
+      </li>
+      <li>Cree un contenedor a partir de la nueva imagen:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker run -d -P --name=mi-apache-1 barto/mi-apache</code>
+</pre>
+        </div>
+      </li>
+      <li>Abra en el navegador la página inicial del contenedor y compruebe que se ha modificado.</li>
     </ol>
   </section>
 
   <section id="ejercicio-4">
-    <h2>Docker (1) 4 - Instalar phpMyAdmin</h2>
+    <h2>Docker (1) 4 - Volúmenes</h2>
 
-    <p>En este ejercicio se pide instalar phpMyAdmin en un contenedor Docker.</p>
-
-    <p>El repositorio de las imágenes de Bitnami es <a href="https://github.com/bitnami/bitnami-docker-phpmyadmin">Bitnami phpMyAdmin OpenCart</a>.</p>
-
-    <ol>
-      <li>Cree un contenedor de phpMyadmin, al que se pueda acceder a través del puerto 8801.</li>
-      <li>Compruebe que puede ver la página inicial de conexión de phpMyAdmin en el navegador escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD:8801</strong>, donde AAA.BBB.CCC.DDD es la dirección ip de la máquina virtual.</li>
-      <li>Averigüe la contraseña del usuario de OpenCart y entre con phpMyAdmin para ver la base de datos</li>
-    </ol>
-  </section>
-
-  <section id="ejercicio-5">
-    <h2>Docker (1) 5 - Instalar dos aplicaciones (OPTATIVO)</h2>
-
-    <p>En este ejercicio se pide instalar la misma aplicación dos veces (por ejemplo, dos instalaciones de WordPress), pero que utilicen el mismo contenedor con la base de datos, con el objetivo de hacerlos accesibles mediante las URLs <strong>http://AAA.BBB.CCC.DDD:8802</strong> y <strong>http://AAA.BBB.CCC.DDD:8803</strong>.</p>
-
-    <ol>
-      <li>Cree una nueva red.</li>
-      <li>Cree un contenedor de MariaDB.</li>
-      <li>Cree un contenedor de phpMyAdmin al que se acceda por el puerto 8801.</li>
-      <li>Compruebe que puede acceder a phpMyAdmin desde el host.</li>
-      <li>Cree los usuarios wp1 y wp2, con base de datos única y con contraseña wp1 y wp2 y que puedan acceder desde cualquier nombre de host.</li>
-      <li>Cree un primer contenedor de WordPress que escuche en los puertos 8802 y 4432.</li>
-      <li>Compruebe que puede acceder a este WordPress desde el host.</li>
-      <li>Modifique el título del WordPress.</li>
-      <li>Cree un segundo contenedor de WordPress que escuche en los puertos 8803 y 4433.</li>
-      <li>Compruebe que puede acceder a este WordPress desde el host.</li>
-      <li>Modifique el tema o el título del WordPress para distinguirlo del anterior.</li>
-    </ol>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Este ejercicio está por escribir.</p>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 30 de enero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 4 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
