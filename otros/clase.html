@@ -27,8 +27,8 @@
         <li><a href="#s16">S16: del 07/01/19 al 13/01/19</a></li>
         <li><a href="#s17">S17: del 14/01/19 al 20/01/19</a></li>
         <li><a href="#s18">S18: del 21/01/19 al 27/01/19</a></li>
-        <!--
         <li><a href="#s19">S19: del 28/01/19 al 03/02/19</a></li>
+        <!--
         <li><a href="#s20">S20: del 04/02/19 al 10/02/19</a></li>
         -->
       </ul>
@@ -213,8 +213,65 @@
     </ol>
   </section>
 
+  <section id="s19">
+    <h2>IAW Semana S19: del 28/01/19 al 03/02/19</h2>
+
+    <p>Las lecciones de esta semana <strong>NO</strong> irán para examen.</p>
+
+    <p>Esta semana está dedicada a la virtualización, en dos vertientes:</p>
+
+    <ul>
+      <li>por un lado, abordaremos la virtualización "clásica", es decir, con máquinas virtuales completas, como las que estáis acostumbrados a utilizar en otros módulos.
+        <p>Esta semana estará dedicada por un lado a probar los instaladores de Bitnami sobre máquinas virtuales de Ubuntu. Como veréis, los instaladores de Bitnami facilitan la instalación de aplicaciones en todo tipo de sistemas, lo que nos va a permitir ver diferentes maneras de abordar el problema.</p>
+      </li>
+      <li>por otro lado, abordaremos la virtualización "moderna", es decir, con contenedores, concretamente con contenedores Docker (sobre una máquina virtual de Ubuntu). Las imágenes en las que basaremos los conetenedores serán también imágenes de Bitnami.</li>
+    </ul>
+
+    <p>Los ejercicios están planteados principalmente como ejercicios guiados puesto que el objetivo es que entendais el funcionamiento de ambos tipos de virtualización. En algunos casos se proporcionan también soluciones.</p>
+
+    <p>En cualquier caso, tened en cuenta que esta semana estará dedicada únicamente a la instalación, sin llegar a utilizar realmente las aplicaciones instaladas. La semana que viene estará dedicada a la administración de una aplicación instalada como contenedor en una máquina virtual Ubuntu y complementará lo visto esta semana.</p>
+
+    <p>En resumen, el trabajo de esta semana es en gran parte "experimental" y espero que disculpéis que los apuntes están en un estado más "experimental" de lo habitual ;-). Por ello, estas formas de instalación no irán para examen, pero espero que os resulten muy interesantes y os permitan poner en práctica conocimientos adquiridos en otros módulos.</p>
+
+    <h3>Bitnami</h3>
+    <ol>
+      <li>Leed la lección <a href="http://www.mclibre.org/consultar/webapps/lecciones/bitnami.html">Presentación de Bitnami</a>
+        <p>En esta lección se comentan los diferentes tipos de instaladores de aplicaciones que ofrece Bitnami, que aumentan cada año.</p>
+      </li>
+      <li>Leed la lección <a href="http://www.mclibre.org/consultar/webapps/lecciones/bitnami-varios.html">Bitnami - Varios</a>
+        <p>Esta lección recopila unas cuantos comandos útiles para la realización de los ejercicios. Me imagino que conoceréis la mayoría de ellos por haberlos trabajado en otros módulos, pero puede que os sirve alguno de ellos.</p>
+      </li>
+      <li>Haced los ejercicios <a href="http://www.mclibre.org/consultar/webapps/lecciones/bitnami-1.html">Bitnami (1)</a>
+        <p>En estos ejercicios vamos a probar las máquinas virtuales de aplicación de Bitnami, que corresponden a la situación de tener un servidor dedicado a una única aplicación.</p>
+        <p>Podéis consultar las <a href="http://www.mclibre.org/consultar/webapps/lecciones/bitnami-1-soluciones.html">soluciones a los ejercicios Bitnami (1)</a></p>
+      </li>
+      <li>Haced los ejercicios <a href="http://www.mclibre.org/consultar/webapps/lecciones/bitnami-2.html">Bitnami (2)</a>
+        <p>En estos ejercicios vamos a probar las máquinas virtuales de infraestructura de Bitnami, que corresponden a la situación de tener un servidor con varias aplicaciones instaladas.</p>
+        <p>Podéis consultar las <a href="http://www.mclibre.org/consultar/webapps/lecciones/bitnami-2-soluciones.html">soluciones a los ejercicios Bitnami (2)</a></p>
+      </li>
+      <li>Haced los ejercicios <a href="http://www.mclibre.org/consultar/webapps/lecciones/bitnami-3.html">Bitnami (3)</a>
+        <p>Estos ejercicios corresponden a la instalación "clásica" de aplicaciones sobre Windows con instaladores de Bitnami y es la menos novedosa de todas.</p>
+      </li>
+    </ol>
+
+    <h3>Docker</h3>
+    <ol>
+      <li>Leed la lección <a href="http://www.mclibre.org/consultar/webapps/lecciones/docker.html">Presentación de Docker</a>
+        <p>En esta lección se comenta qué es Docker y los comandos básicos que practicaréis en las páginas de ejercicios</p>
+      </li>
+      <li>Haced los ejercicios <a href="http://www.mclibre.org/consultar/webapps/lecciones/docker-1.html">Docker (1)</a>
+        <p>Son ejercicios guiados para aprender los conceptos básicos de Docker.</p>
+        <p>Vamos a trabajar con Docker en una máquina virtual de Ubuntu. Aunque el primer ejercicio pide crear la máquina virtual, se puede utilizar la máquina crada en el <a href="http://www.mclibre.org/consultar/webapps/lecciones/packer-1.html#modificacion-vm">ejercicio 4 de Packer</a>. Si queréis descargar la ova que se obtenía en ese ejercicio (no tiene Docker), podéis descargarla de <a href="http://www.mclibre.org/descargar/packer-1-4-ubuntu-18-04-1-server.ova">mclibre</a>. El usuario es barto con contraseña barto.</p>
+      </li>
+      <li>Haced los ejercicios <a href="http://www.mclibre.org/consultar/webapps/lecciones/docker-2.html">Docker (2)</a>
+        <p>En estos ejercicios vamos a probar la instalación de aplicaciones web completas, primero con actividades guiadas y después con ejercicios.</p>
+        <p>Podéis consultar las <a href="http://www.mclibre.org/consultar/webapps/lecciones/docker-2-soluciones.html">soluciones a los ejercicios Docker (2)</a></p>
+      </li>
+    </ol>
+  </section>
+
   <footer>
-    <p class="ultmod">Última modificación de esta página: 23 de enero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 5 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
