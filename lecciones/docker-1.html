@@ -35,7 +35,7 @@
     </div>
   </nav>
 
-  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta lección está por completar. Por ahora, están completos los ejercicios 1 y 2.</p>
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta lección está por completar. Por ahora, están completos los ejercicios 1, 2 y 3.</p>
 
   <p>Esta lección es una introducción a la instalación de aplicaciones mediante <strong>Docker</strong>, utilizando las imágenes proporcionadas por Bitnami. Esta lección tiene un carácter "experimental". Los ejercicios están planteados como actividades guiadas, por lo que no se ofrece una página de soluciones.</p>
 
@@ -464,7 +464,7 @@ See 'docker run --help'.</code>
 <code class="language-shell">CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS
       PORTS                                             NAMES
 44c9e89bdfd2        bitnami/apache      "/app-entrypoint.sh &hellip;"   About a minute ago       Up About a min
-ute   0.0.0.:<span class="codigo-resaltado">32769-&gt;8080</span>/tcp, 0.0.0.0:<span class="codigo-resaltado">32774-&gt;8443</span>/tcp   apache-1</code>
+ute   0.0.0.:<span class="codigo-resaltado">32769-&gt;8080</span>/tcp, 0.0.0.0:<span class="codigo-resaltado">32768-&gt;8443</span>/tcp   apache-1</code>
 </pre>
         </div>
       </li>
@@ -505,9 +505,9 @@ c5041d12aabdc6f58219fec176036eb352ecaea7cf81b8f7fa2ad8af801c96a2</code>
 <code class="language-shell">CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS
       PORTS                                             NAMES
 c5041d12aabd        bitnami/apache      "/app-entrypoint.sh &hellip;"   About a minute ago       Up About a min
-ute   0.0.0.:<span class="codigo-resaltado">32771-&gt;8080</span>/tcp, 0.0.0.0:<span class="codigo-resaltado">32772-&gt;8443</span>/tcp   apache-2
+ute   0.0.0.:<span class="codigo-resaltado">32771-&gt;8080</span>/tcp, 0.0.0.0:<span class="codigo-resaltado">32770-&gt;8443</span>/tcp   apache-2
 44c9e89bdfd2        bitnami/apache      "/app-entrypoint.sh &hellip;"   5 minutes ago            Up 5 min
-utes   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32770-&gt;8443/tcp   apache-1</code>
+utes   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32768-&gt;8443/tcp   apache-1</code>
 </pre>
         </div>
       </li>
@@ -536,7 +536,7 @@ utes   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32770-&gt;8443/tcp   apache-1</code>
 &lt;/head&gt;
 
 &lt;body&gt;
-  &lt;p&gt;¡Hola, mundo!.&lt;/p&gt;
+  &lt;h1&gt;¡Hola, mundo!&lt;/h1&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code>
 </pre>
@@ -650,11 +650,85 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
   <section id="ejercicio-4">
     <h2>Docker (1) 4 - Volúmenes</h2>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Este ejercicio está por escribir.</p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta ejercicio está por completar.</p>
+
+    <h3>Directorios enlazados (<i>bind</i>)</h3>
+
+    <p>Docker permite asociar directorios del contenedor a directorios de la máquina <i>host</i> (en nuestro caso, de la máquina virtual de Ubuntu). Es decir, que cuando el contenedor lea o escriba en su directorio, donde leerá o escribirá será en el directorio de la máquina virtual.</p>
+
+    <p>Por ejemplo, la imagen bitnami/apache está configurada para que el directorio htdocs habitual (en el caso de bitnami como hemos visto en el ejericio anterior es <strong>/opt/bitnami/apache/htdocs</strong>) enlace al directorio <strong>/app</strong> [véase <a href="https://github.com/bitnami/bitnami-docker-apache/blob/master/2.4/debian-9/Dockerfile">Dockerfile de bitnami/apache</a>]</p>
+
+    <p>Si al crear el contenedor enlazamos el directorio /app con un directorio de la máquin virtual, el contenedor servirá las páginas contenidas en el directorio de la máquina virtual.</p>
+
+    <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
+
+    <ol>
+      <li>Cree un directorio que contendrá las páginas web:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo mkdir /home/barto/web</code>
+</pre>
+        </div>
+      </li>
+
+      <li>Cree un contenedor Apache.
+        <p>La opción --mount permite crear el enlace entre el directorio de la máquina virtual y el contenedor. La opción tiene tres argumentos separados por comas pero sin espacios: type=bind,source=ORIGEN-EN-MÁQUINA-VIRTUAL,target=DESTINO-EN-CONTENEDOR.</p>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$" data-output="2">
+<code class="language-shell">sudo docker run -d -P --name=apache-bind-1 --mount type=bind,source=/home/barto/web,target=/app bitnami/apache
+  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code>
+</pre>
+        </div>
+      </li>
+
+      <li>Cree un fichero inde.html:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo nano /home/barto/web/index.html</code>
+</pre>
+        </div>
+      </li>
+
+      <li>Abra en el navegador la página inicial del contenedor y compruebe que se muestra el contenido de un directorio vacío.
+        <p class="captura">
+          <img src="../img/docker/1-4-e-1-bind.png" alt="Docker. Apache" width="1024" height="150" />
+        </p>
+
+        <p>... por ejemplo con el contenido siguiente</p>
+        <div class="terminal">
+          <pre>
+<code class="language-shell">&lt;h1&gt;Hola, amigo!&lt;/h1&gt;</code>
+</pre>
+        </div>
+        <p> ... o mejor, una página válida HTML5 (para poder escribir caracteres no ingleses):</p>
+        <div class="terminal">
+          <pre>
+<code class="language-shell">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Apache en Docker&lt;/title&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;¡Hola, amigo!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+</pre>
+        </div>
+      </li>
+
+      <li>Actualice el navegador y compruebe que se muestra la página recién creada.
+        <p class="captura">
+          <img src="../img/docker/1-4-e-2-bind.png" alt="Docker. Apache" width="1024" height="160" />
+        </p>
+      </li>
+    </ol>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 4 de febrero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 6 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
