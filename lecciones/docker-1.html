@@ -151,12 +151,12 @@ sub   rsa4096R 2017-02-22 [S]</code>
           <pre class="command-line" data-prompt="$">
 <code class="language-shell">apt policy docker-ce</code></pre>
         </div>
-        <p>En la pantalla debe mostrarse el repositorio de la versión de Ubuntu indicada (en el ejemplo se muestra bionic, es decir, Ubuntu 18.04):</p>
+        <p>En la pantalla debe mostrarse el repositorio de la versión de Docker disponible para la versión de Ubuntu indicada (en el ejemplo se muestran la versión de Docker 18.09.1 y la versión de Ubuntu bionic, es decir, Ubuntu 18.04):</p>
         <div class="terminal">
           <pre>
 <code class="language-shell">docker-ce:
   Instalados: (ninguno)
-  Candidato: 5:18.09.1~3-0~ubuntu-bionic
+  Candidato: 5:<span class="codigo-resaltado">18.09.1</span>~3-0~<span class="codigo-resaltado">ubuntu-bionic</span>
   Tabla de versión:
   5:18.09.1~3-0~ubuntu-bionic 500
           500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
@@ -188,7 +188,7 @@ sub   rsa4096R 2017-02-22 [S]</code>
       <li>Arranque el servicio docker
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo service docker start</code>
+<code class="language-shell">sudo systemctl start docker</code>
 </pre>
         </div>
       </li>
@@ -203,7 +203,7 @@ sub   rsa4096R 2017-02-22 [S]</code>
           <pre>
 <code class="language-shell">&bull; docker.service - Docker Application Container Engine
    Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
-   Active: active (running) since ...
+   Active: <span class="codigo-resaltado">active</span> (running) since ...
 ...</code>
 </pre>
         </div>
@@ -329,7 +329,7 @@ hello-world         latest              fce209e99eb9        4 weeks ago         
       </li>
       <li>Podemos crear tantos contenedores como queramos a partir de una imagen. Una vez la imagen está disponible localmente, Docker no necesita descargarla y el proceso de creación del contenedor es inmediato (aunque en el caso de hello-world la descarga es rápida, con imágenes más grandes la descarga inicial puede tardar un rato)
 
-        <p>Normalmente se aconseja usar siempre la opción <strong>-d</strong>, que arranca el contenedor en segundo plano (<i>detached</i>) y permite seguir teniendo acceso a la shell (aunque con este contenedor en particular no es estrictamente necesario porque se detiene a los pocos segundos).</p>
+        <p>Normalmente se aconseja usar siempre la opción <strong>-d</strong>, que arranca el contenedor en segundo plano (<i>detached</i>) y permite seguir teniendo acceso a la shell (aunque con hello-world no es estrictamente necesario porque el contenedor hello-world se detiene automáticamente tras mostrar el mensaje).</p>
 
         <p>Al crear el contenedor hello-world con la opción -d no se muestra el mensaje, simplemente muestra el identificador completo del contenedor.</p>
 
@@ -408,7 +408,7 @@ PORTS               NAMES</code>
 <code class="language-shell">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS
 PORTS               NAMES
 54e9827bd10a        hello-world         "/hello"            4 seconds ago       Exited (0) 3 seconds
-ago                 hola-1</code>
+ago                 <span class="codigo-resaltado">hola-1</span></code>
 </pre>
         </div>
       </li>
@@ -423,7 +423,7 @@ ago                 hola-1</code>
 
         <div class="terminal">
           <pre>
-<code class="language-shell">docker: Error response from daemon: Conflict. The container name "/hola-1" is already in use by con
+<code class="language-shell">docker: Error response from daemon: Conflict. The container <span class="codigo-resaltado">name "/hola-1" is already in use</span> by con
 tainer "54e9827bd10ab2825e1b3e4d3bf7a8cbdf778b472359c655d72d9c09e753500a". You have to remove (or re
 name) that container to be able to reuse that name.
 See 'docker run --help'.</code>
@@ -436,11 +436,12 @@ See 'docker run --help'.</code>
   <section id="ejercicio-3">
     <h2>Docker (1) 3 - Imagen apache</h2>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Este ejercicio está por completar.</p>
+    <p>En este ejercicio vamos a crear un contenedor que incluya un servidor Apache en funcionamiento a partir de una imagen pública, modificar el contenido del contenedor y finalmente, crear una nueva imagen para crear contenedores personalizados.</p>
 
     <h3>Crear el contenedor Apache</h3>
     <ol>
-      <li>Cre un contenedor que contenga un servidor Apache:
+      <li>Cree un contenedor que contenga un servidor Apache a partir de la imagen <a href="https://github.com/bitnami/bitnami-docker-apache">bitnami/apache</a>
+        <p>la opción -P hace que Docker asigne de forma aleatoria un puerto de la máquina virtual al puerto asignado a Apache en el contenedor. La imagen bitnami/apache asigna a Apache el puerto 8080 del contenedor para conexiones http y el puerto 8443 para conexiones https.</p>
         <div class="terminal">
           <pre class="command-line" data-prompt="$" data-output="2">
 <code class="language-shell">sudo docker run -d -P --name=apache-1 bitnami/apache
@@ -463,18 +464,53 @@ See 'docker run --help'.</code>
 <code class="language-shell">CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS
       PORTS                                             NAMES
 44c9e89bdfd2        bitnami/apache      "/app-entrypoint.sh &hellip;"   About a minute ago       Up About a min
-ute   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32774-&gt;8443/tcp   apache-1</code>
+ute   0.0.0.:<span class="codigo-resaltado">32769-&gt;8080</span>/tcp, 0.0.0.0:<span class="codigo-resaltado">32774-&gt;8443</span>/tcp   apache-1</code>
 </pre>
         </div>
       </li>
-      <li>Abra en el navegador la página inicial del contenedor.</li>
+      <li>Abra en el navegador la página inicial del contenedor y compruebe que se muestra una página que dice "It works!".
+        <p class="captura">
+          <img src="../img/docker/1-3-e-1-apache.png" alt="Docker. Apache" width="1024" height="150" />
+        </p>
+      </li>
     </ol>
 
     <h3>Modificar la página inicial del contenedor Apache</h3>
 
-    <p><strong>Nota</strong>: Modificar de esta manera un contenedor va en contra de la "filosofía" de Docker, en la que los contenedores pueden ser creados, destruidos y creados de nuevo sin afectar al estado final.</p>
+    <p>En este apartado vamos a modificar la página web inicial de Apache del contenedor Docker.</p>
+
+    <p>Tenga en cuenta que modificar el contenido de un contenedor tal y como vamos a hacer en este apartado sólo es aconsejable en un entorno de desarrollo, pero no es aconsejable en un entorno de producción porque va en contra de la "filosofía" de Docker. Los contenedores de Docker están pensados como objetos de "usar y tirar", es decir, para ser creados, destruidos y creados de nuevo tantas veces como sea necesario y en la cantidad que sea necesaria. En el apartado siguiente realziaremos la misma tarea de una forma más conveniente, modificando no el contenedor sino la imagen a partir de la cual se crean los contenedores.</p>
 
     <ol>
+      <li>Cree un segundo contenedor que contenga un servidor Apache a partir de la imagen <a href="https://github.com/bitnami/bitnami-docker-apache">bitnami/apache</a>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$" data-output="2">
+<code class="language-shell">sudo docker run -d -P --name=apache-2 bitnami/apache
+c5041d12aabdc6f58219fec176036eb352ecaea7cf81b8f7fa2ad8af801c96a2</code>
+</pre>
+        </div>
+      </li>
+
+      <li>Consulte el puerto del <i>host</i> utilizado por el contenedor ...
+
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker ps -a</code>
+</pre>
+        </div>
+        <p>... se mostrarán los dos contenedores creados:</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS
+      PORTS                                             NAMES
+c5041d12aabd        bitnami/apache      "/app-entrypoint.sh &hellip;"   About a minute ago       Up About a min
+ute   0.0.0.:<span class="codigo-resaltado">32771-&gt;8080</span>/tcp, 0.0.0.0:<span class="codigo-resaltado">32772-&gt;8443</span>/tcp   apache-2
+44c9e89bdfd2        bitnami/apache      "/app-entrypoint.sh &hellip;"   5 minutes ago            Up 5 min
+utes   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32770-&gt;8443/tcp   apache-1</code>
+</pre>
+        </div>
+      </li>
       <li>Cree la nueva página index.html ...
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
@@ -485,18 +521,59 @@ ute   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32774-&gt;8443/tcp   apache-1</code>
         <p>... por ejemplo con el contenido siguiente</p>
         <div class="terminal">
           <pre>
-<code class="language-shell">&lt;h1&gt;¡Hola, mundo!&lt;/h1&gt;</code>
+<code class="language-shell">&lt;h1&gt;Hola, mundo!&lt;/h1&gt;</code>
+</pre>
+        </div>
+        <p> ... o mejor, una página válida HTML5 (para poder escribir caracteres no ingleses):</p>
+        <div class="terminal">
+          <pre>
+<code class="language-shell">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Apache en Docker&lt;/title&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;p&gt;¡Hola, mundo!.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
 </pre>
         </div>
       </li>
-      <li>Entre en la <i>shell</i> del contenedor para averiguar la ubicación de la página inicial:
 
+      <li>Entre en la <i>shell</i> del contenedor para averiguar la ubicación de la página inicial:
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo docker exec -it apache-1 /bin/bash</code>
+<code class="language-shell">sudo docker exec -it apache-2 /bin/bash</code>
+</pre>
+        </div>
+        <p>Se abrirá una <i>shell</i> en el contenedor. Fíjese en que está abierta precisamente en la carpeta <strong>htdocs</strong> del servidor</p>
+        <div class="terminal">
+          <pre>
+<code class="language-shell">I have no name!@c5041d12aabd:<span class="codigo-resaltado">/opt/bitnami/apache/htdocs</span>$</code>
 </pre>
         </div>
       </li>
+
+      <li>En ese directorio se encuentra el fichero index.html que queremos modificar:
+        <div class="terminal">
+          <pre>
+<code>cat index.html
+<span class="codigo-resaltado">&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</span></code>
+</pre>
+        </div>
+
+      </li>
+      <li>Salga de la shell del contenedor:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="I have no name!@c5041d12aabd:/opt/bitnami/apache/htdocs$">
+<code class="language-shell">exit</code>
+</pre>
+        </div>
+      </li>
+
       <li>Copie el fichero index.html en el contenedor:
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
@@ -504,7 +581,11 @@ ute   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32774-&gt;8443/tcp   apache-1</code>
 </pre>
         </div>
       </li>
-      <li>Abra en el navegador la página inicial del contenedor y compruebe que se ha modificado.</li>
+      <li>Abra en el navegador la página inicial del contenedor y compruebe que se ha modificado.
+        <p class="captura">
+          <img src="../img/docker/1-3-e-2-apache.png" alt="Docker. Apache" width="1024" height="160" />
+        </p>
+      </li>
     </ol>
 
     <h3>Crear una nueva imagen</h3>
@@ -543,7 +624,8 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
 </pre>
         </div>
       </li>
-      <li>Genere la nueva imagen:
+      <li>Genere la nueva imagen. El último argumento es el nombre del archivo Dockerfile que tiene que utilizar para generar la imagen. Como en este caso se encuentra en el mismo directorio y tiene el nombre predeterminado <strong>Dockerfile</strong>, se puede escribir simplemente punto (.):
+        <p>El nombre de la imagen debe seguir el patrón <strong>nombre-de-usuario/nombre-de-imagen</strong>. Si la imagen sólo se va a utilizar localmente, el nombre de usuario y de la imagen pueden ser cualquier palabra.</p>
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo docker build -t barto/mi-apache .</code>
@@ -557,7 +639,11 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
 </pre>
         </div>
       </li>
-      <li>Abra en el navegador la página inicial del contenedor y compruebe que se ha modificado.</li>
+      <li>Abra en el navegador la página inicial del contenedor y compruebe que se ha modificado.
+        <p class="captura">
+          <img src="../img/docker/1-3-e-3-apache.png" alt="Docker. Apache" width="1024" height="160" />
+        </p>
+      </li>
     </ol>
   </section>
 

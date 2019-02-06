@@ -6,7 +6,7 @@
 /*                                          */
 /* CSS curso: Aplicaciones Web              */
 /*                                          */
-/* 4 de febrero de 2019                     */
+/* 6 de febrero de 2019                     */
 /*                                          */
 
 /* CSS comun */
@@ -67,6 +67,7 @@ pre, pre code {
   font-family: "Inconsolata", monospace;  /* Chrome user agent style sheet */
   line-height: 120%;
   white-space: pre-wrap;
+  word-break: break-all;
 }
 
 hr {
