@@ -658,7 +658,7 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
 
     <p>Por ejemplo, la imagen bitnami/apache está configurada para que el directorio htdocs habitual (en el caso de bitnami como hemos visto en el ejericio anterior es <strong>/opt/bitnami/apache/htdocs</strong>) enlace al directorio <strong>/app</strong> [véase <a href="https://github.com/bitnami/bitnami-docker-apache/blob/master/2.4/debian-9/Dockerfile">Dockerfile de bitnami/apache</a>]</p>
 
-    <p>Si al crear el contenedor enlazamos el directorio /app con un directorio de la máquin virtual, el contenedor servirá las páginas contenidas en el directorio de la máquina virtual.</p>
+    <p>Si al crear el contenedor enlazamos el directorio /app con un directorio de la máquina virtual, el contenedor servirá las páginas contenidas en el directorio de la máquina virtual.</p>
 
     <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
 
@@ -672,19 +672,11 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
       </li>
 
       <li>Cree un contenedor Apache.
-        <p>La opción --mount permite crear el enlace entre el directorio de la máquina virtual y el contenedor. La opción tiene tres argumentos separados por comas pero sin espacios: type=bind,source=ORIGEN-EN-MÁQUINA-VIRTUAL,target=DESTINO-EN-CONTENEDOR.</p>
+        <p>La opción --mount permite crear el enlace entre el directorio de la máquina virtual y el contenedor. La opción tiene tres argumentos separados por comas pero sin espacios: type=bind,source=ORIGEN-EN-MÁQUINA-VIRTUAL,target=DESTINO-EN-CONTENEDOR. Ambos directorios deben existir previamente.</p>
         <div class="terminal">
           <pre class="command-line" data-prompt="$" data-output="2">
-<code class="language-shell">sudo docker run -d -P --name=apache-bind-1 --mount type=bind,source=/home/barto/web,target=/app bitnami/apache
-  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code>
-</pre>
-        </div>
-      </li>
-
-      <li>Cree un fichero inde.html:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo nano /home/barto/web/index.html</code>
+<code class="language-shell">sudo docker run -d -P --name=apache-bind-1 <span class="codigo-resaltado">--mount type=bind,source=/home/barto/web,target=/app</span> bitnami/apache
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code>
 </pre>
         </div>
       </li>
@@ -693,6 +685,14 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
         <p class="captura">
           <img src="../img/docker/1-4-e-1-bind.png" alt="Docker. Apache" width="1024" height="150" />
         </p>
+      </li>
+
+      <li>Cree un fichero index.html:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo nano /home/barto/web/index.html</code>
+</pre>
+        </div>
 
         <p>... por ejemplo con el contenido siguiente</p>
         <div class="terminal">
@@ -724,11 +724,70 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
           <img src="../img/docker/1-4-e-2-bind.png" alt="Docker. Apache" width="1024" height="160" />
         </p>
       </li>
+
+      <li>Gracias a los directorios enlazados, podemos trabajar en la máquina virtual con los ficheros del directorio /web haya o no haya contenedores en marcha y al crear un contenedor, podremos acceder al contenido del directorio a través del servidor web del contenedor
+
+        <p>Detenga y elimine el contenedor apache-bind-1:</p>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker stop apache-bind-1
+sudo docker rm apache-bind-1</code>
+</pre>
+        </div>
+      </li>
+      <li>Cree un nuevo contenedor que enlace al directorio /web:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$" data-output="2">
+<code class="language-shell">sudo docker run -d -P --name=apache-bind-2 --mount type=bind,source=/home/barto/web,target=/app bitnami/apache
+5fd924625f6ab16a19cc9807c7c506ae1813490e4ba675f843d5a10e0baacdb8</code>
+</pre>
+        </div>
+      </li>
+      <li>Abra en el navegador la página inicial del nuevo contenedor y compruebe que se muestra la página que está en la máquina virtual.
+        <p class="captura">
+          <img src="../img/docker/1-4-e-3-bind.png" alt="Docker. Apache" width="1024" height="160" />
+        </p>
+      </li>
+
+    </ol>
+
+    <hr class="corta" />
+
+    <p><strong>Nota</strong>: La imagen bitnami/apache incluye un directorio /app que enlaza a /opt/bitnami/apache/htdocs como puede comprobar entrando en el contenedor:</p>
+    <ol>
+      <li>Entre en la <i>shell</i> del contenedor:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker exec -it apache-bind-1 /bin/bash</code>
+</pre>
+        </div>
+      </li>
+      <li>Liste los directorios en la raíz del contenedor:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="I have no name!@e3b0c44298fc:$">
+<code class="language-shell">ls -al /</code>
+</pre>
+        </div>
+      </li>
+      <li>Compruebe que el directorio /app enlaza al directorio /opt/bitnami/apache/htdocs:
+        <div class="terminal">
+          <pre>
+<code class="language-shell">total 112
+drwxr-xr-x  1 root root 4096 Feb  6 22:37 .
+drwxr-xr-x  1 root root 4096 Feb  6 22:37 ..
+-rwxr-xr-x  1 root root    0 Feb  6 22:37 .dockerenv
+drwxrwxr-x  1 root root 4096 Jan 30 10:50 .nami
+-rw-rw-r--  1 root root  118 Jan 30 10:50 apache-inputs.json
+<span class="codigo-resaltado">lrwxrwxrwx  1 root root   26 Jan 30 10:50 app -&gt; /opt/bitnami/apache/htdocs</span>
+...</code>
+</pre>
+        </div>
+      </li>
     </ol>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 6 de febrero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 7 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
