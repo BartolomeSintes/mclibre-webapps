@@ -66,13 +66,20 @@
       <li>Obtenga la dirección IP de la máquina virtual:
         <div class="terminal">
           <pre class="command-line" data-prompt="$" data-output="2">
-<code class="language-shell">ifconfig | grep 192.168
-    inet <span class="codigo-resaltado">192.168.1.5</span> netmask 255.255.255.0 broadcast 192.168.1.255</code></pre>
+<code class="language-shell">ip addr | grep 192.168
+    inet <span class="codigo-resaltado">192.168.1.5</span>/24 brd 192.168.1.255 scope global dynamic enp0s3</code></pre>
         </div>
-        </li>
-        <li>Abra la página inicial de Nextcloud rellene los datos
-          </li>
-
+      </li>
+      <li>Abra la página inicial de Nextcloud y rellene los datos:
+        <p class="captura">
+          <img src="../img/nextcloud/1-1-s-1-instalacion.png" alt="Nexcloud. Instalación" width="991" height="570" />
+        </p>
+      </li>
+      <li>Para cerrar la sesión de Nextcloud, haga clic en el icono de la rueda dentada y elija la opción Cerrar sesión:
+        <p class="captura">
+          <img src="../img/nextcloud/1-1-s-2-instalacion.png" alt="Nexcloud. Instalación" width="991" height="315" />
+        </p>
+      </li>
     </ol>
   </section>
 
@@ -84,27 +91,27 @@
         <ul>
           <li>Cree una red:
             <div class="terminal">
-              <pre><code class="language-shell">sudo docker network create nc-network</code></pre>
+              <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker network create nc-network</code></pre>
             </div>
           </li>
           <li>Cree el contenedor de MariaDB:
             <div class="terminal">
-              <pre><code class="language-shell">sudo docker run -d --name=nc-mariadb -e ALLOW_EMPTY_PASSWORD=yes --net=nc-network bitnami/mariadb</code></pre>
+              <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker run -d --name=nc-mariadb -e ALLOW_EMPTY_PASSWORD=yes --net=nc-network bitnami/mariadb</code></pre>
             </div>
           </li>
           <li>Cree el contenedor de phpMyAdmin:
             <div class="terminal">
-              <pre><code class="language-shell">sudo docker run -d --name=nc-pma -e DATABASE_HOST=nc-mariadb -p 8801:80 --net=nc-network bitnami/phpmyadmin</code></pre>
+              <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker run -d --name=nc-pma -e DATABASE_HOST=nc-mariadb -p 8801:80 --net=nc-network bitnami/phpmyadmin</code></pre>
             </div>
           </li>
           <li>Abra en el navegador del host la página http://AAA.BBB.CCC.DDD:8801 (usuario root sin contraseña) y con phpMyAdmin cree un usuario nextcloud, que pueda acceder desde cualquier servidor, con contraseña nextcloud y base de datos única.
             <p class="captura">
-              <img src="../img/nextcloud/1-2-s-1-instalacion.png" alt="phpMyAdmin. Creción de usuario nextcloud" width="745" height="575" />
+              <img src="../img/nextcloud/1-2-s-1-instalacion.png" alt="phpMyAdmin. Creación de usuario nextcloud" width="800" height="510" />
             </p>
           </li>
           <li>Cree el contenedor de Nextcloud:
             <div class="terminal">
-              <pre><code class="language-shell">sudo docker run -d --name=nextcloud -p 80:80 -p 443:443 --net=nc-network nextcloud</code></pre>
+              <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker run -d --name=nextcloud -p 80:80 -p 443:443 --net=nc-network nextcloud</code></pre>
             </div>
           </li>
         </ul>
@@ -120,18 +127,34 @@
     <ul>
       <li>Consulte la dirección IP privada del servidor de bases de datos:
         <div class="terminal">
-          <pre><code class="language-shell">sudo docker network inspect nc-network</code></pre>
+          <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker network inspect nc-network</code></pre>
         </div>
-        <p>La dirección debe ser del tipo <span class="codigo-modificacion">172.XXX.YYY.ZZZ</span></p>
+        <p>Docker muestra la información de todos los contenedores pertenecientes a la red en formato JSON. La dirección debe ser del tipo <span class="codigo-modificacion">172.XXX.YYY.ZZZ</span></p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">...
+        "Containers": {
+            ...
+            "b9ea0f79990ae629df9ca434ecbd3db972c76e008d98f9c51359ea2fcf3f122f": {
+                "Name": "nc-mariadb",
+                "EndpointID": "5752daa968e19f45b22dede29dffd9a0bbe8b986a2eac28defa9a15320a66dfe"
+                "MacAddress": "02:42:ac:13:00:03",
+                "IPv4Address": "<span class="codigo-resaltado">172.19.0.3</span>/16",
+                "IPvAddress": ""
+            ...
+            },
+...</code></pre>
+        </div>
       </li>
       <li>Configure el acceso de Nextcloud a la base de datos:
         <p class="captura">
-          <img src="../img/nextcloud/1-3-s-1-completar.png" alt="Nextcloud. Conexión con MariaDB" width="400" height="630" />
+          <img src="../img/nextcloud/1-3-s-1-completar.png" alt="Nextcloud. Conexión con MariaDB" width="991" height="630" />
         </p>
       </li>
       <li>Para salir de Nextcloud, haga clic en la rueda dentada (arriba a la derecha) y seleccione la opción Desconectar:
         <p class="captura">
-          <img src="../img/nextcloud/1-3-s-2-salir.png" alt="Nextcloud. Salir" width="1008" height="260" />
+          <img src="../img/nextcloud/1-3-s-2-salir.png" alt="Nextcloud. Salir" width="1009" height="310" />
         </p>
       </li>
     </ul>
@@ -348,7 +371,7 @@ dns-nameservers 8.8.8.8</code></pre>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 6 de febrero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 10 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />

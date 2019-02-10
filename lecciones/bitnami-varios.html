@@ -136,16 +136,16 @@
     <section id="averiguar-ip">
       <h3>Averiguar la IP de la máquina</h3>
 
-      <p>Para averiguar la IP de la máquina, escribir el comando:</p>
+      <p>Para averiguar la IP de la máquina, escriba el comando:</p>
 
       <div class="codigo">
-        <pre><code class="language-shell">ifconfig</code></pre>
+        <pre><code class="language-shell">ifconfig | grep 192.168</code></pre>
       </div>
 
       <p>También se puede escribir un comando más moderno:</p>
 
       <div class="codigo">
-        <pre><code class="language-shell">ip addr</code></pre>
+        <pre><code class="language-shell">ip addr | grep 192.168</code></pre>
       </div>
     </section>
 
