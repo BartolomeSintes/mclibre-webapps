@@ -51,15 +51,11 @@
     </div>
   </nav>
 
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta lección está pendiente de actualizar a la versión Nextcloud 15. Por ahora, están actualizados los ejercicios 1, 2, 3 y 4.</p>
+
   <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>Nextcloud</strong>. Se pueden consultar las <a href="nextcloud-1-soluciones.html">soluciones de estos ejercicios de Nextcloud</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones. A continuación se pueden realizar los <a href="nextcloud-2.html">ejercicios (2) de Nextcloud</a>, en los que se amplian las funcionalidades de Nextcloud.</p>
 
-  <hr class="corta" />
-
-  <p>Nextcloud nunca ha estado disponible en Windows, y su predecesor, ownCloud, dejó de estarlo a partir de la versión 8, publicada en 2014. Por otro lado, Bitnami no ha ofrecido nunca instaladores de Nextcloud, aunque sí ofrece instaladores de ownCloud, por lo que en estos ejercicios instalaremos Nextcloud en un contenedor Docker.</p>
-
-  <p>La imagen oficial Docker de Nextcloud es <a href="https://github.com/nextcloud/docker">https://github.com/nextcloud/docker</a>, disponible desde enero de 2017 a partir de una imagen creada por Pierre Ozoux.</p>
-
-  <p>Para la realización de estos ejercicios se recomienda utilizar una máquina virtual de Ubuntu 18.04 LTS Server con 16 GB de disco virtual que tenga instalada Docker. Puede utilizar la máquina virtual que haya preparado para los <a href="docker-1.html">ejercicios de Docker (1)</a>.</p>
+  <p>Para la realización de estos ejercicios se recomienda utilizar la imagen oficial Docker de Nextcloud es <a href="https://github.com/nextcloud/docker">https://github.com/nextcloud/docker</a>. Puede instalarla en la máquina virtual que haya preparado para los <a href="docker-1.html">ejercicios de Docker (1)</a>.</p>
 
   <section id="ejercicio-1">
     <h2>Nextcloud (1) 1 - Nextcloud con base de datos SQLite</h2>
@@ -70,7 +66,7 @@
 
     <ol>
       <li>Cree un contenedor de Nextcloud a partir de la <a href="https://github.com/nextcloud/docker">imagen nextcloud oficial</a>, que esté disponible en el puerto 8080.
-        <p><strong>Nota</strong>: Se pide asignar el puerto 8080 para poder tener en marcha simultáneamente este Nexcloud junto con otros.</p>
+        <p><strong>Nota</strong>: Se pide asignar el puerto 8080 para poder tener en marcha simultáneamente este Nexcloud junto con otros asignados en otros puertos.</p>
       </li>
       <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada de NextCloud, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD:8080/</strong>, en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
         <p class="captura">
@@ -100,7 +96,7 @@
   </section>
 
   <section id="ejercicio-2">
-    <h2>Nextcloud (1) 1 - Actualizar Nextcloud con base de datos SQLite</h2>
+    <h2>Nextcloud (1) 2 - Actualizar Nextcloud con base de datos SQLite</h2>
 
     <p>En este ejercicio actualizaremos un contenedor Docker de Nextcloud que utilice SQLite como base de datos.</p>
 
@@ -112,6 +108,7 @@
         <div class="terminal">
           <pre class="command-line" data-prompt="$"><code class="language-shell">--mount type=volume,source=nc-vol,target=/var/ww/html</code></pre>
         </div>
+        <p><strong>Nota</strong>: Se pide asignar el puerto 8080 para poder tener en marcha simultáneamente este Nexcloud junto con otros asignados en otros puertos.</p>
       </li>
       <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada de NextCloud y complete la instalación de NextCloud con los mismos valores que en el ejercicio anterior.</li>
       <li>Compruebe que hay una versión más actual disponible:
@@ -198,6 +195,9 @@
   </section>
 
   <section id="ejercicio-5">
+
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Estos ejercicios están pedientes de actualizar a la versión 15.</p>
+
     <h2>Nextcloud (1) 5 - Habilitar https en el servidor</h2>
 
     <p>Referencia: <a href="https://docs.nextcloud.com/server/13/admin_manual/configuration_server/harden_server.html">https://docs.nextcloud.com/server/13/admin_manual/configuration_server/harden_server.html</a></p>
