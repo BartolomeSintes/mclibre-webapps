@@ -28,9 +28,9 @@
       <h3><a href="#">Enunciados</a></h3>
       <ul>
         <li><a href="#ejercicio-1">1 - DB SQLite</a></li>
-        <li><a href="#ejercicio-2">2 - DB MariaDB</a></li>
-        <li><a href="#ejercicio-3">3 - Completar instalación</a></li>
-        <li><a href="#ejercicio-4">4 - Actualizar</a></li>
+        <li><a href="#ejercicio-2">2 - Actualizar SQLite</a></li>
+        <li><a href="#ejercicio-3">3 - DB MariaDB</a></li>
+        <li><a href="#ejercicio-4">4 - Completar instalación</a></li>
         <li><a href="#ejercicio-5">5 - Habilitar https</a></li>
         <li><a href="#ejercicio-6">6 - http a https</a></li>
         <li><a href="#ejercicio-7">7 - Cambio IP</a></li>
@@ -40,9 +40,9 @@
       <h3><a href="nextcloud-1-soluciones.html">Soluciones</a></h3>
       <ul>
         <li><a href="nextcloud-1-soluciones.html#ejercicio-1">1 - DB SQLite</a></li>
-        <li><a href="nextcloud-1-soluciones.html#ejercicio-2">2 - DB MariaDB</a></li>
-        <li><a href="nextcloud-1-soluciones.html#ejercicio-3">3 - Completar instalación</a></li>
-        <li><a href="nextcloud-1-soluciones.html#ejercicio-4">4 - Actualizar</a></li>
+        <li><a href="nextcloud-1-soluciones.html#ejercicio-2">2 - Actualizar SQLite</a></li>
+        <li><a href="nextcloud-1-soluciones.html#ejercicio-3">3 - DB MariaDB</a></li>
+        <li><a href="nextcloud-1-soluciones.html#ejercicio-4">4 - Completar instalación</a></li>
         <li><a href="nextcloud-1-soluciones.html#ejercicio-5">5 - Habilitar https</a></li>
         <li><a href="nextcloud-1-soluciones.html#ejercicio-6">6 - http a https</a></li>
         <li><a href="nextcloud-1-soluciones.html#ejercicio-7">7 - Cambio IP</a></li>
@@ -70,7 +70,7 @@
 
     <ol>
       <li>Cree un contenedor de Nextcloud a partir de la <a href="https://github.com/nextcloud/docker">imagen nextcloud oficial</a>, que esté disponible en el puerto 8080.
-        <p><strong>Nota</strong>: Se pide asignar el puerto 8080 para poder tener en marcha simultáneamente este Nexcloud junto con el del ejercicio siguiente.</p>
+        <p><strong>Nota</strong>: Se pide asignar el puerto 8080 para poder tener en marcha simultáneamente este Nexcloud junto con otros.</p>
       </li>
       <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada de NextCloud, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD:8080/</strong>, en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
         <p class="captura">
@@ -95,11 +95,53 @@
         </p>
       </li>
       <li>Cierre la sesión de Nextcloud y compruebe que puede volver a entrar como usuario <strong>admin</strong>.</li>
+      <li>Finalmente, elimine el contenedor.</li>
     </ol>
   </section>
 
   <section id="ejercicio-2">
-    <h2>Nextcloud (1) 2 - Nextcloud con base de datos MariaDB</h2>
+    <h2>Nextcloud (1) 1 - Actualizar Nextcloud con base de datos SQLite</h2>
+
+    <p>En este ejercicio actualizaremos un contenedor Docker de Nextcloud que utilice SQLite como base de datos.</p>
+
+    <p>La actualización de un contenedor es distinta a la actualización de Nextcloud instalado en un servidor. Los contenedores no se actualizan, simplemente se elimina el contenedor antiguo y se crea un contenedor con la nueva versión. Para no perder la configuración y datos, los contenedores deben utilizar el mismo volumen.</p>
+
+    <ol>
+      <li>Cree un contenedor de <strong>Nextcloud 15.0.0</strong> que esté disponible en el puerto 8080.
+        <p>El volumen se montará en el directorio de instalación de Nextcloud:</p>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$"><code class="language-shell">--mount type=volume,source=nc-vol,target=/var/ww/html</code></pre>
+        </div>
+      </li>
+      <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada de NextCloud y complete la instalación de NextCloud con los mismos valores que en el ejercicio anterior.</li>
+      <li>Compruebe que hay una versión más actual disponible:
+        <p class="captura">
+          <img src="../img/nextcloud/1-2-e-1-actualizacion.png" alt="Nexcloud. Actualización" width="991" height="300" />
+        </p>
+      </li>
+      <li>Añada un documento a Nextcloud, por ejemplo este <a href="../elementos/documentos/manual-de-wordpress.pdf">Manual de WordPress (pdf)</a> (ficticio):
+        <p class="captura">
+          <img src="../img/nextcloud/1-2-e-2-actualizacion.png" alt="Nexcloud. Actualización" width="991" height="350" />
+        </p>
+      </li>
+      <li>Cierre la sesión de Nextcloud.</li>
+      <li>Elimine el contenedor.</li>
+      <li>Cree un contenedor de la última versión disponible de Nextcloud 15 (actualmente -febrero de 2019- <strong>Nextcloud 15.0.4</strong>) con las mismas opciones que el contenedor anterior (volumen, etc.). Nextcloud tardará más en estar disponible porque tiene lugar el proceso de actualización.</li>
+      <li>Compruebe que se ha instalado la última versión:
+        <p class="captura">
+          <img src="../img/nextcloud/1-2-e-3-actualizacion.png" alt="Nexcloud. Actualización" width="991" height="260" />
+        </p>
+      </li>
+      <li>Compruebe que el documento subido está disponible:
+        <p class="captura">
+          <img src="../img/nextcloud/1-2-e-2-actualizacion.png" alt="Nexcloud. Actualización" width="991" height="350" />
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="ejercicio-3">
+    <h2>Nextcloud (1) 3 - Nextcloud con base de datos MariaDB</h2>
 
     <p>En este ejercicio se trata de crear un contenedor Docker de Nextcloud que utilice MariaDB como base de datos.</p>
 
@@ -111,14 +153,14 @@
       <li>Cree un contenedor de Nextcloud a partir de la imagen nextcloud, que escuche en los puertos 80 y 443.</li>
       <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada en NextCloud, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD/</strong>, en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
         <p class="captura">
-          <img src="../img/nextcloud/1-2-e-1-instalaciones.png" alt="Nextcloud. Instalación" width="400" height="280" />
+          <img src="../img/nextcloud/1-3-e-1-instalaciones.png" alt="Nextcloud. Instalación" width="400" height="280" />
         </p>
       </li>
     </ol>
   </section>
 
-  <section id="ejercicio-3">
-    <h2>Nextcloud(1) 3 - Completar instalación</h2>
+  <section id="ejercicio-4">
+    <h2>Nextcloud(1) 4 - Completar instalación</h2>
 
     <p>En este ejercicio se trata de completar la instalación de Nextcloud.</p>
 
@@ -139,28 +181,20 @@
       </li>
       <li>Se mostrará el interfaz de Nextcloud con un aviso de bienvenida
         <p class="captura">
-          <img src="../img/nextcloud/1-3-e-1-instalaciones.png" alt="Nextcloud. Bienvenida" width="504" height="340" />
+          <img src="../img/nextcloud/1-4-e-1-instalacion.png" alt="Nextcloud. Bienvenida" width="991" height="489" />
         </p>
       </li>
       <li>Salga de Nextcloud y compruebe que puede volver a entrar como administrador.
         <p class="captura">
-          <img src="../img/nextcloud/1-3-e-2-instalaciones.png" alt="Nextcloud. Entrar" width="400" height="350" />
+          <img src="../img/nextcloud/1-4-e-2-instalacion.png" alt="Nextcloud. Entrar" width="991" height="320" />
         </p>
       </li>
-      <li>Si ha instalado Nextcloud de manera que utilice MariaDB como base de datos, compruebe con phpMyAdmin que se han creado las tablas correspondientes. Si no se hubiera creado ninguna tabla es que Nextcloud está utilizando SQLite.
+      <li>Compruebe con phpMyAdmin (como usuario nextcloud) que se han creado las tablas correspondientes. Si no se hubiera creado ninguna tabla es que Nextcloud está utilizando SQLite.
         <p class="captura">
-          <img src="../img/nextcloud/1-3-e-3-instalaciones.png" alt="Nextcloud. Entrar" width="800" height="320" />
+          <img src="../img/nextcloud/1-4-e-3-instalacion.png" alt="Nextcloud. Entrar" width="991" height="300" />
         </p>
       </li>
     </ol>
-  </section>
-
-  <section id="ejercicio-4">
-    <h2>Nextcloud (1) 4 - Actualizar Nextcloud</h2>
-
-    <p>En este ejercicio se trata de actualizar Nextcloud, en caso de que haya una actualización disponible:</p>
-
-    <p><strong>Nota</strong>: Actualmente (febrero de 2018), todavía no se ha publicado ninguna actualización de Nextcloud13. La versión 13.0.1 está prevista para mediados de marzo de 2018.</p>
   </section>
 
   <section id="ejercicio-5">
@@ -250,7 +284,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de febrero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 11 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
