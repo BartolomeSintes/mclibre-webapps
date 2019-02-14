@@ -30,14 +30,19 @@
         <li><a href="#ejercicio-1">1 - Instalar Docker</a></li>
         <li><a href="#ejercicio-2">2 - Imagen hello-world</a></li>
         <li><a href="#ejercicio-3">3 - Imagen Apache</a></li>
-        <li><a href="#ejercicio-4">4 - Volúmenes</a></li>
+        <li><a href="#ejercicio-4">4 - Volúmenes</a>
+          <ul>
+            <li><a href="#ejercicio-4-bind">Directorio enlazado</a></li>
+            <li><a href="#ejercicio-4-volume">Volúmenes</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </nav>
 
   <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta lección está por completar. Por ahora, están completos los ejercicios 1, 2 y 3.</p>
 
-  <p>Esta lección es una introducción a la instalación de aplicaciones mediante <strong>Docker</strong>, utilizando las imágenes proporcionadas por Bitnami. Esta lección tiene un carácter "experimental". Los ejercicios están planteados como actividades guiadas, por lo que no se ofrece una página de soluciones.</p>
+  <p>Esta lección es una introducción a la instalación de aplicaciones mediante <strong>Docker</strong>, utilizando las imágenes proporcionadas por Bitnami. Los ejercicios están planteados como actividades guiadas, por lo que no se ofrece una página de soluciones.</p>
 
   <section id="ejercicio-1">
     <h2>Docker (1) 1 - Instalar Docker</h2>
@@ -652,57 +657,70 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
 
     <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Este ejercicio está por completar.</p>
 
-    <h3>Directorios enlazados (<i>bind</i>)</h3>
+    <p>Docker simplifica enormemente la creación de contenedores, y eso lleva a tratar los contenedores como un elemento efímero, que se crea cuando se necesita y que no importa que se destruya puesto que puede ser reconstruido una y otra vez a partir de su imagen.</p>
 
-    <p>Docker permite asociar directorios del contenedor a directorios de la máquina <i>host</i> (en nuestro caso, de la máquina virtual de Ubuntu). Es decir, que cuando el contenedor lea o escriba en su directorio, donde leerá o escribirá será en el directorio de la máquina virtual.</p>
+    <p>Pero si la aplicación o aplicaciones incluidas en el contenedor generan datos y esos datos se guardan en el propio contenedor, en el momento en que se destruyera el contenedor perderíamos esos datos. Para conseguir la persistencia de los datos, se pueden emplear dos técnicas:</p>
+    <ul>
+      <li>Los directorios enlazados, en la que la información se guarda fuera de Docker, en la máquina <i>host</i> (en nuestro caso, en la máquina virtual de Ubuntu)</li>
+      <li>Los volúmenes, en la que la infroamción se guarda mediante Docker, pero en unos elementos llamados <i>volúmenes</i>, independientes de las imágenes y los contenedores</li>
+    </ul>
 
-    <p>Por ejemplo, la imagen bitnami/apache está configurada para que el directorio htdocs habitual (en el caso de bitnami como hemos visto en el ejericio anterior es <strong>/opt/bitnami/apache/htdocs</strong>) enlace al directorio <strong>/app</strong> [véase <a href="https://github.com/bitnami/bitnami-docker-apache/blob/master/2.4/debian-9/Dockerfile">Dockerfile de bitnami/apache</a>]</p>
+    <p>Los volúmenes son la mejor solución cuando la información es generada por el propio contenedor y los directorios enlazados pueden ser más adecuados cuando la infromación no es generada por ningún contenedor.</p>
 
-    <p>Si al crear el contenedor enlazamos el directorio /app con un directorio de la máquina virtual, el contenedor servirá las páginas contenidas en el directorio de la máquina virtual.</p>
+    <section id="ejercicio-4-bind">
+      <h3>Directorios enlazados (<i>bind</i>)</h3>
 
-    <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
+      <p>Docker permite asociar directorios del contenedor a directorios de la máquina <i>host</i> (en nuestro caso, de la máquina virtual de Ubuntu). Es decir, que cuando el contenedor lea o escriba en su directorio, donde leerá o escribirá será en el directorio de la máquina virtual.</p>
 
-    <ol>
-      <li>Cree un directorio que contendrá las páginas web:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="$">
+      <p>Si el directorio enlazado es el directorio en el que la aplicación guarda los datos generados por la propia aplicación, de esta manera conseguimos que los datos estén realmente fuera del contenedor. Eso significa que podemos acceder a los datos aunque el contenedor esté cerrado, conservar los datos aunque se destruya el contenedor, reutilizarlos con otro contenedor, etc.</p>
+
+      <p>Por ejemplo, la imagen bitnami/apache está configurada para que el directorio htdocs habitual (en el caso de bitnami como hemos visto en el ejericio anterior es <strong>/opt/bitnami/apache/htdocs</strong>) enlace al directorio <strong>/app</strong> [véase <a href="https://github.com/bitnami/bitnami-docker-apache/blob/master/2.4/debian-9/Dockerfile">Dockerfile de bitnami/apache</a>]</p>
+
+      <p>Si al crear el contenedor enlazamos el directorio /app con un directorio de la máquina virtual, el contenedor servirá las páginas contenidas en el directorio de la máquina virtual.</p>
+
+      <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
+
+      <ol>
+        <li>Cree un directorio que contendrá las páginas web:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo mkdir /home/barto/web</code>
 </pre>
-        </div>
-      </li>
+          </div>
+        </li>
 
-      <li>Cree un contenedor Apache.
-        <p>La opción --mount permite crear el enlace entre el directorio de la máquina virtual y el contenedor. La opción tiene tres argumentos separados por comas pero sin espacios: type=bind,source=ORIGEN-EN-MÁQUINA-VIRTUAL,target=DESTINO-EN-CONTENEDOR. Ambos directorios deben existir previamente.</p>
-        <div class="terminal">
-          <pre class="command-line" data-prompt="$" data-output="2">
+        <li>Cree un contenedor Apache.
+          <p>La opción --mount permite crear el enlace entre el directorio de la máquina virtual y el contenedor. La opción tiene tres argumentos separados por comas pero sin espacios: type=bind,source=ORIGEN-EN-MÁQUINA-VIRTUAL,target=DESTINO-EN-CONTENEDOR. Ambos directorios deben existir previamente.</p>
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="2">
 <code class="language-shell">sudo docker run -d -P --name=apache-bind-1 <span class="codigo-resaltado">--mount type=bind,source=/home/barto/web,target=/app</span> bitnami/apache
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code>
 </pre>
-        </div>
-      </li>
+          </div>
+        </li>
 
-      <li>Abra en el navegador la página inicial del contenedor y compruebe que se muestra el contenido de un directorio vacío.
-        <p class="captura">
-          <img src="../img/docker/1-4-e-1-bind.png" alt="Docker. Apache" width="1024" height="150" />
-        </p>
-      </li>
+        <li>Abra en el navegador la página inicial del contenedor y compruebe que se muestra el contenido de un directorio vacío.
+          <p class="captura">
+            <img src="../img/docker/1-4-e-1-bind.png" alt="Docker. Apache" width="1024" height="150" />
+          </p>
+        </li>
 
-      <li>Cree un fichero index.html:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="$">
+        <li>Cree un fichero index.html:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo nano /home/barto/web/index.html</code>
 </pre>
-        </div>
+          </div>
 
-        <p>... por ejemplo con el contenido siguiente</p>
-        <div class="terminal">
-          <pre>
+          <p>... por ejemplo con el contenido siguiente</p>
+          <div class="terminal">
+            <pre>
 <code class="language-shell">&lt;h1&gt;Hola, amigo!&lt;/h1&gt;</code>
 </pre>
-        </div>
-        <p> ... o mejor, una página válida HTML5 (para poder escribir caracteres no ingleses):</p>
-        <div class="terminal">
-          <pre>
+          </div>
+          <p> ... o mejor, una página válida HTML5 (para poder escribir caracteres no ingleses):</p>
+          <div class="terminal">
+            <pre>
 <code class="language-shell">&lt;!DOCTYPE html&gt;
 &lt;html lang="es"&gt;
 &lt;head&gt;
@@ -716,62 +734,62 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code>
 &lt;/body&gt;
 &lt;/html&gt;</code>
 </pre>
-        </div>
-      </li>
+          </div>
+        </li>
 
-      <li>Actualice el navegador y compruebe que se muestra la página recién creada.
-        <p class="captura">
-          <img src="../img/docker/1-4-e-2-bind.png" alt="Docker. Apache" width="1024" height="160" />
-        </p>
-      </li>
+        <li>Actualice el navegador y compruebe que se muestra la página recién creada.
+          <p class="captura">
+            <img src="../img/docker/1-4-e-2-bind.png" alt="Docker. Apache" width="1024" height="160" />
+          </p>
+        </li>
 
-      <li>Gracias a los directorios enlazados, podemos trabajar en la máquina virtual con los ficheros del directorio /web haya o no haya contenedores en marcha y al crear un contenedor, podremos acceder al contenido del directorio a través del servidor web del contenedor
+        <li>Gracias a los directorios enlazados, podemos trabajar en la máquina virtual con los ficheros del directorio /web haya o no haya contenedores en marcha y al crear un contenedor, podremos acceder al contenido del directorio a través del servidor web del contenedor
 
-        <p>Detenga y elimine el contenedor apache-bind-1:</p>
-        <div class="terminal">
-          <pre class="command-line" data-prompt="$">
+          <p>Detenga y elimine el contenedor apache-bind-1:</p>
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo docker stop apache-bind-1
 sudo docker rm apache-bind-1</code>
 </pre>
-        </div>
-      </li>
-      <li>Cree un nuevo contenedor que enlace al directorio /web:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="$" data-output="2">
+          </div>
+        </li>
+        <li>Cree un nuevo contenedor que enlace al directorio /web:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="2">
 <code class="language-shell">sudo docker run -d -P --name=apache-bind-2 --mount type=bind,source=/home/barto/web,target=/app bitnami/apache
 5fd924625f6ab16a19cc9807c7c506ae1813490e4ba675f843d5a10e0baacdb8</code>
 </pre>
-        </div>
-      </li>
-      <li>Abra en el navegador la página inicial del nuevo contenedor y compruebe que se muestra la página que está en la máquina virtual.
-        <p class="captura">
-          <img src="../img/docker/1-4-e-3-bind.png" alt="Docker. Apache" width="1024" height="160" />
-        </p>
-      </li>
+          </div>
+        </li>
+        <li>Abra en el navegador la página inicial del nuevo contenedor y compruebe que se muestra la página que está en la máquina virtual.
+          <p class="captura">
+            <img src="../img/docker/1-4-e-3-bind.png" alt="Docker. Apache" width="1024" height="160" />
+          </p>
+        </li>
 
-    </ol>
+      </ol>
 
-    <hr class="corta" />
+      <hr class="corta" />
 
-    <p><strong>Nota</strong>: La imagen bitnami/apache incluye un directorio /app que enlaza a /opt/bitnami/apache/htdocs como puede comprobar entrando en el contenedor:</p>
-    <ol>
-      <li>Entre en la <i>shell</i> del contenedor:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="$">
+      <p><strong>Nota</strong>: La imagen bitnami/apache incluye un directorio /app que enlaza a /opt/bitnami/apache/htdocs como puede comprobar entrando en el contenedor:</p>
+      <ol>
+        <li>Entre en la <i>shell</i> del contenedor:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo docker exec -it apache-bind-1 /bin/bash</code>
 </pre>
-        </div>
-      </li>
-      <li>Liste los directorios en la raíz del contenedor:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="I have no name!@e3b0c44298fc:$">
+          </div>
+        </li>
+        <li>Liste los directorios en la raíz del contenedor:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="I have no name!@e3b0c44298fc:$">
 <code class="language-shell">ls -al /</code>
 </pre>
-        </div>
-      </li>
-      <li>Compruebe que el directorio /app enlaza al directorio /opt/bitnami/apache/htdocs:
-        <div class="terminal">
-          <pre>
+          </div>
+        </li>
+        <li>Compruebe que el directorio /app enlaza al directorio /opt/bitnami/apache/htdocs:
+          <div class="terminal">
+            <pre>
 <code class="language-shell">total 112
 drwxr-xr-x  1 root root 4096 Feb  6 22:37 .
 drwxr-xr-x  1 root root 4096 Feb  6 22:37 ..
@@ -781,13 +799,141 @@ drwxrwxr-x  1 root root 4096 Jan 30 10:50 .nami
 <span class="codigo-resaltado">lrwxrwxrwx  1 root root   26 Jan 30 10:50 app -&gt; /opt/bitnami/apache/htdocs</span>
 ...</code>
 </pre>
-        </div>
-      </li>
-    </ol>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="ejercicio-4-volume">
+      <h3>Volúmenes (<i>volume</i>)</h3>
+
+      <p>En vez de guardar los datos persistentes en la máquina <i>host</i>, Docker dispone de unos elementos llamados volúmenes que podemos asociar también a directorios del contenedor, de manera que cuando el contenedor lea o escriba en su directorio, donde leerá o escribirá será en el volumen.</p>
+
+      <p>Los volúmenes son independientes de los contenedores, por lo que también podemos acceder a los datos aunque el contenedor esté cerrado, conservar los datos aunque se destruya el contenedor, reutilizarlos con otro contenedor, etc. La ventaja frente a los directorios enlazados es que pueden ser gestionados por Docker.</p>
+
+      <p>Vamos a repetir el ejemplo anterior, pero utilizando un volumen en vez de un directorio enlazado. En este caso, enlazaremos el directorio /app con un volumen de Docker. directorio de la máquina virtual, el contenedor servirá las páginas contenidas en el directorio de la máquina virtual.</p>
+
+      <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
+
+      <ol>
+        <li>Cree un contenedor Apache.
+          <p>La opción --mount permite crear el volumen . La opción tiene tres argumentos separados por comas pero sin espacios: type=volume,source=NOMBRE-DEL_VOLUMEN,target=DESTINO-EN-CONTENEDOR. El directorio de destino debe existir previamente.</p>
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="2">
+<code class="language-shell">sudo docker run -d -P --name=apache-volume-1 <span class="codigo-resaltado">--mount type=volume,source=vol-apache,target=/app</span> bitnami/apache
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code>
+</pre>
+          </div>
+        </li>
+
+        <li>Abra en el navegador la página inicial del contenedor y compruebe que se muestra el contenido de un directorio vacío.
+          <p class="captura">
+            <img src="../img/docker/1-4-e-1-bind.png" alt="Docker. Apache" width="1024" height="150" />
+          </p>
+        </li>
+
+        <li>Cree un fichero index.html:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo nano /home/barto/web/index.html</code>
+</pre>
+          </div>
+
+          <p>... por ejemplo con el contenido siguiente</p>
+          <div class="terminal">
+            <pre>
+<code class="language-shell">&lt;h1&gt;Hola, amigo!&lt;/h1&gt;</code>
+</pre>
+          </div>
+          <p> ... o mejor, una página válida HTML5 (para poder escribir caracteres no ingleses):</p>
+          <div class="terminal">
+            <pre>
+<code class="language-shell">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Apache en Docker&lt;/title&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;¡Hola, amigo!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+</pre>
+          </div>
+        </li>
+
+        <li>Actualice el navegador y compruebe que se muestra la página recién creada.
+          <p class="captura">
+            <img src="../img/docker/1-4-e-2-bind.png" alt="Docker. Apache" width="1024" height="160" />
+          </p>
+        </li>
+
+        <li>Gracias a los directorios enlazados, podemos trabajar en la máquina virtual con los ficheros del directorio /web haya o no haya contenedores en marcha y al crear un contenedor, podremos acceder al contenido del directorio a través del servidor web del contenedor
+
+          <p>Detenga y elimine el contenedor apache-bind-1:</p>
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker stop apache-bind-1
+sudo docker rm apache-bind-1</code>
+</pre>
+          </div>
+        </li>
+        <li>Cree un nuevo contenedor que enlace al directorio /web:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="2">
+<code class="language-shell">sudo docker run -d -P --name=apache-bind-2 --mount type=bind,source=/home/barto/web,target=/app bitnami/apache
+5fd924625f6ab16a19cc9807c7c506ae1813490e4ba675f843d5a10e0baacdb8</code>
+</pre>
+          </div>
+        </li>
+        <li>Abra en el navegador la página inicial del nuevo contenedor y compruebe que se muestra la página que está en la máquina virtual.
+          <p class="captura">
+            <img src="../img/docker/1-4-e-3-bind.png" alt="Docker. Apache" width="1024" height="160" />
+          </p>
+        </li>
+
+      </ol>
+
+      <hr class="corta" />
+
+      <p><strong>Nota</strong>: La imagen bitnami/apache incluye un directorio /app que enlaza a /opt/bitnami/apache/htdocs como puede comprobar entrando en el contenedor:</p>
+      <ol>
+        <li>Entre en la <i>shell</i> del contenedor:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker exec -it apache-bind-1 /bin/bash</code>
+</pre>
+          </div>
+        </li>
+        <li>Liste los directorios en la raíz del contenedor:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="I have no name!@e3b0c44298fc:$">
+<code class="language-shell">ls -al /</code>
+</pre>
+          </div>
+        </li>
+        <li>Compruebe que el directorio /app enlaza al directorio /opt/bitnami/apache/htdocs:
+          <div class="terminal">
+            <pre>
+<code class="language-shell">total 112
+drwxr-xr-x  1 root root 4096 Feb  6 22:37 .
+drwxr-xr-x  1 root root 4096 Feb  6 22:37 ..
+-rwxr-xr-x  1 root root    0 Feb  6 22:37 .dockerenv
+drwxrwxr-x  1 root root 4096 Jan 30 10:50 .nami
+-rw-rw-r--  1 root root  118 Jan 30 10:50 apache-inputs.json
+<span class="codigo-resaltado">lrwxrwxrwx  1 root root   26 Jan 30 10:50 app -&gt; /opt/bitnami/apache/htdocs</span>
+...</code>
+</pre>
+          </div>
+        </li>
+      </ol>
+    </section>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 7 de febrero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 12 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
