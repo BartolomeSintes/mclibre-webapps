@@ -467,7 +467,7 @@ See 'docker run --help'.</code>
         <div class="terminal">
           <pre>
 <code class="language-shell">CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS
-      PORTS                                             NAMES
+      PORTS                                              NAMES
 44c9e89bdfd2        bitnami/apache      "/app-entrypoint.sh &hellip;"   About a minute ago       Up About a min
 ute   0.0.0.:<span class="codigo-resaltado">32769-&gt;8080</span>/tcp, 0.0.0.0:<span class="codigo-resaltado">32768-&gt;8443</span>/tcp   apache-1</code>
 </pre>
@@ -508,11 +508,11 @@ c5041d12aabdc6f58219fec176036eb352ecaea7cf81b8f7fa2ad8af801c96a2</code>
         <div class="terminal">
           <pre>
 <code class="language-shell">CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS
-      PORTS                                             NAMES
+      PORTS                                               NAMES
 c5041d12aabd        bitnami/apache      "/app-entrypoint.sh &hellip;"   About a minute ago       Up About a min
-ute   0.0.0.:<span class="codigo-resaltado">32771-&gt;8080</span>/tcp, 0.0.0.0:<span class="codigo-resaltado">32770-&gt;8443</span>/tcp   apache-2
+ute    0.0.0.:<span class="codigo-resaltado">32771-&gt;8080</span>/tcp, 0.0.0.0:<span class="codigo-resaltado">32770-&gt;8443</span>/tcp   apache-2
 44c9e89bdfd2        bitnami/apache      "/app-entrypoint.sh &hellip;"   5 minutes ago            Up 5 min
-utes   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32768-&gt;8443/tcp   apache-1</code>
+utes   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32768-&gt;8443/tcp    apache-1</code>
 </pre>
         </div>
       </li>
@@ -672,9 +672,9 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
 
       <p>Docker permite asociar directorios del contenedor a directorios de la máquina <i>host</i> (en nuestro caso, de la máquina virtual de Ubuntu). Es decir, que cuando el contenedor lea o escriba en su directorio, donde leerá o escribirá será en el directorio de la máquina virtual.</p>
 
-      <p>Si el directorio enlazado es el directorio en el que la aplicación guarda los datos generados por la propia aplicación, de esta manera conseguimos que los datos estén realmente fuera del contenedor. Eso significa que podemos acceder a los datos aunque el contenedor esté cerrado, conservar los datos aunque se destruya el contenedor, reutilizarlos con otro contenedor, etc.</p>
+      <p>Si el directorio enlazado es el directorio en el que la aplicación guarda los datos generados por la propia aplicación, de esta manera conseguimos que los datos estén realmente fuera del contenedor. Eso significa que podemos conservar los datos aunque se destruya el contenedor, reutilizarlos con otro contenedor, etc.</p>
 
-      <p>Por ejemplo, la imagen bitnami/apache está configurada para que el directorio htdocs habitual (en el caso de bitnami como hemos visto en el ejericio anterior es <strong>/opt/bitnami/apache/htdocs</strong>) enlace al directorio <strong>/app</strong> [véase <a href="https://github.com/bitnami/bitnami-docker-apache/blob/master/2.4/debian-9/Dockerfile">Dockerfile de bitnami/apache</a>]</p>
+      <p>En este ejemplo, vamos a volver a aprovechar el hecho que la imagen bitnami/apache está configurada para que el directorio htdocs habitual (en el caso de bitnami como hemos visto en el ejericio anterior es <strong>/opt/bitnami/apache/htdocs</strong>) enlace al directorio <strong>/app</strong> [véase <a href="https://github.com/bitnami/bitnami-docker-apache/blob/master/2.4/debian-9/Dockerfile">Dockerfile de bitnami/apache</a>]</p>
 
       <p>Si al crear el contenedor enlazamos el directorio /app con un directorio de la máquina virtual, el contenedor servirá las páginas contenidas en el directorio de la máquina virtual.</p>
 
@@ -809,9 +809,9 @@ drwxrwxr-x  1 root root 4096 Jan 30 10:50 .nami
 
       <p>En vez de guardar los datos persistentes en la máquina <i>host</i>, Docker dispone de unos elementos llamados volúmenes que podemos asociar también a directorios del contenedor, de manera que cuando el contenedor lea o escriba en su directorio, donde leerá o escribirá será en el volumen.</p>
 
-      <p>Los volúmenes son independientes de los contenedores, por lo que también podemos acceder a los datos aunque el contenedor esté cerrado, conservar los datos aunque se destruya el contenedor, reutilizarlos con otro contenedor, etc. La ventaja frente a los directorios enlazados es que pueden ser gestionados por Docker.</p>
+      <p>Los volúmenes son independientes de los contenedores, por lo que también podemos conservar los datos aunque se destruya el contenedor, reutilizarlos con otro contenedor, etc. La ventaja frente a los directorios enlazados es que pueden ser gestionados por Docker. Otro detalle importante es que el acceso al contenido de los volúmenes sólo se puede hacer a través de algún contenedor que utilice el volumen.</p>
 
-      <p>Vamos a repetir el ejemplo anterior, pero utilizando un volumen en vez de un directorio enlazado. En este caso, enlazaremos el directorio /app con un volumen de Docker. directorio de la máquina virtual, el contenedor servirá las páginas contenidas en el directorio de la máquina virtual.</p>
+      <p>Vamos a repetir un ejemplo similar al ejemplo anterior, pero utilizando un volumen en vez de un directorio enlazado. En este caso, enlazaremos el directorio /app con un volumen de Docker. directorio de la máquina virtual, el contenedor servirá las páginas contenidas en el directorio de la máquina virtual.</p>
 
       <p>En la máquina virtual, ejecute los comandos siguientes en un terminal:</p>
 
@@ -821,28 +821,72 @@ drwxrwxr-x  1 root root 4096 Jan 30 10:50 .nami
           <div class="terminal">
             <pre class="command-line" data-prompt="$" data-output="2">
 <code class="language-shell">sudo docker run -d -P --name=apache-volume-1 <span class="codigo-resaltado">--mount type=volume,source=vol-apache,target=/app</span> bitnami/apache
-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code>
+3b1bcc5a67f38853810972b1da8a67148fad78c6cd6f22b2c823d141be59c81c</code>
 </pre>
           </div>
         </li>
 
-        <li>Abra en el navegador la página inicial del contenedor y compruebe que se muestra el contenido de un directorio vacío.
+        <li>Compruebe que se ha creado el contenedor y consulte el puerto asignado:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="2-5">
+<code class="language-shell">sudo docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS
+      PORTS                                              NAMES
+3b1bcc5a67f3        bitnami/apache      "/app-entrypoint.sh &hellip;"   About a minute ago       Up About a min
+ute   0.0.0.:<span class="codigo-resaltado">32769-&gt;8080</span>/tcp, 0.0.0.0:<span class="codigo-resaltado">32768-&gt;8443</span>/tcp   apache-volume-1</code>
+</pre>
+          </div>
+        </li>
+
+        <li>Abra en el navegador la página inicial del contenedor y compruebe que se muestra la página inicial habitual de esta imagen.
           <p class="captura">
-            <img src="../img/docker/1-4-e-1-bind.png" alt="Docker. Apache" width="1024" height="150" />
+            <img src="../img/docker/1-4-e-11-volume.png" alt="Docker. Apache" width="1024" height="150" />
           </p>
         </li>
 
-        <li>Cree un fichero index.html:
+        <li>Compruebe que se ha creado un volumen con el nombre asignado al crear el contenedor:
           <div class="terminal">
-            <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo nano /home/barto/web/index.html</code>
+            <pre class="command-line" data-prompt="$" data-output="2-3">
+<code class="language-shell">sudo docker volume ls
+DRIVER              VOLUME NAME
+local               <span class="codigo-resaltado">vol-apache</span></code>
+</pre>
+          </div>
+        </li>
+
+        <li>Los volúmenes son entidades independientes de los contenedores, pero para acceder al contenido del volumen hay que hacerlo a través contendor, más exactamente a través del directorio indicado al crear el contenedor.
+          <p>Entre en el contenedor y liste el directorio /app.</p>
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="2-3">
+<code class="language-shell">sudo docker exec -it apache-volume-1 /bin/bash
+I have no name!@3b1bcc5a67f3:$ ls /app
+index.html</code>
 </pre>
           </div>
 
-          <p>... por ejemplo con el contenido siguiente</p>
+          <p>El directorio /app contiene únicamente el fichero index.html. Pero tenga en cuenta que la página web index.html se encuentra en el volumen, no en el contenedor.</p>
+        </li>
+
+        <li>Modifique esa página web. Para ello, salga del contenedor`:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="1">
+<code class="language-shell">I have no name!@3b1bcc5a67f3:$ exit
+ </code>
+</pre>
+          </div>
+        </li>
+        <li>
+          <p>... y cree un nuevo fichero index.html:</p>
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo nano index.html</code>
+</pre>
+          </div>
+        </li>
+        <li>Por ejemplo, con el siguiente contenido:
           <div class="terminal">
             <pre>
-<code class="language-shell">&lt;h1&gt;Hola, amigo!&lt;/h1&gt;</code>
+<code class="language-shell">&lt;h1&gt;Hola de nuevo, amigo!&lt;/h1&gt;</code>
 </pre>
           </div>
           <p> ... o mejor, una página válida HTML5 (para poder escribir caracteres no ingleses):</p>
@@ -857,83 +901,118 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code>
 &lt;/head&gt;
 
 &lt;body&gt;
-  &lt;h1&gt;¡Hola, amigo!&lt;/h1&gt;
+  &lt;h1&gt;¡Hola de nuevo, amigo!&lt;/h1&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code>
 </pre>
           </div>
         </li>
 
-        <li>Actualice el navegador y compruebe que se muestra la página recién creada.
-          <p class="captura">
-            <img src="../img/docker/1-4-e-2-bind.png" alt="Docker. Apache" width="1024" height="160" />
-          </p>
-        </li>
-
-        <li>Gracias a los directorios enlazados, podemos trabajar en la máquina virtual con los ficheros del directorio /web haya o no haya contenedores en marcha y al crear un contenedor, podremos acceder al contenido del directorio a través del servidor web del contenedor
-
-          <p>Detenga y elimine el contenedor apache-bind-1:</p>
+        <li>Copie el fichero index.html en el directorio /app del contenedor (aunque realmente se copiará en el volumen):
           <div class="terminal">
             <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo docker stop apache-bind-1
-sudo docker rm apache-bind-1</code>
+<code class="language-shell">sudo docker cp index.html apache-volume-1:app/</code>
 </pre>
           </div>
         </li>
-        <li>Cree un nuevo contenedor que enlace al directorio /web:
-          <div class="terminal">
-            <pre class="command-line" data-prompt="$" data-output="2">
-<code class="language-shell">sudo docker run -d -P --name=apache-bind-2 --mount type=bind,source=/home/barto/web,target=/app bitnami/apache
-5fd924625f6ab16a19cc9807c7c506ae1813490e4ba675f843d5a10e0baacdb8</code>
-</pre>
-          </div>
-        </li>
-        <li>Abra en el navegador la página inicial del nuevo contenedor y compruebe que se muestra la página que está en la máquina virtual.
+
+        <li>Actualice el navegador y compruebe que se muestra la página recién creada.
           <p class="captura">
-            <img src="../img/docker/1-4-e-3-bind.png" alt="Docker. Apache" width="1024" height="160" />
+            <img src="../img/docker/1-4-e-12-volume.png" alt="Docker. Apache" width="1024" height="160" />
           </p>
         </li>
 
+        <li>Cree ahora un nuevo contenedor que use el mismo volumen:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="2">
+<code class="language-shell">sudo docker run -d -P <span class="codigo-resaltado">--name=apache-volume-2</span> <span class="codigo-resaltado">--mount type=volume,source=vol-apache,target=/app</span> bitnami/apache
+a6c8a30f7b1dc7a4ef165046daff226ee1d6a69573269ca24d57b5b4b6802881</code>
+</pre>
+          </div>
+        </li>
+
+        <li>Compruebe que se ha creado el contenedor y consulte el puerto asignado:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="2-5">
+<code class="language-shell">sudo docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS
+     PORTS                                              NAMES
+a6c8a30f7b1d        bitnami/apache      "/app-entrypoint.sh &hellip;"   About a minute ago       Up About a min
+ute  0.0.0.:<span class="codigo-resaltado">32771-&gt;8080</span>/tcp, 0.0.0.0:<span class="codigo-resaltado">32770-&gt;8443</span>/tcp   apache-volume-2
+3b1bcc5a67f3        bitnami/apache      "/app-entrypoint.sh &hellip;"   5 minutes ago            Up 5 minutes
+     0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32768-&gt;8443/tcp   apache-volume-1</code>
+</pre>
+          </div>
+        </li>
+        <li>Abra en el navegador la página inicial del nuevo contenedor y compruebe que este contenedor muestra también la página que ha copiado antes en el volumen.
+          <p class="captura">
+            <img src="../img/docker/1-4-e-13-volume.png" alt="Docker. Apache" width="1024" height="160" />
+          </p>
+        </li>
       </ol>
 
       <hr class="corta" />
 
-      <p><strong>Nota</strong>: La imagen bitnami/apache incluye un directorio /app que enlaza a /opt/bitnami/apache/htdocs como puede comprobar entrando en el contenedor:</p>
+      <p>Los volúmenes son independientes de los contenedores, pero Docker tiene en cuenta qué volumenes están siendo utilizados por un contenedor.</p>
       <ol>
-        <li>Entre en la <i>shell</i> del contenedor:
+        <li>Si intenta borrar el volumen del ejemplo anterior mientras los contenedores están en marcha, Docker muestra un mensaje de error que indica los contenedores afectados:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="2-3">
+<code class="language-shell">sudo docker volume rm vol-apache
+Error response from daemon: remove vol-apache: <span class="codigo-resaltado">volume is in use</span> - [a6c8a30f7b1dc7a4ef165046daff226ee
+1d6a69573269ca24d57b5b4b6802881, 3b1bcc5a67f38853810972b1da8a67148fad78c6cd6f22b2c823d141be59c81c]</code>
+</pre>
+          </div>
+        </li>
+        <li>Detenga los contenedores:
           <div class="terminal">
             <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo docker exec -it apache-bind-1 /bin/bash</code>
+<code class="language-shell">sudo docker stop apache-volume-1
+sudo docker stop apache-volume.2</code>
 </pre>
           </div>
         </li>
-        <li>Liste los directorios en la raíz del contenedor:
+        <li>Si intenta de nuevo borrar el volumen del ejemplo anterior ahora que los contenedores están detenidos, Docker sigue mostrando el mensaje de error que indica los contenedores afectados:
           <div class="terminal">
-            <pre class="command-line" data-prompt="I have no name!@e3b0c44298fc:$">
-<code class="language-shell">ls -al /</code>
+            <pre class="command-line" data-prompt="$" data-output="2-3">
+<code class="language-shell">sudo docker volume rm vol-apache
+Error response from daemon: remove vol-apache: <span class="codigo-resaltado">volume is in use</span> - [a6c8a30f7b1dc7a4ef165046daff226ee
+1d6a69573269ca24d57b5b4b6802881, 3b1bcc5a67f38853810972b1da8a67148fad78c6cd6f22b2c823d141be59c81c]</code>
 </pre>
           </div>
         </li>
-        <li>Compruebe que el directorio /app enlaza al directorio /opt/bitnami/apache/htdocs:
+        <li>Borre los contenedores:
           <div class="terminal">
-            <pre>
-<code class="language-shell">total 112
-drwxr-xr-x  1 root root 4096 Feb  6 22:37 .
-drwxr-xr-x  1 root root 4096 Feb  6 22:37 ..
--rwxr-xr-x  1 root root    0 Feb  6 22:37 .dockerenv
-drwxrwxr-x  1 root root 4096 Jan 30 10:50 .nami
--rw-rw-r--  1 root root  118 Jan 30 10:50 apache-inputs.json
-<span class="codigo-resaltado">lrwxrwxrwx  1 root root   26 Jan 30 10:50 app -&gt; /opt/bitnami/apache/htdocs</span>
-...</code>
+            <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker rm apache-volume-1
+sudo docker rm apache-volume.2</code>
 </pre>
           </div>
+        </li>
+        <li>Si intenta de nuevo borrar el volumen del ejemplo anterior ahora que no hay contenedores que utilicen el volumen, Docker ahora sí que borrará el volumen:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="2">
+<code class="language-shell">sudo docker volume rm vol-apache
+vol-apache</code>
+</pre>
+          </div>
+        </li>
+
+        <li>Compruebe que el volumen ya no existe:
+          <div class="terminal">
+            <pre class="command-line" data-prompt="$" data-output="2-3">
+<code class="language-shell">sudo docker volume ls
+DRIVER              VOLUME NAME</code>
+</pre>
+          </div>
+          <p>Tenga en cuenta que al borrar un volumen, los datos que contenía el volumen se pierden para siempre, salvo que hubiera realizado una copia de seguridad.</p>
         </li>
       </ol>
     </section>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 12 de febrero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 16 de febrero de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
