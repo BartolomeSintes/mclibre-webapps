@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Fengoffice. Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre" />
+  <link rel="icon" href="../../../varios/favicon.ico" />
+</head>
+
+<body>
+  <h1>Exámenes. FengOffice</h1>
+
+  <nav>
+    <p>
+      <a href="../../../index.html"><img src="../../../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../../../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      <a href="../../examenes.html"><img src="../../../varios/iconos/icono-school.svg" alt="Exámenes" title="Exámenes" width="36" height="36" /></a>
+    </p>
+
+    <div class="toc">
+      <h2>Examen FengOffice 3.7.0.5</h2>
+
+      <ul>
+        <li><a href="#ejercicio-1">1. Instalar</a></li>
+        <li><a href="#ejercicio-2">2. Personalizar</a></li>
+        <li><a href="#ejercicio-3">3. Usuarios, áreas de trabajo </a></li>
+        <li><a href="#ejercicio-4">4. Tareas</a></li>
+        <li><a href="#ejercicio-5">5. Notas</a></li>
+        <li><a href="#ejercicio-6">6. Informe</a></li>
+        <li><a href="#ejercicio-7">7. Temas</a></li>
+        <li><a href="#ejercicio-8">8. Alias</a></li>
+        <li><a href="#ejercicio-9">9. Copias de seguridad</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <p><strong>NOTA</strong>:</p>
+  <ul>
+    <li>La versión de FengOffice utilizada en este examen es incompatible con PHP 7.2, pero sí que es compatible con PHP 7.1.</li>
+    <li>Las capturas de pantalla serán <strong>siempre</strong> capturas de toda la pantalla, en las que se distinga que se han realizado en el ordenador del alumno.</li>
+    <li>En este ejercicio hay que acabar entregando una carpeta con el <strong>nombre del alumno</strong> y que contenga:
+      <ul>
+        <li>las capturas de pantalla (que se llamen nombre-alumno-fengoffice-XX-Y.png donde X sea el número de ejercicio e Y el número de captura del ejercicio).</li>
+        <li>el fichero <strong>explicaciones.txt</strong> de los ejercicios 7 y 8.</li>
+        <li>el pdf generado en el ejercicio 6.</li>
+        <li>la copia de seguridad de la base de datos.</li>
+        <li>la carpeta de la aplicación (comprimida en un zip).</li>
+      </ul>
+    </li>
+    <li>Imágenes que se pueden utilizar:
+      <p>
+        <img src="logo-webapps.png" alt="Logo WebApps" width="91" height="73" />
+        <img src="logo-webapps-62x50.png" alt="Logo WebApps" width="62" height="50" />
+        <img src="leon-064.png" alt="León" width="64" height="64" />
+        <img src="jirafa-064.png" alt="Jirafa" width="64" height="64" />
+        <img src="mono-064.png" alt="Mono" width="64" height="64" />
+      </p>
+    </li>
+  </ul>
+
+  <section id="ejercicio-1">
+    <h2>1. Instalar FengOffice</h2>
+
+    <ul>
+      <li>Fengoffice es un sistema de gestión de proyectos y trabajo en equipo.
+        <p>Aplicación: <a href="http://www.mclibre.org/descargar/webapps/1819/fengoffice_3-7-0-5.zip">FengOffice 3.7.0.5</a> (15/01/19). Página web: <a href="http://www.fengoffice.com/web/">Fengoffice</a></p>
+      </li>
+      <li>Descomprima FengOffice en la carpeta <strong>fengoffice</strong>.</li>
+      <li>Cree con phpMyAdmin un usuario de MySQL con nombre <strong>iaw_fengoffice_1</strong>, contraseña <strong>iaw_fengoffice_1</strong> y base de datos <strong>iaw_fengoffice_1</strong>.</li>
+      <li>Abra la página <strong>/fengoffice</strong>.</li>
+      <li>Rellene la información necesario para instalar FengOffice. Por ejemplo:
+        <ul>
+          <li>General:
+            <ul>
+              <li>plugins: <strong>Core_dimensions</strong>, <strong>Workspaces</strong></li>
+            </ul>
+          </li>
+          <li>Datos del usuario administrador:
+            <ul>
+              <li>nombre: <strong>admin</strong></li>
+              <li>dirección de correo: <strong>admin@example.com</strong></li>
+              <li>contraseña: <strong>admin</strong></li>
+              <li>empresa: <strong>WebApps</strong></li>
+            </ul>
+          </li>
+          <li>Entre como administrador y haga una captura del sitio:
+            <p class="captura">
+              <img src="fengoffice-01-1.png" alt="FengOffice" width="1008" height="300" />
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-2">
+    <h2>2. Personalizar</h2>
+
+    <ul>
+      <li>Cambie el idioma a Español (haga una captura):
+        <p class="captura">
+          <img src="fengoffice-02-1.png" alt="FengOffice" width="1008" height="310" />
+        </p>
+      </li>
+      <li>Cambie el logotipo (haga una captura):
+        <p class="captura">
+          <img src="fengoffice-02-2.png" alt="FengOffice" width="1008" height="160" />
+        </p>
+      </li>
+      <li>Asigne una imagen al administrador (haga una captura):
+        <p class="captura">
+          <img src="fengoffice-02-3.png" alt="FengOffice" width="1008" height="160" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-3">
+    <h2>3. Usuarios y áreas de trabajo </h2>
+
+    <ul>
+      <li>Cree el siguiente usuario de tipo Gerente (que la contraseña coincida con su nombre de usuario) (haga una captura):
+        <p class="captura">
+          <img src="fengoffice-03-1.png" alt="Usuario 1" width="735" height="400" />
+        </p>
+      </li>
+      <li>Compruebe que puede entrar como usuario <strong>jefeatención</strong> (haga una captura)
+        <p class="captura">
+          <img src="fengoffice-03-2.png" alt="Usuario 1" width="1008" height="120" />
+        </p>
+      </li>
+      <li>Cree el siguiente usuario de tipo Ejecutivo (que la contraseña coincida con su nombre de usuario) (haga una captura):
+        <p class="captura">
+          <img src="fengoffice-03-3.png" alt="Usuario 2" width="735" height="400" />
+        </p>
+      </li>
+      <li>Compruebe que puede entrar como usuario <strong>técnicoatención</strong> (haga una captura)
+        <p class="captura">
+          <img src="fengoffice-03-4.png" alt="Usuario 2" width="1008" height="120" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-4">
+    <h2>4. Tareas</h2>
+
+    <ul>
+      <li>Como usuario <strong>jefeatención</strong>, abra una tarea y asígnesela al usuario <strong>técnicoatención</strong> (haga una captura):
+        <p class="captura">
+          <img src="fengoffice-04-1.png" alt="Tareas" width="715" height="385" />
+        </p>
+      </li>
+      <li>Como usuario <strong>técnicoatención</strong>, comente la tarea y complete la tarea después de hacer el ejercicio siguiente (haga una captura):
+        <p class="captura">
+          <img src="fengoffice-04-2.png" alt="Tareas" width="700" height="440" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-5">
+    <h2>5. Notas</h2>
+
+    <ul>
+      <li>Habilite la creación de notas (haga una captura).</li>
+      <li>Como usuario <strong>técnicoatención</strong>, cree una Nota relacionada con la incidencia anterior (haga una captura):
+        <p class="captura">
+          <img src="fengoffice-05-1.png" alt="Tareas" width="735" height="210" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-6">
+    <h2>6. Informe</h2>
+
+    <ul>
+      <li>Cree un área de trabajo (haga una captura):
+        <p class="captura">
+          <img src="fengoffice-06-1.png" alt="Informe" width="510" height="240" />
+        </p>
+      </li>
+      <li>Cree dos documentos en el área de trabajo (haga capturas):
+        <ul>
+          <li>Un documento html en el que ponga que el aula 112 es el aula de 2º de ASIR.</li>
+          <li>Un diocumento que enlace a la página web del ISE Abastos http://www.iesabastos.org/</li>
+        </ul>
+        <p class="captura">
+          <img src="fengoffice-06-2.png" alt="Informe" width="1008" height="340" />
+        </p>
+      </li>
+      <li>Cree un informe en el que se listen los documentos disponibles en el espacio de trabajo IES Abastos (haga una captura) y descargue el informe en formato PDF
+        <p class="captura">
+          <img src="fengoffice-06-3.png" alt="Informe" width="930" height="350" />
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-7">
+    <h2>7. Temas</h2>
+
+    <ul>
+      <li>Cree un nuevo tema llamado webapps a partir del tema predeerminado (haga una captura).</li>
+      <li>Modifique el tema webapps cambiando los colores en la pantalla de Vista general (haga una captura):
+        <p class="captura">
+          <img src="fengoffice-07-1.png" alt="Colores" width="1008" height="300" />
+        </p>
+      </li>
+      <li>Modifique el tema webapps cambiando el logo y los colores en la pantalla de Login (haga una captura):
+        <p class="captura">
+          <img src="fengoffice-07-2.png" alt="Colores" width="1008" height="400" />
+        </p>
+      </li>
+      <li>Escriba en el documento <strong>explicaciones.txt</strong> cómo ha creado el tema, como ha cambiado el logo y las reglas añadidas a las hojas de estilo.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-8">
+    <h2>8. Alias</h2>
+
+    <ul>
+      <li>Configure el servidor de manera que se pueda acceder a fengoffice escribiendo la dirección <strong>http://localhost/fengoffice/</strong></li>
+      <li>Copie en el documento <strong>explicaciones.txt</strong> las líneas añadidas al archivo de configuración.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-9">
+    <h2>9. Copias de seguridad</h2>
+
+    <ul>
+      <li>Realice una copia de seguridad manual completa de la instalación (ficheros y datos).</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 1 de marzo de 2019</p>
+
+    <p class="licencia"><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../../../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
+</html>
