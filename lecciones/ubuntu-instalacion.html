@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <h1>Instalación de Ubuntu Server 18.04.1 LTS</h1>
+  <h1>Instalación de Ubuntu Server 18.04.2 LTS</h1>
 
   <nav>
     <p>
@@ -32,7 +32,7 @@
   <section id="instalacion">
     <h2>Instalación, paso a paso</h2>
 
-    <p>Estos son los pasos a realizar para instalar Ubuntu Server 18.04.1 LTS en una máquina virtual.</p>
+    <p>Estos son los pasos a realizar para instalar <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.2-server-amd64.iso">Ubuntu Server 18.04.2 LTS</a>, publicada el 10 de febrero de 2019, en una máquina virtual.</p>
 
     <p>Entre corchetes se indica el tiempo que tarda en pasar al paso siguiente una vez elegida la opción correspondiente.</p>
 
@@ -179,7 +179,7 @@
       </li>
       <li>Guarde los cambios [1 s]:
         <div class="codigo">
-          <pre>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait10&gt; </pre>
+          <pre>&lt;left&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait10&gt; </pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-32.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -197,7 +197,7 @@
       </li>
       <li>Guarde los cambios [80 s]:
         <div class="codigo">
-          <pre>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait90s&gt;</pre>
+          <pre>&lt;left&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait90s&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-36.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
@@ -213,13 +213,12 @@
           <img src="../img/ubuntu/ubuntu-server-instalacion-39.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
         </p>
       </li>
-      <li>Elija el tipo de actualizaciones (en el ejemplo se elige Sin actualizaciones automáticas porque en Ubuntu 18.04 seleccionar Instalar actualizaciones de seguridad automáticamente provoca después problemas al intentar actualizar en proveedores de Packer) [4 s]:
+      <li>Elija el tipo de actualizaciones. Es importante elegir la opción "Sin actualizaciones automáticas" porque en Ubuntu 18.04 seleccionar Instalar actualizaciones de seguridad automáticamente provoca después problemas al intentar actualizar en proveedores de Packer) [4 s]:
         <div class="codigo">
           <pre>&lt;enter&gt;&lt;wait10&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-40.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
-          <!-- <img src="../img/ubuntu/ubuntu-server-instalacion-41.png" alt="Ubuntu Server. Instalación" width="640" height="480" /> -->
         </p>
       </li>
       <li>Seleccione la instalación del servidor OpenSSH [180 s]:
@@ -227,10 +226,10 @@
           <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;wait5&gt;&lt;tab&gt;&lt;enter&gt;&lt;wait3m30s&gt;</pre>
         </div>
         <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-41.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
           <img src="../img/ubuntu/ubuntu-server-instalacion-42.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
           <img src="../img/ubuntu/ubuntu-server-instalacion-43.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
           <img src="../img/ubuntu/ubuntu-server-instalacion-44.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
-          <img src="../img/ubuntu/ubuntu-server-instalacion-45.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
         </p>
       </li>
       <li>Instale GRUB [25 s]:
@@ -238,7 +237,7 @@
           <pre>&lt;enter&gt;&lt;wait40s&gt;</pre>
         </div>
         <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-46.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
+          <img src="../img/ubuntu/ubuntu-server-instalacion-45.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
         </p>
       </li>
       <li>Una vez completada la instalación, arranque de nuevo el sistema [30 s]:
@@ -246,19 +245,19 @@
           <pre>&lt;enter&gt;&lt;wait40s&gt;</pre>
         </div>
         <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-47.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
+          <img src="../img/ubuntu/ubuntu-server-instalacion-46.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
         </p>
       </li>
       <li>Una vez reiniciado, compruebe que puede entrar con el usuario creado en la instalación (este paso no se realizará durante la creación de la máquina virtual con Packer):
         <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-48.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
+          <img src="../img/ubuntu/ubuntu-server-instalacion-47.png" alt="Ubuntu Server. Instalación" width="640" height="480" />
         </p>
       </li>
     </ol>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 18 de diciembre de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 9 de marzo de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
