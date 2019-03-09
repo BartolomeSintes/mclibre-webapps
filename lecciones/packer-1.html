@@ -56,13 +56,12 @@
 
     <p>La primera versión se publicó en junio de 2013 y la versión 1.0 se publicó en abril de 2017.</p>
 
-
     <p class="mcl-svg-diagrama-temporal">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="950" viewBox="-100 -60 950 100">
         <line x1="-20" y1="0" x2="1000" y2="0" stroke-width="3" stroke="hsl(202, 100%, 56%)" />
         <text x="-90" y="4" text-anchor="start" style="font-size: 100%">packer</text>
         <text x="-65" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
-        <text x="-65" y="-38" text-anchor="middle" style="font-size: 60%">16-09-2018</text>
+        <text x="-65" y="-38" text-anchor="middle" style="font-size: 60%">09-03-2019</text>
 
         <line x1="0" y1="-50" x2="0" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
         <text x="60" y="-40" text-anchor="middle" style="font-size: 80%">2013</text>
@@ -106,6 +105,8 @@
         <text x="613" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.2</text>
         <circle cx="684" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
         <text x="684" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.3</text>
+        <circle cx="749" cy="0" r="5" fill="white" stroke="hsl(202, 100%, 56%)" stroke-width="2" />
+        <text x="749" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.4</text>
       </svg>
     </p>
 
@@ -123,7 +124,7 @@
 
     <p>En Windows, packer se distribuye en forma de fichero zip (<a href="https://www.packer.io/downloads.html">página de descarga de packer</a>).</p>
 
-    <p>Esta lección se ha elaborado con la versión <a href="https://releases.hashicorp.com/packer/1.3.3/packer_1.3.3_windows_amd64.zip">packer 1.3.3 para Windows 64 bits</a>, publicada el 5 de diciembre de 2018.</p>
+    <p>Esta lección se ha elaborado con la versión <a href="https://releases.hashicorp.com/packer/1.3.5/packer_1.3.5_windows_amd64.zip">packer 1.3.5 para Windows 64 bits</a>, publicada el 1 de marzo de 2019.</p>
 
     <p>Si no encuentra esta versión en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
 
@@ -134,7 +135,7 @@
     <div class="terminal">
       <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2">
 <code class="language-shell">packer --version
-1.3.3</code>
+1.3.5</code>
 </pre>
     </div>
 
@@ -176,7 +177,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
 
     <p>En esta lección veremos cuatro ejemplos de creación de máquinas virtuales y posterior instalación de aplicaciones en la máquinas:</p>
     <ul>
-      <li>En el primer ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 18.04.1 LTS en ella.</li>
+      <li>En el primer ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 18.04.2 LTS en ella.</li>
       <li>En el segundo ejemplo, a partir de la máquina virtual creada en el primer ejemplo crearemos una segunda máquina y actualizaremos el sistema operativo.</li>
       <li>En el tercer ejemplo, a partir también de la máquina virtual creada en el primer ejemplo crearemos una tercera máquina en la que instalaremos las VirtualBox Guest Additions.</li>
       <li>En el cuarto ejemplo, a partir de la máquina virtual creada en el tercer ejemplo modificaremos la configuración de la máquina virtual.</li>
@@ -185,18 +186,18 @@ PACKER_LOG_PATH=packerlog.txt</code>
     <p>Una de las ventajas de preparar primero la imagen básica es ahorrarnos la instalación del sistema operativo en cada prueba de instalación de aplicaciones. La instalación es un proceso que tarda más de 10 minutos y que sólo necesitaremos hacer una vez.</p>
 
     <section id="creacion-vm-vbox-ubuntu">
-      <h3>Ejemplo 1: Creación de una máquina virtual de VirtualBox con Ubuntu Server 18.04.1 LTS</h3>
+      <h3>Ejemplo 1: Creación de una máquina virtual de VirtualBox con Ubuntu Server 18.04.2 LTS</h3>
 
-      <p>Para crear la máquina virtual, necesitamos:</p>
+      <p>Para crear la máquina virtual:</p>
 
       <ul>
-        <li>Tener instalado <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
-        <li>Descargar la imagen .iso del disco de instalación de Ubuntu Server 18.04.1 LTS de la página de descarga <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a>.
-          <p>Esta lección se ha elaborado con la versión <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.1-server-amd64.iso">Ubuntu Server 18.04.1 LTS 64 bits</a>.</p>
-          <p><strong>Nota</strong>: La página de descarga <a href="https://www.ubuntu.com/download/server">https://www.ubuntu.com/download/server</a> descarga la versión Live Server, que incluye un instalador diferente y por tanto una plantilla distinta a la de este ejemplo.</p>
+        <li>Instale <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
+        <li>Descargue la imagen .iso del disco de instalación de Ubuntu Server 18.04.2 LTS de la página de descarga <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a>.
+          <p>Esta lección se ha elaborado con la versión <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.2-server-amd64.iso">Ubuntu Server 18.04.2 LTS 64 bits</a>.</p>
+          <p><strong>Nota</strong>: La página de descarga <a href="https://www.ubuntu.com/download/server">https://www.ubuntu.com/download/server</a> descarga la versión Live Server, que incluye un instalador diferente y por tanto requeriría una plantilla distinta a la de este ejemplo.</p>
         </li>
-        <li>Crear la plantilla de packer (por ejemplo, packer-1-1.json).</li>
-        <li>Ejecutar packer
+        <li>Cree la plantilla de packer (por ejemplo, packer-1-1.json).</li>
+        <li>Ejecute packer
           <div class="terminal">
             <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
 <code class="language-shell">packer build packer-1-1.json</code>
@@ -205,7 +206,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
         </li>
       </ul>
 
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-1</strong> y creará en él el fichero <strong>packer-1-1-ubuntu-18-04-1-server.ova</strong>.</p>
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-1</strong> y creará en él el fichero <strong>packer-1-1-ubuntu-18-04-2-server.ova</strong>.</p>
 
       <section id="plantilla-creacion-vm">
         <h4>Plantilla de creación de la máquina virtual (packer-1-1.json)</h4>
@@ -220,7 +221,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
 
         <p>Para obtener las entradas de teclado es necesario primero hacer una instalación manual y anotar cuidadosamente las opciones elegidas y también cronometrar lo que tarda en realizarse cada uno de los pasos de la instalación, ya que en la plantilla debemos indicar también el tiempo que packer debe esperar entre entrada y entrada de teclado. Si el tiempo de espera es demasiado corto, packer enviará las pulsaciones de teclado demasiado pronto y la instalación no se realizará correctamente.</p>
 
-        <p>En la lección <a href="ubuntu-instalacion.html">Instalación de Ubuntu</a> se muestra un ejemplo de instalación de Ubuntu Server 18.04.1 LTS. La página muestra los sucesivos pasos del proceso de instalación y las entradas de teclado y tiempos de espera correspondientes. Por precaución, el tiempo de espera indicado a packer debería ser siempre algo superior al cronometrado.</p>
+        <p>En la lección <a href="ubuntu-instalacion.html">Instalación de Ubuntu</a> se muestra un ejemplo de instalación de Ubuntu Server 18.04.2 LTS. La página muestra los sucesivos pasos del proceso de instalación y las entradas de teclado y tiempos de espera correspondientes. Por precaución, el tiempo de espera indicado a packer debería ser siempre algo superior al cronometrado.</p>
 
         <p>En caso de que los tiempos de ejecución sean mayores que los tiempos de espera, Packer enviará las pulsaciones antes de tiempo y la instalación no podrá completarse correctamente. Se aconseja seguir con atención la instalación que realiza Packer e identificar el paso en que se produce el problema y es necesario aumentar el tiempo. Si la instalación no se está realizando correctamente, pulse <kbd>Ctrl+c</kbd> en la ventana de Símbolo de sistema para interrumpirla. Packer cerrará en su caso la ventana de VirtualBox y borrará los archivos temporales creados. Si por cualquier motivo Packer no puede cerrar la ventana de VirtualBox, ciérrela manualmente y borre los ficheros temporales que hayan quedado en la carpeta de VirtualBox (en Windows, C:\Users\NombreUsuario\VirtualBox VMs).</p>
 
@@ -233,8 +234,8 @@ PACKER_LOG_PATH=packerlog.txt</code>
     {
       "type": "virtualbox-iso",
       "guest_os_type": "Ubuntu_64",
-      "iso_url": "ubuntu-18.04.1-server-amd64.iso",
-      "iso_checksum": "e8264fa4c417216f4304079bd94f895e",
+      "iso_url": "ubuntu-18.04.2-server-amd64.iso",
+      "iso_checksum": "34416ff83179728d54583bf3f18d42d2",
       "iso_checksum_type": "md5",
       "disk_size": "<span class="codigo-resaltado">25000</span>",
       "vboxmanage": [
@@ -258,9 +259,9 @@ PACKER_LOG_PATH=packerlog.txt</code>
         "&lt;enter&gt;&lt;wait10&gt;",
         "&lt;enter&gt;&lt;wait5&gt;",
         "&lt;enter&gt;&lt;wait5&gt;",
+        "&lt;left&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait10&gt;",
         "&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait10&gt;",
-        "&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait10&gt;",
-        "&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait90s&gt;",
+        "&lt;left&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait90s&gt;",
         "&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait40s&gt;",
         "&lt;enter&gt;&lt;wait10&gt;",
         "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;wait5&gt;&lt;tab&gt;&lt;enter&gt;&lt;wait3m30s&gt;",
@@ -271,7 +272,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
       "ssh_password": "<span class="codigo-resaltado">barto</span>",
       "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
       "output_directory": "<span class="codigo-resaltado">packer-1-1</span>",
-      "vm_name": "<span class="codigo-resaltado">packer-1-1-ubuntu-18-04-1-server</span>",
+      "vm_name": "<span class="codigo-resaltado">packer-1-1-ubuntu-18-04-2-server</span>",
       "format": "ova"
     }
   ]
@@ -287,7 +288,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
           <li>Líneas 27-28: En algunos casos, Ubuntu no puede localizar un servidor de horas y muestra una pantalla adicional que solicita confirmar la zona horaria. En ese caso, habría que añadir una línea simplemente pulsando <kbd>Intro</kbd>:
             <div class="codigo">
               <pre class="line-numbers" data-start="27">
-<code class="language-json">        {"&lt;left&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
+<code class="language-json">        "&lt;left&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
         <span class="codigo-resaltado">"&lt;enter&gt;&lt;wait10&gt;",</span>
         "&lt;enter&gt;&lt;wait10&gt;",</code>
 </pre>
@@ -317,7 +318,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
         </li>
       </ul>
 
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-2</strong> y creará en él el fichero <strong>packer-1-2-ubuntu-18-04-1-server.ova</strong>.</p>
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-2</strong> y creará en él el fichero <strong>packer-1-2-ubuntu-18-04-2-server.ova</strong>.</p>
 
       <section id="plantilla-actualizacion-vm">
         <h4>Plantilla de actualización de la máquina virtual (packer-1-2.json)</h4>
@@ -338,14 +339,14 @@ PACKER_LOG_PATH=packerlog.txt</code>
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-1-server.ova</span>",
+      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-2-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
       "ssh_password": "<span class="codigo-resaltado">barto</span>",
       "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
       "output_directory": "<span class="codigo-resaltado">packer-1-2</span>",
-      "vm_name": "<span class="codigo-resaltado">packer-1-2-ubuntu-18-04-1-server</span>",
+      "vm_name": "<span class="codigo-resaltado">packer-1-2-ubuntu-18-04-2-server</span>",
       "format": "ova"
     }
   ],
@@ -387,7 +388,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
         </li>
       </ul>
 
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-3</strong> y creará en él el fichero <strong>packer-1-3-ubuntu-18-04-1-server.ova</strong>.</p>
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-3</strong> y creará en él el fichero <strong>packer-1-3-ubuntu-18-04-2-server.ova</strong>.</p>
 
       <hr class="corta" />
 
@@ -412,14 +413,14 @@ PACKER_LOG_PATH=packerlog.txt</code>
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-1-server.ova</span>",
+      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-2-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
       "ssh_password": "<span class="codigo-resaltado">barto</span>",
       "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
       "output_directory": "<span class="codigo-resaltado">packer-1-3</span>",
-      "vm_name": "<span class="codigo-resaltado">packer-1-3-ubuntu-18-04-1-server</span>",
+      "vm_name": "<span class="codigo-resaltado">packer-1-3-ubuntu-18-04-2-server</span>",
       "format": "ova"
     }
   ],
@@ -441,7 +442,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
           <pre class="line-numbers">
 <code class="language-bash">sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
-sudo apt-get -y install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-29-generic</span>
+sudo apt-get -y install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-45-generic</span>
 sudo mkdir /mnt/cdrom
 sudo mount ~/VBoxGuestAdditions.iso /mnt/cdrom
 sudo sh /mnt/cdrom/VBoxLinuxAdditions.run --nox11
@@ -456,7 +457,7 @@ rm ~/VBoxGuestAdditions.iso</code>
             <div class="terminal">
               <pre class="command-line" data-prompt="user@ubuntu:/$" data-output="2">
 <code class="language-shell">uname -a
-Linux ubuntu <span class="codigo-resaltado">4.15.0-29-generic</span> #31-Ubuntu SMP Tue Jul 17 ...</code>
+Linux ubuntu <span class="codigo-resaltado">4.15.0-45-generic</span> #31-Ubuntu SMP Tue Jan 29 ...</code>
 </pre>
             </div>
           </li>
@@ -481,7 +482,7 @@ Linux ubuntu <span class="codigo-resaltado">4.15.0-29-generic</span> #31-Ubuntu 
         </li>
       </ul>
 
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-4</strong> y creará en él el fichero <strong>packer-1-4-ubuntu-18-04-1-server.ova</strong>.</p>
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-4</strong> y creará en él el fichero <strong>packer-1-4-ubuntu-18-04-2-server.ova</strong>.</p>
 
       <section id="plantilla-modificacion-vm">
         <h4>Plantilla de modificación final de la máquina virtual (packer-1-4.json)</h4>
@@ -504,7 +505,7 @@ Linux ubuntu <span class="codigo-resaltado">4.15.0-29-generic</span> #31-Ubuntu 
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-3/packer-1-3-ubuntu-18-04-1-server.ova</span>",
+      "source_path": "<span class="codigo-resaltado">packer-1-3/packer-1-3-ubuntu-18-04-2-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
@@ -515,7 +516,7 @@ Linux ubuntu <span class="codigo-resaltado">4.15.0-29-generic</span> #31-Ubuntu 
         ["modifyvm", "{{.Name}}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]
       ],
       "output_directory": "<span class="codigo-resaltado">packer-1-4</span>",
-      "vm_name": "<span class="codigo-resaltado">packer-1-4-ubuntu-18-04-1-server</span>",
+      "vm_name": "<span class="codigo-resaltado">packer-1-4-ubuntu-18-04-2-server</span>",
       "format": "ova"
     }
   ]
@@ -552,14 +553,14 @@ Linux ubuntu <span class="codigo-resaltado">4.15.0-29-generic</span> #31-Ubuntu 
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-1-server.ova</span>",
+      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-2-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
       "ssh_username": "<span class="codigo-resaltado">barto</span>",
       "ssh_password": "<span class="codigo-resaltado">barto</span>",
       "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
       "output_directory": "<span class="codigo-resaltado">packer-1-5</span>",
-      "vm_name": "<span class="codigo-resaltado">packer-1-5-ubuntu-18-04-1-server</span>",
+      "vm_name": "<span class="codigo-resaltado">packer-1-5-ubuntu-18-04-2-server</span>",
       "format": "ova"
     }
   ],
@@ -630,7 +631,7 @@ sub   rsa4096 2017-02-22 [S]</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 19 de diciembre de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 9 de marzo de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
