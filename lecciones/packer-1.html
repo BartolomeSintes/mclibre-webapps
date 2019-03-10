@@ -193,7 +193,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
       <ul>
         <li>Instale <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
         <li>Descargue la imagen .iso del disco de instalación de Ubuntu Server 18.04.2 LTS de la página de descarga <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a>.
-          <p>Esta lección se ha elaborado con la versión <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.2-server-amd64.iso">Ubuntu Server 18.04.2 LTS 64 bits</a>.</p>
+          <p>Esta lección se ha elaborado con la versión <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.2-server-amd64.iso">Ubuntu Server 18.04.2 LTS 64 bits</a> (publicada el 10/02/19).</p>
           <p><strong>Nota</strong>: La página de descarga <a href="https://www.ubuntu.com/download/server">https://www.ubuntu.com/download/server</a> descarga la versión Live Server, que incluye un instalador diferente y por tanto requeriría una plantilla distinta a la de este ejemplo.</p>
         </li>
         <li>Cree la plantilla de packer (por ejemplo, packer-1-1.json).</li>
@@ -442,7 +442,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
           <pre class="line-numbers">
 <code class="language-bash">sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
-sudo apt-get -y install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-45-generic</span>
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-45-generic</span>
 sudo mkdir /mnt/cdrom
 sudo mount ~/VBoxGuestAdditions.iso /mnt/cdrom
 sudo sh /mnt/cdrom/VBoxLinuxAdditions.run --nox11
@@ -582,14 +582,14 @@ Linux ubuntu <span class="codigo-resaltado">4.15.0-45-generic</span> #31-Ubuntu 
           <pre class="line-numbers">
 <code class="language-bash">sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
-sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install apt-transport-https ca-certificates curl software-properties-common
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo apt-key fingerprint 0EBFCD88 &gt; info-fingerprint.txt
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 sudo apt-get update
-sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
+sudo DEBIAN_FRONTEND=noninteractive DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
 sudo apt-cache policy docker-ce &gt; info-policy.txt
-sudo apt-get -y install docker-ce</code>
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install docker-ce</code>
 </pre>
         </div>
 
@@ -601,8 +601,8 @@ sudo apt-get -y install docker-ce</code>
                 <div class="codigo">
                   <pre>
 <code class="language-bash">pub   rsa4096 2017-02-22 [SCEA]
-    9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-         [desconocida] Docker Release (CE deb) &lt;docker@docker.com&gt;
+      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid        [desconocida] Docker Release (CE deb) &lt;docker@docker.com&gt;
 sub   rsa4096 2017-02-22 [S]</code>
 </pre>
                 </div>
@@ -612,11 +612,11 @@ sub   rsa4096 2017-02-22 [S]</code>
                   <pre>
 <code class="language-bash">docker-ce:
   Instalados: (ninguno)
-  Candidato: 5:18.09.0~ce-0~ubuntu-bionic
+  Candidato: 5:18.09.3~3-0~ubuntu-bionic
   Tabla de versión:
-    5:18.09.0~3-0~ubuntu-bionic 500
+    5:18.09.3~3-0~ubuntu-bionic 500
           500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
-    18.06.1~ce~3-0~ubuntu 500
+    5:18.09.2~3-0~ubuntu-bionic 500
           500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
     ...</code>
 </pre>
@@ -631,7 +631,7 @@ sub   rsa4096 2017-02-22 [S]</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 9 de marzo de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 10 de marzo de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
