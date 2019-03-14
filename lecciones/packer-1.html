@@ -587,7 +587,7 @@ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add 
 sudo apt-key fingerprint 0EBFCD88 &gt; info-fingerprint.txt
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 sudo apt-get update
-sudo DEBIAN_FRONTEND=noninteractive DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
 sudo apt-cache policy docker-ce &gt; info-policy.txt
 sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install docker-ce</code>
 </pre>
