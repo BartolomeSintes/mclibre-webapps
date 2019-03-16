@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Packer (2). Aplicaciones web. Bartolomé Sintes Marco. www.mclibre.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre" />
+  <link rel="icon" href="../varios/favicon.ico" />
+  <link rel="stylesheet" href="../varios/prism-webapps.css" />
+  <script src="../varios/prism.js"></script>
+</head>
+
+<body>
+  <h1>Packer (2)</h1>
+
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+    </p>
+
+    <div class="toc">
+      <h2>
+        <a href="packer-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        Packer (2)
+        <a href="ubuntu-instalacion.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+      </h2>
+
+      <ul>
+        <li><a href="#compresion">Compresión OVA</a>
+          <ol>
+            <li><a href="#creacion-vm-vbox-ubuntu">Creación e instalación SO</a></li>
+            <li><a href="#provisioners-inline">Ejecución comandos VM</a></li>
+            <li><a href="#provisioners-script">Ejecución scripts VM</a></li>
+            <li><a href="#modificacion-vm">Modificación VM</a></li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <p>En esta lección se muestran más ejemplos de Packer con máquinas virtuales de VirtualBox.</p>
+
+  <section id="compresion">
+    <h2>Compresión de imagen OVA de Ubuntu</h2>
+
+    <p>La forma recomendada de comprimir una máquina virtual Ubuntu de VirtualBox es grabar ceros en las partes no utilizadas del disco mediante la utilidad <i>zerofree</i> y después exportar, clonar o compactar el disco con VirtualBox o la utilidad VBoxManage. Como la utilidad <i>zerofree</i> no funciona sobre unidades montadas, podemos arrancar la máquina virtual con un LiveCD de otra distribución y desde ahí aplicar <i>zerofree</i> a la partición de disco.</p>
+
+    <p>En este ejemplo de automatización con Packer, vamos a realizar la compresión utilziando la distribución <a href="http://www.system-rescue-cd.org/">SystemRescueCd</a>.</p>
+
+    <p>El procedimiento lo llevaremos a cabo en varios pasos.</p>
+    <ul>
+      <li>En el primer paso, simplemente añadiremos el CD de SystemRescueCD a la máquina virtual.</li>
+      <li>En el segundo paso, montaremos</li>
+    </ul>
+
+    <p>Una de las ventajas de preparar primero la imagen básica es ahorrarnos la instalación del sistema operativo en cada prueba de instalación de aplicaciones. La instalación es un proceso que tarda más de 10 minutos y que sólo necesitaremos hacer una vez.</p>
+
+    <section id="creacion-vm-vbox-ubuntu">
+      <h3>Paso 1: Añadir CD a máquina virtual</h3>
+
+      <p>Para crear la máquina virtual:</p>
+
+      <ul>
+        <li>Instale <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
+        <li>Cree la plantilla de packer (por ejemplo, packer-2-1.json).</li>
+        <li>Ejecute packer
+          <div class="terminal">
+            <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
+<code class="language-shell">packer build packer-2-1.json</code>
+</pre>
+          </div>
+        </li>
+      </ul>
+
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-2-1</strong> y creará en él el fichero <strong>packer-2-1-ubuntu-18-04-2-server.ova</strong>.</p>
+
+      <section id="plantilla-creacion-vm">
+        <h4>Plantilla de creación de la máquina virtual (packer-2-1.json)</h4>
+
+        <p>Documentación de packer: <a href="https://www.packer.io/docs/builders/virtualbox-iso.html">Builders en VirtualBox</a></p>
+
+        <p>Esta podría ser la plantilla de creación de la máquina virtual con Ubuntu:</p>
+
+        <div class="codigo">
+          <pre class="line-numbers">
+<code class="language-json">{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "packer-1-3/packer-1-3-ubuntu-18-04-2-server.ova",
+      "guest_additions_mode": "disable",
+      "vm_name": "packer-1-6-ubuntu-18-04-2-server",
+      "vboxmanage": [
+        ["showvminfo", "packer-1-6-ubuntu-18-04-2-server"],
+        ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "0", "--device", "1", "--type", "dvddrive", "--medium", "systemrescuecd-6.0.2.iso"]
+
+      ],
+      "boot_wait": "30s",
+      "ssh_username": "barto",
+      "ssh_password": "barto",
+      "shutdown_command": "echo 'barto' | sudo -S shutdown -P now",
+      "vboxmanage_post": [
+      ],
+      "output_directory": "packer-1-6",
+      "format": "ova"
+    }
+  ]
+}</code>
+</pre>
+        </div>
+
+        <p>Comentarios:</p>
+        <ul>
+          <li>Línea 9: La máquina virtual tendrá un disco duro de 25 GB.</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="provisioners-inline">
+      <h3>Paso 2: Montar el DVD</h3>
+
+      <p>Para actualizar la máquina virtual necesitamos:</p>
+
+      <ul>
+        <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase el ejemplo 1)</li>
+        <li>Crear la plantilla de packer (por ejemplo, packer-2-2.json).</li>
+        <li>Ejecutar packer
+          <div class="terminal">
+            <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
+<code class="language-shell">packer build packer-2-2.json</code>
+</pre>
+          </div>
+        </li>
+      </ul>
+
+      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-2</strong> y creará en él el fichero <strong>packer-2-2-ubuntu-18-04-2-server.ova</strong>.</p>
+
+      <section id="plantilla-actualizacion-vm">
+        <h4>Plantilla de actualización de la máquina virtual (packer-2-2.json)</h4>
+
+        <p>Esta podría ser la plantilla de actualización de la máquina virtual:</p>
+
+        <div class="codigo">
+          <pre class="line-numbers">
+<code class="language-json">{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "packer-1-6/packer-1-6-ubuntu-18-04-2-server.ova",
+      "guest_additions_mode": "disable",
+      "vm_name": "packer-1-7-ubuntu-18-04-2-server",
+      "vboxmanage": [
+        ["showvminfo", "packer-1-7-ubuntu-18-04-2-server"]
+      ],
+      "boot_wait": "30s",
+      "ssh_username": "barto",
+      "ssh_password": "barto",
+      "shutdown_command": "echo 'barto' | sudo -S shutdown -P now",
+      "output_directory": "packer-1-7",
+      "format": "ova"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo 'barto' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "inline": [
+        "sudo mount /dev/cdrom /mnt/cdrom"
+      ]
+    }
+  ]
+}</code>
+</pre>
+        </div>
+
+        <p>Comentarios:</p>
+        <ul>
+          <li>Línea 6: De forma predeterminada, Packer transfiere la imagen .iso de las VirtualBox Guest Additions a la máquina virtual. En este caso se ha deshabilitado esta transferencia puesto que ya se ha transferido a la imagen inicial creada en el ejemplo 1.</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="provisioners-script">
+      <h3>Paso 3: Ejecución de <i>zerofee</i></h3>
+
+      <p>Esta podría ser la plantilla de ejecución de <i>zerofree</i>:</p>
+
+      <div class="codigo">
+        <pre class="line-numbers">
+<code class="language-json">{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "packer-1-7/packer-1-7-ubuntu-18-04-2-server.ova",
+      "guest_additions_mode": "disable",
+      "vm_name": "packer-1-8-ubuntu-18-04-2-server",
+      "vboxmanage": [
+        ["showvminfo", "{{.Name}}" ],
+        ["modifyvm", "{{.Name}}", "--boot1", "dvd", "--boot2", "disk", "--boot3", "none", "--boot4", "none"]
+      ],
+      "boot_wait": "20s",
+      "boot_command": [
+        "&lt;enter&gt;&lt;wait40&gt;",
+        "sudo zerofree -v /dev/mapper/ubuntu--vg-root&lt;enter&gt;&lt;wait40&gt;"
+      ],
+      "communicator": "none",
+      "shutdown_command": "",
+      "virtualbox_version_file": "",
+      "vboxmanage_post": [
+        ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "0", "--device", "1", "--type", "dvddrive", "--medium", "none"],
+        ["modifyvm", "{{.Name}}", "--boot1", "disk", "--boot2", "dvd", "--boot3", "none", "--boot4", "none"]
+      ],
+      "output_directory": "packer-1-8",
+      "format": "ova"
+    }
+  ]
+}</code>
+</pre>
+      </div>
+    </section>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 16 de marzo de 2019</p>
+
+    <p class="licencia">
+      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)</a>.
+    </p>
+  </footer>
+</body>
+</html>

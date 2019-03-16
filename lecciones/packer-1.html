@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <title>Packer. Aplicaciones web. Bartolomé Sintes Marco. www.mclibre.org</title>
+  <title>Packer (1). Aplicaciones web. Bartolomé Sintes Marco. www.mclibre.org</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../varios/webapps.css" title="mclibre" />
   <link rel="icon" href="../varios/favicon.ico" />
@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <h1>Packer</h1>
+  <h1>Packer (1)</h1>
 
   <nav>
     <p>
@@ -21,8 +21,9 @@
 
     <div class="toc">
       <h2>
-        <a href="virtualbox.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> Packer
-        <a href="ubuntu-instalacion.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+        <a href="virtualbox.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a>
+        Packer (1)
+        <a href="packer-2.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
       </h2>
 
       <ul>
@@ -329,7 +330,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
 
         <p>En la sección del constructores le indicamos a packer que utilice la imagen creada en el ejemplo anterior y el usuario creado en ella.</p>
 
-        <p>En la sección de proveedores le indicemos a packer que ejecute un par de comandos para actualizar el sistema.</p>
+        <p>En la sección de proveedores le indicamos a packer que ejecute un par de comandos para actualizar el sistema.</p>
 
         <p>Esta podría ser la plantilla de actualización de la máquina virtual:</p>
 
@@ -474,11 +475,11 @@ Linux ubuntu <span class="codigo-resaltado">4.15.0-45-generic</span> #31-Ubuntu 
         <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella y en su caso, haber instalado programas en ella (véase los ejemplos 1, 2 o 3)</li>
         <li>Crear la plantilla de packer (por ejemplo, packer-1-4.json).</li>
         <li>Ejecutar packer
-            <div class="terminal">
-              <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
+          <div class="terminal">
+            <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
 <code class="language-shell">packer build packer-1-4.json</code>
 </pre>
-            </div>
+          </div>
         </li>
       </ul>
 
