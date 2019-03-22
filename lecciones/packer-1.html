@@ -356,8 +356,8 @@ PACKER_LOG_PATH=packerlog.txt</code>
       "type": "shell",
       "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
       "inline": [
-        "apt-get update",
-        "DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade"
+        "apt update",
+        "DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade"
       ]
     }
   ]
@@ -368,7 +368,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
         <p>Comentarios:</p>
         <ul>
           <li>Línea 6: De forma predeterminada, Packer transfiere la imagen .iso de las VirtualBox Guest Additions a la máquina virtual. En este caso se ha deshabilitado esta transferencia puesto que ya se ha transferido a la imagen inicial creada en el ejemplo 1.</li>
-          <li>Línea 22: En vez de apt-get upgrade se usa el comando <i>DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade</i> porque Packer no es un entorno interactivo y no podemos contestar a peticiones de los instaladores. Con esta opción le decimos automáticamente a todo que sí.</li>
+          <li>Línea 22: Se usa el comando <i>DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade</i> porque Packer no es un entorno interactivo y no podemos contestar a peticiones de los instaladores. Con esta opción le decimos automáticamente a todo que sí.</li>
         </ul>
       </section>
     </section>
@@ -441,9 +441,9 @@ PACKER_LOG_PATH=packerlog.txt</code>
 
         <div class="codigo">
           <pre class="line-numbers">
-<code class="language-bash">sudo apt-get update
-sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
-sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-45-generic</span>
+<code class="language-bash">sudo apt update
+sudo DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade
+sudo DEBIAN_FRONTEND=noninteractive apt -yq install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-46-generic</span>
 sudo mkdir /mnt/cdrom
 sudo mount ~/VBoxGuestAdditions.iso /mnt/cdrom
 sudo sh /mnt/cdrom/VBoxLinuxAdditions.run --nox11
@@ -458,7 +458,7 @@ rm ~/VBoxGuestAdditions.iso</code>
             <div class="terminal">
               <pre class="command-line" data-prompt="user@ubuntu:/$" data-output="2">
 <code class="language-shell">uname -a
-Linux ubuntu <span class="codigo-resaltado">4.15.0-45-generic</span> #31-Ubuntu SMP Tue Jan 29 ...</code>
+Linux ubuntu <span class="codigo-resaltado">4.15.0-46-generic</span> #49-Ubuntu SMP Wed Feb 6 ...</code>
 </pre>
             </div>
           </li>
@@ -581,16 +581,16 @@ Linux ubuntu <span class="codigo-resaltado">4.15.0-45-generic</span> #31-Ubuntu 
 
         <div class="codigo">
           <pre class="line-numbers">
-<code class="language-bash">sudo apt-get update
-sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
-sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install apt-transport-https ca-certificates curl software-properties-common
+<code class="language-bash">sudo apt update
+sudo DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade
+sudo DEBIAN_FRONTEND=noninteractive apt -yq install apt-transport-https ca-certificates curl software-properties-common
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo apt-key fingerprint 0EBFCD88 &gt; info-fingerprint.txt
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-sudo apt-get update
-sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
+sudo apt update
+sudo DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade
 sudo apt-cache policy docker-ce &gt; info-policy.txt
-sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install docker-ce</code>
+sudo DEBIAN_FRONTEND=noninteractive apt -yq install docker-ce</code>
 </pre>
         </div>
 
@@ -632,7 +632,7 @@ sub   rsa4096 2017-02-22 [S]</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de marzo de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 22 de marzo de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
