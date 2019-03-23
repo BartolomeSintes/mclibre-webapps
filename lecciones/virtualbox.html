@@ -80,15 +80,15 @@
         </div>
         <p>La respuesta indica la versión del kernel:</p>
         <div class="terminal">
-          <pre><code class="language-shell">Linux ubuntu <span class="codigo-resaltado">4.15.0-45-generic</span> #48-Ubuntu SMP Tue Jan 29 ...</code></pre>
+          <pre><code class="language-shell">Linux ubuntu <span class="codigo-resaltado">4.15.0-46-generic</span> #49-Ubuntu SMP Wed Feb 6 ...</code></pre>
         </div>
       </li>
       <li>Instale las dependencias necesarias para generar los módulos de kernel:
         <div class="terminal">
           <pre>
-<code class="language-shell">sudo apt-get update
-sudo apt-get -y upgrade
-sudo apt-get -y install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-45-generic</span></code>
+<code class="language-shell">sudo apt update
+sudo apt full-upgrade
+sudo apt -y install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-46-generic</span></code>
 </pre>
         </div>
       </li>

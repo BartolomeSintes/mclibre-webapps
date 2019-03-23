@@ -129,12 +129,24 @@
     <h3>Referencias</h3>
     <ul>
       <li>Principales novedades en Ansible (documentación oficial, <i>Ansible porting guides</i>):
-        <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.0.html">2.0</a> -
-        <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.3.html">2.3</a> -
-        <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.4.html">2.4</a> -
-        <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.5.html">2.5</a> -
-        <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.6.html">2.6</a> -
-        <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.7.html">2.7</a>
+        <ul>
+          <li>Versiones anteriores:
+            <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.0.html">2.0</a> -
+            <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.3.html">2.3</a> -
+            <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.4.html">2.4</a> -
+            <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.5.html">2.5</a> -
+            <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.6.html">2.6</a> -
+            <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.7.html">2.7</a>
+          </li>
+          <li>Próxima versión:
+            <a href="https://docs.ansible.com/ansible/devel/porting_guides/porting_guide_2.8.html">2.8</a>
+          </li>
+        </ul>
+      </li>
+      <li>Changelogs:
+        <a href="https://github.com/ansible/ansible/blob/stable-2.5/changelogs/CHANGELOG-v2.5.rst">2.5</a> -
+        <a href="https://github.com/ansible/ansible/blob/stable-2.6/changelogs/CHANGELOG-v2.6.rst">2.6</a> -
+        <a href="https://github.com/ansible/ansible/blob/stable-2.7/changelogs/CHANGELOG-v2.7.rst">2.7</a>
       </li>
     </ul>
 
@@ -150,15 +162,15 @@
 
     <p>En los tres apartados siguientes:</p>
     <ul>
-      <li>se crea una máquina virtual con Ubuntu 18.03 Server que actuará como máquina de control</li>
-      <li>se crea una o varias máquinas virtuales con Ubuntu 18.04.1 Server que actuará(n) como nodos administrados</li>
+      <li>se crea una máquina virtual con Ubuntu 18.04.2 Server que actuará como máquina de control</li>
+      <li>se crea una o varias máquinas virtuales con Ubuntu 18.04.2 Server que actuarán como nodos administrados</li>
       <li>se configura la máquina de control para que Ansible pueda acceder a los nodos administrados</li>
     </ul>
 
     <section id="instalacion-maquina-control">
-      <h3>Máquina de control: instalación de Ansible en Ubuntu 18.04.1</h3>
+      <h3>Máquina de control: instalación de Ansible en Ubuntu 18.04.2</h3>
 
-      <p>Instalaremos Ansible en una máquina virtual de VirtualBox con Ubuntu 18.04.1 Server que ejercerá de máquina de control. La instalación la realizaremos con Packer a partir de la imagen creada en el <a href="#creacion-vm-vbox-ubuntu">ejemplo 1 de la lección de Packer</a> mediante la plantilla y script siguientes:</p>
+      <p>Instalaremos Ansible en una máquina virtual de VirtualBox con Ubuntu 18.04.2 Server que ejercerá de máquina de control. La instalación la realizaremos con Packer a partir de la imagen creada en el <a href="packer-2.html#compresion">ejemplo 1 de la lección Packer (2)</a> mediante la plantilla y script siguientes:</p>
 
       <ul>
         <li>Plantilla de Packer <strong>ansible-1-1.json</strong>:
@@ -169,26 +181,21 @@
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-1-server.ova</span>",
+      "source_path": "<span class="codigo-resaltado">packer-2-1/packer-2-1-ubuntu-18-04-2-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
-      "ssh_username": "<span class="codigo-resaltado">barto</span>",
-      "ssh_password": "<span class="codigo-resaltado">barto</span>",
-      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
-      "post_shutdown_delay": "120s",
-      "vboxmanage_post": [
-        ["modifyvm", "{{.Name}}", "--nic1", "bridged"],
-        ["modifyvm", "{{.Name}}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]
-      ],
+      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
+      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
+      "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
       "output_directory": "<span class="codigo-resaltado">ansible-1-1</span>",
-      "vm_name": "<span class="codigo-resaltado">ansible-1-1-control</span>",
+      "vm_name": "<span class="codigo-resaltado">ansible-1-1-control-ubuntu-18-04-2-server</span>",
       "format": "ova"
     }
   ],
   "provisioners": [
     {
       "type": "shell",
-      "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "execute_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
       "script": "<span class="codigo-resaltado">ansible-1-1.sh</span>",
       "pause_before": "10s"
     }
@@ -206,12 +213,12 @@
 
           <div class="codigo">
             <pre class="line-numbers">
-<code class="language-bash">sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install software-properties-common
-sudo apt-add-repository -y ppa:ansible/ansible
-sudo apt-get update
-sudo apt-get install -y ansible</code>
+<code class="language-bash">sudo apt update
+sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade -yq
+sudo DEBIAN_FRONTEND=noninteractive apt install software-properties-common -yq
+sudo apt-add-repository ppa:ansible/ansible -y
+sudo apt update
+sudo DEBIAN_FRONTEND=noninteractive apt install ansible -yq</code>
 </pre>
           </div>
         </li>
@@ -219,51 +226,15 @@ sudo apt-get install -y ansible</code>
     </section>
 
     <section id="instalacion-nodos">
-      <h3>Nodos administrados: Ubuntu 18.04.1</h3>
+      <h3>Nodos administrados: Ubuntu 18.04.2</h3>
 
-      <p>En los nodos administrados no es necesario instalar Ansible. Los nodos administrados serán también máquinas virtuales de VirtualBox con Ubuntu 18.04.1 Server. La instalación la realizaremos con Packer a partir de la imagen creada en el <a href="#creacion-vm-vbox-ubuntu">ejemplo 1 de la lección de Packer</a> mediante la plantilla siguiente. En caso de querer crear otros nodos administrados, deberíamos cambiar el directorio de salida y el nombre de la máquina virtual (líneas 16 y 17) y ejecutar de nuevo la plantilla.</p>
-
-      <ul>
-        <li>Plantilla de Packer <strong>ansible-1-2.json</strong>:
-
-          <div class="codigo">
-            <pre class="line-numbers">
-<code class="language-json">{
-  "builders": [
-    {
-      "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-1-server.ova</span>",
-      "guest_additions_mode": "disable",
-      "boot_wait": "30s",
-      "ssh_username": "<span class="codigo-resaltado">barto</span>",
-      "ssh_password": "<span class="codigo-resaltado">barto</span>",
-      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
-      "post_shutdown_delay": "120s",
-      "vboxmanage_post": [
-        ["modifyvm", "{{.Name}}", "--nic1", "bridged"],
-        ["modifyvm", "{{.Name}}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]
-      ],
-      "output_directory": "<span class="codigo-resaltado">ansible-1-2-1</span>",
-      "vm_name": "<span class="codigo-resaltado">ansible-1-2-nodo-1</span>",
-      "format": "ova"
-    }
-  ]
-}</code>
-</pre>
-          </div>
-
-          <p>Notas:</p>
-          <ul>
-            <li>Línea 11: El retardo tras el apagado es para dar tiempo a VirtualBox a desbloquear la máquina y poder hacer la exportación final.</li>
-          </ul>
-        </li>
-      </ul>
+      <p>En los nodos administrados no es necesario instalar Ansible. Los nodos administrados serán también máquinas virtuales de VirtualBox con Ubuntu 18.04.2 Server. Utilizaremos la imagen creada en el <a href="packer-2.html#compresion">ejemplo 1 de la lección Packer (2)</a> para los nodos administrados</p>
     </section>
 
     <section id="configuracion-inicial">
       <h3>Configuración inicial y primera conexión</h3>
 
-      <p>La máquina de control Ansible se conecta con los nodos administrados por SSH. Para poder realizar esa conexión y comprobar su correcto funcionamiento, realice estos pasos en la máquina de cotnrol:</p>
+      <p>La máquina de control Ansible se conecta con los nodos administrados por SSH. Para poder realizar esa conexión y comprobar su correcto funcionamiento, realice estos pasos en la máquina de control:</p>
 
       <ul>
         <li>Edite el archivo <strong>/etc/ansible/hosts</strong> para añadir la dirección IP de los nodos administrados:
@@ -289,7 +260,7 @@ ansible_python_interpreter=/usr/bin/python3</code>
           </div>
           <p>Notas:</p>
           <ul>
-            <li>Como Ubuntu 18.04.1 incluye Python 3 (pero no Python 2), es necesario indicar a Ansible que utilice python3..
+            <li>Como Ubuntu 18.04.2 incluye Python 3 (pero no Python 2), es necesario indicar a Ansible que utilice python3..
             </li>
           </ul>
 
@@ -307,7 +278,7 @@ ansible_python_interpreter=/usr/bin/python3</code>
           <div class="terminal">
             <pre>
 <code class="language-shell">ssh-keygen -t rsa
-ssh-copy-id <span class="codigo-resaltado">barto@192.168.1.16</span></code>
+ssh-copy-id <span class="codigo-resaltado">mclibre@192.168.1.16</span></code>
 </pre>
           </div>
         </li>
@@ -323,7 +294,7 @@ ssh-copy-id <span class="codigo-resaltado">barto@192.168.1.16</span></code>
           <p>Por cada nodo administrado debe mostrarse una respuesta similar a esta:</p>
           <div class="terminal">
             <pre>
-<code class="">192.168.1.16 | SUCCESS =&gt; {
+<code style="color: greenyellow">192.168.1.16 | SUCCESS =&gt; {
     "changed": false,
     "ping": "pong"
 }</code>
@@ -539,7 +510,7 @@ PLAY RECAP *********************************************************************
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de diciembre de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 24 de marzo de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
