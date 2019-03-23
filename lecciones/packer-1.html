@@ -252,10 +252,10 @@ PACKER_LOG_PATH=packerlog.txt</code>
         "&lt;enter&gt;&lt;wait5&gt;",
         "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait60s&gt;",
         "&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
-        "<span class="codigo-resaltado">Bartolome Sintes</span>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
-        "<span class="codigo-resaltado">&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;</span>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
-        "<span class="codigo-resaltado">barto</span>&lt;tab&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
-        "<span class="codigo-resaltado">barto</span>&lt;tab&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "<span class="codigo-resaltado">mclibre</span>&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "<span class="codigo-resaltado">mclibre</span>&lt;tab&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
+        "<span class="codigo-resaltado">mclibre</span>&lt;tab&gt;&lt;spacebar&gt;&lt;tab&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
         "&lt;left&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
         "&lt;enter&gt;&lt;wait10&gt;",
         "&lt;enter&gt;&lt;wait5&gt;",
@@ -269,9 +269,9 @@ PACKER_LOG_PATH=packerlog.txt</code>
         "&lt;enter&gt;&lt;wait40s&gt;",
         "&lt;enter&gt;&lt;wait40s&gt;"
       ],
-      "ssh_username": "<span class="codigo-resaltado">barto</span>",
-      "ssh_password": "<span class="codigo-resaltado">barto</span>",
-      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
+      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
+      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
+      "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
       "output_directory": "<span class="codigo-resaltado">packer-1-1</span>",
       "vm_name": "<span class="codigo-resaltado">packer-1-1-ubuntu-18-04-2-server</span>",
       "format": "ova"
@@ -285,7 +285,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
         <ul>
           <li>Línea 9: La máquina virtual tendrá un disco duro de 25 GB.</li>
           <li>Líneas 10 a 13: La propiedad vboxmanage indica las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>). En el ejemplo, la máquina virtual tendrá 1 GB de RAM y la tarjeta de vídeo tendrá 64 MB.</li>
-          <li>Línea 24: Ubuntu propone un nombre de usuario a partir del nombre de usuario completo escrito en la pantalla anterior. Dependiendo del nombre propuesto habrá que borrar más o menos caracteres o añadir otros. En el ejemplo simplemente se borran los cuatro últimos caracteres del nombre propuesto por Ubuntu pulsando suprimir (&lt;bs&gt;) varias veces(barto<span style="text-decoration: line-through">lome</span>).</li>
+          <li>Línea 24: Ubuntu propone un nombre de usuario a partir del nombre de usuario completo escrito en la pantalla anterior. Dependiendo del nombre propuesto habrá que borrar más o menos caracteres o añadir otros. En el ejemplo no es necesario modificar nada, pero si hicera falta borrar caracteres del nombre propuesto por Ubuntu utilice &lt;bs&gt; en la plantilla (que corresponde a la tecla <i>backspace</i> / <i>Retroceso</i>).</li>
           <li>Líneas 27-28: En algunos casos, Ubuntu no puede localizar un servidor de horas y muestra una pantalla adicional que solicita confirmar la zona horaria. En ese caso, habría que añadir una línea simplemente pulsando <kbd>Intro</kbd>:
             <div class="codigo">
               <pre class="line-numbers" data-start="27">
@@ -343,9 +343,9 @@ PACKER_LOG_PATH=packerlog.txt</code>
       "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-2-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
-      "ssh_username": "<span class="codigo-resaltado">barto</span>",
-      "ssh_password": "<span class="codigo-resaltado">barto</span>",
-      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
+      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
+      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
+      "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
       "output_directory": "<span class="codigo-resaltado">packer-1-2</span>",
       "vm_name": "<span class="codigo-resaltado">packer-1-2-ubuntu-18-04-2-server</span>",
       "format": "ova"
@@ -354,7 +354,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
   "provisioners": [
     {
       "type": "shell",
-      "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "execute_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
       "inline": [
         "apt update",
         "DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade"
@@ -417,9 +417,9 @@ PACKER_LOG_PATH=packerlog.txt</code>
       "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-2-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
-      "ssh_username": "<span class="codigo-resaltado">barto</span>",
-      "ssh_password": "<span class="codigo-resaltado">barto</span>",
-      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
+      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
+      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
+      "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
       "output_directory": "<span class="codigo-resaltado">packer-1-3</span>",
       "vm_name": "<span class="codigo-resaltado">packer-1-3-ubuntu-18-04-2-server</span>",
       "format": "ova"
@@ -428,7 +428,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
   "provisioners": [
     {
       "type": "shell",
-      "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "execute_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
       "script": "<span class="codigo-resaltado">script-3.sh</span>",
       "pause_before": "10s"
     }
@@ -509,9 +509,9 @@ Linux ubuntu <span class="codigo-resaltado">4.15.0-46-generic</span> #49-Ubuntu 
       "source_path": "<span class="codigo-resaltado">packer-1-3/packer-1-3-ubuntu-18-04-2-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
-      "ssh_username": "<span class="codigo-resaltado">barto</span>",
-      "ssh_password": "<span class="codigo-resaltado">barto</span>",
-      "shutdown_command": "echo 'barto' | sudo -S shutdown -P now",
+      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
+      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
+      "shutdown_command": "echo 'mclibre' | sudo -S shutdown -P now",
       "vboxmanage_post": [
         ["modifyvm", "{{.Name}}", "--nic1", "bridged"],
         ["modifyvm", "{{.Name}}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]
@@ -541,7 +541,7 @@ Linux ubuntu <span class="codigo-resaltado">4.15.0-46-generic</span> #49-Ubuntu 
 
       <p>Docker está disponible en Ubuntu 18.04 desde junio de 2018. En este ejemplo se instala la versión más reciente de Docker mediante un script.</p>
 
-      <p>Este ejemplo trabaja a partir de la máquina virtual obtenida en el ejercicio 4 y crea una nueva máquina virtual. Los pasos de instalación de Docker se realizan mediante un script y está basado en el <a href="docker-1.html#ejercicio-1">ejercicio 1 de la lección de Docker (1)</a>.</p>
+      <p>Este ejemplo trabaja a partir de la máquina virtual obtenida en el ejercicio 1 y crea una nueva máquina virtual. Los pasos de instalación de Docker se realizan mediante un script y está basado en el <a href="docker-1.html#ejercicio-1">ejercicio 1 de la lección de Docker (1)</a>.</p>
 
       <section id="plantilla-instalacion-docker">
         <h4>Plantilla de instalación de Docker (packer-1-5.json)</h4>
@@ -557,9 +557,9 @@ Linux ubuntu <span class="codigo-resaltado">4.15.0-46-generic</span> #49-Ubuntu 
       "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-2-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
-      "ssh_username": "<span class="codigo-resaltado">barto</span>",
-      "ssh_password": "<span class="codigo-resaltado">barto</span>",
-      "shutdown_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S shutdown -P now",
+      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
+      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
+      "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
       "output_directory": "<span class="codigo-resaltado">packer-1-5</span>",
       "vm_name": "<span class="codigo-resaltado">packer-1-5-ubuntu-18-04-2-server</span>",
       "format": "ova"
@@ -568,7 +568,7 @@ Linux ubuntu <span class="codigo-resaltado">4.15.0-46-generic</span> #49-Ubuntu 
   "provisioners": [
     {
       "type": "shell",
-      "execute_command": "echo '<span class="codigo-resaltado">barto</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "execute_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
       "script": "<span class="codigo-resaltado">script-5.sh</span>",
       "pause_before": "10s"
     }
@@ -632,7 +632,7 @@ sub   rsa4096 2017-02-22 [S]</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 22 de marzo de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 23 de marzo de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
