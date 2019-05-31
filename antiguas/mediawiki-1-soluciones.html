@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <title>Soluciones (1). MediaWiki 1.22.0. Aplicaciones web. Bartolomé Sintes Marco. www.mclibre.org</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre" />
-  <link rel="icon" href="../varios/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre">
+  <link rel="icon" href="../varios/favicon.ico">
 </head>
 
 <body>
@@ -13,14 +13,14 @@
 
   <nav>
     <p>
-      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31"></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36"></a>
     </p>
 
     <div class="toc">
       <h2>
-        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" /> MediaWiki 1.22 (1)
-        <a href="mediawiki-marcado.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15"> MediaWiki 1.22 (1)
+        <a href="mediawiki-marcado.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18"></a>
       </h2>
 
       <h3><a href="mediawiki-1.html">Enunciados</a></h3>
@@ -54,7 +54,7 @@
   </nav>
 
   <div class="aviso-antiguo">
-    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de MediaWiki. No están actualizados a versiones más actuales porque desde el curso 2014/15 no estoy trabajando en clase MediaWiki ya que estoy dedicando más tiempo a otras aplicaciones. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Estos ejercicios corresponden a una versión antigua de MediaWiki. No están actualizados a versiones más actuales porque desde el curso 2014/15 no estoy trabajando en clase MediaWiki ya que estoy dedicando más tiempo a otras aplicaciones. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
   </div>
 
   <p>En esta lección se proponen soluciones detalladas de los <a href="mediawiki-1.html">ejercicios de MediaWiki (1)</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
@@ -84,7 +84,7 @@
     <ol>
       <li>Cree con phpMyAdmin un usuario de MySQL con nombre <strong>iaw_mediawiki_1</strong>, contraseña <strong>iaw_mediawiki_1</strong> y base de datos <strong>iaw_mediawiki_1</strong>.
         <p class="captura">
-          <img src="img/mediawiki-1-22/mediawiki-phpmyadmin-1.png" alt="MediaWiki. Creación de usuario para WordPress" width="760" height="490" />
+          <img src="img/mediawiki-1-22/mediawiki-phpmyadmin-1.png" alt="MediaWiki. Creación de usuario para WordPress" width="760" height="490">
         </p>
       </li>
       <li>Una vez descargado MediaWiki, descomprima el fichero comprimido en una carpeta accesible desde el servidor local.
@@ -96,7 +96,7 @@
       </li>
       <li>Abra <strong>mediawiki/index.php</strong> en Eclipse. MediaWiki detecta que no existe el archivo de configuración LocalSettings.php y que es necesario utilizar el asistente de instalación.
         <p class="captura">
-          <img src="img/mediawiki-1-22/mediawiki-instalacion-1.png" alt="MediaWiki. Instalación. Aviso de ausencia de configuración" width="250" height="250" />
+          <img src="img/mediawiki-1-22/mediawiki-instalacion-1.png" alt="MediaWiki. Instalación. Aviso de ausencia de configuración" width="250" height="250">
         </p>
       </li>
       <li>El asistente de instalación va preguntando las opciones de configuración deseadas. A continuación se comentan las opciones a elegir distintas de las predeterminadas.
@@ -127,7 +127,7 @@
       </li>
       <li>Si todo ha ido bien, se abrirá la página principal de la wiki:
         <p class="captura">
-          <img src="img/mediawiki-1-22/mediawiki-instalacion-12.png" alt="MediaWiki. Pantalla inicial" width="1008" height="440" />
+          <img src="img/mediawiki-1-22/mediawiki-instalacion-12.png" alt="MediaWiki. Pantalla inicial" width="1008" height="440">
         </p>
         <p>Al abrir <strong>mediawiki/index.php</strong> se redirigirá a <strong>mediawiki/index.php/Página_principal</strong>.</p>
       </li>
@@ -148,7 +148,7 @@
       <li>Para cambiar el nombre de una página, es necesario iniciar sesión en la wiki.</li>
       <li>Una vez iniciada la sesión, al abrir cualquier página se muestra en el menú superior la opción "Trasladar" que permite mover la página.
         <p class="captura">
-          <img src="img/mediawiki-1-22/mediawiki-borrar-trasladar-proteger.png" alt="MediaWiki. Borrar, trasladar o proteger página" width="515" height="176" />
+          <img src="img/mediawiki-1-22/mediawiki-borrar-trasladar-proteger.png" alt="MediaWiki. Borrar, trasladar o proteger página" width="515" height="176">
         </p>
       </li>
     </ol>
@@ -161,7 +161,7 @@
       <li>Para borrar una página, es necesario iniciar sesión en la wiki.</li>
       <li>Una vez iniciada la sesión, al abrir cualquier página se muestra en el menú superior la opción "Borrar" que permite borrar la página.
         <p class="captura">
-          <img src="img/mediawiki-1-22/mediawiki-borrar-trasladar-proteger.png" alt="MediaWiki. Borrar, trasladar o proteger página" width="515" height="176" />
+          <img src="img/mediawiki-1-22/mediawiki-borrar-trasladar-proteger.png" alt="MediaWiki. Borrar, trasladar o proteger página" width="515" height="176">
         </p>
       </li>
     </ol>
@@ -252,8 +252,8 @@
     <p class="ultmod">Última modificación de esta página: 8 de enero de 2014</p>
 
     <p class="licencia">
-      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br>
       que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)</a>.
     </p>
   </footer>

@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <title>Soluciones (1). ownCloud. Aplicaciones web. Bartolomé Sintes Marco. www.mclibre.org</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre" />
-  <link rel="icon" href="../varios/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre">
+  <link rel="icon" href="../varios/favicon.ico">
 </head>
 
 <body>
@@ -13,14 +13,14 @@
 
   <nav>
     <p>
-      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31"></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36"></a>
     </p>
 
     <div class="toc">
       <h2>
-        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" /> ownCloud (1)
-        <a href="owncloud-2.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15"> ownCloud (1)
+        <a href="owncloud-2.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18"></a>
       </h2>
 
       <h3><a href="owncloud-1.html">Enunciados</a></h3>
@@ -46,7 +46,7 @@
   </nav>
 
   <div class="aviso-antiguo">
-    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48" />Estos ejercicios corresponden a una versión antigua de ownCloud. No están actualizados a versiones más actuales porque desde el curso 2016/17 no estoy trabajando en clase ownCloud, sino <a href="../lecciones/nextcloud.html">Nextcloud</a>. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
+    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Estos ejercicios corresponden a una versión antigua de ownCloud. No están actualizados a versiones más actuales porque desde el curso 2016/17 no estoy trabajando en clase ownCloud, sino <a href="../lecciones/nextcloud.html">Nextcloud</a>. He mantenido estos ejercicios en los apuntes por si le pueden servir a alguien.</p>
   </div>
 
   <p>En esta lección se proponen soluciones detalladas de los <a href="owncloud-1.html">ejercicios (1) de ownCloud</a>. Se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
@@ -70,22 +70,22 @@
     <ul>
       <li>Descomprima el archivo comprimido descargado en una carpeta:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-s-1-virtualbox.png" alt="ownCloud. VirtualBox" width="645" height="433" />
+          <img src="img/owncloud-8-2/1-2-s-1-virtualbox.png" alt="ownCloud. VirtualBox" width="645" height="433">
         </p>
       </li>
       <li>Cree una máquina virtual en VirtualBox:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-s-2-virtualbox.png" alt="ownCloud. VirtualBox" width="786" height="588" />
+          <img src="img/owncloud-8-2/1-2-s-2-virtualbox.png" alt="ownCloud. VirtualBox" width="786" height="588">
         </p>
       </li>
       <li>En el asistente de creación, haga clic en el botón "Modo experto":
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-s-3-virtualbox.png" alt="ownCloud. VirtualBox" width="472" height="411" />
+          <img src="img/owncloud-8-2/1-2-s-3-virtualbox.png" alt="ownCloud. VirtualBox" width="472" height="411">
         </p>
       </li>
       <li>Complete la configuración la máquina virtual:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-s-4-virtualbox.png" alt="ownCloud. VirtualBox" width="539" height="496" />
+          <img src="img/owncloud-8-2/1-2-s-4-virtualbox.png" alt="ownCloud. VirtualBox" width="539" height="496">
         </p>
         <ul>
           <li>Tipo: <span class="codigo-modificacion">Linux</span></li>
@@ -96,35 +96,35 @@
       </li>
       <li>Una vez creada la máquina, haga clic en Configurar:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-s-5-virtualbox.png" alt="ownCloud. VirtualBox" width="786" height="588" />
+          <img src="img/owncloud-8-2/1-2-s-5-virtualbox.png" alt="ownCloud. VirtualBox" width="786" height="588">
         </p>
       </li>
       <li>En la pestaña <strong>Red &gt; Adaptador 1</strong>, cambie el adaptador de red a "Adaptador puente" y haga clic en Aceptar:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-s-6-virtualbox.png" alt="ownCloud. VirtualBox" width="706" height="434" />
+          <img src="img/owncloud-8-2/1-2-s-6-virtualbox.png" alt="ownCloud. VirtualBox" width="706" height="434">
         </p>
       </li>
       <li>Ponga en marcha la máquina virtual. En ella se indica la dirección IP asignada y los datos del usuario administrador tanto del sistema operativo como de la aplicación:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-s-7-virtualbox.png" alt="ownCloud. VirtualBox" width="738" height="482" />
+          <img src="img/owncloud-8-2/1-2-s-7-virtualbox.png" alt="ownCloud. VirtualBox" width="738" height="482">
         </p>
       </li>
       <li>Abra <strong>http:/192.168.XXX.YYY</strong> en el navegador y compruebe que se abre la página inicial de ownCloud.
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-e-2-instalacion.png" alt="ownCloud. Instalación" width="350" height="300" />
+          <img src="img/owncloud-8-2/1-2-e-2-instalacion.png" alt="ownCloud. Instalación" width="350" height="300">
         </p>
       </li>
       <li>Escriba el nombre de usuario y la contraseña que se indican en la página de inicio de la máquina virtual (nombre de usuario: user / contraseña: bitnami):
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-s-11-entrar.png" alt="ownCloud. Entrar" width="400" height="350" />
+          <img src="img/owncloud-8-2/1-2-s-11-entrar.png" alt="ownCloud. Entrar" width="400" height="350">
         </p>
       </li>
       <li>Para salir de ownCloud, haga clic en el menú del usuario en la esquina superior derecha y elija la opción Log out:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-s-12-salir.png" alt="ownCloud. Salir" width="1008" height="382" />
+          <img src="img/owncloud-8-2/1-2-s-12-salir.png" alt="ownCloud. Salir" width="1008" height="382">
         </p>
         <p class="captura">
-          <img src="img/owncloud-8-2/1-2-s-13-salir.png" alt="ownCloud. Salir" width="1009" height="350" />
+          <img src="img/owncloud-8-2/1-2-s-13-salir.png" alt="ownCloud. Salir" width="1009" height="350">
         </p>
       </li>
     </ul>
@@ -137,17 +137,17 @@
     <ul>
       <li>Entre en ownCloud como administrador. Haga clic en el nombre del usuario (arriba a la derecha) y seleccione la opción Personal:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-3-s-1-idioma.png" alt="ownCloud. Configuración idioma" width="1010" height="300" />
+          <img src="img/owncloud-8-2/1-3-s-1-idioma.png" alt="ownCloud. Configuración idioma" width="1010" height="300">
         </p>
       </li>
       <li>En el apartado Language, seleccione el idioma deseado:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-3-s-2-idioma.png" alt="ownCloud. Configuración idioma" width="1008" height="220" />
+          <img src="img/owncloud-8-2/1-3-s-2-idioma.png" alt="ownCloud. Configuración idioma" width="1008" height="220">
         </p>
       </li>
       <li>Al elegir un idioma, automáticamente se aplicará el nuevo idioma:
         <p class="captura">
-          <img src="img/owncloud-8-2/1-3-s-3-idioma.png" alt="ownCloud. Configuración idioma" width="1008" height="220" />
+          <img src="img/owncloud-8-2/1-3-s-3-idioma.png" alt="ownCloud. Configuración idioma" width="1008" height="220">
         </p>
       </li>
     </ul>
@@ -158,7 +158,7 @@
     <ul>
       <li>Entre en la máquina virtual de ownCloud
         <p class="captura">
-          <img src="img/owncloud-8-2/1-4-s-1-https.png" alt="ownCloud. Configuración https" width="734" height="413" />
+          <img src="img/owncloud-8-2/1-4-s-1-https.png" alt="ownCloud. Configuración https" width="734" height="413">
         </p>
       </li>
       <li>Vaya al directorio de configuración de Apache:
@@ -173,7 +173,7 @@
       </li>
       <li>Añada la directiva VirtualHost
         <p class="captura">
-          <img src="img/owncloud-8-2/1-4-s-2-https.png" alt="ownCloud. Configuración https" width="730" height="400" />
+          <img src="img/owncloud-8-2/1-4-s-2-https.png" alt="ownCloud. Configuración https" width="730" height="400">
         </p>
       </li>
       <li>Reinicie Apache
@@ -190,7 +190,7 @@
       <li>Como en el ejercicio anterior, entre en la máquina virtual de ownCloud, vaya al directorio de configuración de Apache y edite el archivo de configuración de Apache:</li>
       <li>Añada la directiva VirtualHost
         <p class="captura">
-          <img src="img/owncloud-8-2/1-5-s-1-sts.png" alt="ownCloud. Configuración https" width="740" height="400" />
+          <img src="img/owncloud-8-2/1-5-s-1-sts.png" alt="ownCloud. Configuración https" width="740" height="400">
         </p>
       </li>
       <li>Reinicie Apache
@@ -200,7 +200,7 @@
       </li>
       <li>Modifique la directiva DocumentRoot
         <p class="captura">
-          <img src="img/owncloud-8-2/1-5-s-2-sts.png" alt="ownCloud. Configuración https" width="740" height="400" />
+          <img src="img/owncloud-8-2/1-5-s-2-sts.png" alt="ownCloud. Configuración https" width="740" height="400">
         </p>
       </li>
       <li>Reinicie Apache
@@ -226,14 +226,14 @@
 
     <h3>Acceso por FTP</h3>
     <ol>
-      <li>Configure VSFTP para permitir conexiones FTP. Para ello,<br />
+      <li>Configure VSFTP para permitir conexiones FTP. Para ello,<br>
         <ul>
           <li>Edite el archivo /etc/vsftpd.conf, modificando en las últimas líneas del fichero la directiva listen_address:
             <div class="codigo">
               <pre><code class="language-configuacion">listen_address=0.0.0.0</code></pre>
             </div>
             <p class="captura">
-              <img src="img/owncloud-8-2/1-6-s-1-ftp.png" alt="ownCloud. Configuración VSFTP" width="740" height="400" />
+              <img src="img/owncloud-8-2/1-6-s-1-ftp.png" alt="ownCloud. Configuración VSFTP" width="740" height="400">
             </p>
           </li>
           <li>Modifique la contraseña del usuario <strong>bitnamiftp</strong>
@@ -264,19 +264,19 @@
       </li>
     </ol>
 
-    <hr class="corta" />
+    <hr class="corta">
 
     <h3>Acceso por SFTP</h3>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Por escribir.</p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Por escribir.</p>
   </section>
 
   <footer>
     <p class="ultmod">Última modificación de esta página: 8 de enero de 2016</p>
 
     <p class="licencia">
-      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br>
       que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)</a>.
     </p>
   </footer>

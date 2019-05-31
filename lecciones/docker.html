@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <title>Docker. Aplicaciones web. Bartolomé Sintes Marco. www.mclibre.org</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre" />
-  <link rel="icon" href="../varios/favicon.ico" />
-  <link rel="stylesheet" href="../varios/prism-webapps.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre">
+  <link rel="icon" href="../varios/favicon.ico">
+  <link rel="stylesheet" href="../varios/prism-webapps.css">
   <script src="../varios/prism.js"></script>
 </head>
 
@@ -15,14 +15,14 @@
 
   <nav>
     <p>
-      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31"></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36"></a>
     </p>
 
     <div class="toc">
       <h2>
-        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15" /> Docker
-        <a href="docker-1.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18" /></a>
+        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15"> Docker
+        <a href="docker-1.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18"></a>
       </h2>
 
       <ul>
@@ -54,7 +54,7 @@
   <section id="docker">
     <h2>Contenedores: Docker</h2>
 
-    <p><img src="../img/iconos/logos/logo-docker.svg" alt="Logotipo Docker" title="Logotipo Docker" width="255" height="145" class="derecha" /></p>
+    <p><img src="../img/iconos/logos/logo-docker.svg" alt="Logotipo Docker" title="Logotipo Docker" width="255" height="145" class="derecha"></p>
 
     <p><a href="https://www.docker.com/">Docker</a> es un sistema de virtualización de aplicaciones mediante contenedores, creado por Solomon Hykes y otros ingenieros. En 2013 se convirtió en un proyecto de software libre (licencia Apache) en el que participan cada vez más empresas. La versión 1.0 se publicó en junio de 2014 y ha tenido un desarrollo muy rápido.</p>
 
@@ -146,7 +146,7 @@
 
     <p>Los contenedores son útiles en los servidores, pero también para pruebas de software, ya que incluyen todos los elementos que necesitan las aplicaciones, lo que facilita la instalación y elimina los problemas de incompatibilidad de versiones en bibliotecas y aplicaciones auxiliares. También podría utilizarse para la distribución de software en general, pero en ese caso juega en contra la duplicidad que supone el que cada contenedor incluye todas las capas de software.</p>
 
-    <hr class="corta" />
+    <hr class="corta">
 
     <p>Docker empezó estando disponible solamente para distribuciones GNU/Linux, pero desde junio de 2016 también está disponible como aplicación nativa en Windows Server 2016 y Windows 10.</p>
 
@@ -154,7 +154,7 @@
 
     <p>El componente básico de Docker es el <a href="https://docs.docker.com/engine/userguide/intro/">Docker Engine</a>, pero Docker ofrece también una serie de herramientas para administrar, distribuir e instalar contenedores: <a href="https://docs.docker.com/compose/overview/">Docker Compose</a>, <a href="https://docs.docker.com/machine/overview/">Docker Machine</a>, etc.</p>
 
-    <hr class="corta" />
+    <hr class="corta">
 
     <p>Aunque un contenedor puede incluir cualquier número de aplicaciones, lo habitual es que un contenedor contenga una sola aplicación (y los programas necesarios para ponerse en marcha). Por ejemplo, si una aplicación web guarda la información en una base de datos, en vez de incluir la aplicación y la base de datos en el mismo contenedor, se suelen crear dos contenedores: uno con la aplicación web y otro con la base de datos. Por supuesto, en el contenedor de la aplicación web sí que se incluiría un servidor web.</p>
 
@@ -162,7 +162,7 @@
 
     <p>Cuando varios contenedores contienen aplicaciones web, los servidores web de cada contenedor en principio entrarían en conflicto puesto que todos atienden al puerto 80. Ese problema se presenta siempre que contenedores distintos incluyen aplicaciones que atienden a través de los mismos puertos (base de datos, etc.). Para resolver este problema, Docker permite que los contenedores escuchen por un puerto cualquiera, aunque internamente el servidor sigue utilizando su puerto habitual. En estos casos se debe utilizar un proxy inverso que redirija las peticiones exteriores al puerto correspondiente.</p>
 
-    <hr class="corta" />
+    <hr class="corta">
 
     <p>El proceso de creación de un contenedor incluye varias fases.</p>
     <ul>
@@ -497,8 +497,8 @@ sudo docker network
     <p class="ultmod">Última modificación de esta página: 23 de mayo de 2019</p>
 
     <p class="licencia">
-      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br>
       que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)</a>.
     </p>
   </footer>

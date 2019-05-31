@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <title>Ejercicios (3). phpMyAdmin. Aplicaciones web. Bartolomé Sintes Marco. www.mclibre.org</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre" />
-  <link rel="icon" href="../varios/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre">
+  <link rel="icon" href="../varios/favicon.ico">
 </head>
 
 <body>
@@ -13,13 +13,13 @@
 
   <nav>
     <p>
-      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31" /></a>
-      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36" /></a>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31"></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36"></a>
     </p>
 
     <div class="toc">
       <h2>
-        <a href="phpmyadmin-2.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18" /></a> phpMyAdmin (3)
+        <a href="phpmyadmin-2.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18"></a> phpMyAdmin (3)
       </h2>
 
       <h3><a href="#">Enunciados</a></h3>
@@ -44,7 +44,7 @@
 
   <p>En esta lección se proponen ejercicios "avanzados" de administración de <strong>phpMyAdmin</strong>. Se pueden consultar las <a href="phpmyadmin-3-soluciones.html">soluciones de estos ejercicios de phpMyAdmin</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
-  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48" />Esta lección no está completamente actualizada para phpMyAdmin 4.8.</p>
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Esta lección no está completamente actualizada para phpMyAdmin 4.8.</p>
 
   <section id="ejercicio-1">
     <h2>phpMyAdmin (3) 1 - Completar instalación</h2>
@@ -53,7 +53,7 @@
       <li>Para mantener la identificación de los usuarios en la base de datos, phpMyAdmin guarda una cookie en el cliente. Esta cookie está encriptada mediante el algoritmo <a href="https://es.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a>, que requiere una cadenas <i>sal</i> aleatoria de 32 caracteres.</li>
       <li>Elimine el aviso inicial que muestra phpMyAdmin.
         <p class="captura">
-          <img src="../img/phpmyadmin/3-1-e-1-avisos.png" alt="phpMyAdmin. Avisos iniciales" width="1005" height="387" />
+          <img src="../img/phpmyadmin/3-1-e-1-avisos.png" alt="phpMyAdmin. Avisos iniciales" width="1005" height="387">
         </p>
         <p>Aunque phpMyAdmin utiliza el algortimo AES, la variable de configuración se llama <i>blowfish_secret</i> debido a que anteriormente phpMyAdmin utilizaba el algoritmo <a href="https://en.wikipedia.org/wiki/Blowfish_(cipher)">Blowfish</a>. Para generar la cadena de 32 caracteres puede utilizar algún generador Blowfish de los disponibles en Internet.</p>
       </li>
@@ -66,7 +66,7 @@
     <ol>
       <li>Aplique el tema <strong>Original</strong>:
         <p class="captura">
-          <a href="../img/phpmyadmin/3-1-e-1-temas-original.png"><img src="../img/phpmyadmin/3-1-e-1-temas-original-mini.png" alt="phpMyAdmin. Tema Original" width="576" height="400" /></a>
+          <a href="../img/phpmyadmin/3-1-e-1-temas-original.png"><img src="../img/phpmyadmin/3-1-e-1-temas-original-mini.png" alt="phpMyAdmin. Tema Original" width="576" height="400"></a>
         </p>
       </li>
       <li>Descargue el tema <strong>Metro</strong> de la página de temas de phpMyAdmin y descomprímalo en la carpeta adecuada.
@@ -74,12 +74,12 @@
       </li>
       <li>Aplique el tema <strong>Metro</strong>:
         <p class="captura">
-          <a href="../img/phpmyadmin/3-1-e-2-temas-metro-win.png"><img src="../img/phpmyadmin/3-1-e-2-temas-metro-win-mini.png" alt="phpMyAdmin. Tema Metro" width="576" height="422" /></a>
+          <a href="../img/phpmyadmin/3-1-e-2-temas-metro-win.png"><img src="../img/phpmyadmin/3-1-e-2-temas-metro-win-mini.png" alt="phpMyAdmin. Tema Metro" width="576" height="422"></a>
         </p>
       </li>
       <li>Modifique los colores del tema <strong>Metro</strong>:
         <p class="captura">
-          <a href="../img/phpmyadmin/3-1-e-2-temas-metro-mono.png"><img src="../img/phpmyadmin/3-1-e-2-temas-metro-mono-mini.png" alt="phpMyAdmin. Tema Metro" width="576" height="421" /></a>
+          <a href="../img/phpmyadmin/3-1-e-2-temas-metro-mono.png"><img src="../img/phpmyadmin/3-1-e-2-temas-metro-mono-mini.png" alt="phpMyAdmin. Tema Metro" width="576" height="421"></a>
         </p>
       </li>
       <li>Vuelva al tema predeterminado <strong>pmahomme</strong>.</li>
@@ -140,8 +140,8 @@ $cfg['AllowUserDropDatabase'] = true;</code>
     <p class="ultmod">Última modificación de esta página: 13 de diciembre de 2018</p>
 
     <p class="licencia">
-      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42" /></a><br />
-      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br />
+      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
+      Esta página forma parte del curso <strong><a href="http://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="http://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br>
       que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)</a>.
     </p>
   </footer>
