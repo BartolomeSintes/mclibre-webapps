@@ -66,7 +66,7 @@
 
     <ol>
       <li>Cree un contenedor de Nextcloud a partir de la <a href="https://github.com/nextcloud/docker">imagen nextcloud oficial</a>, que esté disponible en el puerto 8080.
-        <p><strong>Nota</strong>: Se pide asignar el puerto 8080 para poder tener en marcha simultáneamente este Nexcloud junto con otros asignados en otros puertos.</p>
+        <p><strong>Nota</strong>: Se pide asignar el puerto 8080 para poder tener en marcha simultáneamente este Nextcloud junto con otros asignados en otros puertos.</p>
       </li>
       <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada de NextCloud, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD:8080/</strong>, en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
         <p class="captura">
@@ -106,19 +106,19 @@
       <li>Cree un contenedor de <strong>Nextcloud 15.0.0</strong> que esté disponible en el puerto 8080.
         <p>El volumen se montará en el directorio de instalación de Nextcloud:</p>
         <div class="terminal">
-          <pre class="command-line" data-prompt="$"><code class="language-shell">--mount type=volume,source=nc-vol,target=/var/ww/html</code></pre>
+          <pre class="command-line" data-prompt="$"><code class="language-shell">--mount type=volume,source=nc-vol,target=/var/www/html</code></pre>
         </div>
-        <p><strong>Nota</strong>: Se pide asignar el puerto 8080 para poder tener en marcha simultáneamente este Nexcloud junto con otros asignados en otros puertos.</p>
+        <p><strong>Nota</strong>: Se pide asignar el puerto 8080 para poder tener en marcha simultáneamente este Nextcloud junto con otros asignados en otros puertos.</p>
       </li>
       <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada de NextCloud y complete la instalación de NextCloud con los mismos valores que en el ejercicio anterior.</li>
       <li>Compruebe que hay una versión más actual disponible:
         <p class="captura">
-          <img src="../img/nextcloud/1-2-e-1-actualizacion.png" alt="Nexcloud. Actualización" width="991" height="300">
+          <img src="../img/nextcloud/1-2-e-1-actualizacion.png" alt="Nextcloud. Actualización" width="991" height="300">
         </p>
       </li>
       <li>Añada un documento a Nextcloud, por ejemplo este <a href="../elementos/documentos/manual-de-wordpress.pdf">Manual de WordPress (pdf)</a> (ficticio):
         <p class="captura">
-          <img src="../img/nextcloud/1-2-e-2-actualizacion.png" alt="Nexcloud. Actualización" width="991" height="350">
+          <img src="../img/nextcloud/1-2-e-2-actualizacion.png" alt="Nextcloud. Actualización" width="991" height="350">
         </p>
       </li>
       <li>Cierre la sesión de Nextcloud.</li>
@@ -126,12 +126,12 @@
       <li>Cree un contenedor de la última versión disponible de Nextcloud 15 (actualmente -febrero de 2019- <strong>Nextcloud 15.0.4</strong>) con las mismas opciones que el contenedor anterior (volumen, etc.). Nextcloud tardará más en estar disponible porque tiene lugar el proceso de actualización.</li>
       <li>Compruebe que se ha instalado la última versión:
         <p class="captura">
-          <img src="../img/nextcloud/1-2-e-3-actualizacion.png" alt="Nexcloud. Actualización" width="991" height="260">
+          <img src="../img/nextcloud/1-2-e-3-actualizacion.png" alt="Nextcloud. Actualización" width="991" height="260">
         </p>
       </li>
       <li>Compruebe que el documento subido está disponible:
         <p class="captura">
-          <img src="../img/nextcloud/1-2-e-2-actualizacion.png" alt="Nexcloud. Actualización" width="991" height="350">
+          <img src="../img/nextcloud/1-2-e-2-actualizacion.png" alt="Nextcloud. Actualización" width="991" height="350">
         </p>
       </li>
     </ol>
@@ -144,8 +144,8 @@
 
     <ol>
       <li>Cree una red e incluya los tres contenedores (MariaDB, phpMyAdmin y NextCloud) en ella.</li>
-      <li>Cree un contenedor de MariaDB a partir de la imagen bitnami/mariadb. Utilice la variable de configuracion ALLOW_EMPTY_PASSWORD.</li>
-      <li>Cree un contenedor de phpMyAdmin que escuche en un puerto distino del puerto 80, por ejemplo, en el 8081, a partir de la imagen bitnami/phpmyadmin. Utilice la variable de configuracion DATABASE_HOST para indicar el nombre del contenedor de MariaDB.</li>
+      <li>Cree un contenedor de MariaDB a partir de la imagen bitnami/mariadb. Utilice la variable de configuración ALLOW_EMPTY_PASSWORD.</li>
+      <li>Cree un contenedor de phpMyAdmin que escuche en un puerto distinto del puerto 80, por ejemplo, en el 8081, a partir de la imagen bitnami/phpmyadmin. Utilice la variable de configuración DATABASE_HOST para indicar el nombre del contenedor de MariaDB.</li>
       <li>Cree en MariaDB con phpMyAdmin un usuario <span class="codigo-modificacion">nextcloud</span>, que pueda acceder desde cualquier ordenador, con contraseña <span class="codigo-modificacion">nextcloud</span> y base de datos única.</li>
       <li>Cree un contenedor de Nextcloud a partir de la imagen nextcloud, que escuche en los puertos 80 y 443.</li>
       <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada en NextCloud, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD/</strong>, en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
@@ -196,14 +196,14 @@
 
   <section id="ejercicio-5">
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Estos ejercicios están pedientes de actualizar a la versión 15.</p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Estos ejercicios están pendientes de actualizar a la versión 15.</p>
 
     <h2>Nextcloud (1) 5 - Habilitar https en el servidor</h2>
 
     <p>Referencia: <a href="https://docs.nextcloud.com/server/13/admin_manual/configuration_server/harden_server.html">https://docs.nextcloud.com/server/13/admin_manual/configuration_server/harden_server.html</a></p>
 
     <ol>
-      <li>Compruebe que al acceder a Nextcloudmediante una conexión <strong>no</strong> cifrada <strong>http://AAA.BBB.CCC.DDD/</strong>, se muestra el aviso siguiente:
+      <li>Compruebe que al acceder a Nextcloud mediante una conexión <strong>no</strong> cifrada <strong>http://AAA.BBB.CCC.DDD/</strong>, se muestra el aviso siguiente:
         <p class="captura">
           <img src="../img/nextcloud/1-5-e-1-https.png" alt="Nextcloud. Entrar" width="400" height="350">
         </p>
@@ -239,7 +239,7 @@
         <p>Para ello, modifique el archivo de configuración de Apache <strong>apache2.conf</strong> que se encuentra en el contenedor y reinicie el servicio apache2.</p>
         <p class="incompleto"><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Antes de modificar un archivo de configuración se recomienda siempre hacer una copia del archivo original.</p>
         <ul>
-          <li>En el archivo de congiguración, añada una directiva VirtualHost que redirija las peticiones http a https, en la que AAA.BBB.CCC.DDD es la IP de la máquina virtual:
+          <li>En el archivo de configuración, añada una directiva VirtualHost que redirija las peticiones http a https, en la que AAA.BBB.CCC.DDD es la IP de la máquina virtual:
             <div class="codigo">
               <pre>
 <code class="language-configuracion">&lt;VirtualHost *:80&gt;
@@ -266,7 +266,7 @@
       <li>Compruebe si la IP de la máquina virtual ha cambiado. Si <strong>no</strong> ha cambiado automáticamente, cámbiela manualmente, reinicie la máquina virtual y compruebe que la IP ha cambiado.</li>
       <li>Compruebe que Nextcloud no se redirige de http a https.</li>
       <li>Corrija el archivo de configuración <strong>apache2.php</strong> con la nueva IP.</li>
-      <li>Compruebe que Nextcloudredirige de http a https.</li>
+      <li>Compruebe que Nextcloud redirige de http a https.</li>
     </ol>
   </section>
 
@@ -276,7 +276,7 @@
     <p class="incompleto">Por escribir</p>
 
     <ul>
-      <li>LibreOfiice en Nextcloud:
+      <li>LibreOffice en Nextcloud:
         <a href="https://www.collaboraoffice.com/code/">Collabora Online (CODE)</a> -
         <a href="https://nextcloud.com/collaboraonline/">Información en web Nextcloud</a>
       </li>

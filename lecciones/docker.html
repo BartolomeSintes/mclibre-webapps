@@ -150,7 +150,7 @@
 
     <p>Docker empezó estando disponible solamente para distribuciones GNU/Linux, pero desde junio de 2016 también está disponible como aplicación nativa en Windows Server 2016 y Windows 10.</p>
 
-    <p>Docker utiliza la virtualización ofrecida por el sistema operativo. En el caso de Windows 10, eso significa que para usar Docker de forma nativa hay que activar Hyper-V que, por desgracia, es incompatible con VirtualBox. Para poder utilizar Docker en Windows 7 o en Windows 10 sin Hyper-V, Docker ofrece desde agosto de 2015 <a href="https://github.com/docker/toolbox">Docker Toolbox</a>, que relamente es una máquina virtual (que se ejecuta en VirtualBox) que contiene Docker.</p>
+    <p>Docker utiliza la virtualización ofrecida por el sistema operativo. En el caso de Windows 10, eso significa que para usar Docker de forma nativa hay que activar Hyper-V que, por desgracia, es incompatible con VirtualBox. Para poder utilizar Docker en Windows 7 o en Windows 10 sin Hyper-V, Docker ofrece desde agosto de 2015 <a href="https://github.com/docker/toolbox">Docker Toolbox</a>, que realmente es una máquina virtual (que se ejecuta en VirtualBox) que contiene Docker.</p>
 
     <p>El componente básico de Docker es el <a href="https://docs.docker.com/engine/userguide/intro/">Docker Engine</a>, pero Docker ofrece también una serie de herramientas para administrar, distribuir e instalar contenedores: <a href="https://docs.docker.com/compose/overview/">Docker Compose</a>, <a href="https://docs.docker.com/machine/overview/">Docker Machine</a>, etc.</p>
 
@@ -268,18 +268,18 @@ sudo docker network
       </li>
       <li>Los comandos tienen a su vez opciones. Los nombres de las opciones van precedidas de los caracteres -- y entre la opción y su valor se puede escribir un espacio o el carácter =.
         <div class="terminal">
-          <pre><code class="language-shell">sudo docker COMANDO --OPCION=VALOR</code></pre>
+          <pre><code class="language-shell">sudo docker COMANDO --OPCIÓN=VALOR</code></pre>
         </div>
         <div class="terminal">
-          <pre><code class="language-shell">sudo docker COMANDO --OPCION VALOR</code></pre>
+          <pre><code class="language-shell">sudo docker COMANDO --OPCIÓN VALOR</code></pre>
         </div>
       </li>
       <li>Si el valor de una opción contiene espacios, escriba el valor entre comillas
         <div class="terminal">
-          <pre><code class="language-shell">sudo docker COMANDO --OPCION="VALOR CON ESPACIOS"</code></pre>
+          <pre><code class="language-shell">sudo docker COMANDO --OPCIÓN="VALOR CON ESPACIOS"</code></pre>
         </div>
         <div class="terminal">
-          <pre><code class="language-shell">sudo docker COMANDO --OPCION "VALOR CON ESPACIOS"</code></pre>
+          <pre><code class="language-shell">sudo docker COMANDO --OPCIÓN "VALOR CON ESPACIOS"</code></pre>
         </div>
       </li>
     </ul>
@@ -287,7 +287,7 @@ sudo docker network
     <section id="imagenes">
       <h3>Imágenes</h3>
 
-      <p>En los comandos siguientes REPOSITORIO es el nombre del repositorio en el que se encuentra la imagen (por ejemplo bitnami/phpmyadmin) e IMAGEN es el nombre de la imagen descargada. Realmente, las imágenes descargadas se llaman igual que los repositorios de donde se han descargado, pero he distinguido los nombres para dejar claro cuándo nos estamos haciendo referencia a la imagen del repositiorio y cuándo a la imagen local.</p>
+      <p>En los comandos siguientes REPOSITORIO es el nombre del repositorio en el que se encuentra la imagen (por ejemplo bitnami/phpmyadmin) e IMAGEN es el nombre de la imagen descargada. Realmente, las imágenes descargadas se llaman igual que los repositorios de donde se han descargado, pero he distinguido los nombres para dejar claro cuándo nos estamos haciendo referencia a la imagen del repositorio y cuándo a la imagen local.</p>
 
       <ul>
         <li>Para gestionar las imágenes, se utiliza el comando:

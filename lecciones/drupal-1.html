@@ -129,14 +129,14 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
           <li>Seleccionar un perfil de instalación
             <p>Elija el perfil Estándar.</p>
           </li>
-          <li>Verificar requisitos: Extensión OPCache
-            <p>El instalador de Drupal recomienda activar <a href="http://php.net/manual/en/book.opcache.php">OPCache</a> en PHP.</p>
+          <li>Verificar requisitos: Extensión OPcache
+            <p>El instalador de Drupal recomienda activar <a href="http://php.net/manual/en/book.opcache.php">OPcache</a> en PHP.</p>
             <p class="captura">
               <img src="../img/drupal/1-2-e-3-opcache.png" alt="Drupal. OPcache" width="400" height="160">
             </p>
             <details>
               <summary><strong>Ayuda</strong></summary>
-              <p>Para activar y configurar OPCache en PHP, puede aplicar la solución propuesta en <a href="https://www.drupal.org/node/2623566">este foro de Drupal</a>.</p>
+              <p>Para activar y configurar OPcache en PHP, puede aplicar la solución propuesta en <a href="https://www.drupal.org/node/2623566">este foro de Drupal</a>.</p>
             </details>
           </li>
           <li>Configurar base de datos
@@ -255,12 +255,12 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
         <p class="captura">
           <img src="../img/drupal/1-4-e-3-actualizacion.png" alt="Drupal. Actualizar" width="820" height="180">
         </p>
-        <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">En Drupal 8, el aviso de sitio en mantenimiento no parece mostrarse en todas las páginas, como sí hacía en Drupal 7. No sé si se debe a OPcaché.</p>
+        <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">En Drupal 8, el aviso de sitio en mantenimiento no parece mostrarse en todas las páginas, como sí hacía en Drupal 7. No sé si se debe a OPcache.</p>
         <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Si hay que volver a entrar como administrador y no se puede hacer clic en <strong>Iniciar sesión</strong>, se puede hacer escribiendo la dirección <strong>drupal/user</strong>.</p>
       </li>
       <li>Siempre que se hace una actualización, se recomienda hacer previamente una copia de seguridad completa de Drupal (archivos y base de datos), aunque como en el ejercicio anterior ya se ha realizado una copia de seguridad completa, en este ejercicio no es necesario volverla a realizar.</li>
       <li>Descargue la nueva versión y lea el archivo UPGRADE.txt, apartado MINOR VERSION UPDATES, que contiene las instrucciones específicas de actualización (pueden cambiar de una versión a otra).</li>
-      <li>Lleve a cabo los pasos necesarios indicado sen el archivo UPGRADE.txt.</li>
+      <li>Lleve a cabo los pasos necesarios indicados en el archivo UPGRADE.txt.</li>
       <li>Si todo va bien, Drupal mostrará la página final:
         <p class="captura">
           <img src="../img/drupal/1-4-e-4-actualizacion.png" alt="Drupal. Actualizar" width="780" height="380">
@@ -320,7 +320,7 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
       <li>Cree con phpMyAdmin un usuario de MySQL con nombre <strong>iaw_drupal_2</strong>, contraseña <strong>iaw_drupal_2</strong> y base de datos <strong>iaw_drupal_2</strong>.</li>
       <li>Descomprima la copia de seguridad de los archivos realizada en el ejercicio Drupal (1) 3 en una carpeta <strong>drupal_2</strong>.</li>
       <li>Restaure la copia de seguridad de la base de datos realizada en el ejercicio Drupal (1) 3 en la base de datos <strong>iaw_drupal_2</strong>.</li>
-      <li>Modifique los archivos de configuración de Drupal2 de manera que se pueda utilizar de forma independiente de la primera instalación realizada (como mínimo, <strong>.htacess</strong> y <strong>default.settings.php</strong>).</li>
+      <li>Modifique los archivos de configuración de Drupal2 de manera que se pueda utilizar de forma independiente de la primera instalación realizada (como mínimo, <strong>.htaccess</strong> y <strong>default.settings.php</strong>).</li>
       <li>Compruebe que puede entrar como usuario o administrador mediante la dirección <strong>/drupal_2</strong>.
         <p class="captura">
           <img src="../img/drupal/1-7-e-1-segunda.png" alt="Drupal. Copia de Drupal" width="600" height="410">

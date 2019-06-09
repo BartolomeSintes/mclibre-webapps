@@ -72,15 +72,15 @@
       </li>
       <li>Abra la página inicial de Nextcloud y rellene los datos:
         <p class="captura">
-          <img src="../img/nextcloud/1-1-s-1-instalacion.png" alt="Nexcloud. Instalación" width="991" height="570">
+          <img src="../img/nextcloud/1-1-s-1-instalacion.png" alt="Nextcloud. Instalación" width="991" height="570">
         </p>
       </li>
       <li>Para cerrar la sesión de Nextcloud, haga clic en el icono de la rueda dentada y elija la opción Cerrar sesión:
         <p class="captura">
-          <img src="../img/nextcloud/1-1-s-2-instalacion.png" alt="Nexcloud. Instalación" width="991" height="315">
+          <img src="../img/nextcloud/1-1-s-2-instalacion.png" alt="Nextcloud. Instalación" width="991" height="315">
         </p>
       </li>
-      <li>Para eliminar el contenedor, detenga el cotnenedor y bórrelo:
+      <li>Para eliminar el contenedor, detenga el contenedor y bórrelo:
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo docker stop nc-sqlite
@@ -100,7 +100,7 @@ sudo docker rm nc-sqlite</code>
           <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker run -d --name=nc-sqlite -p 8080:80 --mount type=volume,source=nc-vol,target=/var/www/html nextcloud:15.0.0</code></pre>
         </div>
       </li>
-      <li>Detenga el cotnenedor y bórrelo:
+      <li>Detenga el contenedor y bórrelo:
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo docker stop nc-sqlite

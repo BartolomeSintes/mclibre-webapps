@@ -56,7 +56,7 @@
 
     <p>XAMPP incluye una versión de phpMyAdmin que se encuentra en la carpeta /xampp/phpMyAdmin. Para ponerla en marcha, se puede:</p>
     <ul>
-      <li>abrir el panel de administración web (htpp://localhost) y hacer clic en phpMyAdmin:
+      <li>abrir el panel de administración web (http://localhost) y hacer clic en phpMyAdmin:
         <p class="captura">
           <img src="../img/phpmyadmin/1-1-e-1-xampp.png" alt="phpMyAdmin. XAMPP" width="1005" height="200">
         </p>
@@ -156,7 +156,7 @@
           <img src="../img/phpmyadmin/1-6-e-1-inicio-sesion.png" alt="phpMyAdmin. Página de inicio. Error de usuario sin contraseña" width="410" height="350">
         </p>
       </li>
-      <li>Para poder entrar como usuario <strong>root</strong> sin contraseña debe modificarse el archivo de configuración de phpMyAdmin. Ese archivo es el archivo <strong>config.inc.php</strong>. Incialmente ese archivo no existe, pero hay un archivo <strong>config.sample.inc.php</strong> que se puede copiar, renombrar como <strong>config.inc.php</strong> y editar.</li>
+      <li>Para poder entrar como usuario <strong>root</strong> sin contraseña debe modificarse el archivo de configuración de phpMyAdmin. Ese archivo es el archivo <strong>config.inc.php</strong>. Inicialmente ese archivo no existe, pero hay un archivo <strong>config.sample.inc.php</strong> que se puede copiar, renombrar como <strong>config.inc.php</strong> y editar.</li>
       <li>Busque en el archivo de configuración config.inc.php la variable que establece si se admite o no una contraseña en blanco para <strong>root</strong>.</li>
       <li>Cambie el valor lógico (<span class="php-con">true</span> o <span class="php-con">false</span>) de esa variable y compruebe que ya puede entrar en phpMyAdmin como usuario <strong>root</strong> de MySQL/MariaDB sin contraseña.
         <p class="captura">

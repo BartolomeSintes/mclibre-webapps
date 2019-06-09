@@ -154,14 +154,14 @@ curl.cainfo = "C:\Windows\cacert.pem"</code>
             </p>
           </li>
 
-          <li>Verificar requisitos: Extensión OPCaché
-            <p>OpCache incluye muchas opciones de configuración que en un servidor de producción deben ajustarse cuidadosamente. En el archivo <strong>php.ini</strong>, active y configure la extensión <strong>zend_opcache</strong> y reinicie el servidor.</p>
+          <li>Verificar requisitos: Extensión OPcache
+            <p>OPcache incluye muchas opciones de configuración que en un servidor de producción deben ajustarse cuidadosamente. En el archivo <strong>php.ini</strong>, active y configure la extensión <strong>zend_opcache</strong> y reinicie el servidor.</p>
             <ul>
-              <li>Para activar y configurar OPCache en XAMPP, puede aplicar la solución propuesta en <a href="https://www.drupal.org/node/2623566">este foro de Drupal</a>.
+              <li>Para activar y configurar OPcache en XAMPP, puede aplicar la solución propuesta en <a href="https://www.drupal.org/node/2623566">este foro de Drupal</a>.
 
                 <div class="codigo">
                   <pre>
-<code class="language-configuracion">; Barto. Activo la extensión OPCache para Drupal.
+<code class="language-configuracion">; Barto. Activo la extensión OPcache para Drupal.
 zend_extension=php_opcache.dll
 
 [opcache]
@@ -174,11 +174,11 @@ opcache.use_cwd=1</code>
 </pre>
                 </div>
               </li>
-              <li>En el capítulo sobre <a href="http://php.net/manual/en/opcache.installation.php">instalación de OPCache</a> del manual de PHP se propone una configuración distinta:
+              <li>En el capítulo sobre <a href="http://php.net/manual/en/opcache.installation.php">instalación de OPcache</a> del manual de PHP se propone una configuración distinta:
 
                 <div class="codigo">
                   <pre>
-<code class="language-configuracion">; Barto. Activo la extensión OPCache para Drupal.
+<code class="language-configuracion">; Barto. Activo la extensión OPcache para Drupal.
 zend_extension=php_opcache.dll
 
 [opcache]
@@ -334,7 +334,7 @@ opcache.enable_cli=1</code>
         <p class="captura">
           <img src="../img/drupal/1-4-s-8-actualizacion.png" alt="Drupal. Actualizar" width="820" height="180">
         </p>
-        <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">En Drupal 8, el aviso de sitio en mantenimiento no parece mostrarse en todas las páginas, como sí hacía en Drupal 7. No sé si se debe a OPcaché.</p>
+        <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">En Drupal 8, el aviso de sitio en mantenimiento no parece mostrarse en todas las páginas, como sí hacía en Drupal 7. No sé si se debe a OPcache.</p>
         <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Si hay que volver a entrar como administrador y no se puede hacer clic en <strong>Iniciar sesión</strong>, se puede hacer escribiendo la dirección <strong>drupal/user</strong>.</p>
       </li>
       <li>Haga una copia de seguridad completa de Drupal (archivos y base de datos).</li>
@@ -469,7 +469,7 @@ RewriteBase <span class="codigo-modificacion">/drupal</span></code>
 
     <ul>
       <li>Si los enlaces de la página principal son incorrectos y no apuntan a la dirección en la que se encuentra Drupal, siga los siguientes pasos:
-        <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Parece que este problema se debe a OPCaché y la solución que se propone aquí "reinicia" OPCaché y así se resuelve el problema.</p>
+        <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Parece que este problema se debe a OPcache y la solución que se propone aquí "reinicia" OPcache y así se resuelve el problema.</p>
       </li>
       <li>Escriba la dirección <strong>drupal/user</strong> y entre como administrador:
         <p class="captura">

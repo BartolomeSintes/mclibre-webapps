@@ -39,13 +39,13 @@
 
     <p>La forma recomendada de comprimir una máquina virtual Ubuntu de VirtualBox es grabar ceros en las partes no utilizadas del disco mediante la utilidad <i>zerofree</i> y después exportar, clonar o compactar el disco con VirtualBox o la utilidad VBoxManage. Como la utilidad <i>zerofree</i> no funciona sobre unidades montadas, debemos arrancar la máquina virtual con un LiveCD de otra distribución y desde ahí aplicar <i>zerofree</i> a la partición de disco.</p>
 
-    <p>En este ejemplo de automatización con Packer, vamos a realizar la compresión utilizando la distribución <a href="http://www.system-rescue-cd.org/">SystemRescueCd</a>.</p>
+    <p>En este ejemplo de automatización con Packer, vamos a realizar la compresión utilizando la distribución <a href="http://www.system-rescue-cd.org/">SystemRescueCD</a>.</p>
 
     <p>Actualmente (marzo de 2019), la última versión disponible de SystemRescue es la versión 6.0.2, publicada el 19 de febrero de 2019. En <a href="http://www.cdlibre.org/">cdlibre.org</a> hay una sección dedicada a <a href="http://www.cdlibre.org/consultar/catalogo/Utilidades_Disco.html">Utilidades de disco</a>, desde la que se puede descargar la última versión disponible.</p>
 
     <p>Los elementos necesarios para realizar la compresión son los siguientes:</p>
     <ul>
-      <li>La imagen OVA a comprimir. En este caso, comprmiremos la imagen obtenida en el <a href="packer-1.html#provisioners-script">ejemplo 3 de la lección Packer (1)</a>.</li>
+      <li>La imagen OVA a comprimir. En este caso, comprimiremos la imagen obtenida en el <a href="packer-1.html#provisioners-script">ejemplo 3 de la lección Packer (1)</a>.</li>
       <li>La imagen ISO de SystemRescueCD.</li>
       <li>La plantilla de packer (por ejemplo, packer-2-1.json).</li>
     </ul>

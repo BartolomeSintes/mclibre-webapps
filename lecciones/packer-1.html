@@ -179,7 +179,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
 
     <p>Packer permite crear máquinas virtuales para muchos sistemas de virtualización e instalar y configurar en ellas el sistema operativo que queramos.</p>
 
-    <p>Las plantillas de packer admiten muchas posiblidades, que se detallan en la <a href="https://www.packer.io/docs/index.html">documentación oficial de packer</a>.</p>
+    <p>Las plantillas de packer admiten muchas posibilidades, que se detallan en la <a href="https://www.packer.io/docs/index.html">documentación oficial de packer</a>.</p>
 
     <p>En esta lección veremos cuatro ejemplos de creación de máquinas virtuales y posterior instalación de aplicaciones en la máquinas:</p>
     <ul>
@@ -290,7 +290,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
         <ul>
           <li>Línea 9: La máquina virtual tendrá un disco duro de 25 GB.</li>
           <li>Líneas 10 a 13: La propiedad vboxmanage indica las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>). En el ejemplo, la máquina virtual tendrá 1 GB de RAM y la tarjeta de vídeo tendrá 64 MB.</li>
-          <li>Línea 24: Ubuntu propone un nombre de usuario a partir del nombre de usuario completo escrito en la pantalla anterior. Dependiendo del nombre propuesto habrá que borrar más o menos caracteres o añadir otros. En el ejemplo no es necesario modificar nada, pero si hicera falta borrar caracteres del nombre propuesto por Ubuntu utilice &lt;bs&gt; en la plantilla (que corresponde a la tecla <i>backspace</i> / <i>Retroceso</i>).</li>
+          <li>Línea 24: Ubuntu propone un nombre de usuario a partir del nombre de usuario completo escrito en la pantalla anterior. Dependiendo del nombre propuesto habrá que borrar más o menos caracteres o añadir otros. En el ejemplo no es necesario modificar nada, pero si hiciera falta borrar caracteres del nombre propuesto por Ubuntu utilice &lt;bs&gt; en la plantilla (que corresponde a la tecla <i>backspace</i> / <i>Retroceso</i>).</li>
           <li>Líneas 27-28: En algunos casos, Ubuntu no puede localizar un servidor de horas y muestra una pantalla adicional que solicita confirmar la zona horaria. En ese caso, habría que añadir una línea simplemente pulsando <kbd>Intro</kbd>:
             <div class="codigo">
               <pre class="line-numbers" data-start="27">
@@ -302,7 +302,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
           </li>
           <li>Línea 36: Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina mediante SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu es necesario elegir instalar el servidor OpenSSH. La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
           <li>Línea 42: La propiedad shutdown_command se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario.</li>
-          <li>Linea 45: La máquina virtual se guarda en formato .ova para que conste de un único fichero.</li>
+          <li>Línea 45: La máquina virtual se guarda en formato .ova para que conste de un único fichero.</li>
         </ul>
       </section>
     </section>
@@ -381,7 +381,7 @@ PACKER_LOG_PATH=packerlog.txt</code>
     <section id="provisioners-script">
       <h3>Ejemplo 3: Instalación de VirtualBox Guest Additions mediante un <i>script</i></h3>
 
-      <p>Para instalar las VirtualBox Guest Addtions en la máquina virtual necesitamos:</p>
+      <p>Para instalar las VirtualBox Guest Additions en la máquina virtual necesitamos:</p>
 
       <ul>
         <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase el ejemplo 1)</li>

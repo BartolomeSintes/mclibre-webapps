@@ -30,7 +30,7 @@
         <li><a href="owncloud-1.html#ejercicio-3">3 - Configuración básica</a></li>
         <li><a href="owncloud-1.html#ejercicio-4">4 - Acceder mediante https</a></li>
         <li><a href="owncloud-1.html#ejercicio-5">5 - Habilitar HTTP STS</a></li>
-        <li><a href="owncloud-1.html#ejercicio-6">6 - Acceder Filezilla/WinSCP</a></li>
+        <li><a href="owncloud-1.html#ejercicio-6">6 - Acceder FileZilla/WinSCP</a></li>
       </ul>
 
       <h3><a href="#">Soluciones</a></h3>
@@ -40,7 +40,7 @@
         <li><a href="#ejercicio-3">3 - Configuración básica</a></li>
         <li><a href="#ejercicio-4">4 - Acceder mediante https</a></li>
         <li><a href="#ejercicio-5">5 - Habilitar HTTP STS</a></li>
-        <li><a href="#ejercicio-6">6 - Acceder Filezilla/WinSCP</a></li>
+        <li><a href="#ejercicio-6">6 - Acceder FileZilla/WinSCP</a></li>
       </ul>
     </div>
   </nav>
@@ -222,7 +222,7 @@
   </section>
 
   <section id="ejercicio-6">
-    <h2>ownCloud (1) 6 - Acceder mediante Filezilla o WinSCP</h2>
+    <h2>ownCloud (1) 6 - Acceder mediante FileZilla o WinSCP</h2>
 
     <h3>Acceso por FTP</h3>
     <ol>
@@ -246,17 +246,17 @@
               <pre><code class="language-shell">sudo ufw allow 21</code></pre>
             </div>
           </li>
-          <li>Reinicie el servicio VSTFP
+          <li>Reinicie el servicio VSFTP
             <div class="codigo">
               <pre><code class="language-shell">sudo service vsftpd restart</code></pre>
             </div>
           </li>
         </ul>
       </li>
-      <li>Instale Filezilla o WinSCP y conéctese a la máquina virtual con los datos siguientes:
+      <li>Instale FileZilla o WinSCP y conéctese a la máquina virtual con los datos siguientes:
         <ul>
           <li>File protocol: <span class="codigo-modificacion">FTP</span></li>
-          <li>Encrypction: <span class="codigo-modificacion">No encryption</span></li>
+          <li>Encryption: <span class="codigo-modificacion">No encryption</span></li>
           <li>Host name: <span class="codigo-modificacion">192.168.XXX.YYY</span></li>
           <li>Port number: <span class="codigo-modificacion">21</span></li>
           <li>UserName: <span class="codigo-modificacion">bitnamiftp</span></li>
