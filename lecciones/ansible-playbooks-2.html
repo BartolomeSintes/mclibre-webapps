@@ -21,7 +21,9 @@
 
     <div class="toc">
       <h2>
-        <a href="ansible-playbooks-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18"></a> Playbooks (2)
+        <a href="ansible-playbooks-1.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18"></a>
+        <img src="../varios/iconos/icono-vacio.svg" alt="" width="15" height="15">
+        Playbooks (2)
       </h2>
 
       <ul>
@@ -103,19 +105,19 @@
   </section>
 
   <section id="cambio-locale">
-      <h3>Cambio de opciones regionales</h3>
+    <h3>Cambio de opciones regionales</h3>
 
-      <p>Las opciones regionales se especifican mediante varias variables de entorno [<a href="https://help.ubuntu.com/community/Locale">Documentación de Ubuntu</a> - <a href="https://wiki.debian.org/Locale">Documentación de Debian</a></p>
+    <p>Las opciones regionales se especifican mediante varias variables de entorno [<a href="https://help.ubuntu.com/community/Locale">Documentación de Ubuntu</a> - <a href="https://wiki.debian.org/Locale">Documentación de Debian</a></p>
 
-      <p>Para generar el fichero con las variables de entornos de localización, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/modules/locale_gen_module.html">locale_gen</a>.</p>
+    <p>Para generar el fichero con las variables de entornos de localización, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/modules/locale_gen_module.html">locale_gen</a>.</p>
 
-      <p>Para esperar hasta que el nodo cliente esté en marcha, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/modules/wait_for_connection_module.html">wait_for_connection</a>.</p>
+    <p>Para esperar hasta que el nodo cliente esté en marcha, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/modules/wait_for_connection_module.html">wait_for_connection</a>.</p>
 
-      <p>Para enviar comandos individuales, Ansible dispone de los módulos <a href="https://docs.ansible.com/ansible/latest/modules/command_module.html">command</a> y <a href="https://docs.ansible.com/ansible/latest/modules/shell_module.html">shell</a>.</p>
+    <p>Para enviar comandos individuales, Ansible dispone de los módulos <a href="https://docs.ansible.com/ansible/latest/modules/command_module.html">command</a> y <a href="https://docs.ansible.com/ansible/latest/modules/shell_module.html">shell</a>.</p>
 
-      <p>Este playbook cambia los códigos regionales</p>
-      <div class="codigo">
-        <pre class="line-numbers">
+    <p>Este playbook cambia los códigos regionales</p>
+    <div class="codigo">
+      <pre class="line-numbers">
 <code class="language-yaml">---
 - hosts: 'clients'
   vars:
@@ -139,8 +141,8 @@
     become: true
     command: 'update-locale LANG={{ new_locale }} LC_MESSAGES={{ new_lc_messages }}'</code>
 </pre>
-      </div>
-    </section>
+    </div>
+  </section>
 
   <footer>
     <p class="ultmod">Última modificación de esta página: 20 de mayo de 2018</p>
