@@ -59,18 +59,18 @@
 
     <p><a href="https://www.docker.com/">Docker</a> es un sistema de virtualización de aplicaciones mediante contenedores, creado por Solomon Hykes y otros ingenieros. En 2013 se convirtió en un proyecto de software libre (licencia Apache) en el que participan cada vez más empresas. La versión 1.0 se publicó en junio de 2014 y ha tenido un desarrollo muy rápido.</p>
 
-    <p>En marzo de 2017, Docker anunció una desarrollo todavía más rápido, pasando a publicar una nueva versión cada mes. La numeración de las versiones adoptó al formato AA.MM (año y mes). Estas versiones mensuales se han estado manteniendo solamente durante un mes, aunque cada trimestre una de esas versiones se han mantenido durante cuatro meses (la primera fue Docker 17.03).</p>
+    <p>En marzo de 2017, Docker anunció una desarrollo todavía más rápido, pasando a publicar una nueva versión cada mes. La numeración de las versiones adoptó al formato AA.MM (año y mes). Estas versiones mensuales se mantuvieron solamente durante un mes, aunque cada trimestre una de esas versiones se mantuvo durante cuatro meses (la primera fue Docker 17.03).</p>
 
-    <p>En julio de 2018, Docker <a href="https://blog.docker.com/2018/07/extending-support-cycle-docker-community-edition/">anunció</a> que volvían a un desarrollo más pausado. Por un lado, se dejaron de publicar las versiones mensuales (aunque se publica una versión diaria inestable) y que a partir de Docker 18.09, en vez de una versión "estable" cada tres meses habrá una versión "estable" cada seis meses que se mantendrá durante siete meses.</p>
+    <p>En julio de 2018, Docker <a href="https://blog.docker.com/2018/07/extending-support-cycle-docker-community-edition/">anunció</a> que volvían a un desarrollo más pausado. Por un lado, se dejaron de publicar las versiones mensuales (aunque se publica una versión diaria inestable) y que a partir de Docker 18.09, en vez de una versión "estable" cada tres meses habrá una versión "estable" cada seis meses que se mantendrá durante siete meses. Aunque la denominación de cada versión sigue la regla mes-año, en la práctica las versiones se están publicando meses después de la fecha teórica.</p>
 
     <p>Docker ofrece una versión Enterprise (de pago) y una versión Community (gratuita). La diferencia radica en el nivel de soporte y certificación que proporciona Docker a la versión Enterprise.</p>
 
     <p class="mcl-svg-diagrama-temporal">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="950" viewBox="-100 -60 950 100">
-        <line x1="-20" y1="0" x2="860" y2="0" stroke-width="3" stroke="hsl(195, 80%, 40%)" />
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1070" viewBox="-100 -60 1070 100">
+        <line x1="-20" y1="0" x2="980" y2="0" stroke-width="3" stroke="hsl(195, 80%, 40%)" />
         <text x="-90" y="4" text-anchor="start" style="font-size: 100%">Docker</text>
         <text x="-65" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
-        <text x="-65" y="-38" text-anchor="middle" style="font-size: 60%">12-04-2019</text>
+        <text x="-65" y="-38" text-anchor="middle" style="font-size: 60%">06-10-2019</text>
 
         <line x1="0" y1="-50" x2="0" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
         <text x="60" y="-40" text-anchor="middle" style="font-size: 80%">2013</text>
@@ -87,6 +87,8 @@
         <line x1="720" y1="-50" x2="720" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
         <text x="780" y="-40" text-anchor="middle" style="font-size: 80%">2019</text>
         <line x1="840" y1="-50" x2="840" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="900" y="-40" text-anchor="middle" style="font-size: 80%">2020</text>
+        <line x1="960" y1="-50" x2="960" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
 
         <circle cx="27" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
         <text x="27" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">0.1</text>
@@ -136,8 +138,12 @@
         <text x="665" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">18.06</text>
         <circle cx="703" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
         <text x="703" y="25" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">18.09</text>
+        <circle cx="787" cy="0" r="5" fill="hsl(195, 80%, 40%)" />
+        <text x="787" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">19.03</text>
+        <!--
         <circle cx="768" cy="0" r="5" fill="white" stroke="hsl(195, 80%, 40%)" stroke-width="2" />
         <text x="768" y="-15" text-anchor="middle" fill="hsl(195, 80%, 40%)" style="font-size: 80%; font-weight: bold">19.03</text>
+        -->
       </svg>
     </p>
 
@@ -222,6 +228,7 @@
           <li>Canal oficial de Docker en Youtube: <a href="https://www.youtube.com/channel/UC76AVf2JkrwjxNKMuPpscHQ">Vídeos</a></li>
         </ul>
       </li>
+      <li><a href="https://lwn.net/Articles/788282/">The future of Docker containers</a> (artículo lwn.net 15/05/19)</li>
     </ul>
   </section>
 
@@ -495,7 +502,7 @@ sudo docker network
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 23 de mayo de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 6 de octubre de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
