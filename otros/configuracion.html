@@ -60,11 +60,11 @@
 
         <h3>Directiva <span class="php-dir">max-execution-time</span></h3>
 
-        <p>La directiva <a href="https://www.php.net/manual/es/info.configuration.php#ini.max-execution-time"><span class="php-dir">max-execution-time</span></a> indica la tiempo máximo de ejecución de una página PHP. En XAMPP 7.2 esta directiva viene predeterminada con el valor 30 (segundos). Si la página tarda más de ese tiempo en ejecutarse, el servidor interrumpirá la ejecución del programa. Para evitar ese problema, se recomienda aumentar ese valor, por ejemplo a una hora</p>
+        <p>La directiva <a href="https://www.php.net/manual/es/info.configuration.php#ini.max-execution-time"><span class="php-dir">max-execution-time</span></a> indica la tiempo máximo de ejecución de una página PHP. En XAMPP 7.3 esta directiva viene predeterminada con el valor 30 (segundos). Si la página tarda más de ese tiempo en ejecutarse, el servidor interrumpirá la ejecución del programa. Esto puede dar problemas durante la instalación de algunas aplicaciones. Para evitar ese problema, se recomienda aumentar ese valor, por ejemplo a 5 minutos.</p>
 
         <div class="codigo">
           <pre>
-<code class="language-configuracion">max_execution_time=3600        ; Valor recomendado en este curso</code>
+<code class="language-configuracion">max_execution_time=300        ; Valor recomendado en este curso</code>
 </pre>
         </div>
       </section>
@@ -76,7 +76,7 @@
       <p>Las aplicaciones web se descargarán como archivos comprimidos que se deberán descomprimir en la misma carpeta, por ejemplo, en:</p>
 
       <ul>
-        <li><strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones</strong><li>
+        <li><strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones</strong></li>
       </ul>
 
       <p>Cada aplicación se guardará en su propia carpeta. Se recomienda que el nombre de la carpeta sea simplemente el nombre de la aplicación, en minúsculas y sin incluir el número de versión. Únicamente cuando se instalen varias versiones de la misma aplicación, cada una en su propia carpeta, se añadirá un número al nombre de la aplicación (-1, -2, etc.)</p>
@@ -90,14 +90,14 @@
 
       <p>El alias puede ser el siguiente:</p>
       <details>
-        <summary>Intente primero crear el alias o haga clic en el triángulo para verlo:</summary>
+        <summary>Intente primero crear el alias o haga clic aquí para verlo:</summary>
 
         <div class="codigo">
           <pre>
 <code class="language-configuracion">&lt;IfModule alias_module&gt;
 # ...
 <strong>    # 2018-12-12. Alias para las aplicaciones web
-    Alias <span class="codigo-resaltado">/nombre/webapps</span> <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW nombre\Aplicaciones"</span>
+    Alias <span class="codigo-resaltado">/iaw/webapps</span> <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW nombre\Aplicaciones"</span>
     &lt;Directory <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW nombre\Aplicaciones"</span>&gt;
       Options Indexes FollowSymLinks Includes ExecCGI
       AllowOverride All
@@ -125,8 +125,7 @@
       <ul>
         <li>crear el workspace en "C:\software\eclipse-workspace-nombre-de-alumno-webapps"</li>
         <li>crear un proyecto que se llame: <strong>nombre-de-alumno</strong> (sin espacios en el nombre del alumno)</li>
-        <li>crear una carpeta enlazada que se llame <strong>webapps</strong> y enlace a la carpeta <strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones</strong>
-        </li>
+        <li>crear una carpeta enlazada que se llame <strong>webapps</strong> y enlace a la carpeta <strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones</strong></li>
       </ul>
 
       <p>Al descomprimir una nueva aplicación web se deberá actualizar la vista del Explorador PHP de Eclipse.</p>
@@ -160,7 +159,7 @@
   &lt;h2&gt;Enlaces a aplicaciones&lt;/h2&gt;
 
   &lt;ul&gt;
-    &lt;li&gt;&lt;a href="http://localhost/nombre-de-alumno/webapps/phpmyadmin/"&gt;phpMyAdmin&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://localhost/<span class="codigo-resaltado">iaw/webapps/</span>phpmyadmin/"&gt;phpMyAdmin&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 
   &lt;h2&gt;Alias a aplicaciones&lt;/h2&gt;
@@ -177,7 +176,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 12 de diciembre de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 25 de noviembre de 2019</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
