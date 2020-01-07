@@ -29,6 +29,8 @@
     </div>
   </nav>
 
+  <p>Esta lección explica los conceptos básicos de la virtualización.</p>
+
   <section id="maquinas-virtuales">
     <h2>Virtualización: hipervisores y máquinas virtuales</h2>
 
@@ -119,9 +121,9 @@
         <rect x="615" y="-10" width="25" height="110" fill="hsl(49, 85%, 64%)" stroke="black" stroke-width="1" />
         <text x="635" y="90" text-anchor="start" transform="rotate(-90, 635, 90)">Aplicación n</text>
         <rect x="560" y="110" width="80" height="70" fill="hsl(197, 100%, 85%)" stroke="black" stroke-width="1" />
-        <text x="610" y="130" text-anchor="middle">Sistema</text>
-        <text x="610" y="150" text-anchor="middle">Operativo</text>
-        <text x="610" y="170" text-anchor="middle">1</text>
+        <text x="600" y="130" text-anchor="middle">Sistema</text>
+        <text x="600" y="150" text-anchor="middle">Operativo</text>
+        <text x="600" y="170" text-anchor="middle">1</text>
 
         <rect x="670" y="-20" width="100" height="210" fill="none" stroke="black" stroke-width="1" stroke-dasharray="5 5" />
         <rect x="680" y="-10" width="25" height="110" fill="hsl(109, 55%, 66%)" stroke="black" stroke-width="1" />
@@ -383,7 +385,7 @@
         <text x="455" y="240" text-anchor="start" transform="rotate(-90, 455, 240)">Aplicación n</text>
 
         <rect x="0" y="200" width="360" height="50" fill="hsl(275, 100%, 85%)" stroke="black" stroke-width="1" />
-        <text x="180" y="230" text-anchor="middle">SW CONTENEDORES</text>
+        <text x="180" y="230" text-anchor="middle">GESTOR DE CONTENEDORES</text>
 
         <rect x="0" y="260" width="460" height="50" fill="#eee" stroke="black" stroke-width="1" />
         <text x="230" y="290" text-anchor="middle">SISTEMA OPERATIVO</text>
@@ -456,9 +458,12 @@
       </svg>
     </p>
 
+    <p><a href="https://www.docker.com/">Docker</a> es el gestor de contenedores más popular. <a href="https://linuxcontainers.org/">LXC</a> es un gestor de contenedores patrocinado por Canonical. <a href="https://containerd.io/">containerd</a> es un motor de ejercición de contenedores creado por la <a href="https://www.cncf.io/">CNCF</a> a partir de la donación de Docker.</p>
+
     <p>La ventaja de los contenedores es su ligereza, puesto que comparten el máximo de componentes con el sistema operativo host, y su rapidez, ya que gracias a que apenas añaden capas adicionales consiguen casi velocidades nativas.</p>
 
-    <p><a href="https://www.docker.com/">Docker</a> es el gestor de contenedores más popular. <a href="https://linuxcontainers.org/">LXC</a> es un gestor de contenedores patrocinado por Canonical. <a href="https://containerd.io/">containerd</a> es un motor de ejercición de contenedores creado por la <a href="https://www.cncf.io/">CNCF</a> a partir de la donación de Docker.</p>
+    <p>Los contenedores suelen ser elementos efímeros. La facilidad con la que pueden crearse y ponerse en marcha hace más fácil crear un nuevo contenedor que modificar uno ya existente. Por ello, los datos generados por las aplicaciones no se suelen guardar en los contenedores, sino fuera de ellos. Su ligereza hace más fácil tener varios contenedores con una aplicación en cada uno de ellos que tener un único contenedor con varias aplicaciones en él. Por ello, un aspecto importante de los contenedores es su orquestación, es decir, la administración simultánea de muchos contenedores.</p>
+
   </section>
 
   <section id="pendiente">
@@ -467,6 +472,7 @@
       <li><a href="https://www.winehq.org/">WINE</a> permite instalar y utilizar programas de Windows en Linux. Los desarrolladores de Wine no lo consideran un emulador, sino una "capa de compatibilidad" ya que lo que hace es traducir las llamadas de las aplicaciones a Windows en llamadas equivalentes disponibles en Linux.</li>
       <li><a href="https://katacontainers.io/">Kata Containers</a></li>
       <li><a href="https://www.linux-kvm.org/page/Virtio">virtio</a>, drivers virtualizados, parte de KVM. - Artículo en lwn.net: <a href="https://lwn.net/Articles/805235/">Virtio without the "virt" (noviembre 2019)</a></li>
+      <li><a href="https://kubernetes.io/es/">Kubernetes</a>: orquestación de contenedores</li>
     </ul>
   </section>
 

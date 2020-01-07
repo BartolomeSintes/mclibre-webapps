@@ -63,7 +63,7 @@
         <line x1="-20" y1="0" x2="1020" y2="0" stroke-width="3" stroke="hsl(202, 100%, 56%)" />
         <text x="-90" y="4" text-anchor="start" style="font-size: 100%">packer</text>
         <text x="-65" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
-        <text x="-65" y="-38" text-anchor="middle" style="font-size: 60%">01-10-2019</text>
+        <text x="-65" y="-38" text-anchor="middle" style="font-size: 60%">19-12-2019</text>
 
         <line x1="0" y1="-50" x2="0" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
         <text x="60" y="-40" text-anchor="middle" style="font-size: 80%">2013</text>
@@ -111,8 +111,12 @@
         <text x="684" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.3</text>
         <circle cx="753" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
         <text x="753" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.4</text>
+        <circle cx="836" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="836" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.5</text>
+        <!--
         <circle cx="835" cy="0" r="5" fill="white" stroke="hsl(202, 100%, 56%)" stroke-width="2" />
         <text x="835" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.5</text>
+         -->
       </svg>
     </p>
 
@@ -123,6 +127,8 @@
     <p>Packer trabaja a partir de plantillas. Las plantillas son ficheros JSON que le dicen a Packer qué tipo de máquina virtual se quiere crear, los pasos a realizar para instalar el sistema operativo y los comandos o scripts a ejecutar tras la instalación.</p>
 
     <p>Una vez hemos creado la plantilla, Packer permite crear automáticamente tantas máquinas virtuales como necesitemos. Lógicamente, cuantas más máquinas virtuales creemos a partir de una plantilla, más rentabilizaremos el tiempo empleado en la elaboración de la plantilla, pero, aún en el caso de que sólo creemos una vez la máquina virtual, la plantilla nos servirá como documentación y especificación del proceso.</p>
+
+    <p>A partir de Packer 1.5 (publicado en diciembre de 2019), Packer permite escribir las plantillas en <a href="https://www.packer.io/guides/hcl/">HCL2</a>, un formato de archivos de configuración desarrollado por HashiCorp. En estos apuntes se utiliza todavía el formato JSON.</p>
 
     <hr class="corta">
 
@@ -203,8 +209,12 @@ PACKER_LOG_PATH=packerlog.txt</code>
       <ul>
         <li>Instale <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
         <li>Esta lección se ha elaborado con la versión Ubuntu Server 18.04.3 LTS 64 bits, publicada el 08/08/19.
-          <p>Puede descargar la imagen .iso del disco de instalación de Ubuntu Server 18.04.3 LTS de la página de descarga <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a> o mediante este <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.3-server-amd64.iso">enlace directo de descarga.</a></p>
-          <p>También puede descargar Ubuntu 18.04.3 Server de mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</p>
+          <p>Para descargar la imagen .iso de instalación de Ubuntu Server 18.04.3 LTS puede utilizar:</p>
+          <ul>
+            <li>La página de descarga oficial <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a>. En esta página encontrará siempre la última versión publicada.</li>
+            <li>Este enlace directo de descarga desde ubuntu, que seguramente dejará de estar disponible cuando se publique una nueva versión: <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
+            <li>Este enlace directo de descarga desde mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
+          </ul>
           <p><strong>Nota</strong>: La página de descarga <a href="https://ubuntu.com/download/server">https://ubuntu.com/download/server</a> descarga la versión Live Server, que incluye un instalador diferente y por tanto requeriría una plantilla distinta a la de este ejemplo.</p>
         </li>
         <li>Cree la plantilla de packer (por ejemplo, packer-1-1.json).</li>
@@ -473,7 +483,7 @@ rm ~/VBoxGuestAdditions.iso</code>
             <div class="terminal">
               <pre class="command-line" data-prompt="user@ubuntu:/$" data-output="2">
 <code class="language-shell">uname -a
-Linux ubuntu <span class="codigo-resaltado">4.15.0-46-generic</span> #49-Ubuntu SMP Wed Feb 6 ...</code>
+Linux ubuntu <span class="codigo-resaltado">4.15.0-70-generic</span> #79-Ubuntu SMP Tue Nov 12 ...</code>
 </pre>
             </div>
           </li>
@@ -664,7 +674,7 @@ sub   rsa4096 2017-02-22 [S]</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 13 de noviembre de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 7 de enero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
