@@ -175,8 +175,6 @@
   <section id="creacion-vm-vbox-ubuntu-preseed">
     <h3>Ejemplo 2: Creación de una máquina virtual de VirtualBox con Ubuntu Server 18.04.3 LTS (instalación desatendida, <i>preseed</i>)</h3>
 
-    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Este ejemplo está en elaboración.</p>
-
     <p>Para crear la máquina virtual:</p>
 
     <ul>
@@ -194,7 +192,7 @@
       <li>Ejecute packer
         <div class="terminal">
           <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
-<code class="language-shell">packer build packer-1-1.json</code>
+<code class="language-shell">packer build packer-1-2.json</code>
 </pre>
         </div>
       </li>
@@ -207,6 +205,8 @@
 
       <p>Esta podría ser la plantilla de creación de la máquina virtual con Ubuntu:</p>
 
+      <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Este ejemplo está en elaboración.</p>
+
       <div class="codigo">
         <pre class="line-numbers">
 <code class="language-json">{
@@ -217,10 +217,10 @@
       "iso_url": "ubuntu-18.04.3-server-amd64.iso",
       "iso_checksum": "7d8e0055d663bffa27c1718685085626cb59346e7626ba3d3f476322271f573e",
       "iso_checksum_type": "sha256",
-      "disk_size": "25000",
+      "disk_size": "<span class="codigo-resaltado">25000</span>",
       "vboxmanage": [
-        ["modifyvm", "{{.Name}}", "--memory", "1024"],
-        ["modifyvm", "{{.Name}}", "--vram", "64"]
+        ["modifyvm", "{{.Name}}", "--memory", "<span class="codigo-resaltado">1024</span>"],
+        ["modifyvm", "{{.Name}}", "--vram", "<span class="codigo-resaltado">64</span>"]
       ],
       "boot_wait": "10s",
       "boot_command": [
@@ -235,23 +235,23 @@
         " debian-installer=es_ES&lt;wait&gt;",
         " fb=false&lt;wait&gt;",
         " initrd=/install/initrd.gz&lt;wait&gt;",
-		" keyboard-configuration/layoutcode=es",
+		    " keyboard-configuration/layoutcode=es",
         " locale=es_ES&lt;wait&gt;",
         " netcfg/get_domain=vm&lt;wait&gt;",
-        " netcfg/get_hostname=ubuntu&lt;wait&gt;",
+        " netcfg/get_hostname=<span class="codigo-resaltado">ubuntu</span>&lt;wait&gt;",
         " grub-installer/bootdev=/dev/sda&lt;wait&gt;",
         " noapic&lt;wait&gt;",
-        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg&lt;wait&gt;",
+        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/<span class="codigo-resaltado">preseed-1-2.cfg</span>&lt;wait&gt;",
         " -- &lt;wait&gt;",
         "&lt;enter&gt;&lt;wait&gt;"
     ],
-      "http_directory": "http",
-      "ssh_username": "mclibre",
-      "ssh_password": "mclibre",
+      "http_directory": "<span class="codigo-resaltado">http</span>",
+      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
+      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
       "ssh_wait_timeout": "3600s",
-      "shutdown_command": "echo 'mclibre' | sudo -S shutdown -P now",
-      "output_directory": "packer-1-2",
-      "vm_name": "packer-1-2-ubuntu-18-04-3-server",
+      "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
+      "output_directory": "<span class="codigo-resaltado">packer-1-2</span>",
+      "vm_name": "<span class="codigo-resaltado">packer-1-2-ubuntu-18-04-3-server</span>",
       "format": "ova"
     }
   ]
@@ -259,53 +259,43 @@
 </pre>
       </div>
 
-      <p>Este podría el fichero de configuración de la instalación desatendida, que debe guardarse en la carpeta <strong>http</strong> con el nombre <strong>preseed.cfg</strong>:</p>
+      <p>Este podría el fichero de configuración de la instalación desatendida, que debe guardarse en la carpeta <strong>http</strong> con el nombre <strong>preseed-1-2.cfg</strong>:</p>
 
       <div class="codigo">
         <pre class="line-numbers">
-<code class="language-json"># fuente: https://help.ubuntu.com/lts/installation-guide/example-preseed.txt
-
-# Localization
+<code class="language-json">### fuente: https://help.ubuntu.com/lts/installation-guide/example-preseed.txt
+### Localization
 d-i debian-installer/locale string es_ES
 
-# Keyboard selection.
+### Keyboard selection.
 # Disable automatic (interactive) keymap detection.
 d-i console-setup/ask_detect boolean false
 d-i keyboard-configuration/modelcode string pc105
 d-i keyboard-configuration/xkb-keymap select es
-d-i keyboard-configuration/xkb-keymap select es(winkeys)
 
 ### Network configuration
-# netcfg will choose an interface that has link if possible. This makes it
-# skip displaying a list if there is more than one interface.
 d-i netcfg/choose_interface select auto
-
 # To set a different link detection timeout (default is 3 seconds).
 # Values are interpreted as seconds.
 d-i netcfg/link_wait_timeout string 10
-
 # If you have a slow dhcp server and the installer times out waiting for
 # it, this might be useful.
 d-i netcfg/dhcp_timeout string 60
 d-i netcfg/dhcpv6_timeout string 60
-
 # If you want to force a hostname, regardless of what either the DHCP
 # server returns or what the reverse DNS entry for the IP is, uncomment
 # and adjust the following line.
-d-i netcfg/hostname string ubuntu
-
+d-i netcfg/hostname string <span class="codigo-resaltado">ubuntu</span>
 # Disable that annoying WEP key dialog.
 d-i netcfg/wireless_wep string
 
-
 ### Account setup
-
 # To create a normal user account.
-d-i passwd/user-fullname string mclibre.org
-d-i passwd/username string mclibre
+d-i passwd/user-fullname string <span class="codigo-resaltado">mclibre.org</span>
+d-i passwd/username string <span class="codigo-resaltado">mclibre</span>
 # Normal user's password, either in clear text
-d-i passwd/user-password password mclibre
-d-i passwd/user-password-again password mclibre
+d-i passwd/user-password password <span class="codigo-resaltado">mclibre</span>
+d-i passwd/user-password-again password <span class="codigo-resaltado">mclibre</span>
 # The installer will warn about weak passwords. If you are sure you know
 # what you're doing and want to override it, uncomment this.
 d-i user-setup/allow-password-weak boolean true
@@ -313,40 +303,26 @@ d-i user-setup/allow-password-weak boolean true
 ### Clock and time zone setup
 # Controls whether or not the hardware clock is set to UTC.
 d-i clock-setup/utc boolean true
-
 # You may set this to any valid setting for $TZ; see the contents of
 # /usr/share/zoneinfo/ for valid values.
 d-i time/zone string Europe/Madrid
-
 # Controls whether to use NTP to set the clock during the install
 d-i clock-setup/ntp boolean true
 
-
 ### Partitioning
-## Partitioning example
-
 d-i partman-auto/method string lvm
-
-# If one of the disks that are going to be automatically partitioned
-# contains an old LVM configuration, the user will normally receive a
-# warning. This can be preseeded away...
 d-i partman-lvm/device_remove_lvm boolean true
-# The same applies to pre-existing software RAID array:
 d-i partman-md/device_remove_md boolean true
-# And the same goes for the confirmation to write the lvm partitions.
 d-i partman-lvm/confirm boolean true
 d-i partman-lvm/confirm_nooverwrite boolean true
-
 # For LVM partitioning, you can select how much of the volume group to use
 # for logical volumes.
 d-i partman-auto-lvm/guided_size string max
-
 # You can choose one of the three predefined partitioning recipes:
 # - atomic: all files in one partition
 # - home:   separate /home partition
 # - multi:  separate /home, /var, and /tmp partitions
 d-i partman-auto/choose_recipe select atomic
-
 # This makes partman automatically partition without confirmation, provided
 # that you told it what to do using one of the methods above.
 d-i partman-partitioning/confirm_write_new_label boolean true
@@ -354,9 +330,7 @@ d-i partman/choose_partition select finish
 d-i partman/confirm boolean true
 d-i partman/confirm_nooverwrite boolean true
 
-
 ### Base system installation
-
 ### Apt setup
 # You can choose to install restricted and universe software, or to install
 # software from the backports repository.
@@ -371,7 +345,6 @@ tasksel tasksel/first multiselect ubuntu-server
 #tasksel tasksel/first multiselect ubuntu-desktop
 #tasksel tasksel/first multiselect lamp-server, print-server
 #tasksel tasksel/first multiselect kubuntu-desktop
-
 # Individual additional packages to install
 d-i pkgsel/include string openssh-server build-essential
 # Whether to upgrade packages after debootstrap.
@@ -380,7 +353,6 @@ d-i pkgsel/upgrade select none
 # Barto. para descargar el soporte completo del idioma
 # https://askubuntu.com/questions/129651/how-do-i-configure-a-preseed-to-skip-the-language-support-question
 d-i pkgsel/install-language-support boolean true
-
 # Policy for applying updates. May be "none" (no automatic updates),
 # "unattended-upgrades" (install security updates automatically), or
 # "landscape" (manage system with Landscape).
@@ -391,9 +363,7 @@ d-i pkgsel/update-policy select none
 # if no other operating system is detected on the machine.
 d-i grub-installer/only_debian boolean true
 
-
 ### Finishing up the installation
-
 # Avoid that last message about the install being complete.
 d-i finish-install/reboot_in_progress note</code>
 </pre>
