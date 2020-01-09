@@ -21,239 +21,84 @@
 
     <div class="toc">
       <h2>
-        <a href="virtualbox.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18"></a>
+        <a href="packer.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18"></a>
         <a href="packer-2.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18"></a>
         Packer (1)
       </h2>
 
       <ul>
-        <li><a href="#que-es">Qué es</a></li>
-        <li><a href="#instalacion">Instalación</a></li>
-        <li><a href="#ejemplos">Ejemplos</a>
-          <ol>
-            <li><a href="#creacion-vm-vbox-ubuntu">Creación e instalación SO</a></li>
-            <li><a href="#provisioners-inline">Ejecución comandos VM</a></li>
-            <li><a href="#provisioners-script">Ejecución scripts VM</a></li>
-            <li><a href="#modificacion-vm">Modificación VM</a></li>
-          </ol>
-        </li>
-        <li><a href="#ejemplos-2">Más ejemplos</a>
-          <ol>
-            <li><a href="#instalacion-docker">Instalación Docker</a></li>
-          </ol>
-        </li>
+        <li><a href="#creacion-vm-vbox-ubuntu-manual">VBox Ubuntu Server manual</a></li>
+        <li><a href="#creacion-vm-vbox-ubuntu-preseed">VBox Ubuntu Server <i>preseed</i></a></li>
         <li><a href="#detalles">Otros detalles</a></li>
       </ul>
     </div>
   </nav>
 
-  <p>Esta lección es una introducción al uso de <a href="https://www.packer.io/">packer</a>, la herramienta de creación de máquinas virtuales. Como ejemplo, se explica cómo crear una máquina virtual de VirtualBox en la que se instala el sistema operativo Ubuntu Server y posteriormente se instala Docker en ella.</p>
+  <p>Esta lección es una introducción al uso de <a href="https://www.packer.io/">packer</a>, la herramienta de creación de máquinas virtuales. Packer permite crear máquinas virtuales para muchos sistemas de virtualización e instalar y configurar en ellas el sistema operativo que queramos. Como ejemplo, se explica cómo crear una máquina virtual de VirtualBox en la que se instala el sistema operativo Ubuntu Server.</p>
 
-  <section id="que-es">
-    <h2>Qué es Packer</h2>
+  <p>Las plantillas de packer admiten muchas posibilidades, que se detallan en la <a href="https://www.packer.io/docs/index.html">documentación oficial de packer</a>.</p>
 
-    <p><a href="https://www.packer.io/">Packer</a> es una herramienta de creación de máquinas virtuales.</p>
+  <p>En esta lección <a href="packer-1.html">Packer(1)</a> veremos dos ejemplos de creación de máquinas virtuales:</p>
+  <ul>
+    <li>En el primer ejemplo, crearemos una máquina virtual e instalaremos Ubuntu Server 18.04.3 LTS en ella, simulando una instalación manual.</li>
+    <li>En el segundo ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 18.04.3 LTS en ella, mediante una instalación desatendida.</li>
+  </ul>
 
-    <p>Packer es un software libre publicado bajo la licencia <a href="https://github.com/hashicorp/packer/blob/master/LICENSE">MPL 2.0</a> y cuyo desarrollo puede seguirse en <a href="https://github.com/hashicorp/packer">GitHub</a>.</p>
+  <p>Una de las ventajas de preparar primero la imagen básica es ahorrarnos la instalación del sistema operativo en cada prueba de instalación de aplicaciones. La instalación es un proceso que tarda más de 10 minutos y que sólo necesitaremos hacer una vez.</p>
 
-    <p>La primera versión se publicó en junio de 2013 y la versión 1.0 se publicó en abril de 2017.</p>
+  <section id="creacion-vm-vbox-ubuntu-manual">
+    <h3>Ejemplo 1: Creación de una máquina virtual de VirtualBox con Ubuntu Server 18.04.3 LTS (instalación manual)</h3>
 
-    <p class="mcl-svg-diagrama-temporal">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1080" viewBox="-100 -60 1080 100">
-        <line x1="-20" y1="0" x2="1020" y2="0" stroke-width="3" stroke="hsl(202, 100%, 56%)" />
-        <text x="-90" y="4" text-anchor="start" style="font-size: 100%">packer</text>
-        <text x="-65" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
-        <text x="-65" y="-38" text-anchor="middle" style="font-size: 60%">19-12-2019</text>
+    <p>Para crear la máquina virtual:</p>
 
-        <line x1="0" y1="-50" x2="0" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-        <text x="60" y="-40" text-anchor="middle" style="font-size: 80%">2013</text>
-        <line x1="120" y1="-50" x2="120" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-        <text x="180" y="-40" text-anchor="middle" style="font-size: 80%">2014</text>
-        <line x1="240" y1="-50" x2="240" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-        <text x="300" y="-40" text-anchor="middle" style="font-size: 80%">2015</text>
-        <line x1="360" y1="-50" x2="360" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-        <text x="420" y="-40" text-anchor="middle" style="font-size: 80%">2016</text>
-        <line x1="480" y1="-50" x2="480" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-        <text x="540" y="-40" text-anchor="middle" style="font-size: 80%">2017</text>
-        <line x1="600" y1="-50" x2="600" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-        <text x="660" y="-40" text-anchor="middle" style="font-size: 80%">2018</text>
-        <line x1="720" y1="-50" x2="720" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-        <text x="780" y="-40" text-anchor="middle" style="font-size: 80%">2019</text>
-        <line x1="840" y1="-50" x2="840" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-        <text x="900" y="-40" text-anchor="middle" style="font-size: 80%">2020</text>
-        <line x1="960" y1="-50" x2="960" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
-
-        <circle cx="59" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="59" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.1</text>
-        <circle cx="119" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="119" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.5</text>
-        <circle cx="160" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="160" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.6</text>
-        <circle cx="203" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="203" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.7</text>
-        <circle cx="297" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="297" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.8</text>
-        <circle cx="377" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="377" y="25" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.9</text>
-        <circle cx="384" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="384" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.10</text>
-        <circle cx="457" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="457" y="25" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.11</text>
-        <circle cx="465" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="465" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.12</text>
-        <circle cx="511" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="511" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.0</text>
-        <circle cx="564" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="564" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.1</text>
-        <circle cx="613" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="613" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.2</text>
-        <circle cx="684" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="684" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.3</text>
-        <circle cx="753" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="753" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.4</text>
-        <circle cx="836" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
-        <text x="836" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.5</text>
-        <!--
-        <circle cx="835" cy="0" r="5" fill="white" stroke="hsl(202, 100%, 56%)" stroke-width="2" />
-        <text x="835" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.5</text>
-         -->
-      </svg>
-    </p>
-
-    <p>Listado de <a href="https://github.com/hashicorp/packer/blob/master/CHANGELOG.md">novedades en cada versión</a> de Packer.</p>
-
-    <hr class="corta">
-
-    <p>Packer trabaja a partir de plantillas. Las plantillas son ficheros JSON que le dicen a Packer qué tipo de máquina virtual se quiere crear, los pasos a realizar para instalar el sistema operativo y los comandos o scripts a ejecutar tras la instalación.</p>
-
-    <p>Una vez hemos creado la plantilla, Packer permite crear automáticamente tantas máquinas virtuales como necesitemos. Lógicamente, cuantas más máquinas virtuales creemos a partir de una plantilla, más rentabilizaremos el tiempo empleado en la elaboración de la plantilla, pero, aún en el caso de que sólo creemos una vez la máquina virtual, la plantilla nos servirá como documentación y especificación del proceso.</p>
-
-    <p>A partir de Packer 1.5 (publicado en diciembre de 2019), Packer permite escribir las plantillas en <a href="https://www.packer.io/guides/hcl/">HCL2</a>, un formato de archivos de configuración desarrollado por HashiCorp. En estos apuntes se utiliza todavía el formato JSON.</p>
-
-    <hr class="corta">
-
-    <p>En junio de 2019 HashiCorp puso en marcha en <a href="https://www.hashicorp.com/community/">nuevo portal comunitario</a> dedicado a sus productos. Entre otros, cuenta con un <a href="https://discuss.hashicorp.com/c/packer">foro dedicado a Packer</a>.</p>
-  </section>
-
-  <section id="instalacion">
-    <h2>Instalación en Windows</h2>
-
-    <p>En Windows, packer se distribuye en forma de fichero zip (<a href="https://www.packer.io/downloads.html">página de descarga de packer</a>).</p>
-
-    <p>Esta lección se ha elaborado con la versión <a href="https://releases.hashicorp.com/packer/1.4.5/packer_1.4.5_windows_amd64.zip">packer 1.4.5 para Windows 64 bits</a>, publicada el 5 de noviembre de 2019.</p>
-
-    <p>Si no encuentra esta versión en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
-
-    <p>Packer no necesita instalación. Simplemente, hay que descomprimir el fichero zip en una carpeta para obtener el programa packer.exe.</p>
-
-    <p>Para ejecutar packer, abra una ventana de Símbolo de sistema y ejecute la orden packer con los parámetros adecuados. Por ejemplo, para conocer la versión de packer, ejecute:</p>
-
-    <div class="terminal">
-      <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2">
-<code class="language-shell">packer --version
-1.4.5</code>
-</pre>
-    </div>
-
-    <hr class="corta">
-
-    <p>Para que packer cree un archivo de log del proceso de creación de la plantilla, que nos será muy útil para identificar los errores del proceso, en Windows es necesario establecer dos variables de entorno.</p>
-
-    <p>En Windows 7 o Windows 10, puede añadir estas variables de dos maneras:</p>
     <ul>
-      <li>gráficamente en Panel de control &gt; Sistema &gt; Configuración avanzada del sistema &gt; Opciones avanzadas &gt; Variables de entorno</li>
-      <li>o en una ventana de Símbolo de sistema (CMD) con el comando setx:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 4">
-<code class="language-shell">setx PACKER_LOG 1
-CORRECTO: se guardó el valor especificado
-setx PACKER_LOG_PATH packerlog.txt
-CORRECTO: se guardó el valor especificado</code>
-</pre>
-        </div>
-
-        <p>Cierre la ventana, abra de nuevo una ventana de símbolo de sistema (CMD) y compruebe que se han establecido las variables de entorno con el comando set:</p>
+      <li>Instale <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
+      <li>Esta lección se ha elaborado con la versión Ubuntu Server 18.04.3 LTS 64 bits, publicada el 08/08/19.
+        <p>Para descargar la imagen .iso de instalación de Ubuntu Server 18.04.3 LTS puede utilizar:</p>
+        <ul>
+          <li>La página de descarga oficial <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a>. En esta página encontrará siempre la última versión publicada.</li>
+          <li>Este enlace directo de descarga desde ubuntu, que seguramente dejará de estar disponible cuando se publique una nueva versión: <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
+          <li>Este enlace directo de descarga desde mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
+        </ul>
+        <p><strong>Nota</strong>: La página de descarga <a href="https://ubuntu.com/download/server">https://ubuntu.com/download/server</a> descarga la versión Live Server, que incluye un instalador diferente y por tanto requeriría una plantilla distinta a la de este ejemplo.</p>
+      </li>
+      <li>Cree la plantilla de packer (por ejemplo, packer-1-1.json).</li>
+      <li>Ejecute packer
         <div class="terminal">
           <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
-<code class="language-shell">set PACKER
-PACKER_LOG=1
-PACKER_LOG_PATH=packerlog.txt</code>
+<code class="language-shell">packer build packer-1-1.json</code>
 </pre>
         </div>
       </li>
     </ul>
-  </section>
 
-  <section id="ejemplos">
-    <h2>Ejemplos de creación de máquinas virtuales y configuración posterior</h2>
+    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-1</strong> y creará en él el fichero <strong>packer-1-1-ubuntu-18-04-3-server.ova</strong>.</p>
 
-    <p>Packer permite crear máquinas virtuales para muchos sistemas de virtualización e instalar y configurar en ellas el sistema operativo que queramos.</p>
+    <section id="plantilla-creacion-vm-vbox-ubuntu-manual">
+      <h4>Plantilla de creación de la máquina virtual manual (packer-1-1.json)</h4>
 
-    <p>Las plantillas de packer admiten muchas posibilidades, que se detallan en la <a href="https://www.packer.io/docs/index.html">documentación oficial de packer</a>.</p>
+      <p>Documentación de packer: <a href="https://www.packer.io/docs/builders/virtualbox-iso.html">Builders en VirtualBox</a></p>
 
-    <p>En esta lección veremos cuatro ejemplos de creación de máquinas virtuales y posterior instalación de aplicaciones en la máquinas:</p>
-    <ul>
-      <li>En el primer ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 18.04.3 LTS en ella.</li>
-      <li>En el segundo ejemplo, a partir de la máquina virtual creada en el primer ejemplo crearemos una segunda máquina y actualizaremos el sistema operativo.</li>
-      <li>En el tercer ejemplo, a partir también de la máquina virtual creada en el primer ejemplo crearemos una tercera máquina en la que instalaremos las VirtualBox Guest Additions.</li>
-      <li>En el cuarto ejemplo, a partir de la máquina virtual creada en el tercer ejemplo modificaremos la configuración de la máquina virtual.</li>
-    </ul>
+      <p>En una plantilla de packer, la sección que define la creación de la máquina se denomina <strong>constructor</strong> (en inglés <strong><i>builder</i></strong>).</p>
 
-    <p>Una de las ventajas de preparar primero la imagen básica es ahorrarnos la instalación del sistema operativo en cada prueba de instalación de aplicaciones. La instalación es un proceso que tarda más de 10 minutos y que sólo necesitaremos hacer una vez.</p>
+      <p>Packer instala el sistema operativo en la máquina virtual reproduciendo el proceso manual que realizamos nosotros cuando instalamos el sistema operativo en una máquina virtual.</p>
 
-    <section id="creacion-vm-vbox-ubuntu">
-      <h3>Ejemplo 1: Creación de una máquina virtual de VirtualBox con Ubuntu Server 18.04.3 LTS</h3>
+      <p>Así, la plantilla de creación de una máquina virtual e instalación de un sistema operativo contiene tanto la descripción de la máquina virtual que queremos como las entradas de teclado a realizar para la instalación del sistema operativo.</p>
 
-      <p>Para crear la máquina virtual:</p>
+      <p>Para obtener las entradas de teclado es necesario primero hacer una instalación manual y anotar cuidadosamente las opciones elegidas y también cronometrar lo que tarda en realizarse cada uno de los pasos de la instalación, ya que en la plantilla debemos indicar también el tiempo que packer debe esperar entre entrada y entrada de teclado. Si el tiempo de espera es demasiado corto, packer enviará las pulsaciones de teclado demasiado pronto y la instalación no se realizará correctamente.</p>
 
-      <ul>
-        <li>Instale <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
-        <li>Esta lección se ha elaborado con la versión Ubuntu Server 18.04.3 LTS 64 bits, publicada el 08/08/19.
-          <p>Para descargar la imagen .iso de instalación de Ubuntu Server 18.04.3 LTS puede utilizar:</p>
-          <ul>
-            <li>La página de descarga oficial <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a>. En esta página encontrará siempre la última versión publicada.</li>
-            <li>Este enlace directo de descarga desde ubuntu, que seguramente dejará de estar disponible cuando se publique una nueva versión: <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
-            <li>Este enlace directo de descarga desde mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
-          </ul>
-          <p><strong>Nota</strong>: La página de descarga <a href="https://ubuntu.com/download/server">https://ubuntu.com/download/server</a> descarga la versión Live Server, que incluye un instalador diferente y por tanto requeriría una plantilla distinta a la de este ejemplo.</p>
-        </li>
-        <li>Cree la plantilla de packer (por ejemplo, packer-1-1.json).</li>
-        <li>Ejecute packer
-          <div class="terminal">
-            <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
-<code class="language-shell">packer build packer-1-1.json</code>
-</pre>
-          </div>
-        </li>
-      </ul>
+      <p>En la lección <a href="ubuntu-instalacion.html">Instalación de Ubuntu</a> se muestra un ejemplo de instalación de Ubuntu Server 18.04.3 LTS. La página muestra los sucesivos pasos del proceso de instalación y las entradas de teclado y tiempos de espera correspondientes. Por precaución, el tiempo de espera indicado a packer debería ser siempre algo superior al cronometrado.</p>
 
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-1</strong> y creará en él el fichero <strong>packer-1-1-ubuntu-18-04-3-server.ova</strong>.</p>
+      <p>En caso de que los tiempos de ejecución sean mayores que los tiempos de espera, Packer enviará las pulsaciones antes de tiempo y la instalación no podrá completarse correctamente. Se aconseja seguir con atención la instalación que realiza Packer e identificar el paso en que se produce el problema y es necesario aumentar el tiempo.</p>
 
-      <section id="plantilla-creacion-vm">
-        <h4>Plantilla de creación de la máquina virtual (packer-1-1.json)</h4>
+      <p>En particular hay un paso de la instalación en la que se descargan ficheros de Internet, por lo que la duración de este paso puede variar bastante, en función de la conexión a Internet disponible y del estado de carga de los servidores de Ubuntu. El tiempo de espera de este paso se encuentra en la línea 34 de la plantilla propuesta a continuación. Puede ser necesario aumentar los 40s propuestos a 90s o más.</p>
 
-        <p>Documentación de packer: <a href="https://www.packer.io/docs/builders/virtualbox-iso.html">Builders en VirtualBox</a></p>
+      <p>Si la instalación no se está realizando correctamente, pulse <kbd>Ctrl+c</kbd> en la ventana de Símbolo de sistema para interrumpirla. Packer cerrará en su caso la ventana de VirtualBox y borrará los archivos temporales creados. Si por cualquier motivo Packer no puede cerrar la ventana de VirtualBox, ciérrela manualmente y borre los ficheros temporales que hayan quedado en la carpeta de VirtualBox (en Windows, C:\Users\NombreUsuario\VirtualBox VMs).</p>
 
-        <p>En una plantilla de packer, la sección que define la creación de la máquina se denomina <strong>constructor</strong> (en inglés <strong><i>builder</i></strong>).</p>
+      <p>Esta podría ser la plantilla de creación de la máquina virtual con Ubuntu:</p>
 
-        <p>Packer instala el sistema operativo en la máquina virtual reproduciendo el proceso manual que realizamos nosotros cuando instalamos el sistema operativo en una máquina virtual.</p>
-
-        <p>Así, la plantilla de creación de una máquina virtual e instalación de un sistema operativo contiene tanto la descripción de la máquina virtual que queremos como las entradas de teclado a realizar para la instalación del sistema operativo.</p>
-
-        <p>Para obtener las entradas de teclado es necesario primero hacer una instalación manual y anotar cuidadosamente las opciones elegidas y también cronometrar lo que tarda en realizarse cada uno de los pasos de la instalación, ya que en la plantilla debemos indicar también el tiempo que packer debe esperar entre entrada y entrada de teclado. Si el tiempo de espera es demasiado corto, packer enviará las pulsaciones de teclado demasiado pronto y la instalación no se realizará correctamente.</p>
-
-        <p>En la lección <a href="ubuntu-instalacion.html">Instalación de Ubuntu</a> se muestra un ejemplo de instalación de Ubuntu Server 18.04.3 LTS. La página muestra los sucesivos pasos del proceso de instalación y las entradas de teclado y tiempos de espera correspondientes. Por precaución, el tiempo de espera indicado a packer debería ser siempre algo superior al cronometrado.</p>
-
-        <p>En caso de que los tiempos de ejecución sean mayores que los tiempos de espera, Packer enviará las pulsaciones antes de tiempo y la instalación no podrá completarse correctamente. Se aconseja seguir con atención la instalación que realiza Packer e identificar el paso en que se produce el problema y es necesario aumentar el tiempo.</p>
-
-        <p>En particular hay un paso de la instalación en la que se descargan ficheros de Internet, por lo que la duración de este paso puede variar bastante, en función de la conexión a Internet disponible y del estado de carga de los servidores de Ubuntu. El tiempo de espera de este paso se encuentra en la línea 34 de la plantilla propuesta a continuación. Puede ser necesario aumentar los 40s propuestos a 90s o más.</p>
-
-        <p>Si la instalación no se está realizando correctamente, pulse <kbd>Ctrl+c</kbd> en la ventana de Símbolo de sistema para interrumpirla. Packer cerrará en su caso la ventana de VirtualBox y borrará los archivos temporales creados. Si por cualquier motivo Packer no puede cerrar la ventana de VirtualBox, ciérrela manualmente y borre los ficheros temporales que hayan quedado en la carpeta de VirtualBox (en Windows, C:\Users\NombreUsuario\VirtualBox VMs).</p>
-
-        <p>Esta podría ser la plantilla de creación de la máquina virtual con Ubuntu:</p>
-
-        <div class="codigo">
-          <pre class="line-numbers">
+      <div class="codigo">
+        <pre class="line-numbers">
 <code class="language-json">{
   "builders": [
     {
@@ -303,365 +148,264 @@ PACKER_LOG_PATH=packerlog.txt</code>
   ]
 }</code>
 </pre>
-        </div>
+      </div>
 
-        <p>Comentarios:</p>
-        <ul>
-          <li>Línea 9: La máquina virtual tendrá un disco duro de 25 GB.</li>
-          <li>Líneas 10 a 13: La propiedad vboxmanage indica las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>). En el ejemplo, la máquina virtual tendrá 1 GB de RAM y la tarjeta de vídeo tendrá 64 MB.</li>
-          <li>Línea 24: Ubuntu propone un nombre de usuario a partir del nombre de usuario completo escrito en la pantalla anterior. Dependiendo del nombre propuesto habrá que borrar más o menos caracteres o añadir otros. En el ejemplo no es necesario modificar nada, pero si hiciera falta borrar caracteres del nombre propuesto por Ubuntu utilice &lt;bs&gt; en la plantilla (que corresponde a la tecla <i>backspace</i> / <i>Retroceso</i>).</li>
-          <li>Líneas 27-28: En algunos casos, Ubuntu no puede localizar un servidor de horas y muestra una pantalla adicional que solicita confirmar la zona horaria. En ese caso, habría que añadir una línea simplemente pulsando <kbd>Intro</kbd>:
-            <div class="codigo">
-              <pre class="line-numbers" data-start="27">
+      <p>Comentarios:</p>
+      <ul>
+        <li>Línea 9: La máquina virtual tendrá un disco duro de 25 GB.</li>
+        <li>Líneas 10 a 13: La propiedad vboxmanage indica las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="#modificacion-vm">ejemplo 4</a>). En el ejemplo, la máquina virtual tendrá 1 GB de RAM y la tarjeta de vídeo tendrá 64 MB.</li>
+        <li>Línea 24: Ubuntu propone un nombre de usuario a partir del nombre de usuario completo escrito en la pantalla anterior. Dependiendo del nombre propuesto habrá que borrar más o menos caracteres o añadir otros. En el ejemplo no es necesario modificar nada, pero si hiciera falta borrar caracteres del nombre propuesto por Ubuntu utilice &lt;bs&gt; en la plantilla (que corresponde a la tecla <i>backspace</i> / <i>Retroceso</i>).</li>
+        <li>Líneas 27-28: En algunos casos, Ubuntu no puede localizar un servidor de horas y muestra una pantalla adicional que solicita confirmar la zona horaria. En ese caso, habría que añadir una línea simplemente pulsando <kbd>Intro</kbd>:
+          <div class="codigo">
+            <pre class="line-numbers" data-start="27">
 <code class="language-json">        "&lt;left&gt;&lt;wait5&gt;&lt;enter&gt;&lt;wait5&gt;",
         <span class="codigo-resaltado">"&lt;enter&gt;&lt;wait10&gt;",</span>
         "&lt;enter&gt;&lt;wait10&gt;",</code>
 </pre>
-            </div>
-          </li>
-          <li>Línea 34: En este paso de la instalación se descargan ficheros de Internet, por lo que la duración de este paso puede variar bastante, en función de la conexión a Internet disponible y del estado de carga de los servidores de Ubuntu. Puede ser necesario aumentar el tiempo de espera.</li>
-          <li>Línea 36: Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina mediante SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu es necesario elegir instalar el servidor OpenSSH. La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
-          <li>Línea 42: La propiedad shutdown_command se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario.</li>
-          <li>Línea 45: La máquina virtual se guarda en formato .ova para que conste de un único fichero.</li>
-        </ul>
-      </section>
-    </section>
-
-    <section id="provisioners-inline">
-      <h3>Ejemplo 2: Actualización de la máquina virtual mediante comandos</h3>
-
-      <p>Para actualizar la máquina virtual necesitamos:</p>
-
-      <ul>
-        <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase el ejemplo 1)</li>
-        <li>Crear la plantilla de packer (por ejemplo, packer-1-2.json).</li>
-        <li>Ejecutar packer
-          <div class="terminal">
-            <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
-<code class="language-shell">packer build packer-1-2.json</code>
-</pre>
           </div>
         </li>
+        <li>Línea 34: En este paso de la instalación se descargan ficheros de Internet, por lo que la duración de este paso puede variar bastante, en función de la conexión a Internet disponible y del estado de carga de los servidores de Ubuntu. Puede ser necesario aumentar el tiempo de espera.</li>
+        <li>Línea 36: Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina mediante SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu es necesario elegir instalar el servidor OpenSSH. La conexión SSH utiliza el usuario administrador creado en la máquina durante la instalación.</li>
+        <li>Línea 42: La propiedad shutdown_command se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario.</li>
+        <li>Línea 45: La máquina virtual se guarda en formato .ova para que conste de un único fichero.</li>
       </ul>
-
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-2</strong> y creará en él el fichero <strong>packer-1-2-ubuntu-18-04-3-server.ova</strong>.</p>
-
-      <section id="plantilla-actualizacion-vm">
-        <h4>Plantilla de actualización de la máquina virtual (packer-1-2.json)</h4>
-
-        <p>Documentación de packer: <a href="https://www.packer.io/docs/provisioners/shell.html">Shells provisioners</a></p>
-
-        <p>En una plantilla de packer, la sección que define la instalación y configuración de la máquina virtual se denomina <strong>proveedor</strong> (en inglés <strong><i>provisioner</i></strong>).</p>
-
-        <p>En la sección del constructores le indicamos a packer que utilice la imagen creada en el ejemplo anterior y el usuario creado en ella.</p>
-
-        <p>En la sección de proveedores le indicamos a packer que ejecute un par de comandos para actualizar el sistema.</p>
-
-        <p>Esta podría ser la plantilla de actualización de la máquina virtual:</p>
-
-        <div class="codigo">
-          <pre class="line-numbers">
-<code class="language-json">{
-  "builders": [
-    {
-      "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-3-server.ova</span>",
-      "guest_additions_mode": "disable",
-      "boot_wait": "30s",
-      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
-      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
-      "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
-      "output_directory": "<span class="codigo-resaltado">packer-1-2</span>",
-      "vm_name": "<span class="codigo-resaltado">packer-1-2-ubuntu-18-04-3-server</span>",
-      "format": "ova"
-    }
-  ],
-  "provisioners": [
-    {
-      "type": "shell",
-      "execute_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
-      "inline": [
-        "apt update",
-        "DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade"
-      ]
-    }
-  ]
-}</code>
-</pre>
-        </div>
-
-        <p>Comentarios:</p>
-        <ul>
-          <li>Línea 6: De forma predeterminada, Packer transfiere la imagen .iso de las VirtualBox Guest Additions a la máquina virtual. En este caso se ha deshabilitado esta transferencia puesto que ya se ha transferido a la imagen inicial creada en el ejemplo 1.</li>
-          <li>Línea 22: Se usa el comando <i>DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade</i> porque Packer no es un entorno interactivo y no podemos contestar a peticiones de los instaladores. Con esta opción le decimos automáticamente a todo que sí.</li>
-        </ul>
-      </section>
-    </section>
-
-    <section id="provisioners-script">
-      <h3>Ejemplo 3: Instalación de VirtualBox Guest Additions mediante un <i>script</i></h3>
-
-      <p>Para instalar las VirtualBox Guest Additions en la máquina virtual necesitamos:</p>
-
-      <ul>
-        <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase el ejemplo 1)</li>
-        <li>Crear la plantilla de packer (por ejemplo, packer-1-3.json) y el script de shell a ejecutar (por ejemplo, script-3.sh).</li>
-        <li>Ejecutar packer <div class="terminal">
-            <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
-<code class="language-shell">packer build packer-1-3.json</code>
-</pre>
-          </div>
-        </li>
-      </ul>
-
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-3</strong> y creará en él el fichero <strong>packer-1-3-ubuntu-18-04-3-server.ova</strong>.</p>
-
-      <hr class="corta">
-
-      <p><strong>Nota</strong>: En Windows, Packer 1.2.3 requería que los scripts de shell tuvieran los finales de línea de Unix [<a href="https://github.com/hashicorp/packer/issues/6151">packer issue 6151</a>], pero desde Packer 1.3 ya no tiene esta limitación</p>
-
-      <section id="plantilla-instalacion-guest-additions">
-        <h4>Plantilla de instalación de VirtualBox Guest Additions (packer-1-3.json)</h4>
-
-        <p>Documentación de packer: <a href="https://www.packer.io/docs/provisioners/shell.html">Shells provisioners</a></p>
-
-        <p>En una plantilla de packer, la sección que define la instalación y configuración de la máquina virtual se denomina <strong>proveedor</strong> (en inglés <strong><i>provisioner</i></strong>).</p>
-
-        <p>En la sección del constructores le indicamos a packer que utilice la imagen creada en el ejemplo anterior y el usuario creado en ella.</p>
-
-        <p>En la sección de proveedores le indicamos a packer que ejecute un scripts con todos los comandos necesarios para actualizar el sistema e instalar las VirtualBox Guest Additions.</p>
-
-        <p>Esta podría ser la plantilla de instalación de Virtual Guest Additions:</p>
-
-        <div class="codigo">
-          <pre class="line-numbers">
-<code class="language-json">{
-  "builders": [
-    {
-      "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-3-server.ova</span>",
-      "guest_additions_mode": "disable",
-      "boot_wait": "30s",
-      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
-      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
-      "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
-      "output_directory": "<span class="codigo-resaltado">packer-1-3</span>",
-      "vm_name": "<span class="codigo-resaltado">packer-1-3-ubuntu-18-04-3-server</span>",
-      "format": "ova"
-    }
-  ],
-  "provisioners": [
-    {
-      "type": "shell",
-      "execute_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
-      "script": "<span class="codigo-resaltado">script-3.sh</span>",
-      "pause_before": "10s"
-    }
-  ]
-}</code>
-</pre>
-        </div>
-
-        <p>Este podría ser el <i>script</i> de instalación de las VirtualBox Guest Additions (basado en las instrucciones que se comentan en la lección <a href="virtualbox.html#guest-additions">VirtualBox</a>).</p>
-
-        <div class="codigo">
-          <pre class="line-numbers">
-<code class="language-bash">sudo apt update
-sudo DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade
-sudo DEBIAN_FRONTEND=noninteractive apt -yq install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-70-generic</span>
-sudo mkdir /mnt/cdrom
-sudo mount ~/VBoxGuestAdditions.iso /mnt/cdrom
-sudo sh /mnt/cdrom/VBoxLinuxAdditions.run --nox11
-sudo umount /mnt/cdrom
-rm ~/VBoxGuestAdditions.iso</code>
-</pre>
-        </div>
-
-        <p>Comentario:</p>
-        <ul>
-          <li>Línea 3: la versión del kernel se puede obtener (en una de las máquinas virtuales creadas en los ejercicios anteriores) mediante la orden <i>uname</i>. La respuesta indica la versión del kernel.
-            <div class="terminal">
-              <pre class="command-line" data-prompt="user@ubuntu:/$" data-output="2">
-<code class="language-shell">uname -a
-Linux ubuntu <span class="codigo-resaltado">4.15.0-70-generic</span> #79-Ubuntu SMP Tue Nov 12 ...</code>
-</pre>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </section>
-
-    <section id="modificacion-vm">
-      <h3>Ejemplo 4: Modificación final de la máquina virtual</h3>
-
-      <p>Para modificar la máquina virtual necesitamos:</p>
-
-      <ul>
-        <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella y en su caso, haber instalado programas en ella (véase los ejemplos 1, 2 o 3)</li>
-        <li>Crear la plantilla de packer (por ejemplo, packer-1-4.json).</li>
-        <li>Ejecutar packer
-          <div class="terminal">
-            <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
-<code class="language-shell">packer build packer-1-4.json</code>
-</pre>
-          </div>
-        </li>
-      </ul>
-
-      <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-4</strong> y creará en él el fichero <strong>packer-1-4-ubuntu-18-04-3-server.ova</strong>.</p>
-
-      <section id="plantilla-modificacion-vm">
-        <h4>Plantilla de modificación final de la máquina virtual (packer-1-4.json)</h4>
-
-        <p>Documentación de packer: <a href="https://www.packer.io/docs/builders/virtualbox-iso.html">VirtualBox Builders</a></p>
-
-        <p>En una plantilla de packer, la sección que define la creación de la máquina se denomina <strong>constructor</strong> (en inglés <strong><i>builder</i></strong>).</p>
-
-        <p>En la sección del constructores le indicamos a packer que utilice la imagen creada en el ejemplo anterior y el usuario creado en ella.</p>
-
-        <p>Las modificaciones de la máquina virtual se pueden realizar con la propiedad vboxmanage o con la propiedad vboxmanage_post. En este ejemplo vamos a modificar el tipo de adaptador de red (de nat a bridged). Esta modificación debe realizarse con vboxmanage_post, ya que packer parece necesitar que el adaptador sea nat para poder realizar la conexión SSH con la que comprueba que la máquina es funcional (la comprobación se hace después de realizar las modificaciones de la máquina indicadas en vboxmanage pero antes de las indicadas en vboxmanage_post).</p>
-
-        <p>El nombre del adaptador dependerá de la tarjeta de red del ordenador en el que esté instalado VirtualBox.</p>
-
-        <p>Esta podría ser la plantilla de modificación final de la máquina virtual:</p>
-
-        <div class="codigo">
-          <pre class="line-numbers">
-<code class="language-json">{
-  "builders": [
-    {
-      "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-3/packer-1-3-ubuntu-18-04-3-server.ova</span>",
-      "guest_additions_mode": "disable",
-      "boot_wait": "30s",
-      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
-      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
-      "shutdown_command": "echo 'mclibre' | sudo -S shutdown -P now",
-      "post_shutdown_delay": "120s",
-      "vboxmanage_post": [
-        ["modifyvm", "{{.Name}}", "--nic1", "bridged"],
-        ["modifyvm", "{{.Name}}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]
-      ],
-      "output_directory": "<span class="codigo-resaltado">packer-1-4</span>",
-      "vm_name": "<span class="codigo-resaltado">packer-1-4-ubuntu-18-04-3-server</span>",
-      "format": "ova"
-    }
-  ]
-}</code>
-</pre>
-        </div>
-
-        <p>Notas:</p>
-        <ul>
-          <li>Línea 11: A veces, cuando se van a realizar las tareas vboxmanage_post la máquina virtual todavía está bloqueada por la tarea anterior. El retardo que añade post_shutdown_delay da tiempo a que la máquina virtual se libere. Este retardo no es siempre necesario y, en su caso, se podría eliminar. El tiempo de 120s lo he sacado de una <a href="https://github.com/hashicorp/packer/issues/5424">issue de Packer</a>.</li>
-          <li>Línea 14: El nombre del adaptador 1 depende del ordenador en el que esté instalado VirtualBox.</li>
-        </ul>
-      </section>
     </section>
   </section>
 
-  <section id="ejemplos-2">
-    <h2>Otros ejemplos</h2>
+  <section id="creacion-vm-vbox-ubuntu-preseed">
+    <h3>Ejemplo 2: Creación de una máquina virtual de VirtualBox con Ubuntu Server 18.04.3 LTS (instalación desatendida, <i>preseed</i>)</h3>
 
-    <section id="instalacion-docker">
-      <h3>Ejemplo 5: Instalación de Docker mediante un <i>script</i></h3>
+    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Este ejemplo está en elaboración.</p>
 
-      <p>Docker está disponible en Ubuntu 18.04 desde junio de 2018. En este ejemplo se instala la versión más reciente de Docker mediante un script.</p>
+    <p>Para crear la máquina virtual:</p>
 
-      <p>Este ejemplo trabaja a partir de la máquina virtual obtenida en el ejercicio 1 y crea una nueva máquina virtual. Los pasos de instalación de Docker se realizan mediante un script y está basado en el <a href="docker-1.html#ejercicio-1">ejercicio 1 de la lección de Docker (1)</a>.</p>
+    <ul>
+      <li>Instale <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
+      <li>Esta lección se ha elaborado con la versión Ubuntu Server 18.04.3 LTS 64 bits, publicada el 08/08/19.
+        <p>Para descargar la imagen .iso de instalación de Ubuntu Server 18.04.3 LTS puede utilizar:</p>
+        <ul>
+          <li>La página de descarga oficial <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a>. En esta página encontrará siempre la última versión publicada.</li>
+          <li>Este enlace directo de descarga desde ubuntu, que seguramente dejará de estar disponible cuando se publique una nueva versión: <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
+          <li>Este enlace directo de descarga desde mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
+        </ul>
+        <p><strong>Nota</strong>: La página de descarga <a href="https://ubuntu.com/download/server">https://ubuntu.com/download/server</a> descarga la versión Live Server, que incluye un instalador diferente y por tanto requeriría una plantilla distinta a la de este ejemplo.</p>
+      </li>
+      <li>Cree la plantilla de packer (por ejemplo, packer-1-2.json).</li>
+      <li>Ejecute packer
+        <div class="terminal">
+          <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
+<code class="language-shell">packer build packer-1-1.json</code>
+</pre>
+        </div>
+      </li>
+    </ul>
 
-      <section id="plantilla-instalacion-docker">
-        <h4>Plantilla de instalación de Docker (packer-1-5.json)</h4>
+    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-2</strong> y creará en él el fichero <strong>packer-1-2-ubuntu-18-04-3-server.ova</strong>.</p>
 
-        <p>Esta podría ser la plantilla de instalación de Docker:</p>
+    <section id="plantilla-creacion-vm-vbox-ubuntu-preseed">
+      <h4>Plantilla de creación de la máquina virtual desatendida (packer-1-2.json)</h4>
 
-        <div class="codigo">
-          <pre class="line-numbers">
+      <p>Esta podría ser la plantilla de creación de la máquina virtual con Ubuntu:</p>
+
+      <div class="codigo">
+        <pre class="line-numbers">
 <code class="language-json">{
   "builders": [
     {
-      "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-3-server.ova</span>",
-      "guest_additions_mode": "disable",
-      "boot_wait": "30s",
-      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
-      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
-      "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
-      "output_directory": "<span class="codigo-resaltado">packer-1-5</span>",
-      "vm_name": "<span class="codigo-resaltado">packer-1-5-ubuntu-18-04-3-server</span>",
+      "type": "virtualbox-iso",
+      "guest_os_type": "Ubuntu_64",
+      "iso_url": "ubuntu-18.04.3-server-amd64.iso",
+      "iso_checksum": "7d8e0055d663bffa27c1718685085626cb59346e7626ba3d3f476322271f573e",
+      "iso_checksum_type": "sha256",
+      "disk_size": "25000",
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--memory", "1024"],
+        ["modifyvm", "{{.Name}}", "--vram", "64"]
+      ],
+      "boot_wait": "10s",
+      "boot_command": [
+        "&lt;enter&gt;&lt;wait&gt;&lt;f6&gt;&lt;esc&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;",
+        "&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;",
+        "&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;",
+        "&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;&lt;bs&gt;",
+        " auto&lt;wait&gt;",
+        " console-setup/ask_detect=false&lt;wait&gt;",
+        " console-setup/layoutcode=es&lt;wait&gt;",
+        " debconf/frontend=noninteractive&lt;wait&gt;",
+        " debian-installer=es_ES&lt;wait&gt;",
+        " fb=false&lt;wait&gt;",
+        " initrd=/install/initrd.gz&lt;wait&gt;",
+		" keyboard-configuration/layoutcode=es",
+        " locale=es_ES&lt;wait&gt;",
+        " netcfg/get_domain=vm&lt;wait&gt;",
+        " netcfg/get_hostname=ubuntu&lt;wait&gt;",
+        " grub-installer/bootdev=/dev/sda&lt;wait&gt;",
+        " noapic&lt;wait&gt;",
+        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg&lt;wait&gt;",
+        " -- &lt;wait&gt;",
+        "&lt;enter&gt;&lt;wait&gt;"
+    ],
+      "http_directory": "http",
+      "ssh_username": "mclibre",
+      "ssh_password": "mclibre",
+      "ssh_wait_timeout": "3600s",
+      "shutdown_command": "echo 'mclibre' | sudo -S shutdown -P now",
+      "output_directory": "packer-1-2",
+      "vm_name": "packer-1-2-ubuntu-18-04-3-server",
       "format": "ova"
-    }
-  ],
-  "provisioners": [
-    {
-      "type": "shell",
-      "execute_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
-      "script": "<span class="codigo-resaltado">script-5.sh</span>",
-      "pause_before": "10s"
     }
   ]
 }</code>
 </pre>
-        </div>
+      </div>
 
-        <p>Este podría ser el <i>script</i> de instalación de Docker (basado en las instrucciones que se comentan en la lección <a href="docker-1.html#ejercicio-1">Docker. Ejercicios (1)</a>.</p>
+      <p>Este podría el fichero de configuración de la instalación desatendida, que debe guardarse en la carpeta <strong>http</strong> con el nombre <strong>preseed.cfg</strong>:</p>
 
-        <div class="codigo">
-          <pre class="line-numbers">
-<code class="language-bash">sudo apt update
-sudo DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade
-sudo DEBIAN_FRONTEND=noninteractive apt -yq install apt-transport-https ca-certificates curl software-properties-common
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88 &gt; info-fingerprint.txt
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-sudo apt update
-sudo DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade
-sudo apt-cache policy docker-ce &gt; info-policy.txt
-sudo DEBIAN_FRONTEND=noninteractive apt -yq install docker-ce</code>
-</pre>
-        </div>
+      <div class="codigo">
+        <pre class="line-numbers">
+<code class="language-json"># fuente: https://help.ubuntu.com/lts/installation-guide/example-preseed.txt
 
-        <p>Comentario:</p>
-        <ul>
-          <li>Líneas 5 y 9: El resultado de las comprobaciones de la clave GPG oficial de Docker (línea 5) y de que el comando apt está utilizando el repositorio correcto (línea 9) se guardan en dos ficheros .txt para su comprobación posterior.
-            <ul>
-              <li>info-fingerprint."txt":
-                <div class="codigo">
-                  <pre>
-<code class="language-bash">pub   rsa4096 2017-02-22 [SCEA]
-      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid        [desconocida] Docker Release (CE deb) &lt;docker@docker.com&gt;
-sub   rsa4096 2017-02-22 [S]</code>
+# Localization
+d-i debian-installer/locale string es_ES
+
+# Keyboard selection.
+# Disable automatic (interactive) keymap detection.
+d-i console-setup/ask_detect boolean false
+d-i keyboard-configuration/modelcode string pc105
+d-i keyboard-configuration/xkb-keymap select es
+d-i keyboard-configuration/xkb-keymap select es(winkeys)
+
+### Network configuration
+# netcfg will choose an interface that has link if possible. This makes it
+# skip displaying a list if there is more than one interface.
+d-i netcfg/choose_interface select auto
+
+# To set a different link detection timeout (default is 3 seconds).
+# Values are interpreted as seconds.
+d-i netcfg/link_wait_timeout string 10
+
+# If you have a slow dhcp server and the installer times out waiting for
+# it, this might be useful.
+d-i netcfg/dhcp_timeout string 60
+d-i netcfg/dhcpv6_timeout string 60
+
+# If you want to force a hostname, regardless of what either the DHCP
+# server returns or what the reverse DNS entry for the IP is, uncomment
+# and adjust the following line.
+d-i netcfg/hostname string ubuntu
+
+# Disable that annoying WEP key dialog.
+d-i netcfg/wireless_wep string
+
+
+### Account setup
+
+# To create a normal user account.
+d-i passwd/user-fullname string mclibre.org
+d-i passwd/username string mclibre
+# Normal user's password, either in clear text
+d-i passwd/user-password password mclibre
+d-i passwd/user-password-again password mclibre
+# The installer will warn about weak passwords. If you are sure you know
+# what you're doing and want to override it, uncomment this.
+d-i user-setup/allow-password-weak boolean true
+
+### Clock and time zone setup
+# Controls whether or not the hardware clock is set to UTC.
+d-i clock-setup/utc boolean true
+
+# You may set this to any valid setting for $TZ; see the contents of
+# /usr/share/zoneinfo/ for valid values.
+d-i time/zone string Europe/Madrid
+
+# Controls whether to use NTP to set the clock during the install
+d-i clock-setup/ntp boolean true
+
+
+### Partitioning
+## Partitioning example
+
+d-i partman-auto/method string lvm
+
+# If one of the disks that are going to be automatically partitioned
+# contains an old LVM configuration, the user will normally receive a
+# warning. This can be preseeded away...
+d-i partman-lvm/device_remove_lvm boolean true
+# The same applies to pre-existing software RAID array:
+d-i partman-md/device_remove_md boolean true
+# And the same goes for the confirmation to write the lvm partitions.
+d-i partman-lvm/confirm boolean true
+d-i partman-lvm/confirm_nooverwrite boolean true
+
+# For LVM partitioning, you can select how much of the volume group to use
+# for logical volumes.
+d-i partman-auto-lvm/guided_size string max
+
+# You can choose one of the three predefined partitioning recipes:
+# - atomic: all files in one partition
+# - home:   separate /home partition
+# - multi:  separate /home, /var, and /tmp partitions
+d-i partman-auto/choose_recipe select atomic
+
+# This makes partman automatically partition without confirmation, provided
+# that you told it what to do using one of the methods above.
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman/confirm_nooverwrite boolean true
+
+
+### Base system installation
+
+### Apt setup
+# You can choose to install restricted and universe software, or to install
+# software from the backports repository.
+#d-i apt-setup/restricted boolean true
+#d-i apt-setup/universe boolean true
+#d-i apt-setup/backports boolean true
+# Uncomment this if you don't want to use a network mirror.
+d-i apt-setup/use_mirror boolean false
+
+### Package selection
+tasksel tasksel/first multiselect ubuntu-server
+#tasksel tasksel/first multiselect ubuntu-desktop
+#tasksel tasksel/first multiselect lamp-server, print-server
+#tasksel tasksel/first multiselect kubuntu-desktop
+
+# Individual additional packages to install
+d-i pkgsel/include string openssh-server build-essential
+# Whether to upgrade packages after debootstrap.
+# Allowed values: none, safe-upgrade, full-upgrade
+d-i pkgsel/upgrade select none
+# Barto. para descargar el soporte completo del idioma
+# https://askubuntu.com/questions/129651/how-do-i-configure-a-preseed-to-skip-the-language-support-question
+d-i pkgsel/install-language-support boolean true
+
+# Policy for applying updates. May be "none" (no automatic updates),
+# "unattended-upgrades" (install security updates automatically), or
+# "landscape" (manage system with Landscape).
+d-i pkgsel/update-policy select none
+
+### Boot loader installation
+# This is fairly safe to set, it makes grub install automatically to the MBR
+# if no other operating system is detected on the machine.
+d-i grub-installer/only_debian boolean true
+
+
+### Finishing up the installation
+
+# Avoid that last message about the install being complete.
+d-i finish-install/reboot_in_progress note</code>
 </pre>
-                </div>
-              </li>
-              <li>info-policy."txt":
-                <div class="codigo">
-                  <pre>
-<code class="language-bash">docker-ce:
-  Instalados: (ninguno)
-  Candidato: 5:18.09.3~3-0~ubuntu-bionic
-  Tabla de versión:
-    5:18.09.3~3-0~ubuntu-bionic 500
-          500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
-    5:18.09.2~3-0~ubuntu-bionic 500
-          500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
-    ...</code>
-</pre>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li>Línea 6: En vez de la versión <strong>stable</strong>, se pueden probar las versiones <strong>edge</strong> y <strong>nightly</strong>.</li>
-        </ul>
-      </section>
+      </div>
+
     </section>
   </section>
 
   <section id="detalles">
     <h2>Otros detalles</h2>
 
-    <h3>opción de configuración <i>guest_os_type</i></h3>
+    <h3>Opción de configuración <i>guest_os_type</i></h3>
 
     <p>La opción de configuración <i>guest_os_type</i> puede tomar el valor <i>other</i>, pero según la documentación de Packer, el rendimiento de VirtualBox puede ser mucho mayor si se especifica el sistema operativo que queremos instalar. La lista completa de valores se puede obtener con el comando de VirtualBox:</p>
 
@@ -670,11 +414,10 @@ sub   rsa4096 2017-02-22 [S]</code>
   <code class="language-shell">VBoxManage list ostypes</code>
 </pre>
     </div>
-
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 7 de enero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 9 de enero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>

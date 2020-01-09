@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Packer. Aplicaciones web. Bartolomé Sintes Marco. www.mclibre.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre">
+  <link rel="icon" href="../varios/favicon.ico">
+  <link rel="stylesheet" href="../varios/prism-webapps.css">
+  <script src="../varios/prism.js"></script>
+</head>
+
+<body>
+  <h1>Packer</h1>
+
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31"></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36"></a>
+    </p>
+
+    <div class="toc">
+      <h2>
+        <a href="virtualbox.html"><img src="../varios/iconos/icono-flecha-izquierda.svg" alt="Anterior" title="Anterior" width="15" height="18"></a>
+        <a href="packer-1.html"><img src="../varios/iconos/icono-flecha-derecha.svg" alt="Siguiente" title="Siguiente" width="15" height="18"></a>
+        Packer
+      </h2>
+
+      <ul>
+        <li><a href="#organizacion-ejercicios">Organización ejercicios</a></li>
+        <li><a href="#que-es">Qué es</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#ejemplos">Ejemplos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="organizacion-ejercicios">
+    <h2>Organización de los ejercicios</h2>
+
+    <p>Los ejercicios de packer están divididos en dos páginas:</p>
+    <ul>
+      <li><a href="packer-1.html">Packer (1)</a>: Creación de máquinas virtuales para VirtualBox: Ubuntu 18.04 Server (manual y desatendida).</li>
+      <li><a href="packer-2.html">Packer (2)</a>: Modificación de máquinas virtuales.</li>
+    </ul>
+  </section>
+
+  <section id="que-es">
+    <h2>Qué es Packer</h2>
+
+    <p><a href="https://www.packer.io/">Packer</a> es una herramienta de creación de máquinas virtuales.</p>
+
+    <p>Packer es un software libre publicado bajo la licencia <a href="https://github.com/hashicorp/packer/blob/master/LICENSE">MPL 2.0</a> y cuyo desarrollo puede seguirse en <a href="https://github.com/hashicorp/packer">GitHub</a>.</p>
+
+    <p>La primera versión se publicó en junio de 2013 y la versión 1.0 se publicó en abril de 2017.</p>
+
+    <p class="mcl-svg-diagrama-temporal">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1080" viewBox="-100 -60 1080 100">
+        <line x1="-20" y1="0" x2="1020" y2="0" stroke-width="3" stroke="hsl(202, 100%, 56%)" />
+        <text x="-90" y="4" text-anchor="start" style="font-size: 100%">packer</text>
+        <text x="-65" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
+        <text x="-65" y="-38" text-anchor="middle" style="font-size: 60%">19-12-2019</text>
+
+        <line x1="0" y1="-50" x2="0" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="60" y="-40" text-anchor="middle" style="font-size: 80%">2013</text>
+        <line x1="120" y1="-50" x2="120" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="180" y="-40" text-anchor="middle" style="font-size: 80%">2014</text>
+        <line x1="240" y1="-50" x2="240" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="300" y="-40" text-anchor="middle" style="font-size: 80%">2015</text>
+        <line x1="360" y1="-50" x2="360" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="420" y="-40" text-anchor="middle" style="font-size: 80%">2016</text>
+        <line x1="480" y1="-50" x2="480" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="540" y="-40" text-anchor="middle" style="font-size: 80%">2017</text>
+        <line x1="600" y1="-50" x2="600" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="660" y="-40" text-anchor="middle" style="font-size: 80%">2018</text>
+        <line x1="720" y1="-50" x2="720" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="780" y="-40" text-anchor="middle" style="font-size: 80%">2019</text>
+        <line x1="840" y1="-50" x2="840" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+        <text x="900" y="-40" text-anchor="middle" style="font-size: 80%">2020</text>
+        <line x1="960" y1="-50" x2="960" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
+
+        <circle cx="59" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="59" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.1</text>
+        <circle cx="119" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="119" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.5</text>
+        <circle cx="160" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="160" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.6</text>
+        <circle cx="203" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="203" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.7</text>
+        <circle cx="297" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="297" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.8</text>
+        <circle cx="377" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="377" y="25" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.9</text>
+        <circle cx="384" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="384" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.10</text>
+        <circle cx="457" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="457" y="25" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.11</text>
+        <circle cx="465" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="465" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">0.12</text>
+        <circle cx="511" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="511" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.0</text>
+        <circle cx="564" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="564" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.1</text>
+        <circle cx="613" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="613" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.2</text>
+        <circle cx="684" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="684" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.3</text>
+        <circle cx="753" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="753" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.4</text>
+        <circle cx="836" cy="0" r="5" fill="hsl(202, 100%, 56%)" />
+        <text x="836" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.5</text>
+        <!--
+        <circle cx="835" cy="0" r="5" fill="white" stroke="hsl(202, 100%, 56%)" stroke-width="2" />
+        <text x="835" y="-15" text-anchor="middle" fill="hsl(202, 100%, 56%)" style="font-size: 80%; font-weight: bold">1.5</text>
+         -->
+      </svg>
+    </p>
+
+    <p>Listado de <a href="https://github.com/hashicorp/packer/blob/master/CHANGELOG.md">novedades en cada versión</a> de Packer.</p>
+
+    <hr class="corta">
+
+    <p>Packer trabaja a partir de plantillas. Las plantillas son ficheros JSON que le dicen a Packer qué tipo de máquina virtual se quiere crear, los pasos a realizar para instalar el sistema operativo y los comandos o scripts a ejecutar tras la instalación.</p>
+
+    <p>Una vez hemos creado la plantilla, Packer permite crear automáticamente tantas máquinas virtuales como necesitemos. Lógicamente, cuantas más máquinas virtuales creemos a partir de una plantilla, más rentabilizaremos el tiempo empleado en la elaboración de la plantilla, pero, aún en el caso de que sólo creemos una vez la máquina virtual, la plantilla nos servirá como documentación y especificación del proceso.</p>
+
+    <p>A partir de Packer 1.5 (publicado en diciembre de 2019), Packer permite escribir las plantillas en <a href="https://www.packer.io/guides/hcl/">HCL2</a>, un formato de archivos de configuración desarrollado por HashiCorp. En estos apuntes se utiliza todavía el formato JSON.</p>
+
+    <hr class="corta">
+
+    <p>En junio de 2019 HashiCorp puso en marcha en <a href="https://www.hashicorp.com/community/">nuevo portal comunitario</a> dedicado a sus productos. Entre otros, cuenta con un <a href="https://discuss.hashicorp.com/c/packer">foro dedicado a Packer</a>.</p>
+  </section>
+
+  <section id="instalacion">
+    <h2>Instalación en Windows</h2>
+
+    <p>En Windows, packer se distribuye en forma de fichero zip (<a href="https://www.packer.io/downloads.html">página de descarga de packer</a>).</p>
+
+    <p>Esta lección se ha elaborado con la versión <a href="https://releases.hashicorp.com/packer/1.5.1/packer_1.5.1_windows_amd64.zip">packer 1.5.1 para Windows 64 bits</a>, publicada el 20 de diciembre de 2019.</p>
+
+    <p>Si no encuentra esta versión en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
+
+    <p>Packer no necesita instalación. Simplemente, hay que descomprimir el fichero zip en una carpeta para obtener el programa packer.exe.</p>
+
+    <p>Para ejecutar packer, abra una ventana de Símbolo de sistema y ejecute la orden packer con los parámetros adecuados. Por ejemplo, para conocer la versión de packer, ejecute:</p>
+
+    <div class="terminal">
+      <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2">
+<code class="language-shell">packer --version
+1.5.1</code>
+</pre>
+    </div>
+
+    <hr class="corta">
+
+    <p>Para que packer cree un archivo de log del proceso de creación de la plantilla, que nos será muy útil para identificar los errores del proceso, en Windows es necesario establecer dos variables de entorno.</p>
+
+    <p>En Windows 7 o Windows 10, puede añadir estas variables de dos maneras:</p>
+    <ul>
+      <li>gráficamente en Panel de control &gt; Sistema &gt; Configuración avanzada del sistema &gt; Opciones avanzadas &gt; Variables de entorno</li>
+      <li>o en una ventana de Símbolo de sistema (CMD) con el comando setx:
+        <div class="terminal">
+          <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 4">
+<code class="language-shell">setx PACKER_LOG 1
+CORRECTO: se guardó el valor especificado
+setx PACKER_LOG_PATH packerlog.txt
+CORRECTO: se guardó el valor especificado</code>
+</pre>
+        </div>
+
+        <p>Cierre la ventana, abra de nuevo una ventana de símbolo de sistema (CMD) y compruebe que se han establecido las variables de entorno con el comando set:</p>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
+<code class="language-shell">set PACKER
+PACKER_LOG=1
+PACKER_LOG_PATH=packerlog.txt</code>
+</pre>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejemplos">
+    <h2>Ejemplos de creación de máquinas virtuales y configuración posterior</h2>
+
+    <p>Packer permite crear máquinas virtuales para muchos sistemas de virtualización e instalar y configurar en ellas el sistema operativo que queramos.</p>
+
+    <p>Las plantillas de packer admiten muchas posibilidades, que se detallan en la <a href="https://www.packer.io/docs/index.html">documentación oficial de packer</a>.</p>
+
+    <p>En la lección <a href="packer-1.html">Packer(1)</a> veremos dos ejemplos de creación de máquinas virtuales:</p>
+    <ul>
+      <li>En el primer ejemplo, crearemos una máquina virtual e instalaremos Ubuntu Server 18.04.3 LTS en ella, simulando una instalación manual.</li>
+      <li>En el segundo ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 18.04.3 LTS en ella, mediante una instalación desatendida.</li>
+    </ul>
+
+    <p>En la lección <a href="packer-2.html">Packer(2)</a> veremos cuatro ejemplos de modificación  y posterior instalación de aplicaciones en la máquinas:</p>
+    <ul>
+      <li>En el primer ejemplo, crearemos una máquina virtual en la que habremos actualizado el sistema operativo.</li>
+      <li>En el segundo ejemplo, crearemos una máquina virtual en la que habremos instalado las VirtualBox Guest Additions.</li>
+      <li>En el tercer ejemplo, crearemos una máquina virtual en la que habremos modificado la configuración de la máquina virtual.</li>
+      <li>En el cuarto ejemplo, crearemos una máquina virtual en la que habremos modificado la configuración de la máquina virtual.</li>
+    </ul>
+
+    <p>Una de las ventajas de preparar primero la imagen básica es ahorrarnos la instalación del sistema operativo en cada prueba de instalación de aplicaciones. La instalación es un proceso que tarda más de 10 minutos y que sólo necesitaremos hacer una vez.</p>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 9 de enero de 2020</p>
+
+    <p class="licencia">
+      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
+      Esta página forma parte del curso <strong><a href="https://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="https://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br>
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)</a>.
+    </p>
+  </footer>
+</body>
+</html>
