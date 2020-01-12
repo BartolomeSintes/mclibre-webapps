@@ -86,7 +86,7 @@
         <li><strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones &gt; phpmyadmin</strong></li>
       </ul>
 
-      <p>Para poder ejecutar las aplicaciones, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. Para que el alias pueda aprovecharse desde Eclipse PHP, el alias puede ser <strong>/iaw/webapps</strong> y apuntar a la carpeta Aplicaciones, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
+      <p>Para poder ejecutar las aplicaciones, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. El alias puede ser por ejemplo <strong>/iaw/webapps</strong> y apuntar a la carpeta Aplicaciones, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
       <ul>
         <li><strong>http://localhost/iaw/webapps/</strong></li>
       </ul>
@@ -118,33 +118,13 @@
 
       <p>En general, no se editará el código fuente de las aplicaciones web, pero ocasionalmente si que se modificará algún fichero en concreto.</p>
 
-      <p>Para esas modificaciones puntuales, se recomienda utilizar un editor ligero como <a href="https://notepad-plus-plus.org/">Notepad++</a>.</p>
-
-      <hr class="corta">
-
-      <p>También se puede utilizar el editor Eclipse for PHP developers, aunque como Eclipse PHP revisa y comprueba todos los archivos, a medida que vayamos instalando aplicaciones web, ese proceso tardará cada vez más tiempo.</p>
-
-      <p>Si se quiere utilizar Eclipse PHP, se recomienda crear un workspace específico. Se recomienda:</p>
-      <ul>
-        <li>crear el workspace en "C:\software\eclipse-workspace-nombre-de-alumno-webapps"</li>
-        <li>crear un proyecto que se llame: <strong>nombre-de-alumno</strong> (sin espacios en el nombre del alumno)</li>
-        <li>crear una carpeta enlazada que se llame <strong>webapps</strong> y enlace a la carpeta <strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones</strong></li>
-      </ul>
-
-      <p>Al descomprimir una nueva aplicación web se deberá actualizar la vista del Explorador PHP de Eclipse.</p>
-
-      <p>Como se ha comentado en el apartado anterior, para poder ejecutar las aplicaciones desde Eclipse PHP, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. La ruta del alias será <strong>/nombre-de-alumno/webapps</strong>, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
-
-      <p>Al ejecutar la página principal de cada aplicación web desde Eclipse PHP, se abrirá la página web en el navegador. Por ejemplo, en el caso de phpMyAdmin,</p>
-      <ul>
-        <li><strong>http://localhost/nombre-de-alumno/webapps/phpmyadmin/</strong></li>
-      </ul>
+      <p>Para esas modificaciones puntuales, se recomienda utilizar un editor ligero como <a href="https://notepad-plus-plus.org/">Notepad++</a> o Visual Studio Code.</p>
     </section>
 
     <section id="index-webapps">
       <h2>Página web índice de aplicaciones</h2>
 
-      <p>Cree una página web <strong>index.html</strong> en la carpeta Aplicaciones que sirva de índice para entrar en las diferentes aplicaciones sin necesidad de entrar en Eclipse. Por ejemplo:</p>
+      <p>Cree una página web <strong>index.html</strong> en la carpeta Aplicaciones que sirva de índice para abrir fácilmente las diferentes aplicaciones. Por ejemplo:</p>
 
       <div class="codigo">
         <pre>
@@ -175,11 +155,10 @@
 </pre>
       </div>
     </section>
-
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 25 de noviembre de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 12 de enero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>

@@ -175,15 +175,15 @@
 
     <p>En los tres apartados siguientes:</p>
     <ul>
-      <li>se crea una máquina virtual con Ubuntu 18.04.2 Server que actuará como máquina de control</li>
-      <li>se crea una o varias máquinas virtuales con Ubuntu 18.04.2 Server que actuarán como nodos administrados</li>
+      <li>se crea una máquina virtual con Ubuntu 18.04.3 Server que actuará como máquina de control</li>
+      <li>se crea una o varias máquinas virtuales con Ubuntu 18.04.3 Server que actuarán como nodos administrados</li>
       <li>se configura la máquina de control para que Ansible pueda acceder a los nodos administrados</li>
     </ul>
 
     <section id="instalacion-maquina-control">
-      <h3>Máquina de control: instalación de Ansible en Ubuntu 18.04.2</h3>
+      <h3>Máquina de control: instalación de Ansible en Ubuntu 18.04.3</h3>
 
-      <p>Instalaremos Ansible en una máquina virtual de VirtualBox con Ubuntu 18.04.2 Server que ejercerá de máquina de control. La instalación la realizaremos con Packer a partir de la imagen creada en el <a href="packer-2.html#compresion">ejemplo 1 de la lección Packer (2)</a> mediante la plantilla y script siguientes:</p>
+      <p>Instalaremos Ansible en una máquina virtual de VirtualBox con Ubuntu 18.04.3 Server que ejercerá de máquina de control. La instalación la realizaremos con Packer a partir de la imagen creada en el <a href="packer-2.html#compresion">ejemplo 1 de la lección Packer (2)</a> mediante la plantilla y script siguientes:</p>
 
       <ul>
         <li>Plantilla de Packer <strong>ansible-1-1.json</strong>:
@@ -194,14 +194,14 @@
   "builders": [
     {
       "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-2-1/packer-2-1-ubuntu-18-04-2-server.ova</span>",
+      "source_path": "<span class="codigo-resaltado">packer-2-1/packer-2-1-ubuntu-18-04-3-server.ova</span>",
       "guest_additions_mode": "disable",
       "boot_wait": "30s",
       "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
       "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
       "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
       "output_directory": "<span class="codigo-resaltado">ansible-1-1</span>",
-      "vm_name": "<span class="codigo-resaltado">ansible-1-1-control-ubuntu-18-04-2-server</span>",
+      "vm_name": "<span class="codigo-resaltado">ansible-1-1-control-ubuntu-18-04-3-server</span>",
       "format": "ova"
     }
   ],
@@ -239,9 +239,9 @@ sudo DEBIAN_FRONTEND=noninteractive apt install ansible -yq</code>
     </section>
 
     <section id="instalacion-nodos">
-      <h3>Nodos administrados: Ubuntu 18.04.2</h3>
+      <h3>Nodos administrados: Ubuntu 18.04.3</h3>
 
-      <p>En los nodos administrados no es necesario instalar Ansible. Los nodos administrados serán también máquinas virtuales de VirtualBox con Ubuntu 18.04.2 Server. Utilizaremos la imagen creada en el <a href="packer-2.html#compresion">ejemplo 1 de la lección Packer (2)</a> para los nodos administrados</p>
+      <p>En los nodos administrados no es necesario instalar Ansible. Los nodos administrados serán también máquinas virtuales de VirtualBox con Ubuntu 18.04.3 Server. Utilizaremos la imagen creada en el <a href="packer-2.html#compresion">ejemplo 1 de la lección Packer (2)</a> para los nodos administrados</p>
     </section>
 
     <section id="configuracion-inicial">
@@ -273,7 +273,7 @@ ansible_python_interpreter=/usr/bin/python3</code>
           </div>
           <p>Notas:</p>
           <ul>
-            <li>Como Ubuntu 18.04.2 incluye Python 3 (pero no Python 2), es necesario indicar a Ansible que utilice python3..
+            <li>Como Ubuntu 18.04.3 incluye Python 3 (pero no Python 2), es necesario indicar a Ansible que utilice python3..
             </li>
           </ul>
 

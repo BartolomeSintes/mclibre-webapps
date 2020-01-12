@@ -46,7 +46,7 @@
   <section id="ejercicio-1">
     <h2>Docker (1) 1 - Instalar Docker</h2>
 
-    <p>En este ejercicio instalaremos Docker en una máquina virtual de Ubuntu 18.04.2 LTS Server ejecutada en VirtualBox.</p>
+    <p>En este ejercicio instalaremos Docker en una máquina virtual de Ubuntu 18.04.3 LTS Server ejecutada en VirtualBox.</p>
 
     <p>Estas instrucciones se han extraído de la documentación oficial de Docker <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Install Docker on Ubuntu</a></p>
 
@@ -54,14 +54,19 @@
 
     <p>Si ha realizado los <a href="packer-1.html">ejercicios de Packer</a> de estos apuntes, puede utilizar la máquina virtual creada en el <a href="packer-1.html#provisioners-script">ejercicio 1-3</a>, importándola en VirtualBox como servicio virtualizado.</p>
 
-    <p>Si no se han realizado esos ejercicios, puede descargar el fichero <a href="https://www.mclibre.org/descargar/webapps/1920/packer-2-1-ubuntu-18-04-2-server.ova">Máquina virtual VirtualBox (OVA) de Ubuntu 18.04.2, actualizada al 23 de marzo de 2019 (23/03/19, 835 MB)</a> que contiene la máquina virtual creada en el <a href="packer-1.html#provisioners-script">ejercicio Packer (1) 3</a> y comprimida de acuerdo con el <a href="packer-2.html#compresion">ejercicio Packer (2) 1</a>.</p>
+    <p>Si no se han realizado esos ejercicios, puede descargar el fichero <a href="https://www.mclibre.org/descargar/webapps/1920/packer-2-1-ubuntu-18-04-3-server.ova">Máquina virtual VirtualBox (OVA) de Ubuntu 18.04.3, actualizada al 7 de enero de 2020 (07/01/20, 888 MB)</a> que contiene la máquina virtual creada en el <a href="packer-1.html#provisioners-script">ejercicio Packer (1) 3</a> y comprimida de acuerdo con el <a href="packer-2.html#compresion">ejercicio Packer (2) 1</a>.</p>
 
     <p>Si quiere crear usted mismo la máquina virtual:</p>
     <ol>
-      <li>Descargue la imagen iso de la versión más reciente de <strong>Ubuntu 18.04 LTS Server de 64 bits</strong>.
-        <p>Actualmente (marzo de 2019), la última versión disponible de Ubuntu LTS Server es Ubuntu 18.04.2 (publicada el 10/02/19). <a href="http://cdimage.ubuntu.com/releases/18.04/release/">Página de descarga</a></p>
+      <li>Descargue la imagen iso de la versión más reciente de <strong>Ubuntu 18.04 LTS Server de 64 bits</strong>. Actualmente (diciembre de 2019), la última versión disponible de Ubuntu LTS Server es Ubuntu 18.04.3 (publicada el 08/08/19).
+        <p>Para descargar la imagen .iso de instalación de Ubuntu Server 18.04.3 LTS puede utilizar:</p>
+        <ul>
+          <li>La página de descarga oficial <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a>. En esta página encontrará siempre la última versión publicada.</li>
+          <li>Este enlace directo de descarga desde ubuntu, que seguramente dejará de estar disponible cuando se publique una nueva versión: <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
+          <li>Este enlace directo de descarga desde mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
+        </ul>
       </li>
-      <li>Cree una máquina virtual en VirtualBox e instale Ubuntu 18.04.2 LTS Server.
+      <li>Cree una máquina virtual en VirtualBox e instale Ubuntu 18.04.3 LTS Server.
         <p>Para los ejercicios de esta página un disco duro virtual de 8 GB es suficiente, pero para poder instalar más aplicaciones se necesitaría un disco mayor, por ejemplo de <strong>16 GB</strong>.</p>
         <p>Compruebe que en la configuración de red de la máquina virtual está conectado a <strong>Adaptador puente</strong>. Si está conectado a otro tipo de adaptador (probablemente NAT), apague la máquina virtual, cambie a Adaptador puente y reinicie la máquina virtual.</p>
       </li>
@@ -108,7 +113,7 @@ sudo apt full-upgrade</code>
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo apt update
-sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</code>
+sudo apt install apt-transport-https ca-certificates curl software-properties-common</code>
 </pre>
         </div>
       </li>
@@ -162,9 +167,9 @@ sub   rsa4096R 2017-02-22 [S]</code>
           <pre>
 <code class="language-shell">docker-ce:
   Instalados: (ninguno)
-  Candidato: 5:<span class="codigo-resaltado">18.09.3</span>~3-0~<span class="codigo-resaltado">ubuntu-bionic</span>
+  Candidato: 5:<span class="codigo-resaltado">19.03.5</span>~3-0~<span class="codigo-resaltado">ubuntu-bionic</span>
   Tabla de versión:
-  5:18.09.3~3-0~ubuntu-bionic 500
+  5:19.03.5~3-0~ubuntu-bionic 500
           500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
 ...</code>
 </pre>
@@ -290,12 +295,28 @@ PORTS               NAMES</code>
 <code class="language-shell">Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 1b930d010525: Pull complete
-Digest: sha256:2557c3c07ed1e38f26e389462d03ed943586f744521577a99efb77324b0fe535
+Digest: sha256:4fe721ccc2e8dc7362278a29dc660d833570ec2682f4e4194f4ee23e415e1064
 Status: Download newer image from hello-wolrd:latest
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ...</code>
+</pre>
+        </div>
+      </li>
+      <li>Si listamos ahora las imágenes existentes ...
+
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker image ls</code>
+</pre>
+        </div>
+        <p>... se mostrará información de la imagen creada:</p>
+
+        <div class="terminal">
+          <pre>
+<code class="language-shell">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hello-world         latest              fce209e99eb9        4 weeks ago         1.84 kB</code>
 </pre>
         </div>
       </li>
@@ -315,23 +336,7 @@ PORTS               NAMES
 ago                 hopeful_elbakyan</code>
 </pre>
         </div>
-      </li>
-      <li>Si listamos ahora las imágenes existentes ...
-
-        <div class="terminal">
-          <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo docker image ls</code>
-</pre>
-        </div>
-        <p>... se mostrará información de la imagen creada:</p>
-
-        <div class="terminal">
-          <pre>
-<code class="language-shell">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-hello-world         latest              fce209e99eb9        4 weeks ago         1.84 kB</code>
-</pre>
-        </div>
-        <p>Cada contenedor debe tener un identificador (ID) y un nombre distinto. Docker "bautiza" los contenedores con un nombre peculiar, compuesto de un adjetivo y un apellido.</p>
+        <p>Cada contenedor tiene un identificador (ID) y un nombre distinto. Docker "bautiza" los contenedores con un nombre peculiar, compuesto de un adjetivo y un apellido.</p>
       </li>
       <li>Podemos crear tantos contenedores como queramos a partir de una imagen. Una vez la imagen está disponible localmente, Docker no necesita descargarla y el proceso de creación del contenedor es inmediato (aunque en el caso de hello-world la descarga es rápida, con imágenes más grandes la descarga inicial puede tardar un rato)
 
@@ -366,11 +371,11 @@ ago                 hopeful_elbakyan</code>
 </pre>
         </div>
       </li>
-      <li>Los contenedores se pueden destruir mediante el comando <i>rm</i>, haciendo referencia a ellos mediante su nombre o su id. Borre los dos contenedores existentes:
+      <li>Los contenedores se pueden destruir mediante el comando <i>rm</i>, haciendo referencia a ellos mediante su nombre o su id. No es necesario indicar el id completo, basta con escribir los primeros carácteres (de manera que no haya ambigüedades). Borre los dos contenedores existentes:
         <div class="terminal">
           <pre class="command-line" data-prompt="$" data-output="2, 4">
-<code class="language-shell">sudo docker rm 1ae547361960
-1ae547361960
+<code class="language-shell">sudo docker rm 1ae
+1ae
 sudo docker rm hopefukl_elbakyan
 hopefukl_elbakyan</code>
 </pre>
@@ -555,7 +560,7 @@ utes   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32768-&gt;8443/tcp    apache-1</code>
 <code class="language-shell">sudo docker exec -it apache-2 /bin/bash</code>
 </pre>
         </div>
-        <p>Se abrirá una <i>shell</i> en el contenedor. Fíjese en que está abierta precisamente en la carpeta <strong>htdocs</strong> del servidor</p>
+        <p>Se abrirá una <i>shell</i> en el contenedor. El DocumentRoot de Apache está en el directorio <strong>/opt/bitnami/apache/htdocs</strong></p>
         <div class="terminal">
           <pre>
 <code class="language-shell">I have no name!@c5041d12aabd:<span class="codigo-resaltado">/opt/bitnami/apache/htdocs</span>$</code>
@@ -583,7 +588,7 @@ utes   0.0.0.:32769-&gt;8080/tcp, 0.0.0.0:32768-&gt;8443/tcp    apache-1</code>
       <li>Copie el fichero index.html en el contenedor:
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo docker cp index.html apache:/opt/bitnami/apache/htdocs/index.html</code>
+<code class="language-shell">sudo docker cp index.html apache-2:/opt/bitnami/apache/htdocs/index.html</code>
 </pre>
         </div>
       </li>
@@ -630,8 +635,9 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
 </pre>
         </div>
       </li>
-      <li>Genere la nueva imagen. El último argumento es el nombre del archivo Dockerfile que tiene que utilizar para generar la imagen. Como en este caso se encuentra en el mismo directorio y tiene el nombre predeterminado <strong>Dockerfile</strong>, se puede escribir simplemente punto (.):
-        <p>El nombre de la imagen debe seguir el patrón <strong>nombre-de-usuario/nombre-de-imagen</strong>. Si la imagen sólo se va a utilizar localmente, el nombre de usuario y de la imagen pueden ser cualquier palabra.</p>
+      <li>Genere la nueva imagen.
+        <p>El último argumento (y el único imprescindible) es el nombre del archivo Dockerfile que tiene que utilizar para generar la imagen. Como en este caso se encuentra en el mismo directorio y tiene el nombre predeterminado <strong>Dockerfile</strong>, se puede escribir simplemente punto (.).</p>
+        <p>Para indicar el nombre de la imagen se debe añadir la opción -t. El nombre de la imagen debe seguir el patrón <strong>nombre-de-usuario/nombre-de-imagen</strong>. Si la imagen sólo se va a utilizar localmente, el nombre de usuario y de la imagen pueden ser cualquier palabra.</p>
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo docker build -t barto/mi-apache .</code>
@@ -1011,7 +1017,7 @@ DRIVER              VOLUME NAME</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de marzo de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 7 de enero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
