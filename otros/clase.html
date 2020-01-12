@@ -22,14 +22,15 @@
 
       <ul>
         <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#s13">S13: del 09/12/19 al 15/12/19</a></li>
         <!--
-        <li><a href="#s14">S14: del 10/12/18 al 16/12/18</a></li>
-        <li><a href="#s15">S15: del 17/12/18 al 23/12/18</a></li>
-        <li><a href="#s16">S16: del 07/01/19 al 13/01/19</a></li>
-        <li><a href="#s17">S17: del 14/01/19 al 20/01/19</a></li>
-        <li><a href="#s18">S18: del 21/01/19 al 27/01/19</a></li>
-        <li><a href="#s19">S19: del 28/01/19 al 03/02/19</a></li>
-        <li><a href="#s20">S20: del 04/02/19 al 10/02/19</a></li>
+        <li><a href="#s14">S14: del 16/12/19 al 22/12/19</a></li>
+        <li><a href="#s15">S15: del 07/01/20 al 12/01/20</a></li>
+        <li><a href="#s16">S16: del 13/01/20 al 19/01/20</a></li>
+        <li><a href="#s17">S17: del 20/01/20 al 26/01/20</a></li>
+        <li><a href="#s18">S18: del 27/01/20 al 02/02/20</a></li>
+        <li><a href="#s19">S19: del 03/02/20 al 09/02/20</a></li>
+        <li><a href="#s20">S20: del 10/02/20 al 16/02/20</a></li>
         -->
       </ul>
     </div>
@@ -45,6 +46,53 @@
     <p>La información se ofrece distribuida en semanas, ya que es así como está organizada la modalidad semipresencial.</p>
 
     <p>También puede consultar las <a href="clase/clase-1819.html">lecciones impartidas en el pasado curso 2018/19</a>.</p>
+  </section>
+
+  <section id="s13">
+    <h2>IAW Semana S13: del 09/12/19 al 15/12/19</h2>
+
+    <p>Esta semana empieza la parte de <strong>Aplicaciones Web</strong> que ocupará el resto del curso. El objetivo de esta parte del curso es que os familiaricéis con las aplicaciones web: su instalación, configuración y administración. Cada aplicación es distinta al resto, por lo que el enfoque de este curso es trabajar varios tipos de aplicaciones (comercio electrónico, alojamiento, blogs, CMS, etc.). El objetivo es que en el futuro seáis capaces de administrar otras aplicaciones que necesitéis, a partir de la experiencia adquirida en este curso.</p>
+
+    <p>Este año me gustaría también tratar con más profundidad un aspecto que apenas he tocado en cursos anteriores: la automatización de los procesos de instalación y configuración de las aplicaciones, que creo os resultará muy útil no sólo en este módulo.</p>
+
+    <p>Los apuntes de esta segunda parte se encuentran en la web <a href="https://www.mclibre.org/consultar/webapps/">https://www.mclibre.org/consultar/webapps/</a>. A medida que avance el curso iré actualizando los apuntes, ya que desde el año pasado se han actualizado prácticamente todas las aplicaciones y mi intención es que utilicemos siempre las últimas versiones.</p>
+
+    <p>Estas son las lecciones a leer y las actividades a realizar durante esta semana.</p>
+
+    <h3>Antes de empezar el curso</h3>
+
+    <ol>
+      <li>Leed la lección <a href="https://www.mclibre.org/consultar/webapps/otros/presentacion.html">Presentación</a></li>
+      <li>Leed la lección <a href="https://www.mclibre.org/consultar/webapps/otros/ejercicios-como.html">Consideraciones sobre los ejercicios</a>
+        <p>En esta lección se comentan dos temas importante: las bases de datos y los tipos de usuarios.</p>
+      </li>
+      <li>Leed la lección <a href="https://www.mclibre.org/consultar/webapps/otros/configuracion.html">Configuración general</a></li>
+    </ol>
+
+    <h3>Administración de bases de datos: phpMyAdmin</h3>
+
+    <ol>
+      <li>Leed la lección <a href="https://www.mclibre.org/consultar/webapps/lecciones/phpmyadmin.html">phpMyAdmin (administración de MySQL)</a></li>
+      <li>Haced los ejercicios <a href="https://www.mclibre.org/consultar/webapps/lecciones/phpmyadmin-1.html">phpMyAdmin (1)</a>
+        <p>El objetivo de estos ejercicios es trabajar tanto con el phpMyAdmin ya incluido en XAMPP como con el XAMPP que vais a instalar. Tenéis que tener en cuenta que se trata de dos aplicaciones independientes que no estarán ni tienen por qué estar configuradas de la misma manera. Pero como ambas acceden a la misma base de datos MySQL/MariaDB, ambas deberán adaptarse a la configuración de MySQL, especialmente a la existencia o no de contraseña del usuario root.</p>
+        <p>Podéis consultar las <a href="https://www.mclibre.org/consultar/webapps/lecciones/phpmyadmin-1-soluciones.html">soluciones a los ejercicios phpMyAdmin (1)</a></p>
+      </li>
+      <li>Haced los ejercicios<a href="https://www.mclibre.org/consultar/webapps/lecciones/phpmyadmin-2.html">phpMyAdmin (2)</a>
+        <p>El objetivo de estos ejercicios es que os familiaricéis con el principal uso que vamos a dar a phpMyAdmin durante el curso: crear usuarios en MySQL para que sean utilizados por las diferentes aplicaciones. Para ello se trabajarán tres situaciones:</p>
+        <ol>
+          <li>un usuario que sólo puede crear una base de datos y quiere instalar una aplicación</li>
+          <li>un usuario que puede crear varias bases de datos y quiere instalar varias aplicaciones</li>
+          <li>un usuario que sólo puede crear una base de datos, pero quiere instalar varias aplicaciones</li>
+        </ol>
+        <p>La aplicación a instalar será siempre la misma (aunque se podrán utilizar como aplicaciones independientes), la agenda creada en el ejercicio de Bases de datos 2-3.</p>
+        <p>Podéis consultar las <a href="https://www.mclibre.org/consultar/webapps/lecciones/phpmyadmin-2-soluciones.html">soluciones a los ejercicios phpMyAdmin (2)</a></p>
+      </li>
+      <li>Haced los ejercicios<a href="https://www.mclibre.org/consultar/webapps/lecciones/phpmyadmin-3.html">phpMyAdmin (3)</a>
+        <p>El objetivo de estos ejercicios es profundizar un poco más en phpMyAdmin, realizando tareas generales de configuración, copias de seguridad, etc.</p>
+        <p>Podéis consultar las <a href="https://www.mclibre.org/consultar/webapps/lecciones/phpmyadmin-3-soluciones.html">soluciones a los ejercicios phpMyAdmin (3)</a></p>
+        <p><strong>Nota</strong>: Esta página de ejercicios está muy verde. Intentaré mejorarla.</p>
+      </li>
+    </ol>
   </section>
 
   <!--
@@ -71,7 +119,7 @@
   -->
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 26 de noviembre de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 8 de enero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
