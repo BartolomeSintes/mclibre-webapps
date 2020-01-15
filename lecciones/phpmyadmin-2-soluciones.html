@@ -297,19 +297,17 @@ define("MYSQL_TABLE",    "tabla_3b");                // Nombre de la tabla</code
     <h2>phpMyAdmin (2) 7 - Mejora de las aplicaciones del usuario iaw_agenda_3</h2>
 
     <ol>
-      <li>Modifique los dos archivos de biblioteca <strong>biblioteca-mysql.php</strong> de manera que al borrar todo sólo se borre la tabla empleada por cada aplicación:
+      <li>Modifique en ambas aplicaciones el archivo <strong>biblioteca-mysql.php</strong> sustituyendo la función borraTodo() por el fragmento de código siguiente:
 
         <div class="codigo">
           <pre>
 <code class="language-php">/* biblioteca-mysql.php aplicación agenda-3a y agenda-3b*/
 
-$consultaBorraTabla = "DELETE TABLE $dbTabla";
+define("CONSULTA_BORRA_TABLA", "DROP TABLE " . $tablaAgenda);
 
-function borraTodo($db)
+function borraTodo($db, $nombreTabla, $consultaCreacionTabla)
 {
-    global $consultaBorraTabla, $consultaCreaTabla;
-
-    $consulta = $consultaBorraTabla;
+    $consulta = CONSULTA_BORRA_TABLA;
     if ($db-&gt;query($consulta)) {
         print "    &lt;p&gt;Tabla borrada correctamente.&lt;/p&gt;\n";
         print "\n";
@@ -318,7 +316,7 @@ function borraTodo($db)
         print "\n";
     }
 
-    $consulta = $consultaCreaTabla;
+    $consulta = $consultaCreacionTabla;
     if ($db-&gt;query($consulta)) {
         print "    &lt;p&gt;Tabla creada correctamente.&lt;/p&gt;\n";
         print "\n";
@@ -336,7 +334,7 @@ function borraTodo($db)
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de diciembre de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 15 de enero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
