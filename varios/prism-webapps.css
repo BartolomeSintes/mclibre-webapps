@@ -1,33 +1,31 @@
 /* PRISM-WEBAPPS.CSS                        */
 /* Bartolome Sintes Marco                   */
-/* https://www.mclibre.org                   */
+/* https://www.mclibre.org                  */
 /*                                          */
 /* Hoja de estilo para prism.js             */
 /*                                          */
-/* 4 de febrero de 2019                     */
+/* 19 de enero de 2020                      */
 /*                                          */
 
 /* Colores para cuadros de código fuente y de terminal */
 
 div.terminal { background-color: #1e1e1e; color: white; padding-top: 5px; padding-bottom: 5px; }
 
-div.codigo { background-color: white; color: black; padding-top: 5px; padding-bottom: 5px; }
+code { line-height: 120%; /* font-weight: bold; */ }
+
+div.codigo { background-color: #1e1e1e; color: white; }
 
 div.codigo.idle { background-color: white; color: black; }
 
-code { line-height: 120%; /* font-weight: bold; */ }
+div.codigo-nocolor { background-color: white; color:black; }
 
-.line-numbers-rows > span:before {
-  color: black;
-}
+div.codigo-nocolor pre code.language-html *[class] { color: black; }
 
-.command-line-prompt {
-	border-right: 1px solid #999;
-}
+.line-numbers-rows > span:before { color: black; }
 
-.command-line-prompt > span:before {
-	color: white;
-}
+.command-line-prompt {border-right: 1px solid #999; }
+
+.command-line-prompt > span:before { color: white; }
 
 /* Estilo para JSON imitando a ?? */
 
@@ -72,7 +70,6 @@ code.language-python .punctuation          { color: white;   } /* punctuation   
 code.language-python .string               { color: #ce9178; } /* string (of any type)                */
 code.language-python .string-interpolation { color: white;   } /* string-interpolation                */
 code.language-python .triple-quoted-string { color: #ce9178; } /* string (of any type)                */
-
 
 /* Estilo para HTML imitando a Visual Studio Code con tema Light+ */
 
@@ -124,6 +121,51 @@ pre code.language-css .hljs-value         { color: #E88501; }          /* proper
 pre code.language-css .hljs-number        { color: #6D8600; }          /* number within a value              */
 pre code.language-css .hljs-hexcolor      { color: #E88501; }          /* hex color (#FFFFFF) within a value */
 
+/* Estilo para PHP imitando a Visual Studio Code con tema Dark+ */
+
+code.language-php .function2            { color: #dcdcaa; } /* añadido por mi a prism.js para que se vea como las funciones */
+
+code.language-php .comment              { color: #6a9955; } /* comment                             */
+code.language-php .delimiter            { color: #569cd6; } /* fragmento php                       */
+code.language-php .function             { color: #dcdcaa; } /* function header def some_name(...): */
+code.language-php .keyword              { color: #c586c0; } /* keyword                             */
+code.language-php .number               { color: #b5cea8; } /* number                              */
+code.language-php .operator             { color: #ffffff; } /* operators                           */
+code.language-php .punctuation          { color: #ffffff; } /* punctuation                         */
+code.language-php .variable             { color: #9cdcfe; } /* fragmento php                       */
+code.language-php .string               { color: #ce9178; } /* string (of any type)                */
+code.language-php .double-quoted-string { color: #ce9178; } /* string (of any type)                */
+
+code.language-php .boolean              { color: #569cd6;   } /* boolean                             */
+code.language-php .builtin              { color: #dcdcac; } /* built-in functions                  */
+code.language-php .class-name           { color: white    } /* class header class SomeName(...):   */
+code.language-php .decorator            { color: white;   } /* decorator                           */
+code.language-php .string-interpolation { color: white;   } /* string-interpolation                */
+code.language-php .triple-quoted-string { color: #ce9178; } /* string (of any type)                */
+
+/* Estilo para HTML en fichero .PHP imitando a Visual Studio Code con tema Dark+ */
+
+pre code.language-php .attr-name      { color: #9cdcfe; }          /* attribute name            */
+pre code.language-php .attr-value     { color: #ce9178; }          /* attribute value           */
+pre code.language-php .comment        { color: #6a9955; }          /* comment                   */
+pre code.language-php .doctype        { color: #569cd6; }          /* doctype                   */
+pre code.language-php .punctuation    { color: #ffffff; }          /* punctuation               */
+pre code.language-php .tag            { color: #569cd6; }          /* Tags, attributes, configs */
+
+pre code.language-php .cdata          { }                            /* cdata                     */
+pre code.language-php .entity         { }                            /* entity                    */
+pre code.language-php .namespace      { }                            /* namespace                 */
+pre code.language-php .prolog         { }                            /* prolog                    */
+
+/* Estilo para JSON imitando a Visual Studio Code con tema Dark+ */
+
+pre code.language-json .boolean       { color: #569cd6; }          /* valor (booleano)          */
+pre code.language-json .comment       { color: #6a9955; }          /* comentario                */
+pre code.language-json .number        { color: #b5cea8; }          /* valor (número)            */
+pre code.language-json .property      { color: #9cdcfe; }          /* clave                     */
+pre code.language-json .punctuation   { color: #d4d4d4; }          /* puntuación, llaves, etc   */
+pre code.language-json .string        { color: #ce9178; }          /* valor (cadena)            */
+
 /* CSS para plugin Line Numbers de Prism */
 
 pre.line-numbers {
@@ -141,8 +183,8 @@ pre.line-numbers > code {
   pointer-events: none;
   top: 0px;            /* para ajustar la posición de los números */
   font-size: 100%;
-  left: -2.8em;
-  width: 2em; /* works for line-numbers below 1000 lines */
+  left: -3.5em;
+  width: 3em; /* works for line-numbers below 1000 lines */
   letter-spacing: -1px;
   line-height: 120%;
   border-right: 1px solid #999;
@@ -164,39 +206,40 @@ pre.line-numbers > code {
   display: block;
   padding-right: 0.8em;
   text-align: right;
+  color: white;
 }
 
 /* CSS para plugin Command Line de Prism */
 
 .command-line-prompt {
-	display: block;
+  display: block;
   float: left;
   font-size: 100%;
-	letter-spacing: -1px;
-	margin-right: 1em;
-	pointer-events: none;
+  letter-spacing: -1px;
+  margin-right: 1em;
+  pointer-events: none;
   line-height: 120%;
 
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .command-line-prompt > span:before {
-	content: ' ';
-	display: block;
-	padding-right: 0.8em;
+  content: ' ';
+  display: block;
+  padding-right: 0.8em;
 }
 
 .command-line-prompt > span[data-user]:before {
-	content: "[" attr(data-user) "@" attr(data-host) "] $";
+  content: "[" attr(data-user) "@" attr(data-host) "] $";
 }
 
 .command-line-prompt > span[data-user="root"]:before {
-	content: "[" attr(data-user) "@" attr(data-host) "] #";
+  content: "[" attr(data-user) "@" attr(data-host) "] #";
 }
 
 .command-line-prompt > span[data-prompt]:before {
-	content: attr(data-prompt);
+  content: attr(data-prompt);
 }

@@ -6,9 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../varios/webapps.css" title="mclibre">
   <link rel="icon" href="../varios/favicon.ico">
+  <!--
   <link rel="stylesheet" href="../varios/highlight-php.css">
   <script src="../varios/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+  -->
+  <link rel="stylesheet" href="../varios/prism-webapps.css">
+  <script src="../varios/prism.js"></script>
 </head>
 
 <body>
@@ -74,7 +78,7 @@
           <li>Para eliminar dos elementos del widget, debe editar el archivo con cualquier editor de texto plano (Notepad++, etc.)</li>
           <li>En el archivo <strong>\wordpress\wp-includes\default-widgets.php</strong> se puede ver en qué fichero está configurado el plugin Meta
             <div class="codigo">
-              <pre>
+              <pre class="line-numbers" data-start="37">
 <code class="language-php">/** WP_Widget_Meta class */
 require_once( ABSPATH . WPINC . '/widgets/class-wp-widget-meta.php' );</code>
 </pre>
@@ -82,73 +86,81 @@ require_once( ABSPATH . WPINC . '/widgets/class-wp-widget-meta.php' );</code>
           </li>
           <li>En ese archivo <strong>class-wp-widget-meta.php</strong>, la función que genera los elementos de la lista es el siguiente:
             <div class="codigo">
-              <pre>
-<code class="language-php">  public function widget( $args, $instance ) {
-      $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Meta' );
+              <pre class="line-numbers" data-start="44">
+<code class="language-php">    public function widget( $args, $instance ) {
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Meta' );
 
-      /** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
-      $title = apply_filters( 'widget_title', $title, $instance, $this-&gt;id_base );
+        /** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+        $title = apply_filters( 'widget_title', $title, $instance, $this-&gt;id_base );
 
-      echo $args['before_widget'];
+        echo $args['before_widget'];
 
-      if ( $title ) {
-          echo $args['before_title'] . $title . $args['after_title'];
-      }
-          ?&gt;
-          &lt;ul&gt;
-          &lt;?php wp_register(); ?&gt;
-          &lt;li&gt;&lt;?php wp_loginout(); ?&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?&gt;"&gt;&lt;?php _e('Entries &lt;abbr title="Really Simple Syndication"&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'comments_rss2_url' ) ); ?&gt;"&gt;&lt;?php _e('Comments &lt;abbr title="Really Simple Syndication"&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
-          &lt;?php
-          /**
-           * Filters the "Powered by WordPress" text in the Meta widget.
-           *
-           * @since 3.6.0
-           * @since 4.9.0 Added the `$instance` parameter.
-           *
-           * @param string $title_text Default title text for the WordPress.org link.
-           * @param array  $instance   Array of settings for the current widget.
-           */
-          echo apply_filters( 'widget_meta_poweredby', sprintf( '&lt;li&gt;&lt;a href="%s" title="%s"&gt;%s&lt;/a&gt;&lt;/li&gt;',
-              esc_url( __( 'https://wordpress.org/' ) ),
-              esc_attr__( 'Powered by WordPress, state-of-the-art semantic personal publishing platform.' ),
-              _x( 'WordPress.org', 'meta widget link text' )
-          ), $instance );
+        if ( $title ) {
+            echo $args['before_title'] . $title . $args['after_title'];
+        }
+        ?&gt;
+            &lt;ul&gt;
+            &lt;?php wp_register(); ?&gt;
+            &lt;li&gt;&lt;?php wp_loginout(); ?&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?&gt;"&gt;&lt;?php _e( 'Entries feed' ); ?&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'comments_rss2_url' ) ); ?&gt;"&gt;&lt;?php _e( 'Comments feed' ); ?&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;?php
+            /**
+             * Filters the "WordPress.org" list item HTML in the Meta widget.
+             *
+             * @since 3.6.0
+             * @since 4.9.0 Added the `$instance` parameter.
+             *
+             * @param string $html     Default HTML for the WordPress.org list item.
+             * @param array  $instance Array of settings for the current widget.
+             */
+            echo apply_filters(
+                'widget_meta_poweredby',
+                sprintf(
+                    '&lt;li&gt;&lt;a href="%1$s"&gt;%2$s&lt;/a&gt;&lt;/li&gt;',
+                    esc_url( __( 'https://wordpress.org/' ) ),
+                    __( 'WordPress.org' )
+                ),
+                $instance
+            );
 
-          wp_meta();
-          ?&gt;
-          &lt;/ul&gt;
-          &lt;?php
+            wp_meta();
+            ?&gt;
+            &lt;/ul&gt;
+            &lt;?php
 
-      echo $args['after_widget'];
-  }</code>
+            echo $args['after_widget'];
+    }</code>
 </pre>
             </div>
           </li>
           <li>Elimine los tres últimos elementos
             <div class="codigo">
-              <pre>
-<code class="language-php">  &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?&gt;"&gt;&lt;?php _e('Entries &lt;abbr title="Really Simple Syndication"&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'comments_rss2_url' ) ); ?&gt;"&gt;&lt;?php _e('Comments &lt;abbr title="Really Simple Syndication"&gt;RSS&lt;/abbr&gt;'); ?&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;?php
-  /**
-   * Filters the "Powered by WordPress" text in the Meta widget.
-   *
-   * @since 3.6.0
-   * @since 4.9.0 Added the `$instance` parameter.
-   *
-   * @param string $title_text Default title text for the WordPress.org link.
-   * @param array  $instance   Array of settings for the current widget.
-   */
-  echo apply_filters( 'widget_meta_poweredby', sprintf( '&lt;li&gt;&lt;a href="%s" title="%s"&gt;%s&lt;/a&gt;&lt;/li&gt;',
-      esc_url( __( 'https://wordpress.org/' ) ),
-      esc_attr__( 'Powered by WordPress, state-of-the-art semantic personal publishing platform.' ),
-      _x( 'WordPress.org', 'meta widget link text' )
-  ), $instance );
+              <pre class="line-numbers" data-start="59">
+<code class="language-php">            &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?&gt;"&gt;&lt;?php _e( 'Entries feed' ); ?&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="&lt;?php echo esc_url( get_bloginfo( 'comments_rss2_url' ) ); ?&gt;"&gt;&lt;?php _e( 'Comments feed' ); ?&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;?php
+            /**
+             * Filters the "WordPress.org" list item HTML in the Meta widget.
+             *
+             * @since 3.6.0
+             * @since 4.9.0 Added the `$instance` parameter.
+             *
+             * @param string $html     Default HTML for the WordPress.org list item.
+             * @param array  $instance Array of settings for the current widget.
+             */
+            echo apply_filters(
+                'widget_meta_poweredby',
+                sprintf(
+                    '&lt;li&gt;&lt;a href="%1$s"&gt;%2$s&lt;/a&gt;&lt;/li&gt;',
+                    esc_url( __( 'https://wordpress.org/' ) ),
+                    __( 'WordPress.org' )
+                ),
+                $instance
+            );
 
-  wp_meta();
-  ?&gt;</code>
+            wp_meta();
+            ?&gt;</code>
 </pre>
             </div>
             <p><strong>Nota</strong>: Cuando el usuario no está registrado, el código &lt;?php wp_loginout(); ?&gt; no genera ningún texto.</p>
@@ -210,7 +222,7 @@ php_value post_max_size 10M</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 18 de enero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 19 de enero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
