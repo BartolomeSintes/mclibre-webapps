@@ -116,7 +116,7 @@
 
     <ul>
       <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase la página <a href="packer-1.html">Packer (1)</a>)</li>
-      <li>Crear la plantilla de packer (por ejemplo, packer-2-2.json) y el script de shell a ejecutar (por ejemplo, script-3.sh).</li>
+      <li>Crear la plantilla de packer (por ejemplo, packer-2-2.json) y el script de shell a ejecutar (por ejemplo, script-2-2.sh).</li>
       <li>Ejecutar packer <div class="terminal">
           <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
 <code class="language-shell">packer build packer-2-2.json</code>
@@ -165,7 +165,7 @@
     {
       "type": "shell",
       "execute_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
-      "script": "<span class="codigo-resaltado">script-3.sh</span>",
+      "script": "<span class="codigo-resaltado">script-2-2.sh</span>",
       "pause_before": "10s"
     }
   ]
@@ -173,7 +173,7 @@
 </pre>
       </div>
 
-      <p>Este podría ser el <i>script</i> de instalación de las VirtualBox Guest Additions (basado en las instrucciones que se comentan en la lección <a href="virtualbox.html#guest-additions">VirtualBox</a>).</p>
+      <p>Este podría ser el <i>script</i> <strong>script-2-2.sh</strong> de instalación de las VirtualBox Guest Additions (basado en las instrucciones que se comentan en la lección <a href="virtualbox.html#guest-additions">VirtualBox</a>).</p>
 
       <div class="codigo">
         <pre class="line-numbers">
@@ -377,7 +377,7 @@ sub   rsa4096 2017-02-22 [S]</code>
 
     <p>Los elementos necesarios para realizar la compresión son los siguientes:</p>
     <ul>
-      <li>La imagen OVA a comprimir. En este caso, comprimiremos la imagen obtenida en el <a href="packer-1.html#provisioners-script">ejemplo 3 de la lección Packer (1)</a>, que contiene una máquina virtual de VirtualBox de Ubuntu 18.04.3 Server con las VirtualBox Guest Additions instaladas.</li>
+      <li>La imagen OVA a comprimir. En este caso, comprimiremos la imagen obtenida en el <a href="#provisioners-script">ejemplo 2 de esta lección</a>, que contiene una máquina virtual de VirtualBox de Ubuntu 18.04.3 Server con las VirtualBox Guest Additions instaladas.</li>
       <li>La imagen ISO de SystemRescueCD.</li>
       <li>La plantilla de packer (por ejemplo, packer-2-5.json).</li>
     </ul>

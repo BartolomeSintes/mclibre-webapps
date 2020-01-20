@@ -235,7 +235,7 @@
         " debian-installer=es_ES&lt;wait&gt;",
         " fb=false&lt;wait&gt;",
         " initrd=/install/initrd.gz&lt;wait&gt;",
-		    " keyboard-configuration/layoutcode=es",
+        " keyboard-configuration/layoutcode=es",
         " locale=es_ES&lt;wait&gt;",
         " netcfg/get_domain=vm&lt;wait&gt;",
         " netcfg/get_hostname=<span class="codigo-resaltado">ubuntu</span>&lt;wait&gt;",
@@ -335,10 +335,11 @@ d-i partman/confirm_nooverwrite boolean true
 # You can choose to install restricted and universe software, or to install
 # software from the backports repository.
 #d-i apt-setup/restricted boolean true
-#d-i apt-setup/universe boolean true
+d-i apt-setup/universe boolean true
 #d-i apt-setup/backports boolean true
 # Uncomment this if you don't want to use a network mirror.
-d-i apt-setup/use_mirror boolean false
+# d-i apt-setup/use_mirror boolean false
+d-i mirror/http/proxy string
 
 ### Package selection
 tasksel tasksel/first multiselect ubuntu-server
