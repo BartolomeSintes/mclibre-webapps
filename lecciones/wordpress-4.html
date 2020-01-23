@@ -30,7 +30,7 @@
       <h3><a href="#">Enunciados</a></h3>
       <ul>
         <li><a href="#ejercicio-1">1 - Imagen destacada</a></li>
-        <li><a href="#ejercicio-2">2 - Personalizar tema 2019</a></li>
+        <li><a href="#ejercicio-2">2 - Personalizar tema 2020</a></li>
         <li><a href="#ejercicio-3">3 - Modificar traducción</a></li>
         <li><a href="#ejercicio-4">4 - Crear un tema hijo</a></li>
         <li><a href="#ejercicio-5">5 - Modificar CSS tema hijo</a></li>
@@ -43,7 +43,7 @@
       <h3><a href="wordpress-4-soluciones.html">Soluciones</a></h3>
       <ul>
         <li><a href="wordpress-4-soluciones.html#ejercicio-1">1 - Imagen destacada</a></li>
-        <li><a href="wordpress-4-soluciones.html#ejercicio-2">2 - Personalizar tema 2017</a></li>
+        <li><a href="wordpress-4-soluciones.html#ejercicio-2">2 - Personalizar tema 2020</a></li>
         <li><a href="wordpress-4-soluciones.html#ejercicio-3">3 - Modificar traducción</a></li>
         <li><a href="wordpress-4-soluciones.html#ejercicio-4">4 - Crear un tema hijo</a></li>
         <li><a href="wordpress-4-soluciones.html#ejercicio-5">5 - Modificar CSS tema hijo</a></li>
@@ -55,7 +55,7 @@
     </div>
   </nav>
 
-  <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Estos ejercicios no están todavía actualizados a WordPress 5.3.</p>
+  <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Estos ejercicios no están todavía totalmente actualizados a WordPress 5.3.</p>
 
   <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>WordPress</strong>. Se pueden consultar las <a href="wordpress-4-soluciones.html">soluciones de estos ejercicios de WordPress</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
@@ -65,8 +65,8 @@
 
   <ul>
     <li>Las imágenes destacadas, que son imágenes que se pueden asociar a las páginas y entradas y que los temas pueden utilizar de distintas maneras.</li>
-    <li>Las opciones de personalización del tema predeterminado de WordPress 4.9, llamado Twenty Nineteen.</li>
-    <li>La modificación del tema Twenty Nineteen editando los ficheros del tema.</li>
+    <li>Las opciones de personalización del tema predeterminado de WordPress 5.3, que se llama Twenty Twenty.</li>
+    <li>La modificación del tema Twenty Twenty editando los ficheros del tema.</li>
     <li>La creación de temas hijos, es decir, temas derivados de temas ya existentes.</li>
     <li>La instalación de otros temas.</li>
   </ul>
@@ -74,16 +74,16 @@
   <section id="ejercicio-1">
     <h2>WordPress (4) 1 - Imagen destacada</h2>
 
-    <p>Asocie una imagen a una de las entradas, que se mostrará en la parte superior:</p>
+    <p>Asocie una imagen a una de las entradas, que se mostrará en la parte superior (si estamos viendo la página principal del blog) o como imagen de fondo (si estamos viendo la página individual de la entrada):</p>
 
     <p class="captura">
-      <img src="../img/wordpress/4-1-e-1-imagen-destacada.jpg" alt="WordPress. Imagen destacada" title="WordPress. Imagen destacado" width="600" height="296">
-      <img src="../img/wordpress/4-1-e-2-imagen-destacada.jpg" alt="WordPress. Imagen destacada" title="WordPress. Imagen destacado" width="600" height="580">
+      <img src="../img/wordpress/4-1-e-1-imagen-destacada.jpg" alt="WordPress. Imagen destacada" title="WordPress. Imagen destacado" width="497" height="510">
+      <img src="../img/wordpress/4-1-e-2-imagen-destacada.jpg" alt="WordPress. Imagen destacada" title="WordPress. Imagen destacado" width="497" height="365">
     </p>
 
-    <p>El tamaño más conveniente de la imagen destacada depende del tema elegido. De acuerdo con el manual de WordPress, el tamaño recomendado para el tema Nineteen es de 2000px x 1200px .</p>
+    <p>El tamaño más conveniente de la imagen destacada depende del tema elegido. De acuerdo con el manual de WordPress, el tamaño recomendado para el tema TwentyTwenty es de 1980px x 1485px .</p>
 
-    <p>WordPress aplica un filtro de color que se puede eliminar o personalizar. En el ejercicio siguiente se trata este punto.</p>
+    <p>Al mostrar la imagen como imagen de fondo, WordPress aplica un filtro de color que se puede eliminar o personalizar. En el ejercicio siguiente se trata este punto.</p>
 
     <p>La imagen del ejemplo es <a href="../img/otros/venecia-2-recortada.jpg">Venecia (Basílica de San Marcos)</a>. En los ejercicios siguientes se han utilizado otras imágenes de Venecia:</p>
 
@@ -99,43 +99,43 @@
   </section>
 
   <section id="ejercicio-2">
-    <h2>WordPress (4) 2 - Personalizar el tema Twenty Nineteen</h2>
+    <h2>WordPress (4) 2 - Personalizar el tema Twenty Twenty</h2>
 
-    <p>En este ejercicio se personalizará el tema predeterminado Twenty Nineteen.</p>
+    <p>En este ejercicio se personalizará el tema predeterminado Twenty Twenty.</p>
     <ol>
       <li><strong>Icono del sitio</strong>
         <p>Añada un icono al sitio web.</p>
         <p class="captura">
-          <img src="../img/wordpress/4-2-e-1-icono.png" alt="WordPress. Icono del sitio" width="450" height="100">
+          <img src="../img/wordpress/4-2-e-1-icono.png" alt="WordPress. Icono del sitio" width="475" height="200">
         </p>
         <p>WordPress recomienda que la imagen del icono del sitio sea una imagen cuadrada de 512px de lado. En el ejemplo se ha utilizado esta imagen: <a href="../img/iconos/favicon/favicon-webapps-512.png"><img src="../img/iconos/favicon/favicon-webapps-512.png" alt="favicon webapps 512x512" title="favicon webapps 512x512" width="64" height="64"></a></p>
       </li>
       <li><strong>Logotipo del sitio</strong>
         <p>Añada un logotipo al sitio web.</p>
         <p class="captura">
-          <img src="../img/wordpress/4-2-e-2-logotipo.png" alt="WordPress. Icono del sitio" width="991" height="150">
+          <img src="../img/wordpress/4-2-e-2-logotipo.png" alt="WordPress. Icono del sitio" width="510" height="230">
         </p>
-        <p>WordPress recomienda que la imagen del icono del sitio sea una imagen cuadrada de 190px de lado. En el ejemplo se ha utilizado esta imagen: <a href="../img/iconos/logos/logo-apuntes-cuadrado-256.png"><img src="../img/iconos/logos/logo-apuntes-cuadrado-256.png" alt="logotipo webapps 256x256" title="logotipo webapps 256x256" width="64" height="64"></a></p>
+        <p>WordPress recomienda que la imagen del icono del sitio sea una imagen de 240px de ancho y 180px de alto. En el ejemplo se ha utilizado esta imagen: <a href="../img/iconos/logos/logo-apuntes-cuadrado-256.png"><img src="../img/iconos/logos/logo-apuntes-cuadrado-240x180.png" alt="logotipo webapps 240x180" title="logotipo webapps 240x180" width="80" height="60"></a></p>
       </li>
 
       <li><strong>Colores</strong>
-        <p>El tema Twenty Nineteen aplica un filtro de color a las imágenes destacadas.</p>
+        <p>El tema Twenty Twenty aplica un filtro de color a las imágenes destacadas.</p>
         <ul>
           <li>Modifique el color aplicado:
             <p class="captura">
-              <img src="../img/wordpress/4-2-e-21-colores.jpg" alt="WordPress. Colores" width="600" height="296">
+              <img src="../img/wordpress/4-2-e-21-colores.jpg" alt="WordPress. Colores" width="600" height="302">
             </p>
           </li>
           <li>Desactive el filtro de color:
             <p class="captura">
-              <img src="../img/wordpress/4-2-e-22-colores.jpg" alt="WordPress. Colores" width="600" height="296">
+              <img src="../img/wordpress/4-2-e-22-colores.jpg" alt="WordPress. Colores" width="600" height="302">
             </p>
           </li>
         </ul>
       </li>
 
       <li><strong>Página estática</strong>
-        <p>El tema Twenty Nineteen permite definir como página de inicio una página estática. Es decir, que la página principal del blog no mostrará las entradas en orden cronológico inverso, sino una página fija.</p>
+        <p>El tema Twenty Twenty permite definir como página de inicio una página estática. Es decir, que la página principal del blog no mostrará las entradas en orden cronológico inverso, sino una página fija.</p>
 
         <p>En caso de que el sitio web siga teniendo entradas, el tema Twenty Nineteen permite definir también una página de entradas específica para mostrar las entradas en orden cronológico inverso. No es necesario dar contenido a esa página de entradas, es suficiente dar un nombre al configurar la página estática.</p>
 
@@ -147,12 +147,12 @@
         <ul>
           <li>La página principal muestra una página específica:
             <p class="captura">
-              <img src="../img/wordpress/4-2-e-31-portada-estatica.png" alt="WordPress. Portada estática" width="600" height="441">
+              <img src="../img/wordpress/4-2-e-31-portada-estatica.png" alt="WordPress. Portada estática" width="600" height="458">
             </p>
           </li>
           <li>Al hacer clic en el enlace Blog se muestran las entradas del blog:
             <p class="captura">
-              <img src="../img/wordpress/4-2-e-32-portada-estatica.png" alt="WordPress. Portada estática" width="600" height="532">
+              <img src="../img/wordpress/4-2-e-32-portada-estatica.png" alt="WordPress. Portada estática" width="600" height="390">
             </p>
           </li>
         </ul>
@@ -165,11 +165,11 @@
 
         <p>El Inspector de Firefox se abre mediante el menú <span class="soft-menu">Herramientas &gt; Desarrollador web</span> o mediante la tecla <kbd>F12</kbd>. En la lección <a href="https://www.mclibre.org/consultar/informatica/lecciones/ff-desarrollador-web.html">Herramientas de Desarrollador Web</a> de los <a href="https://www.mclibre.org/consultar/informatica/index.html">apuntes de informática</a> se comentan estas herramientas.</p>
 
-        <p>A continuación se comenta cómo se utilizaría el Inspector de Firefox para modificar el título del blog.</p>
+        <p>A continuación se comenta cómo se utilizaría el Inspector de Firefox para modificar la descripción del del blog.</p>
 
         <p class="captura">
           <a href="../img/wordpress/4-2-e-41-inspector.png">
-            <img src="../img/wordpress/4-2-e-41-inspector-mini.png" alt="Firefox. Inspector" width="600" height="412">
+            <img src="../img/wordpress/4-2-e-41-inspector-mini.png" alt="Firefox. Inspector" width="600" height="383">
           </a>
         </p>
 
@@ -177,23 +177,30 @@
         <ol>
           <li>Haga clic en el selector de elementos.</li>
           <li>Haga clic en el elemento que quiere modificar.</li>
-          <li>En la parte inferior izquierda se muestran las etiquetas (y en su caso, sus clases e ids) que afectan al elemento seleccionado
+          <li>En la primera columna de la parte inferior (izquierda) se muestra el código fuente html de la página y se resalta el elemento seleccionado:
 
             <div class="codigo">
               <pre>
-<code class="language-html">&lt;body class="home blog wp-custom-logo wp-embed-responsive hfeed image-filters-enabled"&gt;
-  &lt;div id="page" class="site"&gt;
-    &lt;a class="skip-link screen-reader-text" href="#content"&gt;Ir al contenido&lt;/a&gt;
-    &lt;header id="masthead" class="site-header"&gt;
-      &lt;div class="site-branding-container"&gt;
-        &lt;div class="site-branding"&gt;
-          &lt;div class="site-logo"&gt;&lt;a href="http://192.168.1.4/wordpress/" class="custom-logo-link" rel="home" itemprop="url"&gt;&lt;img width="190" height="190" ... &gt;&lt;/a&gt;&lt;/div&gt;
-          <span class="codigo-resaltado">&lt;h1 class="site-title"&gt;&lt;a href="http://192.168.1.4/wordpress/" rel="home"&gt;WebApps blog de Barto&lt;/a&gt;&lt;/h1&gt;</span>
+<code class="language-html">...
+&lt;div class="header-titles"&gt;
+  &lt;div class="site-logo faux-heading"&gt;
+    &lt;a href="http://192.168.1.13/wordpress/" class="custom-logo-link" rel="home"&gt;
+      &lt;img width="250" height="188" src="http://192.168.1.13/wordpress/wp-content/uploads/2020/01/cropped-logo-apuntes-cuadrado-256.png" class="custom-logo" alt="WebApps Blog de Barto" /&gt;
+    &lt;/a&gt;
+    &lt;span class="screen-reader-text"&gt;WebApps Blog de Barto&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="site-description"&gt;
+  <span class="codigo-resaltado">Blog dedicado a las aplicaciones web</span>
+  &lt;/div&gt;
+  &lt;!-- .site-description --&gt;
+&lt;/div&gt;
+&lt;!-- .header-titles --&gt;
 ...</code>
 </pre>
             </div>
           </li>
-          <li>En la parte inferior derecha, en la pestaña "Computada", se muestran todas las reglas de las hojas de estilo que afectan al elemento seleccionado. Todas se muestran tachadas menos la más específica, que es la que se aplica. En este caso la regla es <span class="css-sele">.site-title a:link</span>.</li>
+          <li>En la segunda columna de la parte inferior (centro) se muestran todas las reglas de la(s) hoja(s) de estilo que afectan al elemento seleccionado, ordenadas por reglas.</li>
+          <li>En la tercera columna de la parte inferior (derecha), se muestran todas las propiedades de la(s) hoja(s) de estilo que afectan al elemento seleccionado, ordenadas por propiedad. De cada propiedad se indica los selectores de las reglas en las que se establece la propiedad. Las que no afectan al elemento seleccionado por ser menos específicas se muestran tachadas. En este caso la regla es <span class="css-sele">.site-description</span>.</li>
           <li>
             <p>En el apartado "CSS adicional" si sólo se tiene en cuenta la estructura html del documento, las reglas pueden no dar ningún resultado. Por ejemplo, si se añade la regla:</p>
 
@@ -209,7 +216,7 @@
 
             <div class="codigo">
               <pre>
-<code class="language-css">.site-title a:link {
+<code class="language-css">.site-description {
   color: red;
 }</code>
 </pre>
@@ -434,7 +441,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 24 de enero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 23 de enero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
