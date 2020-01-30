@@ -90,7 +90,7 @@
 
     <p>En este ejercicio se pide hacer dos instalaciones de OpenCart (una para consulta y otra para modificación). Se explica aquí la instalación para modificación. La instalación para consulta se realiza mediante el mismo procedimiento, salvo el directorio de instalación (que será <strong>opencart_0</strong> en vez de <strong>opencart</strong>) y el usuario, contraseña y base de datos en MySQL (que será <strong>iaw_opencart_0</strong> en vez de <strong>iaw_opencart_1</strong>).</p>
     <ul>
-      <li>Una vez descargado OpenCart, descomprima el archivo descargado en una carpeta y copie el contenido de la carpeta <strong>upload</strong> en una carpeta accesible desde el servidor local. La carpeta descomprimida sin la carpeta upload se podrá borrar posteriormente una vez consultados los ficheros de ayuda a la instalación.
+      <li>Una vez descargado OpenCart, descomprima el archivo descargado en una carpeta temporal y copie el contenido de la carpeta <strong>upload</strong> en una carpeta accesible desde el servidor local. La carpeta descomprimida sin la carpeta upload se podrá borrar posteriormente una vez consultados los ficheros de ayuda a la instalación.
         <p>En estas soluciones, de acuerdo con las <a href="../otros/configuracion.html">recomendaciones de configuración general</a> de estos apuntes, se supondrá que:</p>
         <ul>
           <li>OpenCart se encuentra en la carpeta: <strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones &gt; opencart</strong></li>
@@ -362,11 +362,20 @@ define('HTTPS_CATALOG', 'http://AAA.BBB.CCC.DDD/opencart/');
   <section id="ejercicio-7">
     <h2>OpenCart (1) 7 - Actualizar OpenCart</h2>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Por escribir</p>
+    <ol>
+      <li>Descargue la última versión de OpenCart.</li>
+      <li>Descomprima el archivo en una carpeta temporal.</li>
+      <li>Las instrucciones de actualización se encuentran en el fichero <strong>upgrade.txt</strong>.</li>
+      <li>Borre los archivos <strong>config-dist.php</strong> y <strong>admin/config-dist.php</strong> en la carpeta <strong>upload</strong>.</li>
+      <li>Copie el contenido de la carpeta <strong>upload</strong> en la carpeta de instalación de OpenCart.</li>
+      <li>Compruebe en el php.ini del servidor que la directiva <strong>max_execution_time</strong> tiene al menos el valor indicado en la <a href="../otros/configuracion.html#max-execution-time">Configuración recomendada</a>.</li>
+      <li>Abra en el navegador la dirección <strong>/opencart/install</strong> y ejecute la actualización.</li>
+      <li>Una vez terminada la actualización, borre la carpeta <strong>install</strong>.</li>
+    </ol>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 16 de enero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 23 de enero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
