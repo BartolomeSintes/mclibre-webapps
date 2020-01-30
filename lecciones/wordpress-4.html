@@ -137,7 +137,7 @@
       <li><strong>Página estática</strong>
         <p>El tema Twenty Twenty permite definir como página de inicio una página estática. Es decir, que la página principal del blog no mostrará las entradas en orden cronológico inverso, sino una página fija.</p>
 
-        <p>En caso de que el sitio web siga teniendo entradas, el tema Twenty Nineteen permite definir también una página de entradas específica para mostrar las entradas en orden cronológico inverso. No es necesario dar contenido a esa página de entradas, es suficiente dar un nombre al configurar la página estática.</p>
+        <p>En caso de que el sitio web siga teniendo entradas, el tema Twenty Twenty permite definir también una página de entradas específica para mostrar las entradas en orden cronológico inverso. No es necesario dar contenido a esa página de entradas, es suficiente dar un nombre al configurar la página estática.</p>
 
         <p>Para poder acceder a la página que contiene las entradas, podemos incluir un enlace a ella en un menú, por ejemplo.</p>
 
@@ -227,14 +227,15 @@
             <hr class="corta">
 
             <p>Modifique el color de los elementos principales. Por ejemplo:</p>
+            <p><strong>Nota</strong>: El borde circular del logotipo está creado con la propiedad CSS <a href="https://developer.mozilla.org/es/docs/Web/CSS/clip-path">clip-path</a>.</p>
             <p class="captura">
-              <img src="../img/wordpress/4-2-e-51-css-adicional.png" alt="WordPress. CSS adicional" width="600" height="296">
+              <img src="../img/wordpress/4-2-e-51-css-adicional.png" alt="WordPress. CSS adicional" width="700" height="189">
             </p>
             <p class="captura">
-              <img src="../img/wordpress/4-2-e-53-css-adicional.png" alt="WordPress. CSS adicional" width="475" height="260">
+              <img src="../img/wordpress/4-2-e-52-css-adicional.png" alt="WordPress. CSS adicional" width="700" height="802">
             </p>
             <p class="captura">
-              <img src="../img/wordpress/4-2-e-52-css-adicional.png" alt="WordPress. CSS adicional" width="600" height="381">
+              <img src="../img/wordpress/4-2-e-53-css-adicional.png" alt="WordPress. CSS adicional" width="700" height="802">
             </p>
           </li>
 
@@ -264,14 +265,14 @@
         <ul>
           <li>Cuando se pide una página que no existe, WordPress muestra los siguientes mensajes:
             <p class="captura">
-              <img src="../img/wordpress/4-3-e-1-traduccion.png" alt="WordPress. Mensaje de página no encontrada" width="450" height="368">
+              <img src="../img/wordpress/4-3-e-1-traduccion.png" alt="WordPress. Mensaje de página no encontrada" width="600" height="350">
             </p>
           </li>
           <li>Esos mensajes se encuentran en el archivo de la traducción del tema empleado.</li>
-          <li>Instale poedit y modifique el archivo de traducción <strong>twentynineteen-es_ES.po</strong> (ambos mensajes). Al guardar el archivo .po, poedit genera automáticamente el archivo .mo.</li>
+          <li>Instale poedit y modifique el archivo de traducción <strong>twentytwenty-es_ES.po</strong> (ambos mensajes). Al guardar el archivo .po, poedit genera automáticamente el archivo .mo.</li>
           <li>Compruebe que se muestran los nuevos mensajes:
             <p class="captura">
-              <img src="../img/wordpress/4-3-e-2-traduccion.png" alt="WordPress. Mensaje de página no encontrada" width="450" height="385">
+              <img src="../img/wordpress/4-3-e-2-traduccion.png" alt="WordPress. Mensaje de página no encontrada" width="600" height="380">
             </p>
           </li>
         </ul>
@@ -287,19 +288,19 @@
     <hr class="corta">
 
     <ol>
-      <li>Cree un tema hijo del tema Twenty Nineteen de acuerdo con las instrucciones de la documentación oficial de WordPress: <a href="https://developer.wordpress.org/themes/advanced-topics/child-themes/">Child themes</a>. Compruebe que el nuevo tema se muestra en WordPress:
+      <li>Cree un tema hijo del tema Twenty Twenty de acuerdo con las instrucciones de la documentación oficial de WordPress: <a href="https://developer.wordpress.org/themes/advanced-topics/child-themes/">Child themes</a>. Compruebe que el nuevo tema se muestra en WordPress:
         <p class="captura">
-          <img src="../img/wordpress/4-4-e-1-tema-hijo.png" alt="WordPress. Tema hijo" width="991" height="420">
+          <img src="../img/wordpress/4-4-e-1-tema-hijo.png" alt="WordPress. Tema hijo" width="995" height="415">
         </p>
       </li>
-      <li>Añada en el directorio del tema un archivo screenshot.png o screenshot.jpg (600px x 450px o mejor, 1200 x 900px) (<a href="../elementos/wordpress/tema-hijo/screenshot.jpg">ejemplo</a>). Compruebe que la imagen se muestra en WordPress:
+      <li>Añada en el directorio del tema un archivo screenshot.png o screenshot.jpg (600px x 450px o mejor, 1200 x 900px) (<a href="../elementos/wordpress/tema-hijo/screenshot.png">ejemplo</a>). Compruebe que la imagen se muestra en WordPress:
         <p class="captura">
-          <img src="../img/wordpress/4-4-e-2-tema-hijo.png" alt="WordPress. Tema hijo" width="991" height="420">
+          <img src="../img/wordpress/4-4-e-2-tema-hijo.png" alt="WordPress. Tema hijo" width="995" height="415">
         </p>
       </li>
       <li>Active el tema hijo.
         <p class="captura">
-          <img src="../img/wordpress/4-4-e-3-tema-hijo.png" alt="WordPress. Tema hijo" width="991" height="470">
+          <img src="../img/wordpress/4-4-e-3-tema-hijo.png" alt="WordPress. Tema hijo" width="995" height="470">
         </p>
       </li>
       <li>Añada en la hoja de estilo del tema hijo (no en el apartado CSS adicional, sino en la propia hoja de estilo mediante la opción Editor de WordPress) la regla necesaria para cambiar el color del título:
@@ -314,7 +315,7 @@
       </li>
       <li>Compruebe que el color del título ha cambiado:
         <p class="captura">
-          <img src="../img/wordpress/4-4-e-4-tema-hijo.png" alt="WordPress. Tema hijo" width="991" height="130">
+          <img src="../img/wordpress/4-4-e-4-tema-hijo.png" alt="WordPress. Tema hijo" width="995" height="140">
         </p>
       </li>
     </ol>
@@ -330,12 +331,15 @@
     <ol>
       <li>Cambie el estilo de algunos elementos del interfaz, como en la imagen siguiente:
         <p class="captura">
-          <img src="../img/wordpress/4-5-e-1-modificar-css.png" alt="WordPress. Tema hijo" width="991" height="500">
+          <a href="../img/wordpress/4-5-e-1-modificar-css.jpg">
+            <img src="../img/wordpress/4-5-e-1-modificar-css-mini.jpg" alt="WordPress. Tema hijo" width="995" height="965">
+          </a>
         </p>
       </li>
       <li>Cambie el estilo de otros elemento del interfaz, como en la imagen siguiente:
+        <p><strong>Nota</strong>: El borde del widget de búsqueda está definido en un elemento distinto del resto.</p>
         <p class="captura">
-          <img src="../img/wordpress/4-5-e-2-modificar-css.png" alt="WordPress. Tema hijo" width="991" height="750">
+          <img src="../img/wordpress/4-5-e-2-modificar-css.png" alt="WordPress. Tema hijo" width="518" height="730">
         </p>
       </li>
     </ol>
@@ -358,7 +362,7 @@
         </ul>
 
         <p class="captura">
-          <img src="../img/wordpress/4-6-e-1-404.png" alt="WordPress. Página 404 modificada" width="800" height="700">
+          <img src="../img/wordpress/4-6-e-1-404.png" alt="WordPress. Página 404 modificada" width="995" height="660">
         </p>
       </li>
     </ol>
@@ -381,7 +385,7 @@
           <pre>
 <code class="language-css">@import url(http://fonts.googleapis.com/css?family=Orbitron);
 
-.main-navigation {
+.header-navigation-wrapper {
   font-family: Orbitron;
   font-size: 125%;
 }</code>
@@ -390,7 +394,7 @@
       </li>
       <li>Con el ejemplo anterior, el resultado sería el siguiente:
         <p class="captura">
-          <img src="../img/wordpress/4-7-e-1-google-fonts.png" alt="WordPress. Google Fonts" width="991" height="240">
+          <img src="../img/wordpress/4-7-e-1-google-fonts.png" alt="WordPress. Google Fonts" width="995" height="250">
         </p>
       </li>
     </ul>
@@ -400,7 +404,7 @@
     <ol>
       <li>Personalice el tema de manera que se utilicen las fuentes Montserrat Alternates y Over the Rainbow de Google Fonts en los títulos del sitio y de las entradas, respectivamente (compruebe que funciona tanto cuando se está viendo la página principal del blog como cuando se ha hecho clic en una entrada):
         <p class="captura">
-          <img src="../img/wordpress/4-7-e-2-google-fonts.png" alt="WordPress. Google Fonts" width="991" height="430">
+          <img src="../img/wordpress/4-7-e-2-google-fonts.png" alt="WordPress. Google Fonts" width="995" height="330">
         </p>
       </li>
     </ol>
@@ -441,7 +445,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 23 de enero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 30 de enero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>

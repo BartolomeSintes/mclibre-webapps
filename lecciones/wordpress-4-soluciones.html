@@ -75,7 +75,7 @@
   </section>
 
   <section id="ejercicio-2">
-    <h2>WordPress (4) 2 - Personalizar el tema Twenty Nineteen</h2>
+    <h2>WordPress (4) 2 - Personalizar el tema Twenty Twenty</h2>
 
     <p>Para personalizar el tema predeterminado, elija el menú <strong>Apariencia &gt; Personalizar</strong>.</p>
 
@@ -138,47 +138,50 @@
         <div class="codigo">
           <pre>
 <code class="language-css">/* Cabecera */
+#site-header { background-color: hsl(0, 75%, 70%);}
 
-.site-header {
-  background-color: hsl(0, 75%, 70%);
+/* Logo */
+img.custom-logo {
+    clip-path: circle(60px at center);
 }
+
+/* Descipción del sitio */
+div.site-description { color: black; }
 
 /* Menu */
-.main-navigation {
-  background-color: hsl(0, 75%, 50%);
+nav.primary-menu-wrapper {
+    background-color: hsl(359, 74%, 50%);
 }
 
-.main-navigation .main-menu li a {
-  color: white;
-}
-.main-menu button {
-  color: white;
+div.header-navigation-wrapper li.menu-item a {
+    color: white;
 }
 
-/* Submenús */
-.menu-item {
-  background-color: hsl(0, 75%, 50%);
+div.header-navigation-wrapper ul.sub-menu {
+    background-color: hsl(359, 74%, 50%);
 }
 
-.menu-item .sub-menu li a {
-  background-color: hsl(0, 75%, 50%);
-}
-.menu-item .sub-menu li a:hover {
-  background-color: hsl(0, 75%, 90%);
+div.header-navigation-wrapper ul.sub-menu li a:hover {
+    background-color: hsl(357, 87%, 91%);
 }
 
-/* Blog */
-.site-content {
-  background-color: hsl(0, 75%, 90%);
+/* Entradas */
+body {
+    background-color: hsl(357, 87%, 91%);
+}
+
+p.has-background.has-background-background-color {
+    background-color: hsl(357, 87%, 91%);
+}
+
+/* Widgets */
+div.header-footer-group {
+    background-color: hsl(0, 75%, 70%);
 }
 
 /* Pie */
-.site-footer {
-  background-color: hsl(0, 75%, 70%);
-}
-
-input[type=submit] {
-  background-color: hsl(0, 75%, 50%);
+footer#site-footer.header-footer-group {
+    background-color: hsl(0, 75%, 70%);
 }</code>
 </pre>
         </div>
@@ -191,7 +194,7 @@ input[type=submit] {
     <h2>WordPress (4) 3 - Modificar la traducción de WordPress</h2>
 
     <ul>
-      <li>El archivo de traducción del tema es <strong>wordpress\wp-content\languages\themes\twentynineteen-es_ES.po</strong></li>
+      <li>El archivo de traducción del tema es <strong>wordpress\wp-content\languages\themes\twentytwenty-es_ES.po</strong></li>
     </ul>
   </section>
 
@@ -204,22 +207,22 @@ input[type=submit] {
       <li>Plugin <a href="https://wordpress.org/plugins/child-theme-configurator/">Child Theme Configurator</a></li>
     </ul>
     <ol>
-      <li>Cree la carpeta <strong><span class="codigo-modificacion">twentynineteen</span>-child</strong> y cree en ella los dos archivos siguientes:</li>
+      <li>Cree la carpeta <strong><span class="codigo-modificacion">/wp-content/themes/twentytwenty</span>-child</strong> y cree en ella los dos archivos siguientes:</li>
       <li>Cree el archivo <strong>style.css</strong> con el siguiente contenido. Aunque sean líneas comentadas, el contenido de estas líneas es importante. La línea más importante es la de Template, ya que en ella se dice cuál es el tema padre de este tema hijo, escribiendo el nombre de la carpeta que lo contiene. El resto debería contener información real.
         <div class="codigo">
           <pre>
 <code class="language-css">/*
-Theme Name: <span class="codigo-modificacion">Twenty Nineteen Child</span>
-Theme URI: <span class="codigo-modificacion">https://example.com/themes/twenty-nineteen-child/</span>
-Description: <span class="codigo-modificacion">Tema hijo de Twenty Nineteen</span>
+Theme Name: <span class="codigo-modificacion">Twenty Twenty Child</span>
+Theme URI: <span class="codigo-modificacion">https://example.com/themes/twenty-twenty-child/</span>
+Description: <span class="codigo-modificacion">Tema hijo de Twenty Twenty</span>
 Author: <span class="codigo-modificacion">TU NOMBRE</span>
 Author URI: <span class="codigo-modificacion">TU PÁGINA WEB</span>
-Template: <span class="codigo-modificacion">twentynineteen</span>
+Template: <span class="codigo-modificacion">twentytwenty</span>
 Version: <span class="codigo-modificacion">1.0.0</span>
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, responsive-layout, accessibility-ready
-Updated: <span class="codigo-modificacion">2019-01-22</span>
+Updated: <span class="codigo-modificacion">2020-01-30</span>
 */</code>
 </pre>
         </div>
@@ -231,7 +234,7 @@ Updated: <span class="codigo-modificacion">2019-01-22</span>
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
 
-    $parent_style = '<span class="codigo-modificacion">twentynineteen</span>-style'; // This is 'twentynineteen-style' for the Twenty Nineteen theme.
+    $parent_style = '<span class="codigo-modificacion">twentytwenty</span>-style'; // This is 'twentytwenty-style' for the Twenty Twenty theme.
 
     wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'child-style',
@@ -253,37 +256,40 @@ function my_theme_enqueue_styles() {
     <ol>
       <li>La hoja de estilo del tema hijo se puede editar con un editor cualquiera o con el editor integrado disponible en el menú <strong>Apariencia &gt; Editor</strong>
         <p class="captura">
-          <img src="../img/wordpress/4-5-s-1-editor.png" alt="WordPress. Modificar css tma hijo" width="991" height="585">
+          <img src="../img/wordpress/4-5-s-1-editor.png" alt="WordPress. Modificar css tma hijo" width="1005" height="530">
         </p>
       </li>
       <li>Cuatro elementos de la interfaz
         <p>Para obtener el resultado propuesto, la hoja de estilo podría ser la siguiente:</p>
         <div class="codigo">
           <pre>
-<code class="language-css">.site-description {
-  color: red;
+<code class="language-css">#site-header {
+    border-top: green 4px solid;
+    border-bottom: green 4px solid;
 }
 
-.post {
-  border-top: hsl(120, 100%, 25%) 3px solid;
-  border-bottom: hsl(120, 100%, 25%) 3px solid;
-  background-color: hsl(120, 100%, 90%);
+article {
+    border-bottom: white 50px solid;
 }
 
-.hfeed .entry .entry-header {
-  border-bottom: hsl(120, 100%, 25%) 3px solid;
-  margin: 0;
-  background-color: hsl(120, 100%, 80%);
-  text-align: center;
-  text-shadow: white 3px 3px;
+.home #site-content article.post {
+    padding-bottom: 30px;
 }
 
-.entry .entry-title::before, .widget h2::before {
-  display: none;
+.entry-header {
+    border-top: green 4px solid;
+    border-bottom: green 4px solid;
+    padding: 10px 0;
+    background-color: lightgreen;
 }
 
-.entry .entry-footer  {
-  margin-bottom: 0;
+.featured-media-inner img {
+    border: green 5px solid;
+    padding: 5px;
+}
+
+hr.post-separator {
+    display: none;
 }</code>
 </pre>
         </div>
@@ -294,18 +300,31 @@ function my_theme_enqueue_styles() {
         <div class="codigo">
           <pre>
 <code class="language-css">.widget {
-  border: hsl(120, 100%, 25%) 3px solid;
-  border-radius: 10px;
+    border: hsl(120, 100%, 25%) 3px solid;
+    border-radius: 10px;
+
 }
-.widget h2 {
-  margin: 0;
-  padding: 5px;
-  background-color: hsl(120, 100%, 25%);
-  color: white;
+.widget.widget_search {
+	  border: none;
 }
 
-.widget ul, .widget form {
-  padding: 10px;
+.widget.widget_search .widget-content {
+    border: hsl(120, 100%, 25%) 3px solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.widget h2 {
+    margin: 0;
+    padding: 5px;
+    background-color: hsl(120, 100%, 25%);
+    color: white;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.widget li {
+	  margin-left: 10px;
 }</code>
 </pre>
         </div>
@@ -317,14 +336,13 @@ function my_theme_enqueue_styles() {
     <h2>WordPress (4) 6 - Modificar una plantilla de página </h2>
 
     <ul>
-      <li>La plantilla de la página 404 que hay que copia en el tema hijo es <strong>\wordpress\wp-content\themes\twentynineteen\404.php</strong>.
-        <p>El código que genera el contenido de la página es el siguiente:</p>
+      <li>La plantilla de la página 404 que hay que copia en el tema hijo es <strong>\wordpress\wp-content\themes\twentytwenty\404.php</strong>.
+        <p>El código que genera el contenido de la página 404 es el siguiente:</p>
         <div class="codigo">
           <pre>
-<code class="language-php">&lt;div class="page-content"&gt;
-    &lt;p&gt;&lt;?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentynineteen' ); ?&gt;&lt;/p&gt;
-    &lt;?php get_search_form(); ?&gt;
-&lt;/div&gt;&lt;!-- .page-content --&gt;</code>
+<code class="language-php">    &lt;h1 class="entry-title"&gt;&lt;?php _e( 'Page Not Found', 'twentytwenty' ); ?&gt;&lt;/h1&gt;
+
+    &lt;div class="intro-text"&gt;&lt;p&gt;&lt;?php _e( 'The page you were looking for could not be found. It might have been removed, renamed, or did not exist in the first place.', 'twentytwenty' ); ?&gt;&lt;/p&gt;&lt;/div&gt;</code>
 </pre>
         </div>
       </li>
@@ -332,15 +350,12 @@ function my_theme_enqueue_styles() {
       <li>El código modificado podría ser el siguiente (la url de la imagen debería cambiarse por la de la imagen subida):
         <div class="codigo">
           <pre>
-<code class="language-php">&lt;div class="page-content"&gt;
-<span class="codigo-resaltado-caja">    &lt;div class="wp-block-image"&gt;
-        &lt;figure class="aligncenter is-resized"&gt;
-            &lt;img src="<span class="codigo-modificacion">http://192.168.1.4/wordpress/wp-content/uploads/2019/01/oops-200.png</span>" alt="404" class="wp-image-500" width="225" height="200"&gt;
-        &lt;/figure&gt;
-    &lt;/div&gt;&lt;!-- .wp-block-image --&gt;</span>
-    &lt;p <span class="codigo-resaltado">style="color:red"</span>&gt;&lt;?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentynineteen' ); ?&gt;&lt;/p&gt;
-    &lt;?php get_search_form(); ?&gt;
-&lt;/div&gt;&lt;!-- .page-content --&gt;</code>
+<code class="language-php">    &lt;h1 class="entry-title"&gt;&lt;?php _e( 'Page Not Found', 'twentytwenty' ); ?&gt;&lt;/h1&gt;
+
+
+    <span class="codigo-resaltado-caja">&lt;div class="wp-block-image"&gt;&lt;figure class="aligncenter size-large"&gt;&lt;img src="<span style="color: red">http://192.168.1.13/wordpress/wp-content/uploads/2020/01/oops-200.png</span>" alt="" class="wp-image-265"/&gt;&lt;/figure&gt;&lt;/div&gt;</span>
+
+    &lt;div class="intro-text" <span class="codigo-resaltado-caja">style="color: red"</span>&gt;&lt;p&gt;&lt;?php _e( 'The page you were looking for could not be found. It might have been removed, renamed, or did not exist in the first place.', 'twentytwenty' ); ?&gt;&lt;/p&gt;&lt;/div&gt;</code>
 </pre>
         </div>
       </li>
@@ -348,8 +363,6 @@ function my_theme_enqueue_styles() {
   </section>
 
   <section id="ejercicio-7">
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">las soluciones de los ejercicios siguientes están pendientes de actualizar a la versión WordPress 5.0.</p>
-
     <h2>WordPress (4) 7 - Google Fonts (css)</h2>
 
     <ul>
@@ -386,7 +399,7 @@ function my_theme_enqueue_styles() {
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 23 de enero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 30 de enero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
