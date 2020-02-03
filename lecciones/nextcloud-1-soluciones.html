@@ -73,12 +73,12 @@
       </li>
       <li>Abra la página inicial de Nextcloud y rellene los datos:
         <p class="captura">
-          <img src="../img/nextcloud/1-1-s-1-instalacion.png" alt="Nextcloud. Instalación" width="991" height="570">
+          <img src="../img/nextcloud/1-1-s-1-instalacion.png" alt="Nextcloud. Instalación" width="995" height="510">
         </p>
       </li>
       <li>Para cerrar la sesión de Nextcloud, haga clic en el icono de la rueda dentada y elija la opción Cerrar sesión:
         <p class="captura">
-          <img src="../img/nextcloud/1-1-s-2-instalacion.png" alt="Nextcloud. Instalación" width="991" height="315">
+          <img src="../img/nextcloud/1-1-s-2-instalacion.png" alt="Nextcloud. Instalación" width="1190" height="350">
         </p>
       </li>
       <li>Para eliminar el contenedor, detenga el contenedor y bórrelo:
@@ -98,20 +98,20 @@ sudo docker rm nc-sqlite</code>
     <ol>
       <li>Cree el contenedor:
         <div class="terminal">
-          <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker run -d --name=nc-sqlite -p 8080:80 --mount type=volume,source=nc-vol,target=/var/www/html nextcloud:15.0.0</code></pre>
+          <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker run -d --name=nc-17-sqlite -p 8081:80 --mount type=volume,source=nc-vol,target=/var/www/html nextcloud:17.0.0</code></pre>
         </div>
       </li>
       <li>Detenga el contenedor y bórrelo:
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo docker stop nc-sqlite
-sudo docker rm nc-sqlite</code>
+<code class="language-shell">sudo docker stop nc-17-sqlite
+sudo docker rm nc-17-sqlite</code>
 </pre>
         </div>
       </li>
       <li>Cree de nuevo el contenedor:
         <div class="terminal">
-          <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker run -d --name=nc-sqlite -p 8080:80 --mount type=volume,source=nc-vol,target=/var/www/html nextcloud:15.0.4</code></pre>
+          <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker run -d --name=nc-17-sqlite -p 8081:80 --mount type=volume,source=nc-vol,target=/var/www/html nextcloud:17.0.3</code></pre>
         </div>
       </li>
     </ol>
@@ -135,10 +135,10 @@ sudo docker rm nc-sqlite</code>
           </li>
           <li>Cree el contenedor de phpMyAdmin:
             <div class="terminal">
-              <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker run -d --name=nc-pma -e DATABASE_HOST=nc-mariadb -p 8801:80 --net=nc-network bitnami/phpmyadmin</code></pre>
+              <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker run -d --name=nc-pma -e DATABASE_HOST=nc-mariadb -p 8082:80 --net=nc-network bitnami/phpmyadmin</code></pre>
             </div>
           </li>
-          <li>Abra en el navegador del host la página http://AAA.BBB.CCC.DDD:8801 (usuario root sin contraseña) y con phpMyAdmin cree un usuario nextcloud, que pueda acceder desde cualquier servidor, con contraseña nextcloud y base de datos única.
+          <li>Abra en el navegador del host la página http://AAA.BBB.CCC.DDD:8082 (usuario root sin contraseña) y con phpMyAdmin cree un usuario nextcloud, que pueda acceder desde cualquier servidor, con contraseña nextcloud y base de datos única.
             <p class="captura">
               <img src="../img/nextcloud/1-3-s-1-instalacion.png" alt="phpMyAdmin. Creación de usuario nextcloud" width="800" height="510">
             </p>
@@ -174,7 +174,7 @@ sudo docker rm nc-sqlite</code>
                 "Name": "nc-mariadb",
                 "EndpointID": "5752daa968e19f45b22dede29dffd9a0bbe8b986a2eac28defa9a15320a66dfe"
                 "MacAddress": "02:42:ac:13:00:03",
-                "IPv4Address": "<span class="codigo-resaltado">172.19.0.3</span>/16",
+                "IPv4Address": "<span class="codigo-resaltado">172.18.0.2</span>/16",
                 "IPvAddress": ""
             ...
             },
@@ -183,12 +183,12 @@ sudo docker rm nc-sqlite</code>
       </li>
       <li>Configure el acceso de Nextcloud a la base de datos:
         <p class="captura">
-          <img src="../img/nextcloud/1-4-s-1-completar.png" alt="Nextcloud. Conexión con MariaDB" width="991" height="630">
+          <img src="../img/nextcloud/1-4-s-1-completar.png" alt="Nextcloud. Conexión con MariaDB" width="1171" height="600">
         </p>
       </li>
       <li>Para salir de Nextcloud, haga clic en la rueda dentada (arriba a la derecha) y seleccione la opción Desconectar:
         <p class="captura">
-          <img src="../img/nextcloud/1-4-s-2-salir.png" alt="Nextcloud. Salir" width="1009" height="310">
+          <img src="../img/nextcloud/1-4-s-2-salir.png" alt="Nextcloud. Salir" width="1190" height="330">
         </p>
       </li>
     </ul>
@@ -206,6 +206,11 @@ sudo docker rm nc-sqlite</code>
       <li>Actualice la lista de paquetes:
         <div class="terminal">
           <pre><code class="language-shell">apt update</code></pre>
+        </div>
+      </li>
+      <li>Instale los paquetes dialog y apt-utils:
+        <div class="terminal">
+          <pre><code class="language-shell">apt install dialog apt-utils</code></pre>
         </div>
       </li>
       <li>Instale el paquete ssl-cert:

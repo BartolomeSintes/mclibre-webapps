@@ -52,7 +52,7 @@
     </div>
   </nav>
 
-  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Esta lección está pendiente de actualizar a la versión Nextcloud 15. Por ahora, están actualizados los ejercicios 1, 2, 3 y 4.</p>
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Esta lección está pendiente de actualizar a la versión Nextcloud 18. Por ahora, están actualizados los ejercicios 1, 2, 3 y 4.</p>
 
   <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>Nextcloud</strong>. Se pueden consultar las <a href="nextcloud-1-soluciones.html">soluciones de estos ejercicios de Nextcloud</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones. A continuación se pueden realizar los <a href="nextcloud-2.html">ejercicios (2) de Nextcloud</a>, en los que se amplian las funcionalidades de Nextcloud.</p>
 
@@ -69,26 +69,27 @@
       <li>Cree un contenedor de Nextcloud a partir de la <a href="https://github.com/nextcloud/docker">imagen nextcloud oficial</a>, que esté disponible en el puerto 8080.
         <p><strong>Nota</strong>: Se pide asignar el puerto 8080 para poder tener en marcha simultáneamente este Nextcloud junto con otros asignados en otros puertos.</p>
       </li>
-      <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada de NextCloud, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD:8080/</strong>, en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
+      <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada de Nextcloud, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD:8080/</strong>, en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
         <p class="captura">
           <img src="../img/nextcloud/1-1-e-1-instalacion.png" alt="Nextcloud. Instalación" width="991" height="310">
         </p>
       </li>
-      <li>Complete la instalación de NextCloud:
+      <li>Complete la instalación de Nextcloud:
         <ul>
           <li>Nombre de usuario: <span class="codigo-modificacion">admin</span></li>
           <li>Contraseña: <span class="codigo-modificacion">admin</span></li>
-          <li>Almacenamiento: directorio predeterminado</li>
+          <li>Carpeta de datos: directorio predeterminado</li>
           <li>Base de datos: <span class="codigo-modificacion">SQLite</span></li>
+          <li>Instalar las aplicaciones recomendadas</li>
         </ul>
-        <p><strong>Notas</strong>: La contraseña sugerida se considera muy débil y no debería utilizarse en un entorno real.</p>
+        <p><strong>Nota</strong>: La contraseña sugerida se considera muy débil y no debería utilizarse en un entorno real.</p>
       </li>
       <li>Se mostrará el interfaz de Nextcloud con un aviso de bienvenida:
         <p class="captura">
-          <img src="../img/nextcloud/1-1-e-2-instalacion.png" alt="Nextcloud. Instalación" width="991" height="489">
+          <img src="../img/nextcloud/1-1-e-2-instalacion.png" alt="Nextcloud. Instalación" width="1014" height="501">
         </p>
         <p class="captura">
-          <img src="../img/nextcloud/1-1-e-3-instalacion.png" alt="Nextcloud. Instalación" width="991" height="489">
+          <img src="../img/nextcloud/1-1-e-3-instalacion.png" alt="Nextcloud. Instalación" width="1180" height="595">
         </p>
       </li>
       <li>Cierre la sesión de Nextcloud y compruebe que puede volver a entrar como usuario <strong>admin</strong>.</li>
@@ -99,40 +100,50 @@
   <section id="ejercicio-2">
     <h2>Nextcloud (1) 2 - Actualizar Nextcloud con base de datos SQLite</h2>
 
-    <p>En este ejercicio actualizaremos un contenedor Docker de Nextcloud que utilice SQLite como base de datos.</p>
+    <p>En este ejercicio actualizaremos un contenedor Docker de Nextcloud que utilice SQLite como base de datos, <strong>distinto</strong> al del ejercicio anterior.</p>
 
-    <p>La actualización de un contenedor es distinta a la actualización de Nextcloud instalado en un servidor. Los contenedores no se actualizan, simplemente se elimina el contenedor antiguo y se crea un contenedor con la nueva versión. Para no perder la configuración y datos, los contenedores deben utilizar el mismo volumen.</p>
+    <p>La actualización de un contenedor es distinta a la actualización de Nextcloud instalado en un servidor. Por regla general, los contenedores no se actualizan, simplemente se elimina el contenedor antiguo y se crea un contenedor con la nueva versión. Para no perder la configuración y datos, los contenedores deben utilizar el mismo volumen.</p>
 
     <ol>
-      <li>Cree un contenedor de <strong>Nextcloud 15.0.0</strong> que esté disponible en el puerto 8080.
+      <li>Cree un contenedor de <strong>Nextcloud 17.0.0</strong> que esté disponible en el puerto 8081.
         <p>El volumen se montará en el directorio de instalación de Nextcloud:</p>
         <div class="terminal">
           <pre class="command-line" data-prompt="$"><code class="language-shell">--mount type=volume,source=nc-vol,target=/var/www/html</code></pre>
         </div>
-        <p><strong>Nota</strong>: Se pide asignar el puerto 8080 para poder tener en marcha simultáneamente este Nextcloud junto con otros asignados en otros puertos.</p>
+        <p><strong>Nota</strong>: Se pide asignar el puerto 8081 para poder tener en marcha simultáneamente este Nextcloud junto con otros asignados en otros puertos.</p>
       </li>
-      <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada de NextCloud y complete la instalación de NextCloud con los mismos valores que en el ejercicio anterior.</li>
-      <li>Compruebe que hay una versión más actual disponible:
+      <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada de Nextcloud y complete la instalación de Nextcloud con los mismos valores que en el ejercicio anterior.</li>
+      <li>Compruebe la versión instalada:
+        <p><strong>Nota</strong>: Nextcloud puede tardar un tiempo en indicar que hay una versión más actual disponible.</p>
         <p class="captura">
-          <img src="../img/nextcloud/1-2-e-1-actualizacion.png" alt="Nextcloud. Actualización" width="991" height="300">
+          <img src="../img/nextcloud/1-2-e-1-actualizacion.png" alt="Nextcloud. Actualización" width="1180" height="300">
         </p>
       </li>
       <li>Añada un documento a Nextcloud, por ejemplo este <a href="../elementos/documentos/manual-de-wordpress.pdf">Manual de WordPress (pdf)</a> (ficticio):
         <p class="captura">
-          <img src="../img/nextcloud/1-2-e-2-actualizacion.png" alt="Nextcloud. Actualización" width="991" height="350">
+          <img src="../img/nextcloud/1-2-e-2-actualizacion.png" alt="Nextcloud. Actualización" width="1180" height="350">
         </p>
       </li>
+      <li>Compruebe que hay una versión más actual disponible:
+        <p class="captura">
+          <img src="../img/nextcloud/1-2-e-3-actualizacion.png" alt="Nextcloud. Actualización" width="1180" height="370">
+        </p>
+      </li>
+      <li>Intente actualizar Nextcloud haciendo clic en el botón Abrir el actualizador y compruebe que no realiza ninguna acción. Eso se debe a que las imágenes de Docker de Nextcloud tienen desactivada la opción de actualización. En su lugar, se recomienda destruir el contenedor y crear un nuevo contenedor basado en la imagen actualizada.</li>
       <li>Cierre la sesión de Nextcloud.</li>
       <li>Elimine el contenedor.</li>
-      <li>Cree un contenedor de la última versión disponible de Nextcloud 15 (actualmente -febrero de 2019- <strong>Nextcloud 15.0.4</strong>) con las mismas opciones que el contenedor anterior (volumen, etc.). Nextcloud tardará más en estar disponible porque tiene lugar el proceso de actualización.</li>
+      <li>Cree un contenedor de la última versión disponible de Nextcloud 17 (actualmente -febrero de 2020- <strong>Nextcloud 17.0.3</strong>) con las mismas opciones que el contenedor anterior (volumen, etc.). Al abrirlo por primera vez, puede ser necesario actualizar algún componente:
+        <p class="captura">
+          <img src="../img/nextcloud/1-2-e-4-actualizacion.png" alt="Nextcloud. Actualización" width="1171" height="450">
+        </p></li>
       <li>Compruebe que se ha instalado la última versión:
         <p class="captura">
-          <img src="../img/nextcloud/1-2-e-3-actualizacion.png" alt="Nextcloud. Actualización" width="991" height="260">
+          <img src="../img/nextcloud/1-2-e-5-actualizacion.png" alt="Nextcloud. Actualización" width="1171" height="450">
         </p>
       </li>
-      <li>Compruebe que el documento subido está disponible:
+      <li>Compruebe que el documento subido anteriormente está disponible:
         <p class="captura">
-          <img src="../img/nextcloud/1-2-e-2-actualizacion.png" alt="Nextcloud. Actualización" width="991" height="350">
+          <img src="../img/nextcloud/1-2-e-2-actualizacion.png" alt="Nextcloud. Actualización" width="1180" height="350">
         </p>
       </li>
     </ol>
@@ -144,14 +155,14 @@
     <p>En este ejercicio se trata de crear un contenedor Docker de Nextcloud que utilice MariaDB como base de datos.</p>
 
     <ol>
-      <li>Cree una red e incluya los tres contenedores (MariaDB, phpMyAdmin y NextCloud) en ella.</li>
+      <li>Cree una red e incluya los tres contenedores (MariaDB, phpMyAdmin y Nextcloud) en ella.</li>
       <li>Cree un contenedor de MariaDB a partir de la imagen bitnami/mariadb. Utilice la variable de configuración ALLOW_EMPTY_PASSWORD.</li>
       <li>Cree un contenedor de phpMyAdmin que escuche en un puerto distinto del puerto 80, por ejemplo, en el 8081, a partir de la imagen bitnami/phpmyadmin. Utilice la variable de configuración DATABASE_HOST para indicar el nombre del contenedor de MariaDB.</li>
       <li>Cree en MariaDB con phpMyAdmin un usuario <span class="codigo-modificacion">nextcloud</span>, que pueda acceder desde cualquier ordenador, con contraseña <span class="codigo-modificacion">nextcloud</span> y base de datos única.</li>
       <li>Cree un contenedor de Nextcloud a partir de la imagen nextcloud, que escuche en los puertos 80 y 443.</li>
-      <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada en NextCloud, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD/</strong>, en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
+      <li>Compruebe en el navegador del ordenador anfitrión que puede ver la página de entrada en Nextcloud, escribiendo la dirección <strong>http://AAA.BBB.CCC.DDD/</strong>, en la que AAA.BBB.CCC.DDD es la dirección IP de la máquina virtual.
         <p class="captura">
-          <img src="../img/nextcloud/1-3-e-1-instalaciones.png" alt="Nextcloud. Instalación" width="400" height="280">
+          <img src="../img/nextcloud/1-3-e-1-instalaciones.png" alt="Nextcloud. Instalación" width="1171" height="260">
         </p>
       </li>
     </ol>
@@ -168,7 +179,7 @@
           <pre class="command-line" data-prompt="$"><code class="language-shell">sudo docker network inspect RED</code></pre>
         </div>
       </li>
-      <li>Complete la instalación de NextCloud:
+      <li>Complete la instalación de Nextcloud:
         <ul>
           <li>Nombre de usuario: <span class="codigo-modificacion">admin</span></li>
           <li>Contraseña: <span class="codigo-modificacion">admin</span></li>
@@ -179,17 +190,17 @@
       </li>
       <li>Se mostrará el interfaz de Nextcloud con un aviso de bienvenida
         <p class="captura">
-          <img src="../img/nextcloud/1-4-e-1-instalacion.png" alt="Nextcloud. Bienvenida" width="991" height="489">
+          <img src="../img/nextcloud/1-4-e-1-instalacion.png" alt="Nextcloud. Bienvenida" width="1180" height="595">
         </p>
       </li>
       <li>Salga de Nextcloud y compruebe que puede volver a entrar como administrador.
         <p class="captura">
-          <img src="../img/nextcloud/1-4-e-2-instalacion.png" alt="Nextcloud. Entrar" width="991" height="320">
+          <img src="../img/nextcloud/1-4-e-2-instalacion.png" alt="Nextcloud. Entrar" width="1188" height="330">
         </p>
       </li>
       <li>Compruebe con phpMyAdmin (como usuario nextcloud) que se han creado las tablas correspondientes. Si no se hubiera creado ninguna tabla es que Nextcloud está utilizando SQLite.
         <p class="captura">
-          <img src="../img/nextcloud/1-4-e-3-instalacion.png" alt="Nextcloud. Entrar" width="991" height="300">
+          <img src="../img/nextcloud/1-4-e-3-instalacion.png" alt="Nextcloud. Entrar" width="1171" height="330">
         </p>
       </li>
     </ol>
@@ -197,21 +208,21 @@
 
   <section id="ejercicio-5">
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Estos ejercicios están pendientes de actualizar a la versión 15.</p>
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Estos ejercicios están pendientes de actualizar a la versión 18.</p>
 
     <h2>Nextcloud (1) 5 - Habilitar https en el servidor</h2>
 
-    <p>Referencia: <a href="https://docs.nextcloud.com/server/13/admin_manual/configuration_server/harden_server.html">https://docs.nextcloud.com/server/13/admin_manual/configuration_server/harden_server.html</a></p>
+    <p>Referencia: <a href="https://docs.nextcloud.com/server/latest/admin_manual/installation/harden_server.html">https://docs.nextcloud.com/server/latest/admin_manual/installation/harden_server.html</a></p>
 
     <ol>
       <li>Compruebe que al acceder a Nextcloud mediante una conexión <strong>no</strong> cifrada <strong>http://AAA.BBB.CCC.DDD/</strong>, se muestra el aviso siguiente:
         <p class="captura">
-          <img src="../img/nextcloud/1-5-e-1-https.png" alt="Nextcloud. Entrar" width="400" height="350">
+          <img src="../img/nextcloud/1-5-e-1-https.png" alt="Nextcloud. Entrar" width="1190" height="440">
         </p>
       </li>
       <li>Intente entrar en Nextcloud como administrador mediante una conexión cifrada <strong>https://AAA.BBB.CCC.DDD/</strong> y compruebe que se muestra el aviso siguiente:
         <p class="captura">
-          <img src="../img/nextcloud/1-5-e-2-https.png" alt="Nextcloud. Conexión no segura" width="1008" height="360">
+          <img src="../img/nextcloud/1-5-e-2-https.png" alt="Nextcloud. Conexión no segura" width="1190" height="360">
         </p>
       </li>
       <li>Configure el servidor Apache del contenedor para permitir conexiones seguras.
@@ -285,7 +296,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 11 de febrero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 3 de febrero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
