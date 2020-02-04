@@ -35,7 +35,7 @@
         <li><a href="#ejercicio-5">5 - Habilitar https</a></li>
         <li><a href="#ejercicio-6">6 - http a https</a></li>
         <li><a href="#ejercicio-7">7 - Cambio IP</a></li>
-        <li><a href="#ejercicio-8">8 - LibreOffice</a></li>
+        <li><a href="#ejercicio-8">8 - Cambio contraseña</a></li>
       </ul>
 
       <h3><a href="nextcloud-1-soluciones.html">Soluciones</a></h3>
@@ -47,7 +47,7 @@
         <li><a href="nextcloud-1-soluciones.html#ejercicio-5">5 - Habilitar https</a></li>
         <li><a href="nextcloud-1-soluciones.html#ejercicio-6">6 - http a https</a></li>
         <li><a href="nextcloud-1-soluciones.html#ejercicio-7">7 - Cambio IP</a></li>
-        <li><a href="nextcloud-1-soluciones.html#ejercicio-8">8 - LibreOffice</a></li>
+        <li><a href="nextcloud-1-soluciones.html#ejercicio-8">8 - Cambio contraseña</a></li>
       </ul>
     </div>
   </nav>
@@ -135,7 +135,8 @@
       <li>Cree un contenedor de la última versión disponible de Nextcloud 17 (actualmente -febrero de 2020- <strong>Nextcloud 17.0.3</strong>) con las mismas opciones que el contenedor anterior (volumen, etc.). Al abrirlo por primera vez, puede ser necesario actualizar algún componente:
         <p class="captura">
           <img src="../img/nextcloud/1-2-e-4-actualizacion.png" alt="Nextcloud. Actualización" width="1171" height="450">
-        </p></li>
+        </p>
+      </li>
       <li>Compruebe que se ha instalado la última versión:
         <p class="captura">
           <img src="../img/nextcloud/1-2-e-5-actualizacion.png" alt="Nextcloud. Actualización" width="1171" height="450">
@@ -230,12 +231,12 @@
       </li>
       <li>Intente entrar en Nextcloud como administrador mediante una conexión cifrada <strong>https://AAA.BBB.CCC.DDD/</strong> y compruebe que se muestra el aviso siguiente:
         <p class="captura">
-          <img src="../img/nextcloud/1-5-e-3-https.png" alt="Nextcloud. Conexión no segura" width="1008" height="260">
+          <img src="../img/nextcloud/1-5-e-3-https.png" alt="Nextcloud. Conexión no segura" width="1190" height="280">
         </p>
       </li>
-      <li>Añada al navegador la excepción para mostrar la página y compruebe que ya no se muestra el aviso de conexión no segura:
+      <li>Añada al navegador la excepción para mostrar la página. Compruebe que se muestra el formulario de entrada de Nextcloud y que se muestra un aviso de conexión no segura (aunque permitida):
         <p class="captura">
-          <img src="../img/nextcloud/1-5-e-4-https.png" alt="Nextcloud. Entrar" width="400" height="350">
+          <img src="../img/nextcloud/1-5-e-4-https.png" alt="Nextcloud. Entrar" width="1190" height="440">
         </p>
       </li>
     </ol>
@@ -244,7 +245,7 @@
   <section id="ejercicio-6">
     <h2>Nextcloud (1) 6 - Acceder siempre mediante https</h2>
 
-    <p>Referencia: <a href="https://docs.nextcloud.com/server/13/admin_manual/configuration_server/harden_server.html">https://docs.nextcloud.com/server/13/admin_manual/configuration_server/harden_server.html</a></p>
+    <p>Referencia: <a href="https://docs.nextcloud.com/server/latest/admin_manual/installation/harden_server.html">https://docs.nextcloud.com/server/latest/admin_manual/installation/harden_server.html</a></p>
 
     <ol>
       <li>Configure el servidor Apache del contenedor para forzar el acceso mediante https.
@@ -283,20 +284,24 @@
   </section>
 
   <section id="ejercicio-8">
-    <h2>Nextcloud (1) 8 - LibreOffice en Nextcloud</h2>
+    <h2>Nextcloud (1) 8 - Cambio de contraseña</h2>
 
-    <p class="incompleto">Por escribir</p>
+    <p>Si olvidara la contraseña del administrador ya no podría entrar en Nextcloud. La página del manual <a href="https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/reset_admin_password.html">Resetting a lost admin password</a> contiene instrucciones para cambiar la contraseña del administrador desde fuera de Nextcloud.</p>
 
-    <ul>
-      <li>LibreOffice en Nextcloud:
-        <a href="https://www.collaboraoffice.com/code/">Collabora Online (CODE)</a> -
-        <a href="https://nextcloud.com/collaboraonline/">Información en web Nextcloud</a>
-      </li>
-    </ul>
+    <ol>
+      <li>Pruebe las instrucciones indicadas en el manual. Si el comando occ indicado en las instrucciones no funciona en la imagen de Docker, encuentre la manera de ejecutar el comando.</li>
+      <li>Intente cambiar la contraseña <strong>admin</strong> del usuario <strong>admin</strong> a <strong>pezespada</strong>. Compruebe que no puede hacerlo por ser demasiado corta.</li>
+      <li>Cambie la contraseña <strong>admin</strong> del usuario <strong>admin</strong> a <strong>pez espada</strong>. Compruebe que puede hacerlo.</li>
+      <li>Intente cambiar la contraseña <strong>admin</strong> del usuario <strong>admin</strong> a <strong>admin</strong>. Compruebe que no puede hacerlo por ser demasiado fácil.</li>
+      <li>Entre en Nextcloud con la contraseña <strong>pez espada</strong>.</li>
+      <li>Modifique la política de contraseñas de manera que se admita la contraseña <strong>admin</strong>.</li>
+      <li>Cambie la contraseña <strong>admin</strong> del usuario <strong>admin</strong> a <strong>admin</strong>. Compruebe que ahora sí puede hacerlo.</li>
+      <li>Entre en Nextcloud con la contraseña <strong>admin</strong>.</li>
+    </ol>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 3 de febrero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 4 de febrero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>

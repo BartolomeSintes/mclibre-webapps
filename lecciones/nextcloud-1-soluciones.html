@@ -35,7 +35,7 @@
         <li><a href="nextcloud-1.html#ejercicio-5">5 - Habilitar https</a></li>
         <li><a href="nextcloud-1.html#ejercicio-6">6 - http a https</a></li>
         <li><a href="nextcloud-1.html#ejercicio-7">7 - Cambio IP</a></li>
-        <li><a href="nextcloud-1.html#ejercicio-8">8 - LibreOffice</a></li>
+        <li><a href="nextcloud-1.html#ejercicio-8">8 - Cambio contraseña</a></li>
       </ul>
 
       <h3><a href="#">Soluciones</a></h3>
@@ -47,7 +47,7 @@
         <li><a href="#ejercicio-5">5 - Habilitar https</a></li>
         <li><a href="#ejercicio-6">6 - http a https</a></li>
         <li><a href="#ejercicio-7">7 - Cambio IP</a></li>
-        <li><a href="#ejercicio-8">8 - LibreOffice</a></li>
+        <li><a href="#ejercicio-8">8 - Cambio contraseña</a></li>
       </ul>
     </div>
   </nav>
@@ -240,7 +240,7 @@ sudo docker rm nc-17-sqlite</code>
       </li>
       <li>Reinicie el contenedor de Nextcloud:
         <div class="terminal">
-          <pre><code class="language-shell">sudo docker start nextcloud</code></pre>
+          <pre><code class="language-shell">sudo docker restart nextcloud</code></pre>
         </div>
       </li>
     </ul>
@@ -279,7 +279,7 @@ sudo docker rm nc-17-sqlite</code>
       </li>
       <li>Edite el fichero de configuración:
         <div class="terminal">
-          <pre><code class="language-shell">sudo vi /tmp/apache2.conf</code></pre>
+          <pre><code class="language-shell">sudo nano /tmp/apache2.conf</code></pre>
         </div>
       </li>
       <li>Añada en el fichero de configuración una directiva VirtualHost que redirija las peticiones http a https, en la que AAA.BBB.CCC.DDD es la IP de la máquina virtual:
@@ -296,7 +296,7 @@ sudo docker rm nc-17-sqlite</code>
       <li>Guarde el fichero de configuración modificado.</li>
       <li>Copie el fichero <strong>apache2.conf</strong> del anfitrión al contenedor:
         <div class="terminal">
-          <pre><code class="language-shell">sudo docker cp /tmp/apache2:conf nextcloud:/etc/apache2/apache2.conf</code></pre>
+          <pre><code class="language-shell">sudo docker cp /tmp/apache2.conf nextcloud:/etc/apache2/apache2.conf</code></pre>
         </div>
       </li>
       <li>Entre de nuevo en la shell del contenedor de Nextcloud:
@@ -309,9 +309,9 @@ sudo docker rm nc-17-sqlite</code>
           <pre><code class="language-shell">service apache2 restart</code></pre>
         </div>
       </li>
-      <li>Reinicie el contenedor
+      <li>Reinicie el contenedor de Nextcloud:
         <div class="terminal">
-          <pre><code class="language-shell">sudo docker start nextcloud</code></pre>
+          <pre><code class="language-shell">sudo docker restart nextcloud</code></pre>
         </div>
       </li>
     </ol>
@@ -352,7 +352,7 @@ iface enp0s3 inet dhcp</code></pre>
 auto enp0s3
 #iface enp0s3 inet dhcp
 iface enp0s3 inet static
-  address <span class="codigo-modificacion">192.168.1.16</span>
+  address <span class="codigo-modificacion">192.168.1.8</span>
   netmask 255.255.255.0
   gateway <span class="codigo-modificacion">192.168.1.1</span>
 dns-nameservers 8.8.8.8</code></pre>
@@ -364,13 +364,32 @@ dns-nameservers 8.8.8.8</code></pre>
   </section>
 
   <section id="ejercicio-8">
-    <h2>Nextcloud (1) 8 - LibreOffice en Nextcloud</h2>
+    <h2>Nextcloud (1) 8 - Cambio de contraseña</h2>
 
-    <p class="incompleto">Por escribir</p>
+    <p>Para cambiar la IP de la máquina virtual:</p>
+
+    <ol>
+      <li>Entre en el contenedor como usuario www-data:
+        <div class="terminal">
+          <pre><code class="language-shell">sudo docker exec -u www-data -it nextcloud /bin/bash</code></pre>
+        </div>
+      </li>
+      <li>En el contenedor, ejecute el comando <i>occ</i>:
+        <div class="terminal">
+          <pre><code class="language-shell">php /var/www/html/occ user:resetpassword admin</code></pre>
+        </div>
+      </li>
+    </ol>
+
+    <p>Para modificar la Política de contraseñas, elija el menú <strong>Configuración &gt; Administración &gt; Seguridad &gt; Política de contraseñas</strong>, modifique la longitud mínima y desmarque la casilla "Prohibir contraseñas comunes":</p>
+
+    <p class="captura">
+      <img src="../img/nextcloud/1-1-s-1-instalacion.png" alt="Nextcloud. Instalación" width="995" height="510">
+    </p>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 11 de febrero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 4 de febrero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
