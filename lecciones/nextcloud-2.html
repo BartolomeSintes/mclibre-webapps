@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../varios/webapps.css" title="mclibre">
   <link rel="icon" href="../varios/favicon.ico">
+  <link rel="stylesheet" href="../varios/prism-webapps.css">
+  <script src="../varios/prism.js"></script>
 </head>
 
 <body>
@@ -33,8 +35,9 @@
         <li><a href="#ejercicio-5">5 - Nextcloud Desktop Client</a></li>
         <li><a href="#ejercicio-6">6 - Conexión inalámbrica</a></li>
         <li><a href="#ejercicio-7">7 - Aplicaciones</a></li>
-        <li><a href="#ejercicio-8">8 - Temas</a></li>
-        <li><a href="#ejercicio-9">9 - Otras cosas para probar</a></li>
+        <li><a href="#ejercicio-8">8 - OnlyOffice</a></li>
+        <li><a href="#ejercicio-9">9 - Temas</a></li>
+        <li><a href="#ejercicio-10">10 - Otras cosas para probar</a></li>
       </ul>
 
       <h3><a href="nextcloud-2-soluciones.html">Soluciones</a></h3>
@@ -46,13 +49,14 @@
         <li><a href="nextcloud-2-soluciones.html#ejercicio-5">5 - Nextcloud Desktop Client</a></li>
         <li><a href="nextcloud-2-soluciones.html#ejercicio-6">6 - Conexión inalámbrica</a></li>
         <li><a href="nextcloud-2-soluciones.html#ejercicio-7">7 - Aplicaciones</a></li>
-        <li><a href="nextcloud-2-soluciones.html#ejercicio-8">8 - Temas</a></li>
-        <li><a href="nextcloud-2-soluciones.html#ejercicio-9">9 - Otras cosas para probar</a></li>
+        <li><a href="nextcloud-2-soluciones.html#ejercicio-8">8 - OnlyOffice</a></li>
+        <li><a href="nextcloud-2-soluciones.html#ejercicio-9">9 - Temas</a></li>
+        <li><a href="nextcloud-2-soluciones.html#ejercicio-10">10 - Otras cosas para probar</a></li>
       </ul>
     </div>
   </nav>
 
-  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Esta lección está pendiente de actualizar a Nextcloud 15.</p>
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Esta lección está pendiente de actualizar a Nextcloud 18.</p>
 
   <p>En esta lección se proponen ejercicios para conocer y utilizar <strong>Nextcloud</strong>. Se pueden consultar las <a href="nextcloud-2-soluciones.html">soluciones de estos ejercicios de Nextcloud</a>, aunque se recomienda intentar realizarlos primero sin recurrir a estas soluciones.</p>
 
@@ -343,7 +347,69 @@
   </section>
 
   <section id="ejercicio-8">
-    <h2>Nextcloud (2) 8 - Temas</h2>
+    <h2>Nextcloud (2) 8 - Aplicación ONLYOFFICE</h2>
+
+    <p><a href="https://www.onlyoffice.com/es/">ONLYOFFICE</a> es una suite ofimática web desarrollada por una empresa letona.</p>
+
+    <p>Nextcloud 18 incluye de serie la app ONLYOFFICE, aunque esta app necesita conectarse a un servidor de documentos de ONLYOFFICE para poder crear documentos.</p>
+
+    <p>En este ejercicio se trata de instalar el servidor de documentos de ONLYOFFICE en nuestro Nextcloud y comprobar que podemos editar documentos.</p>
+
+    <h3>Configuración de Nextcloud 18</h3>
+    <ol>
+      <li>Aumente la directiva de configuración de php <i>max_execution_time</i> hasta 360 segundos.
+        <p>Para ello, cree el fichero <i>max-execution-time.ini</i>:</p>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo nano max-execution-time.ini</code></pre>
+        </div>
+        <p>El contenido del archivo puede ser el siguiente:</p>
+        <div class="terminal">
+          <pre><code>max_execution_time=<span class="codigo-resaltado">360</span></code></pre>
+        </div>
+        <p>Copie el archivo en el directorio /usr/local/etc/php/conf.d del contenedor:</p>
+        <div class="terminal" data-prompt="$">
+          <pre><code class="language-shell">sudo docker cp max-execution-time.ini nextcloud:/usr/local/etc/php/conf.d</code></pre>
+        </div>
+      </li>
+      <li>Aumente la directiva de configuración de curl <i>RequestOptions::TIMEOUT</i> hasta 360 segundos.
+        <p>Para ello, copie el archivo <i>/var/www/html/lib/private/Http/Client/Client.php</i> del contenedor al anfitrión:</p>
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo docker cp nextcloud:/var/www/html/lib/private/Http/Client/Client.php Client.php</code></pre>
+        </div>
+        <p>Edite el fichero Client.php:</p>
+        <div class="terminal">
+          <pre><code>sudo nano Client.php</code></pre>
+        </div>
+        <p>Modifique la línea:</p>
+        <div class="terminal">
+          <pre><code class="php">                 RequestOptions::TIMEOUT =&gt; <span class="codigo-resaltado">360</span></code></pre>
+        </div>
+        <p>Copie el archivo en el directorio <i>/var/www/html/lib/private/Http/Client/Client.php</i> del contenedor:</p>
+        <div class="terminal">
+          <pre><code class="php">sudo docker cp max-execution-time.ini nextcloud:/usr/local/etc/php/conf.d</code></pre>
+        </div>
+      </li>
+    </ol>
+
+    <h3>Instalación de ONLYOFFICE Community Document Server</h3>
+    <ol>
+      <li>Instale la aplicación <strong>Community Document Server</strong>.
+        <p class="captura">
+            <img src="../img/nextcloud/2-8-e-1-onlyoffice.png" alt="Nextcloud. Aplicación OnlyOffice" width="280" height="345">
+        </p>
+      </li>
+      <li>Compruebe que puede crear un documento ONLYOFFICE.
+        <p class="captura">
+            <img src="../img/nextcloud/2-8-e-2-onlyoffice.png" alt="Nextcloud. Aplicación OnlyOffice" width="1188" height="350">
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="ejercicio-9">
+    <h2>Nextcloud (2) 9 - Temas</h2>
 
     <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Este ejercicio está por actualizar a Nextcloud.</p>
 
@@ -365,8 +431,8 @@
     </ol>
   </section>
 
-  <section id="ejercicio-9">
-    <h2>Nextcloud (2) 9 - Otras cosas para probar</h2>
+  <section id="ejercicio-10">
+    <h2>Nextcloud (2) 10 - Otras cosas para probar</h2>
 
     <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Este ejercicio está por actualizar a Nextcloud.</p>
 
@@ -388,7 +454,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 5 de febrero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 6 de febrero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
