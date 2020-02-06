@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Ubuntu Server. Aplicaciones web. Bartolomé Sintes Marco. www.mclibre.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre">
+  <link rel="icon" href="../varios/favicon.ico">
+  <link rel="stylesheet" href="../varios/prism-webapps.css">
+  <script src="../varios/prism.js"></script>
+</head>
+
+<body>
+  <h1>Ubuntu Server</h1>
+
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31"></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36"></a>
+    </p>
+
+    <div class="toc">
+      <h2>
+        Ubuntu Server
+      </h2>
+
+      <ul>
+        <li><a href="#que-es">Qué es</a></li>
+        <li><a href="#guest-additions">Guest Additions</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Esta lección está en elaboración</p>
+
+  <section id="cambiar-resolucion">
+    <h3>Cambiar la resolución de la pantalla</h3>
+
+    <p>Referencia: <a href="https://askubuntu.com/questions/128309/how-to-use-ubuntu-server-full-screen-in-virtualbox#887785">AskUbuntu #128309</a></p>
+
+    <p>Inicialmente la resolución de la pantalla suele ser 640x480 px. Para ver las resoluciones posibles:</p>
+
+    <ul>
+      <li>Inicie Ubuntu. Si no se muestra el menú de grub, inicie Ubuntu manteniendo pulsado <span class="soft-atajo-teclado">Shift</span>.</li>
+      <li>Una vez se muestre el menú de grub, pulse <span class="soft-atajo-teclado">c</span> y escriba los comandos
+        <div class="codigo">
+          <pre><code>set pager=1    (To enable paging of long vbeinfo output)
+vbeinfo
+reboot         (When done)</code></pre>
+        </div>
+      </li>
+    </ul>
+
+    <p>Para aumentar la resolución:</p>
+    <ul>
+      <li>Edite el fichero <i>/etc/default/grub</i>:
+        <div class="codigo">
+          <pre><code class="language-shell">sudo nano /etc/default/grub</code></pre>
+        </div>
+      </li>
+      <li>En ese fichero modifique la variable de configuración GRUB_CMDLINE_LINUX_DEFAULT y añada las variables GRUB_GFXMODE y GRUB_GFXPAYLOAD_LINUX
+        <div class="codigo">
+          <pre><code>GRUB_GFXMODE=<span class="codigo-resaltado">1024x768</span>  # ancho x alto deseado
+GRUB_CMDLINE_LINUX_DEFAULT="nomodeset"
+GRUB_GFXPAYLOAD_LINUX=keep</code></pre>
+        </div>
+      </li>
+      <li>Actualice grub:
+        <div class="codigo">
+          <pre><code>sudo update-grub</code></pre>
+        </div>
+      </li>
+      <li>Reinicie Ubuntu:
+        <div class="codigo">
+          <pre><code>sudo reboot</code></pre>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 6 de febrero de 2020</p>
+
+    <p class="licencia">
+      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
+      Esta página forma parte del curso <strong><a href="https://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="https://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br>
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)</a>.
+    </p>
+  </footer>
+</body>
+</html>
