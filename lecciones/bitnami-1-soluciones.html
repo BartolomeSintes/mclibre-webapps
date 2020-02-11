@@ -57,20 +57,24 @@
         <p>La página de máquinas virtuales de OpenCart de Bitnami es <a href="https://bitnami.com/stack/opencart/virtual-machine">https://bitnami.com/stack/opencart/virtual-machine</a>:</p>
         <p class="captura">
           <a href="../img/bitnami/1-2-s-1-vm-opencart.png">
-            <img src="../img/bitnami/1-2-s-1-vm-opencart-mini.png" alt="Página de OpenCart en Bitnami" width="500" height="580">
+            <img src="../img/bitnami/1-2-s-1-vm-opencart-mini.png" alt="Página de OpenCart en Bitnami" width="600" height="614">
           </a>
         </p>
         <p>Para importar en VirtualBox la máquina virtual, haga doble clic en el fichero .OVA. Puede modificar el nombre de la máquina, la cantidad de memoria RAM o la ubicación de la imagen de disco virtual antes de hacer clic en el botón Importar.</p>
         <p class="captura">
-          <img src="../img/bitnami/1-2-s-11-vm-opencart.png" alt="Importar máquina virtual en VirtualBox" width="790" height="631">
+          <img src="../img/bitnami/1-2-s-11-vm-opencart.png" alt="Importar máquina virtual en VirtualBox" width="961" height="647">
         </p>
         <p>La importación tardará unos minutos:</p>
         <p class="captura">
-          <img src="../img/bitnami/1-2-s-12-vm-opencart.png" alt="Importar máquina virtual en VirtualBox" width="620" height="139">
+          <img src="../img/bitnami/1-2-s-12-vm-opencart.png" alt="Importar máquina virtual en VirtualBox" width="600" height="139">
         </p>
         <p>Al terminar la importación, la nueva máquina virtual se mostrará en VirtualBox.</p>
         <p class="captura">
-          <img src="../img/bitnami/1-2-s-13-vm-opencart.png" alt="Importar máquina virtual en VirtualBox" width="791" height="200">
+          <img src="../img/bitnami/1-2-s-13-vm-opencart.png" alt="Importar máquina virtual en VirtualBox" width="962" height="325">
+        </p>
+        <p><strong>Nota</strong>: La máquina tiene configurada sólo 4MB de memoria de vídeo. VirtualBox aconseja que las máquinas tengan al menos 9 MB de memoria de vídeo. Élija el menú Máquina &gt; Configuración o haga clic enla rueda dentada y aumente la memoria de vídeo a por ejemplo 16 MB.</p>
+        <p class="captura">
+          <img src="../img/bitnami/1-2-s-14-vm-opencart.png" alt="Importar máquina virtual en VirtualBox" width="685" height="340">
         </p>
       </li>
       <li><strong>Acceda a la tienda</strong>
@@ -82,7 +86,7 @@
         <p class="captura">
           <img src="../img/bitnami/1-2-s-22-vm-opencart.png" alt="Máquina virtual en marcha" width="720" height="400">
         </p>
-        <p>Para acceder a la tienda escriba la IP que se muestra en la pantalla. En la captura de ejemplo sería <strong>http:/192.168.1.9/</strong></p>
+        <p>Para acceder a la tienda escriba la IP que se muestra en la pantalla. En la captura de ejemplo sería <strong>http:/192.168.1.12/</strong></p>
       </li>
       <li><strong>Acceda como administrador</strong>
         <p>El nombre del usuario administrador y su contraseña se muestran también en la pantalla inicial de la máquina virtual:</p>
@@ -90,25 +94,25 @@
         <p class="captura">
           <img src="../img/bitnami/1-2-s-23-vm-opencart.png" alt="Máquina virtual en marcha" width="720" height="400">
         </p>
-        <p>Para acceder al panel de administración de la tienda se debe añadir /admin a la dirección IP. En la captura de ejemplo sería <strong>http:/192.168.1.9/admin</strong></p>
-        <p>La página redirigirá a una dirección segura https. Como el certificado incluido en la máquina virtual no es seguro, Firefox muestra un aviso. Haga clic en Avanzado para añadir una excepción para este sitio.</p>
+        <p>Para acceder al panel de administración de la tienda se debe añadir /admin a la dirección IP. En la captura de ejemplo sería <strong>http:/192.168.1.12/admin</strong></p>
+        <p>La página redirigirá a una dirección segura https. Como el certificado incluido en la máquina virtual no es seguro, Firefox muestra un aviso. Haga clic en "Avanzado..." para añadir una excepción para este sitio.</p>
         <p class="captura">
-          <img src="../img/bitnami/1-2-s-31-vm-opencart.png" alt="Firefox. Añadir excepción" width="880" height="275">
+          <img src="../img/bitnami/1-2-s-31-vm-opencart.png" alt="Firefox. Añadir excepción" width="1190" height="300">
         </p>
-        <p>Se mostrará un cuadro explicando el problema. Haga clic en "Añadir excepción ..." para añadir una excepción para este sitio.</p>
+        <p>Se mostrará un cuadro explicando el problema. Haga clic en "Aceptar el riesgo y continuar ..." para añadir una excepción para este sitio.</p>
         <p class="captura">
-          <img src="../img/bitnami/1-2-s-32-vm-opencart.png" alt="Firefox. Añadir excepción" width="880" height="300">
+          <img src="../img/bitnami/1-2-s-32-vm-opencart.png" alt="Firefox. Añadir excepción" width="1190" height="300">
         </p>
-        <p>Se abrirá una ventana pidiendo confirmación. Haga clic en "Confirmar excepción de seguridad" para añadir una excepción para este sitio.</p>
+        <p>Se abrirá una ventana pidiendo confirmación. Haga clic en "Reenviar ..." para añadir una excepción para este sitio.</p>
         <p class="captura">
-          <img src="../img/bitnami/1-2-s-33-vm-opencart.png" alt="Firefox. Añadir excepción" width="703" height="345">
+          <img src="../img/bitnami/1-2-s-33-vm-opencart.png" alt="Firefox. Añadir excepción" width="1190" height="170">
         </p>
       </li>
     </ul>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 31 de enero de 2019</p>
+    <p class="ultmod">Última modificación de esta página: 11 de febrero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
