@@ -27,11 +27,9 @@
         <li><a href="#s15">S15: del 07/01/20 al 12/01/20</a></li>
         <li><a href="#s16">S16: del 13/01/20 al 19/01/20</a></li>
         <li><a href="#s17">S17: del 20/01/20 al 26/01/20</a></li>
-        <!--
         <li><a href="#s18">S18: del 27/01/20 al 02/02/20</a></li>
         <li><a href="#s19">S19: del 03/02/20 al 09/02/20</a></li>
         <li><a href="#s20">S20: del 10/02/20 al 16/02/20</a></li>
-        -->
       </ul>
     </div>
   </nav>
@@ -237,19 +235,80 @@
     </ol>
   </section>
 
-  <!--
   <section id="s18">
+    <h2>IAW Semana S18: del27/01/20 al 02/02/20</h2>
+
+    <p>Esta semana está dedicada a la virtualización "clásica", es decir, con máquinas virtuales completas, como las que estáis acostumbrados a utilizar en otros módulos. Aunque en la semana S14 vimos Packer, una herramienta que facilita la creación de máquinas virtuales, esta semana recurriremos a los instaladores de Bitnami. Como veréis, los instaladores de Bitnami facilitan la instalación de aplicaciones en todo tipo de sistemas, lo que nos va a permitir ver diferentes maneras de abordar el problema.</p>
+
+    <h3>Bitnami</h3>
+    <ol>
+      <li>Leed la lección <a href="https://www.mclibre.org/consultar/webapps/lecciones/bitnami.html">Presentación de Bitnami</a>
+        <p>En esta lección se comentan los diferentes tipos de instaladores de aplicaciones que ofrece Bitnami, que aumentan cada año.</p>
+      </li>
+      <li>Leed la lección <a href="https://www.mclibre.org/consultar/webapps/lecciones/bitnami-varios.html">Bitnami - Varios</a>
+        <p>Esta lección recopila unas cuantos comandos útiles para la realización de los ejercicios. Me imagino que conoceréis la mayoría de ellos por haberlos trabajado en otros módulos, pero puede que os sirve alguno de ellos.</p>
+      </li>
+      <li>Haced los ejercicios <a href="https://www.mclibre.org/consultar/webapps/lecciones/bitnami-1.html">Bitnami (1)</a>
+        <p>En estos ejercicios vamos a probar las máquinas virtuales de aplicación de Bitnami, que corresponden a la situación de tener un servidor dedicado a una única aplicación.</p>
+        <p>Podéis consultar las <a href="https://www.mclibre.org/consultar/webapps/lecciones/bitnami-1-soluciones.html">soluciones a los ejercicios Bitnami (1)</a></p>
+      </li>
+      <li>Haced los ejercicios <a href="https://www.mclibre.org/consultar/webapps/lecciones/bitnami-2.html">Bitnami (2)</a>
+        <p>En estos ejercicios vamos a probar las máquinas virtuales de infraestructura de Bitnami, que corresponden a la situación de tener un servidor con varias aplicaciones instaladas.</p>
+        <p>Podéis consultar las <a href="https://www.mclibre.org/consultar/webapps/lecciones/bitnami-2-soluciones.html">soluciones a los ejercicios Bitnami (2)</a></p>
+      </li>
+      <li>Haced los ejercicios <a href="https://www.mclibre.org/consultar/webapps/lecciones/bitnami-3.html">Bitnami (3)</a>
+        <p>Estos ejercicios corresponden a la instalación "clásica" de aplicaciones sobre Windows con instaladores de Bitnami y es la menos novedosa de todas.</p>
+      </li>
+    </ol>
   </section>
 
   <section id="s19">
+    <h2>IAW Semana S19: del 03/02/20 al 09/02/20</h2>
+
+    <p>Esta semana está dedicada a la virtualización "moderna", es decir, con contenedores. Concretamente trabajaremos con contenedores Docker sobre una máquina virtual de Ubuntu. Las imágenes en las que basaremos los contenedores serán también imágenes preparadas por Bitnami.</p>
+
+    <p>Como la semana pasada, los ejercicios están planteados principalmente como ejercicios guiados puesto que el objetivo es que entendáis el funcionamiento de este tipo de virtualización.</p>
+
+    <p>En cualquier caso, tened en cuenta que esta semana estará dedicada únicamente a la instalación, sin llegar a utilizar realmente las aplicaciones instaladas. La semana que viene estará dedicada a la administración de una aplicación instalada como contenedor en una máquina virtual Ubuntu y complementará lo visto esta semana.</p>
+
+    <h3>Docker</h3>
+    <ol>
+      <li>Leed la lección <a href="https://www.mclibre.org/consultar/webapps/lecciones/docker.html">Presentación de Docker</a>
+        <p>En esta lección se comenta qué es Docker y los comandos básicos que practicaréis en las páginas de ejercicios</p>
+      </li>
+      <li>Haced los ejercicios <a href="https://www.mclibre.org/consultar/webapps/lecciones/docker-1.html">Docker (1)</a>
+        <p>Son ejercicios guiados para aprender los conceptos básicos de Docker.</p>
+        <p>Vamos a trabajar con Docker en una máquina virtual de Ubuntu. Aunque el primer ejercicio pide crear la máquina virtual, se puede utilizar la máquina creada en el <a href="https://www.mclibre.org/consultar/webapps/lecciones/packer-2.html#instalacion-docker">ejercicio 4 de Packer (2)</a>. Si queréis descargar la ova que se obtenía en ese ejercicio, podéis <a href="https://www.mclibre.org/descargar/webapps/1920/packer-2-5-ubuntu-18-04-3-server.ova">descargarla de mclibre</a>. El usuario es <strong>mclibre</strong> con contraseña <strong>mclibre</strong>.</p>
+      </li>
+      <li>Haced los ejercicios <a href="https://www.mclibre.org/consultar/webapps/lecciones/docker-2.html">Docker (2)</a>
+        <p>En estos ejercicios vamos a probar la instalación de aplicaciones web completas, primero con actividades guiadas y después con ejercicios.</p>
+        <p>Podéis consultar las <a href="https://www.mclibre.org/consultar/webapps/lecciones/docker-2-soluciones.html">soluciones a los ejercicios Docker (2)</a></p>
+      </li>
+    </ol>
+
   </section>
 
   <section id="s20">
+    <h2>IAW Semana S20: del 10/02/20 al 16/02/20</h2>
+
+    <p>Nextcloud es un sistema de sincronización y compartición de archivos que apareció en 2016 como <i>fork</i> de ownCloud, que apareció en 2010.</p>
+
+    <h3>Nextcloud</h3>
+    <ol>
+      <li>Leed la lección <a href="https://www.mclibre.org/consultar/webapps/lecciones/nextcloud.html">Presentación de Nextcloud</a></li>
+      <li>Haced los ejercicios <a href="https://www.mclibre.org/consultar/webapps/lecciones/nextcloud-1.html">Nextcloud (1)</a>:
+        <p>El objetivo de estos ejercicios es poner en marcha Nextcloud en Docker y realizar algunas tareas de configuración básicas.</p>
+        <p>Podéis consultar las <a href="https://www.mclibre.org/consultar/webapps/lecciones/nextcloud-1-soluciones.html">soluciones a los ejercicios Nextcloud (1)</a></p>
+      </li>
+      <li>Haced los ejercicios <a href="https://www.mclibre.org/consultar/webapps/lecciones/nextcloud-2.html">Nextcloud (2)</a>:
+        <p>El objetivo de estos ejercicios es probar el funcionamiento de Nextcloud (crear usuarios, compartir y editar documentos, etc) y las posibilidades de ampliación de la herramienta (sincronización, aplicación para móviles, etc.).</p>
+        <p>Podéis consultar las <a href="https://www.mclibre.org/consultar/webapps/lecciones/nextcloud-2-soluciones.html">soluciones a los ejercicios Nextcloud (2)</a>. Estas soluciones están muy incompletas, pero creo que no os costará mucho realizar estos ejercicios.</p>
+      </li>
+    </ol>
   </section>
-  -->
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 30 de enero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 19 de febrero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
