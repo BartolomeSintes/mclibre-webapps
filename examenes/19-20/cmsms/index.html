@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>CMS Made Simple. Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre">
+  <link rel="icon" href="../../../varios/favicon.ico">
+</head>
+
+<body>
+  <h1>Exámenes - CMS Made Simple</h1>
+
+  <nav>
+    <p>
+      <a href="../../../index.html"><img src="../../../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31"></a>
+      <a href="#"><img src="../../../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36"></a>
+      <a href="../../examenes.html"><img src="../../../varios/iconos/icono-school.svg" alt="Exámenes" title="Exámenes" width="36" height="36"></a>
+    </p>
+
+    <div class="toc">
+      <h2>Examen CMS Made Simple</h2>
+
+      <ul>
+        <li><a href="#ejercicio-1">1. Instalar</a></li>
+        <li><a href="#ejercicio-2">2. Logo y lema</a></li>
+        <li><a href="#ejercicio-3">3. SlideShow</a></li>
+        <li><a href="#ejercicio-4">4. Menús</a></li>
+        <li><a href="#ejercicio-5">5. Noticia</a></li>
+        <li><a href="#ejercicio-6">6. Traducción</a></li>
+        <li><a href="#ejercicio-7">7. Estilo</a></li>
+        <li><a href="#ejercicio-8">8. Alias</a></li>
+        <li><a href="#ejercicio-9">9. Copia de seguridad</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <p><strong>NOTA</strong>: Las capturas de pantalla serán <strong>siempre</strong> capturas de toda la pantalla, en las que se distinga que se han realizado en el ordenador del alumno.</p>
+
+  <p>En este ejercicio hay que acabar entregando una carpeta con el <strong>nombre del alumno</strong> y que contenga:</p>
+  <ul>
+    <li>las capturas de pantalla (que se llamen nombreAlumno-XX-YY.png donde XX sea el número de ejercicio e YY el número de captura en el ejercicio).</li>
+    <li>el fichero <strong>alias.txt</strong> del ejercicio Alias.</li>
+    <li>la copia de seguridad de los datos de la aplicación.</li>
+    <li>la carpeta de la aplicación (comprimida en un zip).</li>
+  </ul>
+
+  <section id="ejercicio-1">
+    <h2>1. Instalar CMS Made Simple</h2>
+    <ul>
+      <li>CMS Made Simple es un gestor de contenidos.
+        <p>Aplicación: <a href="https://www.mclibre.org/descargar/webapps/1920/cmsms-2-2-13-install.zip">CMS Made Simple 2.2.3 (04/12/19)</a>. Página web: <a href="http://www.cmsmadesimple.org/">CMS Made Simple</a></p>
+      </li>
+      <li>Descomprima <strong>CMS Made Simple</strong> en la carpeta <strong>cmsms</strong>. </li>
+      <li>Entre en phpMyAdmin como usuario <strong>root</strong> y cree un usuario de MySQL con nombre <strong>iaw_cmsms_1</strong>, contraseña <strong>iaw_cmsms_1</strong> y base de datos <strong>iaw_cmsms_1</strong>.</li>
+      <li>Abra en el navegador <strong>/iaw/webapps/cmsms</strong> e inicie la instalación.</li>
+      <li>Resuelva las advertencias iniciales (actualice la página de instalación con <span class="soft-atajo-teclado">Ctrl+F5</span> tras modificar el fichero de configuración, en su caso) y haga una captura de <strong>toda</strong> la pantalla en la que se vea que se han resuelto las advertencias iniciales:
+
+        <p class="captura">
+          <img src="cmsms-1-1.png" alt="CMS Made Simple" width="680" height="120">
+        </p>
+      </li>
+      <li>Instale CMS Made Simple:
+        <ul>
+          <li>Usuario administrador <strong>admin</strong> y contraseña <strong>adminadmin</strong>. </li>
+          <li>Nombre del sitio: <strong>WebApps <i>SU-NOMBRE</i></strong></li>
+          <li>Idioma: <strong>Español</strong></li>
+        </ul>
+      </li>
+      <li>Haga dos capturas de <strong>toda</strong> la pantalla una vez instalado, del sitio y tras entrar como administrador:
+        <p class="captura">
+          <img src="cmsms-1-2.png" alt="CMS Made Simple" width="1171" height="170">
+        </p>
+        <p class="captura">
+          <img src="cmsms-1-3.png" alt="CMS Made Simple" width="1171" height="300">
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-2">
+    <h2>2. Logo y lema del sitio</h2>
+    <ul>
+      <li>Suba el archivo de logotipo <span class="captura"><img src="webapps-logo-227x59.png" alt="Logotipo del sitio" width="227" height="59"></span> a la carpeta simplex (en la carpeta adecuada). Haga una captura de la <strong>carpeta en la que ha subido</strong> la imagen.</li>
+      <li>Modifique el código fuente de la plantilla <strong>Simplex</strong> para que se utilice el logo subido. Haga una captura de la <strong>pantalla de edición</strong> de la plantilla en la que se vea la modificación de la plantilla.</li>
+      <li>Modifique el código fuente de la plantilla <strong>Simplex</strong> para cambiar el lema del sitio a <strong>Todo sobre las Aplicaciones Web para todos los públicos</strong>.  Haga una captura de la <strong>pantalla de edición</strong> de la plantilla en la que se vea la modificación de la plantilla.</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla mostrando los dos elementos:
+        <p class="captura">
+          <img src="cmsms-2-1.png" alt="CMS Made Simple" width="1171" height="180">
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-3">
+    <h2>3. SlideShow</h2>
+    <ul>
+      <li>Suba las imágenes de banners (<a href="webapps-banner-1.png">Banner 1</a> y <a href="webapps-banner-2.jpg">Banner 2</a>) a la carpeta simplex (en la carpeta adecuada). Haga una captura de la <strong>carpeta en la que ha subido</strong> las imágenes.</li>
+      <li>Modifique la plantilla <strong>Simplex SlideShow </strong> para que se muestren únicamente las dos imágenes con los mensajes ("Noticias sobre" + "Aplicaciones Web" y "Tutoriales sobre" + "WordPress"). Haga una captura de la <strong>pantalla de edición</strong> de la plantilla en la que se vea la modificación de la plantilla.</li>
+      <li>Haga dos capturas de <strong>toda</strong> la pantalla en la que se vean las imágenes:
+        <p class="captura">
+          <img src="cmsms-3-1.png" alt="CMS Made Simple" width="600" height="421">
+          <img src="cmsms-3-2.png" alt="CMS Made Simple" width="600" height="423">
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-4">
+    <h2>4. Menús</h2>
+    <ul>
+      <li>Modifique los menús de manera que haya dos opciones de menú: Inicio y Menú
+        <ul>
+          <li>La opción Inicio mostrará una página de presentación.</li>
+          <li>La opción Menú incluirá una opción Acerca de que mostrará una página de presentación</li>
+        </ul>
+        <p>Haga una captura de la <strong>pantalla de edición</strong> de los menús en la que se vea la modificación realizada.</p>
+      </li>
+      <li>Haga dos capturas de <strong>toda</strong> la pantalla en la que se vean las imágenes:
+        <p class="captura">
+          <img src="cmsms-4-1.png" alt="CMS Made Simple" width="1171" height="180">
+        </p>
+
+        <p class="captura">
+          <img src="cmsms-4-2.png" alt="CMS Made Simple" width="1171" height="380">
+        </p>
+        <p><strong>Nota</strong>: En la captura de Inicio se ha recortado el banner para que ocupe menos espacio.</p>
+
+        <p class="captura">
+          <img src="cmsms-4-3.png" alt="CMS Made Simple" width="1171" height="350">
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-5">
+    <h2 id="">5. Añadir noticia</h2>
+    <ul>
+      <li>Añada una noticia al sitio.</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla mostrando el resultado:
+        <p class="captura">
+          <img src="cmsms-5-1.png" alt="CMS Made Simple" width="1171" height="400">
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-6">
+    <h2>6. Traducción</h2>
+    <ul>
+      <li>Añada dos traducciones al archivo de traducción al español adecuado para cambiar dos mensajes que se muestran en inglés en el <strong>Gestor de Módulos</strong>:
+        <p class="captura">
+          <img src="cmsms-6-1.png" alt="CMS Made Simple" width="1171" height="220">
+        </p>
+        <p><strong>Nota</strong>: Para encontrar una cadena en los archivos puede utilizar la búsqueda en archivos de Notepad++ o de Visual studio Code.</p>
+      </li>
+      <li>Haga dos capturas de <strong>toda</strong> la pantalla en las que se vean el fichero modificado y el resultado conseguido:
+        <p class="captura">
+          <img src="cmsms-6-2.png" alt="CMS Made Simple" width="1171" height="220">
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-7">
+    <h2 id="">7. Cambiar el aspecto visual</h2>
+    <ul>
+      <li>Modifique la hoja de esilo <strong>Simplex Layout</strong> para obtener el resultado de la captura. Haga capturas de la <strong>pantalla de edición</strong> de la hoja de estilo en la que se vean las modificaciones realizadas.</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla mostrando el resultado:
+        <p class="captura">
+          <img src="cmsms-7-1.png" alt="CMS Made Simple" width="1171" height="210">
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-8">
+    <h2>8. Alias</h2>
+    <ul>
+      <li>Cree un alias para poder acceder a CMS Made Simple mediante la dirección <strong>http://localhost/cmsms</strong>.</li>
+      <li>Escriba un fichero <strong>alias.txt</strong> con el alias que ha creado.</li>
+      <li>Haga una captura de <strong>toda</strong> la pantalla mostrando que funciona el alias.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-9">
+    <h2>9. Copia de seguridad</h2>
+    <ul>
+      <li>Como usuario <strong>iaw_cmsms_1</strong> haga una copia de seguridad de la base de datos.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 20 de febrero de 2020</p>
+
+    <p class="licencia">
+      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../../../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
+      Esta página forma parte del curso <strong><a href="https://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="https://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br>
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
+</html>
