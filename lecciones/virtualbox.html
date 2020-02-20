@@ -28,6 +28,7 @@
 
       <ul>
         <li><a href="#que-es">Qué es</a></li>
+        <li><a href="#hyperv">VirtualBox e Hyper-V</a></li>
         <li><a href="#guest-additions">Guest Additions</a></li>
       </ul>
     </div>
@@ -176,6 +177,17 @@
     </ul>
 
   </section>
+
+  <section id="hyperv">
+    <h3>VirtualBox e Hyper-V</h3>
+
+    <p>Hyper-V es el hipervisor incluido en Windows desde 2008 (aunque no está incluido en algunas versiones de Windows, como Windows 10 Home).</p>
+
+    <p>Como Hyper-V es un hipervisor de tipo 1 y VirtualBox es un hipervisor de tipo 2, ambos hipervisores son en principio incompatibles. Si se activa Hyper-V, VirtualBox no funcionará correctamente.</p>
+
+    <p><strong>Nota</strong>: En 2018 Microsoft creó una API que permitía el funcionamiento de hipervisores de tipo 2 en Windows 10 con Hyper-V, pero a costa de reducir su rendimiento. VirtualBox 6.0 (publicado en diciembre de 2018) incorporó el uso de esa API, y por eso se pueden encontrar páginas en Internet que dicen que se puede usar VirtualBox con Hyper-V activado. Pero por motivos que desconozco, en las versiones de Windows 10 publicada en 2019 esa API dejó de poderse utilizar. Por ello, VirtualBox 6.1 (publicado en diciembre de 2019) ya no incluye el uso de la API y actualmente (febrero de 2020), podemos volver a decir que VirtualBox es incompatible con Hyper-V. Microsoft está trabajando con VMWare para resolver este problema. Si se encuentra una solución estable, es posible que Oracle también la incluya en VirtualBox en el futuro.</p>
+  </section>
+
   <section id="guest-additions">
     <h3>Instalar Guest Additions en Ubuntu 18.04.3 Server</h3>
 
@@ -231,7 +243,7 @@ rm ~/<span class="codigo-resaltado">VBoxGuestAdditions.iso</span></code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 30 de enero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 12 de febrero de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>

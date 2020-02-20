@@ -132,7 +132,7 @@
     <p><strong>Nota</strong>: En Windows, Packer 1.2.3 requería que los scripts de shell tuvieran los finales de línea de Unix [<a href="https://github.com/hashicorp/packer/issues/6151">packer issue 6151</a>], pero desde Packer 1.3 ya no tiene esta limitación</p>
 
     <section id="plantilla-instalacion-guest-additions">
-      <h4>Plantilla de instalación de VirtualBox Guest Additions (packer-1-3.json)</h4>
+      <h4>Plantilla de instalación de VirtualBox Guest Additions (packer-2-2.json)</h4>
 
       <p>Documentación de packer: <a href="https://www.packer.io/docs/provisioners/shell.html">Shells provisioners</a></p>
 
@@ -332,7 +332,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt -yq install docker-ce</code>
       <ul>
         <li>Líneas 5 y 9: El resultado de las comprobaciones de la clave GPG oficial de Docker (línea 5) y de que el comando apt está utilizando el repositorio correcto (línea 9) se guardan en dos ficheros .txt para su comprobación posterior.
           <ul>
-            <li>info-fingerprint."txt":
+            <li>info-fingerprint.txt:
               <div class="codigo">
                 <pre>
 <code class="language-bash">pub   rsa4096 2017-02-22 [SCEA]
@@ -342,16 +342,14 @@ sub   rsa4096 2017-02-22 [S]</code>
 </pre>
               </div>
             </li>
-            <li>info-policy."txt":
+            <li>info-policy.txt:
               <div class="codigo">
                 <pre>
 <code class="language-bash">docker-ce:
   Instalados: (ninguno)
-  Candidato: 5:18.09.3~3-0~ubuntu-bionic
+  Candidato: 5:19.03.5~3-0~ubuntu-bionic 500
   Tabla de versión:
-    5:18.09.3~3-0~ubuntu-bionic 500
-          500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
-    5:18.09.2~3-0~ubuntu-bionic 500
+    5:19.03.5~3-0~ubuntu-bionic 500
           500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
     ...</code>
 </pre>
