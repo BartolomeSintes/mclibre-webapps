@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>MantisBT. Exámenes. Aplicaciones web. Bartolomé Sintes Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../varios/webapps.css" rel="stylesheet" type="text/css" title="mclibre">
+  <link rel="icon" href="../../../varios/favicon.ico">
+</head>
+
+<body>
+  <h1>Exámenes - MantisBT</h1>
+
+  <nav>
+    <p>
+      <a href="../../../index.html"><img src="../../../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31"></a>
+      <a href="#"><img src="../../../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36"></a>
+      <a href="../../examenes.html"><img src="../../../varios/iconos/icono-school.svg" alt="Exámenes" title="Exámenes" width="36" height="36"></a>
+    </p>
+
+    <div class="toc">
+      <h2>Examen MantisBT</h2>
+
+      <ul>
+        <li><a href="#ejercicio-1">1. Descargar la aplicación</a></li>
+        <li><a href="#ejercicio-2">2. Instalar MantisBT</a></li>
+        <li><a href="#ejercicio-3">3. Cambiar logo</a></li>
+        <li><a href="#ejercicio-4">4. Crear usuarios (1)</a></li>
+        <li><a href="#ejercicio-5">5. Crear usuarios (2)</a></li>
+        <li><a href="#ejercicio-6">6. Crear proyectos</a></li>
+        <li><a href="#ejercicio-7">7. Crear incidencias</a></li>
+        <li><a href="#ejercicio-8">8. Resolver incidencias</a></li>
+        <li><a href="#ejercicio-9">9. Mejorar traducción</a></li>
+        <li><a href="#ejercicio-10">10. Modificar estilo</a></li>
+        <li><a href="#ejercicio-11">11. Alias</a></li>
+        <li><a href="#ejercicio-12">12. Copia de seguridad</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <p>En este ejercicio hay que acabar entregando:</p>
+  <ul>
+    <li>las capturas de pantalla (que se llamen nombreAlumno-XX-YY.png donde XX sea el número de ejercicio e YY el número de captura en el ejercicio, todas las capturas se deben guardar en una única carpeta).</li>
+    <li>la copia de seguridad de los datos de la aplicación</li>
+    <li>la carpeta de la aplicación (comprimida en un zip)</li>
+  </ul>
+
+  <p>Las capturas se harán de <strong>toda</strong> la pantalla, sin ningún tipo de recortes.</p>
+
+  <section id="ejercicio-1">
+    <h2>1. Descargar la aplicación</h2>
+
+    <ul>
+      <li>Aplicación: <a href="https://www.mclibre.org/descargar/webapps/1920/mantisbt-2-23-0.zip">MantisBT 2.23.0</a> (09/12/19). MantisBT es una aplicación de seguimiento de fallos de programas.</li>
+      <li>Descomprima MantisBT en la carpeta mantisbt. La aplicación se abrirá en el navegador con la dirección <strong>iaw/webapps/mantisbt/index.php.</strong></li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-2">
+    <h2>2. Instalar MantisBT</h2>
+
+    <ul>
+      <li>Entre en phpMyAdmin como usuario <strong>root</strong> y cree un usuario de MySQL con nombre <strong>iaw_mantisbt_1</strong>, contraseña <strong>iaw_mantisbt_1</strong> y base de datos <strong>iaw_mantisbt_1</strong>.</li>
+      <li>Instale mantisBT.</li>
+      <li>De forma predeterminada, el usuario administrador se llama <strong>administrator</strong> y su contraseña es <strong>root</strong>.</li>
+      <li>Haga capturas de la pantalla de inicio y de la pantalla inicial del usuario administrador:
+        <p class="captura">
+          <img src="mantisbt-01.png" alt="MantisBT" width="1188" height="275">
+        </p>
+        <p class="captura">
+          <img src="mantisbt-02.png" alt="MantisBT" width="1171" height="220">
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-3">
+    <h2>3. Cambiar logo</h2>
+
+    <ul>
+      <li>Copie el archivo del logotipo <span class="captura"><img src="webapps-logo.png" alt="WebApps logo" width="232" height="80"></span> a la carpeta adecuada sin cambiar su nombre (webapps-logo.png).</li>
+      <li>Edite directamente el fichero de configuración de MantisBT y cambie el logotipo al archivo copiado.</li>
+      <li>Haga capturas del fichero de configuración modificado y de la pantalla de inicio:
+        <p class="captura">
+          <img src="mantisbt-03.png" alt="MantisBT" width="1188" height="270">
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-4">
+    <h2>4. Crear usuarios (1)</h2>
+
+    <ul>
+      <li>Entre en MantisBT y cambie la contraseña del usuario <strong>administrator</strong> a <strong>admin</strong>.</li>
+      <li>Cree un usuario <strong>novato</strong> sin cuenta de correo electrónico como el de la captura siguiente
+        <p class="captura">
+          <img src="mantisbt-04.png" alt="MantisBT" width="1045" height="205">
+        </p>
+      </li>
+      <li>Compruebe que no puede entrar como usuario novato porque no conoce la contraseña (MantisBT la envía por correo electrónico)</li>
+      <li>Entre en phpMyAdmin como usuario <strong>iaw_mantisbt_1</strong> y cambie la contraseña del usuario <strong>novato</strong> a <strong>admin</strong> (la misma del usuario <strong>administrator</strong>).</li>
+      <li>Haga capturas de la tabla modificada en phpMyAdmin y de la pantalla de inicio del usuario <strong>novato</strong>:
+        <p class="captura">
+          <img src="mantisbt-05.png" alt="MantisBT" width="1171" height="100">
+        </p>
+      </li>
+      <li>Entre en phpMyAdmin como usuario <strong>iaw_mantisbt_1</strong> y cambie la contraseña del usuario <strong>novato</strong> a <strong>novato</strong> (las contraseñas se guardan como MD5).
+        <p><strong>Nota</strong>: Si no consigue realizar este apartado, mantenga la contraseña <strong>admin</strong>.</p>
+      </li>
+      <li>Haga una captura de la tabla modificada en phpMyAdmin.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-5">
+    <h2>5. Crear usuarios (2)</h2>
+
+    <p><strong>Nota</strong>: Si no consigue realizar este ejercicio, cree el usuario <strong>enterado</strong> con contraseña <strong>enterado</strong> como en el ejercicio anterior, modificando la base de datos.</p>
+
+    <ul>
+      <li>Edite directamente el fichero de configuración de MantisBT de manera que la contraseña para los nuevos usarios no se cree automáticamente.</li>
+      <li>Cree un usuario <strong>enterado</strong> con contraseña <strong>enterado</strong> como el de la captura siguiente (en la que se puede escribir la contraseña)
+        <p class="captura">
+          <img src="mantisbt-06.png" alt="MantisBT" width="1040" height="420">
+        </p>
+      </li>
+      <li>Haga capturas del fichero de configuración modificado y de la pantalla de creación del usuario.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-6">
+    <h2>6. Crear proyectos</h2>
+
+    <ul>
+      <li>Cree dos proyectos:
+        <p class="captura">
+          <img src="mantisbt-07.png" alt="MantisBT" width="1016" height="185">
+        </p>
+      </li>
+      <li>Haga capturas de la pantalla de creación de proyectos y del listado de proyectos.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-7">
+    <h2>7. Crear incidencias</h2>
+
+    <ul>
+      <li>Entre en MantisBT como usuario <strong>novato</strong>.</li>
+      <li>Abra dos incidencias, una para MantisBT y otra para WebApps Blog de acuerdo con las capturas siguientes:
+        <p class="captura">
+          <img src="mantisbt-08.png" alt="MantisBT" width="1040" height="235">
+        </p>
+        <p class="captura">
+          <img src="mantisbt-09.png" alt="MantisBT" width="1020" height="280">
+        </p>
+        <p class="captura">
+          <img src="mantisbt-10.png" alt="MantisBT" width="1020" height="275">
+        </p>
+      </li>
+      <li>Haga capturas de las pantallas de creación de los elementos que haya sido necesario definir y del resultado final.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-8">
+    <h2>8. Resolver incidencias</h2>
+
+    <ul>
+      <li>Como usuario <strong>enterado</strong>, resuelva las dos incidencias:
+        <ul>
+          <li>Asigne la incidencia relacionada con el WebApp Blog al propio <strong>enterado</strong> y resuélvala indicando que ha publicado la noticia en el blog:
+            <p class="captura">
+              <img src="mantisbt-12.png" alt="MantisBT" width="1025" height="630">
+            </p>
+          </li>
+          <li>Asigne la incidencia relacionada con MantisBT al <strong>administrator</strong> y coméntelo:
+            <p class="captura">
+              <img src="mantisbt-13.png" alt="MantisBT" width="1040" height="235">
+            </p>
+          </li>
+          <li>Haga capturas de pantalla mostrando el estado final de las incidencias y de la pantalla de incidencias:
+            <p class="captura">
+              <img src="mantisbt-11.png" alt="MantisBT" width="1040" height="235">
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-9">
+    <h2>9. Mejorar traducción</h2>
+
+    <ul>
+      <li>Traduzca un par de cadenas que aparecen en inglés:
+        <p class="captura">
+          <img src="mantisbt-14.png" alt="MantisBT" width="1171" height="225">
+        </p>
+        <p class="captura">
+          <img src="mantisbt-15.png" alt="MantisBT" width="1171" height="225">
+        </p>
+      </li>
+      <li>Haga capturas del archivo modificado y del resultado obtenido.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-10">
+    <h2 id="">10. Cambiar el aspecto visual</h2>
+    <ul>
+      <li>Modifique la hoja de esilo <strong>Simplex Layout</strong> para obtener el resultado de la captura.
+
+        <p class="captura">
+          <img src="mantisbt-16.png" alt="MantisBT" width="1171" height="225">
+        </p>
+        <p class="captura">
+          <img src="mantisbt-17.png" alt="MantisBT" width="1171" height="225">
+        </p>
+      </li>
+      <li>Haga capturas del fichero de la hoja de estilo modificado y del resultado obtenido.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-11">
+    <h2>11. Alias</h2>
+    <ul>
+      <li>Cree un alias para poder acceder a MantisBT mediante la dirección <strong>http://localhost/mantisbt</strong>.</li>
+      <li>Escriba un fichero <strong>alias.txt</strong> con el alias que ha creado.</li>
+      <li>Haga una captura mostrando que funciona el alias.</li>
+    </ul>
+  </section>
+
+  <section id="ejercicio-12">
+    <h2>12. Copia de seguridad</h2>
+
+    <ul>
+      <li>Como usuario <strong>iaw_mantisbt_1</strong> haga una copia de seguridad de la base de datos.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 28 de febrero de 2020</p>
+
+    <p class="licencia">
+      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../../../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
+      Esta página forma parte del curso <strong><a href="https://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="https://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br>
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons BY-SA 4.0</a>.</p>
+  </footer>
+</body>
+</html>
