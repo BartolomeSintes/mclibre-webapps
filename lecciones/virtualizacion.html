@@ -193,7 +193,7 @@
 
     <p>La forma más sofisticada de virtualización sería la <strong>emulación</strong>. Un emulador es un programa que implementa en software un determinado hardware (procesor, tarjeta gráfica, dispositivos de entrada y salida, etc.) y que responde a las órdenes exactamente igual que el hardware original. Sobre ese hardware emulado se puede instalar el sistema operativo guest. Si la emulación es completa, el sistema operativo guest creería estar utilizando un hardware real.</p>
 
-    <p>El problema de los emuladores es su velocidad, ya que emular una instrucción del hardware original pueden necesitar muchas instrucciones en el hardware real. Pero ese problema no es importante si el sistema emulado es antiguo, porque esos sistemas eran mucho más lentos que los sistemas actuales por lo que la emulación ejecuta las aplicaciones a una velocidad suficiente. Por eso, la emulación es una solución aceptable para la ejecución de programas de los años 80, especialmente de juegos y programas como <a href="https://www.mamedev.org/index.php">M.A.M.E</a> permiten jugar a juegos clásicos de consolas ya desparecidas (aunque los juegos propiamente dichos deben conseguirse por otras vías, a veces de dudosa legalidad).</p>
+    <p>El problema de los emuladores es su velocidad, ya que emular una instrucción del hardware original pueden necesitar muchas instrucciones en el hardware real. Pero ese problema no es importante si el sistema emulado es antiguo, porque esos sistemas eran mucho más lentos que los sistemas actuales por lo que la emulación ejecuta las aplicaciones a una velocidad suficiente. Por eso, la emulación es una solución aceptable para la ejecución de programas de los años 80, especialmente de juegos y programas como <a href="https://www.mamedev.org/index.php">M.A.M.E</a> permiten jugar a juegos clásicos de consolas ya desaparecidas (aunque los juegos propiamente dichos deben conseguirse por otras vías, a veces de dudosa legalidad).</p>
 
     <p>Uno de los emuladores más importantes es <a href="https://www.qemu.org/">QEMU</a> <span class="incompleto">[por completar]</span>.</p>
 
@@ -337,7 +337,7 @@
   <section id="contenedores">
     <h2>Contenedores</h2>
 
-    <p>El problema de los hipervisores y las máquinas virtuales es que cada máquina virtual es independiente de las demás. Al no reutilizarse ningún componente, se ocupa mucho espacio tanto en disco como en menoria y el tiempo de ejecución siempre será mayor que si sólo hubiera un sistema operativo (sobre todo en el caso de hipervisores de tipo 2).</p>
+    <p>El problema de los hipervisores y las máquinas virtuales es que cada máquina virtual es independiente de las demás. Al no reutilizarse ningún componente, se ocupa mucho espacio tanto en disco como en memoria y el tiempo de ejecución siempre será mayor que si sólo hubiera un sistema operativo (sobre todo en el caso de hipervisores de tipo 2).</p>
 
     <p>Para resolver este problema se crearon los <strong>contenedores</strong> en los que se utilizan mecanismos existentes en el sistema operativo para aislar las aplicaciones, pero compartiendo el mayor número posible de componentes del sistema operativo o incluso de las aplicaciones.</p>
 
@@ -460,7 +460,7 @@
       </svg>
     </p>
 
-    <p><a href="https://www.docker.com/">Docker</a> es el gestor de contenedores más popular. <a href="https://linuxcontainers.org/">LXC</a> es un gestor de contenedores patrocinado por Canonical. <a href="https://containerd.io/">containerd</a> es un motor de ejercición de contenedores creado por la <a href="https://www.cncf.io/">CNCF</a> a partir de la donación de Docker.</p>
+    <p><a href="https://www.docker.com/">Docker</a> es el gestor de contenedores más popular. <a href="https://linuxcontainers.org/">LXC</a> es un gestor de contenedores patrocinado por Canonical. <a href="https://containerd.io/">containerd</a> es un motor de ejecución de contenedores creado por la <a href="https://www.cncf.io/">CNCF</a> a partir de la donación de Docker.</p>
 
     <p>La ventaja de los contenedores es su ligereza, puesto que comparten el máximo de componentes con el sistema operativo host, y su rapidez, ya que gracias a que apenas añaden capas adicionales consiguen casi velocidades nativas.</p>
 
