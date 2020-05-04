@@ -136,18 +136,18 @@
 
     <p>En Windows, packer se distribuye en forma de fichero zip (<a href="https://www.packer.io/downloads.html">página de descarga de packer</a>).</p>
 
-    <p>Esta lección se ha elaborado con la versión <a href="https://releases.hashicorp.com/packer/1.5.1/packer_1.5.1_windows_amd64.zip">packer 1.5.1 para Windows 64 bits</a>, publicada el 20 de diciembre de 2019.</p>
+    <p>Estas lecciones se han elaborado con la versión <a href="https://releases.hashicorp.com/packer/1.5.6/packer_1.5.6_windows_amd64.zip">packer 1.5.6 para Windows 64 bits</a>, publicada el 1 de mayo de 2020.</p>
 
     <p>Si no encuentra esta versión en la web del programa, puede descargarla desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
 
     <p>Packer no necesita instalación. Simplemente, hay que descomprimir el fichero zip en una carpeta para obtener el programa packer.exe.</p>
 
-    <p>Para ejecutar packer, abra una ventana de Símbolo de sistema y ejecute la orden packer con los parámetros adecuados. Por ejemplo, para conocer la versión de packer, ejecute:</p>
+    <p>Para ejecutar packer, abra una ventana de Símbolo de sistema (CMD o PowerShell) y ejecute la orden packer con los parámetros adecuados. Por ejemplo, para conocer la versión de packer, ejecute:</p>
 
     <div class="terminal">
       <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2">
 <code class="language-shell">packer --version
-1.5.1</code>
+1.5.6</code>
 </pre>
     </div>
 
@@ -155,10 +155,10 @@
 
     <p>Para que packer cree un archivo de log del proceso de creación de la plantilla, que nos será muy útil para identificar los errores del proceso, en Windows es necesario establecer dos variables de entorno.</p>
 
-    <p>En Windows 7 o Windows 10, puede añadir estas variables de dos maneras:</p>
+    <p>En Windows, puede añadir estas variables de dos maneras:</p>
     <ul>
       <li>gráficamente en Panel de control &gt; Sistema &gt; Configuración avanzada del sistema &gt; Opciones avanzadas &gt; Variables de entorno</li>
-      <li>o en una ventana de Símbolo de sistema (CMD) con el comando setx:
+      <li>o en una ventana de Símbolo de sistema con el comando setx:
         <div class="terminal">
           <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 4">
 <code class="language-shell">setx PACKER_LOG 1
@@ -189,8 +189,8 @@ PACKER_LOG_PATH=packerlog.txt</code>
 
     <p>En la lección <a href="packer-1.html">Packer(1)</a> veremos dos ejemplos de creación de máquinas virtuales:</p>
     <ul>
-      <li>En el primer ejemplo, crearemos una máquina virtual e instalaremos Ubuntu Server 18.04.3 LTS en ella, simulando una instalación manual.</li>
-      <li>En el segundo ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 18.04.3 LTS en ella, mediante una instalación desatendida.</li>
+      <li>En el primer ejemplo, crearemos una máquina virtual e instalaremos Ubuntu Server 20.04 LTS en ella, simulando una instalación manual.</li>
+      <li>En el segundo ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 20.04 LTS en ella, mediante una instalación desatendida.</li>
     </ul>
 
     <p>En la lección <a href="packer-2.html">Packer(2)</a> veremos cuatro ejemplos de modificación  y posterior instalación de aplicaciones en la máquinas:</p>
@@ -201,11 +201,11 @@ PACKER_LOG_PATH=packerlog.txt</code>
       <li>En el cuarto ejemplo, crearemos una máquina virtual en la que habremos modificado la configuración de la máquina virtual.</li>
     </ul>
 
-    <p>Una de las ventajas de preparar primero la imagen básica es ahorrarnos la instalación del sistema operativo en cada prueba de instalación de aplicaciones. La instalación es un proceso que tarda más de 10 minutos y que sólo necesitaremos hacer una vez.</p>
+    <p>Una de las ventajas de preparar primero la imagen básica es ahorrarnos la instalación del sistema operativo en cada prueba de instalación de aplicaciones. La instalación es un proceso que puede tardar más de 10 minutos y que sólo necesitaremos hacer una vez.</p>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 9 de enero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 4 de mayo de 2020</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
