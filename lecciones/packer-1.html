@@ -288,6 +288,7 @@ autoinstall:
           </ul>
           <p>Para calcular otros hashes puede utilizar, por ejemplo, la página <a href="https://quickhash.com/"></a>.</p>
         </li>
+        <li>Líneas 12 y 13: La etiqueta <i>network</i> está repetida. Es un fallo del instalador <i>Subiquity</i> incluida en Ubuntu 20.04, que necesita que la etiqueta esté repetida.</li>
         <li>Línea 16: Al terminar la instalación, el nombre del interface de red de la máquina virtual cambiará a enp0s3, pero parece que no se puede utilizar ese nombre en la plantilla, mientras que ens33 no da problemas. [ignoro por qué]</li>
         <li>Líneas 20 y 21: Estos comandos es una forma de mantener la misma IP cuando se reinicia la máquina virtual, como explica <a href="https://nickcharlton.net/posts/automating-ubuntu-2004-installs-with-packer.html">Nick Charlton</a>.</li>
       </ul>
