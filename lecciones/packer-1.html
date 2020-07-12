@@ -61,7 +61,7 @@
 
         <p>En el momento que se publique Ubuntu 20.04.1 (julio de 2020), la versión 20.04 estará disponible en <a href="http://old-releases.ubuntu.com/releases/">http://old-releases.ubuntu.com/releases/</a>.</p>
       </li>
-      <li>Copie en ella el ejectable de Packer, como se comenta en la <a href="packer.html#instalacion">lección general sobre Packer</a></li>
+      <li>Copie en ella el ejecutable de Packer, como se comenta en la <a href="packer.html#instalacion">lección general sobre Packer</a></li>
     </ul>
   </section>
 
@@ -175,7 +175,7 @@
   <section id="creacion-vm-vbox-ubuntu-preseed">
     <h3>Ejemplo 2: Creación de una máquina virtual de VirtualBox con Ubuntu Server 20.04 LTS (instalación automática o desatendida)</h3>
 
-    <p>Ubuntu permite realizar instalaciones automáticas (también llamadas desatendidas), en las que el usuario no tiene que ir eligiendo opciones de un mneú interactivo, sino que puede detallar sus elecciones en un fichero para su aplicación de forma automática. Antes de Ubuntu 20.04, Ubuntu utilizaba el sistema de instalación auomática de Debian <a href="https://www.debian.org/releases/stable/amd64/apb.en.html">preseeding</a>, pero a partir de Ubuntu 20.04, Ubuntu utiliza su propio sistema <a href="https://wiki.ubuntu.com/FoundationsTeam/AutomatedServerInstalls"></a>.</p>
+    <p>Ubuntu permite realizar instalaciones automáticas (también llamadas desatendidas), en las que el usuario no tiene que ir eligiendo opciones de un menú interactivo, sino que puede detallar sus elecciones en un fichero para su aplicación de forma automática. Antes de Ubuntu 20.04, Ubuntu utilizaba el sistema de instalación automática de Debian <a href="https://www.debian.org/releases/stable/amd64/apb.en.html">preseeding</a>, pero a partir de Ubuntu 20.04, Ubuntu utiliza su propio sistema <a href="https://wiki.ubuntu.com/FoundationsTeam/AutomatedServerInstalls"></a>.</p>
 
     <p>Packer puede también instalar el sistema operativo en la máquina virtual poniendo en marcha una instalación automática. En este caso además de la plantilla de Packer se necesitará la configuración a aplicar en la instalación automática. En este caso, la configuración deseada se describe en un fichero de texto <strong>user-data</strong> con formato YAML, al que la máquina virtual accede a través de un servidor web que implementa Packer.</p>
 
@@ -283,7 +283,7 @@ autoinstall:
         <li>Línea 7: La contraseña de usuario debe escribirse en el formato <i>$a$b$c</i>, en el que:
           <ul>
             <li><i>a</i> es el número 6</li>
-            <li><i>b</i> es la semilla utilziada en la generación de la contraseña (en este caso la semilla es el nombre del usuario)</li>
+            <li><i>b</i> es la semilla utilizada en la generación de la contraseña (en este caso la semilla es el nombre del usuario)</li>
             <li><i>c</i> es el hash SHA-512 de la contraseña, expresado en base 64 (en este caso la contraseña es el nombre del usuario)</li>
           </ul>
           <p>Para calcular otros hashes puede utilizar, por ejemplo, la página <a href="https://quickhash.com/"></a>.</p>
