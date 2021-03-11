@@ -57,12 +57,14 @@
 
     <p>Ansible es software libre GPL 3.0 y es la base de <a href="https://www.ansible.com/products/tower">Ansible Tower</a>, un producto comercial de RedHat.</p>
 
+    <p>Hasta 2020 cada versión de Ansible incluida el propio Ansible y la biblioteca de módulos completa. En 2020 Ansible ha separado el desarrollo del núcleo de Ansible del de los módulos y extensiones (que se agrupan en colecciones). Así, Ansible 3.0, publicada en febrero de 2021 contiene el núcleo de Ansible 2.10 y una selección de colecciones de módulos (la nueva estructura se explica en <a href="https://www.ansible.com/blog/announcing-the-community-ansible-3.0.0-package">este post</a> y en <a href="https://www.ansible.com/blog/ansible-3.0.0-qa">este</a>).</p>
+
     <p class="mcl-svg-diagrama-temporal">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="1130" viewBox="-100 -60 1130 100">
         <line x1="-20" y1="0" x2="1020" y2="0" stroke-width="3" stroke="hsl(0, 100%, 40%)" />
         <text x="-90" y="4" text-anchor="start" style="font-size: 100%">Ansible</text>
         <text x="-65" y="-50" text-anchor="middle" style="font-size: 60%">Actualizado</text>
-        <text x="-65" y="-38" text-anchor="middle" style="font-size: 60%">06-10-2019</text>
+        <text x="-65" y="-38" text-anchor="middle" style="font-size: 60%">11-03-2021</text>
 
         <line x1="0" y1="-50" x2="0" y2="30" stroke-width="1" stroke-dasharray="5,5" stroke="black" />
         <text x="50" y="-40" text-anchor="middle" style="font-size: 80%">2012</text>
@@ -130,10 +132,12 @@
         <text x="738" y="-15" text-anchor="middle" fill="hsl(0, 100%, 40%)" style="font-size: 80%; font-weight: bold">2.8</text>
         <circle cx="784" cy="0" r="5" fill="hsl(0, 100%, 40%)" />
         <text x="784" y="-15" text-anchor="middle" fill="hsl(0, 100%, 40%)" style="font-size: 80%; font-weight: bold">2.9</text>
-        <circle cx="862" cy="0" r="5" fill="hsl(0, 100%, 40%)" />
-        <text x="862" y="-15" text-anchor="middle" fill="hsl(0, 100%, 40%)" style="font-size: 80%; font-weight: bold">2.10</text>
-        <circle cx="932" cy="0" r="5" fill="white" stroke="hsl(0, 100%, 40%)" />
-        <text x="932" y="-15" text-anchor="middle" fill="hsl(0, 100%, 40%)" style="font-size: 80%; font-weight: bold">2.11</text>
+        <circle cx="873" cy="0" r="5" fill="hsl(0, 100%, 40%)" />
+        <text x="873" y="-15" text-anchor="middle" fill="hsl(0, 100%, 40%)" style="font-size: 80%; font-weight: bold">2.10</text>
+        <circle cx="912" cy="0" r="5" fill="hsl(0, 100%, 40%)" />
+        <text x="912" y="-15" text-anchor="middle" fill="hsl(0, 100%, 40%)" style="font-size: 80%; font-weight: bold">3.0</text>
+        <circle cx="938" cy="0" r="5" fill="white" stroke="hsl(0, 100%, 40%)" />
+        <text x="938" y="-15" text-anchor="middle" fill="hsl(0, 100%, 40%)" style="font-size: 80%; font-weight: bold">4.0</text>
       </svg>
     </p>
 
@@ -148,7 +152,8 @@
         <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.7.html">2.7</a> -
         <a href="https://docs.ansible.com/ansible/latest/porting_guides/porting_guide_2.8.html">2.8</a> -
         <a href="https://docs.ansible.com/ansible/devel/porting_guides/porting_guide_2.9.html">2.9</a> -
-        <a href="https://docs.ansible.com/ansible/devel/porting_guides/porting_guide_2.10.html">2.10</a>
+        <a href="https://docs.ansible.com/ansible/devel/porting_guides/porting_guide_2.10.html">2.10</a> -
+        <a href="https://docs.ansible.com/ansible/devel/porting_guides/porting_guide_3.html">3.0</a>
       </li>
       <li>Changelogs:
         <a href="https://github.com/ansible/ansible/blob/stable-2.5/changelogs/CHANGELOG-v2.5.rst">2.5</a> -
@@ -156,16 +161,17 @@
         <a href="https://github.com/ansible/ansible/blob/stable-2.7/changelogs/CHANGELOG-v2.7.rst">2.7</a> -
         <a href="https://github.com/ansible/ansible/blob/stable-2.8/changelogs/CHANGELOG-v2.8.rst">2.8</a> -
         <a href="https://github.com/ansible/ansible/blob/stable-2.9/changelogs/CHANGELOG-v2.9.rst">2.9</a> -
-        <a href="https://github.com/ansible/ansible/blob/stable-2.10/changelogs/CHANGELOG-v2.10.rst">2.10</a>
+        <a href="https://github.com/ansible/ansible/blob/stable-2.10/changelogs/CHANGELOG-v2.10.rst">2.10</a> -
+        <a href="https://github.com/ansible-community/ansible-build-data/blob/main/3/CHANGELOG-v3.rst">3.0</a>
       </li>
       <li>Roadmaps:
         <a href="https://docs.ansible.com/ansible/devel/roadmap/ROADMAP_2_9.html">2.9</a> -
         <a href="https://docs.ansible.com/ansible/devel/roadmap/ROADMAP_2_10.html">2.10</a> -
-        <a href="https://docs.ansible.com/ansible/devel/roadmap/ROADMAP_2_11.html">2.11</a>
+        <a href="https://docs.ansible.com/ansible/devel/roadmap/COLLECTIONS_3_0.html">3.0</a> -
+
       </li>
       <li>Próxima versión:
-        <!-- <a href="https://docs.ansible.com/ansible/devel/porting_guides/porting_guide_2.11.html">2.11 Porting guide</a> -->
-        <a href="https://docs.ansible.com/ansible/devel/roadmap/ROADMAP_2_11.html">2.11 Roadmap</a>
+        <a href="https://docs.ansible.com/ansible/devel/roadmap/COLLECTIONS_4.html">4.0 Roadmap</a>
       </li>
     </ul>
 
@@ -529,7 +535,7 @@ PLAY RECAP *********************************************************************
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 4 de noviembre de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 11 de marzo de 2021</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
