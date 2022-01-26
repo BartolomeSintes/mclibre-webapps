@@ -167,7 +167,7 @@
       <li>phpMyAdmin se abrirá en la dirección: <strong>http://localhost/iaw/webapps/phpmyadmin/</strong></li>
     </ul>
 
-    <p>Abra la URL http://localhost/iaw/webapps/phpmyadmin/ en el navegador. Se mostrará la página de inicio de phpMyAdmin, que solicita un nombre usuario y contraseña para poder acceder a MySQL:</p>
+    <p>Abra la URL http://localhost/iaw/webapps/phpmyadmin/ en el navegador. Se mostrará la página de inicio de phpMyAdmin, que solicita un nombre usuario y contraseña para poder acceder a MySQL/MariaDB:</p>
 
     <p class=" captura">
       <img src="../img/phpmyadmin/1-4-s-1-inicio-sesion.png" alt="phpMyAdmin. Página de inicio" width="1024" height="210">
@@ -197,10 +197,10 @@
   </section>
 
   <section id="ejercicio-6">
-    <h2>phpMyAdmin (1) 6 - Entrar en MySQL como root sin contraseña</h2>
+    <h2>phpMyAdmin (1) 6 - Entrar en MySQL/MariaDB como root sin contraseña</h2>
     <ol>
       <li>El zip de phpMyAdmin no incluye fichero de configuración, pero sí un ejemplo de fichero de configuración <strong>config.sample.inc.php</strong>. Copie este fichero y renómbrelo como <strong>config.inc.php</strong>.</li>
-      <li>Con la configuración inicial (la del fichero config.sample.inc.php que ha copiado), los usuarios no pueden conectarse a MySQL como root sin contraseña, pero al cambiar a <span class="php-con">true</span> la variable de configuración $cfg['Servers'][$i]['AllowNoPassword'] ya se puede hacer:
+      <li>Con la configuración inicial (la del fichero config.sample.inc.php que ha copiado), los usuarios no pueden conectarse a MySQL/MariaDB como root sin contraseña, pero al cambiar a <span class="php-con">true</span> la variable de configuración $cfg['Servers'][$i]['AllowNoPassword'] ya se puede hacer:
         <p class=" captura">
           <img src="../img/phpmyadmin/1-6-s-1-inicio-sesion.png" alt="phpMyAdmin. Página de inicio" width="1024" height="293">
         </p>
@@ -209,7 +209,7 @@
   </section>
 
   <section id="ejercicio-7">
-    <h2>phpMyAdmin (1) 7 - Establecer la contraseña de root de MySQL</h2>
+    <h2>phpMyAdmin (1) 7 - Establecer la contraseña de root de MySQL/MariaDB</h2>
 
     <p>Este ejercicio se resuelve como el ejercicio 1. La única diferencia es que el ejercicio 1 se debe realziar con el phpMyAdmin de XAMPP (al que se accede mediante la URL <strong>http://localhost/phpmyadmin</strong>), mientras que este se debe realizar con el phpMyAdmin que hemos instalado (al que se accede mediante las URLs <strong>http://localhost/iaw/webapps/phpmyadmin</strong> o <strong>http://localhost/pma</strong>). La aplicación phpMyAdmin que utilicemos no es relevante, puesto que todas ellas trabajan con la misma base de datos y es en ella que se modifica la contraseña de usuario.</p>
   </section>

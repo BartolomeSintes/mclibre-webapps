@@ -54,7 +54,7 @@
   <section id="intro">
     <h2>Administración de bases de datos on phpMyAdmin</h2>
 
-    <p>Las aplicaciones web que se abordan en este curso utilizan la base de datos MySQL. Por motivos de seguridad, en servidores reales no se recomienda que las aplicaciones se conecten a MySQL como usuario <strong>root</strong>. Para cada aplicación, es más recomendable crear un usuario en MySQL que administre la aplicación. Ese procedimiento es el que se utilizará en estos apuntes. Para crear esos usuarios y, en general, administrar MySQL, se utilizará la aplicación <strong>phpMyAdmin</strong>.</p>
+    <p>Las aplicaciones web que se abordan en este curso utilizan la base de datos MySQL/MariaDB. Por motivos de seguridad, en servidores reales no se recomienda que las aplicaciones se conecten a MySQL/MariaDB como usuario <strong>root</strong>. Para cada aplicación, es más recomendable crear un usuario en MySQL/MariaDB que administre la aplicación. Ese procedimiento es el que se utilizará en estos apuntes. Para crear esos usuarios y, en general, administrar MySQL/MariaDB, se utilizará la aplicación <strong>phpMyAdmin</strong>.</p>
 
     <p>En esta lección se proponen ejercicios en los que se instalará varias veces una pequeña aplicación de agenda. En los ejercicios se plantean tres situaciones distintas:</p>
     <ul>
@@ -67,7 +67,7 @@
   <section id="ejercicio-1">
     <h2>phpMyAdmin (2) 1 - Crear un usuario iaw_agenda_1 con una base de datos única</h2>
     <ol>
-      <li>Cree un nuevo usuario de MySQL con la siguiente configuración
+      <li>Cree un nuevo usuario de MySQL/MariaDB con la siguiente configuración
         <ul>
           <li>nombre de usuario: <strong>iaw_agenda_1</strong></li>
           <li>servidor: <strong>localhost</strong></li>
@@ -89,9 +89,9 @@
   <section id="ejercicio-2">
     <h2>phpMyAdmin (2) 2 - Instalar una aplicación como usuario iaw_agenda_1</h2>
     <ol>
-      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/1920/agenda-191215.zip">Agenda (15/12/19)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="https://www.mclibre.org/consultar/php/">Programación web en PHP</a>).</li>
+      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2122/iaw-agenda-2022-01-25.zip">Agenda (25/01/22)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/">Programación web en PHP</a>).</li>
       <li>Descomprima la aplicación en la carpeta adecuada y renombre la carpeta como <strong>agenda-1</strong>.</li>
-      <li>Modifique el archivo de configuración <strong>config.php</strong> de la aplicación Agenda para que esta utilice la cuenta del usuario <strong>iaw_agenda_1</strong> en MySQL.</li>
+      <li>Modifique el archivo de configuración <strong>config.php</strong> de la aplicación Agenda para que esta utilice la cuenta del usuario <strong>iaw_agenda_1</strong> en MySQL/MariaDB.</li>
       <li>Ejecute la aplicación en el navegador, eligiendo primero la opción "Borrar todo" para crear la tabla en la base de datos, y compruebe que funciona creando varios registros.</li>
       <li>Compruebe el contenido de la tabla en phpMyAdmin como usuario <strong>iaw_agenda_1</strong>.</li>
     </ol>
@@ -100,7 +100,7 @@
   <section id="ejercicio-3">
     <h2>phpMyAdmin (2) 3 - Crear un usuario iaw_agenda_2 que pueda administrar varias bases de datos</h2>
     <ol>
-      <li>Cree un nuevo usuario de MySQL con la siguiente configuración
+      <li>Cree un nuevo usuario de MySQL/MariaDB con la siguiente configuración
         <ul>
           <li>nombre de usuario: <strong>iaw_agenda_2</strong></li>
           <li>servidor: <strong>localhost</strong></li>
@@ -122,9 +122,9 @@
   <section id="ejercicio-4">
     <h2>phpMyAdmin (2) 4 - Instalar dos aplicaciones como usuario iaw_agenda_2</h2>
     <ol>
-      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/1920/agenda-191215.zip">Agenda (15/12/19)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="https://www.mclibre.org/consultar/php/">Programación web en PHP</a>).</li>
+      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2122/iaw-agenda-2022-01-25.zip">Agenda (25/01/22)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/">Programación web en PHP</a>).</li>
       <li>Descomprima la aplicación dos veces en dos carpetas y renombre las carpetas como <strong>agenda-2a</strong> y <strong>agenda-2b</strong>.</li>
-      <li>Modifique los archivos de configuración <strong>config.php</strong> de ambas aplicaciones para que estas utilicen la cuenta del usuario <strong>iaw_agenda_2</strong> en MySQL (pero bases de datos distintas).
+      <li>Modifique los archivos de configuración <strong>config.php</strong> de ambas aplicaciones para que estas utilicen la cuenta del usuario <strong>iaw_agenda_2</strong> en MySQL/MariaDB (pero bases de datos distintas).
         <p><strong>Nota</strong>: Hay que tener en cuenta que el nombre de las bases de datos debe comenzar por el nombre del usuario y un guion bajo (en este caso, iaw_agenda_2_agenda_2a y iaw_agenda_2_agenda_2b, por ejemplo)</p>
         <p>Para distinguir después una aplicación de otra fácilmente, puede cambiar el color básico de la aplicación en el archivo de configuración.</p>
       </li>
@@ -136,7 +136,7 @@
   <section id="ejercicio-5">
     <h2>phpMyAdmin (2) 5 - Crear un usuario iaw_agenda_3 con una base de datos única</h2>
     <ol>
-      <li>Cree un nuevo usuario de MySQL con la siguiente configuración
+      <li>Cree un nuevo usuario de MySQL/MariaDB con la siguiente configuración
         <ul>
           <li>nombre de usuario: <strong>iaw_agenda_3</strong></li>
           <li>servidor: <strong>localhost</strong></li>
@@ -153,9 +153,9 @@
   <section id="ejercicio-6">
     <h2>phpMyAdmin (2) 6 - Instalar dos aplicaciones como usuario iaw_agenda_3</h2>
     <ol>
-      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/1920/agenda-191215.zip">Agenda (15/12/19)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Programación web en PHP</a>).</li>
+      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2122/iaw-agenda-2022-01-25.zip">Agenda (25/01/22)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/">Programación web en PHP</a>).</li>
       <li>Descomprima la aplicación en dos carpetas y renombre las carpetas como <strong>agenda-3a</strong> y <strong>agenda-3b</strong>.</li>
-      <li>Modifique los archivos de configuración <strong>config.php</strong> para que las aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_3</strong> en MySQL y la misma base de datos <strong>iaw_agenda_3</strong>, pero cada una guarde sus registros en tablas distintas.</li>
+      <li>Modifique los archivos de configuración <strong>config.php</strong> para que las aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_3</strong> en MySQL/MariaDB y la misma base de datos <strong>iaw_agenda_3</strong>, pero cada una guarde sus registros en tablas distintas.</li>
       <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros. El problema es que al borrar todo desde una aplicación se borra también la tabla de la otra aplicación. </li>
       <li>Confirme el problema anterior comprobando los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong></li>
     </ol>
@@ -175,7 +175,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de diciembre de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 25 de enero de 2022</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>

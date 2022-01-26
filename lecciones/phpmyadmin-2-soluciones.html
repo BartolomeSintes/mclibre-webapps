@@ -105,9 +105,9 @@
   <section id="ejercicio-2">
     <h2>phpMyAdmin (2) 2 - Instalar una aplicación como usuario iaw_agenda_1</h2>
     <ul>
-      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/1920/agenda-191215.zip">Agenda (15/12/19)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
+      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2122/iaw-agenda-2022-01-25.zip">Agenda (25/01/22)</a> (esta aplicación corresponde al ejercicio<a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
       <li>Descomprima el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre la carpeta como <strong>agenda-1</strong>.</li>
-      <li>Modifique el archivo de configuración <strong>config.php</strong> de manera que la aplicación utilice la cuenta del usuario <strong>iaw_agenda_1</strong>:
+      <li>Modifique el archivo de configuración <strong>config.php</strong> de manera que la aplicación utilice MYSQL/MariaDB y la cuenta del usuario <strong>iaw_agenda_1</strong>:
 
         <div class="codigo">
           <pre>
@@ -115,15 +115,20 @@
 
 // Base de datos utilizada por el programa: MYSQL o SQLITE
 
-$dbMotor = <span class="codigo-modificacion">MYSQL</span>;     // Valores posibles: MYSQL o SQLITE
+$dbMotor = MYSQL                                            // Base de datos utilizada por la aplicación
 
-// Configuración para MYSQL
+$cfg["dbMotor"] = MYSQL;                                    // Valores posibles: MYSQL o SQLITE
 
-define("MYSQL_HOST",     "mysql:host=localhost");   // Nombre de host
-define("MYSQL_USER",     "<span class="codigo-modificacion">iaw_agenda_1</span>");           // Nombre de usuario
-define("MYSQL_PASSWORD", "<span class="codigo-modificacion">iaw_agenda_1</span>");           // Contraseña de usuario
-define("MYSQL_DATABASE", "<span class="codigo-modificacion">iaw_agenda_1</span>");           // Nombre de la base de datos
-define("MYSQL_TABLE",    "tabla");                  // Nombre de la tabla</code>
+// Configuración para SQLite
+
+$cfg["sqliteDatabase"] = "/tmp/iaw-agenda-1.sqlite";        // Ubicación de la base de datos
+
+// Configuración para MySQL
+
+$cfg["mysqlHost"]     = "mysql:host=localhost";             // Nombre de host
+$cfg["mysqlUser"]     = "iaw_agenda_1";                     // Nombre de usuario
+$cfg["mysqlPassword"] = "iaw_agenda_1";                     // Contraseña de usuario
+$cfg["mysqlDatabase"] = "iaw_agenda_1";                     // Nombre de la base de datos</code>
 </pre>
         </div>
       </li>
@@ -193,7 +198,7 @@ define("MYSQL_TABLE",    "tabla");                  // Nombre de la tabla</code>
   <section id="ejercicio-4">
     <h2>phpMyAdmin (2) 4 - Instalar dos aplicaciones como usuario iaw_agenda_2</h2>
     <ul>
-      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/1920/agenda-191215.zip">Agenda (15/12/19)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
+      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2122/iaw-agenda-2022-01-25.zip">Agenda (25/01/22)</a> (esta aplicación corresponde al ejercicio<a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
       <li>Descomprima dos veces el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre las carpetas como <strong>agenda-2a</strong> y <strong>agenda-2b</strong>.</li>
       <li>Modifique los dos archivos de configuración <strong>config.php</strong> de manera que las dos aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_2</strong>:
 
@@ -201,17 +206,22 @@ define("MYSQL_TABLE",    "tabla");                  // Nombre de la tabla</code>
           <pre>
 <code class="language-php">/* config.php aplicación agenda-2a */
 
-// Base de datos utilizada por el programa: MYSQL o SQLITE
+  // Base de datos utilizada por el programa: MYSQL o SQLITE
 
-$dbMotor = <span class="codigo-modificacion">MYSQL</span>;     // Valores posibles: MYSQL o SQLITE
+$dbMotor = MYSQL                                            // Base de datos utilizada por la aplicación
 
-// Configuración para MYSQL
+$cfg["dbMotor"] = MYSQL;                                    // Valores posibles: MYSQL o SQLITE
 
-define("MYSQL_HOST",     "mysql:host=localhost");    // Nombre de host
-define("MYSQL_USER",     "<span class="codigo-modificacion">iaw_agenda_2</span>");            // Nombre de usuario
-define("MYSQL_PASSWORD", "<span class="codigo-modificacion">iaw_agenda_2</span>");            // Contraseña de usuario
-define("MYSQL_DATABASE", "<span class="codigo-modificacion">iaw_agenda_2_agenda_2a</span>");  // Nombre de la base de datos
-define("MYSQL_TABLE",    "tabla");                   // Nombre de la tabla</code>
+// Configuración para SQLite
+
+$cfg["sqliteDatabase"] = "/tmp/iaw-agenda-1.sqlite";        // Ubicación de la base de datos
+
+// Configuración para MySQL
+
+$cfg["mysqlHost"]     = "mysql:host=localhost";             // Nombre de host
+$cfg["mysqlUser"]     = "iaw_agenda_2";                     // Nombre de usuario
+$cfg["mysqlPassword"] = "iaw_agenda_2";                     // Contraseña de usuario
+$cfg["mysqlDatabase"] = "iaw_agenda_2_agenda_2a";           // Nombre de la base de datos</code>
 </pre>
         </div>
 
@@ -219,17 +229,22 @@ define("MYSQL_TABLE",    "tabla");                   // Nombre de la tabla</code
           <pre>
 <code class="language-php">/* config.php aplicación agenda-2b */
 
-// Base de datos utilizada por el programa: MYSQL o SQLITE
+  // Base de datos utilizada por el programa: MYSQL o SQLITE
 
-$dbMotor = <span class="codigo-modificacion">MYSQL</span>;     // Valores posibles: MYSQL o SQLITE
+$dbMotor = MYSQL                                            // Base de datos utilizada por la aplicación
 
-// Configuración para MYSQL
+$cfg["dbMotor"] = MYSQL;                                    // Valores posibles: MYSQL o SQLITE
 
-define("MYSQL_HOST",     "mysql:host=localhost");    // Nombre de host
-define("MYSQL_USER",     "<span class="codigo-modificacion">iaw_agenda_2</span>");            // Nombre de usuario
-define("MYSQL_PASSWORD", "<span class="codigo-modificacion">iaw_agenda_2</span>");            // Contraseña de usuario
-define("MYSQL_DATABASE", "<span class="codigo-modificacion">iaw_agenda_2_agenda_2b</span>");  // Nombre de la base de datos
-define("MYSQL_TABLE",    "tabla");                   // Nombre de la tabla</code>
+// Configuración para SQLite
+
+$cfg["sqliteDatabase"] = "/tmp/iaw-agenda-1.sqlite";        // Ubicación de la base de datos
+
+// Configuración para MySQL
+
+$cfg["mysqlHost"]     = "mysql:host=localhost";             // Nombre de host
+$cfg["mysqlUser"]     = "iaw_agenda_2";                     // Nombre de usuario
+$cfg["mysqlPassword"] = "iaw_agenda_2";                     // Contraseña de usuario
+$cfg["mysqlDatabase"] = "iaw_agenda_2_agenda_2b";           // Nombre de la base de datos</code>
 </pre>
         </div>
       </li>
@@ -247,44 +262,75 @@ define("MYSQL_TABLE",    "tabla");                   // Nombre de la tabla</code
   <section id="ejercicio-6">
     <h2>phpMyAdmin (2) 6 - Instalar dos aplicaciones como usuario iaw_agenda_3</h2>
 
+    <p>El "truco" para que un usuario con una única base de datos pueda instalar dos aplciaciones es que las aplicaciones trabajen con tablas distintas.</p>
     <ul>
-      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/1920/agenda-191215.zip">Agenda (15/12/19)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2.html#ejercicio-3">Bases de datos 2-3</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
+      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2122/iaw-agenda-2022-01-25.zip">Agenda (25/01/22)</a> (esta aplicación corresponde al ejercicio<a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
       <li>Descomprima dos veces el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre las carpetas como <strong>agenda-3a</strong> y <strong>agenda-3b</strong>.</li>
-      <li>Modifique los dos archivos de configuración <strong>config.php</strong> de manera que las dos aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_3</strong>:
+      <li>Modifique los dos archivos de configuración <strong>config.php</strong> de manera que las dos aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_3</strong>, pero tablas distintas (personas_3a y personas_3b, por ejemplo):
 
         <div class="codigo">
           <pre>
 <code class="language-php">/* config.php aplicación agenda-3a */
 
-// Base de datos utilizada por el programa: MYSQL o SQLITE
+  // Base de datos utilizada por el programa: MYSQL o SQLITE
 
-$dbMotor = <span class="codigo-modificacion">MYSQL</span>;     // Valores posibles: MYSQL o SQLITE
+$dbMotor = MYSQL                                            // Base de datos utilizada por la aplicación
 
-// Configuración para MYSQL
+$cfg["dbMotor"] = MYSQL;                                    // Valores posibles: MYSQL o SQLITE
 
-define("MYSQL_HOST",     "mysql:host=localhost");    // Nombre de host
-define("MYSQL_USER",     "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Nombre de usuario
-define("MYSQL_PASSWORD", "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Contraseña de usuario
-define("MYSQL_DATABASE", "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Nombre de la base de datos
-define("MYSQL_TABLE",    "tabla_3a");                // Nombre de la tabla</code>
+// Configuración para SQLite
+
+$cfg["sqliteDatabase"] = "/tmp/iaw-agenda-1.sqlite";        // Ubicación de la base de datos
+
+// Configuración para MySQL
+
+$cfg["mysqlHost"]     = "mysql:host=localhost";             // Nombre de host
+$cfg["mysqlUser"]     = "iaw_agenda_3";                     // Nombre de usuario
+$cfg["mysqlPassword"] = "iaw_agenda_3";                     // Contraseña de usuario
+$cfg["mysqlDatabase"] = "iaw_agenda_3";                     // Nombre de la base de datos</code>
 </pre>
         </div>
 
         <div class="codigo">
           <pre>
-<code class="language-php">/* config.php aplicación agenda-2b */
+<code class="language-php">/* bblioteca-mysql.php aplicación agenda-3a */
+
+// MYSQL: Nombres de las tablas
+
+$cfg["dbPersonasTabla"] = "$cfg[mysqlDatabase].personas_3a"; // Nombre de la tabla Personas</code>
+</pre>
+        </div>
+
+        <div class="codigo">
+          <pre>
+<code class="language-php">/* config.php aplicación agenda-3b */
 
 // Base de datos utilizada por el programa: MYSQL o SQLITE
 
-$dbMotor = <span class="codigo-modificacion">MYSQL</span>;     // Valores posibles: MYSQL o SQLITE
+$dbMotor = MYSQL                                            // Base de datos utilizada por la aplicación
 
-// Configuración para MYSQL
+$cfg["dbMotor"] = MYSQL;                                    // Valores posibles: MYSQL o SQLITE
 
-define("MYSQL_HOST",     "mysql:host=localhost");    // Nombre de host
-define("MYSQL_USER",     "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Nombre de usuario
-define("MYSQL_PASSWORD", "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Contraseña de usuario
-define("MYSQL_DATABASE", "<span class="codigo-modificacion">iaw_agenda_3</span>");            // Nombre de la base de datos
-define("MYSQL_TABLE",    "tabla_3b");                // Nombre de la tabla</code>
+// Configuración para SQLite
+
+$cfg["sqliteDatabase"] = "/tmp/iaw-agenda-1.sqlite";        // Ubicación de la base de datos
+
+// Configuración para MySQL
+
+$cfg["mysqlHost"]     = "mysql:host=localhost";             // Nombre de host
+$cfg["mysqlUser"]     = "iaw_agenda_3";                     // Nombre de usuario
+$cfg["mysqlPassword"] = "iaw_agenda_3";                     // Contraseña de usuario
+$cfg["mysqlDatabase"] = "iaw_agenda_3";                     // Nombre de la base de datos</code>
+</pre>
+        </div>
+
+        <div class="codigo">
+          <pre>
+<code class="language-php">/* bblioteca-mysql.php aplicación agenda-3b */
+
+// MYSQL: Nombres de las tablas
+
+$cfg["dbPersonasTabla"] = "$cfg[mysqlDatabase].personas_3b"; // Nombre de la tabla Personas</code>
 </pre>
         </div>
       </li>
@@ -301,28 +347,34 @@ define("MYSQL_TABLE",    "tabla_3b");                // Nombre de la tabla</code
 
         <div class="codigo">
           <pre>
-<code class="language-php">/* biblioteca-mysql.php aplicación agenda-3a y agenda-3b*/
+<code class="language-php">/* biblioteca-mysql.php aplicación agenda-3a y agenda-3b */
 
-define("CONSULTA_BORRA_TABLA", "DROP TABLE " . $tablaAgenda);
-
-function borraTodo($db, $nombreTabla, $consultaCreacionTabla)
+function borraTodo()
 {
-    $consulta = CONSULTA_BORRA_TABLA;
-    if ($db-&gt;query($consulta)) {
-        print "    &lt;p&gt;Tabla borrada correctamente.&lt;/p&gt;\n";
-        print "\n";
-    } else {
-        print "    &lt;p&gt;Error al borrar la tabla.&lt;/p&gt;\n";
-        print "\n";
-    }
+    global $pdo, $cfg;
 
-    $consulta = $consultaCreacionTabla;
-    if ($db-&gt;query($consulta)) {
-        print "    &lt;p&gt;Tabla creada correctamente.&lt;/p&gt;\n";
-        print "\n";
+    $consulta = "DROP TABLE IF EXISTS $cfg[dbPersonasTabla]";
+
+    if (!$pdo-&gt;query($consulta)) {
+        print "    &lt;p class=\"aviso\"&gt;Error al borrar la tabla. SQLSTATE[{$pdo-&gt;errorCode()}]: {$pdo-&gt;errorInfo()[2]}&lt;/p&gt;\n";
     } else {
-        print "    &lt;p&gt;Error al crear la tabla.&lt;/p&gt;\n";
-        print "\n";
+        print "    &lt;p&gt;Tabla borrada correctamente (si existía).&lt;/p&gt;\n";
+    }
+    print "\n";
+
+    $consulta = "CREATE TABLE $cfg[dbPersonasTabla]  (
+                 id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+                 nombre VARCHAR($cfg[dbPersonasTamNombre]),
+                 apellidos VARCHAR($cfg[dbPersonasTamApellidos]),
+                 telefono VARCHAR($cfg[dbPersonasTamTelefono]),
+                 correo VARCHAR($cfg[dbPersonasTamCorreo]),
+                 PRIMARY KEY(id)
+                 )";
+
+    if (!$pdo-&gt;query($consulta)) {
+        print "    &lt;p class=\"aviso\"&gt;Error al crear la tabla. SQLSTATE[{$pdo-&gt;errorCode()}]: {$pdo-&gt;errorInfo()[2]}&lt;/p&gt;\n";
+    } else {
+        print "    &lt;p&gt;Tabla creada correctamente.&lt;/p&gt;\n";
     }
 }</code>
 </pre>
@@ -334,7 +386,7 @@ function borraTodo($db, $nombreTabla, $consultaCreacionTabla)
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 15 de enero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 26 de enero de 2022</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
