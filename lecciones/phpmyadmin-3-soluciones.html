@@ -54,14 +54,14 @@
   <section id="ejercicio-1">
     <h2>phpMyAdmin (3) 1 - Completar instalación</h2>
     <ol>
-      <li>En el archivo de configuración <strong>config.inc.php</strong>, escriba una cadena cualquiera de al menos 32 caracteres (letras, números, símbolos, etc. al azar) en el campo <i>blowfish_secret</i>. Para generarla puede utilizar un generador como <a href="https://www.question-defense.com/tools/phpmyadmin-blowfish-secret-generator">https://www.question-defense.com/tools/phpmyadmin-blowfish-secret-generator</a>:
+      <li>En el archivo de configuración <strong>config.inc.php</strong>, escriba una cadena cualquiera de al menos 32 caracteres (letras, números, símbolos, etc. al azar) en el campo <i>blowfish_secret</i>. Para generarla puede utilizar un generador como <a href="https://phpsolved.com/phpmyadmin-blowfish-secret-generator/">phpMyAdmin blowfish secret generator</a>:
         <div class="codigo">
           <pre>
 <code class="language-php">/**
-  * This is needed for cookie based authentication to encrypt password in
-  * cookie. Needs to be 32 chars long.
-  */
- $cfg['blowfish_secret'] = '<span class="codigo-resaltado">B9tx)*MFNh0RF_DDItf8LuSdZM+5ilF}f#-M|VT</span>'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */</code>
+ * This is needed for cookie based authentication to encrypt password in
+ * cookie. Needs to be 32 chars long.
+ */
+$cfg['blowfish_secret'] = '<span class="codigo-resaltado">B9tx)*MFNh0RF_DDItf8LuSdZM+5ilF}f#-M|VT</span>'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */</code>
 </pre>
         </div>
       </li>
@@ -75,17 +75,17 @@
         <ul>
           <li>La lista desplegable Tema muestra los temas disponibles. Al elegir uno de ellos, se aplicará inmediatamente:
             <p class=" captura">
-              <img src="../img/phpmyadmin/3-1-s-1-temas.png" alt="XAMPP. Página principal" width="1005" height="500">
+              <img src="../img/phpmyadmin/3-2-s-1-temas.png" alt="XAMPP. Página principal" width="1004" height="410">
             </p>
           </li>
         </ul>
       </li>
       <li>Los temas adicionales se deberían descargar en principio desde la página web <a href="https://www.phpmyadmin.net/themes/">https://www.phpmyadmin.net/themes/</a>, en la que conviene elegir la versión de phpMyAdmin para ver únicamente los temas apropiados para la versión instalada.
-        <p>Los temas se distribuyen en forma de archivo comprimido. Descomprima el archivo descargado en la carpeta <strong>phpmyadmin/themes</strong>, en la que ya se encuentran los temas <strong>original</strong> y <strong>pmahomme</strong>. Al descomprimirlo se añadirá una carpeta con el nombre del tema (en este caso, <strong>metro</strong>).</p>
+        <p>Los temas se distribuyen en forma de archivo comprimido. Descomprima el archivo descargado en la carpeta <strong>phpmyadmin/themes</strong>, en la que ya se encuentran los temas <strong>metro</strong>, <strong>original</strong> y <strong>pmahomme</strong>. Al descomprimirlo se añadirá una carpeta con el nombre del tema (en este caso, <strong>darkwolf</strong>).</p>
       </li>
       <li>Para ver el nuevo tema en la lista desplegable, actualice la página principal de phpMyAdmin.
         <p class=" captura">
-          <img src="../img/phpmyadmin/3-1-s-2-temas.png" alt="XAMPP. Página principal" width="1005" height="500">
+          <img src="../img/phpmyadmin/3-2-s-2-temas.png" alt="XAMPP. Página principal" width="1024" height="491">
         </p>
       </li>
     </ol>
@@ -96,6 +96,10 @@
 
     <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">CAPTURAS PENDIENTES DE ACTUALIZAR</p>
     <ol>
+      <li>inicialmente, los usuarios no puede borrar su bases de datos porque phpMyAdmin no ofrece esa posibilidad:
+        <p class=" captura">
+          <img src="../img/phpmyadmin/3-3-s-1-config.png" alt="XAMPP. Borrar bases de datos" width="1021" height="390"></p>
+      </li>
       <li>Al añadir la línea
 
         <div class="codigo">
@@ -104,21 +108,9 @@
 $cfg['AllowUserDropDatabase'] = true;</code>
 </pre>
         </div>
-        <p>en el archivo config.inc.php, la opción "Bases de datos" permite borrar bases de datos:</p>
+        <p>en el archivo config.inc.php, la opción "Bases de datos" ofrece la opción de borrar las bases de datos:</p>
         <p class=" captura">
-          <img src="../img/phpmyadmin/3-3-s-1-config.png" alt="XAMPP. Configuración" width="990" height="420"></p>
-      </li>
-      <li>Al eliminar la línea (o comentarla):
-
-        <div class="codigo">
-          <pre>
-<code class="language-php">/* config.inc.php */
-/* $cfg['AllowUserDropDatabase'] = true; */</code>
-</pre>
-        </div>
-        <p>en el archivo config.inc.php, la opción "Bases de datos" ya no permite borrar bases de datos:</p>
-        <p class=" captura">
-          <img src="../img/phpmyadmin/3-3-s-2-config.png" alt="XAMPP. Configuración" width="990" height="381">
+          <img src="../img/phpmyadmin/3-3-s-2-config.png" alt="XAMPP. Borrar bases de datos" width="1004" height="430">
         </p>
       </li>
     </ol>
@@ -127,39 +119,50 @@ $cfg['AllowUserDropDatabase'] = true;</code>
   <section id="ejercicio-4">
     <h2>phpMyAdmin (3) 4 - Realizar copias de seguridad de las bases de datos del usuario iaw_agenda_2</h2>
 
-    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">CAPTURAS PENDIENTES DE ACTUALIZAR</p>
+    <p>Copia de seguridad personalizada completa</p>
+
     <ul>
-      <li>Entrar en phpMyAdmin como el usuario <strong>iaw_agenda_2</strong>.</li>
-      <li>Elegir la opción "Exportar", elegir el método de exportación personalizado para poder marcar la casilla "Agregar sentencia CREATE DATABASE / USE", elegir únicamente las dos bases de datos de las aplicaciones y hacer clic en "Continuar":
+      <li>Entre en phpMyAdmin como el usuario <strong>iaw_agenda_2</strong>.</li>
+      <li>Elija la opción "Exportar", elija el método de exportación personalizado para poder marcar las casillsa "Agregar sentencia DROP DATABASE IF EXISTS" y "Agregar sentencias DROP TABLE ...", elija únicamente las dos bases de datos de las aplicaciones y haga clic en "Continuar":
         <p class=" captura">
-          <img src="../img/phpmyadmin/3-4-s-1-backup.png" alt="XAMPP. Copia de seguridad" width="990" height="400">
+          <img src="../img/phpmyadmin/3-4-s-1-backup.png" alt="XAMPP. Copia de seguridad" width="1024" height="492">
+        </p>
+      </li>
+      <li>Según el tipo de restauración que se pretenda hacer en el futuro, puede ser interesante marcar las casillas "Agregar sentencia DROP DATABASE IF EXISTS" y "Agregar sentencias DROP TABLE ..."
+        <p class=" captura">
+          <img src="../img/phpmyadmin/3-4-s-2-backup.png" alt="XAMPP. Copia de seguridad" width="1004" height="320">
         </p>
       </li>
       <li>phpMyAdmin generará la copia de seguridad en forma de archivo .sql que el navegador permitirá abrir o descargar
         <p class=" captura">
-          <img src="../img/phpmyadmin/3-4-s-2-backup.png" alt="XAMPP. Copia de seguridad" width="990" height="360">
+          <img src="../img/phpmyadmin/3-4-s-3-backup.png" alt="XAMPP. Copia de seguridad" width="1024" height="465">
         </p>
       </li>
-      <li>A continuación, borrar las bases de datos:
+      <li>A continuación, borre las bases de datos:
         <p class=" captura">
-          <img src="../img/phpmyadmin/3-4-s-3-backup.png" alt="XAMPP. Copia de seguridad" width="990" height="450">
+          <img src="../img/phpmyadmin/3-4-s-4-backup.png" alt="XAMPP. Copia de seguridad" width="1024" height="435">
         </p>
         <p class=" captura">
-          <img src="../img/phpmyadmin/3-4-s-4-backup.png" alt="XAMPP. Copia de seguridad" width="990" height="240">
+          <img src="../img/phpmyadmin/3-4-s-5-backup.png" alt="XAMPP. Copia de seguridad" width="1004" height="435">
         </p>
         <p class=" captura">
-          <img src="../img/phpmyadmin/3-4-s-5-backup.png" alt="XAMPP. Copia de seguridad" width="990" height="180">
+          <img src="../img/phpmyadmin/3-4-s-6-backup.png" alt="XAMPP. Copia de seguridad" width="1024" height="385">
         </p>
       </li>
-      <li>Restaurar las bases de datos importando la copia de seguridad:
+      <li>Restaure las bases de datos importando la copia de seguridad:
         <p class=" captura">
-          <img src="../img/phpmyadmin/3-4-s-6-backup.png" alt="XAMPP. Copia de seguridad" width="990" height="300">
+          <img src="../img/phpmyadmin/3-4-s-7-backup.png" alt="XAMPP. Copia de seguridad" width="1004" height="310">
         </p>
         <p class=" captura">
-          <img src="../img/phpmyadmin/3-4-s-7-backup.png" alt="XAMPP. Copia de seguridad" width="990" height="275">
+          <img src="../img/phpmyadmin/3-4-s-8-backup.png" alt="XAMPP. Copia de seguridad" width="1004" height="240">
         </p>
       </li>
     </ul>
+
+    <p>Copia de seguridad personalizada parcial</p>
+
+    <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">Capturas pendientes de incluir</p>
+
   </section>
 
   <section id="ejercicio-5">
@@ -169,7 +172,7 @@ $cfg['AllowUserDropDatabase'] = true;</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 13 de diciembre de 2018</p>
+    <p class="ultmod">Última modificación de esta página: 27 de enero de 2022</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
