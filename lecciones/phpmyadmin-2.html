@@ -164,18 +164,34 @@
   <section id="ejercicio-7">
     <h2>phpMyAdmin (2) 7 - Mejora de las aplicaciones del usuario iaw_agenda_3</h2>
 
+    <h3>Usuario con un base de datos única</h3>
     <ol>
-      <li>El problema de las aplicaciones del ejercicio 6 es que si se elige la opción "Borrar todo" en una de las aplicaciones se pierde toda la información de la otra, ya que al "Borrar todo" se borra la base de datos completa.
-        <p>Para resolver este problema puede modificar el código de las aplicaciones haciendo que la opción Borrar todo sólo borre la tabla que usa la aplicación</p>
-        <p>Nota: Al crear el usuario <strong>iaw_agenda_3</strong> con phpMyAdmin se crea la base de datos <strong>iaw_agenda_3</strong>, por lo que la aplicación no necesita crear la base de datos.</p>
+      <li>El problema de las aplicaciones del ejercicio 6 es que si se elige la opción "Borrar todo" en una de las aplicaciones se pierde toda la información de la otra apicación, ya que al "Borrar todo" se borra la base de datos completa. Corrija este problema.
+        <details>
+          <summary>Ayuda (haga clic aquí si no se le ocurre cómo hacerlo)</summary>
+          <p>Para resolver este problema puede modificar el código de las aplicaciones haciendo que la opción "Borrar todo" borre y cree únicamente la tabla que usa la aplicación</p>
+          <p>Nota: Al crear el usuario <strong>iaw_agenda_3</strong> con phpMyAdmin se crea la base de datos <strong>iaw_agenda_3</strong>, por lo que la aplicación no necesita crear la base de datos.</p>
+        </details>
       </li>
       <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros. Compruebe especialmente que al borrar todo desde una aplicación no se borran los registros de la otra.</li>
+      <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong>.</li>
+    </ol>
+
+    <h3>Usuario con varias bases de datos</h3>
+    <ol>
+      <li>Si el usuario <strong>iaw_agenda_3</strong> fuera del tipo de los que pueden tener muchas bases de datos, la solución del apartado anterior no sería suficiente, ya que las aplicaciones necesitan que exista la base de datos y las aplicacioines no las crean. Corrija este problema.
+        <details>
+          <summary>Ayuda (haga clic aquí si no se le ocurre cómo hacerlo)</summary>
+          <p>Para resolver este problema puede modificar el código de las aplicaciones haciendo que la opción "Borrar todo" incluya una consulta CREATE DATABASE IF NOT EXISTS.</p>
+        </details>
+      </li>
+      <li>Borre el usuario usuario <strong>iaw_agenda_3</strong> y créelo de nuevo, pero ahora del tipo de los que pueden crear varias bases de datos. Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros. Compruebe especialmente que al borrar todo desde una aplicación no se borran los registros de la otra.</li>
       <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong>.</li>
     </ol>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 25 de enero de 2022</p>
+    <p class="ultmod">Última modificación de esta página: 28 de enero de 2022</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>

@@ -74,11 +74,6 @@
           <img src="../img/phpmyadmin/3-2-e-1-temas-metro.png" alt="phpMyAdmin. Tema Original" width="1005" height="490">
         </p>
       </li>
-      <li>Modifique los colores del tema <strong>Metro</strong>:
-        <p class="captura">
-          <a href="../img/phpmyadmin/3-2-e-2-temas-metro-mono.png"><img src="../img/phpmyadmin/3-2-e-2-temas-metro-mono-mini.png" alt="phpMyAdmin. Tema Metro" width="576" height="421"></a>
-        </p>
-      </li>
       <li>Descargue el tema <strong>darkwolf</strong> de la página de temas de phpMyAdmin y descomprímalo en la carpeta adecuada.
         <p>Si el tema <strong>darkwolf</strong> ya no está disponible en la web del programa, puede descargarlo desde la página de <a href="../otros/descarga-aplicaciones.html">Descarga de aplicaciones</a>.</p>
       </li>
@@ -94,19 +89,28 @@
   <section id="ejercicio-3">
     <h2>phpMyAdmin (3) 3 - Permitir borrar bases de datos a los usuarios</h2>
     <ol>
-      <li>Como usuario <strong>root</strong>, compruebe que con phpMyAdmin podría borrar bases de datos (no hace falta hacerlo).</li>
-      <li>Como usuario <strong>iaw_agenda_1</strong> o <strong>iaw_agenda_2</strong>, compruebe que con phpMyAdmin no puede borrar sus bases de datos.</li>
-      <li>Con la configuración inicial, los usuarios no pueden borrar bases de datos, pero añadiendo la línea
-
-        <div class="codigo">
-          <pre>
-<code class="language-php">/* config.inc.php */
-$cfg['AllowUserDropDatabase'] = true;</code>
-</pre>
-        </div>
-        <p>en el archivo config.inc.php, el usuario podrá borrar bases de datos.</p>
+      <li>Como usuario <strong>root</strong>, compruebe que con phpMyAdmin podría borrar bases de datos (no borre ninguna ahora).
+        <p class=" captura">
+          <img src="../img/phpmyadmin/3-3-e-1-config.png" alt="XAMPP. Borrar bases de datos" width="1022" height="305">
+        </p>
       </li>
-      <li>Como usuario <strong>iaw_agenda_1</strong> o <strong>iaw_agenda_2</strong>, compruebe que ya puede borrar sus bases de datos.</li>
+      <li>Como usuario <strong>iaw_agenda_1</strong> o <strong>iaw_agenda_2</strong>, compruebe que con phpMyAdmin no puede borrar sus bases de datos.
+        <p class=" captura">
+          <img src="../img/phpmyadmin/3-3-e-2-config.png" alt="XAMPP. Borrar bases de datos" width="1021" height="150">
+        </p>
+      </li>
+      <li>El motivo es que con la configuración inicial, los usuarios no pueden borrar bases de datos. Pero estableciendo una variable de configuración en el archivo de configuración de phpMyAdmin, el usuario podrá borrar bases de datos.
+        <p>La variable de configuración se documenta en el <a href="https://docs.phpmyadmin.net/en/latest/config.html">manual de phpMyAdmin</a>.</p>
+        <details>
+          <summary>Ayuda (haga clic aquí si no encuentra el nombre de la variable en la página del manual enlazada)</summary>
+          <p>La variable de configuración es AllowUserDropDatabase.</p>
+        </details>
+      </li>
+      <li>Como usuario <strong>iaw_agenda_1</strong> o <strong>iaw_agenda_2</strong>, compruebe que ya puede borrar sus bases de datos.
+        <p class=" captura">
+          <img src="../img/phpmyadmin/3-3-e-2-config.png" alt="XAMPP. Borrar bases de datos" width="1004" height="160">
+        </p>
+      </li>
       <li>Deje el archivo de configuración de manera que los usuarios puedan borrar sus bases de datos, para poder hacer el ejercicio siguiente.</li>
     </ol>
   </section>
@@ -146,13 +150,23 @@ $cfg['AllowUserDropDatabase'] = true;</code>
     <h2>phpMyAdmin (3) 5 (optativo) - Generar PDFs de la estructura de las bases de datos</h2>
 
     <p>phpMyAdmin incluye un diseñador que muestra de forma gráfica la estructura de la base de datos y que también permite exportarla en formato PDF.</p>
+
     <ol>
-      <li>Exporte la estructra de la base de datos iaw_agenda_1.</li>
+      <li>Muestre la estructura de la base de datos <strong>iaw_agenda_1</strong>.
+        <p class=" captura">
+          <img src="../img/phpmyadmin/3-5-e-1-pdf.png" alt="phpMyAdmin. Generador" width="1024" height="200">
+        </p>
+      </li>
+      <li>Exporte el pdf con la estructura de la base de datos <strong>iaw_agenda_1</strong>.
+        <p class=" captura">
+          <img src="../img/phpmyadmin/3-5-e-2-pdf.png" alt="phpMyAdmin. Generador" width="1024" height="492">
+        </p>
+      </li>
     </ol>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 27 de enero de 2022</p>
+    <p class="ultmod">Última modificación de esta página: 28 de enero de 2022</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>

@@ -343,7 +343,8 @@ $cfg["dbPersonasTabla"] = "$cfg[mysqlDatabase].personas_3b"; // Nombre de la tab
     <h2>phpMyAdmin (2) 7 - Mejora de las aplicaciones del usuario iaw_agenda_3</h2>
 
     <ol>
-      <li>Modifique en ambas aplicaciones el archivo <strong>biblioteca-mysql.php</strong> sustituyendo la función borraTodo() por el fragmento de código siguiente:
+      <li>El problema de las aplicaciones del ejercicio 6 es que las dos aplicaciones borran la base de datos antes de crear su tabla, por lo que al hacer Borrar todo en una aplicación se destruye también la tabla de la otra.
+        <p>Para resolver este problema basta con eliminar el borrado y creación de la base de datos de la función borrarTodo():</p>
 
         <div class="codigo">
           <pre>
@@ -382,11 +383,58 @@ function borraTodo()
       </li>
       <li>Ejecute las aplicaciones en el navegador y compruebe que funcionan creando varios registros. Compruebe especialmente que al borrar todo desde una aplicación no se borran los registros de la otra.</li>
       <li>Compruebe los contenidos de las tablas en phpMyAdmin como usuario <strong>iaw_agenda_3</strong>.</li>
+      <li>Las aplicaciones tal y como las hemos modificado funcionan siempre que exista la base de datos. Puesto que el usuario iaw_agenda_3 se ha creado en el ejercicio 5 como usuario del tipo "base de datos con el mismo nombre", phpMyAdmin ha creado la base de datos iaw_agenda_3 junto con el usuario. El problema lo tendríamos si el usuario iaw_agenda_3 hubiera sido del tipo "comodín {username\_%)", para los que phpMyAdmin no crea bases de datos.</li>
+      <li>Para resolver este caso, deberíamos mejorar la función borrarTodo() incluyendo una consulta inicial "CREATE DATABASE IF NOT EXISTS", que creara la base de datos si no existe.</li>
+        <div class="codigo">
+          <pre>
+<code class="language-php">/* biblioteca-mysql.php aplicación agenda-3a y agenda-3b */
+
+function borraTodo()
+{
+    global $pdo, $cfg;
+
+    $consulta = "CREATE DATABASE IF NOT EXISTS $cfg[mysqlDatabase]
+                 CHARACTER SET utf8mb4
+                 COLLATE utf8mb4_unicode_ci";
+
+    if (!$pdo-&gt;query($consulta)) {
+        print "    &lt;p class=\"aviso\"&gt;Error al crear la base de datos. SQLSTATE[{$pdo-&gt;errorCode()}]: {$pdo-&gt;errorInfo()[2]}&lt;/p&gt;\n";
+    } else {
+        print "    &lt;p&gt;Base de datos creada correctamente (si no existía).&lt;/p&gt;\n";
+    }
+
+    $consulta = "DROP TABLE IF EXISTS $cfg[dbPersonasTabla]";
+
+    if (!$pdo-&gt;query($consulta)) {
+        print "    &lt;p class=\"aviso\"&gt;Error al borrar la tabla. SQLSTATE[{$pdo-&gt;errorCode()}]: {$pdo-&gt;errorInfo()[2]}&lt;/p&gt;\n";
+    } else {
+        print "    &lt;p&gt;Tabla borrada correctamente (si existía).&lt;/p&gt;\n";
+    }
+    print "\n";
+
+    $consulta = "CREATE TABLE $cfg[dbPersonasTabla]  (
+                 id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+                 nombre VARCHAR($cfg[dbPersonasTamNombre]),
+                 apellidos VARCHAR($cfg[dbPersonasTamApellidos]),
+                 telefono VARCHAR($cfg[dbPersonasTamTelefono]),
+                 correo VARCHAR($cfg[dbPersonasTamCorreo]),
+                 PRIMARY KEY(id)
+                 )";
+
+    if (!$pdo-&gt;query($consulta)) {
+        print "    &lt;p class=\"aviso\"&gt;Error al crear la tabla. SQLSTATE[{$pdo-&gt;errorCode()}]: {$pdo-&gt;errorInfo()[2]}&lt;/p&gt;\n";
+    } else {
+        print "    &lt;p&gt;Tabla creada correctamente.&lt;/p&gt;\n";
+    }
+}</code>
+</pre>
+        </div>
     </ol>
+
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 26 de enero de 2022</p>
+    <p class="ultmod">Última modificación de esta página: 28 de enero de 2022</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
