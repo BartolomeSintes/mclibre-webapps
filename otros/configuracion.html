@@ -42,17 +42,13 @@
     <section id="servidores">
       <h2>Servidores</h2>
 
-      <p>En este curso se utilizará la misma instalación de Apache utilizada en el curso de <a href="https://www.mclibre.org/consultar/php/index.html">Programación web en PHP</a>. En el apartado Software &gt; XAMPP de este curso se explica la instalación y configuración de Apache y MySQL (mediante XAMPP).</p>
+      <p>En este curso se utilizará la misma instalación de Apache utilizada en el curso de <a href="https://www.mclibre.org/consultar/php/index.html">Programación web en PHP</a>. En la lección <a href="https://www.mclibre.org/consultar/php/otros/xampp-instalacion-windows.html">Software &gt; XAMPP</a> de ese curso se explica la instalación y configuración de Apache y MySQL/MariaDB (mediante XAMPP).</p>
 
-      <hr class="corta">
-
-      <p>Para poder ejecutar las aplicaciones web, se deberá iniciar previamente el servidor Apache y el servidor MySQL desde el panel de control de XAMPP.</p>
+      <p>Para poder ejecutar las aplicaciones web, se deberá iniciar previamente el servidor Apache y el servidor MySQL/MariaDB desde el panel de control de XAMPP.</p>
 
       <p class="captura">
-        <img src="../img/xampp/xampp-apache-mysql.png" alt="Panel de control de XAMPP" title="Panel de control de XAMPP" width="668" height="250">
+        <img src="../img/xampp/xampp-apache-mysql.png" alt="Panel de control de XAMPP" title="Panel de control de XAMPP" width="668" height="434">
       </p>
-
-      <hr class="corta">
 
       <p>Algunas aplicaciones requieren modificaciones de la configuración de Apache o PHP y se comentan en las páginas correspondientes, pero hay un cambio que conviene hacer para no tener problemas cuando una página tarda mucho tiempo en ejecutarse (lo que puede ocurrir durante la instalación de las aplicaciones o con tareas como actualizaciones o copias de seguridad).</p>
 
@@ -60,11 +56,13 @@
 
         <h3>Directiva <span class="php-dir">max-execution-time</span></h3>
 
-        <p>La directiva <a href="https://www.php.net/manual/es/info.configuration.php#ini.max-execution-time"><span class="php-dir">max-execution-time</span></a> indica la tiempo máximo de ejecución de una página PHP. En XAMPP 7.3 esta directiva viene predeterminada con el valor 30 (segundos). Si la página tarda más de ese tiempo en ejecutarse, el servidor interrumpirá la ejecución del programa. Esto puede dar problemas durante la instalación o actualización de algunas aplicaciones. Para evitar ese problema, se recomienda aumentar ese valor, por ejemplo a 5 minutos.</p>
+        <p>La directiva <a href="https://www.php.net/manual/es/info.configuration.php#ini.max-execution-time"><span class="php-dir">max-execution-time</span></a> indica la tiempo máximo de ejecución de una página PHP. En XAMPP 8.0 esta directiva viene predeterminada con el valor 120 (segundos). Si la página tarda más de ese tiempo en ejecutarse, el servidor interrumpirá la ejecución del programa. Esto puede dar problemas durante la instalación o actualización de algunas aplicaciones. Para evitar ese problema, se recomienda aumentar ese valor, por ejemplo a 5 minutos.</p>
 
         <div class="codigo">
           <pre>
-<code class="language-configuracion">max_execution_time=300        ; Valor recomendado en este curso</code>
+<code class="language-configuracion">; 2022-01-25. Barto. He cambiado max_execution_time para que no se interrumpan los procesos de instalación.
+; max_execution_time=120
+max_execution_time=300</code>
 </pre>
         </div>
       </section>
@@ -76,17 +74,17 @@
       <p>Las aplicaciones web se descargarán como archivos comprimidos que se deberán descomprimir en la misma carpeta, por ejemplo, en:</p>
 
       <ul>
-        <li><strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones</strong></li>
+        <li><strong>Mis documentos &gt; IAW &gt; WebApps</strong></li>
       </ul>
 
       <p>Cada aplicación se guardará en su propia carpeta. Se recomienda que el nombre de la carpeta sea simplemente el nombre de la aplicación, en minúsculas y sin incluir el número de versión. Únicamente cuando se instalen varias versiones de la misma aplicación, cada una en su propia carpeta, se añadirá un número al nombre de la aplicación (-1, -2, etc.)</p>
 
       <p>Por ejemplo, en el caso de la aplicación web phpMyAdmin se creará la carpeta:</p>
       <ul>
-        <li><strong>Mis documentos &gt; IAW Nombre-de-alumno &gt; Aplicaciones &gt; phpmyadmin</strong></li>
+        <li><strong>Mis documentos &gt; IAW &gt; WebApps &gt; phpmyadmin</strong></li>
       </ul>
 
-      <p>Para poder ejecutar las aplicaciones, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. El alias puede ser por ejemplo <strong>/iaw/webapps</strong> y apuntar a la carpeta Aplicaciones, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
+      <p>Para poder ejecutar las aplicaciones, se deberá crear un alias en el archivo de configuración de Apache <strong>httpd.conf</strong>. El alias puede ser por ejemplo <strong>/iaw/webapps</strong> y apuntar a la carpeta WebApps, de manera que un único alias sea suficiente para todas las aplicaciones.</p>
       <ul>
         <li><strong>http://localhost/iaw/webapps/</strong></li>
       </ul>
@@ -99,9 +97,9 @@
           <pre>
 <code class="language-configuracion">&lt;IfModule alias_module&gt;
 # ...
-<strong>    # 2018-12-12. Alias para las aplicaciones web
-    Alias <span class="codigo-resaltado">/iaw/webapps</span> <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW nombre\Aplicaciones"</span>
-    &lt;Directory <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW nombre\Aplicaciones"</span>&gt;
+<strong>    # 2022-01-25. Alias para las aplicaciones web
+    Alias <span class="codigo-resaltado">/iaw/webapps</span> <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW\WebApps"</span>
+    &lt;Directory <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW\WebApps"</span>&gt;
       Options Indexes FollowSymLinks Includes ExecCGI
       AllowOverride All
       Require all granted
@@ -148,7 +146,7 @@
   &lt;h2&gt;Alias a aplicaciones&lt;/h2&gt;
 
   &lt;ul&gt;
-    &lt;li&gt;&lt;a href="http://localhost/phpmyadmin2/"&gt;phpMyAdmin&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://localhost/pma/"&gt;phpMyAdmin&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code>
@@ -158,7 +156,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 12 de enero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 25 de enero de 2022</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
