@@ -62,8 +62,7 @@
         <p>Para descargar la imagen .iso de instalación de Ubuntu Server 18.04.3 LTS puede utilizar:</p>
         <ul>
           <li>La página de descarga oficial <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a>. En esta página encontrará siempre la última versión publicada.</li>
-          <li>Este enlace directo de descarga desde ubuntu, que seguramente dejará de estar disponible cuando se publique una nueva versión: <a href="http://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
-          <li>Este enlace directo de descarga desde mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
+          <li>La versión Ubuntu 18.04.3 ya no está disponible en los servidores de Ubuntu, pero lo puede descargar desde mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
         </ul>
       </li>
       <li>Cree una máquina virtual en VirtualBox e instale Ubuntu 18.04.3 LTS Server.
@@ -679,7 +678,7 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
 
       <p>Si el directorio enlazado es el directorio en el que la aplicación guarda los datos generados por la propia aplicación, de esta manera conseguimos que los datos estén realmente fuera del contenedor. Eso significa que podemos conservar los datos aunque se destruya el contenedor, reutilizarlos con otro contenedor, etc.</p>
 
-      <p>En este ejemplo, vamos a volver a aprovechar el hecho que la imagen bitnami/apache está configurada para que el directorio htdocs habitual (en el caso de bitnami como hemos visto en el ejercicio anterior es <strong>/opt/bitnami/apache/htdocs</strong>) enlace al directorio <strong>/app</strong> [véase <a href="https://github.com/bitnami/bitnami-docker-apache/blob/master/2.4/debian-9/Dockerfile">Dockerfile de bitnami/apache</a>]</p>
+      <p>En este ejemplo, vamos a volver a aprovechar el hecho que la imagen bitnami/apache está configurada para que el directorio htdocs habitual (en el caso de bitnami como hemos visto en el ejercicio anterior es <strong>/opt/bitnami/apache/htdocs</strong>) enlace al directorio <strong>/app</strong> [véase <a href="https://github.com/bitnami/bitnami-docker-apache/blob/master/2.4/debian-10/Dockerfile">Dockerfile de bitnami/apache</a>]</p>
 
       <p>Si al crear el contenedor enlazamos el directorio /app con un directorio de la máquina virtual, el contenedor servirá las páginas contenidas en el directorio de la máquina virtual.</p>
 

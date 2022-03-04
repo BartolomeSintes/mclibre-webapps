@@ -53,9 +53,9 @@
   <section id="que-es">
     <h2>Qué es Ansible</h2>
 
-    <p><a href="https://www.ansible.com/">Ansible</a> es una herramienta de administración automatizada de ordenadores, creada por <a href="https://michaeldehaan.net/">Michael DeHaan</a> en 2012. La primera versión se publicó en marzo de 2012 y la versión 1.0 se publicó en febrero de 2013. RedHat compró Ansible en octubre de 2015.</p>
+    <p><a href="https://www.ansible.com/">Ansible</a> es una herramienta de administración automatizada de ordenadores, creada por <a href="https://www.michaeldehaan.net/">Michael DeHaan</a> en 2012. La primera versión se publicó en marzo de 2012 y la versión 1.0 se publicó en febrero de 2013. RedHat compró Ansible en octubre de 2015.</p>
 
-    <p>Ansible es software libre GPL 3.0 y es la base de <a href="https://www.ansible.com/products/tower">Ansible Tower</a>, un producto comercial de RedHat.</p>
+    <p>Ansible es software libre GPL 3.0 y es la base de <a href="https://www.ansible.com/products/controller">Automation controller</a>, un producto comercial de RedHat, que hasta septiembre de 2021 se llamaba Ansible Tower.</p>
 
     <p>Hasta 2020 cada versión de Ansible incluida el propio Ansible y la biblioteca de módulos completa. En 2020 Ansible ha separado el desarrollo del núcleo de Ansible del de los módulos y extensiones (que se agrupan en colecciones). Así, Ansible 3.0, publicada en febrero de 2021 contenía el núcleo de Ansible 2.10 y una selección de colecciones de módulos (la nueva estructura se explica en <a href="https://www.ansible.com/blog/announcing-the-community-ansible-3.0.0-package">este post</a> y en <a href="https://www.ansible.com/blog/ansible-3.0.0-qa">este</a>), Ansible 4.0 contenía Ansible core 2.11 y Ansible 5.0 contiene Ansible core 2.12.</p>
 
@@ -347,7 +347,7 @@ ssh-copy-id <span class="codigo-resaltado">mclibre@192.168.1.16</span></code>
     <section id="playbook-shell">
       <h3>Ejemplo 1: Ejecución de comandos de shell</h3>
 
-      <p>Para ejecutar comandos de la <i>shell</i>, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/modules/shell_module.html">shell</a>.</p>
+      <p>Para ejecutar comandos de la <i>shell</i>, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html">shell</a>.</p>
 
       <ul>
         <li>Cree el archivo <strong>playbook-1-1.yaml</strong> con el siguiente contenido:
@@ -401,7 +401,7 @@ PLAY RECAP *********************************************************************
     <section id="playbook-apt-1">
       <h3>Ejemplo 2: Actualización del sistema</h3>
 
-      <p>Para tareas de mantenimiento de paquetes, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/modules/apt_module.html">apt</a>.</p>
+      <p>Para tareas de mantenimiento de paquetes, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html">apt</a>.</p>
 
       <ul>
         <li>Cree el archivo <strong>playbook-1-2.yaml</strong> con el siguiente contenido:
@@ -455,9 +455,9 @@ PLAY RECAP *********************************************************************
     <section id="playbook-apt-2">
       <h3>Ejemplo 3: Instalación y desinstalación de paquetes</h3>
 
-      <p>Para tareas de mantenimiento de paquetes, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/modules/apt_module.html">apt</a>.</p>
+      <p>Para tareas de mantenimiento de paquetes, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html">apt</a>.</p>
 
-      <p>En el ejemplo siguiente, se instala el paquete <a href="https://help.ubuntu.com/lts/serverguide/aptitude.html">aptitude</a>, un interfaz en modo texto de APT.</p>
+      <p>En el ejemplo siguiente, se instala el paquete <a href="https://ubuntu.com/server/docs/package-management">aptitude</a>, un interfaz en modo texto de APT.</p>
 
       <ul>
         <li>Compruebe en el nodo administrado que el paquete aptitude no está instalado con la orden:
@@ -533,7 +533,7 @@ PLAY RECAP *********************************************************************
   <section id="saber-mas">
     <h2>Saber más</h2>
 
-    <p>Conferencias en <a href="https://www.redhat.com/en/summit/2018">RedHat Summit 2018</a> (mayo 2018)</p>
+    <p>Conferencias en <a href="https://www.youtube.com/playlist?list=PLEGSLwUsxfEhRCz9fiQK2L86Vk9qV1tAu">RedHat Summit 2018</a> (mayo 2018)</p>
     <ul>
       <li><a href="https://www.youtube.com/watch?v=FEdXUv02Dbg">Manage Windows like Linux with Ansible</a>, Matt Davis (09/05/2018)</li>
       <li><a href="https://www.youtube.com/watch?v=9tAXBvuyXJU">Using Ansible and Redfish to Automate Systems Management</a>, (08/05/2018)</li>

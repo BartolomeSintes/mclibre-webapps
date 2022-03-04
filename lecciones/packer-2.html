@@ -367,11 +367,11 @@ sub   rsa4096 2017-02-22 [S]</code>
 
     <p>La forma recomendada de comprimir una máquina virtual Ubuntu de VirtualBox es grabar ceros en las partes no utilizadas del disco mediante la utilidad <i>zerofree</i> y después exportar, clonar o compactar el disco con VirtualBox o la utilidad VBoxManage. Como la utilidad <i>zerofree</i> no funciona sobre unidades montadas, debemos arrancar la máquina virtual con un LiveCD de otra distribución y desde ahí aplicar <i>zerofree</i> a la partición de disco.</p>
 
-    <p>En este ejemplo de automatización con Packer, vamos a realizar la compresión utilizando la distribución <a href="http://www.system-rescue-cd.org/">SystemRescueCD</a>.</p>
+    <p>En este ejemplo de automatización con Packer, vamos a realizar la compresión utilizando la distribución <a href="https://www.system-rescue.org/">SystemRescueCD</a>.</p>
 
     <p>Actualmente (enero de 2020), la última versión disponible de SystemRescueCD es la versión 6.0.4, publicada el 29 de diciembre de 2019. En <a href="https://www.cdlibre.org/">cdlibre.org</a> hay una sección dedicada a <a href="https://www.cdlibre.org/consultar/catalogo/Utilidades_Disco.html">Utilidades de disco</a>, desde la que se puede descargar la última versión disponible.</p>
 
-    <p>También puede descargar SystemRescueCD 6.0.4 de mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/systemrescuecd_6.0.4.iso">SystemRescueCD 6.0.4</a> (29/12/19, 886 MB).</p>
+    <p>También puede descargar SystemRescueCD 6.0.4 de mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/systemrescuecd-6.0.4.iso">SystemRescueCD 6.0.4</a> (29/12/19, 886 MB).</p>
 
     <p>Los elementos necesarios para realizar la compresión son los siguientes:</p>
     <ul>
@@ -404,7 +404,7 @@ sub   rsa4096 2017-02-22 [S]</code>
       "guest_additions_mode": "disable",
       "vboxmanage": [
         ["showvminfo", "{{.Name}}"],
-        ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "0", "--device", "1", "--type", "dvddrive", "--medium", "systemrescuecd_6.0.4.iso"],
+        ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "0", "--device", "1", "--type", "dvddrive", "--medium", "systemrescuecd-6.0.4.iso"],
         ["modifyvm", "{{.Name}}", "--boot1", "dvd", "--boot2", "disk", "--boot3", "none", "--boot4", "none"]
       ],
       "boot_wait": "20s",

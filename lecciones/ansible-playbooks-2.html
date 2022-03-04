@@ -41,7 +41,7 @@
   <section id="cambio-password">
     <h3>Cambio de contraseña</h3>
 
-    <p>Para la administración de cuentas de usuario, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/modules/user_module.html">user</a>.</p>
+    <p>Para la administración de cuentas de usuario, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html">user</a>.</p>
 
     <p>Este playbook cambia la contraseña de un usuario:</p>
     <div class="codigo">
@@ -72,9 +72,9 @@
 
     <p>El nombre del ordenador se encuentra en dos ficheros, <strong>/etc/hostname</strong> y <strong>/etc/hosts</strong> [<a href="https://debian-handbook.info/browse/es-ES/stable/sect.hostname-name-service.html">Documentación de Debian</a>]</p>
 
-    <p>Para la administración del nombre del ordenador en <strong>/etc/hostname</strong>, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/modules/hostname_module.html">hostname</a>.</p>
+    <p>Para la administración del nombre del ordenador en <strong>/etc/hostname</strong>, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/hostname_module.html">hostname</a>.</p>
 
-    <p>Para la administración del nombre del ordenador en <strong>/etc/hosts</strong>, Ansible no dispone actualmente (mayo de 2018) de un módulo específico, pero podemos recurrir al módulo <a href="https://docs.ansible.com/ansible/latest/modules/replace_module.html">replace</a> para cambiar el nombre.</p>
+    <p>Para la administración del nombre del ordenador en <strong>/etc/hosts</strong>, Ansible no dispone actualmente (mayo de 2018) de un módulo específico, pero podemos recurrir al módulo <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/replace_module.html">replace</a> para cambiar el nombre.</p>
 
     <p>Este playbook cambia el nombre del ordenador:</p>
     <div class="codigo">
@@ -100,7 +100,7 @@
     </div>
     <p>Notas:</p>
     <ul>
-      <li>línea 11: No es necesario conocer el nombre actual del ordenador, ya que Ansible encuentra por sí mismo esta información (mediante el módulo <a href="https://docs.ansible.com/ansible/latest/modules/setup_module.html">setup</a>, que se ejecuta de forma automática) y la guarda en la variable <i>ansible_hostname</i>).</li>
+      <li>línea 11: No es necesario conocer el nombre actual del ordenador, ya que Ansible encuentra por sí mismo esta información (mediante el módulo <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/setup_module.html">setup</a>, que se ejecuta de forma automática) y la guarda en la variable <i>ansible_hostname</i>).</li>
     </ul>
   </section>
 
@@ -109,11 +109,11 @@
 
     <p>Las opciones regionales se especifican mediante varias variables de entorno [<a href="https://help.ubuntu.com/community/Locale">Documentación de Ubuntu</a> - <a href="https://wiki.debian.org/Locale">Documentación de Debian</a></p>
 
-    <p>Para generar el fichero con las variables de entornos de localización, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/modules/locale_gen_module.html">locale_gen</a>.</p>
+    <p>Para generar el fichero con las variables de entornos de localización, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/collections/community/general/locale_gen_module.html">locale_gen</a>.</p>
 
-    <p>Para esperar hasta que el nodo cliente esté en marcha, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/modules/wait_for_connection_module.html">wait_for_connection</a>.</p>
+    <p>Para esperar hasta que el nodo cliente esté en marcha, Ansible dispone del módulo <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/wait_for_connection_module.html">wait_for_connection</a>.</p>
 
-    <p>Para enviar comandos individuales, Ansible dispone de los módulos <a href="https://docs.ansible.com/ansible/latest/modules/command_module.html">command</a> y <a href="https://docs.ansible.com/ansible/latest/modules/shell_module.html">shell</a>.</p>
+    <p>Para enviar comandos individuales, Ansible dispone de los módulos <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/command_module.html">command</a> y <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html">shell</a>.</p>
 
     <p>Este playbook cambia los códigos regionales</p>
     <div class="codigo">
