@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <h1>Instalación de Ubuntu Server 20.04 LTS</h1>
+  <h1>Instalación de Ubuntu Server 20.04.4 LTS</h1>
 
   <nav>
     <p>
@@ -33,7 +33,7 @@
   <section id="instalacion">
     <h2>Instalación, paso a paso</h2>
 
-    <p>Estos son los pasos a realizar para instalar Ubuntu Server 20.04 LTS, publicada el 23 de abril de 2020, en una máquina virtual.</p>
+    <p>Estos son los pasos a realizar para instalar Ubuntu Server 20.04.4 LTS, publicada el 24 de febrero de 2022, en una máquina virtual.</p>
 
     <p>Puede descargar la imagen .iso de instalación de la versión más reciente de <strong>Ubuntu Server 20.04 LTS</strong> de la página de descarga oficial <a href="https://releases.ubuntu.com/20.04/">https://releases.ubuntu.com/20.04/</a>.</p>
 
@@ -48,7 +48,7 @@
     <ol>
       <li>Elija el idioma español [1 s]:
         <div class="codigo">
-          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
+          <pre>&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-01.png" alt="Ubuntu Server. Instalación" width="800" height="600">
@@ -66,7 +66,7 @@
       </li>
       <li>Elija la disposición del teclado Español [1 s]:
         <div class="codigo">
-          <pre>&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
+          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-13.png" alt="Ubuntu Server. Instalación" width="800" height="600">
@@ -106,9 +106,9 @@
           <img src="../img/ubuntu/ubuntu-server-instalacion-23.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
-      <li>Configure el disco completo como grupo LVM [1 s]:
+      <li>Confirme la configuración del disco como grupo LVM [1 s]:
         <div class="codigo">
-          <pre>&lt;down&gt;&lt;down&gt;&lt;spacebar&gt;&lt;wait2&gt;</pre>
+          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-31.png" alt="Ubuntu Server. Instalación" width="800" height="600">
@@ -117,7 +117,7 @@
       </li>
       <li>Confirme la configuración del disco [1 s]:
         <div class="codigo">
-          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
+          <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-33.png" alt="Ubuntu Server. Instalación" width="800" height="600">
@@ -125,19 +125,11 @@
       </li>
       <li>Confirme de nuevo la configuración del disco [1 s]:
         <div class="codigo">
-          <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
-        </div>
-        <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-34.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-        </p>
-      </li>
-      <li>Confirme de nuevo la configuración del disco [1 s]:
-        <div class="codigo">
           <pre>&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
         </div>
         <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-34.png" alt="Ubuntu Server. Instalación" width="800" height="600">
           <img src="../img/ubuntu/ubuntu-server-instalacion-35.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-36.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
       <li>Escriba su nombre completo (en la captura, <i>mclibre</i>) [1 s]:
@@ -189,32 +181,40 @@
           <img src="../img/ubuntu/ubuntu-server-instalacion-47.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
+      <li>Salte la opción de la suscripción a Ubuntu Advantage [1 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-51.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
       <li>Instale el servidor OpenSSH [1 s]:
         <div class="codigo">
           <pre>&lt;spacebar&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
         </div>
         <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-51.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-52.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-61.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-62.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
       <li>No instale ninguna aplicación en forma de <i>snap</i> [180 s]:
         <div class="codigo">
           <pre>&lt;end&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait140&gt;</pre>
         </div>
-        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Tenga en cuenta que tras este paso se realiza la instalación y se descargan archivos de Internet por lo que la duración de este paso puede variar bastante, dependiendo de la conexión a Internet y del estado de los servidores de Ubuntu. Puede hacer una prueba con el valor propuesto aquí (180 s) y aumentarlo si fuera necesario.</p>
+        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Tenga en cuenta que tras este paso se realiza la instalación y se descargan archivos de Internet por lo que la duración de este paso puede variar bastante, dependiendo de la conexión a Internet y del estado de los servidores de Ubuntu. Puede hacer una prueba con el valor propuesto aquí (420 s) y aumentarlo si fuera necesario.</p>
         <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-61.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-62.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-71.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-72.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
       <li>Una vez completada la instalación, reinicie el sistema [20 s]:
         <p><strong>Nota</strong>: Al no expulsarse la iso de instalación, es necesario pulsar <kbd>Intro</kbd></p>
         <div class="codigo">
-          <pre>&lt;enter&gt;&lt;wait20&gt;</pre>
+          <pre>&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait20&gt;</pre>
         </div>
         <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-71.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-81.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
       <li>Al no expulsarse la iso de instalación, es necesario pulsar <kbd>Intro</kbd> para completar el reinicio [20 s]:
@@ -222,21 +222,21 @@
           <pre>&lt;enter&gt;&lt;wait20&gt;</pre>
         </div>
         <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-81.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-91.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
       <li>Una vez reiniciado, compruebe que puede entrar con el usuario creado en la instalación (este paso no se realizará durante la creación de la máquina virtual con Packer):
         <p><strong>Nota</strong>: Puede ser necesario pulsar <kbd>Intro</kbd> para poder ver la petición de nombre y contraseña de usuario</p>
         <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-83.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-84.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-92.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-93.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
     </ol>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 29 de abril de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 10 de marzo de 2022</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
