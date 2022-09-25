@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../varios/webapps.css" title="mclibre">
   <link rel="icon" href="../varios/favicon.svg">
-  <link rel="stylesheet" href="../varios/highlight-php.css">
-  <script src="../varios/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
+  <link rel="stylesheet" href="../varios/prism.css">
+  <script src="../varios/prism.js"></script>
 </head>
 
 <body>
@@ -183,13 +182,13 @@
       <pre>
 <code class="language-configuracion">&lt;IfModule alias_module&gt;
 # ...
-<strong>    # 2022-01-26. Alias para las aplicaciones web</strong>
-    <strong>Alias <span class="codigo-resaltado">/pma</span> <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW\WebApps\phpmyadmin"</span>
+    # 2022-01-26. Alias para las aplicaciones web
+    Alias <span class="codigo-resaltado">/pma</span> <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW\WebApps\phpmyadmin"</span>
     &lt;Directory <span class="codigo-resaltado">"C:\Users\NombreDeUsuario\Documents\IAW\WebApps\phpmyadmin"</span>&gt;
       Options Indexes FollowSymLinks Includes ExecCGI
       AllowOverride All
       Require all granted
-    &lt;/Directory&gt;</strong>
+    &lt;/Directory&gt;
 # ...
 &lt;/IfModule&gt;</code>
 </pre>
