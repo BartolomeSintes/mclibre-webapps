@@ -29,296 +29,294 @@
   <p>Para dar formato a una página de MediaWiki se pueden utilizar, entre otros, los siguientes códigos de marcado:</p>
 
   <table class="tabla-con-borde">
-    <tbody>
-      <tr>
-        <td colspan="2">
-          <h2>Texto</h2>
-        </td>
-      </tr>
-      <tr>
-        <th>Resultado</th>
-        <th>Sintaxis</th>
-      </tr>
-      <tr>
-        <td>cursiva</td>
-        <td><code>''ejemplo''</code></td>
-      </tr>
-      <tr>
-        <td>negrita</td>
-        <td><code>'''ejemplo'''</code></td>
-      </tr>
-      <tr>
-        <td>negrita cursiva</td>
-        <td><code>'''''ejemplo''''</code></td>
-      </tr>
-      <tr>
-        <td>subrayado</td>
-        <td><code>&lt;u&gt;ejemplo&lt;/u&gt;</code></td>
-      </tr>
-      <tr>
-        <td>tachado</td>
-        <td><code>&lt;s&gt;ejemplo&lt;/s&gt;</code></td>
-      </tr>
-      <tr>
-        <td>Sangría</td>
-        <td><code>:ejemplo</code></td>
-      </tr>
-      <tr>
-        <td>Más sangría</td>
-        <td><code>::ejemplo</code> <code>:::ejemplo</code> etc.</td>
-      </tr>
-      <tr>
-        <td>Superíndice</td>
-        <td><code>&lt;sup&gt;ejemplo&lt;/sup&gt;</code></td>
-      </tr>
-      <tr>
-        <td>Subíndice</td>
-        <td><code>&lt;sub&gt;ejemplo&lt;/sub&gt;</code></td>
-      </tr>
-      <tr>
-        <td>Ampliar</td>
-        <td><code>&lt;big&gt;ejemplo&lt;/big&gt;</code></td>
-      </tr>
-      <tr>
-        <td>Reducir</td>
-        <td><code>&lt;small&gt;ejemplo&lt;/small&gt;</code></td>
-      </tr>
-      <tr>
-        <td>Nuevo párrafo</td>
-        <td>dejar un línea en blanco</td>
-      </tr>
-      <tr>
-        <td>Título de primer nivel</td>
-        <td><code>= ejemplo =</code></td>
-      </tr>
-      <tr>
-        <td>Título de segundo nivel</td>
-        <td><code>== ejemplo ==</code></td>
-      </tr>
-      <tr>
-        <td>Título de tercer nivel</td>
-        <td><code>=== ejemplo ===</code></td>
-      </tr>
-      <tr>
-        <td>Título de cuarto nivel</td>
-        <td><code>==== ejemplo ====</code></td>
-      </tr>
-      <tr>
-        <td>Título de quinto nivel</td>
-        <td><code>===== ejemplo =====</code></td>
-      </tr>
-      <tr>
-        <td>Título de sexto nivel</td>
-        <td><code>====== ejemplo ======</code></td>
-      </tr>
-      <tr>
-        <td>Líneas horizontales</td>
-        <td><code>----</code></td>
-      </tr>
-      <tr>
-        <td>texto que no debe interpretarse como formato de mediawiki</td>
-        <td><code>&lt;nowiki&gt;ejemplo&lt;/nowiki&gt;</code></td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <h2>Listas</h2>
-        </td>
-      </tr>
-      <tr>
-        <th>Resultado</th>
-        <th>Sintaxis</th>
-      </tr>
-      <tr>
-        <td>Listas no numeradas</td>
-        <td>
-          <p><code>* uno<br>
-            * dos</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td>Sublistas no numeradas</td>
-        <td><code>* uno<br>
-            ** aa1<br>
-            ** aa2<br>
-            * dos</code></td>
-      </tr>
-      <tr>
-        <td>Listas numeradas</td>
-        <td>
-          <p><code># uno<br>
-            # dos</code></p>
-        </td>
-      </tr>
-      <tr>
-        <td>Sublistas numeradas</td>
-        <td><code># uno<br>
-            ## aa1<br>
-            ## aa2<br>
-            # dos</code>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <h2>Enlaces</h2>
-        </td>
-      </tr>
-      <tr>
-        <th>Resultado</th>
-        <th>Sintaxis</th>
-      </tr>
-      <tr>
-        <td>Enlace interno</td>
-        <td><code>[[ejemplo]]</code></td>
-      </tr>
-      <tr>
-        <td>Para que el texto del enlace interno sea distinto del nombre de la página</td>
-        <td><code>[[ejemplo|texto visible]]</code></td>
-      </tr>
-      <tr>
-        <td>Enlace a página de desambigüación</td>
-        <td><code>[[ejemplo (particular)|]]</code></td>
-      </tr>
-      <tr>
-        <td>Enlace a sección en la misma página</td>
-        <td><code>[[#Sección]]</code></td>
-      </tr>
-      <tr>
-        <td>Enlace a sección en otra página</td>
-        <td><code>[[Artículo#Sección]]</code></td>
-      </tr>
-      <tr>
-        <td>Enlaces externos</td>
-        <td><code>http://www.example.org</code></td>
-      </tr>
-      <tr>
-        <td>Para que el texto del enlace externo sea distinto del nombre de la página</td>
-        <td><code>[http://www.example.org ejemplo]</code></td>
-      </tr>
-      <tr>
-        <td>Redirección</td>
-        <td><code>#REDIRECCIÓN [[destino]]<br>
-            #REDIRECT [[destino]]</code></td>
-      </tr>
-      <tr>
-        <td>Enlace a categoría</td>
-        <td><code>[[:Categoría:ejemplo]]</code></td>
-      </tr>
-      <tr>
-        <td>Incluir una página en una categoría</td>
-        <td><code>[[Categoría:ejemplo]]</code></td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <h2>Firmas</h2>
-        </td>
-      </tr>
-      <tr>
-        <th>Resultado</th>
-        <th>Sintaxis</th>
-      </tr>
-      <tr>
-        <td>Nombre del usuario</td>
-        <td><code>~~~</code></td>
-      </tr>
-      <tr>
-        <td>Nombre del usuario y fecha y hora</td>
-        <td><code>~~~~</code></td>
-      </tr>
-      <tr>
-        <td>Fecha y hora</td>
-        <td><code>~~~~~</code></td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <h2>Imágenes</h2>
-        </td>
-      </tr>
-      <tr>
-        <th>Resultado</th>
-        <th>Sintaxis</th>
-      </tr>
-      <tr>
-        <td>Insertar imagen subida previamente</td>
-        <td><code>[[Archivo:nombre.extensión|opciones|leyenda]]<br>
-            [[Imagen:nombre.extensión|opciones|leyenda]]<br>
-            [[File:nombre.extensión|opciones|leyenda]]</code></td>
-      </tr>
-      <tr>
-        <td>border y/o frameless, frame, thumb o thumbnail</td>
-        <td>opciones de formato</td>
-      </tr>
-      <tr>
-        <td>anchura</td>
-        <td>{width}px</td>
-      </tr>
-      <tr>
-        <td>altura</td>
-        <td>x{height}px</td>
-      </tr>
-      <tr>
-        <td>anchura y altura</td>
-        <td>{width}x{height}px</td>
-      </tr>
-      <tr>
-        <td>alineación horizontal</td>
-        <td>left, right, center, none</td>
-      </tr>
-      <tr>
-        <td>alineación vertical</td>
-        <td>baseline, sub, super, top, text-top, middle, bottom, text-bottom</td>
-      </tr>
-      <tr>
-        <td>enlace</td>
-        <td>link={destino}</td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <h2>Tablas</h2>
-        </td>
-      </tr>
-      <tr>
-        <th>Resultado</th>
-        <th>Sintaxis</th>
-      </tr>
-      <tr>
-        <td>Comienzo de la tabla</td>
-        <td>{|</td>
-      </tr>
-      <tr>
-        <td>Tabla con estilo mediawiki (fondo gris, borde fino)</td>
-        <td>{| class="wikitable"</td>
-      </tr>
-      <tr>
-        <td>Tabla con controles para ordenar los elementos</td>
-        <td>{ class="sortable"</td>
-      </tr>
-      <tr>
-        <td>Leyenda de tabla (opcional)</td>
-        <td>|+</td>
-      </tr>
-      <tr>
-        <td>Fila (opcional en la primera fila)</td>
-        <td>|-</td>
-      </tr>
-      <tr>
-        <td>Celda de cabecera (<span class="html-eti">&lt;th&gt;</span>) (nota: se pueden escribir varias celdas en la misma línea separándolas por !!)</td>
-        <td>!</td>
-      </tr>
-      <tr>
-        <td>Celda (<span class="html-eti">&lt;td&gt;</span>) (nota: se pueden escribir varias celdas en la misma línea separándolas por ||)</td>
-        <td>|</td>
-      </tr>
-      <tr>
-        <td>Fin de la tabla</td>
-        <td>|}</td>
-      </tr>
-      <tr>
-        <td>Se pueden añadir atributos a las celdas, filas o tabla separándolos por un |
-          <p>Los atributos son los de las tablas de html (<a href="https://www.mclibre.org/consultar/htmlcss/html/html-atributos.html">atributos comunes</a> y <a href="https://www.mclibre.org/consultar/htmlcss/html/html-tablas-atributos.html">atributos específicos</a>)</p>
-        </td>
-        <td>| align="right" | texto</td>
-      </tr>
-    </tbody>
+    <tr>
+      <td colspan="2">
+        <h2>Texto</h2>
+      </td>
+    </tr>
+    <tr>
+      <th>Resultado</th>
+      <th>Sintaxis</th>
+    </tr>
+    <tr>
+      <td>cursiva</td>
+      <td><code>''ejemplo''</code></td>
+    </tr>
+    <tr>
+      <td>negrita</td>
+      <td><code>'''ejemplo'''</code></td>
+    </tr>
+    <tr>
+      <td>negrita cursiva</td>
+      <td><code>'''''ejemplo''''</code></td>
+    </tr>
+    <tr>
+      <td>subrayado</td>
+      <td><code>&lt;u&gt;ejemplo&lt;/u&gt;</code></td>
+    </tr>
+    <tr>
+      <td>tachado</td>
+      <td><code>&lt;s&gt;ejemplo&lt;/s&gt;</code></td>
+    </tr>
+    <tr>
+      <td>Sangría</td>
+      <td><code>:ejemplo</code></td>
+    </tr>
+    <tr>
+      <td>Más sangría</td>
+      <td><code>::ejemplo</code> <code>:::ejemplo</code> etc.</td>
+    </tr>
+    <tr>
+      <td>Superíndice</td>
+      <td><code>&lt;sup&gt;ejemplo&lt;/sup&gt;</code></td>
+    </tr>
+    <tr>
+      <td>Subíndice</td>
+      <td><code>&lt;sub&gt;ejemplo&lt;/sub&gt;</code></td>
+    </tr>
+    <tr>
+      <td>Ampliar</td>
+      <td><code>&lt;big&gt;ejemplo&lt;/big&gt;</code></td>
+    </tr>
+    <tr>
+      <td>Reducir</td>
+      <td><code>&lt;small&gt;ejemplo&lt;/small&gt;</code></td>
+    </tr>
+    <tr>
+      <td>Nuevo párrafo</td>
+      <td>dejar un línea en blanco</td>
+    </tr>
+    <tr>
+      <td>Título de primer nivel</td>
+      <td><code>= ejemplo =</code></td>
+    </tr>
+    <tr>
+      <td>Título de segundo nivel</td>
+      <td><code>== ejemplo ==</code></td>
+    </tr>
+    <tr>
+      <td>Título de tercer nivel</td>
+      <td><code>=== ejemplo ===</code></td>
+    </tr>
+    <tr>
+      <td>Título de cuarto nivel</td>
+      <td><code>==== ejemplo ====</code></td>
+    </tr>
+    <tr>
+      <td>Título de quinto nivel</td>
+      <td><code>===== ejemplo =====</code></td>
+    </tr>
+    <tr>
+      <td>Título de sexto nivel</td>
+      <td><code>====== ejemplo ======</code></td>
+    </tr>
+    <tr>
+      <td>Líneas horizontales</td>
+      <td><code>----</code></td>
+    </tr>
+    <tr>
+      <td>texto que no debe interpretarse como formato de mediawiki</td>
+      <td><code>&lt;nowiki&gt;ejemplo&lt;/nowiki&gt;</code></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h2>Listas</h2>
+      </td>
+    </tr>
+    <tr>
+      <th>Resultado</th>
+      <th>Sintaxis</th>
+    </tr>
+    <tr>
+      <td>Listas no numeradas</td>
+      <td>
+        <p><code>* uno<br>
+          * dos</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>Sublistas no numeradas</td>
+      <td><code>* uno<br>
+          ** aa1<br>
+          ** aa2<br>
+          * dos</code></td>
+    </tr>
+    <tr>
+      <td>Listas numeradas</td>
+      <td>
+        <p><code># uno<br>
+          # dos</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>Sublistas numeradas</td>
+      <td><code># uno<br>
+          ## aa1<br>
+          ## aa2<br>
+          # dos</code>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h2>Enlaces</h2>
+      </td>
+    </tr>
+    <tr>
+      <th>Resultado</th>
+      <th>Sintaxis</th>
+    </tr>
+    <tr>
+      <td>Enlace interno</td>
+      <td><code>[[ejemplo]]</code></td>
+    </tr>
+    <tr>
+      <td>Para que el texto del enlace interno sea distinto del nombre de la página</td>
+      <td><code>[[ejemplo|texto visible]]</code></td>
+    </tr>
+    <tr>
+      <td>Enlace a página de desambigüación</td>
+      <td><code>[[ejemplo (particular)|]]</code></td>
+    </tr>
+    <tr>
+      <td>Enlace a sección en la misma página</td>
+      <td><code>[[#Sección]]</code></td>
+    </tr>
+    <tr>
+      <td>Enlace a sección en otra página</td>
+      <td><code>[[Artículo#Sección]]</code></td>
+    </tr>
+    <tr>
+      <td>Enlaces externos</td>
+      <td><code>http://www.example.org</code></td>
+    </tr>
+    <tr>
+      <td>Para que el texto del enlace externo sea distinto del nombre de la página</td>
+      <td><code>[http://www.example.org ejemplo]</code></td>
+    </tr>
+    <tr>
+      <td>Redirección</td>
+      <td><code>#REDIRECCIÓN [[destino]]<br>
+          #REDIRECT [[destino]]</code></td>
+    </tr>
+    <tr>
+      <td>Enlace a categoría</td>
+      <td><code>[[:Categoría:ejemplo]]</code></td>
+    </tr>
+    <tr>
+      <td>Incluir una página en una categoría</td>
+      <td><code>[[Categoría:ejemplo]]</code></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h2>Firmas</h2>
+      </td>
+    </tr>
+    <tr>
+      <th>Resultado</th>
+      <th>Sintaxis</th>
+    </tr>
+    <tr>
+      <td>Nombre del usuario</td>
+      <td><code>~~~</code></td>
+    </tr>
+    <tr>
+      <td>Nombre del usuario y fecha y hora</td>
+      <td><code>~~~~</code></td>
+    </tr>
+    <tr>
+      <td>Fecha y hora</td>
+      <td><code>~~~~~</code></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h2>Imágenes</h2>
+      </td>
+    </tr>
+    <tr>
+      <th>Resultado</th>
+      <th>Sintaxis</th>
+    </tr>
+    <tr>
+      <td>Insertar imagen subida previamente</td>
+      <td><code>[[Archivo:nombre.extensión|opciones|leyenda]]<br>
+          [[Imagen:nombre.extensión|opciones|leyenda]]<br>
+          [[File:nombre.extensión|opciones|leyenda]]</code></td>
+    </tr>
+    <tr>
+      <td>border y/o frameless, frame, thumb o thumbnail</td>
+      <td>opciones de formato</td>
+    </tr>
+    <tr>
+      <td>anchura</td>
+      <td>{width}px</td>
+    </tr>
+    <tr>
+      <td>altura</td>
+      <td>x{height}px</td>
+    </tr>
+    <tr>
+      <td>anchura y altura</td>
+      <td>{width}x{height}px</td>
+    </tr>
+    <tr>
+      <td>alineación horizontal</td>
+      <td>left, right, center, none</td>
+    </tr>
+    <tr>
+      <td>alineación vertical</td>
+      <td>baseline, sub, super, top, text-top, middle, bottom, text-bottom</td>
+    </tr>
+    <tr>
+      <td>enlace</td>
+      <td>link={destino}</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <h2>Tablas</h2>
+      </td>
+    </tr>
+    <tr>
+      <th>Resultado</th>
+      <th>Sintaxis</th>
+    </tr>
+    <tr>
+      <td>Comienzo de la tabla</td>
+      <td>{|</td>
+    </tr>
+    <tr>
+      <td>Tabla con estilo mediawiki (fondo gris, borde fino)</td>
+      <td>{| class="wikitable"</td>
+    </tr>
+    <tr>
+      <td>Tabla con controles para ordenar los elementos</td>
+      <td>{ class="sortable"</td>
+    </tr>
+    <tr>
+      <td>Leyenda de tabla (opcional)</td>
+      <td>|+</td>
+    </tr>
+    <tr>
+      <td>Fila (opcional en la primera fila)</td>
+      <td>|-</td>
+    </tr>
+    <tr>
+      <td>Celda de cabecera (<span class="html-eti">&lt;th&gt;</span>) (nota: se pueden escribir varias celdas en la misma línea separándolas por !!)</td>
+      <td>!</td>
+    </tr>
+    <tr>
+      <td>Celda (<span class="html-eti">&lt;td&gt;</span>) (nota: se pueden escribir varias celdas en la misma línea separándolas por ||)</td>
+      <td>|</td>
+    </tr>
+    <tr>
+      <td>Fin de la tabla</td>
+      <td>|}</td>
+    </tr>
+    <tr>
+      <td>Se pueden añadir atributos a las celdas, filas o tabla separándolos por un |
+        <p>Los atributos son los de las tablas de html (<a href="https://www.mclibre.org/consultar/htmlcss/html/html-atributos.html">atributos comunes</a> y <a href="https://www.mclibre.org/consultar/htmlcss/html/html-tablas-atributos.html">atributos específicos</a>)</p>
+      </td>
+      <td>| align="right" | texto</td>
+    </tr>
   </table>
 
   <footer>
