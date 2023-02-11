@@ -73,7 +73,7 @@ $cfg['blowfish_secret'] = '<span class="codigo-resaltado">B9tx)*MFNh0RF_DDItf8Lu
       <li>El tema aplicado a phpMyAdmin se modifica en la página principal (apartado <strong>Configuraciones de apariencia &gt; Tema</strong>).
         <ul>
           <li>La lista desplegable Tema muestra los temas disponibles. Al elegir uno de ellos, se aplicará inmediatamente:
-            <p class=" captura">
+            <p class="captura">
               <img src="../img/phpmyadmin/3-2-s-1-temas.png" alt="XAMPP. Página principal" width="1004" height="410">
             </p>
           </li>
@@ -83,7 +83,7 @@ $cfg['blowfish_secret'] = '<span class="codigo-resaltado">B9tx)*MFNh0RF_DDItf8Lu
         <p>Los temas se distribuyen en forma de archivo comprimido. Descomprima el archivo descargado en la carpeta <strong>phpmyadmin/themes</strong>, en la que ya se encuentran los temas <strong>metro</strong>, <strong>original</strong> y <strong>pmahomme</strong>. Al descomprimirlo se añadirá una carpeta con el nombre del tema (en este caso, <strong>darkwolf</strong>).</p>
       </li>
       <li>Para ver el nuevo tema en la lista desplegable, actualice la página principal de phpMyAdmin.
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/3-2-s-2-temas.png" alt="XAMPP. Página principal" width="1024" height="491">
         </p>
       </li>
@@ -96,7 +96,7 @@ $cfg['blowfish_secret'] = '<span class="codigo-resaltado">B9tx)*MFNh0RF_DDItf8Lu
     <p class="incompleto"><img src="../varios/iconos/icono-en-construccion.svg" alt="En construcción" width="55" height="48">CAPTURAS PENDIENTES DE ACTUALIZAR</p>
     <ol>
       <li>inicialmente, los usuarios no puede borrar su bases de datos porque phpMyAdmin no ofrece esa posibilidad:
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/3-3-s-1-config.png" alt="XAMPP. Borrar bases de datos" width="1021" height="390">
         </p>
       </li>
@@ -109,7 +109,7 @@ $cfg['AllowUserDropDatabase'] = true;</code>
 </pre>
         </div>
         <p>en el archivo config.inc.php, la opción "Bases de datos" ofrece la opción de borrar las bases de datos:</p>
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/3-3-s-2-config.png" alt="XAMPP. Borrar bases de datos" width="1004" height="430">
         </p>
       </li>
@@ -124,36 +124,36 @@ $cfg['AllowUserDropDatabase'] = true;</code>
     <ul>
       <li>Entre en phpMyAdmin como el usuario <strong>iaw_agenda_2</strong>.</li>
       <li>Elija la opción "Exportar", elija el método de exportación personalizado para poder marcar las casillas "Agregar sentencia DROP DATABASE IF EXISTS" y "Agregar sentencias DROP TABLE ...", elija únicamente las dos bases de datos de las aplicaciones y haga clic en "Continuar":
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/3-4-s-1-backup.png" alt="XAMPP. Copia de seguridad" width="1024" height="492">
         </p>
       </li>
       <li>Según el tipo de restauración que se pretenda hacer en el futuro, puede ser interesante marcar las casillas "Agregar sentencia DROP DATABASE IF EXISTS" y "Agregar sentencias DROP TABLE ..."
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/3-4-s-2-backup.png" alt="XAMPP. Copia de seguridad" width="1004" height="320">
         </p>
       </li>
       <li>phpMyAdmin generará la copia de seguridad en forma de archivo .sql que el navegador permitirá abrir o descargar
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/3-4-s-3-backup.png" alt="XAMPP. Copia de seguridad" width="1024" height="465">
         </p>
       </li>
       <li>A continuación, borre las bases de datos:
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/3-4-s-4-backup.png" alt="XAMPP. Copia de seguridad" width="1024" height="435">
         </p>
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/3-4-s-5-backup.png" alt="XAMPP. Copia de seguridad" width="1004" height="435">
         </p>
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/3-4-s-6-backup.png" alt="XAMPP. Copia de seguridad" width="1024" height="385">
         </p>
       </li>
       <li>Restaure las bases de datos importando la copia de seguridad:
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/3-4-s-7-backup.png" alt="XAMPP. Copia de seguridad" width="1004" height="310">
         </p>
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/3-4-s-8-backup.png" alt="XAMPP. Copia de seguridad" width="1004" height="240">
         </p>
       </li>

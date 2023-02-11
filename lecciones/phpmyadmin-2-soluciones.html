@@ -59,12 +59,12 @@
       <li>Cree un nuevo usuario de MySQL
         <ul>
           <li>En la página principal, haga clic en el enlace <strong>Cuentas de usuarios</strong>:
-            <p class=" captura">
+            <p class="captura">
               <img src="../img/phpmyadmin/2-1-s-1-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="270">
             </p>
           </li>
           <li>Para crear un nuevo usuario, haga clic en el enlace <strong>Agregar cuenta de usuario</strong>:
-            <p class=" captura">
+            <p class="captura">
               <img src="../img/phpmyadmin/2-1-s-2-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="530">
             </p>
           </li>
@@ -77,24 +77,24 @@
               <li>sin privilegios globales</li>
               <li>sin límite de recursos</li>
             </ul>
-            <p class=" captura">
+            <p class="captura">
               <img src="../img/phpmyadmin/2-1-s-3-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="635">
             </p>
           </li>
           <li>Se mostrará el mensaje de creación de usuario y en la lista de bases de datos lateral se mostrará la base de datos <strong>iaw_agenda_1</strong>.
-            <p class=" captura">
+            <p class="captura">
               <img src="../img/phpmyadmin/2-1-s-4-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="205">
             </p>
           </li>
         </ul>
       </li>
       <li>Al entrar como usuario <strong>iaw_agenda_1</strong>, en el lateral izquierdo se puede ver la base de datos <strong>iaw_agenda_1</strong>.
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/2-1-s-5-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="270">
         </p>
       </li>
       <li>Haga clic en la opción <strong>Bases de datos</strong> y compruebe que no tiene privilegios para crear más bases de datos
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/2-1-s-6-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="200">
         </p>
       </li>
@@ -104,7 +104,7 @@
   <section id="ejercicio-2">
     <h2>phpMyAdmin (2) 2 - Instalar una aplicación como usuario iaw_agenda_1</h2>
     <ul>
-      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2122/iaw-agenda-2022-01-25.zip">Agenda (25/01/22)</a> (esta aplicación corresponde al ejercicio<a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
+      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2223/iaw-agenda-2023-01-17.zip">Agenda (17/01/23)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
       <li>Descomprima el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre la carpeta como <strong>agenda-1</strong>.</li>
       <li>Modifique el archivo de configuración <strong>config.php</strong> de manera que la aplicación utilice MYSQL/MariaDB y la cuenta del usuario <strong>iaw_agenda_1</strong>:
 
@@ -133,13 +133,13 @@ $cfg["mysqlDatabase"] = "iaw_agenda_1";                     // Nombre de la base
       </li>
       <li>Ejecute la aplicación en el navegador y compruebe que la aplicación funciona creando varios registros.</li>
       <li>Compruebe en phpMyAdmin el contenido de la tabla.
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/2-2-s-1-agenda.png" alt="XAMPP. Base de datos iaw_agenda1" width="1005" height="270">
         </p>
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/2-2-s-2-agenda.png" alt="XAMPP. Base de datos iaw_agenda1" width="1005" height="250">
         </p>
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/2-2-s-3-agenda.png" alt="XAMPP. Base de datos iaw_agenda1" width="1005" height="320">
         </p>
       </li>
@@ -153,12 +153,12 @@ $cfg["mysqlDatabase"] = "iaw_agenda_1";                     // Nombre de la base
       <li>Cree un nuevo usuario de MySQL
         <ul>
           <li>En la página principal, haga clic en el enlace <strong>Cuenta de usuarios</strong>:
-            <p class=" captura">
+            <p class="captura">
               <img src="../img/phpmyadmin/2-3-s-1-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="270">
             </p>
           </li>
           <li>Para crear un nuevo usuario, haga clic en el enlace <strong>Agregar cuenta de usuario</strong>:
-            <p class=" captura">
+            <p class="captura">
               <img src="../img/phpmyadmin/2-3-s-2-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="580">
             </p>
           </li>
@@ -171,23 +171,23 @@ $cfg["mysqlDatabase"] = "iaw_agenda_1";                     // Nombre de la base
               <li>sin privilegios globales</li>
               <li>sin límite de recursos</li>
             </ul>
-            <p class=" captura">
+            <p class="captura">
               <img src="../img/phpmyadmin/2-3-s-3-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="615">
             </p>
           </li>
           <li>Se mostrará el mensaje de creación de usuario, pero en la lista de bases de datos lateral no se mostrará ninguna base de datos cuyo nombre empiece por <strong>iaw_agenda_2_</strong>.
-            <p class=" captura">
+            <p class="captura">
               <img src="../img/phpmyadmin/2-3-s-4-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="255">
             </p>
           </li>
         </ul>
       </li>
       <li>Una vez creado el usuario, salga de phpMyAdmin y entre como usuario <strong>iaw_agenda_2</strong>. Compruebe que no se ha creado ninguna base de datos cuyo nombre empiece por <strong>iaw_agenda_2_</strong>.
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/2-3-s-5-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="270"></p>
       </li>
       <li>Haga clic en la opción <strong>Bases de datos</strong> y compruebe que tiene privilegios para crear más bases de datos, pero su nombre debe comenzar por <strong>iaw_agenda_2_</strong>.
-        <p class=" captura">
+        <p class="captura">
           <img src="../img/phpmyadmin/2-3-s-6-crear-usuario.png" alt="phpMyAdmin. Usuarios" width="1005" height="195">
         </p>
       </li>
@@ -197,7 +197,7 @@ $cfg["mysqlDatabase"] = "iaw_agenda_1";                     // Nombre de la base
   <section id="ejercicio-4">
     <h2>phpMyAdmin (2) 4 - Instalar dos aplicaciones como usuario iaw_agenda_2</h2>
     <ul>
-      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2122/iaw-agenda-2022-01-25.zip">Agenda (25/01/22)</a> (esta aplicación corresponde al ejercicio<a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
+      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2223/iaw-agenda-2023-01-17.zip">Agenda (17/01/23)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
       <li>Descomprima dos veces el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre las carpetas como <strong>agenda-2a</strong> y <strong>agenda-2b</strong>.</li>
       <li>Modifique los dos archivos de configuración <strong>config.php</strong> de manera que las dos aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_2</strong>:
 
@@ -263,7 +263,7 @@ $cfg["mysqlDatabase"] = "iaw_agenda_2_agenda_2b";           // Nombre de la base
 
     <p>El "truco" para que un usuario con una única base de datos pueda instalar dos aplicaciones es que las aplicaciones trabajen con tablas distintas.</p>
     <ul>
-      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2122/iaw-agenda-2022-01-25.zip">Agenda (25/01/22)</a> (esta aplicación corresponde al ejercicio<a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
+      <li>Descargue la aplicación <a href="https://www.mclibre.org/descargar/webapps/2223/iaw-agenda-2023-01-17.zip">Agenda (17/01/23)</a> (esta aplicación corresponde al ejercicio <a href="https://www.mclibre.org/consultar/php/ejercicios/bases-datos/bases-de-datos-2-b/index.html#ejercicio-2">Bases de datos (2 B) 2</a> del curso <a href="https://www.mclibre.org/consultar/php/index.html">Páginas web con PHP</a>).</li>
       <li>Descomprima dos veces el archivo comprimido en la carpeta <strong>aplicaciones</strong> y renombre las carpetas como <strong>agenda-3a</strong> y <strong>agenda-3b</strong>.</li>
       <li>Modifique los dos archivos de configuración <strong>config.php</strong> de manera que las dos aplicaciones utilicen la cuenta del usuario <strong>iaw_agenda_3</strong>, pero tablas distintas (personas_3a y personas_3b, por ejemplo):
 
