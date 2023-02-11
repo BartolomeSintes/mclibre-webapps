@@ -4,7 +4,7 @@
 /*                                          */
 /* Hoja de estilo para prism.js             */
 /*                                          */
-/* 24 de septiembre de 2022                 */
+/* 27 de septiembre de 2022                 */
 /*                                          */
 
 /* Colores para cuadros de código fuente y de terminal */
@@ -169,6 +169,15 @@ code.language-json .property      { color: #9cdcfe; }          /* clave         
 code.language-json .punctuation   { color: #d4d4d4; }          /* puntuación, llaves, etc   */
 code.language-json .string        { color: #ce9178; }          /* valor (cadena)            */
 
+/* Estilo para HCL imitando a Visual Studio Code con tema Dark+ */
+
+code.language-hcl .boolean       { color: #569cd6; }          /* valor (booleano)          */
+code.language-hcl .comment       { color: #6a9955; }          /* comentario                */
+code.language-hcl .number        { color: #b5cea8; }          /* valor (número)            */
+code.language-hcl .property      { color: #9cdcfe; }          /* clave                     */
+code.language-hcl .punctuation   { color: #d4d4d4; }          /* puntuación, llaves, etc   */
+code.language-hcl .string        { color: #ce9178; }          /* valor (cadena)            */
+code.language-hcl .token.space:before   { content: '\00B7'; color: #808080; opacity: 0.6; position: absolute; }
 
 /* Estilo para Shell  imitando a Visual Studio Code con tema Dark+ */
 
@@ -228,7 +237,7 @@ pre.line-numbers > code {
 .line-numbers .line-numbers-rows {
     position: absolute;
     pointer-events: none;
-    top: -2px;            /* para ajustar la posición de los números */
+    top: -1px;            /* para ajustar la posición de los números */
     font-size: 100%;
     left: -2.8em;
     width: 2em; /* works for line-numbers below 1000 lines */

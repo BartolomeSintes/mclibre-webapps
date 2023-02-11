@@ -41,8 +41,8 @@
 
   <p>En esta lección <a href="packer-1.html">Packer(1)</a> veremos dos ejemplos de creación de máquinas virtuales:</p>
   <ul>
-    <li>En el primer ejemplo, crearemos una máquina virtual e instalaremos Ubuntu Server 20.04.4 LTS en ella, simulando una instalación manual.</li>
-    <li>En el segundo ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 20.04.4 LTS en ella, mediante una instalación desatendida.</li>
+    <li>En el primer ejemplo, crearemos una máquina virtual e instalaremos Ubuntu Server 22.04.1 LTS en ella, simulando una instalación manual.</li>
+    <li>En el segundo ejemplo, crearemos la máquina virtual e instalaremos Ubuntu Server 20.04 LTS en ella, mediante una instalación desatendida.</li>
   </ul>
 
   <p>Una de las ventajas de preparar primero la imagen básica es ahorrarnos la instalación del sistema operativo en cada prueba de instalación de aplicaciones. La instalación es un proceso que puede tardar más de 10 minutos y que sólo necesitaremos hacer una vez.</p>
@@ -55,18 +55,20 @@
       <li>Instale <a href="https://www.virtualbox.org/">VirtualBox</a>.</li>
       <li>Cree una carpeta que contendrá todos los ficheros</li>
       <li>Copie en ella el ejecutable de Packer, como se comenta en la <a href="packer.html#instalacion">lección general sobre Packer</a></li>
-      <li>Copie en ella la imagen .iso de Ubuntu a instalar (en este caso Ubuntu Server 20.04.4 LTS).
-        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Esta lección se ha elaborado con la versión Ubuntu Server 20.04.4 LTS 64 bits, publicada el 23/02/2022.</p>
+      <li>Copie en ella la imagen .iso de Ubuntu a instalar (en este caso Ubuntu Server 22.04.1 o 20.04 LTS).
+        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Esta lección se ha elaborado con las versiones Ubuntu Server 22.04.1 LTS 64 bits, publicada el 04/08/22 y Ubuntu Server 22.04 LTS 64 bits, publicada en 23/04/20.</p>
 
-        <p>Puede descargar la imagen .iso de instalación de la versión más reciente de <strong>Ubuntu Server 20.04 LTS</strong> de la página de descarga oficial <a href="https://releases.ubuntu.com/20.04/">https://releases.ubuntu.com/20.04/</a>.</p>
+        <p>Puede descargar la imagen .iso de instalación de la versión más reciente de <strong>Ubuntu Server 22.04 LTS</strong> de la página de descarga oficial <a href="https://releases.ubuntu.com/20.04/">https://releases.ubuntu.com/22.04/</a>.</p>
 
-        <p>En el momento que se publique Ubuntu 20.04.5 (probablemente, agosto de 2022), la versión 20.04.4 estará disponible en <a href="http://old-releases.ubuntu.com/releases/">http://old-releases.ubuntu.com/releases/</a>.</p>
+        <p>En el momento que se publique Ubuntu 22.04.2 (probablemente, febrero de 2023), la versión 22.04.1 estará disponible en <a href="http://old-releases.ubuntu.com/releases/">http://old-releases.ubuntu.com/releases/</a>.</p>
+
+        <p>La versión 20.04 está disponible en <a href="http://old-releases.ubuntu.com/releases/jammy/">http://old-releases.ubuntu.com/releases/jammy/</a>.</p>
       </li>
     </ul>
   </section>
 
   <section id="creacion-vm-vbox-ubuntu-manual">
-    <h3>Ejemplo 1: Creación de una máquina virtual de VirtualBox con Ubuntu Server 20.04.4 LTS (instalación manual)</h3>
+    <h3>Ejemplo 1: Creación de una máquina virtual de VirtualBox con Ubuntu Server 22.04.1 LTS (instalación manual)</h3>
 
     <p>Packer puede instalar el sistema operativo en la máquina virtual reproduciendo el proceso manual que realizamos nosotros cuando instalamos el sistema operativo en una máquina virtual.</p>
 
@@ -74,11 +76,11 @@
 
     <p>Para obtener las entradas de teclado es necesario primero hacer una instalación manual y anotar cuidadosamente las opciones elegidas y también cronometrar lo que tarda en realizarse cada uno de los pasos de la instalación, ya que en la plantilla debemos indicar también el tiempo que packer debe esperar entre entrada y entrada de teclado. Si el tiempo de espera es demasiado corto, packer enviará las pulsaciones de teclado demasiado pronto y la instalación no se realizará correctamente.</p>
 
-    <p>En la lección <a href="ubuntu-instalacion.html">Instalación de Ubuntu</a> se muestra un ejemplo de instalación de Ubuntu Server 20.04 LTS. La página muestra los sucesivos pasos del proceso de instalación y las entradas de teclado y tiempos de espera correspondientes. Por precaución, el tiempo de espera indicado a packer debería ser siempre algo superior al cronometrado.</p>
+    <p>En la lección <a href="ubuntu-instalacion.html">Instalación de Ubuntu</a> se muestra un ejemplo de instalación de Ubuntu Server 22.04.1 LTS. La página muestra los sucesivos pasos del proceso de instalación y las entradas de teclado y tiempos de espera correspondientes. Por precaución, el tiempo de espera indicado a packer debería ser siempre algo superior al cronometrado.</p>
 
     <p>En caso de que los tiempos de ejecución sean mayores que los tiempos de espera, Packer enviará las pulsaciones antes de tiempo y la instalación no podrá completarse correctamente. Se aconseja seguir con atención la instalación que realiza Packer e identificar el paso en que se produce el problema y es necesario aumentar el tiempo.</p>
 
-    <p>En el paso de la instalación se descargan ficheros de Internet, por lo que la duración de este paso puede variar bastante, en función de la conexión a Internet disponible y del estado de carga de los servidores de Ubuntu. El tiempo de espera de este paso se encuentra en la línea 35 de la plantilla propuesta a continuación y el valor propuesto de 300s en principio debería ser más que suficiente.</p>
+    <p>En el paso de la instalación se descargan ficheros de Internet, por lo que la duración de este paso puede variar bastante, en función de la conexión a Internet disponible y del estado de carga de los servidores de Ubuntu. El tiempo de espera de este paso se encuentra en la línea 35 de la plantilla propuesta a continuación y el valor propuesto de 600s en principio debería ser más que suficiente.</p>
 
     <p>Si la instalación no se está realizando correctamente, pulse <kbd>Ctrl+c</kbd> en la ventana de Símbolo de sistema para interrumpirla. Packer cerrará en su caso la ventana de VirtualBox y borrará los archivos temporales creados. Si por cualquier motivo Packer no puede cerrar la ventana de VirtualBox, ciérrela manualmente y borre los ficheros temporales que hayan quedado en la carpeta de VirtualBox (en Windows, C:\Users\NombreUsuario\VirtualBox VMs).</p>
 
@@ -87,20 +89,20 @@
     <p>Para crear la máquina virtual:</p>
 
     <ul>
-      <li>Cree la plantilla de packer (por ejemplo, packer-1-1.json).</li>
+      <li>Cree la plantilla de packer (por ejemplo, packer-1-1.pkr.hcl).</li>
       <li>Ejecute packer
         <div class="terminal">
           <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
-<code class="language-shell">packer build packer-1-1.json</code>
+<code class="language-shell">packer build packer-1-1.pkr.hcl</code>
 </pre>
         </div>
       </li>
     </ul>
 
-    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-1</strong> y creará en él el fichero <strong>packer-1-1-ubuntu-20-04-server.ova</strong>.</p>
+    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-1-1</strong> y creará en él el fichero <strong>packer-1-1-ubuntu-22-04-1-server.ova</strong>.</p>
 
     <section id="plantilla-creacion-vm-vbox-ubuntu-manual">
-      <h4>Plantilla de creación de la máquina virtual manual (packer-1-1.json)</h4>
+      <h4>Plantilla de creación de la máquina virtual manual (packer-1-1.pkr.hcl)</h4>
 
       <p>Documentación de packer: <a href="https://www.packer.io/docs/builders/virtualbox-iso.html">Builders en VirtualBox</a></p>
 
@@ -108,64 +110,68 @@
 
       <p>Esta podría ser la plantilla de creación de la máquina virtual con Ubuntu:</p>
 
-      <div class="codigo">
+      <div class="codigo copy">
         <pre class="line-numbers">
-<code class="language-json">{
-  "builders": [
-    {
-      "type": "virtualbox-iso",
-      "guest_os_type": "Ubuntu_64",
-      "iso_url": "ubuntu-20.04.4-live-server-amd64.iso",
-      "iso_checksum": "28CCDB56450E643BAD03BB7BCF7507CE3D8D90E8BF09E38F6BD9AC298A98EAAD",
-      "iso_checksum_type": "sha256",
-      "disk_size": "<span class="codigo-resaltado">25000</span>",
-      "vboxmanage": [
-        ["modifyvm", "{{.Name}}", "--memory", "<span class="codigo-resaltado">1024</span>"],
-        ["modifyvm", "{{.Name}}", "--vram", "<span class="codigo-resaltado">64</span>"],
-        ["modifyvm", "{{.Name}}", "--graphicscontroller", "<span class="codigo-resaltado">vmsvga</span>"]
-      ],
-      "boot_wait": "70s",
-      "boot_command": [
-        "&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
-        "<span class="codigo-resaltado">mclibre</span>&lt;enter&gt;&lt;wait2&gt;",
-        "<span class="codigo-resaltado">ubuntu</span>&lt;enter&gt;&lt;wait2&gt;",
-        "<span class="codigo-resaltado">mclibre</span>&lt;enter&gt;&lt;wait2&gt;",
-        "<span class="codigo-resaltado">mclibre</span>&lt;enter&gt;&lt;wait2&gt;",
-        "<span class="codigo-resaltado">mclibre</span>&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;spacebar&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
-        "&lt;end&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;<span class="codigo-resaltado">wait420</span>&gt;",
-        "&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait20&gt;",
-        "&lt;enter&gt;&lt;wait20&gt;"
-      ],
-      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
-      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
-      "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
-      "output_directory": "<span class="codigo-resaltado">packer-1-1</span>",
-      "vm_name": "<span class="codigo-resaltado">packer-1-1-ubuntu-20-04-4-server</span>",
-      "format": "ova"
-    }
+<code class="language-hcl"># https://www.packer.io/docs/templates/hcl_templates/blocks/source
+
+source "virtualbox-iso" "mclibre-1-1" {
+  guest_os_type = "Ubuntu_64"
+  iso_url       = "ubuntu-22.04.1-live-server-amd64.iso"
+  iso_checksum  = "sha256:10f19c5b2b8d6db711582e0e27f5116296c34fe4b313ba45f9b201a5007056cb"
+  disk_size     = "<span class="codigo-resaltado">25000</span>"
+  vboxmanage = [
+    ["modifyvm", "{{ .Name }}", "--memory", "<span class="codigo-resaltado">1024</span>"],
+    ["modifyvm", "{{ .Name }}", "--vram", "<span class="codigo-resaltado">64</span>"],
+    ["modifyvm", "{{ .Name }}", "--graphicscontroller", "<span class="codigo-resaltado">vmsvga</span>"]
   ]
+  boot_wait = "10s"
+  boot_command = [
+    "&lt;enter&gt;&lt;wait60&gt;",
+    "&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;", "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;",
+    "<span class="codigo-resaltado">mclibre</span>&lt;enter&gt;&lt;wait2&gt;",
+    "<span class="codigo-resaltado">ubuntu</span>&lt;enter&gt;&lt;wait2&gt;",
+    "<span class="codigo-resaltado">mclibre</span>&lt;enter&gt;&lt;wait2&gt;",
+    "<span class="codigo-resaltado">mclibre</span>&lt;enter&gt;&lt;wait2&gt;",
+    "<span class="codigo-resaltado">mclibre</span>&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;enter&gt;&lt;wait2&gt;",
+    "&lt;spacebar&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait3&gt;",
+    "&lt;enter&gt;&lt;wait15&gt;",
+    "&lt;end&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;<span class="codigo-resaltado">wait600</span>&gt;",
+    "&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait20&gt;",
+    "&lt;enter&gt;&lt;wait20&gt;"
+  ]
+  ssh_username     = "<span class="codigo-resaltado">mclibre</span>"
+  ssh_password     = "<span class="codigo-resaltado">mclibre</span>"
+  shutdown_command = "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now"
+  output_directory = "<span class="codigo-resaltado">packer-1-1</span>"
+  vm_name          = "<span class="codigo-resaltado">packer-1-1-ubuntu-22-04-1-server</span>"
+  format           = "<span class="codigo-resaltado">ova</span>"
+}
+
+# https://www.packer.io/docs/templates/hcl_templates/blocks/build
+
+build {
+  sources = ["source.virtualbox-iso.mclibre-1-1"]
 }</code>
 </pre>
       </div>
 
       <p>Comentarios:</p>
       <ul>
-        <li>Línea 9: La máquina virtual tendrá un disco duro de 25 GB.</li>
-        <li>Líneas 10 a 13: La propiedad vboxmanage indica las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="packer-2.html#modificacion-vm">ejemplo 2 de la página Packer (2)</a>). En el ejemplo, la máquina virtual tendrá 1 GB de RAM y la tarjeta de vídeo tendrá 64 MB. El controlador gráfico será el controlador VMSVGA, recomendado para huéspedes Linux.</li>
+        <li>Línea 7: La máquina virtual tendrá un disco duro de 25 GB.</li>
+        <li>Líneas 9 a 11: La propiedad vboxmanage indica las características de la máquina virtual. Las características posibles se encuentran en el <a href="https://www.virtualbox.org/manual/ch08.html">Manual de VirtualBox: VBoxManage</a>. Algunas características se deben modificar mediante la propiedad vboxmanage_post (véase el <a href="packer-2.html#modificacion-vm">ejemplo 2 de la página Packer (2)</a>). En el ejemplo, la máquina virtual tendrá 1 GB de RAM y la tarjeta de vídeo tendrá 64 MB. El controlador gráfico será el controlador VMSVGA, recomendado para huéspedes Linux.</li>
         <li>Línea 35: Tras este paso, se descargan ficheros de Internet, por lo que la duración de este paso puede variar bastante, en función de la conexión a Internet disponible y del estado de carga de los servidores de Ubuntu. Puede ser necesario aumentar el tiempo de espera.</li>
-        <li>Líneas 39 y 40: Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina mediante SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu es necesario elegir instalar el servidor OpenSSH (línea 34). La conexión SSH utiliza el usuario administrador y su contraseña creados en la máquina durante la instalación (líneas 29 a 31).</li>
+        <li>Líneas 39 y 40: Tras instalar el sistema operativo, Packer comprueba que puede conectarse con la máquina mediante SSH (y la orden de apagado se envía también por SSH). Por eso en la instalación de Ubuntu es necesario elegir instalar el servidor OpenSSH (línea 33). La conexión SSH utiliza el usuario administrador y su contraseña creados en la máquina durante la instalación (líneas 29 a 31).</li>
         <li>Línea 41: La propiedad shutdown_command se puede omitir, pero entonces packer apaga la máquina de golpe. Como el comando de apagado requiere el uso del comando sudo, la máquina solicitará la contraseña del usuario. Para enviarla se utiliza el "truco" de incluir el comando echo con la contraseña del usuario.</li>
         <li>Línea 44: La máquina virtual se guarda en formato .ova para que conste de un único fichero.</li>
       </ul>
@@ -175,7 +181,7 @@
   <section id="creacion-vm-vbox-ubuntu-preseed">
     <h3>Ejemplo 2: Creación de una máquina virtual de VirtualBox con Ubuntu Server 20.04 LTS (instalación automática o desatendida)</h3>
 
-    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48"> No he conseguido crear con Packer una máquina virtual con Ubuntu Server 20.04.X de forma desatendida salvo con la versión Ubuntu 20.04. El problema es que una vez realizada la instalación, Packer no consigue conectarse mediante SSH con contraseña por lo que cancela la creación de la imagen. Por eso este ejemplo utiliza la versión Ubuntu 20.04 en vez de la versión Ubuntu 20.04.4 del ejemplo anterior.</p>
+    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48"> No he conseguido crear con Packer una máquina virtual con versiones posteriores a la versión Ubuntu 20.04. El problema es que una vez realizada la instalación, Packer no consigue conectarse mediante SSH con contraseña por lo que cancela la creación de la imagen. Por eso este ejemplo utiliza la versión Ubuntu 20.04 en vez de la versión Ubuntu 22.04.1 del ejemplo anterior.</p>
 
     <p>Ubuntu permite realizar instalaciones automáticas (también llamadas desatendidas), en las que el usuario no tiene que ir eligiendo opciones de un menú interactivo, sino que puede detallar sus elecciones en un fichero para su aplicación de forma automática. Antes de Ubuntu 20.04, Ubuntu utilizaba el sistema de instalación automática de Debian <a href="https://www.debian.org/releases/stable/amd64/apb.en.html">preseeding</a>, pero a partir de Ubuntu 20.04, Ubuntu utiliza su propio sistema <a href="https://wiki.ubuntu.com/FoundationsTeam/AutomatedServerInstalls"></a>.</p>
 
@@ -206,7 +212,7 @@
 
       <p>Esta podría ser la plantilla de creación de la máquina virtual con Ubuntu:</p>
 
-      <div class="codigo">
+      <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-json">{
   "builders": [
@@ -254,7 +260,7 @@
 
       <p>Este podría el fichero de configuración de la instalación desatendida, que debe guardarse en la carpeta <strong>http</strong> con el nombre <strong>user-data</strong>:</p>
 
-      <div class="codigo">
+      <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-yaml">#cloud-config
 autoinstall:
@@ -312,7 +318,7 @@ autoinstall:
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 12 de marzo de 2022</p>
+    <p class="ultmod">Última modificación de esta página: 9 de febrero de 2023</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
