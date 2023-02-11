@@ -142,16 +142,16 @@
     <p>VirtualBox Changelogs:</p>
     <ul>
       <li>Las novedades de las versiones publicada por Oracle se encuentran en la web de VirtualBox:
-        <a href="https://www.virtualbox.org/wiki/Changelog-4.0">4.0.</a> -
-        <a href="https://www.virtualbox.org/wiki/Changelog-4.1">4.1.</a> -
-        <a href="https://www.virtualbox.org/wiki/Changelog-4.2">4.2.</a> -
-        <a href="https://www.virtualbox.org/wiki/Changelog-4.3">4.3.</a> -
-        <a href="https://www.virtualbox.org/wiki/Changelog-5.0">5.0.</a> -
-        <a href="https://www.virtualbox.org/wiki/Changelog-5.1">5.1.</a> -
-        <a href="https://www.virtualbox.org/wiki/Changelog-5.2">5.2.</a> -
-        <a href="https://www.virtualbox.org/wiki/Changelog-6.0">6.0.</a> -
-        <a href="https://www.virtualbox.org/wiki/Changelog-6.1">6.1.</a> -
-        <a href="https://www.virtualbox.org/wiki/Changelog-7.0">7.0.</a>
+        <a href="https://www.virtualbox.org/wiki/Changelog-4.0">4.0</a> -
+        <a href="https://www.virtualbox.org/wiki/Changelog-4.1">4.1</a> -
+        <a href="https://www.virtualbox.org/wiki/Changelog-4.2">4.2</a> -
+        <a href="https://www.virtualbox.org/wiki/Changelog-4.3">4.3</a> -
+        <a href="https://www.virtualbox.org/wiki/Changelog-5.0">5.0</a> -
+        <a href="https://www.virtualbox.org/wiki/Changelog-5.1">5.1</a> -
+        <a href="https://www.virtualbox.org/wiki/Changelog-5.2">5.2</a> -
+        <a href="https://www.virtualbox.org/wiki/Changelog-6.0">6.0</a> -
+        <a href="https://www.virtualbox.org/wiki/Changelog-6.1">6.1</a> -
+        <a href="https://www.virtualbox.org/wiki/Changelog-7.0">7.0</a>
       </li>
       <li>Las novedades de las versiones anteriores ya no están disponibles en la web de VirtualBox, pero se pueden consultar en archive.org:
         <a href="https://web.archive.org/web/20080321121430/http://www.virtualbox.org/wiki/Changelog">1.3-1.5</a> -
@@ -177,12 +177,6 @@
       <li>nombre de la tarjeta de red (problema al importar)</li>
       <li>extension pack</li>
     </ul>
-
-    <p>Otros</p>
-    <ul>
-      <li>RedHat está incluyendo las Guest additions en el kernel de Linux. En el kernel 4.16 (publicado en abril de 2018) añadieron una parte [<a href="https://www.phoronix.com/scan.php?page=news_item&px=Linux-4.16-vboxguest">fuente</a>].</li>
-    </ul>
-
   </section>
 
   <section id="hyperv">
@@ -198,47 +192,36 @@
   </section>
 
   <section id="guest-additions">
-    <h3>Instalar Guest Additions en Ubuntu 18.04.3 Server</h3>
+    <h3>Instalar Guest Additions en Ubuntu 22.04.1 Server</h3>
 
-    <p>Si la máquina virtual se ha creado con Packer, la imagen .iso con las Guest Additions ya se habrá descargado en la máquina virtual, pero si la máquina virtual se ha creado manualmente, es necesario descargarla, por ejemplo con la orden:</p>
-
-    <div class="terminal">
-      <pre><code class="language-shell">wget http://download.virtualbox.org/virtualbox/<span class="codigo-resaltado">6.1.0</span>/VBoxGuestAdditions_<span class="codigo-resaltado">6.1.0</span>.iso</code></pre>
-    </div>
-
-    <p>Hay que descargar la versión de las Guest Additions que coincida con la versión de VirtualBox que se esté utilizando.</p>
-
-    <hr class="corta">
-
-    <p>Para instalar las VirtualBox Guest Additions en Ubuntu 18.04.3 siga los pasos siguientes [<a href="https://docs.bitnami.com/virtual-machine/faq/#how-to-install-virtualbox-guest-additions-on-bitnami-virtual-machines">fuente</a>]:</p>
+    <p>Para instalar las VirtualBox Guest Additions en Ubuntu 22.04.1 siga los pasos siguientes [<a href="https://docs.bitnami.com/virtual-machine/faq/configuration/install-virtualbox-guest-additions/">fuente</a>]:</p>
 
     <ol>
-      <li>Averigüe primero la versión del kernel. Para ello, ejecute la orden:
-        <div class="terminal">
-          <pre><code class="language-shell">uname -a</code></pre>
-        </div>
-        <p>La respuesta indica la versión del kernel:</p>
-        <div class="terminal">
-          <pre><code class="language-shell">Linux ubuntu <span class="codigo-resaltado">4.15.0-70-generic</span> #79-Ubuntu SMP Tue Nov 12 ...</code></pre>
-        </div>
-      </li>
       <li>Instale las dependencias necesarias para generar los módulos de kernel:
         <div class="terminal">
           <pre>
 <code class="language-shell">sudo apt update
 sudo apt full-upgrade
-sudo apt -y install dkms build-essential linux-headers-<span class="codigo-resaltado">4.15.0-70-generic</span></code>
+sudo apt -y install dkms build-essential linux-headers-$(uname -r)</code>
 </pre>
+        </div>
+        <p><strong>Nota</strong>: El comando $uname -r devuelve únicamente la versión del kernel, mientras que el comando uname -a devuelve la información completa.</p>
+        <div class="terminal">
+          <pre>
+<code class="language-shell">uname -a
+Linux ubuntu 5.15.0-48-generic #54-Ubuntu SMP Fri Aug 26 ...
+uname -r
+5.15.0-48-generic</code></pre>
         </div>
       </li>
       <li>Las Guest Additions se distribuyen en forma de imagen .iso, por lo que se accede a ellas montándolas como cd-rom:
         <div class="terminal">
           <pre>
 <code class="language-shell">sudo mkdir /mnt/cdrom
-sudo mount ~/<span class="codigo-resaltado">VBoxGuestAdditions.iso</span> /mnt/cdrom
+sudo mount ./<span class="codigo-resaltado">VBoxGuestAdditions.iso</span> /mnt/cdrom
 sudo sh /mnt/cdrom/VBoxLinuxAdditions.run --nox11
 sudo umount /mnt/cdrom
-rm ~/<span class="codigo-resaltado">VBoxGuestAdditions.iso</span></code>
+rm ./<span class="codigo-resaltado">VBoxGuestAdditions.iso</span></code>
 </pre>
         </div>
       </li>
@@ -252,7 +235,7 @@ rm ~/<span class="codigo-resaltado">VBoxGuestAdditions.iso</span></code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 12 de octubre de 2022</p>
+    <p class="ultmod">Última modificación de esta página: 9 de febrero de 2023</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
