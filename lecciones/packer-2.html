@@ -27,24 +27,26 @@
       </h2>
 
       <ul>
-        <li><a href="#provisioners-inline">Ejecución comandos VM</a></li>
-        <li><a href="#provisioners-script">Ejecución scripts VM</a></li>
-        <li><a href="#modificacion-vm">Modificación VM</a></li>
-        <li><a href="#instalacion-docker">Instalación Docker</a></li>
-        <li><a href="#compresion">Compresión OVA</a></li>
+        <li><a href="#provisioners-inline">1. Ejecución comandos VM</a></li>
+        <li><a href="#provisioners-script">2. Ejecución scripts VM</a></li>
+        <li><a href="#modificacion-vm">3. Modificación VM</a></li>
+        <li><a href="#instalacion-docker">4. Instalación Docker</a></li>
+        <li><a href="#compresion">5. Compresión OVA</a></li>
       </ul>
     </div>
   </nav>
 
-  <p>En esta lección se muestran más ejemplos de Packer con máquinas virtuales de VirtualBox.</p>
+  <p>En esta lección se muestran algunas posibilidades de Packer con máquinas virtuales de VirtualBox.</p>
 
   <section id="provisioners-inline">
     <h2>Ejemplo 1: Actualización de la máquina virtual mediante comandos</h2>
 
-    <p>Para actualizar la máquina virtual necesitamos:</p>
+    <p>En este ejemplo se muestra cómo Packer puede crear una máquina virtual a partir de un fichero .OVA, poner en marcha la máquina virtual, ejecutar comandos en ella y finalmente crear un fichero .OVA con el resultado. Concretamente, en este ejemplo los comandos actualizan el sistema operativo de la máquina virtual.</p>
+
+    <p>Para ello necesitamos:</p>
 
     <ul>
-      <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase la página <a href="packer-1.html">Packer (1)</a>)</li>
+      <li>Haber creado previamente una imagen de una máquina virtual (fichero .OVA). En este ejemplo utilizaremos el resultado del primer ejemplo de la página <a href="packer-1.html">Packer (1)</a>, es decir una máquina con Ubuntu Server 22.04.1</li>
       <li>Crear la plantilla de packer (por ejemplo, packer-2-1.pkr.hcl).</li>
       <li>Ejecutar packer
         <div class="terminal">
@@ -67,15 +69,15 @@
       <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-hcl">source "virtualbox-ovf" "mclibre-2-1" {
-  boot_wait            = "30s"
-  format               = "ova"
-  guest_additions_mode = "disable"
-  output_directory     = "packer-2-1"
-  shutdown_command     = "echo 'mclibre' | sudo -S shutdown -P now"
   source_path          = "packer-1-1/packer-1-1-ubuntu-22-04-1-server.ova"
+  guest_additions_mode = "disable"
+  boot_wait            = "30s"
   ssh_password         = "mclibre"
   ssh_username         = "mclibre"
+  shutdown_command     = "echo 'mclibre' | sudo -S shutdown -h now"
+  output_directory     = "packer-2-1"
   vm_name              = "packer-2-1-ubuntu-22-04-1-server"
+  format               = "ova"
 }
 
 build {
@@ -83,17 +85,19 @@ build {
 
   provisioner "shell" {
     execute_command = "echo 'mclibre' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'"
-    inline          = ["apt update", "DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade"]
+    inline = [
+      "apt update",
+      "DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade"
+    ]
   }
-
 }</code>
 </pre>
       </div>
 
       <p>Comentarios:</p>
       <ul>
-        <li>Línea 4: De forma predeterminada, Packer transfiere la imagen .iso de las VirtualBox Guest Additions a la máquina virtual. En este caso se ha deshabilitado esta transferencia puesto que ya se ha transferido a la imagen inicial creada en el ejemplo 1.</li>
-        <li>Línea 18: Se usa el comando <i>DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade</i> porque Packer no es un entorno interactivo y no podemos contestar a peticiones de los instaladores. Con esta opción le decimos automáticamente a todo que sí.</li>
+        <li>Línea 3: De forma predeterminada, Packer transfiere la imagen .iso de las VirtualBox Guest Additions a la máquina virtual. En este caso se ha deshabilitado esta transferencia puesto que no las necesitamos.</li>
+        <li>Línea 20: Usamos el comando <i>DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade</i> porque Packer no es un entorno interactivo y no podemos contestar a peticiones de los instaladores. Con esta opción le decimos automáticamente a todo que sí.</li>
       </ul>
     </section>
   </section>
@@ -101,10 +105,12 @@ build {
   <section id="provisioners-script">
     <h2>Ejemplo 2: Instalación de VirtualBox Guest Additions mediante un <i>script</i></h2>
 
-    <p>Para instalar las VirtualBox Guest Additions en la máquina virtual necesitamos:</p>
+    <p>En este ejemplo se muestra cómo Packer puede crear una máquina virtual a partir de un fichero .OVA, poner en marcha la máquina virtual, ejecutar un <i>script</i> en ella y finalmente crear un fichero .OVA con el resultado. Concretamente, en este ejemplo el <i>script</i> actualiza el sistema operativo e instala las VirtualBox Guest Additions en la máquina virtual.</p>
+
+    <p>Para ello necesitamos:</p>
 
     <ul>
-      <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella (véase la página <a href="packer-1.html">Packer (1)</a>)</li>
+      <li>Haber creado previamente una imagen de una máquina virtual (fichero .OVA). En este ejemplo volveremos a utilizar el resultado del primer ejemplo de la página <a href="packer-1.html">Packer (1)</a>, es decir una máquina con Ubuntu Server 22.04.1</li>
       <li>Crear la plantilla de packer (por ejemplo, packer-2-2.pkr.hcl) y el script de shell a ejecutar (por ejemplo, packer-2-2-script.sh).</li>
       <li>Ejecutar packer <div class="terminal">
           <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
@@ -126,15 +132,15 @@ build {
       <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-hcl">source "virtualbox-ovf" "mclibre-2-2" {
-  boot_wait            = "30s"
-  format               = "ova"
-  guest_additions_mode = "attach"
-  output_directory     = "packer-2-2"
-  shutdown_command     = "echo 'mclibre' | sudo -S shutdown -P now"
   source_path          = "packer-1-1/packer-1-1-ubuntu-22-04-1-server.ova"
+  guest_additions_mode = "attach"
+  boot_wait            = "30s"
   ssh_password         = "mclibre"
   ssh_username         = "mclibre"
+  shutdown_command     = "echo 'mclibre' | sudo -S shutdown -h now"
+  output_directory     = "packer-2-2"
   vm_name              = "packer-2-2-ubuntu-22-04-1-server"
+  format               = "ova"
 }
 
 build {
@@ -145,7 +151,6 @@ build {
     pause_before    = "10s"
     script          = "script-2-2.sh"
   }
-
 }</code>
 </pre>
       </div>
@@ -161,7 +166,7 @@ sudo mkdir /mnt/cdrom
 sudo mount ./VBoxGuestAdditions.iso /mnt/cdrom
 sudo sh /mnt/cdrom/VBoxLinuxAdditions.run --nox11
 sudo umount /mnt/cdrom
-rm ./VBoxGuestAdditions.iso</code>
+sudo rm ./VBoxGuestAdditions.iso</code>
 </pre>
       </div>
 
@@ -175,24 +180,26 @@ rm ./VBoxGuestAdditions.iso</code>
   <section id="modificacion-vm">
     <h2>Ejemplo 3: Modificación final de la máquina virtual</h2>
 
-    <p>Para modificar la máquina virtual necesitamos:</p>
+    <p>En este ejemplo se muestra cómo Packer puede modificar las características de una máquina virtual, es decir, crear la máquina virtual a partir de un fichero .OVA, poner en marcha la máquina virtual, modificar las caratcerísticas de la máquina virtual y finalmente crear un fichero .OVA con el resultado. Concretamente, en este ejemplo se modifica el adaptador de red de la máquina virtual.</p>
+
+    <p>Para ello necesitamos:</p>
 
     <ul>
-      <li>Haber creado una imagen de la máquina virtual e instalado Ubuntu Server en ella y en su caso, haber instalado programas en ella (véase los ejemplos anteriores)</li>
-      <li>Crear la plantilla de packer (por ejemplo, packer-2-3.json).</li>
+      <li>Haber creado previamente una imagen de una máquina virtual (fichero .OVA). En este ejemplo utilizaremos el resultado del ejercicio anterior, es decir una máquina con Ubuntu Server 22.04.1 actualizado y con las VirtualGuest Additions instaladas.</li>
+      <li>Crear la plantilla de packer (por ejemplo, packer-2-3.pkr.hcl).</li>
       <li>Ejecutar packer
         <div class="terminal">
           <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
-<code class="language-shell">packer build packer-2-3.json</code>
+<code class="language-shell">packer build packer-2-3.pkr.hcl</code>
 </pre>
         </div>
       </li>
     </ul>
 
-    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-2-3</strong> y creará en él el fichero <strong>packer-2-3-ubuntu-18-04-3-server.ova</strong>.</p>
+    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-2-3</strong> y creará en él el fichero <strong>packer-2-3-ubuntu-22-04-1-server.ova</strong>.</p>
 
     <section id="plantilla-modificacion-vm">
-      <h4>Plantilla de modificación final de la máquina virtual (packer-2-3.json)</h4>
+      <h4>Plantilla de modificación final de la máquina virtual (packer-2-3.pkr.hcl)</h4>
 
       <p>Documentación de packer: <a href="https://www.packer.io/docs/builders/virtualbox-iso.html">VirtualBox Builders</a></p>
 
@@ -205,29 +212,31 @@ rm ./VBoxGuestAdditions.iso</code>
       <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-hcl">source "virtualbox-ovf" "mclibre-2-3" {
-  boot_wait            = "30s"
-  format               = "ova"
+  source_path          = "packer-2-2/packer-2-2-ubuntu-22-04-1-server.ova"
   guest_additions_mode = "disable"
-  output_directory     = "<span class="codigo-resaltado">packer-2-3</span>"
-  post_shutdown_delay  = "<span class="codigo-resaltado">120s</span>"
-  shutdown_command     = "echo 'mclibre' | sudo -S shutdown -P now"
-  source_path          = "<span class="codigo-resaltado">packer-2-2/packer-2-2-ubuntu-22-04-1-server.ova</span>"
-  ssh_password         = "<span class="codigo-resaltado">mclibre</span>"
-  ssh_username         = "<span class="codigo-resaltado">mclibre</span>"
-  vboxmanage_post      = [["modifyvm", "{{ .Name }}", "--nic1", "bridged"], ["modifyvm", "{{ .Name }}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]]
-  vm_name              = "<span class="codigo-resaltado">packer-2-3-ubuntu-22-04-1-server</span>"
+  boot_wait            = "30s"
+  ssh_password         = "mclibre"
+  ssh_username         = "mclibre"
+  shutdown_command     = "echo 'mclibre' | sudo -S shutdown -h now"
+  post_shutdown_delay  = "120s"
+  vboxmanage_post = [
+    ["modifyvm", "{{ .Name }}", "--nic1", "bridged"],
+    ["modifyvm", "{{ .Name }}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]
+  ]
+  output_directory = "packer-2-3"
+  vm_name          = "packer-2-3-ubuntu-22-04-1-server"
+  format           = "ova"
 }
 
 build {
   sources = ["source.virtualbox-ovf.mclibre-2-3"]
-
 }</code>
 </pre>
       </div>
 
       <p>Notas:</p>
       <ul>
-        <li>Línea 6: A veces, cuando se van a realizar las tareas vboxmanage_post la máquina virtual todavía está bloqueada por la tarea anterior. El retardo que añade post_shutdown_delay da tiempo a que la máquina virtual se libere. Este retardo no es siempre necesario y, en su caso, se podría eliminar. El tiempo de 120s lo he sacado de una <a href="https://github.com/hashicorp/packer/issues/5424">issue de Packer</a>.</li>
+        <li>Línea 8: A veces, cuando se van a realizar las tareas vboxmanage_post la máquina virtual todavía está bloqueada por la tarea anterior. El retardo que añade post_shutdown_delay da tiempo a que la máquina virtual se libere. Este retardo no es siempre necesario y, en su caso, se podría eliminar. El tiempo de 120s lo he sacado de una <a href="https://github.com/hashicorp/packer/issues/5424">issue de Packer</a>.</li>
         <li>Línea 11: El nombre del adaptador 1 depende del ordenador en el que esté instalado VirtualBox.</li>
       </ul>
     </section>
@@ -236,61 +245,58 @@ build {
   <section id="instalacion-docker">
     <h2>Ejemplo 4: Instalación de Docker mediante un <i>script</i></h2>
 
-    <p>Docker está disponible en Ubuntu 18.04 desde junio de 2018. En este ejemplo se instala la versión más reciente de Docker mediante un script.</p>
+    <p>En este ejemplo, similar al ejemplo 2, se muestra cómo Packer puede crear una máquina virtual a partir de un fichero .OVA, poner en marcha la máquina virtual, ejecutar un <i>script</i> en ella y finalmente crear un fichero .OVA con el resultado. Concretamente, en este ejemplo el <i>script</i> instala Docker en la máquina virtual.</p>
 
-    <p>Este ejemplo trabaja a partir de la máquina virtual obtenida en la lección anterior y crea una nueva máquina virtual. Los pasos de instalación de Docker se realizan mediante un script y está basado en el <a href="docker-1.html#ejercicio-1">ejercicio 1 de la lección de Docker (1)</a>.</p>
+    <p>Este ejemplo trabaja a partir de la máquina virtual obtenida en el <a href="#provisioners-script">ejericcio 2</a> y crea una nueva máquina virtual. Los pasos de instalación de Docker se realizan mediante un script y está basado en el <a href="docker-1.html#ejercicio-1">ejercicio 1 de la lección de Docker (1)</a>.</p>
 
     <section id="plantilla-instalacion-docker">
-      <h4>Plantilla de instalación de Docker (packer-2-4.json)</h4>
+      <h4>Plantilla de instalación de Docker (packer-2-4.pkr.hcl)</h4>
 
       <p>Esta podría ser la plantilla de instalación de Docker:</p>
 
       <div class="codigo copy">
         <pre class="line-numbers">
-<code class="language-json">{
-  "builders": [
-    {
-      "type": "virtualbox-ovf",
-      "source_path": "<span class="codigo-resaltado">packer-1-1/packer-1-1-ubuntu-18-04-3-server.ova</span>",
-      "guest_additions_mode": "disable",
-      "boot_wait": "30s",
-      "ssh_username": "<span class="codigo-resaltado">mclibre</span>",
-      "ssh_password": "<span class="codigo-resaltado">mclibre</span>",
-      "shutdown_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S shutdown -P now",
-      "output_directory": "<span class="codigo-resaltado">packer-2-4</span>",
-      "vm_name": "<span class="codigo-resaltado">packer-2-4-ubuntu-18-04-3-server</span>",
-      "format": "ova"
-    }
-  ],
-  "provisioners": [
-    {
-      "type": "shell",
-      "execute_command": "echo '<span class="codigo-resaltado">mclibre</span>' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
-      "script": "<span class="codigo-resaltado">script-5.sh</span>",
-      "pause_before": "10s"
-    }
-  ]
+<code class="language-hcl">source "virtualbox-ovf" "mclibre-2-4" {
+  source_path          = "packer-2-2/packer-2-2-ubuntu-22-04-1-server.ova"
+  guest_additions_mode = "disable"
+  boot_wait            = "30s"
+  ssh_password         = "mclibre"
+  ssh_username         = "mclibre"
+  shutdown_command     = "echo 'mclibre' | sudo -S shutdown -h now"
+  output_directory     = "packer-2-4"
+  vm_name              = "packer-2-4-ubuntu-22-04-1-server"
+  format               = "ova"
+}
+
+build {
+  sources = ["source.virtualbox-ovf.mclibre-2-4"]
+
+  provisioner "shell" {
+    execute_command = "echo 'mclibre' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'"
+    pause_before    = "10s"
+    script          = "packer-2-4-script.sh"
+  }
 }</code>
 </pre>
       </div>
 
-      <p>Este podría ser el <i>script</i> de instalación de Docker (basado en las instrucciones que se comentan en la lección <a href="docker-1.html#ejercicio-1">Docker. Ejercicios (1)</a>.</p>
+      <p>Este podría ser el <i>script</i> de instalación de Docker (basado en las instrucciones que se comentan en la lección <a href="docker-1.html#ejercicio-1">Docker. Ejercicios (1)</a>).</p>
 
       <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-bash">sudo apt update
 sudo DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade
 sudo DEBIAN_FRONTEND=noninteractive apt -yq install apt-transport-https ca-certificates curl software-properties-common
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88 &gt; info-fingerprint.txt
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
 sudo apt update
-sudo DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade
-sudo apt-cache policy docker-ce &gt; info-policy.txt
-sudo DEBIAN_FRONTEND=noninteractive apt -yq install docker-ce</code>
+sudo apt-cache policy docker-ce # simplemente para ver que se va a instalar del repositorio de Docker para Ubuntu 22.04
+sudo DEBIAN_FRONTEND=noninteractive apt -yq install docker-ce
+sudo systemctl status docker # simplemente para comprobar que docker está activo</code>
 </pre>
       </div>
 
+      <!--
       <p>Comentario:</p>
       <ul>
         <li>Líneas 5 y 9: El resultado de las comprobaciones de la clave GPG oficial de Docker (línea 5) y de que el comando apt está utilizando el repositorio correcto (línea 9) se guardan en dos ficheros .txt para su comprobación posterior.
@@ -322,6 +328,7 @@ sub   rsa4096 2017-02-22 [S]</code>
         </li>
         <li>Línea 6: En vez de la versión <strong>stable</strong>, se pueden probar las versiones <strong>edge</strong> y <strong>nightly</strong>.</li>
       </ul>
+    -->
     </section>
   </section>
 
@@ -332,74 +339,73 @@ sub   rsa4096 2017-02-22 [S]</code>
 
     <p>En este ejemplo de automatización con Packer, vamos a realizar la compresión utilizando la distribución <a href="https://www.system-rescue.org/">SystemRescueCD</a>.</p>
 
-    <p>Actualmente (enero de 2020), la última versión disponible de SystemRescueCD es la versión 6.0.4, publicada el 29 de diciembre de 2019. En <a href="https://www.cdlibre.org/">cdlibre.org</a> hay una sección dedicada a <a href="https://www.cdlibre.org/consultar/catalogo/Utilidades_Disco.html">Utilidades de disco</a>, desde la que se puede descargar la última versión disponible.</p>
+    <p>Actualmente (febrero de 2023), la última versión disponible de SystemRescueCD es la versión 9.06, publicada el 18 de diciembre de 2022. En <a href="https://www.cdlibre.org/">cdlibre.org</a> hay una sección dedicada a <a href="https://www.cdlibre.org/consultar/catalogo/Utilidades_Disco.html">Utilidades de disco</a>, desde la que se puede descargar la última versión disponible.</p>
 
-    <p>También puede descargar SystemRescueCD 6.0.4 de mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/systemrescuecd-6.0.4.iso">SystemRescueCD 6.0.4</a> (29/12/19, 886 MB).</p>
+    <p>También puede descargar SystemRescueCD 9.06 de mclibre: <a href="https://www.mclibre.org/descargar/webapps/2223/SystemRescueCD-9-06-amd64.iso">SystemRescueCD 9.06</a> (18/12/22, 748 MB).</p>
 
     <p>Los elementos necesarios para realizar la compresión son los siguientes:</p>
     <ul>
-      <li>La imagen OVA a comprimir. En este caso, comprimiremos la imagen obtenida en el <a href="#provisioners-script">ejemplo 2 de esta lección</a>, que contiene una máquina virtual de VirtualBox de Ubuntu 18.04.3 Server con las VirtualBox Guest Additions instaladas.</li>
+      <li>La imagen OVA a comprimir. En este caso, comprimiremos la imagen obtenida en el <a href="#instalacion-docker">ejemplo 4 de esta lección</a>, que contiene una máquina virtual de VirtualBox de Ubuntu 22.04.1 Server con las VirtualBox Guest Additions instaladas.</li>
       <li>La imagen ISO de SystemRescueCD.</li>
-      <li>La plantilla de packer (por ejemplo, packer-2-5.json).</li>
+      <li>La plantilla de packer (por ejemplo, packer-2-5.pkr.hhcl).</li>
     </ul>
 
     <p>Ejecute la plantilla para obtener la image OVA comprimida:</p>
     <div class="terminal">
       <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
-<code class="language-shell">packer build packer-2-5.json</code>
+<code class="language-shell">packer build packer-2-5.pkr.hhcl</code>
 </pre>
     </div>
 
     <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-2-5</strong> y creará en él el fichero <strong>packer-2-5-ubuntu-18-04-3-server.ova</strong>.</p>
 
     <section id="plantilla-creacion-vm">
-      <h4>Plantilla de compresión de la máquina virtual (packer-2-5.json)</h4>
+      <h4>Plantilla de compresión de la máquina virtual (packer-2-5.pkr.hhcl)</h4>
 
       <p>Esta podría ser la plantilla de compresión de la máquina virtual:</p>
 
       <div class="codigo copy">
         <pre class="line-numbers">
-<code class="language-json">{
-  "builders": [
-    {
-      "type": "virtualbox-ovf",
-      "source_path": "packer-2-2/packer-2-2-ubuntu-18-04-3-server.ova",
-      "guest_additions_mode": "disable",
-      "vboxmanage": [
-        ["showvminfo", "{{.Name}}"],
-        ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "0", "--device", "1", "--type", "dvddrive", "--medium", "systemrescuecd-6.0.4.iso"],
-        ["modifyvm", "{{.Name}}", "--boot1", "dvd", "--boot2", "disk", "--boot3", "none", "--boot4", "none"]
-      ],
-      "boot_wait": "20s",
-      "boot_command": [
-        "&lt;enter&gt;&lt;wait40&gt;",
-        "sudo zerofree -v /dev/mapper/ubuntu--vg-root&lt;enter&gt;&lt;wait50&gt;"
-      ],
-      "communicator": "none",
-      "shutdown_command": "",
-      "virtualbox_version_file": "",
-      "vboxmanage_post": [
-        ["storageattach", "{{.Name}}", "--storagectl", "IDE Controller", "--port", "0", "--device", "1", "--type", "dvddrive", "--medium", "none"],
-        ["modifyvm", "{{.Name}}", "--boot1", "disk", "--boot2", "dvd", "--boot3", "none", "--boot4", "none"]
-      ],
-      "vm_name": "packer-2-5-ubuntu-18-04-3-server",
-      "output_directory": "packer-2-5",
-      "format": "ova"
-    }
+<code class="language-hcl">source "virtualbox-ovf" "mclibre-2-5" {
+  source_path          = "packer-2-4/packer-2-4-ubuntu-22-04-1-server.ova"
+  guest_additions_mode = "disable"
+  vboxmanage = [
+    ["showvminfo", "{{ .Name }}"],
+    ["storageattach", "{{ .Name }}", "--storagectl", "IDE Controller", "--port", "0", "--device", "1", "--type", "dvddrive", "--medium", "SystemRescueCD-9-06-amd64.iso"],
+    ["modifyvm", "{{ .Name }}", "--boot1", "dvd", "--boot2", "disk", "--boot3", "none", "--boot4", "none"]
   ]
+  boot_wait = "20s"
+  boot_command = [
+    "&lt;enter&gt;&lt;wait40&gt;",
+    "sudo zerofree -v /dev/mapper/ubuntu--vg-ubuntu--lv&lt;enter&gt;&lt;wait50s&gt;"
+  ]
+  communicator            = "none"
+  virtualbox_version_file = ""
+  shutdown_command        = ""
+  vboxmanage_post = [
+    ["storageattach", "{{ .Name }}", "--storagectl", "IDE Controller", "--port", "0", "--device", "1", "--type", "dvddrive", "--medium", "none"],
+    ["modifyvm", "{{ .Name }}", "--boot1", "disk", "--boot2", "dvd", "--boot3", "none", "--boot4", "none"]
+  ]
+  output_directory = "packer-2-5"
+  vm_name          = "packer-2-5-ubuntu-22-04-1-server"
+  format           = "ova"
+}
+
+build {
+  sources = ["source.virtualbox-ovf.mclibre-2-5"]
 }</code></pre>
       </div>
 
       <p>Comentarios:</p>
       <ul>
-        <li>Línea 8: La propiedad vboxmanage showvminfo no es estrictamente necesaria, pero aporta información sobre la controladora IDE y el resto del hardware emulado.</li>
-        <li>línea 9: Con la propiedad vboxmanage storeattach insertamos el DVD de SystemRescue en el lector de DVD de la máquina virtual.</li>
-        <li>línea 10: Con la propiedad vboxmanage modifyvm forzamos a que la máquina virtual arranque desde el DVD.</li>
-        <li>Líneas 13-16: Con la propiedad "boot_command" enviamos a la máquina virtual las pulsaciones de teclado para cargar SystemRescueCD y ejecutar <i>zerofree</i>. El tiempo necesario para ejecutar <i>zerofree</i> debe ajustarse al caso concreto.</li>
-        <li>Líneas 18: Al no comunicarse mediante SSH, forzamos el apagado de la máquina.</li>
-        <li>Línea 19: Cuando communicator tiene el valor "none", es necesario dar a virtualbox_version_file el valor vacío (""). Hay un bug de packer (<a href="https://github.com/hashicorp/packer/issues/7246">Bug 7246</a>) que yo pensaba que haría innecesaria esta línea, pero aunque el bug está cerrado la línea sigue siendo necesaria.</li>
-        <li>Línea 21: Con la propiedad vboxmanage_post storeattach extraemos el DVD de SystemRescue del lector de DVD de la máquina virtual.</li>
-        <li>línea 22: Con la propiedad vboxmanage_post modifyvm forzamos a que la máquina virtual arranque desde el disco duro.</li>
+        <li>Línea 5: La propiedad vboxmanage showvminfo no es estrictamente necesaria, pero aporta información sobre la controladora IDE y el resto del hardware emulado.</li>
+        <li>línea 6: Con la propiedad vboxmanage storeattach insertamos el DVD de SystemRescue en el lector de DVD de la máquina virtual.</li>
+        <li>línea 7: Con la propiedad vboxmanage modifyvm forzamos a que la máquina virtual arranque desde el DVD.</li>
+        <li>Líneas 10-13: Con la propiedad "boot_command" enviamos a la máquina virtual las pulsaciones de teclado para cargar SystemRescueCD y ejecutar <i>zerofree</i>. El tiempo necesario para ejecutar <i>zerofree</i> debe ajustarse al caso concreto.</li>
+        <li>Línea 15: Cuando communicator tiene el valor "none", es necesario dar a virtualbox_version_file el valor vacío (""). Hay un bug de packer (<a href="https://github.com/hashicorp/packer/issues/7246">Bug 7246</a>) que yo pensaba que haría innecesaria esta línea, pero aunque el bug está cerrado la línea sigue siendo necesaria.</li>
+        <li>Líneas 16: Al no comunicarse mediante SSH, la máquina se apaga de forma forzada.</li>
+        <li>Línea 18: Con la propiedad vboxmanage_post storageattach extraemos el DVD de SystemRescue del lector de DVD de la máquina virtual.</li>
+        <li>línea 19: Con la propiedad vboxmanage_post modifyvm forzamos a que la máquina virtual arranque desde su disco duro.</li>
       </ul>
 
       <p>Nota:</p>
@@ -410,7 +416,7 @@ sub   rsa4096 2017-02-22 [S]</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 10 de febrero de 2022</p>
+    <p class="ultmod">Última modificación de esta página: 12 de febrero de 2022</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
