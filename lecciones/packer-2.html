@@ -149,7 +149,7 @@ build {
   provisioner "shell" {
     execute_command = "echo 'mclibre' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'"
     pause_before    = "10s"
-    script          = "script-2-2.sh"
+    script          = "packer-2-2-script.sh"
   }
 }</code>
 </pre>
@@ -237,7 +237,7 @@ build {
       <p>Notas:</p>
       <ul>
         <li>Línea 8: A veces, cuando se van a realizar las tareas vboxmanage_post la máquina virtual todavía está bloqueada por la tarea anterior. El retardo que añade post_shutdown_delay da tiempo a que la máquina virtual se libere. Este retardo no es siempre necesario y, en su caso, se podría eliminar. El tiempo de 120s lo he sacado de una <a href="https://github.com/hashicorp/packer/issues/5424">issue de Packer</a>.</li>
-        <li>Línea 11: El nombre del adaptador 1 depende del ordenador en el que esté instalado VirtualBox.</li>
+        <li>Línea 11: El nombre del adaptador 1 depende del ordenador en el que esté instalado VirtualBox: Realtek PCIe GBE Family Controller, Intel(R) Ethernet Connection (7) I219-V, etc.</li>
       </ul>
     </section>
   </section>
@@ -280,19 +280,22 @@ build {
 </pre>
       </div>
 
-      <p>Este podría ser el <i>script</i> de instalación de Docker (basado en las instrucciones que se comentan en la lección <a href="docker-1.html#ejercicio-1">Docker. Ejercicios (1)</a>).</p>
+      <p>Este podría ser el <i>script</i> <strong>packer-2-4-script.sh</strong> de instalación de Docker (basado en las instrucciones que se comentan en la lección <a href="docker-1.html#ejercicio-1">Docker. Ejercicios (1)</a>).</p>
 
       <div class="codigo copy">
         <pre class="line-numbers">
-<code class="language-bash">sudo apt update
-sudo DEBIAN_FRONTEND=noninteractive apt -yq full-upgrade
-sudo DEBIAN_FRONTEND=noninteractive apt -yq install apt-transport-https ca-certificates curl software-properties-common
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-sudo apt update
-sudo apt-cache policy docker-ce # simplemente para ver que se va a instalar del repositorio de Docker para Ubuntu 22.04
-sudo DEBIAN_FRONTEND=noninteractive apt -yq install docker-ce
-sudo systemctl status docker # simplemente para comprobar que docker está activo</code>
+<code class="language-bash"># fuente: https://docs.docker.com/engine/install/ubuntu/
+sudo apt-get update
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq full-upgrade
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install apt-transport-https ca-certificates curl software-properties-common
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update
+sudo apt-get policy docker-ce # simplemente para ver que se va a instalar del repositorio de Docker para Ubuntu 22.04
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl status docker # simplemente para comprobar que docker está activo
+sudo apt-get -yq clean
+sudo apt-get -yq autoremove</code>
 </pre>
       </div>
 
@@ -345,7 +348,7 @@ sub   rsa4096 2017-02-22 [S]</code>
 
     <p>Los elementos necesarios para realizar la compresión son los siguientes:</p>
     <ul>
-      <li>La imagen OVA a comprimir. En este caso, comprimiremos la imagen obtenida en el <a href="#instalacion-docker">ejemplo 4 de esta lección</a>, que contiene una máquina virtual de VirtualBox de Ubuntu 22.04.1 Server con las VirtualBox Guest Additions instaladas.</li>
+      <li>La imagen OVA a comprimir. En este caso, comprimiremos la imagen obtenida en el <a href="#provisioners-script">ejemplo 2 de esta lección</a>, que contiene una máquina virtual de VirtualBox de Ubuntu 22.04.1 Server con las VirtualBox Guest Additions instaladas.</li>
       <li>La imagen ISO de SystemRescueCD.</li>
       <li>La plantilla de packer (por ejemplo, packer-2-5.pkr.hhcl).</li>
     </ul>
@@ -367,7 +370,7 @@ sub   rsa4096 2017-02-22 [S]</code>
       <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-hcl">source "virtualbox-ovf" "mclibre-2-5" {
-  source_path          = "packer-2-4/packer-2-4-ubuntu-22-04-1-server.ova"
+  source_path          = "packer-2-2/packer-2-2-ubuntu-22-04-1-server.ova"
   guest_additions_mode = "disable"
   vboxmanage = [
     ["showvminfo", "{{ .Name }}"],
@@ -416,7 +419,7 @@ build {
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 12 de febrero de 2023</p>
+    <p class="ultmod">Última modificación de esta página: 15 de febrero de 2023</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
