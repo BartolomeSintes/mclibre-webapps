@@ -46,27 +46,26 @@
   <section id="ejercicio-1">
     <h2>Docker (1) 1 - Instalar Docker</h2>
 
-    <p>En este ejercicio instalaremos Docker en una máquina virtual de Ubuntu 18.04.3 LTS Server ejecutada en VirtualBox.</p>
+    <p>En este ejercicio instalaremos Docker en una máquina virtual de Ubuntu 22.04.1 LTS Server ejecutada en VirtualBox.</p>
 
-    <p>Estas instrucciones se han extraído de la documentación oficial de Docker <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Install Docker on Ubuntu</a></p>
+    <p>Estas instrucciones se han extraído de la documentación oficial de Docker <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Install Docker on Ubuntu</a> y de un <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04">tutorial de Digital Ocean</a>.</p>
 
     <h3>Prepare la máquina virtual</h3>
 
-    <p>Si ha realizado los <a href="packer-1.html">ejercicios de Packer</a> de estos apuntes, puede utilizar la máquina virtual creada en el <a href="packer-1.html#provisioners-script">ejercicio 1-3</a>, importándola en VirtualBox como servicio virtualizado.</p>
+    <p>Si ha realizado los <a href="packer-1.html">ejercicios de Packer</a> de estos apuntes, puede utilizar la máquina virtual creada en el <a href="packer-2.html#provisioners-script">ejercicio 2-2</a>, importándola en VirtualBox como servicio virtualizado.</p>
 
-    <p>Si no se han realizado esos ejercicios, puede descargar la <a href="https://www.mclibre.org/descargar/webapps/1920/packer-2-1-ubuntu-18-04-3-server.ova">Máquina virtual VirtualBox (OVA) de Ubuntu 18.04.3, actualizada al 7 de enero de 2020 (07/01/20, 888 MB)</a> que contiene la máquina virtual creada en el <a href="packer-1.html#creacion-vm-vbox-ubuntu-manual">ejercicio Packer (1) 1</a> y comprimida de acuerdo con el <a href="packer-2.html#compresion">ejercicio Packer (2) 5</a>.</p>
+    <p>Si no se han realizado esos ejercicios, puede descargar la <a href="https://www.mclibre.org/descargar/webapps/2223/packer-2-5-ubuntu-22-04-1-server.ova">Máquina virtual VirtualBox (OVA) de Ubuntu 22.04.1, actualizada al 15 de febrero de 2023 (1,9 GB)</a> que contiene la máquina virtual creada en el <a href="packer-2.html#provisioners-script">ejercicio Packer (2) 2</a> y comprimida de acuerdo con el <a href="packer-2.html#compresion">ejercicio Packer (2) 5</a>.</p>
 
     <p>Si quiere crear usted mismo la máquina virtual:</p>
     <ol>
-      <li>Descargue la imagen iso de la versión más reciente de <strong>Ubuntu 18.04 LTS Server de 64 bits</strong>. Actualmente (diciembre de 2019), la última versión disponible de Ubuntu LTS Server es Ubuntu 18.04.3 (publicada el 08/08/19).
-        <p>Para descargar la imagen .iso de instalación de Ubuntu Server 18.04.3 LTS puede utilizar:</p>
+      <li>Descargue la imagen iso de la versión más reciente de <strong>Ubuntu 22.04 LTS Server de 64 bits</strong>. Actualmente (febrero de 2023), la última versión disponible de Ubuntu LTS Server es Ubuntu 22.04.1 (publicada el 04/08/22).
+        <p>Para descargar la imagen .iso de instalación de Ubuntu Server 22.04.1 LTS puede utilizar:</p>
         <ul>
-          <li>La página de descarga oficial <a href="http://cdimage.ubuntu.com/releases/18.04/release/">http://cdimage.ubuntu.com/releases/18.04/release/</a>. En esta página encontrará siempre la última versión publicada.</li>
-          <li>La versión Ubuntu 18.04.3 ya no está disponible en los servidores de Ubuntu, pero lo puede descargar desde mclibre: <a href="https://www.mclibre.org/descargar/webapps/1920/ubuntu-18.04.3-server-amd64.iso">Ubuntu 18.04.3 Server</a> (08/08/19, 900 MB).</li>
+          <li>La página de descarga oficial <a href="http://cdimage.ubuntu.com/releases/22.04/release/">http://cdimage.ubuntu.com/releases/22.04/release/</a>. En esta página encontrará siempre la última versión publicada.</li>
         </ul>
       </li>
-      <li>Cree una máquina virtual en VirtualBox e instale Ubuntu 18.04.3 LTS Server.
-        <p>Para los ejercicios de esta página un disco duro virtual de 8 GB es suficiente, pero para poder instalar más aplicaciones se necesitaría un disco mayor, por ejemplo de <strong>16 GB</strong>.</p>
+      <li>Cree una máquina virtual en VirtualBox e instale Ubuntu 22.04.1 LTS Server.
+        <p>Para los ejercicios de esta página un disco duro virtual de 8 GB es suficiente, pero para poder instalar más aplicaciones se necesitaría un disco mayor, por ejemplo de <strong>25 GB</strong>.</p>
         <p>Compruebe que en la configuración de red de la máquina virtual está conectado a <strong>Adaptador puente</strong>. Si está conectado a otro tipo de adaptador (probablemente NAT), apague la máquina virtual, cambie a Adaptador puente y reinicie la máquina virtual.</p>
       </li>
     </ol>
@@ -82,21 +81,6 @@
           <pre class="command-line" data-prompt="$">
 <code class="language-shell">sudo apt update
 sudo apt full-upgrade</code>
-</pre>
-        </div>
-      </li>
-    </ol>
-
-    <h3>Instale utilidades</h3>
-
-    <p>Instale las utilidades siguientes:</p>
-
-    <ol>
-      <li>Instale el editor nano:
-
-        <div class="terminal">
-          <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo apt install nano</code>
 </pre>
         </div>
       </li>
@@ -119,33 +103,16 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
       <li>Añada la clave GPG oficial de Docker:
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
-<code class="language-shell">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code>
-</pre>
-        </div>
-      </li>
-      <li>Compruebe que tiene la clave correcta:
-        <div class="terminal">
-          <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo apt-key fingerprint 0EBFCD88</code>
-</pre>
-        </div>
-        <p>El resultado debe ser:</p>
-        <div class="terminal">
-          <pre>
-<code class="language-shell">pub   rsa4096 2017-02-22 [SCEA]
-      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid        [desconocida] Docker Release (CE deb) &lt;docker@docker.com&gt;
-sub   rsa4096R 2017-02-22 [S]</code>
+<code class="language-shell">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg</code>
 </pre>
         </div>
       </li>
       <li>Añada el repositorio correspondiente a su versión de Ubuntu (escriba todo en una sola línea, sin las contrabarras \):
         <div class="terminal">
           <pre class="command-line" data-prompt="$" data-output="2-4">
-<code class="language-shell">sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"</code>
+<code class="language-shell">echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</code>
 </pre>
         </div>
       </li>
@@ -161,15 +128,15 @@ sub   rsa4096R 2017-02-22 [S]</code>
           <pre class="command-line" data-prompt="$">
 <code class="language-shell">apt policy docker-ce</code></pre>
         </div>
-        <p>En la pantalla debe mostrarse el repositorio de la versión de Docker disponible para la versión de Ubuntu indicada (en el ejemplo se muestran la versión de Docker 18.09.1 y la versión de Ubuntu bionic, es decir, Ubuntu 18.04):</p>
+        <p>En la pantalla debe mostrarse el repositorio de la versión de Docker disponible para la versión de Ubuntu indicada (en el ejemplo se muestran la versión de Docker 23.0.1 y la versión de Ubuntu jammy, es decir, Ubuntu 22.04):</p>
         <div class="terminal">
           <pre>
 <code class="language-shell">docker-ce:
   Instalados: (ninguno)
-  Candidato: 5:<span class="codigo-resaltado">19.03.5</span>~3-0~<span class="codigo-resaltado">ubuntu-bionic</span>
+  Candidato: 5:<span class="codigo-resaltado">23.0.1-1~ubuntu.22.04~jammy</span>
   Tabla de versión:
-  5:19.03.5~3-0~ubuntu-bionic 500
-          500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+  5:23.0.1-1~ubuntu.22.04~jammy 500
+          500 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages
 ...</code>
 </pre>
         </div>
@@ -191,14 +158,7 @@ sub   rsa4096R 2017-02-22 [S]</code>
       <li>Instale la última versión de Docker
         <div class="terminal">
           <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo apt install docker-ce</code>
-</pre>
-        </div>
-      </li>
-      <li>Arranque el servicio docker
-        <div class="terminal">
-          <pre class="command-line" data-prompt="$">
-<code class="language-shell">sudo systemctl start docker</code>
+<code class="language-shell">sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</code>
 </pre>
         </div>
       </li>
@@ -215,6 +175,13 @@ sub   rsa4096R 2017-02-22 [S]</code>
    Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
    Active: <span class="codigo-resaltado" style="color: #00ff00">active (running)</span> since ...
 ...</code>
+</pre>
+        </div>
+      </li>
+      <li>Para arrancar el servicio docker (si no estuviera activo):
+        <div class="terminal">
+          <pre class="command-line" data-prompt="$">
+<code class="language-shell">sudo systemctl start docker</code>
 </pre>
         </div>
       </li>
@@ -450,7 +417,7 @@ See 'docker run --help'.</code>
 
     <h3>Crear el contenedor Apache</h3>
     <ol>
-      <li>Cree un contenedor que contenga un servidor Apache a partir de la imagen <a href="https://github.com/bitnami/bitnami-docker-apache">bitnami/apache</a>
+      <li>Cree un contenedor que contenga un servidor Apache a partir de la imagen <a href="https://github.com/bitnami/containers/tree/main/bitnami/apache">bitnami/apache</a>
         <p>la opción -P hace que Docker asigne de forma aleatoria un puerto de la máquina virtual al puerto asignado a Apache en el contenedor. La imagen bitnami/apache asigna a Apache el puerto 8080 del contenedor para conexiones http y el puerto 8443 para conexiones https.</p>
         <div class="terminal">
           <pre class="command-line" data-prompt="$" data-output="2">
@@ -1016,7 +983,7 @@ DRIVER              VOLUME NAME</code>
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 7 de enero de 2020</p>
+    <p class="ultmod">Última modificación de esta página: 16 de febrero de 2023</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
