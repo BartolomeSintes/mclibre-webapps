@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instalación de Ubuntu Server 22.04.1. Aplicaciones web. Bartolomé Sintes Marco. www.mclibre.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../varios/webapps.css" title="mclibre">
+  <link rel="icon" href="../varios/favicon.svg">
+</head>
+
+<body>
+  <h1>Instalación de Ubuntu Server 22.04.1 LTS</h1>
+
+  <nav>
+    <p>
+      <a href="../index.html"><img src="../varios/iconos/icono-webapps.svg" alt="Índice de WebApps" title="Índice de WebApps" width="48" height="31"></a>
+      <a href="#"><img src="../varios/iconos/icono-arrow-circle-up.svg" alt="Principio de la página" title="Principio de la página" width="36" height="36"></a>
+    </p>
+
+    <div class="toc">
+      <h2>
+        Instalación Ubuntu 22.04.1
+      </h2>
+
+      <ul>
+        <li><a href="#instalacion">Instalación</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="aviso-antiguo">
+    <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Esta lección corresponde a una versión anterior de Ubuntu, que mantengo en los apuntes por si le pueden servir a alguien que todavía utilice Ubuntu 22.04.1 LTS. En su lugar, aconsejo instalar una versión más reciente de <a href="../lecciones/ubuntu-instalacion.html">Ubuntu</a>.</p>
+  </div>
+
+  <section id="instalacion">
+    <h2>Instalación, paso a paso</h2>
+
+    <p>Estos son los pasos a realizar para instalar en una máquina virtual Ubuntu Server 22.04.1 LTS, publicada el 9 de agosto de 2022.</p>
+
+    <p>Puede descargar la imagen .iso de instalación de la versión más reciente de <strong>Ubuntu Server 22.04 LTS</strong> de la página de descarga oficial <a href="https://releases.ubuntu.com/22.04/">https://releases.ubuntu.com/22.04/</a>.</p>
+
+    <hr class="corta">
+
+    <p>Entre corchetes se indica el tiempo que tarda en pasar al paso siguiente una vez elegida la opción correspondiente.</p>
+
+    <p>Los cuadros con borde negro contienen las pulsaciones de teclado que se realizan en ese paso de la instalación, que se deben incluir en el <a href="../lecciones/packer-1.html#creacion-vm-vbox-ubuntu">constructor de packer</a> de la máquina virtual. En los casos en que se desplaza el cursor en una pantalla, se han añadido unos segundos de espera antes de pulsar <kbd>Intro</kbd> para dar tiempo a ver que se realiza el movimiento del cursor en la pantalla.</p>
+
+    <hr class="corta">
+
+    <ol>
+      <li>Inicie la instalación  [50 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait60&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-01.png" alt="Ubuntu Server. Instalación" width="720" height="400">
+        </p>
+      </li>
+      <li>Elija el idioma español [1 s]:
+        <div class="codigo">
+          <pre>&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-11.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-12.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Elija continuar con el instalador incluido en la iso en vez de descargar una versión más actual [1 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-13.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Elija modificar la disposición del teclado [1 s]:
+        <div class="codigo">
+          <pre>&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-21.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-22.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Elija la disposición del teclado Español [1 s]:
+        <div class="codigo">
+          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-23.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-24.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Confirme la disposición del teclado elegida [1 s]:
+        <div class="codigo">
+          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-25.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-26.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Confirme el tipo de instalación [1 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-31.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Confirme el interfaz de red [1 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-41.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Confirme el proxy utilizado (en este caso, ninguno) [1 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-42.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Confirme la dirección del <i>mirror</i> [1 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-43.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Confirme la configuración del disco como grupo LVM [1 s]:
+        <div class="codigo">
+          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-51.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-52.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Confirme la configuración del disco [1 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-53.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Confirme de nuevo la configuración del disco [1 s]:
+        <div class="codigo">
+          <pre>&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-54.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-55.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Escriba su nombre completo (en la captura, <i>mclibre</i>) [1 s]:
+        <div class="codigo">
+          <pre>mclibre&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-61.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-62.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Escriba el nombre de la máquina (en la captura, <i>ubuntu</i>) [1 s]:
+        <div class="codigo">
+          <pre>ubuntu&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-63.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Escriba su nombre de usuario (en la captura, <i>mclibre</i>) [1 s]:
+        <div class="codigo">
+          <pre>mclibre&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-64.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Escriba su contraseña de usuario (en la captura, <i>mclibre</i>) [1 s]:
+        <div class="codigo">
+          <pre>mclibre&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-65.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Repita su contraseña de usuario (en la captura, <i>mclibre</i>) [1 s]:
+        <div class="codigo">
+          <pre>mclibre&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-66.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Confirme los datos del usuario [1 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-67.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Instale el servidor OpenSSH [1 s]:
+        <div class="codigo">
+          <pre>&lt;spacebar&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait3&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-71.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-72.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Confirme la detección de controladores adicionales [12 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait15&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-81.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>No instale ninguna aplicación en forma de <i>snap</i> [180 s]:
+        <div class="codigo">
+          <pre>&lt;end&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait600&gt;</pre>
+        </div>
+        <p><img src="../varios/iconos/icono-warning.svg" alt="¡Atención!" width="55" height="48">Tenga en cuenta que tras este paso se realiza la instalación y se descargan archivos de Internet por lo que la duración de este paso puede variar bastante, dependiendo de la conexión a Internet y del estado de los servidores de Ubuntu. Puede hacer una prueba con el valor propuesto aquí (600 s) y aumentarlo si fuera necesario.</p>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-91.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-92.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Una vez completada la instalación, reinicie el sistema [20 s]:
+        <p><strong>Nota</strong>: Al no expulsarse la iso de instalación, es necesario pulsar <kbd>Intro</kbd></p>
+        <div class="codigo">
+          <pre>&lt;down&gt;&lt;down&gt;&lt;enter&gt;&lt;wait20&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-101.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Al no expulsarse la iso de instalación, es necesario pulsar <kbd>Intro</kbd> para completar el reinicio [20 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait20&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-111.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+      <li>Una vez reiniciado, compruebe que puede entrar con el usuario creado en la instalación (este paso lo realizará Packer antes de la exportación de la máquina virtual):
+        <p><strong>Nota</strong>: Puede ser necesario pulsar <kbd>Intro</kbd> para poder ver la petición de nombre y contraseña de usuario</p>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-112.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-113.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-114.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <footer>
+    <p class="ultmod">Última modificación de esta página: 8 de febrero de 2023</p>
+
+    <p class="licencia">
+      <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
+      Esta página forma parte del curso <strong><a href="https://www.mclibre.org/consultar/webapps/">Aplicaciones web</a></strong> por <a href="https://www.mclibre.org/" rel="author">Bartolomé Sintes Marco</a><br>
+      que se distribuye bajo una <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Licencia Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)</a>.
+    </p>
+  </footer>
+</body>
+</html>
