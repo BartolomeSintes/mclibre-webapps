@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <h1>Instalación de Ubuntu Server 22.04.1 LTS</h1>
+  <h1>Instalación de Ubuntu Server 22.04.2 LTS</h1>
 
   <nav>
     <p>
@@ -33,7 +33,7 @@
   <section id="instalacion">
     <h2>Instalación, paso a paso</h2>
 
-    <p>Estos son los pasos a realizar para instalar en una máquina virtual Ubuntu Server 22.04.1 LTS, publicada el 9 de agosto de 2022.</p>
+    <p>Estos son los pasos a realizar para instalar en una máquina virtual Ubuntu Server 22.04.2 LTS, publicada el 23 de febrero de 2023.</p>
 
     <p>Puede descargar la imagen .iso de instalación de la versión más reciente de <strong>Ubuntu Server 22.04 LTS</strong> de la página de descarga oficial <a href="https://releases.ubuntu.com/22.04/">https://releases.ubuntu.com/22.04/</a>.</p>
 
@@ -63,39 +63,12 @@
           <img src="../img/ubuntu/ubuntu-server-instalacion-12.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
-      <li>Elija continuar con el instalador incluido en la iso en vez de descargar una versión más actual [1 s]:
+      <li>Confirme la disposición del teclado elegida [1 s]:
         <div class="codigo">
           <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-13.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-        </p>
-      </li>
-      <li>Elija modificar la disposición del teclado [1 s]:
-        <div class="codigo">
-          <pre>&lt;up&gt;&lt;up&gt;&lt;up&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
-        </div>
-        <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-21.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-22.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-        </p>
-      </li>
-      <li>Elija la disposición del teclado Español [1 s]:
-        <div class="codigo">
-          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
-        </div>
-        <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-23.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-24.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-        </p>
-      </li>
-      <li>Confirme la disposición del teclado elegida [1 s]:
-        <div class="codigo">
-          <pre>&lt;down&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait2&gt;</pre>
-        </div>
-        <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-25.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-26.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
       <li>Confirme el tipo de instalación [1 s]:
@@ -205,21 +178,21 @@
           <img src="../img/ubuntu/ubuntu-server-instalacion-67.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
+      <li>En esta instalación no necesitamos actualizarnos a Ubuntu Pro [1 s]:
+        <div class="codigo">
+          <pre>&lt;enter&gt;&lt;wait2&gt;</pre>
+        </div>
+        <p class="captura">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-71.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+        </p>
+      </li>
       <li>Instale el servidor OpenSSH [1 s]:
         <div class="codigo">
           <pre>&lt;spacebar&gt;&lt;down&gt;&lt;down&gt;&lt;wait3&gt;&lt;enter&gt;&lt;wait3&gt;</pre>
         </div>
         <p class="captura">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-71.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-          <img src="../img/ubuntu/ubuntu-server-instalacion-72.png" alt="Ubuntu Server. Instalación" width="800" height="600">
-        </p>
-      </li>
-      <li>Confirme la detección de controladores adicionales [12 s]:
-        <div class="codigo">
-          <pre>&lt;enter&gt;&lt;wait15&gt;</pre>
-        </div>
-        <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-81.png" alt="Ubuntu Server. Instalación" width="800" height="600">
+          <img src="../img/ubuntu/ubuntu-server-instalacion-82.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
       <li>No instale ninguna aplicación en forma de <i>snap</i> [180 s]:
@@ -241,9 +214,9 @@
           <img src="../img/ubuntu/ubuntu-server-instalacion-101.png" alt="Ubuntu Server. Instalación" width="800" height="600">
         </p>
       </li>
-      <li>Al no expulsarse la iso de instalación, es necesario pulsar <kbd>Intro</kbd> para completar el reinicio [20 s]:
+      <li>Al no expulsarse la iso de instalación, es necesario pulsar <kbd>Intro</kbd> para completar el reinicio [40 s]:
         <div class="codigo">
-          <pre>&lt;enter&gt;&lt;wait20&gt;</pre>
+          <pre>&lt;enter&gt;&lt;wait40&gt;</pre>
         </div>
         <p class="captura">
           <img src="../img/ubuntu/ubuntu-server-instalacion-111.png" alt="Ubuntu Server. Instalación" width="800" height="600">
@@ -261,7 +234,7 @@
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 8 de febrero de 2023</p>
+    <p class="ultmod">Última modificación de esta página: 29 de febrero de 2023</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
