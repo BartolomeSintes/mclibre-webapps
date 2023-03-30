@@ -46,7 +46,7 @@
     <p>Para ello necesitamos:</p>
 
     <ul>
-      <li>Haber creado previamente una imagen de una máquina virtual (fichero .OVA). En este ejemplo utilizaremos el resultado del primer ejemplo de la página <a href="packer-1.html">Packer (1)</a>, es decir una máquina con Ubuntu Server 22.04.1</li>
+      <li>Haber creado previamente una imagen de una máquina virtual (fichero .OVA). En este ejemplo utilizaremos el resultado del primer ejemplo de la página <a href="packer-1.html">Packer (1)</a>, es decir una máquina con Ubuntu Server 22.04.2</li>
       <li>Crear la plantilla de packer (por ejemplo, packer-2-1.pkr.hcl).</li>
       <li>Ejecutar packer
         <div class="terminal">
@@ -57,7 +57,7 @@
       </li>
     </ul>
 
-    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-2-1</strong> y creará en él el fichero <strong>packer-2-1-ubuntu-22-04-1-server.ova</strong>.</p>
+    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-2-1</strong> y creará en él el fichero <strong>packer-2-1-ubuntu-22-04-2-server.ova</strong>.</p>
 
     <section id="plantilla-actualizacion-vm">
       <h4>Plantilla de actualización de la máquina virtual (packer-2-1.pkr.hcl)</h4>
@@ -69,14 +69,14 @@
       <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-hcl">source "virtualbox-ovf" "mclibre-2-1" {
-  source_path          = "packer-1-1/packer-1-1-ubuntu-22-04-1-server.ova"
+  source_path          = "packer-1-1/packer-1-1-ubuntu-22-04-2-server.ova"
   guest_additions_mode = "disable"
   boot_wait            = "30s"
   ssh_password         = "mclibre"
   ssh_username         = "mclibre"
   shutdown_command     = "echo 'mclibre' | sudo -S shutdown -h now"
   output_directory     = "packer-2-1"
-  vm_name              = "packer-2-1-ubuntu-22-04-1-server"
+  vm_name              = "packer-2-1-ubuntu-22-04-2-server"
   format               = "ova"
 }
 
@@ -110,7 +110,7 @@ build {
     <p>Para ello necesitamos:</p>
 
     <ul>
-      <li>Haber creado previamente una imagen de una máquina virtual (fichero .OVA). En este ejemplo volveremos a utilizar el resultado del primer ejemplo de la página <a href="packer-1.html">Packer (1)</a>, es decir una máquina con Ubuntu Server 22.04.1</li>
+      <li>Haber creado previamente una imagen de una máquina virtual (fichero .OVA). En este ejemplo volveremos a utilizar el resultado del primer ejemplo de la página <a href="packer-1.html">Packer (1)</a>, es decir una máquina con Ubuntu Server 22.04.2</li>
       <li>Crear la plantilla de packer (por ejemplo, packer-2-2.pkr.hcl) y el script de shell a ejecutar (por ejemplo, packer-2-2-script.sh).</li>
       <li>Ejecutar packer <div class="terminal">
           <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
@@ -120,7 +120,7 @@ build {
       </li>
     </ul>
 
-    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-2-2</strong> y creará en él el fichero <strong>packer-2-2-ubuntu-22-04-1-server.ova</strong>.</p>
+    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-2-2</strong> y creará en él el fichero <strong>packer-2-2-ubuntu-22-04-2-server.ova</strong>.</p>
 
     <section id="plantilla-instalacion-guest-additions">
       <h4>Plantilla de instalación de VirtualBox Guest Additions (packer-2-2.pkr.hcl)</h4>
@@ -132,14 +132,14 @@ build {
       <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-hcl">source "virtualbox-ovf" "mclibre-2-2" {
-  source_path          = "packer-1-1/packer-1-1-ubuntu-22-04-1-server.ova"
+  source_path          = "packer-1-1/packer-1-1-ubuntu-22-04-2-server.ova"
   guest_additions_mode = "attach"
   boot_wait            = "30s"
   ssh_password         = "mclibre"
   ssh_username         = "mclibre"
   shutdown_command     = "echo 'mclibre' | sudo -S shutdown -h now"
   output_directory     = "packer-2-2"
-  vm_name              = "packer-2-2-ubuntu-22-04-1-server"
+  vm_name              = "packer-2-2-ubuntu-22-04-2-server"
   format               = "ova"
 }
 
@@ -185,7 +185,7 @@ sudo rm ./VBoxGuestAdditions.iso</code>
     <p>Para ello necesitamos:</p>
 
     <ul>
-      <li>Haber creado previamente una imagen de una máquina virtual (fichero .OVA). En este ejemplo utilizaremos el resultado del ejercicio anterior, es decir una máquina con Ubuntu Server 22.04.1 actualizado y con las VirtualGuest Additions instaladas.</li>
+      <li>Haber creado previamente una imagen de una máquina virtual (fichero .OVA). En este ejemplo utilizaremos el resultado del ejercicio anterior, es decir una máquina con Ubuntu Server 22.04.2 actualizado y con las VirtualGuest Additions instaladas.</li>
       <li>Crear la plantilla de packer (por ejemplo, packer-2-3.pkr.hcl).</li>
       <li>Ejecutar packer
         <div class="terminal">
@@ -196,7 +196,7 @@ sudo rm ./VBoxGuestAdditions.iso</code>
       </li>
     </ul>
 
-    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-2-3</strong> y creará en él el fichero <strong>packer-2-3-ubuntu-22-04-1-server.ova</strong>.</p>
+    <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-2-3</strong> y creará en él el fichero <strong>packer-2-3-ubuntu-22-04-2-server.ova</strong>.</p>
 
     <section id="plantilla-modificacion-vm">
       <h4>Plantilla de modificación final de la máquina virtual (packer-2-3.pkr.hcl)</h4>
@@ -212,7 +212,7 @@ sudo rm ./VBoxGuestAdditions.iso</code>
       <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-hcl">source "virtualbox-ovf" "mclibre-2-3" {
-  source_path          = "packer-2-2/packer-2-2-ubuntu-22-04-1-server.ova"
+  source_path          = "packer-2-2/packer-2-2-ubuntu-22-04-2-server.ova"
   guest_additions_mode = "disable"
   boot_wait            = "30s"
   ssh_password         = "mclibre"
@@ -224,7 +224,7 @@ sudo rm ./VBoxGuestAdditions.iso</code>
     ["modifyvm", "{{ .Name }}", "--bridgeadapter1", "<span class="codigo-resaltado">Realtek PCIe GBE Family Controller</span>"]
   ]
   output_directory = "packer-2-3"
-  vm_name          = "packer-2-3-ubuntu-22-04-1-server"
+  vm_name          = "packer-2-3-ubuntu-22-04-2-server"
   format           = "ova"
 }
 
@@ -257,14 +257,14 @@ build {
       <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-hcl">source "virtualbox-ovf" "mclibre-2-4" {
-  source_path          = "packer-2-2/packer-2-2-ubuntu-22-04-1-server.ova"
+  source_path          = "packer-2-2/packer-2-2-ubuntu-22-04-2-server.ova"
   guest_additions_mode = "disable"
   boot_wait            = "30s"
   ssh_password         = "mclibre"
   ssh_username         = "mclibre"
   shutdown_command     = "echo 'mclibre' | sudo -S shutdown -h now"
   output_directory     = "packer-2-4"
-  vm_name              = "packer-2-4-ubuntu-22-04-1-server"
+  vm_name              = "packer-2-4-ubuntu-22-04-2-server"
   format               = "ova"
 }
 
@@ -287,9 +287,9 @@ build {
 <code class="language-bash"># fuente: https://docs.docker.com/engine/install/ubuntu/
 sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -yq full-upgrade
-sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install apt-transport-https ca-certificates curl software-properties-common
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install ca-certificates curl gnupg
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
 sudo apt-get update
 sudo apt-get policy docker-ce # simplemente para ver que se va a instalar del repositorio de Docker para Ubuntu 22.04
 sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -342,13 +342,13 @@ sub   rsa4096 2017-02-22 [S]</code>
 
     <p>En este ejemplo de automatización con Packer, vamos a realizar la compresión utilizando la distribución <a href="https://www.system-rescue.org/">SystemRescueCD</a>.</p>
 
-    <p>Actualmente (febrero de 2023), la última versión disponible de SystemRescueCD es la versión 9.06, publicada el 18 de diciembre de 2022. En <a href="https://www.cdlibre.org/">cdlibre.org</a> hay una sección dedicada a <a href="https://www.cdlibre.org/consultar/catalogo/Utilidades_Disco.html">Utilidades de disco</a>, desde la que se puede descargar la última versión disponible.</p>
+    <p>Actualmente (marzo de 2023), la última versión disponible de SystemRescueCD es la versión 10.00, publicada el 19 de marzo de 2023. En <a href="https://www.cdlibre.org/">cdlibre.org</a> hay una sección dedicada a <a href="https://www.cdlibre.org/consultar/catalogo/Utilidades_Disco.html">Utilidades de disco</a>, desde la que se puede descargar la última versión disponible.</p>
 
-    <p>También puede descargar SystemRescueCD 9.06 de mclibre: <a href="https://www.mclibre.org/descargar/webapps/2223/SystemRescueCD-9-06-amd64.iso">SystemRescueCD 9.06</a> (18/12/22, 748 MB).</p>
+    <p>También puede descargar SystemRescueCD 10.00 de mclibre: <a href="https://www.mclibre.org/descargar/webapps/2223/SystemRescueCD-10-00-amd64.iso">SystemRescueCD 10.00</a> (19/03/23, 747 MB).</p>
 
     <p>Los elementos necesarios para realizar la compresión son los siguientes:</p>
     <ul>
-      <li>La imagen OVA a comprimir. En este caso, comprimiremos la imagen obtenida en el <a href="#provisioners-script">ejemplo 2 de esta lección</a>, que contiene una máquina virtual de VirtualBox de Ubuntu 22.04.1 Server con las VirtualBox Guest Additions instaladas.</li>
+      <li>La imagen OVA a comprimir. En este caso, comprimiremos la imagen obtenida en el <a href="#provisioners-script">ejemplo 2 de esta lección</a>, que contiene una máquina virtual de VirtualBox de Ubuntu 22.04.2 Server con las VirtualBox Guest Additions instaladas.</li>
       <li>La imagen ISO de SystemRescueCD.</li>
       <li>La plantilla de packer (por ejemplo, packer-2-5.pkr.hhcl).</li>
     </ul>
@@ -370,11 +370,11 @@ sub   rsa4096 2017-02-22 [S]</code>
       <div class="codigo copy">
         <pre class="line-numbers">
 <code class="language-hcl">source "virtualbox-ovf" "mclibre-2-5" {
-  source_path          = "packer-2-2/packer-2-2-ubuntu-22-04-1-server.ova"
+  source_path          = "packer-2-2/packer-2-2-ubuntu-22-04-2-server.ova"
   guest_additions_mode = "disable"
   vboxmanage = [
     ["showvminfo", "{{ .Name }}"],
-    ["storageattach", "{{ .Name }}", "--storagectl", "IDE Controller", "--port", "0", "--device", "1", "--type", "dvddrive", "--medium", "SystemRescueCD-9-06-amd64.iso"],
+    ["storageattach", "{{ .Name }}", "--storagectl", "IDE Controller", "--port", "0", "--device", "1", "--type", "dvddrive", "--medium", "SystemRescueCD-10-00-amd64.iso"],
     ["modifyvm", "{{ .Name }}", "--boot1", "dvd", "--boot2", "disk", "--boot3", "none", "--boot4", "none"]
   ]
   boot_wait = "20s"
@@ -390,7 +390,7 @@ sub   rsa4096 2017-02-22 [S]</code>
     ["modifyvm", "{{ .Name }}", "--boot1", "disk", "--boot2", "dvd", "--boot3", "none", "--boot4", "none"]
   ]
   output_directory = "packer-2-5"
-  vm_name          = "packer-2-5-ubuntu-22-04-1-server"
+  vm_name          = "packer-2-5-ubuntu-22-04-2-server"
   format           = "ova"
 }
 
@@ -419,7 +419,7 @@ build {
   </section>
 
   <footer>
-    <p class="ultmod">Última modificación de esta página: 15 de febrero de 2023</p>
+    <p class="ultmod">Última modificación de esta página: 30 de marzo de 2023</p>
 
     <p class="licencia">
       <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES"><img src="../varios/iconos/icono-cc-by-sa.svg" alt="Licencia Creative Commons" title="Licencia Creative Commons BY-SA" width="120" height="42"></a><br>
