@@ -48,7 +48,7 @@
 
     <p>En este ejercicio instalaremos Docker en una máquina virtual de Ubuntu 22.04.2 LTS Server ejecutada en VirtualBox.</p>
 
-    <p>Estas instrucciones se han extraído de la documentación oficial de Docker <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Install Docker on Ubuntu</a>.</p>
+    <p>Estas instrucciones se han extraído de la documentación oficial de Docker <a href="https://docs.docker.com/engine/install/ubuntu/">Install Docker on Ubuntu</a>.</p>
 
     <h3>Prepare la máquina virtual</h3>
 
@@ -458,7 +458,7 @@ ute   0.0.0.:<span class="codigo-resaltado">32769-&gt;8080</span>/tcp, 0.0.0.0:<
     <p>Tenga en cuenta que modificar el contenido de un contenedor tal y como vamos a hacer en este apartado sólo es aconsejable en un entorno de desarrollo, pero no es aconsejable en un entorno de producción porque va en contra de la "filosofía" de Docker. Los contenedores de Docker están pensados como objetos de "usar y tirar", es decir, para ser creados, destruidos y creados de nuevo tantas veces como sea necesario y en la cantidad que sea necesaria. En el apartado siguiente realizaremos la misma tarea de una forma más conveniente, modificando no el contenedor sino la imagen a partir de la cual se crean los contenedores.</p>
 
     <ol>
-      <li>Cree un segundo contenedor que contenga un servidor Apache a partir de la imagen <a href="https://github.com/bitnami/bitnami-docker-apache">bitnami/apache</a>
+      <li>Cree un segundo contenedor que contenga un servidor Apache a partir de la imagen <a href="https://github.com/bitnami/containers/tree/main/bitnami/apache">bitnami/apache</a>
         <div class="terminal">
           <pre class="command-line" data-prompt="$" data-output="2">
 <code class="language-shell">sudo docker run -d -P --name=apache-2 bitnami/apache
@@ -644,7 +644,7 @@ COPY index.html /opt/bitnami/apache/htdocs/index.html</code>
 
       <p>Si el directorio enlazado es el directorio en el que la aplicación guarda los datos generados por la propia aplicación, de esta manera conseguimos que los datos estén realmente fuera del contenedor. Eso significa que podemos conservar los datos aunque se destruya el contenedor, reutilizarlos con otro contenedor, etc.</p>
 
-      <p>En este ejemplo, vamos a volver a aprovechar el hecho que la imagen bitnami/apache está configurada para que el directorio htdocs habitual (en el caso de bitnami como hemos visto en el ejercicio anterior es <strong>/opt/bitnami/apache/htdocs</strong>) enlace al directorio <strong>/app</strong> [véase <a href="https://github.com/bitnami/bitnami-docker-apache/blob/master/2.4/debian-10/Dockerfile">Dockerfile de bitnami/apache</a>]</p>
+      <p>En este ejemplo, vamos a volver a aprovechar el hecho que la imagen bitnami/apache está configurada para que el directorio htdocs habitual (en el caso de bitnami como hemos visto en el ejercicio anterior es <strong>/opt/bitnami/apache/htdocs</strong>) enlace al directorio <strong>/app</strong> [véase <a href="https://github.com/bitnami/containers/blob/main/bitnami/apache/2.4/debian-11/rootfs/opt/bitnami/scripts/apache-env.sh">Variables de entorno de bitnami/apache</a>]</p>
 
       <p>Si al crear el contenedor enlazamos el directorio /app con un directorio de la máquina virtual, el contenedor servirá las páginas contenidas en el directorio de la máquina virtual.</p>
 
