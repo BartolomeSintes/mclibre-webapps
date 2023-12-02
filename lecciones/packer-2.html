@@ -180,7 +180,7 @@ sudo rm ./VBoxGuestAdditions.iso</code>
   <section id="modificacion-vm">
     <h2>Ejemplo 3: Modificación final de la máquina virtual</h2>
 
-    <p>En este ejemplo se muestra cómo Packer puede modificar las características de una máquina virtual, es decir, crear la máquina virtual a partir de un fichero .OVA, poner en marcha la máquina virtual, modificar las caratcerísticas de la máquina virtual y finalmente crear un fichero .OVA con el resultado. Concretamente, en este ejemplo se modifica el adaptador de red de la máquina virtual.</p>
+    <p>En este ejemplo se muestra cómo Packer puede modificar las características de una máquina virtual, es decir, crear la máquina virtual a partir de un fichero .OVA, poner en marcha la máquina virtual, modificar las características de la máquina virtual y finalmente crear un fichero .OVA con el resultado. Concretamente, en este ejemplo se modifica el adaptador de red de la máquina virtual.</p>
 
     <p>Para ello necesitamos:</p>
 
@@ -247,7 +247,7 @@ build {
 
     <p>En este ejemplo, similar al ejemplo 2, se muestra cómo Packer puede crear una máquina virtual a partir de un fichero .OVA, poner en marcha la máquina virtual, ejecutar un <i>script</i> en ella y finalmente crear un fichero .OVA con el resultado. Concretamente, en este ejemplo el <i>script</i> instala Docker en la máquina virtual.</p>
 
-    <p>Este ejemplo trabaja a partir de la máquina virtual obtenida en el <a href="#provisioners-script">ejericcio 2</a> y crea una nueva máquina virtual. Los pasos de instalación de Docker se realizan mediante un script y está basado en el <a href="docker-1.html#ejercicio-1">ejercicio 1 de la lección de Docker (1)</a>.</p>
+    <p>Este ejemplo trabaja a partir de la máquina virtual obtenida en el <a href="#provisioners-script">ejercicio 2</a> y crea una nueva máquina virtual. Los pasos de instalación de Docker se realizan mediante un script y está basado en el <a href="docker-1.html#ejercicio-1">ejercicio 1 de la lección de Docker (1)</a>.</p>
 
     <section id="plantilla-instalacion-docker">
       <h4>Plantilla de instalación de Docker (packer-2-4.pkr.hcl)</h4>
@@ -350,20 +350,20 @@ sub   rsa4096 2017-02-22 [S]</code>
     <ul>
       <li>La imagen OVA a comprimir. En este caso, comprimiremos la imagen obtenida en el <a href="#provisioners-script">ejemplo 2 de esta lección</a>, que contiene una máquina virtual de VirtualBox de Ubuntu 22.04.2 Server con las VirtualBox Guest Additions instaladas.</li>
       <li>La imagen ISO de SystemRescueCD.</li>
-      <li>La plantilla de packer (por ejemplo, packer-2-5.pkr.hhcl).</li>
+      <li>La plantilla de packer (por ejemplo, packer-2-5.pkr.hcl).</li>
     </ul>
 
     <p>Ejecute la plantilla para obtener la image OVA comprimida:</p>
     <div class="terminal">
       <pre class="command-line" data-prompt="C:\packer&gt;" data-output="2, 3">
-<code class="language-shell">packer build packer-2-5.pkr.hhcl</code>
+<code class="language-shell">packer build packer-2-5.pkr.hcl</code>
 </pre>
     </div>
 
     <p>Si el proceso termina correctamente, Packer creará el directorio <strong>packer-2-5</strong> y creará en él el fichero <strong>packer-2-5-ubuntu-18-04-3-server.ova</strong>.</p>
 
     <section id="plantilla-creacion-vm">
-      <h4>Plantilla de compresión de la máquina virtual (packer-2-5.pkr.hhcl)</h4>
+      <h4>Plantilla de compresión de la máquina virtual (packer-2-5.pkr.hcl)</h4>
 
       <p>Esta podría ser la plantilla de compresión de la máquina virtual:</p>
 
