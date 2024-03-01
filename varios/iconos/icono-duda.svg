@@ -1,7 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <svg xmlns="http://www.w3.org/2000/svg" width="55" height="48">
   <path fill="red" d="M.23 47.15c.3.53.86.85 1.46.85h51.5c.6 0 1.12-.32 1.43-.85.3-.52.3-1.16 0-1.7L28.93.85c-.3-.52-.87-.84-1.48-.84-.6 0-1.16.37-1.46.9L.2 45.48c-.3.5-.3 1.15 0 1.7z"/>
   <path fill="#fff" d="M47.35 42.93L27.45 8.46 7.55 42.93"/>
-  <text x="18.77" y="41.49" style="line-height:49.37565231px" font-size="29.63" font-family="sans-serif" letter-spacing="0" word-spacing="0">
-    <tspan x="18.77" y="41.49" style="-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start" font-family="Arial" writing-mode="lr">?</tspan>
-  </text>
+  <text x="18.77" y="41.49" font-size="30" font-family="sans-serif">?</text>
 </svg>
